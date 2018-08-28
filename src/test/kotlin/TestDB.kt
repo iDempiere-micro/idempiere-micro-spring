@@ -7,7 +7,7 @@ import kotlin.test.assertNull
 
 data class loginParams(
     override val dbHost: String = "localhost",
-    override val dbPort: Int = 5432,
+    override val dbPort: Int = 5433,
     override val dbName: String = "idempiere",
     override val dbUid: String = "adempiere",
     override val dbPwd: String = "adempiere",
