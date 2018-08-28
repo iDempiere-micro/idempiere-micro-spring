@@ -23,9 +23,9 @@ import kotlin.test.assertNotNull
 @AutoConfigureMockMvc
 class IdempiereMicroSpringApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
     @Autowired
     private lateinit var userController: UserController
@@ -43,9 +43,9 @@ class IdempiereMicroSpringApplicationTests {
         DB.isConnected()
     }
 
-	@Test
-	fun `GardenUser can login`() {
-        val result = userController.login( "GardenUser", "GardenUser" )
+    @Test
+    fun `GardenUser can login`() {
+        val result = userController.login("GardenUser", "GardenUser")
         assertNotNull(result.token)
-	}
+    }
 }

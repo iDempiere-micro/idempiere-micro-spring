@@ -6,7 +6,7 @@ import org.idempiere.common.base.IServicesHolder
 import org.idempiere.common.base.ServiceQuery
 
 class DummyService : org.idempiere.common.base.Service() {
-    class DummyServiceLocator: IServiceLocator {
+    class DummyServiceLocator : IServiceLocator {
         override fun <T : Any?> locate(type: Class<T>?): IServiceHolder<T>? {
             return null
         }
@@ -30,7 +30,6 @@ class DummyService : org.idempiere.common.base.Service() {
         override fun <T : Any?> list(type: Class<T>?, componentName: String?, query: ServiceQuery?): IServicesHolder<T>? {
             return null
         }
-
     }
 
     override fun getLocator(): IServiceLocator {
@@ -42,5 +41,4 @@ class DummyService : org.idempiere.common.base.Service() {
             org.idempiere.common.base.Service.instance = DummyService()
         }
     }
-
 }

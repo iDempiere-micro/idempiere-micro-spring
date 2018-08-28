@@ -1,15 +1,15 @@
 package company.bigger.dto
 
 import software.hsharp.core.models.INameKeyPair
-import java.util.*
+import java.util.Arrays
 
 data class UserLoginModelResponse(
-        override val logged: Boolean = false,
-        val clients: Array<INameKeyPair> = arrayOf(),
-        val roles: Array<INameKeyPair>  = arrayOf(),
-        val orgs: Array<INameKeyPair> = arrayOf(),
-        val warehouses: Array<INameKeyPair> = arrayOf(),
-        override val token: String? = null
+    override val logged: Boolean = false,
+    val clients: Array<INameKeyPair> = arrayOf(),
+    val roles: Array<INameKeyPair> = arrayOf(),
+    val orgs: Array<INameKeyPair> = arrayOf(),
+    val warehouses: Array<INameKeyPair> = arrayOf(),
+    override val token: String? = null
 ) : ILoginResponse {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

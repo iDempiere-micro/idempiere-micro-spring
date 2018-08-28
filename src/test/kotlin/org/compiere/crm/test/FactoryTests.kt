@@ -10,7 +10,6 @@ import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.Ini
 import org.junit.Test
-import pg.org.compiere.db.DB_PostgreSQL
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
@@ -30,13 +29,13 @@ class FactoryTests {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
+        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
-        val modelFactory : IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO( I_C_BPartner.Table_Name, 118, "pokus")
-        println( result )
-        assertNotNull(result);
+        val modelFactory: IModelFactory = DefaultModelFactory()
+        val result = modelFactory.getPO(I_C_BPartner.Table_Name, 118, "pokus")
+        println(result)
+        assertNotNull(result)
     }
 
     @Test
@@ -54,8 +53,8 @@ class FactoryTests {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
+        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
         val tableName = I_C_BPartner.Table_Name
         val AD_ORG_ID = 0
@@ -67,7 +66,7 @@ class FactoryTests {
                 "AND (\"${tableName}\".ad_org_id = ? OR \"${tableName}\".ad_org_id=0) " +
                 "AND (\"${tableName}_ID\"=?);"
                 ).toLowerCase()
-        println ( "SQL:$sql" )
+        println("SQL:$sql")
         val cnn = DB.getConnectionRO()
         val statement = cnn.prepareStatement(sql)
         statement.setInt(1, AD_CLIENT_ID)
@@ -76,9 +75,9 @@ class FactoryTests {
         val rs = statement.executeQuery()
         rs.next()
 
-        val modelFactory : IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO( tableName, rs, "pokus")
-        println( result )
+        val modelFactory: IModelFactory = DefaultModelFactory()
+        val result = modelFactory.getPO(tableName, rs, "pokus")
+        println(result)
         assertNotNull(result)
         assertEquals(id, result._ID)
 

@@ -5,7 +5,7 @@ import org.compiere.bo.CustomerProcessBase
 import org.junit.Test
 import java.util.Properties
 
-class TestCreateCustomer :  BaseCustomerTest() {
+class TestCreateCustomer : BaseCustomerTest() {
     override fun preparePartnerId(ctx: Properties, AD_CLIENT_ID: Int): Int? {
         return null
     }
@@ -15,7 +15,6 @@ class TestCreateCustomer :  BaseCustomerTest() {
     }
 
     override fun runFinallyCleanup() {
-
     }
 
     @Test

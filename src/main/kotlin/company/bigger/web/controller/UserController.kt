@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.util.*
 
 @RestController
 class UserController {
@@ -16,7 +15,6 @@ class UserController {
     @GetMapping()
     @RequestMapping(value = ["/user/{username}/login/{password}"])
     fun login(@PathVariable username: String, @PathVariable password: String): UserLoginModelResponse {
-        return loginService.login( UserLoginModel(username, password) )
+        return loginService.login(UserLoginModel(username, password))
     }
-
 }

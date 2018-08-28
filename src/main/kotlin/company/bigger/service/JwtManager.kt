@@ -11,7 +11,6 @@ import java.util.Date
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 
-
 class JwtManager private constructor() {
 
     private fun doCreateToken(subject: String, role: String, loginModel: String): String {

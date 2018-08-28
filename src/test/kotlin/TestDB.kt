@@ -33,7 +33,7 @@ class TestDB {
     @Test
     fun loginFail() {
         val pg = PgDB()
-        val cnn = pg.connect(loginParams(dbUid=randomString(5), dbPwd=randomString(5)))
+        val cnn = pg.connect(loginParams(dbUid = randomString(5), dbPwd = randomString(5)))
         assertNull(cnn)
     }
 }

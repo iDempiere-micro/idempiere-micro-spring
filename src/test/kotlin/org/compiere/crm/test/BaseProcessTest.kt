@@ -14,7 +14,7 @@ import org.idempiere.icommon.db.AdempiereDatabase
 import java.io.Serializable
 
 abstract class BaseProcessTest {
-    fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String,Any>>): Serializable {
+    fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String, Any>>): Serializable {
         Ini.getIni().isClient = false
         CLogger.getCLogger(BaseProcessTest::class.java)
         Ini.getIni().properties
@@ -26,8 +26,8 @@ abstract class BaseProcessTest {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
+        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)

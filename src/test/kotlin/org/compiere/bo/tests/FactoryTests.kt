@@ -31,8 +31,8 @@ class FactoryTests {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
+        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
         val tableName = I_C_BPartner.Table_Name
         val id = 118
@@ -78,17 +78,17 @@ group by B.c_bpartner_id
             where c_contactactivity_id is not null
             order by 1, c_contactactivity_id asc"""
 
-        println ( "SQL:$sql" )
+        println("SQL:$sql")
         val cnn = DB.getConnectionRO()
         val statement = cnn.prepareStatement(sql)
         val rs = statement.executeQuery()
         rs.next()
 
-        val modelFactory : IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO( tableName, rs, "pokus")
+        val modelFactory: IModelFactory = DefaultModelFactory()
+        val result = modelFactory.getPO(tableName, rs, "pokus")
         val result2 = modelFactory.getPO(I_C_ContactActivity.Table_Name, rs, "pokus", "activity_") as I_C_ContactActivity
-        println( result )
-        println( result2 )
+        println(result)
+        println(result2)
         assertNotNull(result)
         assertNotNull(result2)
         assertEquals(id, result._ID)
@@ -96,7 +96,6 @@ group by B.c_bpartner_id
 
         cnn.close()
     }
-
 
     @Test
     fun getUsingDefaultModelFactoryFromRSComplex() {
@@ -113,8 +112,8 @@ group by B.c_bpartner_id
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s )
+        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
         val tableName = I_C_BPartner.Table_Name
         val AD_ORG_ID = 0
@@ -126,7 +125,7 @@ group by B.c_bpartner_id
                         "AND (\"${tableName}\".ad_org_id = ? OR \"${tableName}\".ad_org_id=0) " +
                         "AND (\"${tableName}_ID\"=?) AND (M_PriceList.M_PriceList_ID = C_BPartner.M_PriceList_ID);"
                         ).toLowerCase()
-        println ( "SQL:$sql" )
+        println("SQL:$sql")
         val cnn = DB.getConnectionRO()
         val statement = cnn.prepareStatement(sql)
         statement.setInt(1, AD_CLIENT_ID)
@@ -135,11 +134,11 @@ group by B.c_bpartner_id
         val rs = statement.executeQuery()
         rs.next()
 
-        val modelFactory : IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO( tableName, rs, "pokus")
-        val result2 = modelFactory.getPO( "M_PriceList", rs, "pokus")
-        println( result )
-        println( result2 )
+        val modelFactory: IModelFactory = DefaultModelFactory()
+        val result = modelFactory.getPO(tableName, rs, "pokus")
+        val result2 = modelFactory.getPO("M_PriceList", rs, "pokus")
+        println(result)
+        println(result2)
         assertNotNull(result)
         assertNotNull(result2)
         assertEquals(id, result._ID)
@@ -147,5 +146,4 @@ group by B.c_bpartner_id
 
         cnn.close()
     }
-
 }

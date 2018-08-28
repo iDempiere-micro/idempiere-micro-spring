@@ -4,18 +4,30 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import company.bigger.dto.ILogin
 import company.bigger.dto.UserLoginModelResponse
 import org.compiere.crm.MUser
-import org.compiere.orm.*
 import org.idempiere.app.Micro
-import org.idempiere.common.util.*
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Properties
+import java.util.Date
 import java.util.logging.Level
 import org.compiere.model.I_M_Warehouse
+import org.compiere.orm.MRole
+import org.compiere.orm.MSysConfig
+import org.compiere.orm.MSystem
+import org.compiere.orm.MTree_Base
+import org.compiere.orm.Query
+import org.idempiere.common.util.CLogger
+import org.idempiere.common.util.DB
+import org.idempiere.common.util.Env
+import org.idempiere.common.util.KeyNamePair
+import org.idempiere.common.util.Ini
+import org.idempiere.common.util.Util
+import org.idempiere.common.util.Language
+import org.idempiere.common.util.Trx
 
 class LoginService {
     companion object {
@@ -25,10 +37,10 @@ class LoginService {
     }
 
     private fun getOrgsAddSummary(
-            list: ArrayList<KeyNamePair>,
-            Summary_Org_ID: Int,
-            Summary_Name: String,
-            role: MRole?
+        list: ArrayList<KeyNamePair>,
+        Summary_Org_ID: Int,
+        Summary_Name: String,
+        role: MRole?
     ) {
         val m_ctx = Env.getCtx()
         if (role == null) {
@@ -260,9 +272,7 @@ class LoginService {
 
                 if (authenticated) {
                     // use Ldap because don't check password age
-                } else if (user.isExpired())
-                {}
-                else if (MAX_PASSWORD_AGE > 0 && !user.isNoPasswordReset()) {
+                } else if (user.isExpired()) {} else if (MAX_PASSWORD_AGE > 0 && !user.isNoPasswordReset()) {
                     if (user.getDatePasswordChanged() == null)
                         user.setDatePasswordChanged(Timestamp(now))
 
@@ -377,7 +387,7 @@ class LoginService {
             pstmt!!.setInt(1, AD_User_ID)
             pstmt.setInt(2, AD_User_ID)
             pstmt.setInt(3, AD_Client_ID)
-            val AD_Org_ID = if ( AD_Org == null ) { 0 } else { AD_Org.Key }
+            val AD_Org_ID = if (AD_Org == null) { 0 } else { AD_Org.Key }
             pstmt.setInt(4, AD_Org_ID)
             pstmt.setInt(5, AD_Org_ID)
             pstmt.setInt(6, AD_Role_ID)
@@ -571,10 +581,9 @@ class LoginService {
 
             val org = orgs.firstOrNull { it.Key == login.orgId || orgs.count() == 1 }
 
-            val warehouses = if ( org == null ) { arrayOf() } else { getWarehouses(org) }
+            val warehouses = if (org == null) { arrayOf() } else { getWarehouses(org) }
 
-            val warehouse =
-             if ( org == null ) { null } else {
+            val warehouse = if (org == null) { null } else {
                 warehouses.firstOrNull { it.Key == login.warehouseId || warehouses.count() == 1 }
             }
 
