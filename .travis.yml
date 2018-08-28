@@ -1,0 +1,16 @@
+sudo: required
+
+language: java
+install: true
+
+jdk:
+  - oraclejdk8
+
+services:
+  - docker
+
+before_install:
+  - ./before_install.sh
+
+script:
+  - make package
