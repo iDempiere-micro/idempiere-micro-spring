@@ -13,7 +13,7 @@ data class loginParams(
     override val dbName: String = "idempiere",
     override val dbUid: String = "adempiere",
     override val dbPwd: String = "adempiere",
-    override val ssl: Boolean = true
+    override val ssl: Boolean = false
 ) : ICConnection
 
 class TestDB {
