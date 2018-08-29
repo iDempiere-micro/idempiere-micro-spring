@@ -23,11 +23,13 @@ import org.idempiere.common.util.Ini
 import org.idempiere.common.util.Util
 import java.util.Date
 import org.compiere.orm.MTree_Base
+import org.springframework.beans.factory.annotation.Autowired
 
 open class Login {
     private val log = CLogger.getCLogger(Login::class.java)
-    private var loginErrMsg: String? = null
-    private var isPasswordExpired: Boolean = false
+
+    @Autowired
+    private lateinit var ini: Ini
 
     fun getClients(role: INameKeyPair): Array<INameKeyPair> {
         val m_ctx = Env.getCtx()
@@ -58,7 +60,6 @@ open class Login {
             //  Role Info
             Env.setContext(m_ctx, "#AD_Role_ID", role.Key)
             Env.setContext(m_ctx, "#AD_Role_Name", role.name)
-            Ini.getIni().setProperty(Ini.getIni().P_ROLE, role.name)
             // 	User Level
             Env.setContext(m_ctx, "#User_Level", rs.getString(1)) // 	Format 'SCO'
 
@@ -186,7 +187,7 @@ open class Login {
                 if (authenticated) {
                     // use Ldap because don't check password age
                 } else if (user.isExpired())
-                    isPasswordExpired = true
+                {}
                 else if (MAX_PASSWORD_AGE > 0 && !user.isNoPasswordReset()) {
                     if (user.getDatePasswordChanged() == null)
                         user.setDatePasswordChanged(Timestamp(now))
@@ -194,7 +195,6 @@ open class Login {
                     val days = (now - user.getDatePasswordChanged().getTime()) / (1000 * 60 * 60 * 24)
                     if (days > MAX_PASSWORD_AGE) {
                         user.setIsExpired(true)
-                        isPasswordExpired = true
                     }
                 }
 
@@ -240,7 +240,7 @@ open class Login {
             }
         } else if (validButLocked) {
             // User account ({0}) is locked, please contact the system administrator
-            loginErrMsg = Msg.getMsg(m_ctx, "UserAccountLocked", arrayOf<Any>(app_user))
+
         } else {
             var foundLockedAccount = false
             for (user in users) {
@@ -255,15 +255,15 @@ open class Login {
                 val MAX_LOGIN_ATTEMPT = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_LOGIN_ATTEMPT, 0)
                 if (MAX_LOGIN_ATTEMPT in 1..count) {
                     // Reached the maximum number of login attempts, user account ({0}) is locked
-                    loginErrMsg = Msg.getMsg(m_ctx, "ReachedMaxLoginAttempts", arrayOf<Any>(app_user))
+
                     reachMaxAttempt = true
                 } else if (MAX_LOGIN_ATTEMPT > 0) {
                     if (count == MAX_LOGIN_ATTEMPT - 1) {
                         // Invalid User ID or Password (Login Attempts: {0} / {1})
-                        loginErrMsg = Msg.getMsg(m_ctx, "FailedLoginAttempt", arrayOf<Any>(count, MAX_LOGIN_ATTEMPT))
+
                         reachMaxAttempt = false
                     } else {
-                        loginErrMsg = Msg.getMsg(m_ctx, "FailedLogin", true)
+
                     }
                 } else {
                     reachMaxAttempt = false
@@ -276,10 +276,6 @@ open class Login {
                     log.severe("Failed to update user record with increase failed login count")
             }
 
-            if (loginErrMsg == null && foundLockedAccount) {
-                // User account ({0}) is locked, please contact the system administrator
-                loginErrMsg = Msg.getMsg(m_ctx, "UserAccountLocked", arrayOf<Any>(app_user))
-            }
         }
         return clientList.toTypedArray()
     }
@@ -340,7 +336,6 @@ open class Login {
         // Client Info
         Env.setContext(m_ctx, "#AD_Client_ID", client.Key)
         Env.setContext(m_ctx, "#AD_Client_Name", client.name)
-        Ini.getIni().setProperty(Ini.getIni().P_CLIENT, client.name)
         return rolesList.toTypedArray()
     }
 
@@ -388,7 +383,6 @@ open class Login {
             //  Role Info
             Env.setContext(m_ctx, "#AD_Role_ID", rol.Key)
             Env.setContext(m_ctx, "#AD_Role_Name", rol.name)
-            Ini.getIni().setProperty(Ini.getIni().P_ROLE, rol.name)
             // 	User Level
             Env.setContext(m_ctx, "#User_Level", rs.getString(1)) // 	Format 'SCO'
             //  load Orgs
@@ -536,12 +530,10 @@ open class Login {
         //  Org Info - assumes that it is valid
         Env.setContext(m_ctx, Env.AD_ORG_ID, org.Key)
         Env.setContext(m_ctx, Env.AD_ORG_NAME, org.name)
-        Ini.getIni().setProperty(Ini.getIni().P_ORG, org.name)
 
         //  Warehouse Info
         if (warehouse != null) {
             Env.setContext(m_ctx, Env.M_WAREHOUSE_ID, warehouse.Key)
-            Ini.getIni().setProperty(Ini.getIni().P_WAREHOUSE, warehouse.name)
         }
 
         // 	Date (default today)
@@ -554,7 +546,6 @@ open class Login {
         val printerName2 = printerName ?: ""
 
         Env.setContext(m_ctx, "#Printer", printerName2)
-        Ini.getIni().setProperty(Ini.getIni().P_PRINTER, printerName2)
 
         // 	Load Role Info
         MRole.getDefault(m_ctx, true)
@@ -563,10 +554,10 @@ open class Login {
         loadUserPreferences()
 
         if (MRole.getDefault(m_ctx, false).isShowAcct)
-            Env.setContext(m_ctx, "#ShowAcct", Ini.getIni().getProperty(Ini.getIni().P_SHOW_ACCT))
+            Env.setContext(m_ctx, "#ShowAcct", ini.showAcct)
         else
             Env.setContext(m_ctx, "#ShowAcct", "N")
-        Env.setContext(m_ctx, "#ShowTrl", Ini.getIni().getProperty(Ini.getIni().P_SHOW_TRL))
+        Env.setContext(m_ctx, "#ShowTrl", ini.showAcct)
         Env.setContext(m_ctx, "#ShowAdvanced", MRole.getDefault().isAccessAdvanced)
 
         var retValue = ""

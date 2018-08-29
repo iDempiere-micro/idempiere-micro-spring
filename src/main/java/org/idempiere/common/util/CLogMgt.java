@@ -71,7 +71,7 @@ public class CLogMgt
 	
 	
 	private static synchronized void reInit() {
-		CLogMgt.initialize(Ini.getIni().isClient());
+		CLogMgt.initialize(false);
 		if (!levelMap.isEmpty()) {
 			for(String key : levelMap.keySet()) {
 				setLevel(key, levelMap.get(key));
@@ -554,7 +554,6 @@ public class CLogMgt
 			}
 		}
 		//
-		sb.append("iDempiereProperties = ").append(Ini.getIni().getPropertyFileName()).append(NL);
 		sb.append(Env.getLanguage(Env.getCtx())).append(NL);
 		sb.append("BaseLanguage = ").append(Env.isBaseLanguage(Env.getCtx(), "AD_Window"))
 			.append("/").append(Env.isBaseLanguage(Env.getCtx(), "C_UOM")).append(NL);

@@ -131,7 +131,6 @@ class LoginService {
             //  Role Info
             Env.setContext(m_ctx, "#AD_Role_ID", rol.Key)
             Env.setContext(m_ctx, "#AD_Role_Name", rol.name)
-            Ini.getIni().setProperty(Ini.getIni().P_ROLE, rol.name)
             // 	User Level
             Env.setContext(m_ctx, "#User_Level", rs.getString(1)) // 	Format 'SCO'
             //  load Orgs
@@ -507,7 +506,6 @@ class LoginService {
         // Client Info
         Env.setContext(m_ctx, "#AD_Client_ID", client.Key)
         Env.setContext(m_ctx, "#AD_Client_Name", client.name)
-        Ini.getIni().setProperty(Ini.getIni().P_CLIENT, client.name)
         return rolesList.toTypedArray()
     }
 

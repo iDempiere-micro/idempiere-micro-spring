@@ -11,9 +11,17 @@ import org.idempiere.common.util.Ini
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.SecureInterface
 import org.idempiere.common.util.SecureEngine
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
+@Component
 open class Micro {
+
+    @Autowired
+    private lateinit var ini: Ini
+
+
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!
     }
@@ -23,16 +31,7 @@ open class Micro {
 
     private fun createThreadPool() {
         val defaultMax = Runtime.getRuntime().availableProcessors() * 20
-        val properties = Ini.getIni().getProperties()
-        val s = properties.getProperty("MaxThreadPoolSize")
-        val maxSize =
-            if (s != null) {
-                try {
-                    Integer.parseInt(s)
-                } catch (e: Exception) {
-                    0
-                }
-            } else { 0 }
+        val maxSize = ini.maxThreadPoolSize
 
         val max =
             if (maxSize <= 0) {
@@ -45,22 +44,10 @@ open class Micro {
 
     fun startup() {
         if (log != null) return
-        val ini = Ini.getIni()
-        ini.isClient = false
         CLogMgt.initialize(false)
         log = CLogger.getCLogger(Micro::class.java)
 
-        val properties = ini.properties
-        for (key in properties.keys) {
-            if (key is String) {
-                var s = key
-                if (s.endsWith("." + ini.P_TRACELEVEL)) {
-                    val level = properties.getProperty(s)
-                    s = s.substring(0, s.length - ("." + ini.P_TRACELEVEL).length)
-                    CLogMgt.setLevel(s, level)
-                }
-            }
-        }
+        CLogMgt.setLevel(ini.traceLevel)
         DB.setDBTarget(CConnection.get(null))
         createThreadPool()
 

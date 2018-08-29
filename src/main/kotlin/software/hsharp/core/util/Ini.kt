@@ -1,5 +1,7 @@
 package software.hsharp.core.util
 
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.stereotype.Component
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileNotFoundException
@@ -9,93 +11,23 @@ import java.io.OutputStream
 import java.io.FileOutputStream
 import java.util.Properties
 
-open class Ini(protected val fileName: String) {
-    protected val prop = Properties()
+@Component
+open class Ini() {
+    @Value("\${Connection}")
+    private lateinit var m_connection: String
 
-    fun load() {
-        prop.clear()
-        var input: InputStream? = null
-        val fileFullName = getPath(fileName)
-        val f = File(fileFullName)
-        try {
-            input = FileInputStream(f)
+    @Value("\${MaxThreadPoolSize}")
+    private var m_maxThreadPoolSize = 100
 
-            // load a properties file
-            prop.load(input)
-        } catch (e: FileNotFoundException) {
-            // file is not there, allow to init
-            initEmptyFile()
-        } catch (ex: IOException) {
-            println("Failed to open '$fileName' from '$fileFullName' expected at '${f.absoluteFile}'")
-            ex.printStackTrace()
-        } finally {
-            if (input != null) {
-                try {
-                    input.close()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-        }
-    }
+    @Value("\${TraceLevel}")
+    private lateinit var m_traceLevel: String
 
-    fun save() {
-        var output: OutputStream? = null
+    @Value("\${ShowAcct}")
+    private var m_showAcct= true
 
-        try {
-            val fileName = getPath(fileName)
-            val f = File(fileName)
-            f.absoluteFile.parentFile.mkdirs()
-            output = FileOutputStream(f)
 
-            prop.store(output, null)
-        } catch (io: IOException) {
-            io.printStackTrace()
-        } finally {
-            if (output != null) {
-                try {
-                    output.flush()
-                    output.close()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-        }
-    }
-
-    protected open fun initEmptyFile() { save(); }
-
-    companion object {
-        fun getPath(fileName: String): String {
-            return "etc" + File.separator + fileName + ".properties"
-        }
-
-        fun load(
-            fileName: String,
-            setupIni: (String) -> Ini = { Ini(fileName); }
-        ): Ini {
-            return load(
-                fileName,
-                setupIni,
-                { it.initEmptyFile(); }
-            )
-        }
-
-        fun load(
-            fileName: String,
-            setupIni: (String) -> Ini = { Ini(fileName); },
-            setupEmptyProperties: (Ini) -> Unit = { it.initEmptyFile(); }
-        ): Ini {
-            val result = setupIni(fileName)
-            val fileFullName = getPath(fileName)
-            val f = File(fileFullName)
-            if (!f.exists()) {
-                // file is not there, allow to init
-                setupEmptyProperties(result)
-            }
-            result.load()
-
-            return result
-        }
-    }
+    val connection get() = m_connection
+    val maxThreadPoolSize get() = m_maxThreadPoolSize
+    val traceLevel get() = m_traceLevel
+    val showAcct get() = m_showAcct
 }
