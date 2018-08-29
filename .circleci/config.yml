@@ -9,8 +9,8 @@ jobs:
       # we still want to run on JDK 8
       - image: circleci/openjdk:8-jdk
       
-      # we still want to support 9.6
-      - image: postgres:9.6-jessie
+      # we still want to support 9.6, the list is at https://circleci.com/docs/2.0/circleci-images/#postgresql
+      - image: postgres:9.6-alpine-postgis-ram
         environment:
           POSTGRES_USER: adempiere
           POSTGRES_PASSWORD: adempiere
