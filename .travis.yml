@@ -13,4 +13,6 @@ before_install:
   - ./before_install.sh
 
 script:
+  # on Travis we need to run the docker image on port 5433
+  - sed -i 's/5432/5433/g' etc/idempiere.properties
   - make package
