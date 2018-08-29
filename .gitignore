@@ -26,3 +26,5 @@
 
 ### src is taken from the idempiere micro by ./copy-monolith.sh
 src
+/idempiere-docker-pgsql-5.1.0.latest.tar.gz
+log
