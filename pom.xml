@@ -78,6 +78,15 @@
             <version>3.0.1</version>
         </dependency>
 
+        <!-- Migrations -->
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.1.4</version>
+        </dependency>
+
+
         <!-- Functional dependencies -->
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin -->
@@ -279,6 +288,19 @@
                         <version>2.22.0</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.1.4</version>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/idempiere</url>
+                    <user>adempiere</user>
+                    <password>adempiere</password>
+                    <schemas>
+                        <schema>adempiere</schema>
+                    </schemas>
+                </configuration>
             </plugin>
 		</plugins>
 	</build>

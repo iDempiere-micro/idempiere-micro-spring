@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# download the latest docker iDempiere pgSQL image and run it
+# on Travis we need to run the docker image on port 5433 (there is standard PostgreSQL already running)
 rm -rf idempiere-docker-pgsql-5.1.0.latest.tar.gz
 wget https://sourceforge.net/projects/idempiereksys/files/idempiere-docker-image/idempiere-docker-pgsql-5.1.0.latest.tar.gz
 zcat idempiere-docker-pgsql-5.1.0.latest.tar.gz | docker load
