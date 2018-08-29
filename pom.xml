@@ -293,51 +293,14 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>5.1.4</version>
-                <executions>
-                    <execution>
-                        <id>create-db</id>
-                        <goals>
-                            <goal>migrate</goal>
-                        </goals>
-                        <configuration>
-                            <driver>org.postgresql.Driver</driver>
-                            <url>jdbc:postgresql://localhost/</url>
-                            <user>adempiere</user>
-                            <password>adempiere</password>
-                            <placeholders>
-                                <DATABASE.NAME>idempiere</DATABASE.NAME>
-                            </placeholders>
-                            <locations>
-                                <location>company/bigger/database/create</location>
-                            </locations>
-                            <callbacks>
-                                <callback>company.bigger.database.CreateDatabase</callback>
-                            </callbacks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>migrate-db</id>
-                        <goals>
-                            <goal>migrate</goal>
-                        </goals>
-                        <configuration>
-                            <driver>org.postgresql.Driver</driver>
-                            <url>jdbc:postgresql://localhost/idempiere</url>
-                            <user>adempiere</user>
-                            <password>adempiere</password>
-                            <locations>
-                                <location>company/bigger/database/migrate</location>
-                            </locations>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.postgresql</groupId>
-                        <artifactId>postgresql</artifactId>
-                        <version>42.2.4</version>
-                    </dependency>
-                </dependencies>
+                <configuration>
+                    <url>jdbc:postgresql://localhost:5432/idempiere</url>
+                    <user>adempiere</user>
+                    <password>adempiere</password>
+                    <schemas>
+                        <schema>adempiere</schema>
+                    </schemas>
+                </configuration>
             </plugin>
 		</plugins>
 	</build>
