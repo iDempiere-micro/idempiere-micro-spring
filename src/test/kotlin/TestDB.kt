@@ -1,3 +1,5 @@
+import org.idempiere.common.db.CConnection
+import org.idempiere.common.util.Ini
 import org.junit.Test
 import software.hsharp.api.icommon.ICConnection
 import software.hsharp.db.postgresql.provider.PgDB
@@ -7,7 +9,7 @@ import kotlin.test.assertNull
 
 data class loginParams(
     override val dbHost: String = "localhost",
-    override val dbPort: Int = 5433,
+    override val dbPort: Int = 5432,
     override val dbName: String = "idempiere",
     override val dbUid: String = "adempiere",
     override val dbPwd: String = "adempiere",
@@ -27,13 +29,15 @@ class TestDB {
     @Test
     fun login() {
         val pg = PgDB()
-        val cnn = pg.connect(loginParams())
+        val port = CConnection.get().dbPort
+        val cnn = pg.connect(loginParams(dbPort=port))
         assertNotNull(cnn)
     }
     @Test
     fun loginFail() {
         val pg = PgDB()
-        val cnn = pg.connect(loginParams(dbUid = randomString(5), dbPwd = randomString(5)))
+        val port = CConnection.get().dbPort
+        val cnn = pg.connect(loginParams(dbPort=port, dbUid = randomString(5), dbPwd = randomString(5)))
         assertNull(cnn)
     }
 }
