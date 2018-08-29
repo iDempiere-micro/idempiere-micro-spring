@@ -38,6 +38,9 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
-        
-      # run tests! (should be mvn package)
-      - run: mvn compile
+
+      # run the migrations
+      - run: mvn flyway:migrate
+
+      # run tests!
+      - run: mvn package
