@@ -24,7 +24,11 @@
 /nbdist/
 /.nb-gradle/
 
-### src is taken from the idempiere micro by ./copy-monolith.sh
-src
+### Visual Studio Code ###
+.vscode
+
+### src and test is taken from the idempiere micro by ./copy-monolith.sh
+### but we want to have them here as well now
+#src
 /idempiere-docker-pgsql-5.1.0.latest.tar.gz
 log
