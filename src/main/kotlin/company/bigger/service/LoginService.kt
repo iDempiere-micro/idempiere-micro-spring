@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import company.bigger.dto.ILogin
 import company.bigger.dto.UserLoginModelResponse
 import org.compiere.crm.MUser
-import org.idempiere.app.Micro
+import company.bigger.Micro
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -27,13 +27,19 @@ import org.idempiere.common.util.KeyNamePair
 import org.idempiere.common.util.Util
 import org.idempiere.common.util.Language
 import org.idempiere.common.util.Trx
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
+@Component
 class LoginService {
     companion object {
         private const val dateFormatOnlyForCtx = "yyyy-MM-dd"
         @JvmField val log = CLogger.getCLogger(LoginService::class.java)
         private const val C_BPARTNER_ID = "#C_BPartner_Id"
     }
+
+    @Autowired
+    private lateinit var system: Micro
 
     private fun getOrgsAddSummary(
         list: ArrayList<KeyNamePair>,
@@ -547,7 +553,6 @@ class LoginService {
     }
 
     fun login(login: ILogin): UserLoginModelResponse {
-        val system = Micro()
         system.startup()
         Trx.startTrxMonitor(system.getThreadPoolExecutor())
 

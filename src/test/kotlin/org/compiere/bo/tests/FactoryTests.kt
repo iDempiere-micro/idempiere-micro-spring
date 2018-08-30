@@ -5,6 +5,7 @@ import org.compiere.model.I_C_ContactActivity
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -14,7 +15,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class FactoryTests {
+class FactoryTests : BaseTest() {
     @Ignore
     fun getUsingDefaultModelFactoryFromRSSuperComplex() {
         DummyService.setup()

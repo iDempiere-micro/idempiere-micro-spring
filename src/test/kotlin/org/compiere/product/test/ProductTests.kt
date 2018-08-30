@@ -5,6 +5,7 @@ import org.compiere.product.test.DatabaseImpl
 import org.compiere.product.test.DummyEventManager
 import org.compiere.product.test.DummyService
 import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -13,7 +14,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class ProductTests {
+class ProductTests : BaseTest() {
     @Test
     fun getUsingDefaultModelFactoryById() {
         DummyService.setup()

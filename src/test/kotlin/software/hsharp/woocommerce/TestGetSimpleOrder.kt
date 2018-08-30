@@ -5,6 +5,7 @@ import org.compiere.order.MOrder
 import org.compiere.order.X_I_Order
 import org.compiere.process.ProcessInfo
 import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -17,7 +18,7 @@ import org.junit.Ignore
 import software.hsharp.woocommerce.impl.ApiVersionType
 import kotlin.test.assertTrue
 
-class TestGetSimpleOrder {
+class TestGetSimpleOrder : BaseTest() {
     @Ignore
     fun getSimpleOrder() {
         val config = Secrets()

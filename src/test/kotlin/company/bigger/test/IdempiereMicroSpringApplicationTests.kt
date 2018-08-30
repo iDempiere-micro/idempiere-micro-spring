@@ -5,6 +5,8 @@ import company.bigger.test.support.DummyEventManager
 import company.bigger.test.support.DummyService
 import company.bigger.web.controller.UserController
 import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
+import company.bigger.Micro
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -20,7 +22,7 @@ import kotlin.test.assertNotNull
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class IdempiereMicroSpringApplicationTests {
+class IdempiereMicroSpringApplicationTests : BaseTest() {
 
     @Test
     fun contextLoads() {
@@ -28,6 +30,9 @@ class IdempiereMicroSpringApplicationTests {
 
     @Autowired
     private lateinit var userController: UserController
+
+    @Autowired
+    private lateinit var micro: Micro
 
     @Before
     fun prepare() {
@@ -38,6 +43,7 @@ class IdempiereMicroSpringApplicationTests {
         db.setDatabase(DatabaseImpl())
         DB.setDBTarget(CConnection.get())
         DB.isConnected()
+        micro.startup()
     }
 
     @Test

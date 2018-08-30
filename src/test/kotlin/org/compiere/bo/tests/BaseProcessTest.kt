@@ -5,6 +5,7 @@ import org.compiere.process.ProcessInfo
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.process.ProcessUtil
 import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -12,7 +13,7 @@ import org.idempiere.common.util.Env
 import org.idempiere.icommon.db.AdempiereDatabase
 import java.io.Serializable
 
-abstract class BaseProcessTest {
+abstract class BaseProcessTest : BaseTest() {
     fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String, Any>>): Serializable {
         
         CLogger.getCLogger(BaseProcessTest::class.java)
