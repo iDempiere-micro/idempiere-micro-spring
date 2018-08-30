@@ -9,7 +9,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.product.X_I_Product
@@ -45,12 +44,12 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun createNewOrder() {
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -71,12 +70,12 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun createNewImportOrderAndProcess() {
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -123,12 +122,12 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun importFromWooCommerceAndProcess() {
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -277,12 +276,12 @@ class TestGetSimpleOrder {
 
     @Ignore("Unfinished")
     fun createNewImportProductAndProcess() {
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -327,12 +326,12 @@ class TestGetSimpleOrder {
     fun exportOrderToXml() {
         DummyEventManager.setup()
         DummyService.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

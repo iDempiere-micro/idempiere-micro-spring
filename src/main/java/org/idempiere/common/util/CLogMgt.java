@@ -525,7 +525,6 @@ public class CLogMgt
 			sb = new StringBuffer();
 		final String eq = " = ";
 		sb.append(getMsg("Database")).append(eq)    .append(getDatabaseInfo()).append(NL);
-		sb.append(getMsg("Schema")).append(eq)      .append(CConnection.get().getDbUid()).append(NL);
 		//
 		sb.append(getMsg("AD_User_ID")).append(eq)  .append(Env.getContext(Env.getCtx(), "#AD_User_Name")).append(NL);
 		sb.append(getMsg("AD_Role_ID")).append(eq)  .append(Env.getContext(Env.getCtx(), "#AD_Role_Name")).append(NL);
@@ -621,18 +620,10 @@ public class CLogMgt
 		if (ctx == null)
 			ctx = Env.getCtx();
 		//  Envoronment
-		CConnection cc = CConnection.get();
 		sb.append(NL).append(NL)
 			.append("=== Environment === ").append(NL)
-			.append(getLocalHost()).append(NL)
-			.append(cc.getName() + " " + cc.getDbUid() + "@" + cc.getConnectionURL()).append(NL)
-			.append(cc.getInfo()).append(NL);
-		
-		//connection pool
-		sb.append(NL)
-			.append("=== DB Connection Pool === ").append(NL)
-			.append(cc.getDatabase().getStatus().replace(" , ", NL)).append(NL);
-		
+			.append(getLocalHost()).append(NL);
+
 		//  Context
 		sb.append(NL)
 			.append("=== Context ===").append(NL);
@@ -674,14 +665,6 @@ public class CLogMgt
 	private static String getDatabaseInfo()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(CConnection.get().getDbHost()).append(" : ")
-			.append(CConnection.get().getDbPort()).append(" / ")
-			.append(CConnection.get().getDbName());
-		//  Connection Manager
-		if (CConnection.get().isViaFirewall())
-			sb.append(getMsg("via")).append(" ")
-				.append(CConnection.get().getFwHost()).append(" : ")
-				.append(CConnection.get().getFwPort());
 
 		return sb.toString();
 	}   //  getDatabaseInfo

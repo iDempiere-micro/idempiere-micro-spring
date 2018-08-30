@@ -98,15 +98,8 @@ public class MSequence extends X_AD_Sequence
 		boolean SYSTEM_NATIVE_SEQUENCE = MSysConfig.getBooleanValue(MSysConfig.SYSTEM_NATIVE_SEQUENCE,false);
 		//	Check AdempiereSys
 		boolean adempiereSys = false;
-		if (Ini.getIni().isClient())
-		{
-			adempiereSys = Ini.getIni().isPropertyBool(Ini.getIni().P_ADEMPIERESYS);
-		} 
-		else
-		{
-			String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
-			adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		}
+		String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
+		adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
 
 		if(SYSTEM_NATIVE_SEQUENCE && !adempiereSys)
 		{
@@ -143,15 +136,8 @@ public class MSequence extends X_AD_Sequence
 
 		//	Check AdempiereSys
 		boolean adempiereSys = false;
-		if (Ini.getIni().isClient()) 
-		{
-			adempiereSys = Ini.getIni().isPropertyBool(Ini.getIni().P_ADEMPIERESYS);
-		} 
-		else
-		{
-			String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
-			adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		}
+		String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
+		adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
 
 		if (adempiereSys && AD_Client_ID > 11)
 			adempiereSys = false;
@@ -494,15 +480,8 @@ public class MSequence extends X_AD_Sequence
 	public static String getDocumentNoFromSeq(MSequence seq, String trxName, PO po) {
 		//	Check AdempiereSys
 		boolean adempiereSys = false;
-		if (Ini.getIni().isClient()) 
-		{
-			adempiereSys = Ini.getIni().isPropertyBool(Ini.getIni().P_ADEMPIERESYS);
-		} 
-		else
-		{
-			String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
-			adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		}
+		String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
+		adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
 		if (adempiereSys && Env.getAD_Client_ID(Env.getCtx()) > 11)
 			adempiereSys = false;
 		//

@@ -1,7 +1,6 @@
 package org.idempiere.app
 
 import org.compiere.crm.MUser
-import org.compiere.util.Msg
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -19,11 +18,11 @@ import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.KeyNamePair
-import org.idempiere.common.util.Ini
 import org.idempiere.common.util.Util
 import java.util.Date
 import org.compiere.orm.MTree_Base
 import org.springframework.beans.factory.annotation.Autowired
+import software.hsharp.core.util.Ini
 
 open class Login {
     private val log = CLogger.getCLogger(Login::class.java)

@@ -129,10 +129,7 @@ public final class Env
 	}   //  getCtx
 
 	public static ContextProvider getContextProvider() {
-		if (Ini.getIni().isClient())
-			return clientContextProvider;
-		else
-			return ServerContextProvider.INSTANCE;
+		return ServerContextProvider.INSTANCE;
 	}
 
 	/**
@@ -1232,7 +1229,7 @@ public final class Env
 		sb.append(getContext(ctx, "#AD_User_Name")).append("@")
 			.append(getContext(ctx, "#AD_Client_Name")).append(".")
 			.append(getContext(ctx, "#AD_Org_Name"))
-			.append(" [").append(CConnection.get().toString()).append("]");
+			;
 		return sb.toString();
 	}	//	getHeader
 

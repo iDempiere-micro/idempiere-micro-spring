@@ -9,7 +9,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Ignore
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -20,12 +19,12 @@ class FactoryTests {
     fun getUsingDefaultModelFactoryFromRSSuperComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(FactoryTests::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -101,12 +100,12 @@ group by B.c_bpartner_id
     fun getUsingDefaultModelFactoryFromRSComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(FactoryTests::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

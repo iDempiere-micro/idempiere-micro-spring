@@ -18,7 +18,6 @@ package org.compiere.product;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
@@ -29,7 +28,6 @@ import org.compiere.orm.Query;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 
 /**
  *	Unit Of Measure Model

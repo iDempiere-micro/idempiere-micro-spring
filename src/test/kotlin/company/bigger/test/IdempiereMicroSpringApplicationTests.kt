@@ -8,7 +8,6 @@ import org.idempiere.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
-import org.idempiere.common.util.Ini
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -34,12 +33,10 @@ class IdempiereMicroSpringApplicationTests {
     fun prepare() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
         CLogger.getCLogger(IdempiereMicroSpringApplicationTests::class.java)
-        Ini.getIni().properties
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
     }
 

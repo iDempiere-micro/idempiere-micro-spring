@@ -18,7 +18,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Ignore
 import org.junit.Test
 import java.util.Random
@@ -41,12 +40,12 @@ class TestFutureActivities : BaseProcessTest() {
     fun `gardenuser has at least one contact activity`() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestFutureActivities::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -67,12 +66,12 @@ class TestFutureActivities : BaseProcessTest() {
     fun `CRM processes runs`() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(TestFutureActivities::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

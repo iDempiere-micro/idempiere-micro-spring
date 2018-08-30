@@ -9,18 +9,17 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.idempiere.icommon.db.AdempiereDatabase
 import java.io.Serializable
 
 abstract class BaseProcessTest {
     fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String, Any>>): Serializable {
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(BaseProcessTest::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(databaseService)
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

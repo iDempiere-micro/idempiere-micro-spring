@@ -621,17 +621,7 @@ public class DB_PostgreSQL extends PooledPgDB
 	private String getFileName ()
 	{
 		//
-		String base = null;
-		if (Ini.getIni().isClient())
-			base = System.getProperty("user.home");
-		else
-			base = Ini.getIni().getAdempiereHome();
-		
-		if (base != null && !base.endsWith(File.separator))
-			base += File.separator;
-		
-		//
-		return base + getName() + File.separator + POOL_PROPERTIES;
+		return getName() + File.separator + POOL_PROPERTIES;
 	}	//	getFileName
 
 	protected URL getServerPoolDefaultPropertiesUrl() { return null; }

@@ -8,7 +8,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import java.util.Properties
 import java.util.Random
 // import org.compiere.bo.updateCustomerCategory
@@ -32,12 +31,10 @@ abstract class BaseCustomerTest : BaseProcessTest() {
     fun doTheTest() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
         CLogger.getCLogger(TestUpdateCustomer::class.java)
-        Ini.getIni().properties
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

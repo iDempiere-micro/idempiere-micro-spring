@@ -7,7 +7,6 @@ import org.idempiere.common.exceptions.DBException;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,10 +70,6 @@ public class MSystem extends X_AD_System {
         if (system == null)
             return null;
         //
-        if (!Ini.getIni().isClient() && system.setInfo())
-        {
-            system.saveEx();
-        }
         s_system.put(0, system);
         return system;
     }	//	get
@@ -113,13 +108,6 @@ public class MSystem extends X_AD_System {
     {
         String dbAddress = CConnection.get().getConnectionURL();
         setDBAddress(dbAddress.toLowerCase());
-        //
-        if (!Ini.getIni().isClient())
-        {
-            int noProcessors = Runtime.getRuntime().availableProcessors();
-            setNoProcessors(noProcessors);
-        }
-        //
         String dbName = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;

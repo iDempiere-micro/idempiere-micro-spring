@@ -1,5 +1,4 @@
 import org.idempiere.common.db.CConnection
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import software.hsharp.api.icommon.ICConnection
 import software.hsharp.db.postgresql.provider.PgDB

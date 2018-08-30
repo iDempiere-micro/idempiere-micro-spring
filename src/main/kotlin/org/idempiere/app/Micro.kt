@@ -7,12 +7,12 @@ import org.idempiere.common.db.CConnection
 import org.idempiere.common.util.CLogMgt
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
-import org.idempiere.common.util.Ini
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.SecureInterface
 import org.idempiere.common.util.SecureEngine
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
+import software.hsharp.core.util.Ini
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
 @Component
@@ -21,6 +21,8 @@ open class Micro {
     @Autowired
     private lateinit var ini: Ini
 
+    @Autowired
+    private lateinit var cconnection: CConnection
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!
@@ -48,7 +50,7 @@ open class Micro {
         log = CLogger.getCLogger(Micro::class.java)
 
         CLogMgt.setLevel(ini.traceLevel)
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(cconnection)
         createThreadPool()
 
         if (!DB.isConnected()) {
@@ -90,7 +92,5 @@ open class Micro {
         } catch (e: Exception) {
             this.log!!.warning("Not started: " + className + " - " + e.message)
         }
-
-        DB.updateMail()
     }
 }

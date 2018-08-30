@@ -9,7 +9,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -19,12 +18,12 @@ class ProductTests {
     fun getUsingDefaultModelFactoryById() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+        
         CLogger.getCLogger(ProductTests::class.java)
-        Ini.getIni().properties
+        
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
