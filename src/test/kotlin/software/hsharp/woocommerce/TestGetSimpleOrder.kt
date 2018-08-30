@@ -45,14 +45,6 @@ class TestGetSimpleOrder : BaseTest() {
 
     @Ignore
     fun createNewOrder() {
-        
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -71,14 +63,6 @@ class TestGetSimpleOrder : BaseTest() {
 
     @Ignore
     fun createNewImportOrderAndProcess() {
-        
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -123,14 +107,6 @@ class TestGetSimpleOrder : BaseTest() {
 
     @Ignore
     fun importFromWooCommerceAndProcess() {
-        
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 1000000
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -277,14 +253,6 @@ class TestGetSimpleOrder : BaseTest() {
 
     @Ignore("Unfinished")
     fun createNewImportProductAndProcess() {
-        
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -325,16 +293,6 @@ class TestGetSimpleOrder : BaseTest() {
 
     @Test
     fun exportOrderToXml() {
-        DummyEventManager.setup()
-        DummyService.setup()
-        
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

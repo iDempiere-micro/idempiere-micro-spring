@@ -5,6 +5,10 @@ import company.bigger.dto.ILogin
 import company.bigger.dto.UserLoginModelResponse
 import org.compiere.crm.MUser
 import company.bigger.Micro
+import company.bigger.common.db.CConnection
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -20,6 +24,7 @@ import org.compiere.orm.MSysConfig
 import org.compiere.orm.MSystem
 import org.compiere.orm.MTree_Base
 import org.compiere.orm.Query
+import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
@@ -553,6 +558,12 @@ class LoginService {
     }
 
     fun login(login: ILogin): UserLoginModelResponse {
+        DummyService.setup()
+        DummyEventManager.setup()
+        val db = Database()
+        db.setDatabase(DatabaseImpl())
+        DB.setDBTarget(CConnection.get())
+        DB.isConnected()
         system.startup()
         Trx.startTrxMonitor(system.getThreadPoolExecutor())
 

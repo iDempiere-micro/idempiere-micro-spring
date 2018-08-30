@@ -1,4 +1,4 @@
-package org.compiere.crm.test
+package company.bigger.util
 
 import org.idempiere.common.base.IServiceHolder
 import org.idempiere.common.base.IServiceLocator

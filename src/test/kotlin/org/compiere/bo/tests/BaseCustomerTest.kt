@@ -4,6 +4,9 @@ import org.compiere.bo.CustomerProcessBase
 import org.compiere.bo.CustomerProcessBaseResult
 import org.compiere.crm.MBPartner
 import company.bigger.common.db.CConnection
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -29,14 +32,6 @@ abstract class BaseCustomerTest : BaseProcessTest() {
     }
 
     fun doTheTest() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        CLogger.getCLogger(TestUpdateCustomer::class.java)
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

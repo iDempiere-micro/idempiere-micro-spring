@@ -16,16 +16,6 @@ import kotlin.test.assertNotNull
 class OrderTests : BaseTest() {
     @Test
     fun getUsingDefaultModelFactoryById() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        
-        CLogger.getCLogger(OrderTests::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

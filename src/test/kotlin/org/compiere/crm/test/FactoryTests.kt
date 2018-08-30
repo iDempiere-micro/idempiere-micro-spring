@@ -15,16 +15,6 @@ import kotlin.test.assertNotNull
 class FactoryTests {
     @Test
     fun getUsingDefaultModelFactoryById() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        
-        CLogger.getCLogger(BPartnerTests::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -39,16 +29,6 @@ class FactoryTests {
 
     @Test
     fun getUsingDefaultModelFactoryFromRS() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        
-        CLogger.getCLogger(BPartnerTests::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

@@ -1,8 +1,8 @@
 package company.bigger.test
 
-import company.bigger.test.support.DatabaseImpl
-import company.bigger.test.support.DummyEventManager
-import company.bigger.test.support.DummyService
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import company.bigger.web.controller.UserController
 import company.bigger.common.db.CConnection
 import company.bigger.test.support.BaseTest
@@ -35,14 +35,8 @@ class IdempiereMicroSpringApplicationTests : BaseTest() {
     private lateinit var micro: Micro
 
     @Before
-    fun prepare() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        CLogger.getCLogger(IdempiereMicroSpringApplicationTests::class.java)
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
+    override fun prepare() {
+        super.prepare()
         micro.startup()
     }
 

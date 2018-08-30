@@ -6,6 +6,9 @@ import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import company.bigger.common.db.CConnection
 import company.bigger.test.support.BaseTest
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

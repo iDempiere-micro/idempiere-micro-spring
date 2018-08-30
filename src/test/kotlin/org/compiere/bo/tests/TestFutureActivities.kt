@@ -14,6 +14,7 @@ import org.compiere.crm.MyBPartners
 import org.compiere.crm.ForgottenBPartners
 import org.compiere.model.I_C_BPartner
 import company.bigger.common.db.CConnection
+import company.bigger.util.DatabaseImpl
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -38,16 +39,6 @@ fun randomString(length: Int): String {
 class TestFutureActivities : BaseProcessTest() {
     @Ignore
     fun `gardenuser has at least one contact activity`() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        
-        CLogger.getCLogger(TestFutureActivities::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -64,16 +55,6 @@ class TestFutureActivities : BaseProcessTest() {
 
     @Test
     fun `CRM processes runs`() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        
-        CLogger.getCLogger(TestFutureActivities::class.java)
-        
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
