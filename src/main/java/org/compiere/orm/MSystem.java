@@ -1,7 +1,7 @@
 package org.compiere.orm;
 
 import org.compiere.util.DisplayType;
-import org.idempiere.common.db.CConnection;
+import company.bigger.common.db.CConnection;
 import org.idempiere.common.db.Database;
 import org.idempiere.common.exceptions.DBException;
 import org.idempiere.common.util.CCache;

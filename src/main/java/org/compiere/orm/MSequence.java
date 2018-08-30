@@ -17,7 +17,7 @@
 package org.compiere.orm;
 
 import org.compiere.model.I_AD_Sequence;
-import org.idempiere.common.db.CConnection;
+import company.bigger.common.db.CConnection;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.exceptions.DBException;
 import org.idempiere.common.util.*;
@@ -35,7 +35,6 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Vector;

@@ -41,7 +41,6 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import org.idempiere.common.base.Service;
-import org.idempiere.common.db.CConnection;
 import org.idempiere.icommon.distributed.IClusterMember;
 import org.idempiere.icommon.distributed.IClusterService;
 

@@ -7,7 +7,7 @@ import org.compiere.crm.MRegion
 import org.compiere.crm.MBPartnerLocation
 import org.compiere.model.I_C_BPartner
 import org.junit.Test
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

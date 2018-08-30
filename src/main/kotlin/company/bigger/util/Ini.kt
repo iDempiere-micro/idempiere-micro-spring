@@ -1,6 +1,7 @@
-package software.hsharp.core.util
+package company.bigger.util
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
 import java.io.File
 import java.io.FileInputStream
@@ -11,18 +12,18 @@ import java.io.OutputStream
 import java.io.FileOutputStream
 import java.util.Properties
 
-@Component
+@Configuration
 open class Ini() {
-    @Value("\${Connection}")
+    @Value("\${connection}")
     private lateinit var m_connection: String
 
-    @Value("\${MaxThreadPoolSize}")
+    @Value("\${maxthreadpoolsize:100}")
     private var m_maxThreadPoolSize = 100
 
-    @Value("\${TraceLevel}")
+    @Value("\${tracelevel:WARNING}")
     private lateinit var m_traceLevel: String
 
-    @Value("\${ShowAcct}")
+    @Value("\${showacct:true}")
     private var m_showAcct= true
 
 

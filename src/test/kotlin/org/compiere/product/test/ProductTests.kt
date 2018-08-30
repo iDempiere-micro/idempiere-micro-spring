@@ -4,7 +4,7 @@ import org.compiere.product.MProduct
 import org.compiere.product.test.DatabaseImpl
 import org.compiere.product.test.DummyEventManager
 import org.compiere.product.test.DummyService
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

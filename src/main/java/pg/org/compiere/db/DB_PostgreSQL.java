@@ -18,7 +18,7 @@
  *****************************************************************************/
 package pg.org.compiere.db;
 
-import org.idempiere.common.db.CConnection;
+import company.bigger.common.db.CConnection;
 import org.idempiere.common.db.Database;
 import org.idempiere.common.dbPort.Convert;
 import org.idempiere.common.exceptions.DBException;

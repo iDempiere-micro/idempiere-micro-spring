@@ -4,7 +4,7 @@ import company.bigger.test.support.DatabaseImpl
 import company.bigger.test.support.DummyEventManager
 import company.bigger.test.support.DummyService
 import company.bigger.web.controller.UserController
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

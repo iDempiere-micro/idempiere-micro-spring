@@ -16,9 +16,6 @@
  *****************************************************************************/
 package org.idempiere.common.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -41,7 +38,7 @@ import javax.sql.RowSet;
 
 import org.idempiere.common.exceptions.DBException;
 import org.idempiere.icommon.db.AdempiereDatabase;
-import org.idempiere.common.db.CConnection;
+import company.bigger.common.db.CConnection;
 import org.idempiere.common.db.Database;
 import org.idempiere.common.db.ProxyFactory;
 

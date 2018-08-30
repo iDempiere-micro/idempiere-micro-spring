@@ -14,12 +14,14 @@
  * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
  * or via info@idempiere.org or http://www.idempiere.org/license.html           *
  *****************************************************************************/
-package org.idempiere.common.db;
+package company.bigger.common.db;
 
-import aQute.bnd.annotation.component.Component;
+import org.idempiere.common.db.Database;
+import org.idempiere.common.db.SecurityPrincipal;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.icommon.db.AdempiereDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import software.hsharp.api.icommon.ICConnection;
 
 import javax.naming.InitialContext;
@@ -29,7 +31,7 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
-import software.hsharp.core.util.Ini;
+import company.bigger.util.Ini;
 
 /**
  *  Adempiere Connection Descriptor
@@ -41,9 +43,6 @@ import software.hsharp.core.util.Ini;
 @Component
 public class CConnection implements Serializable, Cloneable, ICConnection
 {
-    @Autowired
-    private Ini ini;
-
     /** Connection      */
     private volatile static CConnection	s_cc = null;
 
@@ -68,10 +67,11 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 	 *  Adempiere Connection
 	 *  @param	host optional application/db host
 	 */
-	public CConnection ()
+    @Autowired
+	public CConnection (Ini ini)
 	{
-        s_cc = this;
         setAttributes(ini.getConnection());
+	    s_cc = this;
 	} 	//  CConnection
 
 	/** Name of Connection  */

@@ -4,7 +4,7 @@ import org.compiere.process.ProcessCall
 import org.compiere.process.ProcessInfo
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.process.ProcessUtil
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

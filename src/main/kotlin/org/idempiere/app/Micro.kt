@@ -3,7 +3,7 @@ package org.idempiere.app
 import org.compiere.orm.MClient
 import org.compiere.orm.MSystem
 import org.compiere.validation.ModelValidationEngine
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.util.CLogMgt
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
@@ -12,7 +12,7 @@ import org.idempiere.common.util.SecureInterface
 import org.idempiere.common.util.SecureEngine
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import software.hsharp.core.util.Ini
+import company.bigger.util.Ini
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
 @Component

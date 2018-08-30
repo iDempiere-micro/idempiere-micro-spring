@@ -22,7 +22,7 @@ import org.idempiere.common.util.Util
 import java.util.Date
 import org.compiere.orm.MTree_Base
 import org.springframework.beans.factory.annotation.Autowired
-import software.hsharp.core.util.Ini
+import company.bigger.util.Ini
 
 open class Login {
     private val log = CLogger.getCLogger(Login::class.java)

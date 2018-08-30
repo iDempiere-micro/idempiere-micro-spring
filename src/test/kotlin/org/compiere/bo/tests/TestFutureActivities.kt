@@ -13,7 +13,7 @@ import org.compiere.crm.AbandonedBPartners
 import org.compiere.crm.MyBPartners
 import org.compiere.crm.ForgottenBPartners
 import org.compiere.model.I_C_BPartner
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB

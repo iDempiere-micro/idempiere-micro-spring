@@ -18,7 +18,7 @@ package org.idempiere.common.util;
 
 import java.io.Serializable;
 
-//import org.idempiere.common.db.CConnection;
+//import company.bigger.common.db.CConnection;
 
 /**
  *  Message Queuing

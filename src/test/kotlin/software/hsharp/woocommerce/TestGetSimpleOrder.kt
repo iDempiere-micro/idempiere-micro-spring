@@ -4,7 +4,7 @@ import org.compiere.crm.X_I_BPartner
 import org.compiere.order.MOrder
 import org.compiere.order.X_I_Order
 import org.compiere.process.ProcessInfo
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
