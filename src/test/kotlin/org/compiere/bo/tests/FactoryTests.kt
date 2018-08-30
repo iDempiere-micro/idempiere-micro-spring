@@ -23,9 +23,9 @@ class FactoryTests : BaseTest() {
     fun getUsingDefaultModelFactoryFromRSSuperComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        
+
         CLogger.getCLogger(FactoryTests::class.java)
-        
+
         val db = Database()
         db.setDatabase(DatabaseImpl())
         DB.setDBTarget(CConnection.get())
@@ -104,9 +104,9 @@ group by B.c_bpartner_id
     fun getUsingDefaultModelFactoryFromRSComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        
+
         CLogger.getCLogger(FactoryTests::class.java)
-        
+
         val db = Database()
         db.setDatabase(DatabaseImpl())
         DB.setDBTarget(CConnection.get())

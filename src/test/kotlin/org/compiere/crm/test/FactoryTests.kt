@@ -3,9 +3,6 @@ package org.compiere.crm.test
 import org.compiere.model.I_C_BPartner
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import company.bigger.common.db.CConnection
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.junit.Test

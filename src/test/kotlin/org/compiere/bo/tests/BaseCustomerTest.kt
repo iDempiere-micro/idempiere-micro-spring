@@ -3,13 +3,7 @@ package org.compiere.bo.tests
 import org.compiere.bo.CustomerProcessBase
 import org.compiere.bo.CustomerProcessBaseResult
 import org.compiere.crm.MBPartner
-import company.bigger.common.db.CConnection
 import company.bigger.util.DatabaseImpl
-import company.bigger.util.DummyEventManager
-import company.bigger.util.DummyService
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
-import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import java.util.Properties
 import java.util.Random

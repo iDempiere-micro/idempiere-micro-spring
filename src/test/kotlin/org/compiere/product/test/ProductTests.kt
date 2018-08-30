@@ -1,11 +1,7 @@
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.product.MProduct
-import company.bigger.common.db.CConnection
 import company.bigger.test.support.BaseTest
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
-import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals

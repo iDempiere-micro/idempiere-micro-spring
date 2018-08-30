@@ -19,7 +19,7 @@ import software.hsharp.api.icommon.ICConnection
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@ContextConfiguration(classes=[company.bigger.Application::class])
+@ContextConfiguration(classes = [company.bigger.Application::class])
 abstract class BaseTest {
     @Autowired
     protected lateinit var ini: Ini

@@ -15,9 +15,9 @@ import java.io.Serializable
 
 abstract class BaseProcessTest : BaseTest() {
     fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String, Any>>): Serializable {
-        
+
         CLogger.getCLogger(BaseProcessTest::class.java)
-        
+
         val db = Database()
         db.setDatabase(databaseService)
         DB.setDBTarget(CConnection.get())

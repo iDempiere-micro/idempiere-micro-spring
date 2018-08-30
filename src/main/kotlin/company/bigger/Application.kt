@@ -1,11 +1,21 @@
 package company.bigger
 
 import company.bigger.common.db.CConnection
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import company.bigger.util.Ini
 import org.compiere.orm.MClient
 import org.compiere.orm.MSystem
 import org.compiere.validation.ModelValidationEngine
-import org.idempiere.common.util.*
+import org.idempiere.common.db.Database
+import org.idempiere.common.util.CLogMgt
+import org.idempiere.common.util.CLogger
+import org.idempiere.common.util.DB
+import org.idempiere.common.util.Env
+import org.idempiere.common.util.SecureInterface
+import org.idempiere.common.util.SecureEngine
+import org.idempiere.common.util.Trx
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -50,6 +60,14 @@ open class Micro {
 
     fun startup() {
         if (log != null) return
+
+        DummyService.setup()
+        DummyEventManager.setup()
+        val db = Database()
+        db.setDatabase(DatabaseImpl())
+        DB.setDBTarget(CConnection.get())
+        DB.isConnected()
+
         CLogMgt.initialize(false)
         log = CLogger.getCLogger(Micro::class.java)
 
@@ -96,5 +114,6 @@ open class Micro {
         } catch (e: Exception) {
             this.log!!.warning("Not started: " + className + " - " + e.message)
         }
+        Trx.startTrxMonitor(getThreadPoolExecutor())
     }
 }

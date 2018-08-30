@@ -74,6 +74,21 @@
             <version>1.2.61</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.netflix.feign/feign-gson -->
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>8.18.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.netflix.feign/feign-core -->
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>8.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <!-- Site -->
         <!-- https://mvnrepository.com/artifact/com.google.code.findbugs/annotations -->
