@@ -1026,8 +1026,7 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 			}
 			catch (NoClassDefFoundError ee)
 			{
-				System.err.println("Environment Error - Check idempiere.properties - " + ee);
-				System.exit (1);
+				log.severe("Environment Error - Check idempiere.properties - " + ee);
 			}
 			catch (Exception e)
 			{

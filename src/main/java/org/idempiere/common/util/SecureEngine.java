@@ -58,7 +58,6 @@ public class SecureEngine
 				+ "\nMake sure to set the security class in the start script";
 			log.severe(msg);
 			System.err.println(msg);
-			System.exit(10);
 		}
 	}	//	init
 
@@ -206,7 +205,6 @@ public class SecureEngine
 				+ "\nCheck start script parameter ADEMPIERE_SECURE"; 
 			log.severe(msg);
 			System.err.println(msg);
-			System.exit(10);
 		}
 		//	See if it works
 		String testE = implementation.encrypt(TEST,0);
