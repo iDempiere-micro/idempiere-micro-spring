@@ -42,10 +42,7 @@ public class CLogFile extends Handler
 	public CLogFile (String idempiereHome, boolean createLogDir, boolean isClient)
 	{
 		//
-		if (idempiereHome != null && idempiereHome.length() > 0)
-			m_idempiereHome = idempiereHome;
-		else
-			m_idempiereHome = Ini.getIni().findAdempiereHome();
+		m_idempiereHome = null;
 		initialize(m_idempiereHome, createLogDir, isClient);
 	}	//	CLogFile
 
@@ -200,7 +197,7 @@ public class CLogFile extends Handler
 	 */
 	public void rotateLog ()
 	{
-		initialize(m_idempiereHome, true, Ini.getIni().isClient());
+		initialize(m_idempiereHome, true, false);
 	}	//	rotateLog
 
 	public void reopen()

@@ -19,7 +19,6 @@ package org.idempiere.common.dbPort;
 import org.idempiere.common.db.Database;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 import org.idempiere.icommon.dbPort.IConvert;
 
 import java.io.*;
@@ -431,12 +430,8 @@ public abstract class Convert implements IConvert
 		// Check AdempiereSys
 		// check property Log migration script
 		boolean logMigrationScript = false;
-		if (Ini.getIni().isClient()) {
-			logMigrationScript = Ini.getIni().isPropertyBool(Ini.getIni().P_LOGMIGRATIONSCRIPT);
-		} else {
-			String sysProperty = Env.getCtx().getProperty("LogMigrationScript", "N");
-			logMigrationScript = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		}
+		String sysProperty = Env.getCtx().getProperty("LogMigrationScript", "N");
+		logMigrationScript = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
 		if (logMigrationScript) {
 			if (dontLog(oraStatement))
 				return;

@@ -42,7 +42,6 @@ import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 import org.idempiere.common.util.KeyNamePair;
 import org.compiere.util.Msg;
 import org.idempiere.common.util.Trace;
@@ -721,17 +720,6 @@ public class MRole extends X_AD_Role
 		m_orgAccess = new OrgAccess[list.size()];
 		list.toArray(m_orgAccess);
 		if (log.isLoggable(Level.FINE)) log.fine("#" + m_orgAccess.length + (reload ? " - reload" : ""));
-		if (Ini.getIni().isClient())
-		{
-			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i < m_orgAccess.length; i++)
-			{
-				if (i > 0)
-					sb.append(",");
-				sb.append(m_orgAccess[i].AD_Org_ID);
-			}
-			Env.setContext(Env.getCtx(), "#User_Org", sb.toString());
-		}
 	}	//	loadOrgAccess
 
 	/**

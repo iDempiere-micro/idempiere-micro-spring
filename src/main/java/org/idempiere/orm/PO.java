@@ -1487,14 +1487,7 @@ public abstract class PO
 	}	//	afterSave
 
 	protected boolean isLogSQLScript() {
-		boolean logMigrationScript = false;
-		if (Ini.getIni().isClient()) {
-			logMigrationScript = Ini.getIni().isPropertyBool(Ini.getIni().P_LOGMIGRATIONSCRIPT);
-		} else {
-			String sysProperty = Env.getCtx().getProperty("LogMigrationScript", "N");
-			logMigrationScript = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		}
-		return logMigrationScript;
+		return false;
 	}
 
 	protected boolean isUseTimeoutForUpdate() {

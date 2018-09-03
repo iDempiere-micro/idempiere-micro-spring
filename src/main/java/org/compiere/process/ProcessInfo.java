@@ -30,7 +30,6 @@ import org.compiere.orm.PO;
 import org.compiere.util.DisplayType;
 import org.compiere.util.Msg;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 import org.idempiere.common.util.Util;
 
 /**
@@ -62,10 +61,7 @@ public class ProcessInfo implements Serializable, IProcessInfo
 		setAD_Process_ID(AD_Process_ID);
 		setTable_ID (Table_ID);
 		setRecord_ID (Record_ID);
-		if (Ini.getIni().isPropertyBool(Ini.getIni().P_PRINTPREVIEW))
-			m_printPreview = true;
-		else
-			m_printPreview = false;
+		m_printPreview = true;
 	}   //  ProcessInfo
 
 	/**

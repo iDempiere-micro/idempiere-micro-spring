@@ -4,12 +4,8 @@ import org.compiere.crm.X_I_BPartner
 import org.compiere.order.MOrder
 import org.compiere.order.X_I_Order
 import org.compiere.process.ProcessInfo
-import org.idempiere.common.db.CConnection
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
-import org.idempiere.common.util.DB
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.product.X_I_Product
@@ -18,7 +14,7 @@ import org.junit.Ignore
 import software.hsharp.woocommerce.impl.ApiVersionType
 import kotlin.test.assertTrue
 
-class TestGetSimpleOrder {
+class TestGetSimpleOrder : BaseTest() {
     @Ignore
     fun getSimpleOrder() {
         val config = Secrets()
@@ -45,14 +41,6 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun createNewOrder() {
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -71,14 +59,6 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun createNewImportOrderAndProcess() {
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -123,14 +103,6 @@ class TestGetSimpleOrder {
 
     @Ignore
     fun importFromWooCommerceAndProcess() {
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 1000000
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -277,14 +249,6 @@ class TestGetSimpleOrder {
 
     @Ignore("Unfinished")
     fun createNewImportProductAndProcess() {
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -325,16 +289,6 @@ class TestGetSimpleOrder {
 
     @Test
     fun exportOrderToXml() {
-        DummyEventManager.setup()
-        DummyService.setup()
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestGetSimpleOrder::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

@@ -1,26 +1,26 @@
 package org.compiere.crm.test
 
+import company.bigger.test.support.BaseTest
 import org.compiere.process.ProcessCall
 import org.compiere.process.ProcessInfo
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.process.ProcessUtil
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.idempiere.icommon.db.AdempiereDatabase
 import java.io.Serializable
 
-abstract class BaseProcessTest {
+abstract class BaseProcessTest : BaseTest() {
     fun runProcess(databaseService: AdempiereDatabase, process: ProcessCall, bodyParams: Array<Pair<String, Any>>): Serializable {
-        Ini.getIni().isClient = false
+
         CLogger.getCLogger(BaseProcessTest::class.java)
-        Ini.getIni().properties
+
         val db = Database()
         db.setDatabase(databaseService)
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

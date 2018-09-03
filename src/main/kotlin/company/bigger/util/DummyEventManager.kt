@@ -1,4 +1,4 @@
-package org.compiere.bo.tests
+package company.bigger.util
 
 import org.idempiere.orm.EventProperty
 import org.idempiere.orm.IEvent

@@ -18,7 +18,6 @@ package org.compiere.product;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
@@ -29,7 +28,6 @@ import org.compiere.orm.Query;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 
 /**
  *	Unit Of Measure Model
@@ -69,16 +67,6 @@ public class MUOM extends X_C_UOM
 	 */
 	public static int getMinute_UOM_ID (Properties ctx)
 	{
-		if (Ini.getIni().isClient())
-		{
-			Iterator<MUOM> it = s_cache.values().iterator();
-			while (it.hasNext())
-			{
-				MUOM uom = it.next();
-				if (uom.isMinute())
-					return uom.getC_UOM_ID();
-			}
-		}
 		//	Server
 		String sql = "SELECT C_UOM_ID FROM C_UOM WHERE IsActive='Y' AND X12DE355=?";
 		return DB.getSQLValue(null, sql, X12_MINUTE);

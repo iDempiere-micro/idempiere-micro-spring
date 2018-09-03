@@ -14,21 +14,24 @@
  * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
  * or via info@idempiere.org or http://www.idempiere.org/license.html           *
  *****************************************************************************/
-package org.idempiere.common.db;
+package company.bigger.common.db;
 
+import org.idempiere.common.db.Database;
+import org.idempiere.common.db.SecurityPrincipal;
 import org.idempiere.common.util.CLogger;
-import org.idempiere.common.util.Ini;
 import org.idempiere.icommon.db.AdempiereDatabase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import software.hsharp.api.icommon.ICConnection;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-import javax.swing.*;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
+import company.bigger.util.Ini;
 
 /**
  *  Adempiere Connection Descriptor
@@ -37,114 +40,38 @@ import java.util.logging.Level;
  *  @author     Marek Mosiewicz<marek.mosiewicz@jotel.com.pl> - support for RMI over HTTP
  *  @version    $Id: CConnection.java,v 1.5 2006/07/30 00:55:13 jjanke Exp $
  */
+@Component
 public class CConnection implements Serializable, Cloneable, ICConnection
 {
-	/**
+    /** Connection      */
+    private volatile static CConnection	s_cc = null;
+
+    /**
+     *  Get/Set default client/server Connection
+     *  @return Connection Descriptor
+     */
+    public static CConnection get ()
+    {
+        return s_cc;
+    }	//	get
+
+    /**
 	 * 
 	 */
 	private static final long serialVersionUID = -858558852550858165L;
 
-	/** Connection      */
-	private volatile static CConnection	s_cc = null;
 	/** Logger			*/
 	private static CLogger 		log = CLogger.getCLogger (CConnection.class);
-
-	/**
-	 *  Get/Set default client/server Connection
-	 *  @return Connection Descriptor
-	 */
-	public static CConnection get ()
-	{
-		return get(null);
-	}	//	get
-
-	/**
-	 *  Get/Set default client/server Connection
-	 *  @param apps_host optional apps host for new connections
-	 *  @return Connection Descriptor
-	 */
-	public synchronized static CConnection get (String apps_host)
-	{
-		if (s_cc == null)
-		{
-			String attributes = Ini.getIni().getProperty (Ini.getIni().P_CONNECTION);
-			if (attributes == null || attributes.length () == 0)
-			{
-				//hengsin, zero setup for webstart client
-				CConnection cc = null;
-				if (s_cc == null)
-				{
-					if (cc == null) cc = new CConnection(apps_host);
-					s_cc = cc;
-					Ini.getIni().setProperty(Ini.getIni().P_CONNECTION, cc.toStringLong());
-					Ini.getIni().save();
-				}
-			}
-			else
-			{
-				s_cc = new CConnection (null);
-				s_cc.setAttributes (attributes);
-			}
-			if (log.isLoggable(Level.FINE)) log.fine(s_cc.toString());
-		}
-
-		return s_cc;
-	} 	//  get
-
-
-	/**
-	 *  Get specific connection
-	 *  @param type database Type, e.g. Database.DB_ORACLE
-	 *  @param db_host db host
-	 *  @param db_port db port
-	 *  @param db_name db name
-	 *  @return connection
-	 */
-	public static CConnection get (String type, String db_host, int db_port, String db_name)
-	{
-		return get (type, db_host, db_port, db_name, null, null);
-	} 	//  get
-
-	/**
-	 *  Get specific client connection
-	 *  @param type database Type, e.g. Database.DB_ORACLE
-	 *  @param db_host db host
-	 *  @param db_port db port
-	 *  @param db_name db name
-	 *  @param db_uid db user id
-	 *  @param db_pwd db user password
-	 *  @return connection
-	 */
-	public static CConnection get (String type, String db_host, int db_port,
-	  String db_name, String db_uid, String db_pwd)
-	{
-		CConnection cc = new CConnection (db_host);
-		cc.setAppsHost (db_host); //  set Apps=DB
-		cc.setType (type);
-		cc.setDbHost (db_host);
-		cc.setDbPort (db_port);
-		cc.setDbName (db_name);
-		//
-		if (db_uid != null)
-			cc.setDbUid (db_uid);
-		if (db_pwd != null)
-			cc.setDbPwd (db_pwd);
-		return cc;
-	}	//  get
-
-
 
 	/**************************************************************************
 	 *  Adempiere Connection
 	 *  @param	host optional application/db host
 	 */
-	public CConnection (String host)
+    @Autowired
+	public CConnection (Ini ini)
 	{
-		if (host != null)
-		{
-			m_apps_host = host;
-			m_db_host = host;
-		}
+        setAttributes(ini.getConnection());
+	    s_cc = this;
 	} 	//  CConnection
 
 	/** Name of Connection  */
@@ -189,8 +116,6 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 
 	/** Database Connection 	*/
 	private boolean 	m_okDB = false;
-	/** Apps Server Connection  */
-	private boolean 	m_okApps = false;
 
 	/** Info                */
 	private String[] 	m_info = new String[2];
@@ -251,7 +176,6 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 	{
 		m_apps_host = apps_host;
 		m_name = toString ();
-		m_okApps = false;
 	}
 
 	/**
@@ -736,14 +660,6 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 	 */
 	public boolean setDataSource()
 	{
-		System.out.println ("CConnection.setDataSource - " + m_ds + " - Client=" + Ini.getIni().isClient());
-		if (m_ds == null && Ini.getIni().isClient())
-		{
-			AdempiereDatabase getDB = getDatabase(); 
-			if (getDB != null)	//	no db selected
-				m_ds = getDB.getDataSource(this);
-			System.out.println ("CConnection.setDataSource - " + m_ds);
-		}
 		return m_ds != null;
 	} 	//	setDataSource
 
