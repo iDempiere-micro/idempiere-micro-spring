@@ -10,21 +10,7 @@ it ('iDempiere login should work ', function () {
           }
         }
       })
-      .get('http://localhost:8080/idempiere/api/authentication?username=GardenUser&password=GardenUser')
-      .expect('status', 200)
-      .expect('json', 'logged', true);
-});
-
-it ('iDempiere login should work when orgId is sent too', function () {
-    return frisby
-      .setup({
-        request: {
-          headers: {
-            'Content-Type': 'text/plain; charset=UTF-8',
-          }
-        }
-      })
-      .get('http://localhost:8080/idempiere/api/authentication?username=GardenUser&password=GardenUser&orgId=11')
+      .get('http://localhost:8080/user/GardenUser/login/GardenUser')
       .expect('status', 200)
       .expect('json', 'logged', true);
 });
