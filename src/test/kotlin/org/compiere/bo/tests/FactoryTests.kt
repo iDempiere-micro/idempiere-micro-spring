@@ -4,28 +4,31 @@ import org.compiere.model.I_C_BPartner
 import org.compiere.model.I_C_ContactActivity
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import org.idempiere.common.db.CConnection
+import company.bigger.common.db.CConnection
+import company.bigger.test.support.BaseTest
+import company.bigger.util.DatabaseImpl
+import company.bigger.util.DummyEventManager
+import company.bigger.util.DummyService
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Ignore
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class FactoryTests {
+class FactoryTests : BaseTest() {
     @Ignore
     fun getUsingDefaultModelFactoryFromRSSuperComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+
         CLogger.getCLogger(FactoryTests::class.java)
-        Ini.getIni().properties
+
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()
@@ -101,12 +104,12 @@ group by B.c_bpartner_id
     fun getUsingDefaultModelFactoryFromRSComplex() {
         DummyService.setup()
         DummyEventManager.setup()
-        Ini.getIni().isClient = false
+
         CLogger.getCLogger(FactoryTests::class.java)
-        Ini.getIni().properties
+
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
+        DB.setDBTarget(CConnection.get())
         DB.isConnected()
 
         val ctx = Env.getCtx()

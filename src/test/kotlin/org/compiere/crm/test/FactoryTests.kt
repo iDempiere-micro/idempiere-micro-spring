@@ -3,12 +3,8 @@ package org.compiere.crm.test
 import org.compiere.model.I_C_BPartner
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import org.idempiere.common.db.CConnection
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -16,16 +12,6 @@ import kotlin.test.assertNotNull
 class FactoryTests {
     @Test
     fun getUsingDefaultModelFactoryById() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(BPartnerTests::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
@@ -40,16 +26,6 @@ class FactoryTests {
 
     @Test
     fun getUsingDefaultModelFactoryFromRS() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(BPartnerTests::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

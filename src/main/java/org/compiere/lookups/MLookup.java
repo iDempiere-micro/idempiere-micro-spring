@@ -69,13 +69,6 @@ public final class MLookup extends Lookup implements Serializable
 		m_info = info;
 		if (log.isLoggable(Level.FINE)) log.fine(m_info.KeyColumn);
 
-		//  load into local lookup, if already cached
-		if (Ini.getIni().isClient())
-		{
-			if (MLookupCache.loadFromCache (m_info, m_lookup))
-				return;
-		}
-
 		//  Don't load Search or CreatedBy/UpdatedBy
 		if (m_info.DisplayType == DisplayType.Search 
 			|| m_info.IsCreadedUpdatedBy)
@@ -860,8 +853,6 @@ public final class MLookup extends Lookup implements Serializable
 		protected void doRun()
 		{
 			long startTime = System.currentTimeMillis();
-			if (Ini.getIni().isClient())
-				MLookupCache.loadStart (m_info);
 			StringBuilder sql = new StringBuilder().append(m_info.Query);
 
 			// IDEMPIERE 90
@@ -1005,9 +996,6 @@ public final class MLookup extends Lookup implements Serializable
 					+ " - Loader complete #" + size + " - all=" + m_allLoaded
 					+ " - ms=" + String.valueOf(System.currentTimeMillis()-m_startTime)
 					+ " (" + String.valueOf(System.currentTimeMillis()-startTime) + ")");
-		//	if (m_allLoaded)
-			if (Ini.getIni().isClient()) 
-				MLookupCache.loadEnd (m_info, m_lookup);
 		}	//	run
 	}	//	Loader
 

@@ -18,36 +18,25 @@ package org.idempiere.common.util;
 
 import java.awt.Container;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.Window;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.DecimalFormat;
-import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Level;
 
-import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-
-import org.idempiere.common.util.ServerContext;
-import org.idempiere.common.util.ServerContextProvider;
-import org.idempiere.common.db.CConnection;
 
 /**
  *  System Environment and static variables.
@@ -129,10 +118,7 @@ public final class Env
 	}   //  getCtx
 
 	public static ContextProvider getContextProvider() {
-		if (Ini.getIni().isClient())
-			return clientContextProvider;
-		else
-			return ServerContextProvider.INSTANCE;
+		return ServerContextProvider.INSTANCE;
 	}
 
 	/**
@@ -1232,7 +1218,7 @@ public final class Env
 		sb.append(getContext(ctx, "#AD_User_Name")).append("@")
 			.append(getContext(ctx, "#AD_Client_Name")).append(".")
 			.append(getContext(ctx, "#AD_Org_Name"))
-			.append(" [").append(CConnection.get().toString()).append("]");
+			;
 		return sb.toString();
 	}	//	getHeader
 

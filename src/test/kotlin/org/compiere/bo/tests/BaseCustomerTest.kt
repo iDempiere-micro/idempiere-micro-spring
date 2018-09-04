@@ -3,12 +3,8 @@ package org.compiere.bo.tests
 import org.compiere.bo.CustomerProcessBase
 import org.compiere.bo.CustomerProcessBaseResult
 import org.compiere.crm.MBPartner
-import org.idempiere.common.db.CConnection
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
-import org.idempiere.common.util.DB
+import company.bigger.util.DatabaseImpl
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import java.util.Properties
 import java.util.Random
 // import org.compiere.bo.updateCustomerCategory
@@ -30,16 +26,6 @@ abstract class BaseCustomerTest : BaseProcessTest() {
     }
 
     fun doTheTest() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(TestUpdateCustomer::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

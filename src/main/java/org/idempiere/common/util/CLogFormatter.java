@@ -95,8 +95,6 @@ public class CLogFormatter extends Formatter
 		{	//		   12:12:12.123
 			sb.append(tsStr.substring(11, 23));
 			sb.append("===========> ");
-			if (Ini.getIni().isClient())
-				Toolkit.getDefaultToolkit().beep();
 		}
 		else if (record.getLevel() == Level.WARNING)
 		{	//		   12:12:12.123

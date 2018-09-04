@@ -240,8 +240,6 @@ public final class Msg
 			return File.separator;
 		if (text.equals(";") || text.equals(":"))
 			return File.pathSeparator;
-		if (text.equals("IDEMPIERE_HOME"))
-			return Ini.getIni().getAdempiereHome();
 		if (text.equals("bat") || text.equals("sh"))
 		{
 			if (System.getProperty("os.name").startsWith("Win"))

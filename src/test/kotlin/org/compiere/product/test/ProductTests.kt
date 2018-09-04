@@ -1,32 +1,15 @@
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.product.MProduct
-import org.compiere.product.test.DatabaseImpl
-import org.compiere.product.test.DummyEventManager
-import org.compiere.product.test.DummyService
-import org.idempiere.common.db.CConnection
-import org.idempiere.common.db.Database
-import org.idempiere.common.util.CLogger
-import org.idempiere.common.util.DB
+import company.bigger.test.support.BaseTest
 import org.idempiere.common.util.Env
-import org.idempiere.common.util.Ini
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class ProductTests {
+class ProductTests : BaseTest() {
     @Test
     fun getUsingDefaultModelFactoryById() {
-        DummyService.setup()
-        DummyEventManager.setup()
-        Ini.getIni().isClient = false
-        CLogger.getCLogger(ProductTests::class.java)
-        Ini.getIni().properties
-        val db = Database()
-        db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get(null))
-        DB.isConnected()
-
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()

@@ -54,7 +54,7 @@ public class DefaultKeyStore implements IKeyStore {
 	private String algorithm;
 
 	public DefaultKeyStore(){
-		File file = new File(Ini.getIni().getAdempiereHome(), IDEMPIERE_KEYSTORE_PROPERTIES);
+		File file = new File("", IDEMPIERE_KEYSTORE_PROPERTIES);
 		if (file.exists()) {
 			FileInputStream is = null;
 			try{
@@ -67,7 +67,7 @@ public class DefaultKeyStore implements IKeyStore {
 					password = s.toCharArray();
 					algorithm = a;
 					keyStore = KeyStore.getInstance("JCEKS");
-					file = new File(Ini.getIni().getAdempiereHome(), IDEMPIERE_KEYSTORE);
+					file = new File("", IDEMPIERE_KEYSTORE);
 					if (file.exists()) {
 						FileInputStream stream = new FileInputStream(file);
 						keyStore.load(stream, password );
