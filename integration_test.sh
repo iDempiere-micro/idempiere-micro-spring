@@ -14,7 +14,6 @@ cleanup () {
 trap cleanup EXIT ERR INT TERM
 
 # run your other script
-make package
 ./__test.sh
 
 # set the exit_code with the real result, used when cleanup is called
