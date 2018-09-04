@@ -54,3 +54,12 @@ jobs:
 
       # run tests!
       - run: mvn package
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Develop to Dokku
+          command:
+            git push dokku@staging.hsharp.software:idempiere-micro-spring develop
