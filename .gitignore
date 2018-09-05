@@ -32,3 +32,4 @@
 #src
 /idempiere-docker-pgsql-5.1.0.latest.tar.gz
 log
+/staging.properties
