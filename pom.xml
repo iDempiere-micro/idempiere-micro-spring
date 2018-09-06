@@ -115,12 +115,6 @@
             <artifactId>jackson-module-kotlin</artifactId>
             <version>2.9.6</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jetbrains.exposed/exposed -->
-        <dependency>
-            <groupId>org.jetbrains.exposed</groupId>
-            <artifactId>exposed</artifactId>
-            <version>0.10.4</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -337,11 +331,6 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>
-        <repository>
-            <id>exposed</id>
-            <name>exposed</name>
-            <url>https://dl.bintray.com/kotlin/exposed</url>
         </repository>
         <repository>
             <id>springio-plugins-release</id>
