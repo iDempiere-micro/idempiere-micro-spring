@@ -1,6 +1,6 @@
 # idempiere-micro-spring
 
-[![Build Status](https://travis-ci.org/iDempiere-micro/idempiere-micro-spring.svg?branch=master)](https://travis-ci.org/iDempiere-micro/idempiere-micro-spring)
+[![Travis CI Build Status](https://travis-ci.org/iDempiere-micro/idempiere-micro-spring.svg?branch=master)](https://travis-ci.org/iDempiere-micro/idempiere-micro-spring) [![CircleCI](https://circleci.com/gh/iDempiere-micro/idempiere-micro-spring/tree/master.svg?style=svg)](https://circleci.com/gh/iDempiere-micro/idempiere-micro-spring/tree/master)
 
  THE repository for iDempiere micro - Java + Kotlin Spring Boot back-end compatible with iDempiere 
 
