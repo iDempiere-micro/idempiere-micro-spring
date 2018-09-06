@@ -4,7 +4,7 @@
 
  THE repository for iDempiere micro - Java + Kotlin Spring Boot back-end compatible with iDempiere 
 
-## Continous integration
+## Continuous integration
 
 ### Travis CI
 
