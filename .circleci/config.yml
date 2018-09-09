@@ -22,7 +22,8 @@ jobs:
       # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
       CONNECTION: "xyzCConnection[name=0.0.0.0{localhost-idempiere-adempiere},AppsHost=0.0.0.0,WebPort=8081,SSLPort=8443,type=PostgreSQL,DBhost=localhost,DBport=5432,DBname=idempiere,BQ=false,FW=false,FWhost=,FWport=0,UID=adempiere,PWD=adempiere]"
-
+      JWT_SECRET: Em3u7dCZ2QSvSGSGSRFUTfrwgu3WjfU2rHZxSjNSqU5x89C3jXPL6WLMW7dTE6rd9NRgWAwUWHkj8ZLfbCNU8uVfv9kuBmWCYPkk776A5jQ2LeJ76bZbdhXN
+      JWT_ISSUER: Kotlin&Spring
     steps:
       - checkout
 
