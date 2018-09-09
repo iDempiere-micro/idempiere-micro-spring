@@ -4,15 +4,15 @@ import software.hsharp.core.models.INameKeyPair
 import java.util.Arrays
 
 data class UserLoginModelResponse(
-        override val logged: Boolean = false,
-        val clients: Array<INameKeyPair> = arrayOf(),
-        val roles: Array<INameKeyPair> = arrayOf(),
-        val orgs: Array<INameKeyPair> = arrayOf(),
-        val warehouses: Array<INameKeyPair> = arrayOf(),
-        override val token: String? = null,
-        override val loginName: String,
-        override val clientId: Int = -1,
-        override val userId: Int = -1
+    override val logged: Boolean = false,
+    val clients: Array<INameKeyPair> = arrayOf(),
+    val roles: Array<INameKeyPair> = arrayOf(),
+    val orgs: Array<INameKeyPair> = arrayOf(),
+    val warehouses: Array<INameKeyPair> = arrayOf(),
+    override val token: String? = null,
+    override val loginName: String,
+    override val clientId: Int = -1,
+    override val userId: Int = -1
 ) : ILoginResponse {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

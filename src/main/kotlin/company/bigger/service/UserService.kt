@@ -4,20 +4,16 @@ import company.bigger.dto.UserLoginModel
 import company.bigger.dto.UserLoginModelResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
-import org.compiere.crm.MUser
 import org.compiere.model.I_AD_User
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
-import org.springframework.validation.Errors
 import java.util.*
 
 @Service
 class UserService(
-        val loginService: LoginService,
-        @Value("\${jwt.secret}") val jwtSecret: String,
-        @Value("\${jwt.issuer}")val jwtIssuer: String
+    val loginService: LoginService,
+    @Value("\${jwt.secret}") val jwtSecret: String,
+    @Value("\${jwt.issuer}")val jwtIssuer: String
 ) {
     companion object {
         // user login result by UserName
@@ -46,13 +42,13 @@ class UserService(
     fun validToken(token: String, user: UserLoginModelResponse?): Boolean {
         val claims = Jwts.parser().setSigningKey(jwtSecret)
                 .parseClaimsJws(token).body
-        return claims.subject == user?.loginName && claims.issuer == jwtIssuer
-                && Date().before(claims.expiration)
+        return claims.subject == user?.loginName && claims.issuer == jwtIssuer &&
+                Date().before(claims.expiration)
     }
 
-    //@CachePut(cacheNames=arrayOf("usersByToken"), key="#user.token")
-    fun updateToken(user: UserLoginModelResponse): UserLoginModelResponse{
-        val result =user.copy(token=newToken(user))
+    // @CachePut(cacheNames=arrayOf("usersByToken"), key="#user.token")
+    fun updateToken(user: UserLoginModelResponse): UserLoginModelResponse {
+        val result = user.copy(token = newToken(user))
         users[result.loginName] = result
         return result
     }
@@ -66,5 +62,4 @@ class UserService(
     fun currentUser(): I_AD_User {
         return loginService.currentUser()
     }
-
 }

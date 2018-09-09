@@ -557,13 +557,13 @@ class LoginService(val system: Micro) {
     }
 
     fun setCurrentUser(user: UserLoginModelResponse?) {
-        if (user==null) clearCurrentUser()
+        if (user == null) clearCurrentUser()
         else {
             val ctx = Env.getCtx()
             val clientId = user.clientId.toString()
             val userId = user.userId.toString()
-            ctx.setProperty(Env.AD_CLIENT_ID, clientId )
-            Env.setContext(ctx, Env.AD_CLIENT_ID, clientId )
+            ctx.setProperty(Env.AD_CLIENT_ID, clientId)
+            Env.setContext(ctx, Env.AD_CLIENT_ID, clientId)
             Env.setContext(ctx, Env.AD_USER_ID, userId)
             Env.setContext(ctx, "#AD_User_Name", user.loginName)
             Env.setContext(ctx, "#SalesRep_ID", userId)
@@ -624,12 +624,12 @@ class LoginService(val system: Micro) {
 
             return result
         }
-        return UserLoginModelResponse(loginName=login.loginName)
+        return UserLoginModelResponse(loginName = login.loginName)
     }
 
     fun currentUser(): I_AD_User {
         val ctx = Env.getCtx()
         val userId = Env.getContext(ctx, Env.AD_USER_ID)
-        return MUser.get(ctx, userId)
+        return MUser.get(ctx, userId.toInt())
     }
 }

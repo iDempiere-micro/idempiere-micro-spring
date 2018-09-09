@@ -39,7 +39,6 @@ class IdempiereMicroSpringApplicationTests : BaseTest() {
         assertNotNull(result?.token)
     }
 
-
     @Autowired
     private lateinit var userController: UserController
 

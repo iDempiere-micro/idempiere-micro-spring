@@ -1,19 +1,11 @@
 package company.bigger.web.controller
 
-import company.bigger.Micro
 import company.bigger.dto.UserLoginModel
 import company.bigger.dto.UserLoginModelResponse
-import company.bigger.service.LoginService
-import company.bigger.service.UserService
 import company.bigger.web.jwt.ApiKeySecured
+import company.bigger.web.jwt.ApiKeySecuredAspect
 import org.compiere.model.I_AD_User
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Configurable
-import org.springframework.stereotype.Component
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 open class UserController : BaseController() {
@@ -26,7 +18,7 @@ open class UserController : BaseController() {
     @GetMapping()
     @ApiKeySecured
     @RequestMapping(value = ["/user/me"])
-    fun me(): I_AD_User? {
-        return userService.currentUser()
+    fun me(@RequestHeader(value = "Authorization") authorization: String): I_AD_User? {
+        return ApiKeySecuredAspect.processAuthorization(authorization, userService, {}, { userService.currentUser() }) as I_AD_User?
     }
 }

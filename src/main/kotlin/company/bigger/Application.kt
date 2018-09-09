@@ -35,7 +35,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor
 @Configuration
 @EnableCaching
 @SpringBootApplication
-open class Application: WebMvcConfigurerAdapter() {
+open class Application : WebMvcConfigurerAdapter() {
     override fun addInterceptors(registry: InterceptorRegistry?) {
         registry!!.addInterceptor(exposeResponseInterceptor())
     }
@@ -72,7 +72,7 @@ fun main(args: Array<String>) {
 open class Micro {
 
     companion object {
-        private var singleton : Micro? = null
+        private var singleton: Micro? = null
         val instance get() = singleton!!
     }
 

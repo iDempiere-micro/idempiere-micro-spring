@@ -35,6 +35,51 @@ class ApiKeySecuredAspect(@Autowired val userService: UserService) {
     fun securedApiPointcut() {
     }
 
+    companion object {
+        private val LOG = LoggerFactory.getLogger(ApiKeySecuredAspect::class.java)
+
+        fun processAuthorization(authorization: String?, userService: UserService, issueError: () -> Unit, execute: () -> Any?): Any? {
+            val apiKey = authorization?.replace("Token ", "")?.replace("Bearer ", "")
+
+            if (StringUtils.isEmpty(apiKey)) {
+                LOG.info("No Authorization part of the request header/parameters, returning {}.", HttpServletResponse.SC_UNAUTHORIZED)
+
+                issueError()
+                return null
+            }
+
+            // find the user associated to the given api key.
+            var user = userService.findByToken(apiKey ?: "")
+            LOG.info("user by token: ${user?.loginName}")
+            if (user == null) {
+                LOG.info("No user with Authorization: {}, returning {}.", apiKey, HttpServletResponse.SC_UNAUTHORIZED)
+
+                issueError()
+                return null
+            } else {
+                // validate JWT
+                try {
+                    LOG.info("Validating JWT")
+                    if (!userService.validToken(apiKey ?: "", user)) {
+                        LOG.info("JWT invalid")
+                        LOG.info("Authorization: {} is an invalid JWT.", apiKey, HttpServletResponse.SC_UNAUTHORIZED)
+
+                        issueError()
+                        return null
+                    }
+                } catch (e: Exception) {
+                    issueError()
+                }
+            }
+
+            LOG.info("User is: ${user?.loginName}")
+            userService.setCurrentUser(user)
+
+            LOG.info("OK accessing resource, proceeding.")
+            return execute()
+        }
+    }
+
     @Around("securedApiPointcut()")
     @Throws(Throwable::class)
     fun aroundSecuredApiPointcut(joinPoint: ProceedingJoinPoint): Any? {
@@ -48,76 +93,32 @@ class ApiKeySecuredAspect(@Autowired val userService: UserService) {
         val signature = joinPoint.signature as MethodSignature
         val method = signature.method
         val anno = method.getAnnotation(ApiKeySecured::class.java)
+        val authorization = request!!.getHeader("Authorization")
+        return processAuthorization(authorization, userService, { issueError(response) },
+                {
+                    // execute
+                    try {
+                        val result = joinPoint.proceed()
+                        // remove user from thread local
+                        userService.clearCurrentUser()
 
-        val apiKey = request!!.getHeader("Authorization")?.replace("Token ", "")
+                        LOG.info("DONE accessing resource.")
 
-        if (StringUtils.isEmpty(apiKey) && anno.mandatory) {
-            LOG.info("No Authorization part of the request header/parameters, returning {}.", HttpServletResponse.SC_UNAUTHORIZED)
-
-            issueError(response)
-            return null
-        }
-
-        // find the user associated to the given api key.
-        var user = userService.findByToken(apiKey ?: "")
-        LOG.info("user by token: ${user?.loginName}")
-        if (user == null && anno.mandatory) {
-            LOG.info("No user with Authorization: {}, returning {}.", apiKey, HttpServletResponse.SC_UNAUTHORIZED)
-
-            issueError(response)
-            return null
-        } else {
-            // validate JWT
-            try {
-                LOG.info("Validating JWT")
-                if (!userService.validToken(apiKey ?: "", user)) {
-                    LOG.info("JWT invalid")
-                    if (!anno.mandatory && user == null) {
-                        LOG.info("No problem because not mandatory")
-                        user = null
-                    } else { // error
-                        LOG.info("Authorization: {} is an invalid JWT.", apiKey, HttpServletResponse.SC_UNAUTHORIZED)
-
-                        issueError(response)
-                        return null
+                        result
+                    } catch (e: Throwable) {
+                        // check for custom exception
+                        val rs = e.javaClass.getAnnotation(ResponseStatus::class.java)
+                        if (rs != null) {
+                            LOG.error("ERROR accessing resource, reason: '{}', status: {}.",
+                                    if (StringUtils.isEmpty(e.message)) rs.reason else e.message,
+                                    rs.value)
+                        } else {
+                            LOG.error("ERROR accessing resource")
+                        }
+                        throw e
                     }
                 }
-            } catch (e: Exception) {
-                if (anno.mandatory) {
-                    issueError(response)
-                    return null
-                } else
-                    user = null
-            }
-        }
-
-        LOG.info("User is: ${user?.loginName}")
-        userService.setCurrentUser(user)
-
-        LOG.info("OK accessing resource, proceeding.")
-
-        // execute
-        try {
-            val result = joinPoint.proceed()
-            // remove user from thread local
-            userService.clearCurrentUser()
-
-            LOG.info("DONE accessing resource.")
-
-            return result
-        } catch (e: Throwable) {
-            // check for custom exception
-            val rs = e.javaClass.getAnnotation(ResponseStatus::class.java)
-            if (rs != null) {
-                LOG.error("ERROR accessing resource, reason: '{}', status: {}.",
-                        if (StringUtils.isEmpty(e.message)) rs.reason else e.message,
-                        rs.value)
-            } else {
-                LOG.error("ERROR accessing resource")
-            }
-            throw e
-        }
-
+        )
     }
 
     private fun issueError(response: HttpServletResponse) {
@@ -130,9 +131,5 @@ class ApiKeySecuredAspect(@Autowired val userService: UserService) {
     fun setStatus(response: HttpServletResponse?, sc: Int) {
         if (response != null)
             response.status = sc
-    }
-
-    companion object {
-        private val LOG = LoggerFactory.getLogger(ApiKeySecuredAspect::class.java)
     }
 }
