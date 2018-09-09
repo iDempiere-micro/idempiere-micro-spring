@@ -19,6 +19,4 @@ script:
   - ./integration_test.sh
 env:
   # on Travis we need to run the docker image on port 5433
-  - CONNECTION="xyzCConnection[name=0.0.0.0{localhost-idempiere-adempiere},AppsHost=0.0.0.0,WebPort=8081,SSLPort=8443,type=PostgreSQL,DBhost=localhost,DBport=5433,DBname=idempiere,BQ=false,FW=false,FWhost=,FWport=0,UID=adempiere,PWD=adempiere]"
-  - JWT_SECRET=Em3u7dCZ2QSvSGSGSRFUTfrwgu3WjfU2rHZxSjNSqU5x89C3jXPL6WLMW7dTE6rd9NRgWAwUWHkj8ZLfbCNU8uVfv9kuBmWCYPkk776A5jQ2LeJ76bZbdhXN
-  - JWT_ISSUER=Kotlin&Spring
+  - CONNECTION="xyzCConnection[name=0.0.0.0{localhost-idempiere-adempiere},AppsHost=0.0.0.0,WebPort=8081,SSLPort=8443,type=PostgreSQL,DBhost=localhost,DBport=5433,DBname=idempiere,BQ=false,FW=false,FWhost=,FWport=0,UID=adempiere,PWD=adempiere]" JWT_SECRET=Em3u7dCZ2QSvSGSGSRFUTfrwgu3WjfU2rHZxSjNSqU5x89C3jXPL6WLMW7dTE6rd9NRgWAwUWHkj8ZLfbCNU8uVfv9kuBmWCYPkk776A5jQ2LeJ76bZbdhXN JWT_ISSUER=Kotlin&Spring
