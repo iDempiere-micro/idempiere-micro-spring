@@ -60,8 +60,8 @@ jobs:
 
       # run tests!
       - run: mvn package site
-      - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
-      - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
+      # - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
+      # - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
 
   deploy:
     docker:
