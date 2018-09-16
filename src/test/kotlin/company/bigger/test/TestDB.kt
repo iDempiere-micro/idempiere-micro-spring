@@ -31,7 +31,7 @@ class TestDB : BaseTest() {
     @Test
     fun login() {
         val pg = PgDB()
-        val cnn = pg.connect(CConnection.get())
+        val cnn = pg.connect(CConnection.get(), true)
         assertNotNull(cnn)
     }
     @Test
