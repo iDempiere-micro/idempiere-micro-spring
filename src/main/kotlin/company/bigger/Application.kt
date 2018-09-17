@@ -1,10 +1,12 @@
 package company.bigger
 
 import company.bigger.common.db.CConnection
+import company.bigger.service.UserService
 import company.bigger.util.DatabaseImpl
 import company.bigger.util.DummyEventManager
 import company.bigger.util.DummyService
 import company.bigger.util.Ini
+import company.bigger.web.jwt.ExposeResponseInterceptor
 import org.compiere.orm.MClient
 import org.compiere.orm.MSystem
 import org.compiere.validation.ModelValidationEngine
@@ -19,11 +21,48 @@ import org.idempiere.common.util.Trx
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.cache.annotation.EnableCaching
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
+@Configuration
+@EnableCaching
 @SpringBootApplication
-open class Application
+open class Application : WebMvcConfigurerAdapter() {
+    override fun addInterceptors(registry: InterceptorRegistry?) {
+        registry!!.addInterceptor(exposeResponseInterceptor())
+    }
+
+    override fun addCorsMappings(registry: CorsRegistry?) {
+        registry!!.addMapping("/api/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600)
+        super.addCorsMappings(registry)
+    }
+
+    @Bean
+    open fun exposeResponseInterceptor() = ExposeResponseInterceptor()
+
+    @Bean
+    open fun methodValidationPostProcessor(): MethodValidationPostProcessor {
+        val mv = MethodValidationPostProcessor()
+        mv.setValidator(validator())
+        return mv
+    }
+
+    @Bean
+    open fun validator() = LocalValidatorFactoryBean()
+}
 
 fun main(args: Array<String>) {
     SpringApplication.run(Application::class.java, *args)
@@ -32,11 +71,23 @@ fun main(args: Array<String>) {
 @Component
 open class Micro {
 
+    companion object {
+        private var singleton: Micro? = null
+        val instance get() = singleton!!
+    }
+
+    init {
+        singleton = this
+    }
+
     @Autowired
     private lateinit var ini: Ini
 
     @Autowired
     private lateinit var cconnection: CConnection
+
+    @Autowired
+    var userService: UserService? = null
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!

@@ -15,4 +15,6 @@ install:
 
 package:
 	./mvnw package
-	
+
+migrate:	
+	./mvnw flyway:migrate -Dflyway.url=jdbc:postgresql://localhost:5433/idempiere&ssl=true&sslmode=require

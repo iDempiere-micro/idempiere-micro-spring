@@ -877,7 +877,8 @@ public class CConnection implements Serializable, Cloneable, ICConnection
 	{
 		try
 		{
-			attributes = attributes.substring(attributes.indexOf("[")+1, attributes.length() - 1);
+			attributes = attributes.substring(attributes.indexOf("[") + 1);
+			attributes = attributes.substring(0, attributes.indexOf("]"));
 			String[] pairs= attributes.split("[,]");
 			for(String pair : pairs)
 			{

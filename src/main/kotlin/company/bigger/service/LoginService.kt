@@ -1,10 +1,10 @@
 package company.bigger.service
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import company.bigger.dto.ILogin
 import company.bigger.dto.UserLoginModelResponse
 import org.compiere.crm.MUser
 import company.bigger.Micro
+import org.compiere.model.I_AD_User
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -26,19 +26,15 @@ import org.idempiere.common.util.Env
 import org.idempiere.common.util.KeyNamePair
 import org.idempiere.common.util.Util
 import org.idempiere.common.util.Language
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Component
-class LoginService {
+@Service
+class LoginService(val system: Micro) {
     companion object {
         private const val dateFormatOnlyForCtx = "yyyy-MM-dd"
         @JvmField val log = CLogger.getCLogger(LoginService::class.java)
         private const val C_BPARTNER_ID = "#C_BPartner_Id"
     }
-
-    @Autowired
-    private lateinit var system: Micro
 
     private fun getOrgsAddSummary(
         list: ArrayList<KeyNamePair>,
@@ -551,6 +547,29 @@ class LoginService {
         return list.toTypedArray()
     }
 
+    fun clearCurrentUser() {
+        val ctx = Env.getCtx()
+        ctx.setProperty(Env.AD_CLIENT_ID, "-1")
+        Env.setContext(ctx, Env.AD_CLIENT_ID, "-1")
+        Env.setContext(ctx, Env.AD_USER_ID, "-1")
+        Env.setContext(ctx, "#AD_User_Name", "")
+        Env.setContext(ctx, "#SalesRep_ID", "-1")
+    }
+
+    fun setCurrentUser(user: UserLoginModelResponse?) {
+        if (user == null) clearCurrentUser()
+        else {
+            val ctx = Env.getCtx()
+            val clientId = user.clientId.toString()
+            val userId = user.userId.toString()
+            ctx.setProperty(Env.AD_CLIENT_ID, clientId)
+            Env.setContext(ctx, Env.AD_CLIENT_ID, clientId)
+            Env.setContext(ctx, Env.AD_USER_ID, userId)
+            Env.setContext(ctx, "#AD_User_Name", user.loginName)
+            Env.setContext(ctx, "#SalesRep_ID", userId)
+        }
+    }
+
     fun login(login: ILogin): UserLoginModelResponse {
         system.startup()
 
@@ -600,19 +619,17 @@ class LoginService {
                                     login.language
                             )
 
-            val result = UserLoginModelResponse(logged, clients, roles, orgs, warehouses, null)
-
-            if (result.logged) {
-                val mapper = ObjectMapper()
-                val token = JwtManager.createToken(
-                        AD_User_ID.toString(), "",
-                        mapper.writeValueAsString(login)
-                )
-                return result.copy(token = token)
-            }
+            val result =
+                    UserLoginModelResponse(logged, clients, roles, orgs, warehouses, null, login.loginName, client.Key, user.Key)
 
             return result
         }
-        return UserLoginModelResponse()
+        return UserLoginModelResponse(loginName = login.loginName)
+    }
+
+    fun currentUser(): I_AD_User {
+        val ctx = Env.getCtx()
+        val userId = Env.getContext(ctx, Env.AD_USER_ID)
+        return MUser.get(ctx, userId.toInt())
     }
 }
