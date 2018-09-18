@@ -115,12 +115,6 @@
             <artifactId>jackson-module-kotlin</artifactId>
             <version>2.9.6</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jetbrains.exposed/exposed -->
-        <dependency>
-            <groupId>org.jetbrains.exposed</groupId>
-            <artifactId>exposed</artifactId>
-            <version>0.10.4</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -339,11 +333,6 @@
             </snapshots>
         </repository>
         <repository>
-            <id>exposed</id>
-            <name>exposed</name>
-            <url>https://dl.bintray.com/kotlin/exposed</url>
-        </repository>
-        <repository>
             <id>springio-plugins-release</id>
             <name>springio-plugins-release</name>
             <url>http://repo.spring.io/plugins-release/</url>
@@ -362,6 +351,17 @@
                     <xmlOutputDirectory>target/site</xmlOutputDirectory>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>                
+            </plugin>            
         </plugins>
     </reporting>
 </project>

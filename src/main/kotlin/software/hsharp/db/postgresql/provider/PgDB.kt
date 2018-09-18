@@ -9,6 +9,7 @@ import java.sql.DriverManager.setLoginTimeout
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import com.zaxxer.hikari.pool.HikariPool
+import org.idempiere.common.util.CLogger
 import java.sql.DriverManager
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentMap
@@ -60,9 +61,14 @@ open class PgDB {
     private var connectionparams: ICConnection? = null
     companion object {
         val cachedDs: ConcurrentMap<String, HikariDataSource> = ConcurrentHashMap()
+        val log = CLogger.getCLogger(PgDB::class.java)
     }
 
     fun connect(connection: ICConnection): DataSource? {
+        return connect(connection, false)
+    }
+
+    fun connect(connection: ICConnection, throwOnError: Boolean): DataSource? {
         connectionparams = connection
         val jdbcUrl = getConnectionURL(connection)
         val username = connection.dbUid
@@ -78,6 +84,8 @@ open class PgDB {
                     conn.close()
                 } catch (e: org.postgresql.util.PSQLException) {
                     // not logged in, go out
+                    if (throwOnError) throw e
+                    log.severe("Invalid username or password!")
                     return null
                 }
                 // if works return the real pooled DB
@@ -102,7 +110,9 @@ open class PgDB {
                 cachedDs[key] = ds
                 return ds
             } catch (ex: HikariPool.PoolInitializationException) {
+                if (throwOnError) throw ex
                 // invalid username or password
+                log.severe("Invalid username or password!")
                 return null
             }
         } else {
