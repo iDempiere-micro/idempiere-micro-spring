@@ -7,7 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm
 import org.compiere.model.I_AD_User
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
-import java.util.*
+import java.util.Date
 
 @Service
 class UserService(
