@@ -4,7 +4,9 @@ import company.bigger.dto.UserLoginModel
 import company.bigger.dto.UserLoginModelResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
+import org.compiere.crm.MUser
 import org.compiere.model.I_AD_User
+import org.idempiere.common.util.Env
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import java.util.Date
@@ -47,7 +49,7 @@ class UserService(
     }
 
     // @CachePut(cacheNames=arrayOf("usersByToken"), key="#user.token")
-    fun updateToken(user: UserLoginModelResponse): UserLoginModelResponse {
+    private fun updateToken(user: UserLoginModelResponse): UserLoginModelResponse {
         val result = user.copy(token = newToken(user))
         users[result.loginName] = result
         return result
@@ -61,5 +63,11 @@ class UserService(
 
     fun currentUser(): I_AD_User {
         return loginService.currentUser()
+    }
+
+    fun getUsers(): List<I_AD_User> {
+        val user = currentUser()
+        val ctx = Env.getCtx()
+        return MUser.getOfClient(ctx, user.aD_Client_ID, "pokus").map { it as I_AD_User }
     }
 }

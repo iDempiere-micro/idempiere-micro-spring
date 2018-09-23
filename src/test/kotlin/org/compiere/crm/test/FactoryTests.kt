@@ -1,24 +1,29 @@
 package org.compiere.crm.test
 
 import company.bigger.test.support.BaseTest
+import org.compiere.crm.MUser
 import org.compiere.model.I_C_BPartner
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.idempiere.common.util.DB
 import org.idempiere.common.util.Env
+import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 class FactoryTests : BaseTest() {
-    @Test
-    fun getUsingDefaultModelFactoryById() {
+    @Before
+    fun prepareEnv() {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
         ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
         Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
+    }
 
+    @Test
+    fun getUsingDefaultModelFactoryById() {
         val modelFactory: IModelFactory = DefaultModelFactory()
         val result = modelFactory.getPO(I_C_BPartner.Table_Name, 118, "pokus")
         println(result)
@@ -27,12 +32,7 @@ class FactoryTests : BaseTest() {
 
     @Test
     fun getUsingDefaultModelFactoryFromRS() {
-        val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
-        val AD_CLIENT_ID_s = AD_CLIENT_ID.toString()
-        ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
-        Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
-
         val tableName = I_C_BPartner.Table_Name
         val AD_ORG_ID = 0
         val id = 118
@@ -59,5 +59,13 @@ class FactoryTests : BaseTest() {
         assertEquals(id, result._ID)
 
         cnn.close()
+    }
+
+    @Test
+    fun `Users of Client 11 should be 6`() {
+        val ctx = Env.getCtx()
+        val AD_CLIENT_ID = 11
+        val res = MUser.getOfClient(ctx, AD_CLIENT_ID, "pokus")
+        assertEquals(6, res.count())
     }
 }

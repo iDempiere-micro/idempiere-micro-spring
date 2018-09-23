@@ -20,6 +20,7 @@ import org.springframework.core.env.Environment
 import org.springframework.test.context.junit4.SpringRunner
 import kotlin.test.assertNotNull
 import org.springframework.boot.web.server.LocalServerPort
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 @RunWith(SpringRunner::class)
@@ -95,5 +96,21 @@ class IdempiereMicroSpringApplicationTests : BaseTest() {
         assertNotNull(token)
         token!!
         val profile = userClient?.profile(token)
+        assertEquals("GardenUser", profile?.firstName)
+    }
+
+    @Test
+    fun `GardenUser can login and see other users`() {
+        val gardenUserLogin = loginClient?.login("GardenUser", "GardenUser")
+        println("$gardenUserLogin")
+        assertNotNull(gardenUserLogin)
+        gardenUserLogin!!
+        assertTrue { gardenUserLogin.logged }
+        val token = gardenUserLogin.token
+        assertNotNull(token)
+        token!!
+        val profiles = userClient?.all(token)
+        val found = profiles?.firstOrNull { it.firstName == "GardenUser" }
+        assertNotNull(found)
     }
 }

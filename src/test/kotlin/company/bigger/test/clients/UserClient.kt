@@ -10,4 +10,6 @@ import feign.RequestLine
 interface UserClient {
     @RequestLine("GET /user/me")
     fun profile(@Param("token") token: String): User?
+    @RequestLine("GET /users")
+    fun all(@Param("token") token: String): List<User>?
 }

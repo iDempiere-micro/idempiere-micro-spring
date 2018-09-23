@@ -33,4 +33,10 @@ open class UserController {
     fun me(@RequestHeader(value = "Authorization") authorization: String): ResponseEntity<I_AD_User?> {
         return securedApi.processAuthorization(authorization) { userService.currentUser() }
     }
+
+    @GetMapping()
+    @RequestMapping(value = ["/users"])
+    fun all(@RequestHeader(value = "Authorization") authorization: String): ResponseEntity<List<I_AD_User>?> {
+        return securedApi.processAuthorization(authorization) { userService.getUsers() }
+    }
 }
