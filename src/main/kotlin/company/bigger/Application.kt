@@ -1,7 +1,6 @@
 package company.bigger
 
 import company.bigger.common.db.CConnection
-import company.bigger.service.UserService
 import company.bigger.util.DatabaseImpl
 import company.bigger.util.DummyEventManager
 import company.bigger.util.DummyService
@@ -85,9 +84,6 @@ open class Micro {
 
     @Autowired
     private lateinit var cconnection: CConnection
-
-    @Autowired
-    var userService: UserService? = null
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!
