@@ -5,7 +5,6 @@ import company.bigger.util.DatabaseImpl
 import company.bigger.util.DummyEventManager
 import company.bigger.util.DummyService
 import company.bigger.util.Ini
-import company.bigger.web.jwt.ExposeResponseInterceptor
 import org.compiere.orm.MClient
 import org.compiere.orm.MSystem
 import org.compiere.validation.ModelValidationEngine
@@ -35,10 +34,6 @@ import java.util.concurrent.ScheduledThreadPoolExecutor
 @EnableCaching
 @SpringBootApplication
 open class Application : WebMvcConfigurerAdapter() {
-    override fun addInterceptors(registry: InterceptorRegistry?) {
-        registry!!.addInterceptor(exposeResponseInterceptor())
-    }
-
     override fun addCorsMappings(registry: CorsRegistry?) {
         registry!!.addMapping("/api/**")
                 .allowedOrigins("*")
@@ -48,9 +43,6 @@ open class Application : WebMvcConfigurerAdapter() {
                 .maxAge(3600)
         super.addCorsMappings(registry)
     }
-
-    @Bean
-    open fun exposeResponseInterceptor() = ExposeResponseInterceptor()
 
     @Bean
     open fun methodValidationPostProcessor(): MethodValidationPostProcessor {
