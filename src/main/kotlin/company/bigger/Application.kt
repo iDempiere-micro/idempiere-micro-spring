@@ -20,38 +20,24 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cache.annotation.EnableCaching
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean
-import org.springframework.validation.beanvalidation.MethodValidationPostProcessor
 import org.springframework.web.servlet.config.annotation.CorsRegistry
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
 @Configuration
 @EnableCaching
 @SpringBootApplication
-open class Application : WebMvcConfigurerAdapter() {
+open class Application : WebMvcConfigurer {
     override fun addCorsMappings(registry: CorsRegistry?) {
-        registry!!.addMapping("/api/**")
+        registry!!.addMapping("*")
                 .allowedOrigins("*")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(false)
                 .maxAge(3600)
-        super.addCorsMappings(registry)
     }
-
-    @Bean
-    open fun methodValidationPostProcessor(): MethodValidationPostProcessor {
-        val mv = MethodValidationPostProcessor()
-        mv.setValidator(validator())
-        return mv
-    }
-
-    @Bean
-    open fun validator() = LocalValidatorFactoryBean()
 }
 
 fun main(args: Array<String>) {
