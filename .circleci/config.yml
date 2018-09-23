@@ -55,15 +55,8 @@ jobs:
       # run the migrations
       - run: mvn flyway:migrate
 
-      # get the code climate test reporter    
-      #- run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      #- run: chmod +x ./cc-test-reporter
-      #- run: ./cc-test-reporter before-build
-
       # run tests!
       - run: mvn package
-      # - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
-      # - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
 
   deploy:
     docker:
@@ -79,10 +72,18 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
+      # get the code climate test reporter    
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - run: chmod +x ./cc-test-reporter
+      - run: ./cc-test-reporter before-build
       - run:
           name: Generate the site
           command:
             mvn site
+      - run: cp -R src/main/kotlin/* src/main/java/
+      - run: touch src/main/java/software/hsharp/core/util/ParseKt.java
+      - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
+      - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
 workflows:
   version: 2
   build-deploy:
