@@ -62,10 +62,11 @@ class FactoryTests : BaseTest() {
     }
 
     @Test
-    fun `Users of Client 11 should be 6`() {
+    fun `Client 11 has GardenUser and GardenAdmin`() {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
         val res = MUser.getOfClient(ctx, AD_CLIENT_ID, "pokus")
-        assertEquals(6, res.count())
+        assertNotNull(res.find { it.firstName == "GardenUser" })
+        assertNotNull(res.find { it.firstName == "GardenAdmin" })
     }
 }
