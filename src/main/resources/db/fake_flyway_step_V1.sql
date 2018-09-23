@@ -19,5 +19,5 @@ CREATE INDEX flyway_schema_history_s_idx ON adempiere.flyway_schema_history USIN
 
 INSERT INTO adempiere.flyway_schema_history (installed_rank,"version",description,"type",script,checksum,installed_by,installed_on,execution_time,success) VALUES 
 (0,NULL,'<< Flyway Schema Creation >>','SCHEMA','"adempiere"',NULL,'adempiere','2018-08-30 23:01:20.813',0,true)
-,(1,'1','iDempiere 5.1.0','SQL','V1__iDempiere_5.1.0.sql',-1553888761,'adempiere','2018-08-30 23:01:24.397',331898,true)
+,(1,'1','iDempiere 5.1.0','SQL','V1__iDempiere_5.1.0.sql',-638650706,'adempiere','2018-08-30 23:01:24.397',331898,true)
 ;
