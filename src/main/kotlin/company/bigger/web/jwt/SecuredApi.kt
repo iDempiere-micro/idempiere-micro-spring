@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
 import org.springframework.util.StringUtils
-import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 /**
@@ -22,10 +21,6 @@ import javax.servlet.http.HttpServletResponse
  */
 @Component
 class SecuredApi() {
-
-    @Autowired
-    lateinit var request: HttpServletRequest
-
     @Autowired
     lateinit var userService: UserService
 
@@ -39,7 +34,7 @@ class SecuredApi() {
 
         if (StringUtils.isEmpty(apiKey)) {
             val errorMessage = "No Authorization part of the request header/parameters, returning ${HttpStatus.UNAUTHORIZED}."
-            LOG.info(errorMessage )
+            LOG.info(errorMessage)
 
             return ResponseEntity(failedResult, HttpStatus.UNAUTHORIZED)
         }
@@ -72,5 +67,4 @@ class SecuredApi() {
         LOG.info("OK accessing resource, proceeding.")
         return ResponseEntity(execute(), HttpStatus.OK)
     }
-
 }
