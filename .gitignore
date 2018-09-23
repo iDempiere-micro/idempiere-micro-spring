@@ -39,5 +39,4 @@ log
 /dockerize-linux-amd64-v0.6.1.tar.gz
 *.swp
 /src/main/java/**/*.kt
-
 /src/main/java/software/hsharp/core/util/ParseKt.java
