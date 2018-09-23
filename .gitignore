@@ -37,3 +37,4 @@ log
 /coverage/codeclimate.json
 /dockerize
 /dockerize-linux-amd64-v0.6.1.tar.gz
+*.swp
