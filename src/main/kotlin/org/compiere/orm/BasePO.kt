@@ -9,6 +9,7 @@ import org.compiere.orm.MTable
 abstract class BasePO : PO {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
+    constructor (ctx: Properties, rs: ResultSet, trxName: String?, a: String?) : super(ctx, rs, trxName, a)
 
     @Throws(RuntimeException::class)
     fun getAD_User(): org.compiere.model.I_AD_User? {
