@@ -28,7 +28,7 @@ it ('GardenUser can login and token works', function () {
       .expect('status', 200)
       .expect('json', 'logged', true)      
       .then(function (res) { // res = FrisbyResponse object
-        let token = res.json[0].token;
+        let token = res.json.token;
 	return frisby
 	  .setup({
         request: {
@@ -39,6 +39,8 @@ it ('GardenUser can login and token works', function () {
         }
       })
       .get('http://localhost:8080/user/me')
-      .expect('status', 200);
+      .expect('status', 200)
+      .expect('json', 'firstName', 'GardenUser')
+      .expect('json', 'key', 102);
       });	      
 });
