@@ -24,7 +24,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_AD_Preference 
+public interface I_AD_Preference  extends IBasePO
 {
 
     /** TableName=AD_Preference */
@@ -117,17 +117,6 @@ public interface I_AD_Preference
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
 
-	/** Set User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public void setAD_User_ID (int AD_User_ID);
-
-	/** Get User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public int getAD_User_ID();
-
-	public I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name AD_Window_ID */
     public static final String COLUMNNAME_AD_Window_ID = "AD_Window_ID";

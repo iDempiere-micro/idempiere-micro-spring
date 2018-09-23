@@ -24,7 +24,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_AD_LdapAccess 
+public interface I_AD_LdapAccess  extends IBasePO
 {
 
     /** TableName=AD_LdapAccess */
@@ -100,20 +100,8 @@ public interface I_AD_LdapAccess
 	public int getAD_Org_ID();
 
     /** Column name AD_User_ID */
-    public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
-
-	/** Set User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public void setAD_User_ID (int AD_User_ID);
-
-	/** Get User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public int getAD_User_ID();
-
-	public I_AD_User getAD_User() throws RuntimeException;
-
+		public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+		
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
 
