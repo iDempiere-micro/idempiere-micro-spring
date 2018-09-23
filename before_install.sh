@@ -13,5 +13,7 @@ docker volume create --name idempiere-pgsql-datastore
 docker run -d -v idempiere-pgsql-datastore:/data -p 5433:5432 -e PASS="postgres" idempiere/idempiere-docker-pgsql:5.1.0.latest
 
 #dockerize
-wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz
+if [ ! -f dockerize-linux-amd64-v0.6.1.tar.gz ]; then
+    wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz
+fi
 tar zxvf dockerize-linux-amd64-v0.6.1.tar.gz
