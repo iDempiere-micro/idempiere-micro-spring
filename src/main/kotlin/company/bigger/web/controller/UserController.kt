@@ -2,7 +2,6 @@ package company.bigger.web.controller
 
 import company.bigger.dto.UserLoginModel
 import company.bigger.dto.UserLoginModelResponse
-import company.bigger.web.jwt.ApiKeySecured
 import company.bigger.web.jwt.ApiKeySecuredAspect
 import org.compiere.model.I_AD_User
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,7 +26,6 @@ open class UserController {
     }
 
     @GetMapping()
-    @ApiKeySecured
     @RequestMapping(value = ["/user/me"])
     fun me(@RequestHeader(value = "Authorization") authorization: String): I_AD_User? {
         return ApiKeySecuredAspect.processAuthorization(authorization, userService, {}, { userService.currentUser() }) as I_AD_User?
