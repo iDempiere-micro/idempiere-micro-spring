@@ -1,14 +1,6 @@
 package org.compiere.crm
 
-import java.sql.PreparedStatement
-
-class ForgottenBPartners : BaseBPartnerSearch() {
-    override fun setStatementParams(statement: PreparedStatement) {
-        statement.setInt(1, AD_CLIENT_ID)
-        statement.setInt(2, AD_ORG_ID)
-        statement.setInt(3, AD_ORG_ID)
-    }
-
+class ForgottenBPartners : SimpleBPartnerSearch() {
     override fun getSql(): String {
         val columns =
             if (full) { "*, C_ContactActivity_ID as activity_C_ContactActivity_ID" } else { "c_bpartner_id,name,taxid" }
