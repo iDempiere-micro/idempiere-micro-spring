@@ -3,7 +3,7 @@ package company.bigger.web.controller
 import company.bigger.dto.CreateCustomerModel
 import company.bigger.service.BPartnerService
 import company.bigger.web.jwt.SecuredApi
-import org.compiere.crm.DetailResult
+import org.compiere.bo.CustomerProcessBaseResult
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PutMapping
@@ -25,7 +25,7 @@ class BPartnerController {
     fun all(
         @RequestHeader(value = "Authorization") authorization: String,
         @RequestBody createCustomerModel: CreateCustomerModel
-    ): ResponseEntity<DetailResult?> {
+    ): ResponseEntity<CustomerProcessBaseResult?> {
         return securedApi.processAuthorization(authorization) { bpartnerService.createBPartner(createCustomerModel) }
     }
 }

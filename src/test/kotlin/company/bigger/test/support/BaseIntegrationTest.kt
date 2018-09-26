@@ -1,6 +1,7 @@
 package company.bigger.test.support
 
 import company.bigger.Micro
+import company.bigger.test.clients.BPartnerClient
 import company.bigger.test.clients.LoginClient
 import company.bigger.test.clients.UserClient
 import feign.Feign
@@ -39,6 +40,7 @@ open class BaseIntegrationTest : BaseTest() {
 
     protected var loginClient: LoginClient? = null
     protected var userClient: UserClient? = null
+    protected var bpartnerClient: BPartnerClient? = null
 
     @Before
     override fun prepare() {
@@ -46,9 +48,18 @@ open class BaseIntegrationTest : BaseTest() {
         micro.startup()
         loginClient = buildClient(LoginClient::class.java)
         userClient = buildClient(UserClient::class.java)
+        bpartnerClient = buildClient(BPartnerClient::class.java)
     }
 
     @Test
     fun contextLoadsBase() {
+    }
+
+    protected fun getGardenUserToken(): String {
+        val gardenUserLogin = loginClient?.login("GardenUser", "GardenUser")
+        gardenUserLogin!!
+        val token = gardenUserLogin.token
+        token!!
+        return token
     }
 }

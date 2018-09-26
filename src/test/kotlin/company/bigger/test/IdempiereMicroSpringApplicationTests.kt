@@ -26,29 +26,13 @@ class IdempiereMicroSpringApplicationTests : BaseIntegrationTest() {
     }
     @Test
     fun `GardenUser can login and token works`() {
-        val gardenUserLogin = loginClient?.login("GardenUser", "GardenUser")
-        println("$gardenUserLogin")
-        assertNotNull(gardenUserLogin)
-        gardenUserLogin!!
-        assertTrue { gardenUserLogin.logged }
-        val token = gardenUserLogin.token
-        assertNotNull(token)
-        token!!
-        val profile = userClient?.profile(token)
+        val profile = userClient?.profile(getGardenUserToken())
         assertEquals("GardenUser", profile?.firstName)
     }
 
     @Test
     fun `GardenUser can login and see other users`() {
-        val gardenUserLogin = loginClient?.login("GardenUser", "GardenUser")
-        println("$gardenUserLogin")
-        assertNotNull(gardenUserLogin)
-        gardenUserLogin!!
-        assertTrue { gardenUserLogin.logged }
-        val token = gardenUserLogin.token
-        assertNotNull(token)
-        token!!
-        val profiles = userClient?.all(token)
+        val profiles = userClient?.all(getGardenUserToken())
         val found = profiles?.firstOrNull { it.firstName == "GardenUser" }
         assertNotNull(found)
     }

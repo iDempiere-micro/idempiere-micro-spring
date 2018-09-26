@@ -2,7 +2,7 @@ package company.bigger.service
 
 import company.bigger.dto.CreateCustomerModel
 import org.compiere.bo.CreateCustomer
-import org.compiere.crm.DetailResult
+import org.compiere.bo.CustomerProcessBaseResult
 import org.compiere.process.ProcessInfo
 import org.compiere.process.ProcessInfoParameter
 import org.compiere.process.ProcessUtil
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class BPartnerService {
-    fun createBPartner(model: CreateCustomerModel): DetailResult {
+    fun createBPartner(model: CreateCustomerModel): CustomerProcessBaseResult {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
@@ -70,6 +70,6 @@ class BPartnerService {
         processInfo.parameter = parameters.toTypedArray()
         processInfo.className = process.javaClass.canonicalName
         ProcessUtil.startJavaProcess(ctx, processInfo, null, false, null, process)
-        return processInfo.serializableObject as DetailResult
+        return processInfo.serializableObject as CustomerProcessBaseResult
     }
 }
