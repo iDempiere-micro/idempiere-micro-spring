@@ -581,48 +581,56 @@ class LoginService(val system: Micro) {
         Env.setContext(ctx, Env.AD_CLIENT_ID, "" + login.clientId)
 
         val clients = getClients(login.loginName, login.password)
-        val client = clients.first { clients.count() == 1 || it.Key == login.clientId }
-        ctx.setProperty(Env.AD_CLIENT_ID, client.ID)
-        Env.setContext(ctx, Env.AD_CLIENT_ID, client.ID)
+        val client = clients.firstOrNull { clients.count() == 1 || it.Key == login.clientId }
+        if (client != null) {
+            ctx.setProperty(Env.AD_CLIENT_ID, client.ID)
+            Env.setContext(ctx, Env.AD_CLIENT_ID, client.ID)
 
-        val roles = getRoles(login.loginName, client)
+            val roles = getRoles(login.loginName, client)
 
-        val user = MUser.get(ctx, login.loginName)
-        if (user != null) {
+            val user = MUser.get(ctx, login.loginName)
+            if (user != null) {
 
-            Env.setContext(ctx, Env.AD_USER_ID, user.ID)
-            Env.setContext(ctx, "#AD_User_Name", user.name)
-            Env.setContext(ctx, "#SalesRep_ID", user.ID)
+                Env.setContext(ctx, Env.AD_USER_ID, user.ID)
+                Env.setContext(ctx, "#AD_User_Name", user.name)
+                Env.setContext(ctx, "#SalesRep_ID", user.ID)
 
-            val role = roles.first { it.Key == login.roleId || roles.count() == 1 }
-            // orgs
-            val orgs = getOrgs(role)
+                val role = roles.first { it.Key == login.roleId || roles.count() == 1 }
+                // orgs
+                val orgs = getOrgs(role)
 
-            val org = orgs.firstOrNull { it.Key == login.orgId || orgs.count() == 1 }
+                val org = orgs.firstOrNull { it.Key == login.orgId || orgs.count() == 1 }
 
-            val warehouses = if (org == null) { arrayOf() } else { getWarehouses(org) }
+                val warehouses = if (org == null) {
+                    arrayOf()
+                } else {
+                    getWarehouses(org)
+                }
 
-            val warehouse = if (org == null) { null } else {
-                warehouses.firstOrNull { it.Key == login.warehouseId || warehouses.count() == 1 }
+                val warehouse = if (org == null) {
+                    null
+                } else {
+                    warehouses.firstOrNull { it.Key == login.warehouseId || warehouses.count() == 1 }
+                }
+
+                val AD_User_ID = Env.getAD_User_ID(ctx)
+
+                val logged =
+                        setSecurityContext(
+                                ctx,
+                                AD_User_ID,
+                                role,
+                                client,
+                                org,
+                                warehouse,
+                                login.language
+                        )
+
+                val result =
+                        UserLoginModelResponse(logged, clients, roles, orgs, warehouses, null, login.loginName, client.Key, user.Key)
+
+                return result
             }
-
-            val AD_User_ID = Env.getAD_User_ID(ctx)
-
-            val logged =
-                            setSecurityContext(
-                                    ctx,
-                                    AD_User_ID,
-                                    role,
-                                    client,
-                                    org,
-                                    warehouse,
-                                    login.language
-                            )
-
-            val result =
-                    UserLoginModelResponse(logged, clients, roles, orgs, warehouses, null, login.loginName, client.Key, user.Key)
-
-            return result
         }
         return UserLoginModelResponse(loginName = login.loginName)
     }

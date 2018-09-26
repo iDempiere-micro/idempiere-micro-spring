@@ -7,7 +7,9 @@ import company.bigger.dto.UserLoginModel
 import company.bigger.service.UserService
 import company.bigger.test.clients.LoginClient
 import company.bigger.test.clients.UserClient
+import company.bigger.test.support.randomString
 import feign.Feign
+import feign.FeignException
 import feign.gson.GsonDecoder
 import feign.gson.GsonEncoder
 import org.junit.Before
@@ -18,10 +20,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.env.Environment
 import org.springframework.test.context.junit4.SpringRunner
-import kotlin.test.assertNotNull
 import org.springframework.boot.web.server.LocalServerPort
-import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import kotlin.test.*
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -112,5 +112,25 @@ class IdempiereMicroSpringApplicationTests : BaseTest() {
         val profiles = userClient?.all(token)
         val found = profiles?.firstOrNull { it.firstName == "GardenUser" }
         assertNotNull(found)
+    }
+
+    @Test
+    fun `Random user can not login (REST)`() {
+        val gardenUserLogin = loginClient?.login(randomString(10), randomString(10))
+        println("$gardenUserLogin")
+        assertNotNull(gardenUserLogin)
+        gardenUserLogin!!
+        assertFalse { gardenUserLogin.logged }
+    }
+
+    @Test
+    fun `Random token does not work`() {
+        val token = randomString(50)
+        try {
+            userClient?.profile(token)
+
+        } catch (ex: FeignException) {
+            if (ex.status()!=401) fail("Should HTTP 401 fail, not $ex")
+        }
     }
 }
