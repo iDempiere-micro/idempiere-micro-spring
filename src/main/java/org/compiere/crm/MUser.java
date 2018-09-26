@@ -102,6 +102,25 @@ public class MUser extends X_AD_User implements IUser
 	}	//	getOfBPartner
 
 	/**
+	 * Get active Users of Client
+	 * @param ctx
+	 * @param ad_client_id
+	 * @param trxName
+	 * @return array of users
+	 */
+	public static MUser[] getOfClient (Properties ctx, int ad_client_id, String trxName)
+	{
+		List<MUser> list = new Query(ctx, I_AD_User.Table_Name, "ad_client_id=?", trxName)
+			.setParameters(ad_client_id)
+			.setOnlyActiveRecords(true)
+			.list();
+
+		MUser[] retValue = new MUser[list.size ()];
+		list.toArray (retValue);
+		return retValue;
+	}	//	getOfBPartner
+
+	/**
 	 * 	Get Users with Role
 	 *	@param role role
 	 *	@return array of users

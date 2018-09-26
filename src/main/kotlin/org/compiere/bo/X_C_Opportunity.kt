@@ -25,12 +25,13 @@ import java.util.Properties
 import org.compiere.model.I_C_Opportunity
 import org.compiere.orm.MTable
 import org.compiere.orm.PO
+import org.compiere.orm.BasePO
 import org.idempiere.orm.I_Persistent
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.KeyNamePair
 import org.idempiere.orm.POInfo
 
-open class X_C_Opportunity : PO, I_C_Opportunity, I_Persistent {
+open class X_C_Opportunity : BasePO, I_C_Opportunity, I_Persistent {
     constructor(ctx: Properties, C_Opportunity_ID: Int, trxName: String?) : super(ctx, C_Opportunity_ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
 
@@ -50,31 +51,6 @@ open class X_C_Opportunity : PO, I_C_Opportunity, I_Persistent {
         val sb = StringBuffer("X_C_Opportunity[")
                 .append(_ID).append("]")
         return sb.toString()
-    }
-
-    @Throws(RuntimeException::class)
-    override fun getAD_User(): org.compiere.model.I_AD_User? {
-        if (aD_User_ID == 0) return null
-        return MTable.get(ctx, org.compiere.model.I_AD_User.Table_Name)
-                .getPO(aD_User_ID, _TrxName) as org.compiere.model.I_AD_User?
-    }
-
-    /** Set User/Contact.
-     * @param AD_User_ID
-     * User within the system - Internal or Business Partner Contact
-     */
-    override fun setAD_User_ID(AD_User_ID: Int) {
-        if (AD_User_ID < 1)
-            set_Value(I_C_Opportunity.COLUMNNAME_AD_User_ID, null)
-        else
-            set_Value(I_C_Opportunity.COLUMNNAME_AD_User_ID, Integer.valueOf(AD_User_ID))
-    }
-
-    /** Get User/Contact.
-     * @return User within the system - Internal or Business Partner Contact
-     */
-    override fun getAD_User_ID(): Int {
-        return get_Value(I_C_Opportunity.COLUMNNAME_AD_User_ID) as Int? ?: return 0
     }
 
     @Throws(RuntimeException::class)

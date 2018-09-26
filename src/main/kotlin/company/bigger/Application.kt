@@ -19,11 +19,26 @@ import org.idempiere.common.util.Trx
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.cache.annotation.EnableCaching
+import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.concurrent.ScheduledThreadPoolExecutor
 
+@Configuration
+@EnableCaching
 @SpringBootApplication
-open class Application
+open class Application : WebMvcConfigurer {
+    override fun addCorsMappings(registry: CorsRegistry?) {
+        registry!!.addMapping("*")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(false)
+                .maxAge(3600)
+    }
+}
 
 fun main(args: Array<String>) {
     SpringApplication.run(Application::class.java, *args)
@@ -31,6 +46,15 @@ fun main(args: Array<String>) {
 
 @Component
 open class Micro {
+
+    companion object {
+        private var singleton: Micro? = null
+        val instance get() = singleton!!
+    }
+
+    init {
+        singleton = this
+    }
 
     @Autowired
     private lateinit var ini: Ini
