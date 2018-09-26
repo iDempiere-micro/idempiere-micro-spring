@@ -6,7 +6,11 @@ import company.bigger.web.jwt.SecuredApi
 import org.compiere.crm.DetailResult
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class BPartnerController {
@@ -19,8 +23,9 @@ class BPartnerController {
     @PutMapping()
     @RequestMapping(value = ["/bpartners"])
     fun all(
-            @RequestHeader(value = "Authorization") authorization: String,
-            @RequestBody createCustomerModel: CreateCustomerModel): ResponseEntity<DetailResult?> {
+        @RequestHeader(value = "Authorization") authorization: String,
+        @RequestBody createCustomerModel: CreateCustomerModel
+    ): ResponseEntity<DetailResult?> {
         return securedApi.processAuthorization(authorization) { bpartnerService.createBPartner(createCustomerModel) }
     }
 }

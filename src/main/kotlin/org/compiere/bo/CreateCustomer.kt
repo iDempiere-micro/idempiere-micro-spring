@@ -6,54 +6,54 @@ import org.idempiere.common.util.Env
 import org.idempiere.common.util.Trx
 
 class CreateCustomer(
-        _AD_CLIENT_ID: Int = 0,
-        _AD_ORG_ID: Int = 0,
-        _AD_USER_ID: Int = 0,
+    _AD_CLIENT_ID: Int = 0,
+    _AD_ORG_ID: Int = 0,
+    _AD_USER_ID: Int = 0,
         // legal name
-        _bpName: String? = null, // name
+    _bpName: String? = null, // name
         // description
-        _description: String? = null, // description
+    _description: String? = null, // description
         // friendly name
-        _value: String? = null, // value
+    _value: String? = null, // value
         // DUNS (IC)
-        _duns: String? = null,
+    _duns: String? = null,
         // Tax ID (VAT ID)
-        _taxid: String? = null,
+    _taxid: String? = null,
         // place of business name
-        _locationName: String? = null,
+    _locationName: String? = null,
         // place of business address
-        _locationAddress: String? = null, // address1
+    _locationAddress: String? = null, // address1
         // place of business city
-        _locationCity: String? = null, // city
+    _locationCity: String? = null, // city
         // place of business postal
-        _locationPostal: String? = null, // postal
+    _locationPostal: String? = null, // postal
         // place of business phone
-        _locationPhone: String? = null, // phone
+    _locationPhone: String? = null, // phone
         // legal address
-        _legalAddress: String? = null,
+    _legalAddress: String? = null,
         // legal city
-        _legalCity: String? = null,
+    _legalCity: String? = null,
         // legal postal
-        _legalPostal: String? = null,
+    _legalPostal: String? = null,
         // telefon na sídlo
-        _legalPhone: String? = null,
+    _legalPhone: String? = null,
         // order contact person
-        _orderContactPerson: String? = null,
+    _orderContactPerson: String? = null,
         // decision maker
-        _decisionMaker: String? = null,
+    _decisionMaker: String? = null,
         // invoicing contact
-        _invoicingContact: String? = null,
+    _invoicingContact: String? = null,
         // already a customer
-        _isCustomer: Boolean? = null,
+    _isCustomer: Boolean? = null,
         // customer category
-        _customerCategoryId: Int? = null,
+    _customerCategoryId: Int? = null,
         // flat discount
-        _discount: Int? = null,
+    _discount: Int? = null,
         // account manager
-        _salesRepId: Int? = null,
+    _salesRepId: Int? = null,
 
-        _locationCountryId: Int? = null,
-        _legalCountryId: Int? = null
+    _locationCountryId: Int? = null,
+    _legalCountryId: Int? = null
 ) : CustomerProcessBase(
     _AD_CLIENT_ID,
     _AD_ORG_ID,
@@ -100,7 +100,7 @@ class CreateCustomer(
     _discount,
     // account manager
     _salesRepId,
-    
+
     _locationCountryId,
     _legalCountryId
 

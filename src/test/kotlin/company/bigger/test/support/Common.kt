@@ -1,6 +1,6 @@
 package company.bigger.test.support
 
-import java.util.*
+import java.util.Random
 
 internal fun randomString(length: Int): String {
     fun ClosedRange<Char>.randomString(length: Int) =
