@@ -223,15 +223,4 @@ public class Obscure extends Object
 		m_obscuredValue = sb.toString();
 		return m_obscuredValue;
 	}	//	getObscuredValue
-
-
-	/**************************************************************************
-	 *	test
-	 *	@param args ignored
-	 */
-	public static void main (String[] args)
-	{
-		System.out.println (Obscure.obscure("1a2b3c4d5e6f7g8h9"));
-	}	//	main
-
 }	//	Obscure

@@ -39,7 +39,6 @@ import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.Ini;
 import org.compiere.util.Msg;
 
 /**
@@ -154,14 +153,7 @@ public class MUOMConversion extends X_C_UOM_Conversion
 	static private BigDecimal getRate (Properties ctx, Point p)
 	{
 		BigDecimal retValue = null;
-		if (Ini.getIni().isClient())
-		{
-			if (s_conversions == null)
-				createRates(ctx);
-			retValue = (BigDecimal)s_conversions.get(p);
-		}
-		else
-			retValue = getRate (p.x, p.y);
+		retValue = getRate (p.x, p.y);
 		if (retValue != null)
 			return retValue;
 		//	try to derive

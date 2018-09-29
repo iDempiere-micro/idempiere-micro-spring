@@ -45,7 +45,6 @@ import org.eevolution.model.I_DD_Order;
 import org.eevolution.model.I_HR_Process;
 import org.eevolution.model.I_PP_Cost_Collector;
 import org.eevolution.model.I_PP_Order;
-import org.osgi.service.event.Event;
 
 /**
  *	Document Action Engine
@@ -1214,10 +1213,11 @@ public class DocumentEngine implements DocAction
 		ArrayList<String> docActionsArray = new ArrayList<String>(Arrays.asList(docAction));
 		ArrayList<String> optionsArray = new ArrayList<String>(Arrays.asList(options));
 		DocActionEventData eventData = new DocActionEventData(docStatus, processing, orderType, isSOTrx, AD_Table_ID, docActionsArray, optionsArray, indexObj, po);
-		Event event = EventManager.newEvent(IEventTopics.DOCACTION,
+		// TODO: DAP solve
+		/*Event event = EventManager.newEvent(IEventTopics.DOCACTION,
 				new EventProperty(EventManager.EVENT_DATA, eventData),
 				new EventProperty("tableName", po.get_TableName()));
-		EventManager.getInstance().sendEvent(event);
+		EventManager.getInstance().sendEvent(event);*/
 		index = indexObj.get();
 		for (int i = 0; i < optionsArray.size(); i++)
 			options[i] = optionsArray.get(i);
