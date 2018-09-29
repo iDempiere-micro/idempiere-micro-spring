@@ -1,10 +1,8 @@
 package org.compiere.orm
 
-import org.compiere.orm.PO
 import java.util.Properties
 import java.sql.ResultSet
 import org.compiere.model.I_C_Opportunity
-import org.compiere.orm.MTable
 
 abstract class BasePO : PO {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
