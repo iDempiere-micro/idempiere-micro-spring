@@ -35,11 +35,12 @@ import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.idempiere.common.util.Util;
+import org.idempiere.icommon.model.IPO;
 import org.idempiere.orm.POInfo;
 
 
 /**
- * 
+ *
  * @author Low Heng Sin
  * @author Teo Sarca, www.arhipac.ro
  * 			<li>FR [ 1981760 ] Improve Query class
@@ -55,7 +56,7 @@ import org.idempiere.orm.POInfo;
  * 			<li>FR [ 2818646 ] Implement Query.firstId/firstIdOnly
  * 				https://sourceforge.net/tracker/?func=detail&aid=2818646&group_id=176962&atid=879335
  * @author Redhuan D. Oon
- * 			<li>FR: [ 2214883 ] Remove SQL code and Replace for Query // introducing SQL String prompt in log.info 
+ * 			<li>FR: [ 2214883 ] Remove SQL code and Replace for Query // introducing SQL String prompt in log.info
  *			<li>FR: [ 2214883 ] - to introduce .setClient_ID
  */
 public class Query
@@ -65,9 +66,9 @@ public class Query
 	public static final String AGGREGATE_AVG		= "AVG";
 	public static final String AGGREGATE_MIN		= "MIN";
 	public static final String AGGREGATE_MAX		= "MAX";
-	
+
 	private static CLogger log	= CLogger.getCLogger (Query.class);
-	
+
 	private Properties ctx = null;
 	private MTable table = null;
 	private String whereClause = null;
@@ -84,19 +85,19 @@ public class Query
 	private boolean noVirtualColumn = false;
 	private int queryTimeout = 0;
 	private List<String> joinClauseList = new ArrayList<String>();
-	
-    /**
-     * Limit current query rows return.
-     */
-    private int pageSize;
 
-    /**
-     * Number of pages will be skipped on query run.
-     */
-    private int pagesToSkip;
-	
 	/**
-	 * 
+	 * Limit current query rows return.
+	 */
+	private int pageSize;
+
+	/**
+	 * Number of pages will be skipped on query run.
+	 */
+	private int pagesToSkip;
+
+	/**
+	 *
 	 * @param table
 	 * @param whereClause
 	 * @param trxName
@@ -109,9 +110,9 @@ public class Query
 		this.whereClause = whereClause;
 		this.trxName = trxName;
 	}
-	
+
 	/**
-	 * @param ctx context 
+	 * @param ctx context
 	 * @param table
 	 * @param whereClause
 	 * @param trxName
@@ -123,9 +124,9 @@ public class Query
 		this.whereClause = whereClause;
 		this.trxName = trxName;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param ctx
 	 * @param tableName
 	 * @param whereClause
@@ -137,7 +138,7 @@ public class Query
 		if (this.table == null)
 			throw new IllegalArgumentException("Table Name Not Found - "+tableName);
 	}
-	
+
 	/**
 	 * Set query parameters
 	 * @param parameters
@@ -147,7 +148,7 @@ public class Query
 		this.parameters = parameters;
 		return this;
 	}
-	
+
 	/**
 	 * Set query parameters
 	 * @param parameters collection of parameters
@@ -162,10 +163,10 @@ public class Query
 		parameters.toArray(this.parameters);
 		return this;
 	}
-	
+
 	/**
 	 * Set order by clause.
-	 * If the string starts with "ORDER BY" then "ORDER BY" keywords will be discarded. 
+	 * If the string starts with "ORDER BY" then "ORDER BY" keywords will be discarded.
 	 * @param orderBy SQL ORDER BY clause
 	 */
 	public Query setOrderBy(String orderBy)
@@ -177,7 +178,7 @@ public class Query
 		}
 		return this;
 	}
-	
+
 	/**
 	 * Turn on/off the addition of data access filter
 	 * @param flag
@@ -199,8 +200,8 @@ public class Query
 		this.applyAccessFilterRW = RW;
 		return this;
 	}
-	
-	
+
+
 	/**
 	 * Select only active records (i.e. IsActive='Y')
 	 * @param onlyActiveRecords
@@ -210,7 +211,7 @@ public class Query
 		this.onlyActiveRecords = onlyActiveRecords;
 		return this;
 	}
-	
+
 	/**
 	 * Set Client_ID true for WhereClause routine to include AD_Client_ID
 	 */
@@ -218,7 +219,7 @@ public class Query
 	{
 		return setClient_ID (true);
 	}
-	
+
 	/**
 	 * Set include or not include AD_Client_ID in where clause
 	 */
@@ -227,7 +228,7 @@ public class Query
 		this.onlyClient_ID = isIncludeClient;
 		return this;
 	}
-	
+
 	/**
 	 * Only records that are in T_Selection with AD_PInstance_ID.
 	 * @param AD_PInstance_ID
@@ -237,7 +238,7 @@ public class Query
 		this.onlySelection_ID = AD_PInstance_ID;
 		return this;
 	}
-	
+
 	/**
 	 * Add FOR UPDATE clause
 	 * @param forUpdate
@@ -247,36 +248,36 @@ public class Query
 		this.forUpdate = forUpdate;
 		return this;
 	}
-	
+
 	public Query setNoVirtualColumn(boolean noVirtualColumn)
 	{
 		this.noVirtualColumn = noVirtualColumn;
 		return this;
 	}
-	
+
 	public Query setQueryTimeout(int seconds)
 	{
 		this.queryTimeout = seconds;
 		return this;
 	}
-	
+
 	public Query addJoinClause(String joinClause)
 	{
 		joinClauseList.add(joinClause);
 		return this;
 	}
-	
+
 	/**
 	 * Return a list of all po that match the query criteria.
 	 * @return List
-	 * @throws DBException 
+	 * @throws DBException
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends PO> List<T> list() throws DBException
+	public <T extends IPO> List<T> list() throws DBException
 	{
 		List<T> list = new ArrayList<T>();
 		String sql = buildSQL(null, true);
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try
@@ -299,7 +300,7 @@ public class Query
 		}
 		return list;
 	}
-	
+
 	/**
 	 * Return first PO that match query criteria
 	 * @return first PO
@@ -310,7 +311,7 @@ public class Query
 	{
 		T po = null;
 		String sql = buildSQL(null, true);
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try
@@ -332,7 +333,7 @@ public class Query
 		}
 		return po;
 	}
-	
+
 	/**
 	 * Return first PO that match query criteria.
 	 * If there are more records that match criteria an exception will be throwed 
@@ -345,7 +346,7 @@ public class Query
 	{
 		T po = null;
 		String sql = buildSQL(null, true);
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try
@@ -373,7 +374,7 @@ public class Query
 		}
 		return po;
 	}
-	
+
 	/**
 	 * Return first ID
 	 * @return first ID or -1 if not found
@@ -383,7 +384,7 @@ public class Query
 	{
 		return firstId(false);
 	}
-	
+
 	/**
 	 * Return first ID.
 	 * If there are more results and exception is thrown.
@@ -394,7 +395,7 @@ public class Query
 	{
 		return firstId(true);
 	}
-	
+
 	private int firstId(boolean assumeOnlyOneResult) throws DBException
 	{
 		String[] keys = table.getKeyColumns();
@@ -439,21 +440,21 @@ public class Query
 		return id;
 	}
 
-	
+
 	/**
 	 * red1 - returns full SQL string - for caller needs
 	 * @return buildSQL(null,true)
-	 * 
+	 *
 	 */
 	public String getSQL() throws DBException
 	{
- 		return buildSQL(null, true);
+		return buildSQL(null, true);
 	}
 
 	/**
 	 * Aggregate given expression on this criteria
 	 * @param sqlExpression
-	 * @param sqlFunction 
+	 * @param sqlFunction
 	 * @return aggregated value
 	 * @throws DBException
 	 */
@@ -489,14 +490,14 @@ public class Query
 				throw new DBException("No Expression defined");
 			}
 		}
-		
+
 		StringBuilder sqlSelect = new StringBuilder("SELECT ").append(sqlFunction).append("(")
-					.append(sqlExpression).append(")")
-					.append(" FROM ").append(table.getTableName());
-		
+			.append(sqlExpression).append(")")
+			.append(" FROM ").append(table.getTableName());
+
 		T value = null;
 		T defaultValue = null;
-		
+
 		String sql = buildSQL(sqlSelect, false);
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -556,7 +557,7 @@ public class Query
 		}
 		return value;
 	}
-	
+
 	/**
 	 * Count items that match query criteria
 	 * @return count
@@ -566,7 +567,7 @@ public class Query
 	{
 		return aggregate("*", AGGREGATE_COUNT).intValue();
 	}
-	
+
 	/**
 	 * SUM sqlExpression for items that match query criteria
 	 * @param sqlExpression
@@ -600,13 +601,13 @@ public class Query
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Return an Iterator implementation to fetch one PO at a time. The implementation first retrieve
 	 * all IDS that match the query criteria and issue sql query to fetch the PO when caller want to
 	 * fetch the next PO. This minimize memory usage but it is slower than the list method.
 	 * @return Iterator
-	 * @throws DBException 
+	 * @throws DBException
 	 */
 	public <T extends PO> Iterator<T> iterate() throws DBException
 	{
@@ -621,7 +622,7 @@ public class Query
 		}
 		sqlBuffer.append(" FROM ").append(table.getTableName());
 		String sql = buildSQL(sqlBuffer, true);
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Object[]> idList = new ArrayList<Object[]>();
@@ -648,12 +649,12 @@ public class Query
 		}
 		return new POIterator<T>(table, idList, trxName);
 	}
-	
+
 	/**
 	 * Return a simple wrapper over a jdbc resultset. It is the caller responsibility to
 	 * call the close method to release the underlying database resources.
 	 * @return POResultSet
-	 * @throws DBException 
+	 * @throws DBException
 	 */
 	public <T extends PO> POResultSet<T> scroll() throws DBException
 	{
@@ -683,7 +684,7 @@ public class Query
 			}
 		}
 	}
-	
+
 	/**
 	 * Build SQL Clause
 	 * @param selectClause optional; if null the select clause will be build according to POInfo
@@ -700,15 +701,15 @@ public class Query
 			}
 			selectClause = info.buildSelect(!joinClauseList.isEmpty(), noVirtualColumn);
 		}
-		if (!joinClauseList.isEmpty()) 
+		if (!joinClauseList.isEmpty())
 		{
 			for(String joinClause : joinClauseList)
 			{
 				selectClause.append(" ").append(joinClause);
 			}
 		}
-		
-		StringBuilder whereBuffer = new StringBuilder(); 
+
+		StringBuilder whereBuffer = new StringBuilder();
 		if (!Util.isEmpty(this.whereClause, true))
 		{
 			if (whereBuffer.length() > 0)
@@ -742,9 +743,9 @@ public class Query
 			if (whereBuffer.length() > 0)
 				whereBuffer.append(" AND ");
 			whereBuffer.append(" EXISTS (SELECT 1 FROM T_Selection s WHERE s.AD_PInstance_ID=?"
-					+" AND s.T_Selection_ID="+table.getTableName()+"."+keys[0]+")");
+				+" AND s.T_Selection_ID="+table.getTableName()+"."+keys[0]+")");
 		}
-		
+
 		StringBuilder sqlBuffer = new StringBuilder(selectClause);
 		if (whereBuffer.length() > 0)
 		{
@@ -765,78 +766,78 @@ public class Query
 			if (DB.isPostgreSQL())
 				sql = sql + " OF " + table.getTableName();
 		}
-		
+
 		// If have pagination
-        if (pageSize > 0) {
-            sql = appendPagination(sql);
-        }
+		if (pageSize > 0) {
+			sql = appendPagination(sql);
+		}
 
-        if (log.isLoggable(Level.FINEST))
-            log.finest("TableName = " + table.getTableName() + "... SQL = " + sql); // red1 - to assist in debugging SQL
+		if (log.isLoggable(Level.FINEST))
+			log.finest("TableName = " + table.getTableName() + "... SQL = " + sql); // red1 - to assist in debugging SQL
 
-        return sql;
-    }
+		return sql;
+	}
 
-    /**
-     * Set the pagination of the query.
-     * 
-     * @param pPageSize
-     *            Limit current query rows return.
-     * 
-     * @return current Query
-     */
-    public Query setPageSize(int pPageSize) {
-        this.pageSize = pPageSize;
-        return this;
-    }
+	/**
+	 * Set the pagination of the query.
+	 *
+	 * @param pPageSize
+	 *            Limit current query rows return.
+	 *
+	 * @return current Query
+	 */
+	public Query setPageSize(int pPageSize) {
+		this.pageSize = pPageSize;
+		return this;
+	}
 
-    /**
-     * Set the pagination of the query.
-     * 
-     * @param pPageSize
-     *            Limit current query rows return.
-     * 
-     * @param pPagesToSkip
-     *            Number of pages will be skipped on query run. ZERO for first page
-     * 
-     * @return current Query
-     */
-    public Query setPage(int pPageSize, int pPagesToSkip) {
-        this.pageSize = pPageSize;
-        this.pagesToSkip = pPagesToSkip;
-        return this;
-    }
+	/**
+	 * Set the pagination of the query.
+	 *
+	 * @param pPageSize
+	 *            Limit current query rows return.
+	 *
+	 * @param pPagesToSkip
+	 *            Number of pages will be skipped on query run. ZERO for first page
+	 *
+	 * @return current Query
+	 */
+	public Query setPage(int pPageSize, int pPagesToSkip) {
+		this.pageSize = pPageSize;
+		this.pagesToSkip = pPagesToSkip;
+		return this;
+	}
 
-    /**
-     * If top is bigger than 0 set the pagination on query
-     * 
-     * @param query
-     *            SQL String
-     * @param pageSize
-     *            number
-     * @param skip
-     *            number
-     */
-    private String appendPagination(String pQuery) {
+	/**
+	 * If top is bigger than 0 set the pagination on query
+	 *
+	 * @param query
+	 *            SQL String
+	 * @param pageSize
+	 *            number
+	 * @param skip
+	 *            number
+	 */
+	private String appendPagination(String pQuery) {
 
-        String query = pQuery;
+		String query = pQuery;
 
-        if (pageSize > 0) {
-        	if (DB.getDatabase().isPagingSupported()) {
-        		query = DB.getDatabase().addPagingSQL(query, (pageSize*pagesToSkip) + 1, pageSize * (pagesToSkip+1));
-        	} else {
-        		throw new IllegalArgumentException("Pagination not supported by database");
-        	}
-        }
+		if (pageSize > 0) {
+			if (DB.getDatabase().isPagingSupported()) {
+				query = DB.getDatabase().addPagingSQL(query, (pageSize*pagesToSkip) + 1, pageSize * (pagesToSkip+1));
+			} else {
+				throw new IllegalArgumentException("Pagination not supported by database");
+			}
+		}
 
-        return query;
-    }
-	
+		return query;
+	}
+
 	private final ResultSet createResultSet (PreparedStatement pstmt) throws SQLException
 	{
 		DB.setParameters(pstmt, parameters);
 		int i = 1 + (parameters != null ? parameters.length : 0);
-		
+
 		if (this.onlyActiveRecords)
 		{
 			DB.setParameter(pstmt, i++, true);
@@ -859,7 +860,7 @@ public class Query
 		}
 		return pstmt.executeQuery();
 	}
-	
+
 	/**
 	 * Get a Array with the IDs for this Query
 	 * @return Get a Array with the IDs
@@ -878,7 +879,7 @@ public class Query
 		selectClause.append(keys[0]);
 		selectClause.append(" FROM ").append(table.getTableName());
 		String sql = buildSQL(selectClause, true);
-		
+
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

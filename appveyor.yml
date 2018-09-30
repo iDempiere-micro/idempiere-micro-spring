@@ -1,0 +1,18 @@
+image: ubuntu
+
+services:
+- docker
+
+install:
+- ./before_install.sh
+- sleep 10
+- PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d idempiere -f ./src/main/resources/db/fake_flyway_step_V1.sql
+- make migrate
+
+build_script:
+- mvn compile
+
+test_script:
+- mvn test
+
+build: off

@@ -128,8 +128,8 @@ public class MClient extends X_AD_Client {
     public static MClient[] getAll (Properties ctx, String orderBy)
     {
         List<MClient> list = new Query(ctx, I_AD_Client.Table_Name,null,null)
-                .setOrderBy(orderBy)
-                .list();
+            .setOrderBy(orderBy)
+            .list();
         for(MClient client:list ){
             s_cache.put (new Integer (client.getAD_Client_ID()), client);
         }
@@ -177,6 +177,26 @@ public class MClient extends X_AD_Client {
     }
 
     public void sendEMailAttachments(I_AD_User from, I_AD_User user, String schedulerName, String mailContent, List<File> fileList) {
+    }
+
+    /*
+     * Is Client Accounting enabled?
+     * CLIENT_ACCOUNTING parameter allow the next values
+     *   D - Disabled (default)
+     *   Q - Queue (enabled to post by hand - queue documents for posterior processing)
+     *   I - Immediate (immediate post - allow complete on errors)
+     *
+     *	@return boolean representing if client accounting is enabled and it's on a client
+     */
+    //private static final String CLIENT_ACCOUNTING_DISABLED = "D";
+    protected static final String CLIENT_ACCOUNTING_QUEUE = "Q";
+    protected static final String CLIENT_ACCOUNTING_IMMEDIATE = "I";
+
+    public boolean isClientAccountingImmediate() {
+        String ca = MSysConfig.getValue(MSysConfig.CLIENT_ACCOUNTING,
+            CLIENT_ACCOUNTING_QUEUE, // default
+            Env.getAD_Client_ID(Env.getCtx()));
+        return ca.equalsIgnoreCase(CLIENT_ACCOUNTING_IMMEDIATE);
     }
 
 }

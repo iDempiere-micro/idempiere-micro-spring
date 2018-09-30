@@ -9,7 +9,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_Opportunity  extends IBasePO
+public interface I_C_Opportunity 
 {
 
     /** TableName=C_Opportunity */
@@ -49,6 +49,18 @@ public interface I_C_Opportunity  extends IBasePO
 
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name C_BPartner_ID */
     public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";

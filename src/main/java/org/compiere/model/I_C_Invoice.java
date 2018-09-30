@@ -3,6 +3,7 @@ package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.idempiere.common.util.KeyNamePair;
@@ -12,7 +13,7 @@ import org.idempiere.icommon.model.IPO;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_Invoice extends IPO, IBasePO
+public interface I_C_Invoice extends IPO
 {
 
     /** TableName=C_Invoice */
@@ -66,6 +67,17 @@ public interface I_C_Invoice extends IPO, IBasePO
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
 
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name C_Activity_ID */
     public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
@@ -914,4 +926,50 @@ public interface I_C_Invoice extends IPO, IBasePO
 	I_C_InvoiceLine[] getLines(boolean b);
 
 	I_C_InvoiceTax[] getTaxes(boolean b);
+
+    ArrayList<IPODoc> getDocsPostProcess();
+
+	/** PaymentRule AD_Reference_ID=195 */
+	public static final int PAYMENTRULE_AD_Reference_ID=195;
+	/** Cash = B */
+	public static final String PAYMENTRULE_Cash = "B";
+	/** Credit Card = K */
+	public static final String PAYMENTRULE_CreditCard = "K";
+	/** Direct Deposit = T */
+	public static final String PAYMENTRULE_DirectDeposit = "T";
+	/** Check = S */
+	public static final String PAYMENTRULE_Check = "S";
+	/** On Credit = P */
+	public static final String PAYMENTRULE_OnCredit = "P";
+	/** Direct Debit = D */
+	public static final String PAYMENTRULE_DirectDebit = "D";
+	/** Mixed POS Payment = M */
+	public static final String PAYMENTRULE_MixedPOSPayment = "M";
+
+    /** DocStatus AD_Reference_ID=131 */
+    public static final int DOCSTATUS_AD_Reference_ID=131;
+    /** Drafted = DR */
+    public static final String DOCSTATUS_Drafted = "DR";
+    /** Completed = CO */
+    public static final String DOCSTATUS_Completed = "CO";
+    /** Approved = AP */
+    public static final String DOCSTATUS_Approved = "AP";
+    /** Not Approved = NA */
+    public static final String DOCSTATUS_NotApproved = "NA";
+    /** Voided = VO */
+    public static final String DOCSTATUS_Voided = "VO";
+    /** Invalid = IN */
+    public static final String DOCSTATUS_Invalid = "IN";
+    /** Reversed = RE */
+    public static final String DOCSTATUS_Reversed = "RE";
+    /** Closed = CL */
+    public static final String DOCSTATUS_Closed = "CL";
+    /** Unknown = ?? */
+    public static final String DOCSTATUS_Unknown = "??";
+    /** In Progress = IP */
+    public static final String DOCSTATUS_InProgress = "IP";
+    /** Waiting Payment = WP */
+    public static final String DOCSTATUS_WaitingPayment = "WP";
+    /** Waiting Confirmation = WC */
+    public static final String DOCSTATUS_WaitingConfirmation = "WC";
 }

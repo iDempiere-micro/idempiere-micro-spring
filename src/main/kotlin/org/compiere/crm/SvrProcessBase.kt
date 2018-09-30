@@ -4,10 +4,11 @@ import org.compiere.process.SvrProcess
 import org.idempiere.common.util.Env
 import software.hsharp.business.models.IDTOReady
 
-abstract class SvrProcessBase : SvrProcess() {
-    protected var AD_CLIENT_ID = 0 // AD_Client_ID
-    protected var AD_ORG_ID = 0 // AD_Org_ID
-    protected var AD_USER_ID = 0
+abstract class SvrProcessBase(
+    protected var AD_CLIENT_ID: Int = 0, // AD_Client_ID
+    protected var AD_ORG_ID: Int = 0, // AD_Org_ID
+    protected var AD_USER_ID: Int = 0
+) : SvrProcess() {
 
     protected abstract fun getResult(): IDTOReady
 

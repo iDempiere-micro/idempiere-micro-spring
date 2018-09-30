@@ -55,59 +55,63 @@ delete from crm_customer_category where c_bpartner_id = ?""".trimIndent()
 }
 */
 
-abstract class CustomerProcessBase : SvrProcessBaseSql() {
+abstract class CustomerProcessBase(
+    _AD_CLIENT_ID: Int = 0,
+    _AD_ORG_ID: Int = 0,
+    _AD_USER_ID: Int = 0,
+        // legal name
+    var bpName: String? = null, // name
+    // description
+    var description: String? = null, // description
+    // friendly name
+    var value: String? = null, // value
+    // DUNS (IC)
+    var duns: String? = null,
+    // Tax ID (VAT ID)
+    var taxid: String? = null,
+    // place of business name
+    var locationName: String? = null,
+    // place of business address
+    var locationAddress: String? = null, // address1
+    // place of business city
+    var locationCity: String? = null, // city
+    // place of business postal
+    var locationPostal: String? = null, // postal
+    // place of business phone
+    var locationPhone: String? = null, // phone
+    // legal address
+    var legalAddress: String? = null,
+    // legal city
+    var legalCity: String? = null,
+    // legal postal
+    var legalPostal: String? = null,
+    // telefon na sídlo
+    var legalPhone: String? = null,
+    // order contact person
+    var orderContactPerson: String? = null,
+    // decision maker
+    var decisionMaker: String? = null,
+    // invoicing contact
+    var invoicingContact: String? = null,
+    // already a customer
+    var isCustomer: Boolean? = null,
+    // customer category
+    var customerCategoryId: Int? = null,
+    // flat discount
+    var discount: Int? = null,
+    // account manager
+    var salesRepId: Int? = null,
+
+    var locationCountryId: Int? = null,
+    var legalCountryId: Int? = null
+
+) : SvrProcessBaseSql(_AD_CLIENT_ID, _AD_ORG_ID, _AD_USER_ID) {
     override val isRO: Boolean
         get() = false
 
     abstract val trxName: String
 
     val modelFactory: IModelFactory = DefaultModelFactory()
-
-    // legal name
-    var bpName: String? = null // name
-    // description
-    var description: String? = null // description
-    // friendly name
-    var value: String? = null // value
-    // DUNS (IC)
-    var duns: String? = null
-    // Tax ID (VAT ID)
-    var taxid: String? = null
-    // place of business name
-    var locationName: String? = null
-    // place of business address
-    var locationAddress: String? = null // address1
-    // place of business city
-    var locationCity: String? = null // city
-    // place of business postal
-    var locationPostal: String? = null // postal
-    // place of business phone
-    var locationPhone: String? = null // phone
-    // legal address
-    var legalAddress: String? = null
-    // legal city
-    var legalCity: String? = null
-    // legal postal
-    var legalPostal: String? = null
-    // telefon na sídlo
-    var legalPhone: String? = null
-    // order contact person
-    var orderContactPerson: String? = null
-    // decision maker
-    var decisionMaker: String? = null
-    // invoicing contact
-    var invoicingContact: String? = null
-    // already a customer
-    var isCustomer: Boolean? = null
-    // customer category
-    var customerCategoryId: Int? = null
-    // flat discount
-    var discount: Int? = null
-    // account manager
-    var salesRepId: Int? = null
-
-    var locationCountryId: Int? = null
-    var legalCountryId: Int? = null
 
     override fun prepare() {
         super.prepare()
@@ -150,7 +154,7 @@ abstract class CustomerProcessBase : SvrProcessBaseSql() {
                 isCustomer = para.parameterAsBoolean
             } else if (para.parameterName == "customerCategoryId") {
                 val _customerCategoryId: Int? = para.parameterAsInt
-                if (_customerCategoryId == null || _customerCategoryId < 1) { customerCategoryId == null } else { customerCategoryId = _customerCategoryId }
+                if (_customerCategoryId == null || _customerCategoryId < 1) { customerCategoryId = null } else { customerCategoryId = _customerCategoryId }
             } else if (para.parameterName == "discount") {
                 discount = para.parameterAsInt
             } else if (para.parameterName == "salesRepId") {
