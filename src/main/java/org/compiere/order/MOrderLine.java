@@ -22,6 +22,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 import java.util.logging.Level;
 
+import org.compiere.model.IDocLine;
 import org.compiere.model.I_C_Order;
 import org.compiere.model.I_C_OrderLine;
 import org.compiere.orm.MRole;
@@ -42,17 +43,17 @@ import org.compiere.util.Msg;
  *  Order Line Model.
  * 	<code>
  * 			MOrderLine ol = new MOrderLine(m_order);
-			ol.setM_Product_ID(wbl.getM_Product_ID());
-			ol.setQtyOrdered(wbl.getQuantity());
-			ol.setPrice();
-			ol.setPriceActual(wbl.getPrice());
-			ol.setTax();
-			ol.saveEx();
+ ol.setM_Product_ID(wbl.getM_Product_ID());
+ ol.setQtyOrdered(wbl.getQuantity());
+ ol.setPrice();
+ ol.setPriceActual(wbl.getPrice());
+ ol.setTax();
+ ol.saveEx();
 
  *	</code>
  *  @author Jorg Janke
  *  @version $Id: MOrderLine.java,v 1.6 2006/10/02 05:18:39 jjanke Exp $
- * 
+ *
  * @author Teo Sarca, SC ARHIPAC SERVICE SRL
  *			<li>BF [ 2588043 ] Insufficient message ProductNotOnPriceList
  * @author Michael Judd, www.akunagroup.com
@@ -60,10 +61,10 @@ import org.compiere.util.Msg;
  * 				invoice line for a product on a price list that includes tax, the net amount is
  * 				incorrectly calculated.
  */
-public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
+public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -7152360636393521683L;
 
@@ -76,8 +77,8 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 	 *	@param excludeC_OrderLine_ID exclude C_OrderLine_ID
 	 *	@return Unreserved Qty
 	 */
-	public static BigDecimal getNotReserved (Properties ctx, int M_Warehouse_ID, 
-		int M_Product_ID, int M_AttributeSetInstance_ID, int excludeC_OrderLine_ID)
+	public static BigDecimal getNotReserved (Properties ctx, int M_Warehouse_ID,
+											 int M_Product_ID, int M_AttributeSetInstance_ID, int excludeC_OrderLine_ID)
 	{
 		BigDecimal retValue = Env.ZERO;
 		String sql = "SELECT SUM(QtyOrdered-QtyDelivered-QtyReserved) "
@@ -90,7 +91,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			+ " AND ol.C_OrderLine_ID<>?";
 		if (M_AttributeSetInstance_ID != 0)
 			sql += " AND M_AttributeSetInstance_ID=?";
-		
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try
@@ -118,13 +119,13 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		if (retValue == null)
 			s_log.fine("-");
 		else
-			if (s_log.isLoggable(Level.FINE)) s_log.fine(retValue.toString());
+		if (s_log.isLoggable(Level.FINE)) s_log.fine(retValue.toString());
 		return retValue;
 	}	//	getNotReserved
-	
+
 	/**	Logger	*/
 	protected static CLogger s_log = CLogger.getCLogger (MOrderLine.class);
-	
+
 	/**************************************************************************
 	 *  Default Constructor
 	 *  @param ctx context
@@ -136,16 +137,16 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		super (ctx, C_OrderLine_ID, trxName);
 		if (C_OrderLine_ID == 0)
 		{
-		//	setC_Order_ID (0);
-		//	setLine (0);
-		//	setM_Warehouse_ID (0);	// @M_Warehouse_ID@
-		//	setC_BPartner_ID(0);
-		//	setC_BPartner_Location_ID (0);	// @C_BPartner_Location_ID@
-		//	setC_Currency_ID (0);	// @C_Currency_ID@
-		//	setDateOrdered (new Timestamp(System.currentTimeMillis()));	// @DateOrdered@
+			//	setC_Order_ID (0);
+			//	setLine (0);
+			//	setM_Warehouse_ID (0);	// @M_Warehouse_ID@
+			//	setC_BPartner_ID(0);
+			//	setC_BPartner_Location_ID (0);	// @C_BPartner_Location_ID@
+			//	setC_Currency_ID (0);	// @C_Currency_ID@
+			//	setDateOrdered (new Timestamp(System.currentTimeMillis()));	// @DateOrdered@
 			//
-		//	setC_Tax_ID (0);
-		//	setC_UOM_ID (0);
+			//	setC_Tax_ID (0);
+			//	setC_UOM_ID (0);
 			//
 			setFreightAmt (Env.ZERO);
 			setLineNetAmt (Env.ZERO);
@@ -168,15 +169,15 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			setLine (0);
 		}
 	}	//	MOrderLine
-	
+
 	/**
 	 *  Parent Constructor.
-	 		ol.setM_Product_ID(wbl.getM_Product_ID());
-			ol.setQtyOrdered(wbl.getQuantity());
-			ol.setPrice();
-			ol.setPriceActual(wbl.getPrice());
-			ol.setTax();
-			ol.saveEx();
+	 ol.setM_Product_ID(wbl.getM_Product_ID());
+	 ol.setQtyOrdered(wbl.getQuantity());
+	 ol.setPrice();
+	 ol.setPriceActual(wbl.getPrice());
+	 ol.setTax();
+	 ol.saveEx();
 	 *  @param  order parent order
 	 */
 	public MOrderLine (MOrder order)
@@ -207,7 +208,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 
 	/** Tax							*/
 	protected MTax m_tax = null;
-	
+
 	/** Cached Currency Precision	*/
 	protected Integer			m_precision = null;
 	/**	Product					*/
@@ -216,7 +217,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 	protected MCharge 		m_charge = null;
 	/** Parent					*/
 	protected I_C_Order			m_parent = null;
-	
+
 	/**
 	 * 	Set Defaults from Order.
 	 * 	Does not set Parent !!
@@ -247,7 +248,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		m_M_PriceList_ID = order.getM_PriceList_ID();
 		m_IsSOTrx = order.isSOTrx();
 	}	//	setHeaderInfo
-	
+
 	/**
 	 * 	Get Parent
 	 *	@return parent
@@ -258,7 +259,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			m_parent = new MOrder(getCtx(), getC_Order_ID(), get_TrxName());
 		return m_parent;
 	}	//	getParent
-	
+
 	/**
 	 * 	Set Price Entered/Actual.
 	 * 	Use this Method if the Line UOM is the Product UOM 
@@ -277,7 +278,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 	 */
 	public void setPriceActual (BigDecimal PriceActual)
 	{
-		if (PriceActual == null) 
+		if (PriceActual == null)
 			throw new IllegalArgumentException ("PriceActual is mandatory");
 		set_ValueNoCheck("PriceActual", PriceActual);
 	}	//	setPriceActual
@@ -316,7 +317,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		else
 			setPriceEntered(getPriceActual().multiply(getQtyOrdered()
 				.divide(getQtyEntered(), 12, BigDecimal.ROUND_HALF_UP)));	//	recision
-		
+
 		//	Calculate Discount
 		setDiscount(m_productPrice.getDiscount());
 		//	Set UOM
@@ -337,7 +338,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		m_productPrice.calculatePrice();
 		return m_productPrice;
 	}	//	getProductPrice
-	
+
 	/**
 	 *	Set Tax
 	 *	@return true if tax is set
@@ -356,40 +357,40 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		setC_Tax_ID (ii);
 		return true;
 	}	//	setTax
-	
+
 	/**
 	 * 	Calculate Extended Amt.
 	 * 	May or may not include tax
 	 */
 	public void setLineNetAmt ()
 	{
-		BigDecimal bd = getPriceActual().multiply(getQtyOrdered()); 
-		
+		BigDecimal bd = getPriceActual().multiply(getQtyOrdered());
+
 		boolean documentLevel = getTax().isDocumentLevel();
-		
+
 		//	juddm: Tax Exempt & Tax Included in Price List & not Document Level - Adjust Line Amount
 		//  http://sourceforge.net/tracker/index.php?func=detail&aid=1733602&group_id=176962&atid=879332
 		if (isTaxIncluded() && !documentLevel)	{
 			BigDecimal taxStdAmt = Env.ZERO, taxThisAmt = Env.ZERO;
-			
+
 			MTax orderTax = getTax();
 			MTax stdTax = null;
-			
+
 			//	get the standard tax
 			if (getProduct() == null)
 			{
 				if (getCharge() != null)	// Charge 
 				{
-					stdTax = new MTax (getCtx(), 
-							((MTaxCategory) getCharge().getC_TaxCategory()).getDefaultTax().getC_Tax_ID(),
-							get_TrxName());
+					stdTax = new MTax (getCtx(),
+						((MTaxCategory) getCharge().getC_TaxCategory()).getDefaultTax().getC_Tax_ID(),
+						get_TrxName());
 				}
-					
+
 			}
 			else	// Product
-				stdTax = new MTax (getCtx(), 
-							((MTaxCategory) getProduct().getC_TaxCategory()).getDefaultTax().getC_Tax_ID(), 
-							get_TrxName());
+				stdTax = new MTax (getCtx(),
+					((MTaxCategory) getProduct().getC_TaxCategory()).getDefaultTax().getC_Tax_ID(),
+					get_TrxName());
 
 			if (stdTax != null)
 			{
@@ -397,23 +398,23 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 					log.fine("stdTax rate is " + stdTax.getRate());
 					log.fine("orderTax rate is " + orderTax.getRate());
 				}
-								
+
 				taxThisAmt = taxThisAmt.add(orderTax.calculateTax(bd, isTaxIncluded(), getPrecision()));
 				taxStdAmt = taxStdAmt.add(stdTax.calculateTax(bd, isTaxIncluded(), getPrecision()));
-				
+
 				bd = bd.subtract(taxStdAmt).add(taxThisAmt);
-				
-				if (log.isLoggable(Level.FINE)) log.fine("Price List includes Tax and Tax Changed on Order Line: New Tax Amt: " 
-						+ taxThisAmt + " Standard Tax Amt: " + taxStdAmt + " Line Net Amt: " + bd);	
+
+				if (log.isLoggable(Level.FINE)) log.fine("Price List includes Tax and Tax Changed on Order Line: New Tax Amt: "
+					+ taxThisAmt + " Standard Tax Amt: " + taxStdAmt + " Line Net Amt: " + bd);
 			}
-			
+
 		}
 		int precision = getPrecision();
 		if (bd.scale() > precision)
 			bd = bd.setScale(precision, BigDecimal.ROUND_HALF_UP);
 		super.setLineNetAmt (bd);
 	}	//	setLineNetAmt
-	
+
 	/**
 	 * 	Get Charge
 	 *	@return product or null
@@ -467,7 +468,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		m_precision = new Integer(i);
 		return m_precision.intValue();
 	}	//	getPrecision
-	
+
 	/**
 	 * 	Set Product
 	 *	@param product product
@@ -488,7 +489,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		setM_AttributeSetInstance_ID(0);
 	}	//	setProduct
 
-	
+
 	/**
 	 * 	Set M_Product_ID
 	 *	@param M_Product_ID product
@@ -502,7 +503,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			super.setM_Product_ID (M_Product_ID);
 		setM_AttributeSetInstance_ID(0);
 	}	//	setM_Product_ID
-	
+
 	/**
 	 * 	Set Product and UOM
 	 *	@param M_Product_ID product
@@ -515,8 +516,8 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			super.setC_UOM_ID(C_UOM_ID);
 		setM_AttributeSetInstance_ID(0);
 	}	//	setM_Product_ID
-	
-	
+
+
 	/**
 	 * 	Get Product
 	 *	@return product or null
@@ -527,7 +528,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			m_product =  MProduct.get (getCtx(), getM_Product_ID());
 		return m_product;
 	}	//	getProduct
-	
+
 	/**
 	 * 	Set M_AttributeSetInstance_ID
 	 *	@param M_AttributeSetInstance_ID id
@@ -539,7 +540,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		else
 			super.setM_AttributeSetInstance_ID (M_AttributeSetInstance_ID);
 	}	//	setM_AttributeSetInstance_ID
-	
+
 	/**
 	 * 	Set Warehouse
 	 *	@param M_Warehouse_ID warehouse
@@ -553,7 +554,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		else
 			super.setM_Warehouse_ID (M_Warehouse_ID);
 	}	//	setM_Warehouse_ID
-	
+
 	/**
 	 * 	Can Change Warehouse
 	 *	@return true if warehouse can be changed
@@ -578,7 +579,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		//	We can change
 		return true;
 	}	//	canChangeWarehouse
-	
+
 	/**
 	 * 	Get C_Project_ID
 	 *	@return project
@@ -590,7 +591,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			ii = getParent().getC_Project_ID();
 		return ii;
 	}	//	getC_Project_ID
-	
+
 	/**
 	 * 	Get C_Activity_ID
 	 *	@return Activity
@@ -602,7 +603,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			ii = getParent().getC_Activity_ID();
 		return ii;
 	}	//	getC_Activity_ID
-	
+
 	/**
 	 * 	Get C_Campaign_ID
 	 *	@return Campaign
@@ -614,7 +615,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			ii = getParent().getC_Campaign_ID();
 		return ii;
 	}	//	getC_Campaign_ID
-	
+
 	/**
 	 * 	Get User2_ID
 	 *	@return User2
@@ -681,7 +682,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		else
 			setDescription(desc + " | " + description);
 	}	//	addDescription
-	
+
 	/**
 	 * 	Get Description Text.
 	 * 	For jsp access (vs. isDescription)
@@ -691,7 +692,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 	{
 		return super.getDescription();
 	}	//	getDescriptionText
-	
+
 	/**
 	 * 	Get Name
 	 *	@return get the name of the line (from Product)
@@ -750,7 +751,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		return pl.isTaxIncluded();
 	}	//	isTaxIncluded
 
-	
+
 	/**
 	 * 	Set Qty Entered/Ordered.
 	 * 	Use this Method if the Line UOM is the Product UOM 
@@ -806,32 +807,32 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		}
 		//	Get Defaults from Parent
 		if (getC_BPartner_ID() == 0 || getC_BPartner_Location_ID() == 0
-			|| getM_Warehouse_ID() == 0 
+			|| getM_Warehouse_ID() == 0
 			|| getC_Currency_ID() == 0)
 			setOrder (getParent());
 		if (m_M_PriceList_ID == 0)
 			setHeaderInfo(getParent());
 
-		
+
 		//	R/O Check - Product/Warehouse Change
-		if (!newRecord 
-			&& (is_ValueChanged("M_Product_ID") || is_ValueChanged("M_Warehouse_ID"))) 
+		if (!newRecord
+			&& (is_ValueChanged("M_Product_ID") || is_ValueChanged("M_Warehouse_ID")))
 		{
 			if (!canChangeWarehouse())
 				return false;
 		}	//	Product Changed
-		
+
 		//	Charge
 		if (getC_Charge_ID() != 0 && getM_Product_ID() != 0)
-				setM_Product_ID(0);
+			setM_Product_ID(0);
 		//	No Product
 		if (getM_Product_ID() == 0)
 			setM_AttributeSetInstance_ID(0);
-		//	Product
+			//	Product
 		else	//	Set/check Product Price
 		{
 			//	Set Price if Actual = 0
-			if (m_productPrice == null 
+			if (m_productPrice == null
 				&&  Env.ZERO.compareTo(getPriceActual()) == 0
 				&&  Env.ZERO.compareTo(getPriceList()) == 0)
 				setPrice();
@@ -845,9 +846,9 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 				enforce = false;
 			//	Check Price Limit?
 			if (enforce && getPriceLimit() != Env.ZERO
-			  && getPriceActual().compareTo(getPriceLimit()) < 0)
+				&& getPriceActual().compareTo(getPriceLimit()) < 0)
 			{
-				log.saveError("UnderLimitPrice", "PriceEntered=" + getPriceEntered() + ", PriceLimit=" + getPriceLimit()); 
+				log.saveError("UnderLimitPrice", "PriceEntered=" + getPriceEntered() + ", PriceLimit=" + getPriceLimit());
 				return false;
 			}
 			//
@@ -858,10 +859,10 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		}
 
 		//	UOM
-		if (getC_UOM_ID() == 0 
-			&& (getM_Product_ID() != 0 
-				|| getPriceEntered().compareTo(Env.ZERO) != 0
-				|| getC_Charge_ID() != 0))
+		if (getC_UOM_ID() == 0
+			&& (getM_Product_ID() != 0
+			|| getPriceEntered().compareTo(Env.ZERO) != 0
+			|| getC_Charge_ID() != 0))
 		{
 			int C_UOM_ID = MUOM.getDefault_UOM_ID(getCtx());
 			if (C_UOM_ID > 0)
@@ -872,13 +873,13 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			setQtyEntered(getQtyEntered());
 		if (newRecord || is_ValueChanged("QtyOrdered"))
 			setQtyOrdered(getQtyOrdered());
-		
+
 		//	Qty on instance ASI for SO
-		if (m_IsSOTrx 
+		if (m_IsSOTrx
 			&& getM_AttributeSetInstance_ID() != 0
 			&& (newRecord || is_ValueChanged("M_Product_ID")
-				|| is_ValueChanged("M_AttributeSetInstance_ID")
-				|| is_ValueChanged("M_Warehouse_ID")))
+			|| is_ValueChanged("M_AttributeSetInstance_ID")
+			|| is_ValueChanged("M_Warehouse_ID")))
 		{
 			MProduct product = getProduct();
 			if (product.isStocked())
@@ -893,7 +894,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 
 			}	//	stocked
 		}	//	SO instance
-		
+
 		//	FreightAmt Not used
 		if (Env.ZERO.compareTo(getFreightAmt()) != 0)
 			setFreightAmt(Env.ZERO);
@@ -909,7 +910,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			int ii = DB.getSQLValue (get_TrxName(), sql, getC_Order_ID());
 			setLine (ii);
 		}
-		
+
 		//	Calculations & Rounding
 		setLineNetAmt();	//	extended Amount with or without tax
 		setDiscount();
@@ -923,11 +924,11 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 				return false;
 			}
 		}
-		
+
 		return true;
 	}	//	beforeSave
 
-	
+
 	/**
 	 * 	Before Delete
 	 *	@return true if it can be deleted
@@ -954,7 +955,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 
 		return true;
 	}	//	beforeDelete
-	
+
 	/**
 	 * 	After Save
 	 *	@param newRecord new
@@ -971,11 +972,11 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			|| is_ValueChanged(I_C_OrderLine.COLUMNNAME_C_Tax_ID)
 			|| is_ValueChanged(I_C_OrderLine.COLUMNNAME_LineNetAmt)) {
 			MTax tax = new MTax(getCtx(), getC_Tax_ID(), get_TrxName());
-	        MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
+			MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
 			ITaxProvider calculator = MTaxProvider.getTaxProvider(provider, new StandardTaxProvider());
 			if (calculator == null)
 				throw new AdempiereException(Msg.getMsg(getCtx(), "TaxNoProvider"));
-	    	return calculator.recalculateTax(provider, this, newRecord);
+			return calculator.recalculateTax(provider, this, newRecord);
 		}
 		return success;
 	}	//	afterSave
@@ -992,12 +993,12 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 
 		return updateHeaderTax();
 	}	//	afterDelete
-	
+
 	/**
 	 * Recalculate order tax
 	 * @param oldTax true if the old C_Tax_ID should be used
 	 * @return true if success, false otherwise
-	 * 
+	 *
 	 * @author teo_sarca [ 1583825 ]
 	 */
 	public boolean updateOrderTax(boolean oldTax) {
@@ -1016,7 +1017,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 		}
 		return true;
 	}
-	
+
 	/**
 	 *	Update Tax & Header
 	 *	@return true if header updated
@@ -1029,14 +1030,14 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine
 			return true;
 
 		MTax tax = new MTax(getCtx(), getC_Tax_ID(), get_TrxName());
-        MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
+		MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
 		ITaxProvider calculator = MTaxProvider.getTaxProvider(provider, new StandardTaxProvider());
 		if (calculator == null)
 			throw new AdempiereException(Msg.getMsg(getCtx(), "TaxNoProvider"));
-    	if (!calculator.updateOrderTax(provider, this))
+		if (!calculator.updateOrderTax(provider, this))
 			return false;
 
-    	return calculator.updateHeaderTax(provider, this);
+		return calculator.updateHeaderTax(provider, this);
 
 	}	//	updateHeaderTax
 

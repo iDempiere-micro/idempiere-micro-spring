@@ -11,7 +11,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_PP_Cost_Collector  extends IBasePO
+public interface I_PP_Cost_Collector 
 {
 
     /** TableName=PP_Cost_Collector */
@@ -64,6 +64,18 @@ public interface I_PP_Cost_Collector  extends IBasePO
 
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name C_Activity_ID */
     public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
