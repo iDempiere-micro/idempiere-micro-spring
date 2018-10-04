@@ -2,6 +2,7 @@ package company.bigger.test.support
 
 import org.idempiere.common.util.Env
 import org.junit.Before
+import org.junit.Test
 
 open class BaseComponentTest : BaseTest() {
     @Before
@@ -12,4 +13,7 @@ open class BaseComponentTest : BaseTest() {
         ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
         Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
     }
+
+    @Test
+    fun `make JUnit happy`() {}
 }
