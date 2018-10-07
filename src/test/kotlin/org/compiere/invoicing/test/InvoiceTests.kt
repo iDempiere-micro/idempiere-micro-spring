@@ -11,6 +11,7 @@ import org.compiere.model.I_C_Invoice
 import org.compiere.model.I_C_Order
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
+import org.compiere.process.DocAction
 import org.idempiere.common.util.Env
 import org.junit.Test
 import java.sql.Timestamp
@@ -53,6 +54,10 @@ class InvoiceTests : BaseComponentTest() {
         orderLine.product = product
         orderLine.setQty(1.toBigDecimal())
         orderLine.save()
+
+        order.docAction = DocAction.STATUS_Completed
+        order.completeIt()
+        order.save()
     }
 
 }
