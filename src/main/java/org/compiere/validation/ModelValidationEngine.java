@@ -588,6 +588,7 @@ public class ModelValidationEngine
 			}
 		}
 
+		/*
 		//now process osgi event handlers
 		IEvent event = EventManager.newEvent(ModelValidator.documentEventTopics[docTiming],
 				new EventProperty(EventManager.EVENT_DATA, po), new EventProperty("tableName", po.get_TableName()));
@@ -595,7 +596,7 @@ public class ModelValidationEngine
 		@SuppressWarnings("unchecked")
 		List<String> errors = (List<String>) event.getProperty(IEventManager.EVENT_ERROR_MESSAGES);
 		if (errors != null && !errors.isEmpty())
-			return errors.get(0);
+			return errors.get(0);*/
 
 		return null;
 	}	//	fireDocValidate

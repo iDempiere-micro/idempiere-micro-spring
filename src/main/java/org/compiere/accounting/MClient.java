@@ -17,27 +17,22 @@
  *****************************************************************************/
 package org.compiere.accounting;
 
-import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import javax.mail.internet.InternetAddress;
-
-import org.compiere.crm.MUser;
 import org.compiere.model.I_AD_Client;
-import org.compiere.model.I_AD_User;
 import org.compiere.orm.MSysConfig;
 import org.compiere.orm.MTree_Base;
 import org.compiere.orm.Query;
 import org.compiere.orm.X_AD_Tree;
+import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
@@ -58,7 +53,7 @@ import org.idempiere.common.base.Service;
  */
 public class MClient extends org.compiere.orm.MClient
 {
-	/**
+	protected static CCache<Integer,org.compiere.orm.MClient> s_cache = new CCache<Integer, org.compiere.orm.MClient>(Table_Name, 3, 120, true);	/**
 	 *
 	 */
 	private static final long serialVersionUID = -4420908648355523008L;
@@ -579,7 +574,7 @@ public class MClient extends org.compiere.orm.MClient
 	 */
 	public static MClient get (Properties ctx, int AD_Client_ID)
 	{
-		Integer key = new Integer (AD_Client_ID);
+		Integer key = AD_Client_ID;
 		MClient client = (MClient)s_cache.get(key);
 		if (client != null)
 			return client;

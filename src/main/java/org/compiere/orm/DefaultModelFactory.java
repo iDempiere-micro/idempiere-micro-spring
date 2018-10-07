@@ -59,7 +59,8 @@ public class DefaultModelFactory implements IModelFactory {
 		"org.compiere.tax",
 		"org.compiere.wf",
 		"org.compiere.validation",
-		"org.compiere.invoicing"
+		"org.compiere.invoicing",
+		"org.compiere.accounting"
 	};
 
 	/**	Special Classes				*/

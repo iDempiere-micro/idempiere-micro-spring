@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker stop $(docker ps -aq)
-#yes | docker system prune -a -f
+yes | docker system prune -a -f
 yes | docker volume prune
 # download the latest docker iDempiere pgSQL image and run it
 # on Travis we need to run the docker image on port 5433 (there is standard PostgreSQL already running)
