@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.lookups;
 
 import java.sql.ResultSet;

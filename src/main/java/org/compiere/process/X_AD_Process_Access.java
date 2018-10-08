@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.process;
 
 import org.compiere.model.I_AD_Process_Access;

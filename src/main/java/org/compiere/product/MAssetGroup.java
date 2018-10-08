@@ -161,4 +161,3 @@ public class MAssetGroup extends X_A_Asset_Group
 		return true;
 	}
 }	//	MAssetGroup
-
