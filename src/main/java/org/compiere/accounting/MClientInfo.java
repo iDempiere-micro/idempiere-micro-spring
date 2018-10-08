@@ -23,6 +23,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.compiere.orm.MClient;
+import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
@@ -35,6 +36,7 @@ import org.idempiere.common.util.Env;
  */
 public class MClientInfo extends org.compiere.orm.MClientInfo
 {
+	protected static CCache<Integer,MClientInfo> s_cache = new CCache<Integer,MClientInfo>(Table_Name, 2);
 	/**
 	 * 
 	 */

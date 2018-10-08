@@ -1,5 +1,6 @@
 package org.compiere.invoicing;
 
+import java.sql.ResultSet;
 import org.compiere.accounting.*;
 import org.compiere.accounting.MClient;
 import org.compiere.crm.MBPartner;
@@ -43,6 +44,17 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
     public MInOut (I_C_Invoice invoice, int C_DocTypeShipment_ID, Timestamp movementDate, int M_Warehouse_ID)
     {
         super (invoice, C_DocTypeShipment_ID, movementDate, M_Warehouse_ID);
+    }
+
+    /**
+     *  Load Constructor
+     *  @param ctx context
+     *  @param rs result set record
+     *	@param trxName transaction
+     */
+    public MInOut (Properties ctx, ResultSet rs, String trxName)
+    {
+        super(ctx, rs, trxName);
     }
 
     /**

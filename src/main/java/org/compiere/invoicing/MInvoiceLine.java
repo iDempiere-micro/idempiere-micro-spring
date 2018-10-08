@@ -975,7 +975,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 			return success;
 		MTax tax = new MTax(getCtx(), getC_Tax_ID(), get_TrxName());
         MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
-		IInvoiceTaxProvider calculator = (IInvoiceTaxProvider)MTaxProvider.getTaxProvider(provider, new StandardTaxProvider());
+		IInvoiceTaxProvider calculator = MTaxProvider.getTaxProvider(provider, new StandardInvoiceTaxProvider());
 		if (calculator == null)
 			throw new AdempiereException(Msg.getMsg(getCtx(), "TaxNoProvider"));
     	return calculator.recalculateTax(provider, this, newRecord);
@@ -1015,7 +1015,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 		//	Recalculate Tax for this Tax
         MTax tax = new MTax(getCtx(), getC_Tax_ID(), get_TrxName());
         MTaxProvider provider = new MTaxProvider(tax.getCtx(), tax.getC_TaxProvider_ID(), tax.get_TrxName());
-		IInvoiceTaxProvider calculator = (IInvoiceTaxProvider)MTaxProvider.getTaxProvider(provider, new StandardTaxProvider());
+		IInvoiceTaxProvider calculator = MTaxProvider.getTaxProvider(provider, new StandardInvoiceTaxProvider());
 		if (calculator == null)
 			throw new AdempiereException(Msg.getMsg(getCtx(), "TaxNoProvider"));
     	if (!calculator.updateInvoiceTax(provider, this))

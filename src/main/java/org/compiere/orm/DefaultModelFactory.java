@@ -47,19 +47,20 @@ public class DefaultModelFactory implements IModelFactory {
 		"adempiere.model",			//	Extensions
 		"org.adempiere.model",
 
-			"org.compiere.impl",	// order is important this must be BEFORE the bundles
+		"org.compiere.impl",	// order is important this must be BEFORE the bundles
 
-			"org.compiere.bo",
-			"org.compiere.conversionrate",
-			"org.compiere.crm",
-			"org.compiere.order",
-			"org.compiere.orm",
-			"org.compiere.process",
-			"org.compiere.product",
-			"org.compiere.tax",
-			"org.compiere.wf",
-			"org.compiere.validation"
-
+		"org.compiere.bo",
+		"org.compiere.conversionrate",
+		"org.compiere.crm",
+		"org.compiere.accounting",
+		"org.compiere.invoicing",
+		"org.compiere.order",
+		"org.compiere.orm",
+		"org.compiere.process",
+		"org.compiere.product",
+		"org.compiere.tax",
+		"org.compiere.wf",
+		"org.compiere.validation"
 	};
 
 	/**	Special Classes				*/
