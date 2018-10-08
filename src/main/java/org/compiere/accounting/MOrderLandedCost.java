@@ -1,4 +1,3 @@
-
 package org.compiere.accounting;
 
 import java.math.BigDecimal;

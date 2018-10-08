@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.orm;
 
 import org.compiere.model.I_AD_Client;

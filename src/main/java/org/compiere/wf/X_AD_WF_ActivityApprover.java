@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.wf;
 
 import org.compiere.model.I_AD_WF_ActivityApprover;

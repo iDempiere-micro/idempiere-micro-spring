@@ -1,4 +1,3 @@
-
 package org.eevolution.model;
 
 import java.math.BigDecimal;

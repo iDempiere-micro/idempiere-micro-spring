@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.order;
 
 import org.compiere.model.I_M_CommodityShipment;
