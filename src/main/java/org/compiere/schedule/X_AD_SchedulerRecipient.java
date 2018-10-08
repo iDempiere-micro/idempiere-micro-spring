@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.schedule;
 
 import java.sql.ResultSet;

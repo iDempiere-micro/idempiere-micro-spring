@@ -1,4 +1,3 @@
-
 package org.compiere.model;
 
 import org.idempiere.common.util.KeyNamePair;

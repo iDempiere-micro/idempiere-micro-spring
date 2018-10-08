@@ -14,4 +14,3 @@ public class DefaultProductPricingFactory implements IProductPricingFactory {
 	}
 
 }
-
