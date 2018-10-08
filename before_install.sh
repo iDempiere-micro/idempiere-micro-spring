@@ -1,19 +1,14 @@
 #!/bin/bash
 
 docker stop $(docker ps -aq)
-yes | docker system prune -a -f
-yes | docker volume prune
-# download the latest docker iDempiere pgSQL image and run it
-# on Travis we need to run the docker image on port 5433 (there is standard PostgreSQL already running)
-if [ ! -f idempiere-docker-pgsql-5.1.0.latest.tar.gz ]; then
-    wget https://sourceforge.net/projects/idempiereksys/files/idempiere-docker-image/idempiere-docker-pgsql-5.1.0.latest.tar.gz
-fi
-zcat idempiere-docker-pgsql-5.1.0.latest.tar.gz | docker load
-docker volume create --name idempiere-pgsql-datastore
-docker run -d -v idempiere-pgsql-datastore:/data -p 5433:5432 -e PASS="postgres" idempiere/idempiere-docker-pgsql:5.1.0.latest
+docker rm $(docker ps -aq)
+docker run --name idempiere-postgres -d -p 5433:5432 -e POSTGRES_PASSWORD=postgres postgres:alpine
 
 #dockerize
 if [ ! -f dockerize-linux-amd64-v0.6.1.tar.gz ]; then
     wget https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz
 fi
 tar zxvf dockerize-linux-amd64-v0.6.1.tar.gz
+./dockerize -wait tcp://localhost:5433 -timeout 1m
+sleep 10
+PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d postgres -f ./src/main/resources/db/prepare.sql

@@ -738,6 +738,7 @@ public class ModelValidationEngine
 				return error;
 		}
 
+		/*
 		//process osgi event handlers
 		FactsEventData eventData = new FactsEventData(schema, facts, po);
 		IEvent event = EventManager.newEvent(IEventTopics.ACCT_FACTS_VALIDATE,
@@ -746,7 +747,7 @@ public class ModelValidationEngine
 		@SuppressWarnings("unchecked")
 		List<String> errors = (List<String>) event.getProperty(IEventManager.EVENT_ERROR_MESSAGES);
 		if (errors != null && !errors.isEmpty())
-			return errors.get(0);
+			return errors.get(0);*/
 
 		return null;
 	}	//	fireFactsValidate

@@ -4,9 +4,7 @@ import company.bigger.test.support.BaseComponentTest
 import org.compiere.order.MOrder
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import company.bigger.test.support.BaseTest
 import org.compiere.model.I_C_Order
-import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull

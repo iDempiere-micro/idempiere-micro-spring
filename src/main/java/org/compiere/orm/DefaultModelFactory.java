@@ -52,15 +52,15 @@ public class DefaultModelFactory implements IModelFactory {
 		"org.compiere.bo",
 		"org.compiere.conversionrate",
 		"org.compiere.crm",
+		"org.compiere.accounting",
+		"org.compiere.invoicing",
 		"org.compiere.order",
 		"org.compiere.orm",
 		"org.compiere.process",
 		"org.compiere.product",
 		"org.compiere.tax",
 		"org.compiere.wf",
-		"org.compiere.validation",
-		"org.compiere.invoicing",
-		"org.compiere.accounting"
+		"org.compiere.validation"
 	};
 
 	/**	Special Classes				*/

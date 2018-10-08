@@ -1,5 +1,6 @@
 package org.compiere.invoicing;
 
+import java.sql.ResultSet;
 import org.adempiere.exceptions.FillMandatoryException;
 import org.adempiere.exceptions.WarehouseLocatorConflictException;
 import org.compiere.accounting.MProduct;
@@ -42,6 +43,18 @@ public class MInOutLine extends org.compiere.order.MInOutLine implements IPODoc 
     public MInOutLine (MInOut inout) {
         super(inout);
     }
+
+    /**
+     *  Load Constructor
+     *  @param ctx context
+     *  @param rs result set record
+     *  @param trxName transaction
+     */
+    public MInOutLine (Properties ctx, ResultSet rs, String trxName)
+    {
+        super(ctx, rs, trxName);
+    }	//	MInOutLine
+
 
     /**
      * 	Set Invoice Line.

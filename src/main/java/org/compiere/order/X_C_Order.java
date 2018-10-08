@@ -585,7 +585,7 @@ public class X_C_Order extends PO implements I_Persistent
 		if (C_DocTypeTarget_ID < 1) 
 			set_Value (I_C_Order.COLUMNNAME_C_DocTypeTarget_ID, null);
 		else 
-			set_Value (I_C_Order.COLUMNNAME_C_DocTypeTarget_ID, Integer.valueOf(C_DocTypeTarget_ID));
+			set_Value (I_C_Order.COLUMNNAME_C_DocTypeTarget_ID, C_DocTypeTarget_ID);
 	}
 
 	/** Get Target Document Type.
@@ -596,7 +596,7 @@ public class X_C_Order extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Order.COLUMNNAME_C_DocTypeTarget_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Charge amount.

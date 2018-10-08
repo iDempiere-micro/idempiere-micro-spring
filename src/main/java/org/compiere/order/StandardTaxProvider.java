@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.compiere.model.*;
+import org.compiere.tax.IInvoiceTaxProvider;
 import org.compiere.tax.ITaxProvider;
 import org.compiere.process.ProcessInfo;
 import org.compiere.tax.MTax;
