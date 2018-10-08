@@ -1635,7 +1635,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		MTaxProvider[] providers = getTaxProviders();
 		for (MTaxProvider provider : providers)
 		{
-			IInvoiceTaxProvider calculator = (IInvoiceTaxProvider)MTaxProvider.getTaxProvider(provider, new StandardTaxProvider());
+			IInvoiceTaxProvider calculator = MTaxProvider.getTaxProvider(provider, new StandardInvoiceTaxProvider());
 			if (calculator == null)
 				throw new AdempiereException(Msg.getMsg(getCtx(), "TaxNoProvider"));
 			

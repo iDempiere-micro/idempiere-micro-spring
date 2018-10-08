@@ -12,7 +12,6 @@ services:
 before_install:
   - ./before_install.sh
   - sleep 10
-  - PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d idempiere -f ./src/main/resources/db/fake_flyway_step_V1.sql
   - make migrate
 
 script:

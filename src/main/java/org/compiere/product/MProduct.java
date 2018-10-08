@@ -27,6 +27,7 @@ import org.compiere.model.I_M_CostDetail;
 import org.compiere.model.I_M_Product;
 import org.compiere.model.I_M_ProductDownload;
 import org.compiere.orm.*;
+import org.idempiere.common.base.IServicesHolder;
 import org.idempiere.common.base.Service;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CCache;
@@ -752,13 +753,16 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public static IProductPricing getProductPricing() {
 
-		List<IProductPricingFactory> factoryList =
-			Service.locator().list(IProductPricingFactory.class).getServices();
-		if (factoryList != null) {
-			for(IProductPricingFactory factory : factoryList) {
-				IProductPricing myProductPricing = factory.newProductPricingInstance();
-				if (myProductPricing != null) {
-					return myProductPricing;
+		IServicesHolder<IProductPricingFactory> metaFactory =
+			Service.locator().list(IProductPricingFactory.class);
+		if (metaFactory != null) {
+			List<IProductPricingFactory> factoryList = metaFactory.getServices();
+			if (factoryList != null) {
+				for (IProductPricingFactory factory : factoryList) {
+					IProductPricing myProductPricing = factory.newProductPricingInstance();
+					if (myProductPricing != null) {
+						return myProductPricing;
+					}
 				}
 			}
 		}
