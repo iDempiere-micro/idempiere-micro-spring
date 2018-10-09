@@ -98,6 +98,11 @@ jobs:
       - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
       - run: rm src/main/java/software/hsharp/core/util/ParseKt.java
       - run: find src/main/java -type f -name "*.kt" -delete
+      - run: (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
+      - run: cp -r target/site/* /tmp/idempiere-micro-spring-site
+      - run: git log -1 --pretty=%B >/tmp/message.txt
+      - run: (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
+
 workflows:
   version: 2
   build-deploy:
