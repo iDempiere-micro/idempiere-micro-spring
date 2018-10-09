@@ -101,6 +101,7 @@ jobs:
       - run: (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
       - run: cp -r target/site/* /tmp/idempiere-micro-spring-site
       - run: git log -1 --pretty=%B >/tmp/message.txt
+      - run: git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
       - run: (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
 
 workflows:
