@@ -4,7 +4,10 @@ import company.bigger.test.support.BaseComponentTest
 import org.compiere.model.I_R_Request
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import org.compiere.production.*
+import org.compiere.production.MRequest
+import org.compiere.production.MRequestType
+import org.compiere.production.MStatus
+import org.compiere.production.MStatusCategory
 import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals

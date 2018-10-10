@@ -2,14 +2,11 @@ import company.bigger.test.support.BaseComponentTest
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.product.MProduct
-import company.bigger.test.support.BaseTest
 import org.compiere.model.I_M_Product
-import org.compiere.product.MProductCategory
 import org.compiere.product.MUOM
 import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 
 class ProductTests : BaseComponentTest() {
@@ -43,5 +40,4 @@ class ProductTests : BaseComponentTest() {
         product.save()
         getProductById(product._ID)
     }
-
 }
