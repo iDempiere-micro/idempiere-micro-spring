@@ -53,13 +53,40 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run the migrations
-      - run: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql
-      - run: ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz )
-      - run: mvn flyway:migrate
+      - run:
+          name: DB Migrations
+          command: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql; ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz ); mvn flyway:migrate
 
       # run tests!
-      - run: mvn package
-      - run: ./integration_test.sh      
+      - run: 
+          name: Compile the code and package it
+          command: mvn package
+
+      # get the code climate test reporter    
+      - run:
+          name: Generate the site if on develop branch
+          command: |
+            if [ "$CIRCLE_BRANCH" == "develop" ];
+            then
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+              ./cc-test-reporter before-build
+              mvn site
+              cp -R src/main/kotlin/* src/main/java/
+              touch src/main/java/software/hsharp/core/util/ParseKt.java
+              ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
+              ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
+              rm src/main/java/software/hsharp/core/util/ParseKt.java
+              find src/main/java -type f -name "*.kt" -delete
+              (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
+              cp -r target/site/* /tmp/idempiere-micro-spring-site
+              git log -1 --pretty=%B >/tmp/message.txt
+              git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
+              (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
+            fi
+      - run: 
+          name: Integration test
+          command: ./integration_test.sh            
 
   deploy:
     docker:
@@ -79,80 +106,6 @@ jobs:
           name: Deploy Master to Dokku
           command:
             ssh-keyscan prod.hsharp.software >> ~/.ssh/known_hosts && git push dokku@prod.hsharp.software:idempiere-micro-spring master
-  site:
-    docker:
-      - image: circleci/openjdk:8-jdk
-
-      # we still want to support 9.6, the list is at https://circleci.com/docs/2.0/circleci-images/#postgresql
-      - image: circleci/postgres:9.6-alpine-postgis-ram
-        environment:
-          POSTGRES_USER: adempiere
-          POSTGRES_PASSWORD: adempiere
-          POSTGRES_DB: idempiere
-
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      MAVEN_OPTS: -Xmx3200m
-      JWT_SECRET: Em3u7dCZ2QSvSGSGSRFUTfrwgu3WjfU2rHZxSjNSqU5x89C3jXPL6WLMW7dTE6rd9NRgWAwUWHkj8ZLfbCNU8uVfv9kuBmWCYPkk776A5jQ2LeJ76bZbdhXN
-      JWT_ISSUER: Kotlin&Spring
-      CONNECTION: xyzCConnection[name=0.0.0.0{localhost-idempiere-adempiere},AppsHost=0.0.0.0,WebPort=8081,SSLPort=8443,type=PostgreSQL,DBhost=localhost,DBport=5432,DBname=idempiere,BQ=false,FW=false,FWhost=,FWport=0,UID=adempiere,PWD=adempiere]
-      CC_TEST_REPORTER_ID: ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
-
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "8d:78:3a:5f:47:f4:ce:c6:93:18:3c:ea:1a:6a:aa:b0"      
-      - checkout
-
-      - run:
-          name: install dockerize
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: mvn dependency:go-offline
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
-
-      # run the migrations
-      - run: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql
-      - run: ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz )
-      - run: mvn flyway:migrate
-
-      # get the code climate test reporter    
-      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - run: chmod +x ./cc-test-reporter
-      - run: ./cc-test-reporter before-build
-      - run:
-          name: Generate the site
-          command:
-            mvn clean package site
-      - run: cp -R src/main/kotlin/* src/main/java/
-      - run: touch src/main/java/software/hsharp/core/util/ParseKt.java
-      - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
-      - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
-      - run: rm src/main/java/software/hsharp/core/util/ParseKt.java
-      - run: find src/main/java -type f -name "*.kt" -delete
-      - run: (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
-      - run: cp -r target/site/* /tmp/idempiere-micro-spring-site
-      - run: git log -1 --pretty=%B >/tmp/message.txt
-      - run: git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
-      - run: (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
 
 workflows:
   version: 2
@@ -172,12 +125,4 @@ workflows:
           filters:
             branches:
               only: 
-                - master
-      - site:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - develop
                 - master
