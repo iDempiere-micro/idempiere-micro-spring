@@ -2,20 +2,17 @@ import company.bigger.test.support.BaseComponentTest
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.product.MProduct
-import company.bigger.test.support.BaseTest
 import org.compiere.model.I_M_Product
-import org.compiere.product.MProductCategory
 import org.compiere.product.MUOM
 import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 
 class ProductTests : BaseComponentTest() {
     private fun getProductById(product_id: Int): I_M_Product {
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO("M_Product", product_id, null)
+        val result = modelFactory.getPO(I_M_Product.Table_Name, product_id, null)
         println(result)
         assertNotNull(result)
         val product = result as I_M_Product
@@ -43,5 +40,4 @@ class ProductTests : BaseComponentTest() {
         product.save()
         getProductById(product._ID)
     }
-
 }
