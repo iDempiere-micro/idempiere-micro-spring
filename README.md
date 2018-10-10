@@ -16,3 +16,5 @@
 - can start (boot)
 - can serve REST API
 - integration test JavaScript client in [Frisby.JS](https://www.frisbyjs.com/) can login, token works (who am I and list users)
+
+For more information about the build process, visit the [iDempiere micro Spring Maven build generated site](https://idempiere-micro.github.io/idempiere-micro-spring-site/).
