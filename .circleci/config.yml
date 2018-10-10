@@ -94,7 +94,7 @@ jobs:
       - run:
           name: Generate the site
           command:
-            mvn site
+            mvn package site
       - run: cp -R src/main/kotlin/* src/main/java/
       - run: touch src/main/java/software/hsharp/core/util/ParseKt.java
       - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
