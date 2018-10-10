@@ -27,6 +27,9 @@ jobs:
       CC_TEST_REPORTER_ID: ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
 
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "67:f0:5b:1b:10:ba:3a:d5:b2:d6:80:da:83:63:a6:99"
       - checkout
 
       - run:
@@ -53,13 +56,40 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run the migrations
-      - run: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql
-      - run: ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz )
-      - run: mvn flyway:migrate
+      - run:
+          name: DB Migrations
+          command: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql; ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz ); mvn flyway:migrate
 
       # run tests!
-      - run: mvn package
-      - run: ./integration_test.sh      
+      - run: 
+          name: Compile the code and package it
+          command: mvn package
+
+      # get the code climate test reporter    
+      - run:
+          name: Generate the site if on develop branch
+          command: |
+            if [ "$CIRCLE_BRANCH" == "develop" ];
+            then
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+              ./cc-test-reporter before-build
+              mvn site
+              cp -R src/main/kotlin/* src/main/java/
+              touch src/main/java/software/hsharp/core/util/ParseKt.java
+              ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
+              ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
+              rm src/main/java/software/hsharp/core/util/ParseKt.java
+              find src/main/java -type f -name "*.kt" -delete
+              (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
+              cp -r target/site/* /tmp/idempiere-micro-spring-site
+              git log -1 --pretty=%B >/tmp/message.txt
+              git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
+              (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
+            fi
+      - run: 
+          name: Integration test
+          command: ./integration_test.sh            
 
   deploy:
     docker:
@@ -79,25 +109,7 @@ jobs:
           name: Deploy Master to Dokku
           command:
             ssh-keyscan prod.hsharp.software >> ~/.ssh/known_hosts && git push dokku@prod.hsharp.software:idempiere-micro-spring master
-  site:
-    docker:
-      - image: circleci/openjdk:8-jdk
-    steps:
-      - checkout
-      # get the code climate test reporter    
-      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - run: chmod +x ./cc-test-reporter
-      - run: ./cc-test-reporter before-build
-      - run:
-          name: Generate the site
-          command:
-            mvn site
-      - run: cp -R src/main/kotlin/* src/main/java/
-      - run: touch src/main/java/software/hsharp/core/util/ParseKt.java
-      - run: ./cc-test-reporter format-coverage target/site/cobertura/coverage.xml  -t cobertura
-      - run: ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
-      - run: rm src/main/java/software/hsharp/core/util/ParseKt.java
-      - run: find src/main/java -type f -name "*.kt" -delete
+
 workflows:
   version: 2
   build-deploy:
@@ -105,23 +117,15 @@ workflows:
       - build
       - deploy:
           requires:
-            - site
+            - build
           filters:
             branches:
               only: 
                 - develop
       - deploy_master:
           requires:
-            - site
-          filters:
-            branches:
-              only: 
-                - master
-      - site:
-          requires:
             - build
           filters:
             branches:
-              only:
-                - develop
+              only: 
                 - master
