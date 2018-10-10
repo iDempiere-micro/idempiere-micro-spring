@@ -114,14 +114,14 @@ workflows:
       - build
       - deploy:
           requires:
-            - site
+            - build
           filters:
             branches:
               only: 
                 - develop
       - deploy_master:
           requires:
-            - site
+            - build
           filters:
             branches:
               only: 
