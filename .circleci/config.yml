@@ -82,11 +82,58 @@ jobs:
   site:
     docker:
       - image: circleci/openjdk:8-jdk
+
+      # we still want to support 9.6, the list is at https://circleci.com/docs/2.0/circleci-images/#postgresql
+      - image: circleci/postgres:9.6-alpine-postgis-ram
+        environment:
+          POSTGRES_USER: adempiere
+          POSTGRES_PASSWORD: adempiere
+          POSTGRES_DB: idempiere
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+      JWT_SECRET: Em3u7dCZ2QSvSGSGSRFUTfrwgu3WjfU2rHZxSjNSqU5x89C3jXPL6WLMW7dTE6rd9NRgWAwUWHkj8ZLfbCNU8uVfv9kuBmWCYPkk776A5jQ2LeJ76bZbdhXN
+      JWT_ISSUER: Kotlin&Spring
+      CONNECTION: xyzCConnection[name=0.0.0.0{localhost-idempiere-adempiere},AppsHost=0.0.0.0,WebPort=8081,SSLPort=8443,type=PostgreSQL,DBhost=localhost,DBport=5432,DBname=idempiere,BQ=false,FW=false,FWhost=,FWport=0,UID=adempiere,PWD=adempiere]
+      CC_TEST_REPORTER_ID: ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
+
     steps:
       - add_ssh_keys:
           fingerprints:
             - "8d:78:3a:5f:47:f4:ce:c6:93:18:3c:ea:1a:6a:aa:b0"      
       - checkout
+
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.3.0
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      # run the migrations
+      - run: rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql
+      - run: ( cd ./src/main/resources/db/migration/; gunzip -k V1__iDempiere_5.1.0.sql.gz )
+      - run: mvn flyway:migrate
+
       # get the code climate test reporter    
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
       - run: chmod +x ./cc-test-reporter
