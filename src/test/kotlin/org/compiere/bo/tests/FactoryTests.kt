@@ -51,8 +51,8 @@ class FactoryTests : BaseTest() {
         rs.next()
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(tableName, rs, "pokus")
-        val result2 = modelFactory.getPO(I_C_ContactActivity.Table_Name, rs, "pokus", "activity_") as I_C_ContactActivity
+        val result = modelFactory.getPO(tableName, rs, null)
+        val result2 = modelFactory.getPO(I_C_ContactActivity.Table_Name, rs, null, "activity_") as I_C_ContactActivity
         println(result)
         println(result2)
         assertNotNull(result)
@@ -101,8 +101,8 @@ class FactoryTests : BaseTest() {
         rs.next()
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(tableName, rs, "pokus")
-        val result2 = modelFactory.getPO("M_PriceList", rs, "pokus")
+        val result = modelFactory.getPO(tableName, rs, null)
+        val result2 = modelFactory.getPO("M_PriceList", rs, null)
         println(result)
         println(result2)
         assertNotNull(result)
