@@ -27,6 +27,9 @@ jobs:
       CC_TEST_REPORTER_ID: ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
 
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "8d:78:3a:5f:47:f4:ce:c6:93:18:3c:ea:1a:6a:aa:b0"
       - checkout
 
       - run:
