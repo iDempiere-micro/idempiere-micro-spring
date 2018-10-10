@@ -37,6 +37,7 @@ public class DefaultModelFactory implements IModelFactory {
 		"org.compiere.crm",
 		"org.compiere.accounting",
 		"org.compiere.invoicing",
+		"org.compiere.production",
 		"org.compiere.order",
 		"org.compiere.orm",
 		"org.compiere.process",

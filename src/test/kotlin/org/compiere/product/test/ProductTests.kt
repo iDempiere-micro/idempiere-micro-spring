@@ -15,7 +15,7 @@ import kotlin.test.assertNotNull
 class ProductTests : BaseComponentTest() {
     private fun getProductById(product_id: Int): I_M_Product {
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO("M_Product", product_id, null)
+        val result = modelFactory.getPO(I_M_Product.Table_Name, product_id, null)
         println(result)
         assertNotNull(result)
         val product = result as I_M_Product
