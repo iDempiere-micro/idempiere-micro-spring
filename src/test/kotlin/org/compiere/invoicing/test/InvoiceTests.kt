@@ -43,7 +43,7 @@ class InvoiceTests : BaseComponentTest() {
         val invoice_id = 106
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice_id, "pokus")
+        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice_id, null)
         println(result)
         assertNotNull(result)
         val invoice = result as MInvoice

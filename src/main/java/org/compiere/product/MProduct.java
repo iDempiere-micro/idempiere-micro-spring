@@ -181,7 +181,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		//	setC_TaxCategory_ID (0);
 		//	setC_UOM_ID (0);
 		//
-			setProductType (X_M_Product.PRODUCTTYPE_Item);	// I
+			setProductType (I_M_Product.PRODUCTTYPE_Item);	// I
 			setIsBOM (false);	// N
 			setIsInvoicePrintDetails (false);
 			setIsPickListPrintDetails (false);
@@ -216,7 +216,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public MProduct (MExpenseType et)
 	{
 		this (et.getCtx(), 0, et.get_TrxName());
-		setProductType(X_M_Product.PRODUCTTYPE_ExpenseType);
+		setProductType(I_M_Product.PRODUCTTYPE_ExpenseType);
 		setExpenseType(et);
 	}	//	MProduct
 	
@@ -229,7 +229,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	{
 		this (resource.getCtx(), 0, resource.get_TrxName());
 		setAD_Org_ID(resource.getAD_Org_ID());
-		setProductType(X_M_Product.PRODUCTTYPE_Resource);
+		setProductType(I_M_Product.PRODUCTTYPE_Resource);
 		setResource(resource);
 		setResource(resourceType);
 	}	//	MProduct
@@ -271,9 +271,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setExpenseType (MExpenseType parent)
 	{
 		boolean changed = false;
-		if (!X_M_Product.PRODUCTTYPE_ExpenseType.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_ExpenseType.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_ExpenseType);
+			setProductType(I_M_Product.PRODUCTTYPE_ExpenseType);
 			changed = true;
 		}
 		if (parent.getS_ExpenseType_ID() != getS_ExpenseType_ID())
@@ -330,9 +330,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setResource (MResource parent)
 	{
 		boolean changed = false;
-		if (!X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_Resource);
+			setProductType(I_M_Product.PRODUCTTYPE_Resource);
 			changed = true;
 		}
 		if (parent.getS_Resource_ID() != getS_Resource_ID())
@@ -374,9 +374,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setResource (MResourceType parent)
 	{
 		boolean changed = false;
-		if (X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
+		if (I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_Resource);
+			setProductType(I_M_Product.PRODUCTTYPE_Resource);
 			changed = true;
 		}
 		//
@@ -482,7 +482,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public boolean isItem()
 	{
-		return X_M_Product.PRODUCTTYPE_Item.equals(getProductType());
+		return I_M_Product.PRODUCTTYPE_Item.equals(getProductType());
 	}	//	isItem
 		
 	/**
@@ -561,7 +561,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		//	Reset Stocked if not Item
 		//AZ Goodwill: Bug Fix isStocked always return false
 		//if (isStocked() && !PRODUCTTYPE_Item.equals(getProductType()))
-		if (!X_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
 			setIsStocked(false);
 		
 		//	UOM reset
@@ -641,7 +641,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	@Override
 	protected boolean beforeDelete ()
 	{
-		if (X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
+		if (I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
 		{
 			throw new AdempiereException("@S_Resource_ID@<>0");
 		}
