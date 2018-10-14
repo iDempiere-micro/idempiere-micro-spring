@@ -6,7 +6,7 @@ import java.util.Properties;
 
 import org.compiere.model.I_C_ContactActivity;
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_ContactActivity
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ContactActivity extends BasePO implements I_C_ContactActivity, I_Persistent
+public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivity, I_Persistent
 {
 
 	/**

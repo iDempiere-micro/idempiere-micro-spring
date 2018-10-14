@@ -4,7 +4,7 @@ import java.util.Properties
 import java.sql.ResultSet
 import org.compiere.model.I_C_Opportunity
 
-abstract class BasePO : PO {
+abstract class BasePOUser : PO {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?, a: String?) : super(ctx, rs, trxName, a)

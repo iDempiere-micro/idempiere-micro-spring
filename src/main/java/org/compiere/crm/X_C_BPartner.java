@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_BPartner;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -28,7 +29,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_BPartner
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_BPartner extends PO implements I_Persistent
+public class X_C_BPartner extends BasePONameValue implements I_Persistent
 {
 
 	/**
@@ -1055,31 +1056,6 @@ public class X_C_BPartner extends PO implements I_Persistent
 		return (String)get_Value(I_C_BPartner.COLUMNNAME_NAICS);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_C_BPartner.COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_C_BPartner.COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Name 2.
 		@param Name2 
 		Additional Name
@@ -1593,20 +1569,4 @@ public class X_C_BPartner extends PO implements I_Persistent
 		return (String)get_Value(I_C_BPartner.COLUMNNAME_URL);
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (I_C_BPartner.COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(I_C_BPartner.COLUMNNAME_Value);
-	}
 }

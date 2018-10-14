@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_ContactInterest;
 import org.idempiere.common.util.KeyNamePair;
@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for R_ContactInterest
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_R_ContactInterest extends BasePO implements I_R_ContactInterest, I_Persistent
+public class X_R_ContactInterest extends BasePOUser implements I_R_ContactInterest, I_Persistent
 {
 
 	/**

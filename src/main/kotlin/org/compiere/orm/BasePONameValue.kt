@@ -6,32 +6,10 @@ import org.idempiere.common.util.KeyNamePair
 import java.sql.ResultSet
 import java.util.*
 
-abstract class BasePOExt: BasePO {
+abstract class BasePONameValue: BasePOName  {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?, a: String?) : super(ctx, rs, trxName, a)
-
-    /** Set Name.
-     * @param Name
-     * Alphanumeric identifier of the entity
-     */
-    fun setName(Name: String) {
-        set_Value(COLUMNNAME_Name, Name)
-    }
-
-    /** Get Name.
-     * @return Alphanumeric identifier of the entity
-     */
-    fun getName(): String {
-        return get_Value(COLUMNNAME_Name) as String
-    }
-
-    /** Get Record ID/ColumnName
-     * @return ID/ColumnName pair
-     */
-    fun getKeyNamePair(): KeyNamePair {
-        return KeyNamePair(_ID, getName())
-    }
 
     /** Set Search Key.
      * @param Value

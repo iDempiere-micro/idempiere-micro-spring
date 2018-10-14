@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_S_Resource;
 import org.idempiere.common.util.Env;
@@ -16,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for S_Resource
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_S_Resource extends BasePO implements I_S_Resource, I_Persistent
+public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persistent
 {
 
 	/**
