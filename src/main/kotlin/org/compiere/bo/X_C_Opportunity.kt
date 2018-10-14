@@ -24,13 +24,13 @@ import java.util.Properties
 
 import org.compiere.model.I_C_Opportunity
 import org.compiere.orm.MTable
-import org.compiere.orm.BasePO
+import org.compiere.orm.BasePOUser
 import org.idempiere.orm.I_Persistent
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.KeyNamePair
 import org.idempiere.orm.POInfo
 
-open class X_C_Opportunity : BasePO, I_C_Opportunity, I_Persistent {
+open class X_C_Opportunity : BasePOUser, I_C_Opportunity, I_Persistent {
     constructor(ctx: Properties, C_Opportunity_ID: Int, trxName: String?) : super(ctx, C_Opportunity_ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
 

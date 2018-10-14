@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import org.compiere.model.I_AD_WF_Responsible;
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
@@ -14,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_WF_Responsible
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_WF_Responsible extends BasePO implements I_AD_WF_Responsible, I_Persistent
+public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsible, I_Persistent
 {
 
 	/**

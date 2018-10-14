@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import org.compiere.model.*;
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
@@ -16,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for A_Asset
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_A_Asset extends BasePO implements I_A_Asset, I_Persistent
+public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 {
 
 	/**
