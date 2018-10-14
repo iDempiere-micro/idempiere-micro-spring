@@ -1,9 +1,11 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for M_InOut
  *  @author iDempiere (generated) 
@@ -995,4 +997,6 @@ public interface I_M_InOut
 	  * Weight of a product
 	  */
 	public BigDecimal getWeight();
+
+    ArrayList<IPODoc> getDocsPostProcess();
 }

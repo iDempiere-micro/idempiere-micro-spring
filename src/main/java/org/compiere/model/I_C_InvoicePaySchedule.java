@@ -1,15 +1,15 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for C_InvoicePaySchedule
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_InvoicePaySchedule 
+public interface I_C_InvoicePaySchedule extends IPO
 {
 
     /** TableName=C_InvoicePaySchedule */
@@ -230,4 +230,6 @@ public interface I_C_InvoicePaySchedule
 	  * User who updated this records
 	  */
 	public int getUpdatedBy();
+
+	void deleteEx(boolean b);
 }

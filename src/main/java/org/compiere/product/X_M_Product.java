@@ -1,5 +1,3 @@
-
-/** Generated Model - DO NOT CHANGE */
 package org.compiere.product;
 
 import java.math.BigDecimal;
@@ -1087,18 +1085,6 @@ public class X_M_Product extends PO implements I_Persistent
 
 	/** ProductType AD_Reference_ID=270 */
 	public static final int PRODUCTTYPE_AD_Reference_ID=270;
-	/** Item = I */
-	public static final String PRODUCTTYPE_Item = "I";
-	/** Service = S */
-	public static final String PRODUCTTYPE_Service = "S";
-	/** Resource = R */
-	public static final String PRODUCTTYPE_Resource = "R";
-	/** Expense type = E */
-	public static final String PRODUCTTYPE_ExpenseType = "E";
-	/** Online = O */
-	public static final String PRODUCTTYPE_Online = "O";
-	/** Asset = A */
-	public static final String PRODUCTTYPE_Asset = "A";
 	/** Set Product Type.
 		@param ProductType 
 		Type of product

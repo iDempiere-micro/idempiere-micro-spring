@@ -1,4 +1,3 @@
-
 package org.compiere.model;
 
 import java.util.Properties;

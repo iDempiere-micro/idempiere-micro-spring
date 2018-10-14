@@ -1,4 +1,3 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
@@ -9,8 +8,9 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_B_Buyer  extends IBasePO
+public interface I_B_Buyer 
 {
+
     /** TableName=B_Buyer */
     public static final String Table_Name = "B_Buyer";
 
@@ -23,7 +23,10 @@ public interface I_B_Buyer  extends IBasePO
      */
     BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */    
+    /** Load Meta Data */
+
+    
+    
 
 	/** Get Client.
 	  * Client/Tenant for this installation.
@@ -46,6 +49,17 @@ public interface I_B_Buyer  extends IBasePO
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
 
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name B_Buyer_UU */
     public static final String COLUMNNAME_B_Buyer_UU = "B_Buyer_UU";

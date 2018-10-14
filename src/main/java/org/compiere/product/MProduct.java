@@ -1,19 +1,3 @@
-/******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.                *
- * This program is free software; you can redistribute it and/or modify it    *
- * under the terms version 2 of the GNU General Public License as published   *
- * by the Free Software Foundation. This program is distributed in the hope   *
- * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied *
- * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
- * See the GNU General Public License for more details.                       *
- * You should have received a copy of the GNU General Public License along    *
- * with this program; if not, write to the Free Software Foundation, Inc.,    *
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
- * For the text or an alternative of this public license, you may reach us    *
- * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
- * or via info@compiere.org or http://www.idempiere.org/license.html           *
- *****************************************************************************/
 package org.compiere.product;
 
 import java.math.BigDecimal;
@@ -27,6 +11,7 @@ import org.compiere.model.I_M_CostDetail;
 import org.compiere.model.I_M_Product;
 import org.compiere.model.I_M_ProductDownload;
 import org.compiere.orm.*;
+import org.idempiere.common.base.IServicesHolder;
 import org.idempiere.common.base.Service;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CCache;
@@ -196,7 +181,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		//	setC_TaxCategory_ID (0);
 		//	setC_UOM_ID (0);
 		//
-			setProductType (X_M_Product.PRODUCTTYPE_Item);	// I
+			setProductType (I_M_Product.PRODUCTTYPE_Item);	// I
 			setIsBOM (false);	// N
 			setIsInvoicePrintDetails (false);
 			setIsPickListPrintDetails (false);
@@ -231,7 +216,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public MProduct (MExpenseType et)
 	{
 		this (et.getCtx(), 0, et.get_TrxName());
-		setProductType(X_M_Product.PRODUCTTYPE_ExpenseType);
+		setProductType(I_M_Product.PRODUCTTYPE_ExpenseType);
 		setExpenseType(et);
 	}	//	MProduct
 	
@@ -244,7 +229,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	{
 		this (resource.getCtx(), 0, resource.get_TrxName());
 		setAD_Org_ID(resource.getAD_Org_ID());
-		setProductType(X_M_Product.PRODUCTTYPE_Resource);
+		setProductType(I_M_Product.PRODUCTTYPE_Resource);
 		setResource(resource);
 		setResource(resourceType);
 	}	//	MProduct
@@ -286,9 +271,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setExpenseType (MExpenseType parent)
 	{
 		boolean changed = false;
-		if (!X_M_Product.PRODUCTTYPE_ExpenseType.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_ExpenseType.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_ExpenseType);
+			setProductType(I_M_Product.PRODUCTTYPE_ExpenseType);
 			changed = true;
 		}
 		if (parent.getS_ExpenseType_ID() != getS_ExpenseType_ID())
@@ -345,9 +330,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setResource (MResource parent)
 	{
 		boolean changed = false;
-		if (!X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_Resource);
+			setProductType(I_M_Product.PRODUCTTYPE_Resource);
 			changed = true;
 		}
 		if (parent.getS_Resource_ID() != getS_Resource_ID())
@@ -389,9 +374,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public boolean setResource (MResourceType parent)
 	{
 		boolean changed = false;
-		if (X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
+		if (I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()))
 		{
-			setProductType(X_M_Product.PRODUCTTYPE_Resource);
+			setProductType(I_M_Product.PRODUCTTYPE_Resource);
 			changed = true;
 		}
 		//
@@ -497,7 +482,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public boolean isItem()
 	{
-		return X_M_Product.PRODUCTTYPE_Item.equals(getProductType());
+		return I_M_Product.PRODUCTTYPE_Item.equals(getProductType());
 	}	//	isItem
 		
 	/**
@@ -576,7 +561,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		//	Reset Stocked if not Item
 		//AZ Goodwill: Bug Fix isStocked always return false
 		//if (isStocked() && !PRODUCTTYPE_Item.equals(getProductType()))
-		if (!X_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
+		if (!I_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
 			setIsStocked(false);
 		
 		//	UOM reset
@@ -656,7 +641,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	@Override
 	protected boolean beforeDelete ()
 	{
-		if (X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
+		if (I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
 		{
 			throw new AdempiereException("@S_Resource_ID@<>0");
 		}
@@ -752,13 +737,16 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public static IProductPricing getProductPricing() {
 
-		List<IProductPricingFactory> factoryList =
-			Service.locator().list(IProductPricingFactory.class).getServices();
-		if (factoryList != null) {
-			for(IProductPricingFactory factory : factoryList) {
-				IProductPricing myProductPricing = factory.newProductPricingInstance();
-				if (myProductPricing != null) {
-					return myProductPricing;
+		IServicesHolder<IProductPricingFactory> metaFactory =
+			Service.locator().list(IProductPricingFactory.class);
+		if (metaFactory != null) {
+			List<IProductPricingFactory> factoryList = metaFactory.getServices();
+			if (factoryList != null) {
+				for (IProductPricingFactory factory : factoryList) {
+					IProductPricing myProductPricing = factory.newProductPricingInstance();
+					if (myProductPricing != null) {
+						return myProductPricing;
+					}
 				}
 			}
 		}

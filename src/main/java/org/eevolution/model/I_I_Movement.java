@@ -1,4 +1,3 @@
-
 package org.eevolution.model;
 
 import java.math.BigDecimal;
@@ -11,7 +10,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_I_Movement  extends IBasePO
+public interface I_I_Movement 
 {
 
     /** TableName=I_Movement */
@@ -64,6 +63,18 @@ public interface I_I_Movement  extends IBasePO
 
     /** Column name AD_User_ID */
     public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name BPartnerValue */
     public static final String COLUMNNAME_BPartnerValue = "BPartnerValue";

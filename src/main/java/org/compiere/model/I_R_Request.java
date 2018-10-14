@@ -1,15 +1,15 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for R_Request
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_R_Request 
+public interface I_R_Request extends IPO
 {
 
     /** TableName=R_Request */

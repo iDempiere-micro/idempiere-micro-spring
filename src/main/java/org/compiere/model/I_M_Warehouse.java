@@ -1,8 +1,9 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Properties;
+
 import org.idempiere.common.util.KeyNamePair;
 
 /** Generated Interface for M_Warehouse
@@ -249,4 +250,6 @@ public interface I_M_Warehouse
 	  * Search key for the record in the format required - must be unique
 	  */
 	public String getValue();
+
+    Properties getCtx();
 }

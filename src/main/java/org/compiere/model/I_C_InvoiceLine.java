@@ -1,4 +1,3 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
@@ -682,4 +681,8 @@ public interface I_C_InvoiceLine extends IPO
 	boolean updateHeaderTax();
 
 	void clearParent();
+
+    I_C_Invoice getParent();
+
+	void saveEx();
 }

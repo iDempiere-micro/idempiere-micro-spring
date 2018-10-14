@@ -1,19 +1,3 @@
-/******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.                *
- * This program is free software; you can redistribute it and/or modify it    *
- * under the terms version 2 of the GNU General Public License as published   *
- * by the Free Software Foundation. This program is distributed in the hope   *
- * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied *
- * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
- * See the GNU General Public License for more details.                       *
- * You should have received a copy of the GNU General Public License along    *
- * with this program; if not, write to the Free Software Foundation, Inc.,    *
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
- * For the text or an alternative of this public license, you may reach us    *
- * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
- * or via info@compiere.org or http://www.idempiere.org/license.html           *
- *****************************************************************************/
 package org.compiere.order;
 
 import java.io.File;
@@ -36,7 +20,7 @@ import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
- 
+
 
 /**
  *  Shipment Model
@@ -61,7 +45,7 @@ import org.compiere.util.Msg;
 public class MInOut extends X_M_InOut
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1226522383231204912L;
 
@@ -80,15 +64,15 @@ public class MInOut extends X_M_InOut
 		super (ctx, M_InOut_ID, trxName);
 		if (M_InOut_ID == 0)
 		{
-		//	setDocumentNo (null);
-		//	setC_BPartner_ID (0);
-		//	setC_BPartner_Location_ID (0);
-		//	setM_Warehouse_ID (0);
-		//	setC_DocType_ID (0);
+			//	setDocumentNo (null);
+			//	setC_BPartner_ID (0);
+			//	setC_BPartner_Location_ID (0);
+			//	setM_Warehouse_ID (0);
+			//	setC_DocType_ID (0);
 			setIsSOTrx (false);
 			setMovementDate (new Timestamp (System.currentTimeMillis ()));
 			setDateAcct (getMovementDate());
-		//	setMovementType (MOVEMENTTYPE_CustomerShipment);
+			//	setMovementType (MOVEMENTTYPE_CustomerShipment);
 			setDeliveryRule (X_M_InOut.DELIVERYRULE_Availability);
 			setDeliveryViaRule (X_M_InOut.DELIVERYVIARULE_Pickup);
 			setFreightCostRule (X_M_InOut.FREIGHTCOSTRULE_FreightIncluded);
@@ -144,13 +128,13 @@ public class MInOut extends X_M_InOut
 		// patch suggested by Armen
 		// setMovementType (order.isSOTrx() ? MOVEMENTTYPE_CustomerShipment : MOVEMENTTYPE_VendorReceipts);
 		String movementTypeShipment = null;
-		MDocType dtShipment = new MDocType(order.getCtx(), C_DocTypeShipment_ID, order.get_TrxName()); 
-		if (dtShipment.getDocBaseType().equals(MDocType.DOCBASETYPE_MaterialDelivery)) 
+		MDocType dtShipment = new MDocType(order.getCtx(), C_DocTypeShipment_ID, order.get_TrxName());
+		if (dtShipment.getDocBaseType().equals(MDocType.DOCBASETYPE_MaterialDelivery))
 			movementTypeShipment = dtShipment.isSOTrx() ? X_M_InOut.MOVEMENTTYPE_CustomerShipment : X_M_InOut.MOVEMENTTYPE_VendorReturns;
-		else if (dtShipment.getDocBaseType().equals(MDocType.DOCBASETYPE_MaterialReceipt)) 
+		else if (dtShipment.getDocBaseType().equals(MDocType.DOCBASETYPE_MaterialReceipt))
 			movementTypeShipment = dtShipment.isSOTrx() ? X_M_InOut.MOVEMENTTYPE_CustomerReturns : X_M_InOut.MOVEMENTTYPE_VendorReceipts;
-		setMovementType (movementTypeShipment); 
-		
+		setMovementType (movementTypeShipment);
+
 		//	Default - Today
 		if (movementDate != null)
 			setMovementDate (movementDate);
@@ -342,7 +326,7 @@ public class MInOut extends X_M_InOut
 		else{
 			StringBuilder msgd = new StringBuilder(desc).append(" | ").append(description);
 			setDescription(msgd.toString());
-		}	
+		}
 	}	//	addDescription
 
 	/**
@@ -410,9 +394,9 @@ public class MInOut extends X_M_InOut
 			return m_lines;
 		}
 		List<MInOutLine> list = new Query(getCtx(), I_M_InOutLine.Table_Name, "M_InOut_ID=?", get_TrxName())
-		.setParameters(getM_InOut_ID())
-		.setOrderBy(MInOutLine.COLUMNNAME_Line)
-		.list();
+			.setParameters(getM_InOut_ID())
+			.setOrderBy(MInOutLine.COLUMNNAME_Line)
+			.list();
 		//
 		m_lines = new MInOutLine[list.size()];
 		list.toArray(m_lines);
@@ -442,8 +426,8 @@ public class MInOut extends X_M_InOut
 			return m_confirms;
 		}
 		List<MInOutConfirm> list = new Query(getCtx(), I_M_InOutConfirm.Table_Name, "M_InOut_ID=?", get_TrxName())
-		.setParameters(getM_InOut_ID())
-		.list();
+			.setParameters(getM_InOut_ID())
+			.list();
 		m_confirms = new MInOutConfirm[list.size ()];
 		list.toArray (m_confirms);
 		return m_confirms;
@@ -482,7 +466,7 @@ public class MInOut extends X_M_InOut
 			}
 			if (!counter)
 				line.setM_AttributeSetInstance_ID(0);
-		//	line.setS_ResourceAssignment_ID(0);
+			//	line.setS_ResourceAssignment_ID(0);
 			line.setRef_InOutLine_ID(0);
 			line.setIsInvoiced(false);
 			//
@@ -514,9 +498,9 @@ public class MInOut extends X_M_InOut
 						line.setM_RMALine_ID(peer.getRef_RMALine_ID());
 				}
 			}
-			
+
 			line.setQtyOverReceipt(fromLine.getQtyOverReceipt());
-			
+
 			//
 			line.setProcessed(false);
 			if (line.save(get_TrxName()))
@@ -664,15 +648,15 @@ public class MInOut extends X_M_InOut
 		boolean disallowNegInv = true;
 		String DeliveryRule = getDeliveryRule();
 		if((disallowNegInv && X_M_InOut.DELIVERYRULE_Force.equals(DeliveryRule)) ||
-				(DeliveryRule == null || DeliveryRule.length()==0))
+			(DeliveryRule == null || DeliveryRule.length()==0))
 			setDeliveryRule(X_M_InOut.DELIVERYRULE_Availability);
 
-        // Shipment/Receipt can have either Order/RMA (For Movement type)
-        if (getC_Order_ID() != 0 && getM_RMA_ID() != 0)
-        {
-            log.saveError("OrderOrRMA", "");
-            return false;
-        }
+		// Shipment/Receipt can have either Order/RMA (For Movement type)
+		if (getC_Order_ID() != 0 && getM_RMA_ID() != 0)
+		{
+			log.saveError("OrderOrRMA", "");
+			return false;
+		}
 
 		//	Shipment - Needs Order/RMA
 		if (!getMovementType().contentEquals(X_M_InOut.MOVEMENTTYPE_CustomerReturns) && isSOTrx() && getC_Order_ID() == 0 && getM_RMA_ID() == 0)
@@ -681,13 +665,13 @@ public class MInOut extends X_M_InOut
 			return false;
 		}
 
-        if (isSOTrx() && getM_RMA_ID() != 0)
-        {
-            // Set Document and Movement type for this Receipt
-            MRMA rma = new MRMA(getCtx(), getM_RMA_ID(), get_TrxName());
-            MDocType docType = MDocType.get(getCtx(), rma.getC_DocType_ID());
-            setC_DocType_ID(docType.getC_DocTypeShipment_ID());
-        }
+		if (isSOTrx() && getM_RMA_ID() != 0)
+		{
+			// Set Document and Movement type for this Receipt
+			MRMA rma = new MRMA(getCtx(), getM_RMA_ID(), get_TrxName());
+			MDocType docType = MDocType.get(getCtx(), rma.getC_DocType_ID());
+			setC_DocType_ID(docType.getC_DocTypeShipment_ID());
+		}
 
 		return true;
 	}	//	beforeSave
@@ -706,10 +690,10 @@ public class MInOut extends X_M_InOut
 		if (is_ValueChanged("AD_Org_ID"))
 		{
 			final String sql = "UPDATE M_InOutLine ol"
-					+ " SET AD_Org_ID ="
-					+ "(SELECT AD_Org_ID"
-					+ " FROM M_InOut o WHERE ol.M_InOut_ID=o.M_InOut_ID) "
-					+ "WHERE M_InOut_ID=?";
+				+ " SET AD_Org_ID ="
+				+ "(SELECT AD_Org_ID"
+				+ " FROM M_InOut o WHERE ol.M_InOut_ID=o.M_InOut_ID) "
+				+ "WHERE M_InOut_ID=?";
 			int no = DB.executeUpdateEx(sql, new Object[] {getM_InOut_ID()}, get_TrxName());
 			if (log.isLoggable(Level.FINE)) log.fine("Lines -> #" + no);
 		}
@@ -767,18 +751,6 @@ public class MInOut extends X_M_InOut
 	}	//	rejectIt
 
 
-	/* Save array of documents to process AFTER completing this one */
-	protected ArrayList<PO> docsPostProcess = new ArrayList<PO>();
-
-	protected void addDocsPostProcess(PO doc) {
-		docsPostProcess.add(doc);
-	}
-
-	public ArrayList<PO> getDocsPostProcess() {
-		return docsPostProcess;
-	}
-
-
 	/*************************************************************************
 	 * 	Get Summary
 	 *	@return Summary of Document
@@ -789,7 +761,7 @@ public class MInOut extends X_M_InOut
 		sb.append(getDocumentNo());
 		//	: Total Lines = 123.00 (#1)
 		sb.append(":")
-		//	.append(Msg.translate(getCtx(),"TotalLines")).append("=").append(getTotalLines())
+			//	.append(Msg.translate(getCtx(),"TotalLines")).append("=").append(getTotalLines())
 			.append(" (#").append(getLines(false).length).append(")");
 		//	 - Description
 		if (getDescription() != null && getDescription().length() > 0)

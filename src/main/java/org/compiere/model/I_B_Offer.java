@@ -1,4 +1,3 @@
-
 package org.compiere.model;
 
 import java.math.BigDecimal;
@@ -46,6 +45,21 @@ public interface I_B_Offer
 	  * Organizational entity within client
 	  */
 	public int getAD_Org_ID();
+
+    /** Column name AD_User_ID */
+    public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+
+	/** Set User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public void setAD_User_ID (int AD_User_ID);
+
+	/** Get User/Contact.
+	  * User within the system - Internal or Business Partner Contact
+	  */
+	public int getAD_User_ID();
+
+	public I_AD_User getAD_User() throws RuntimeException;
 
     /** Column name B_Offer_ID */
     public static final String COLUMNNAME_B_Offer_ID = "B_Offer_ID";
