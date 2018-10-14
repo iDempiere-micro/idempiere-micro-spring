@@ -42,11 +42,7 @@ class InvoiceTests : BaseComponentTest() {
         loginClient(11)
         val invoice_id = 106
 
-        val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice_id, null)
-        println(result)
-        assertNotNull(result)
-        val invoice = result as MInvoice
+        val invoice: MInvoice = getById(invoice_id, I_C_Invoice.Table_Name)
         assertNotNull(invoice)
         assertEquals(invoice_id, invoice._ID)
         val lines = invoice.lines
