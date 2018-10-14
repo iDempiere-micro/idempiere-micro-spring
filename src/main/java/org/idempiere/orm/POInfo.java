@@ -56,7 +56,7 @@ public class POInfo implements Serializable
 	 */
 	public static synchronized POInfo getPOInfo (Properties ctx, int AD_Table_ID, String trxName)
 	{
-		Integer key = Integer.valueOf(AD_Table_ID);
+		Integer key = AD_Table_ID;
 		POInfo retValue = (POInfo)s_cache.get(key);
 		if (retValue == null)
 		{
