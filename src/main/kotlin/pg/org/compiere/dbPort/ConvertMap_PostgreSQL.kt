@@ -14,7 +14,7 @@ object ConvertMap_PostgreSQL {
             if (s_pg.size == 0)
                 initConvertMap()
             return s_pg
-        }   //  getConvertMap
+        } //  getConvertMap
 
     /**
      * PostgreSQL Init
@@ -28,16 +28,16 @@ object ConvertMap_PostgreSQL {
         s_pg["\\bVARCHAR2\\b"] = "VARCHAR"
         s_pg["\\bNVARCHAR2\\b"] = "VARCHAR"
         s_pg["\\bNCHAR\\b"] = "CHAR"
-        //begin vpj-cd e-evolution 03/11/2005 PostgreSQL
-        s_pg["\\bBLOB\\b"] = "BYTEA"                 //  BLOB not directly supported
-        s_pg["\\bCLOB\\b"] = "TEXT"                //  CLOB not directly supported
+        // begin vpj-cd e-evolution 03/11/2005 PostgreSQL
+        s_pg["\\bBLOB\\b"] = "BYTEA" //  BLOB not directly supported
+        s_pg["\\bCLOB\\b"] = "TEXT" //  CLOB not directly supported
         s_pg["\\bLIMIT\\b"] = "\"limit\""
         s_pg["\\bACTION\\b"] = "\"action\""
         s_pg["\\bold\\b"] = "\"old\""
         s_pg["\\bnew\\b"] = "\"new\""
-        //s_pg.put("\\bBLOB\\b",                  "OID");                 //  BLOB not directly supported
-        //s_pg.put("\\bCLOB\\b",                  "OID");                //  CLOB not directly supported
-        //end vpj-cd e-evolution 03/11/2005 PostgreSQL
+        // s_pg.put("\\bBLOB\\b",                  "OID");                 //  BLOB not directly supported
+        // s_pg.put("\\bCLOB\\b",                  "OID");                //  CLOB not directly supported
+        // end vpj-cd e-evolution 03/11/2005 PostgreSQL
 
         //  Storage
         s_pg["\\bCACHE\\b"] = ""
@@ -50,11 +50,11 @@ object ConvertMap_PostgreSQL {
         //  Functions
         s_pg["\\bSYSDATE\\b"] = "statement_timestamp()"
         s_pg["\\bCURRENT_TIMESTAMP\\b"] = "statement_timestamp()"
-        //begin vpj-cd e-evolution 03/11/2005 PostgreSQL
+        // begin vpj-cd e-evolution 03/11/2005 PostgreSQL
         s_pg["\\bDUMP\\b"] = "MD5"
         s_pg["END CASE"] = "END"
         s_pg["\\bgetDate\\b\\(\\)"] = "statement_timestamp()"
-        //end vpj-cd e-evolution 03/11/2005 PostgreSQL
+        // end vpj-cd e-evolution 03/11/2005 PostgreSQL
         s_pg["\\bNVL\\b"] = "COALESCE"
         s_pg["\\bTO_DATE\\b"] = "TO_TIMESTAMP"
         //
@@ -66,11 +66,11 @@ object ConvertMap_PostgreSQL {
         s_pg["\\bON COMMIT DELETE ROWS\\b"] = ""
         s_pg["\\bON COMMIT PRESERVE ROWS\\b"] = ""
 
-        //DDL
+        // DDL
 
         // begin vpj-cd e-evolution 08/02/2005 PostgreSQL
-        //s_pg.put("\\bMODIFY\\b","ALTER COLUMN");
-        //s_pg.put("\\bDEFAULT\\b","SET DEFAULT");
+        // s_pg.put("\\bMODIFY\\b","ALTER COLUMN");
+        // s_pg.put("\\bDEFAULT\\b","SET DEFAULT");
         // end vpj-cd e-evolution 08/02/2005 PostgreSQL
 
         //  DROP TABLE x CASCADE CONSTRAINTS
@@ -88,7 +88,5 @@ object ConvertMap_PostgreSQL {
         //  Sequences
         s_pg["\\bSTART WITH\\b"] = "START"
         s_pg["\\bINCREMENT BY\\b"] = "INCREMENT"
-
-    }   //  initPostgreSQL
-
+    } //  initPostgreSQL
 }

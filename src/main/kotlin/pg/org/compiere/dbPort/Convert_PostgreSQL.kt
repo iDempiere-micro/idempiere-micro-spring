@@ -6,9 +6,10 @@ import org.idempiere.common.util.Util
 import pg.org.compiere.db.DB_PostgreSQL
 
 import java.math.BigDecimal
-import java.util.*
-import java.util.regex.Matcher
+import java.util.TreeMap
+import java.util.Vector
 import java.util.regex.Pattern
+import java.util.StringTokenizer
 
 /**
  * Convert Oracle SQL to PostgreSQL SQL
@@ -27,7 +28,6 @@ class Convert_PostgreSQL : Convert_SQL92() {
     init {
         m_map = ConvertMap_PostgreSQL.convertMap
     } // Convert
-
 
     /**
      * Is Oracle DB
@@ -158,17 +158,17 @@ class Convert_PostgreSQL : Convert_SQL92() {
     private fun convertCast(sqlStatement: String): String {
         val PATTERN_String = "\'([^']|(''))*\'"
         val PATTERN_DataType = "([\\w]+)(\\(\\d+\\))?"
-        val pattern = ("\\bCAST\\b[\\s]*\\([\\s]*"                    // CAST<sp>(<sp>
+        val pattern = ("\\bCAST\\b[\\s]*\\([\\s]*" + // CAST<sp>(<sp>
 
-                + "((" + PATTERN_String + ")|([^\\s]+))"        //	arg1				1(2,3)
+                "((" + PATTERN_String + ")|([^\\s]+))" + // 	arg1				1(2,3)
 
-                + "[\\s]*AS[\\s]*"                        //	<sp>AS<sp>
+                "[\\s]*AS[\\s]*" + // 	<sp>AS<sp>
 
-                + "(" + PATTERN_DataType + ")"                //	arg2 (datatype)		4
+                "(" + PATTERN_DataType + ")" + // 	arg2 (datatype)		4
 
-                + "\\s*\\)")                                //	<sp>)
+                "\\s*\\)") // 	<sp>)
         val gidx_arg1 = 1
-        val gidx_arg2 = 7    // datatype w/o length
+        val gidx_arg2 = 7 // datatype w/o length
         val p = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE)
         val m = p.matcher(sqlStatement)
 
@@ -355,7 +355,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
         var cnt = 0
         var isUpdate = false
 
-        //get target table and alias
+        // get target table and alias
         while (charIndex < sqlLength) {
             val c = sqlStatement[charIndex]
             if (Character.isWhitespace(c)) {
@@ -368,14 +368,14 @@ class Convert_PostgreSQL : Convert_SQL92() {
                     else if (cnt == 3) {
                         targetAlias = token.toString().trim { it <= ' ' }
                         if ("SET".equals(targetAlias, ignoreCase = true))
-                        //no alias
+                        // no alias
                             targetAlias = targetTable
                     }
                     previousToken = token.toString()
                     token = StringBuilder()
                 }
             } else {
-                if ("SET".equals(previousToken!!, ignoreCase = true))
+                if ("SET".equals(previousToken, ignoreCase = true))
                     break
                 else
                     token.append(c)
@@ -389,7 +389,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
 
             var select = ""
 
-            //get the sub query
+            // get the sub query
             var beforePreviousToken: String? = null
             previousToken = null
             token = StringBuilder()
@@ -415,7 +415,6 @@ class Convert_PostgreSQL : Convert_SQL92() {
                                 updateFields = updateFields.substring(0, updateFields.lastIndexOf(')'))
                                 break
                             }
-
                         }
                         if (")=(" == currentToken) {
                             select = sqlStatement.substring(charIndex - 1)
@@ -467,7 +466,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
 
             var mainWhere: String? = ""
             var otherUpdateFields = ""
-            //get update where clause
+            // get update where clause
             token = StringBuilder()
             for (i in subQueryEnd until select.length) {
                 val c = select[i]
@@ -487,7 +486,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
 
             val subQuery = select.substring(subQueryStart, subQueryEnd)
 
-            //get join table and alias
+            // get join table and alias
             var joinTable: String? = null
             var joinAlias: String? = null
             token = StringBuilder()
@@ -501,7 +500,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                 val c = subQuery[i]
                 if (Character.isWhitespace(c)) {
                     if (token.length > 0 && open < 0) {
-                        if ("FROM".equals(previousToken!!, ignoreCase = true)) {
+                        if ("FROM".equals(previousToken, ignoreCase = true)) {
                             joinTable = token.toString()
                         }
                         if ("WHERE".equals(token.toString(), ignoreCase = true)) {
@@ -521,7 +520,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                     }
                 } else {
                     if (joinFieldsBegin == 0) {
-                        if (token.length == 0 && ("SELECT".equals(previousToken!!, ignoreCase = true) || previousToken != null && previousToken.toUpperCase().endsWith("SELECT")))
+                        if (token.length == 0 && ("SELECT".equals(previousToken, ignoreCase = true) || previousToken != null && previousToken.toUpperCase().endsWith("SELECT")))
                             joinFieldsBegin = i
                     } else if (c == '(')
                         open++
@@ -533,7 +532,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
             if (joinFromClause == null) joinFromClause = subQuery.substring(joinFromClauseStart).trim { it <= ' ' }
             if (joinAlias == null) joinAlias = joinTable
 
-            //construct update clause
+            // construct update clause
             val Update = StringBuilder("UPDATE ")
             Update.append(targetTable)
             if (targetAlias != targetTable)
@@ -624,11 +623,9 @@ class Convert_PostgreSQL : Convert_SQL92() {
             }
 
             return Update.toString()
-
         }
         // System.out.println("Convert Update:"+sqlUpdate);
         return sqlStatement
-
     } // convertDecode
 
     /**
@@ -657,8 +654,8 @@ class Convert_PostgreSQL : Convert_SQL92() {
                         token = null
                     }
                     if (ch == '(' && token != null) {
-                        if (token == "SUM" || token == "MAX" || token == "MIN"
-                                || token == "COUNT" || token == "AVG") {
+                        if (token == "SUM" || token == "MAX" || token == "MIN" ||
+                                token == "COUNT" || token == "AVG") {
                             return true
                         }
                     }
@@ -689,7 +686,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
             if (sqlkey.indexOf(test) == -1) {
 
                 token = token.trim { it <= ' ' }
-                //skip subquery, non identifier and fully qualified identifier
+                // skip subquery, non identifier and fully qualified identifier
                 if (o != -1)
                     result = "$result $token"
                 else {
@@ -732,7 +729,6 @@ class Convert_PostgreSQL : Convert_SQL92() {
                             o--
                     }
                 }
-
             } else {
                 result = "$result $token"
                 if ("SELECT".equals(test, ignoreCase = true)) {
@@ -765,11 +761,9 @@ class Convert_PostgreSQL : Convert_SQL92() {
                 return false
             } catch (e: NumberFormatException) {
             }
-
         }
 
         return if (isSQLFunctions(token)) false else true
-
     }
 
     private fun isSQLFunctions(token: String): Boolean {
@@ -901,39 +895,39 @@ class Convert_PostgreSQL : Convert_SQL92() {
                             rest = ""
                         }
                         if (defaultvalue.equals("NULL", ignoreCase = true) || defaultvalue.equals("statement_timestamp()", ignoreCase = true)) {
-                            DDL = (sqlStatement.substring(0, begin_col - action.length)
-                                    + " ADD COLUMN "
-                                    + column
-                                    + " " + beforeDefault.trim { it <= ' ' }
-                                    + " DEFAULT "
-                                    + defaultvalue.trim { it <= ' ' } + " " + rest.trim { it <= ' ' })
+                            DDL = (sqlStatement.substring(0, begin_col - action.length) +
+                                    " ADD COLUMN " +
+                                    column +
+                                    " " + beforeDefault.trim { it <= ' ' } +
+                                    " DEFAULT " +
+                                    defaultvalue.trim { it <= ' ' } + " " + rest.trim { it <= ' ' })
                         } else {
                             // Check if default value is already quoted, no need to double quote
                             if (defaultvalue.startsWith("'") && defaultvalue.endsWith("'")) {
-                                DDL = (sqlStatement.substring(0, begin_col - action.length)
-                                        + " ADD COLUMN "
-                                        + column
-                                        + " " + beforeDefault.trim { it <= ' ' }
-                                        + " DEFAULT "
-                                        + defaultvalue.trim { it <= ' ' } + " " + rest.trim { it <= ' ' })
+                                DDL = (sqlStatement.substring(0, begin_col - action.length) +
+                                        " ADD COLUMN " +
+                                        column +
+                                        " " + beforeDefault.trim { it <= ' ' } +
+                                        " DEFAULT " +
+                                        defaultvalue.trim { it <= ' ' } + " " + rest.trim { it <= ' ' })
                             } else {
-                                DDL = (sqlStatement.substring(0, begin_col - action.length)
-                                        + " ADD COLUMN "
-                                        + column
-                                        + " " + beforeDefault.trim { it <= ' ' }
-                                        + " DEFAULT '"
-                                        + defaultvalue.trim { it <= ' ' } + "' " + rest.trim { it <= ' ' })
+                                DDL = (sqlStatement.substring(0, begin_col - action.length) +
+                                        " ADD COLUMN " +
+                                        column +
+                                        " " + beforeDefault.trim { it <= ' ' } +
+                                        " DEFAULT '" +
+                                        defaultvalue.trim { it <= ' ' } + "' " + rest.trim { it <= ' ' })
                             }
                         }
                     } else {
                         DDL = (sqlStatement
-                                .substring(0, begin_col - action.length)
-                                + action + "COLUMN " + column + " " + rest.trim { it <= ' ' })
+                                .substring(0, begin_col - action.length) +
+                                action + "COLUMN " + column + " " + rest.trim { it <= ' ' })
                     }
                 } else if (action == " MODIFY ") {
                     rest = rest!!.trim { it <= ' ' }
-                    if (rest.toUpperCase().startsWith("NOT ") || rest.toUpperCase().startsWith("NULL ")
-                            || rest.toUpperCase() == "NULL" || rest.toUpperCase() == "NOT NULL") {
+                    if (rest.toUpperCase().startsWith("NOT ") || rest.toUpperCase().startsWith("NULL ") ||
+                            rest.toUpperCase() == "NULL" || rest.toUpperCase() == "NOT NULL") {
                         type = null
                     } else {
                         val typeEnd = rest.indexOf(' ')
@@ -965,10 +959,8 @@ class Convert_PostgreSQL : Convert_SQL92() {
                         // return DDL;
                     } else if (rest != null && rest.toUpperCase().indexOf("NOT NULL") >= 0) {
                         nullclause = "NOT NULL"
-
                     } else if (rest != null && rest.toUpperCase().indexOf("NULL") >= 0) {
                         nullclause = "NULL"
-
                     }
 
                     DDL = "INSERT INTO t_alter_column values('"

@@ -1,11 +1,8 @@
 package pg.org.adempiere.db.postgresql.config
 
 import org.adempiere.install.IDatabaseConfig
-import org.idempiere.icommon.db.AdempiereDatabase
 import org.idempiere.common.db.Database
 import org.idempiere.common.util.CLogger
-
-import java.sql.Connection
 
 /**
  * PostgreSQL Configuration
@@ -35,8 +32,7 @@ class ConfigPostgreSQL : IDatabaseConfig {
             return discovered
         p_discovered = arrayOf()
         return arrayOf()
-    }    //	discoveredDatabases
-
+    } // 	discoveredDatabases
 
     /**
      * Test JDBC Connection to Server
@@ -54,7 +50,7 @@ class ConfigPostgreSQL : IDatabaseConfig {
         }
 
         return true
-    }    //	testJDBC
+    } // 	testJDBC
 
     override fun getDatabaseName(nativeConnectioName: String): String {
         return nativeConnectioName
@@ -68,6 +64,5 @@ class ConfigPostgreSQL : IDatabaseConfig {
 
         private val log = CLogger.getCLogger(ConfigPostgreSQL::class.java)
     }
-
-}    //	ConfigPostgreSQL
-//	ConfigPostgreSQL
+} // 	ConfigPostgreSQL
+// 	ConfigPostgreSQL
