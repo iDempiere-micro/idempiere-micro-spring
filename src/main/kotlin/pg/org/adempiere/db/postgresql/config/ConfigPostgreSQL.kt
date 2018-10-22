@@ -14,6 +14,8 @@ import org.idempiere.common.util.CLogger
  * ConfigPostgreSQL
  */
 class ConfigPostgreSQL : IDatabaseConfig {
+    override val name: String
+        get() = Database.DB_POSTGRESQL
 
     /** Discovered TNS			 */
     private var p_discovered: Array<String>? = null
@@ -54,10 +56,6 @@ class ConfigPostgreSQL : IDatabaseConfig {
 
     override fun getDatabaseName(nativeConnectioName: String): String {
         return nativeConnectioName
-    }
-
-    override fun getName(): String {
-        return Database.DB_POSTGRESQL
     }
 
     companion object {
