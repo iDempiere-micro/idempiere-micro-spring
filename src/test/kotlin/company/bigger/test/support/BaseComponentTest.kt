@@ -22,7 +22,7 @@ abstract class BaseComponentTest : BaseTest() {
         loginClient(1000000)
     }
 
-    fun <T: IPO> getById(id: Int, tableName: String): T {
+    fun <T : IPO> getById(id: Int, tableName: String): T {
         val modelFactory: IModelFactory = DefaultModelFactory()
         val result = modelFactory.getPO(tableName, id, null)
         println(result)

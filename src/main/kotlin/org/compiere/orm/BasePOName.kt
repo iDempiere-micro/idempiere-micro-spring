@@ -3,7 +3,7 @@ package org.compiere.orm
 import org.compiere.model.I_AD_Table
 import org.idempiere.common.util.KeyNamePair
 import java.sql.ResultSet
-import java.util.*
+import java.util.Properties
 
 abstract class BasePOName : PO {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)

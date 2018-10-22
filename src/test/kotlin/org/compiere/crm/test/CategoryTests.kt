@@ -4,7 +4,6 @@ import company.bigger.test.support.BaseComponentTest
 import org.compiere.crm.MBPartner
 import org.compiere.crm.MCrmCategory
 import org.compiere.crm.MCrmCustomerCategory
-import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertNotNull
 
@@ -48,7 +47,5 @@ class CategoryTests : BaseComponentTest() {
 
         val bpInCat: MCrmCustomerCategory = getById(bpartnerInCategory._ID, MCrmCustomerCategory.Table_Name)
         assertNotNull(bpInCat)
-
     }
-
 }
