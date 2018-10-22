@@ -30,7 +30,7 @@ public class MStorageProvider extends X_AD_StorageProvider implements I_AD_Stora
 		if (method == null)
 			method = "DB";
 		query.put("method", method);
-		IAttachmentStore store = Service.locator().locate(IAttachmentStore.class, query).getService();			
+		IAttachmentStore store = Service.Companion.locator().locate(IAttachmentStore.class, query).getService();
 		if (store == null) {
 			throw new AdempiereException("No attachment storage provider found");
 		}
@@ -43,7 +43,7 @@ public class MStorageProvider extends X_AD_StorageProvider implements I_AD_Stora
 		if (method == null)
 			method = "DB";
 		query.put("method", method);
-		IArchiveStore store = Service.locator().locate(IArchiveStore.class, query).getService();
+		IArchiveStore store = Service.Companion.locator().locate(IArchiveStore.class, query).getService();
 		if (store == null) {
 			throw new AdempiereException("No archive storage provider found");
 		}

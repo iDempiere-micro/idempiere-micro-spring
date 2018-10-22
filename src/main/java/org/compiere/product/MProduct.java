@@ -738,7 +738,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public static IProductPricing getProductPricing() {
 
 		IServicesHolder<IProductPricingFactory> metaFactory =
-			Service.locator().list(IProductPricingFactory.class);
+			Service.Companion.locator().list(IProductPricingFactory.class);
 		if (metaFactory != null) {
 			List<IProductPricingFactory> factoryList = metaFactory.getServices();
 			if (factoryList != null) {

@@ -97,7 +97,7 @@ public class CCache<K,V> implements CacheInterface, Map<K, V>, Serializable
 		m_distributed = distributed;
 		if (distributed) {
 			try {
-				IServiceHolder<ICacheService> service = Service.locator().locate(ICacheService.class);
+				IServiceHolder<ICacheService> service = Service.Companion.locator().locate(ICacheService.class);
 				if (service != null) {
 					ICacheService provider = service.getService();
 					if (provider != null) {

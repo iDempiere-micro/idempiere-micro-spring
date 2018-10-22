@@ -120,36 +120,38 @@ public class DocManager {
 
 		ServiceQuery query = new ServiceQuery();
 		query.put("gaap", as.getGAAP());
-		IServicesHolder<IDocFactory> holder = Service.locator().list(IDocFactory.class,query);
+		IServicesHolder<IDocFactory> holder = Service.Companion.locator().list(IDocFactory.class,query);
 		if (holder == null) {
 		    holder = new DefaultDocumentFactoryHolder();
 		}
         List<IDocFactory> factoryList = holder.getServices();
-		if (factoryList != null)
+		if (factoryList == null || factoryList.isEmpty())
 		{
-			for(IDocFactory factory : factoryList)
-			{
-				IDoc doc = factory.getDocument(as, AD_Table_ID, Record_ID, trxName);
-				if (doc != null)
-					return doc;
-			}
+			factoryList = new DefaultDocumentFactoryHolder().getServices();
+		}
+		for(IDocFactory factory : factoryList)
+		{
+			IDoc doc = factory.getDocument(as, AD_Table_ID, Record_ID, trxName);
+			if (doc != null)
+				return doc;
 		}
 
 		query.clear();
 		query.put("gaap", "*");
-		holder = Service.locator().list(IDocFactory.class,query);
+		holder = Service.Companion.locator().list(IDocFactory.class,query);
 		if (holder == null) {
 		    holder = new DefaultDocumentFactoryHolder();
 		}
         factoryList = holder.getServices();
-		if (factoryList != null)
+		if (factoryList == null || factoryList.isEmpty())
 		{
-			for(IDocFactory factory : factoryList)
-			{
-				IDoc doc = factory.getDocument(as, AD_Table_ID, Record_ID, trxName);
-				if (doc != null)
-					return doc;
-			}
+			factoryList = new DefaultDocumentFactoryHolder().getServices();
+		}
+		for(IDocFactory factory : factoryList)
+		{
+			IDoc doc = factory.getDocument(as, AD_Table_ID, Record_ID, trxName);
+			if (doc != null)
+				return doc;
 		}
 
 		return null;
@@ -168,33 +170,37 @@ public class DocManager {
 	{
 		ServiceQuery query = new ServiceQuery();
 		query.put("gaap", as.getGAAP());
-		IServicesHolder<IDocFactory> holder = Service.locator().list(IDocFactory.class,query);
+		IServicesHolder<IDocFactory> holder = Service.Companion.locator().list(IDocFactory.class,query);
 		if (holder == null) {
 		    holder = new DefaultDocumentFactoryHolder();
 		}
         List<IDocFactory> factoryList = holder.getServices();
-        if (factoryList != null) {
-            for (IDocFactory factory : factoryList) {
-                IDoc doc = factory.getDocument(as, AD_Table_ID, rs, trxName);
-                if (doc != null)
-                    return doc;
-            }
-        }
+		if (factoryList == null || factoryList.isEmpty())
+		{
+			factoryList = new DefaultDocumentFactoryHolder().getServices();
+		}
+		for (IDocFactory factory : factoryList) {
+			IDoc doc = factory.getDocument(as, AD_Table_ID, rs, trxName);
+			if (doc != null)
+				return doc;
+		}
 
 		query.clear();
 		query.put("gaap", "*");
-		holder = Service.locator().list(IDocFactory.class,query);
+		holder = Service.Companion.locator().list(IDocFactory.class,query);
         if (holder == null) {
             holder = new DefaultDocumentFactoryHolder();
         }
         factoryList = holder.getServices();
-        if (factoryList != null) {
-            for (IDocFactory factory : factoryList) {
-                IDoc doc = factory.getDocument(as, AD_Table_ID, rs, trxName);
-                if (doc != null)
-                    return doc;
-            }
-        }
+		if (factoryList == null || factoryList.isEmpty())
+		{
+			factoryList = new DefaultDocumentFactoryHolder().getServices();
+		}
+		for (IDocFactory factory : factoryList) {
+			IDoc doc = factory.getDocument(as, AD_Table_ID, rs, trxName);
+			if (doc != null)
+				return doc;
+		}
 
 		return null;
 	}

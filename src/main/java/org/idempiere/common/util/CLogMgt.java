@@ -555,7 +555,7 @@ public class CLogMgt
 		//
 		//cluster info
 		if (Env.getAD_Client_ID(Env.getCtx()) == 0) {
-			IClusterService service = Service.locator().locate(IClusterService.class).getService();
+			IClusterService service = Service.Companion.locator().locate(IClusterService.class).getService();
 			if (service != null) {
 				IClusterMember local = service.getLocalMember();
 				Collection<IClusterMember> members = service.getMembers();				

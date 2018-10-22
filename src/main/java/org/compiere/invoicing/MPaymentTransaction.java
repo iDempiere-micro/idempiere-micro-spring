@@ -339,7 +339,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
         //
         IPaymentProcessor myProcessor = null;
 
-        List<IPaymentProcessorFactory> factoryList = Service.locator().list(IPaymentProcessorFactory.class).getServices();
+        List<IPaymentProcessorFactory> factoryList = Service.Companion.locator().list(IPaymentProcessorFactory.class).getServices();
         if (factoryList != null) {
             for(IPaymentProcessorFactory factory : factoryList) {
                 IPaymentProcessor processor = factory.newPaymentProcessorInstance(className);
