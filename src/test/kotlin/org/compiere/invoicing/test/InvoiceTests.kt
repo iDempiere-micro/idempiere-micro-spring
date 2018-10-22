@@ -31,7 +31,7 @@ data class InvoiceImportantTestAttributes(
 
 data class MaterialMovementImportantTestAttributes(
     val productName: String,
-    val moveDate: Date,
+    val moveDate: Date?,
     val amountIn: BigDecimal,
     val amountOut: BigDecimal
 )
@@ -121,8 +121,8 @@ class InvoiceTests : BaseComponentTest() {
         "/sql/recent_material_movements.sql".asResource {
             val list = it.executeSql {
                 MaterialMovementImportantTestAttributes(
-                    it.getString("pro_name"), it.getDate("move_date"),
-                    it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
+                        it.getString("pro_name"), it.getDate("move_date"),
+                        it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
                 )
             }
             assertEquals(2, list.count())
