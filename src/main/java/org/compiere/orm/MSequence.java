@@ -86,11 +86,11 @@ public class MSequence extends X_AD_Sequence
 
 		if(SYSTEM_NATIVE_SEQUENCE && !adempiereSys)
 		{
-			int m_sequence_id = CConnection.get().getDatabase().getNextID(TableName+"_SQ");
+			int m_sequence_id = CConnection.Companion.get().getDatabase().getNextID(TableName+"_SQ");
 			if (m_sequence_id == -1) {
 				// try to create the sequence and try again
 				MSequence.createTableSequence(Env.getCtx(), TableName, trxName, true);
-				m_sequence_id = CConnection.get().getDatabase().getNextID(TableName+"_SQ");
+				m_sequence_id = CConnection.Companion.get().getDatabase().getNextID(TableName+"_SQ");
 			}
 			return m_sequence_id;
 		}
@@ -849,7 +849,7 @@ public class MSequence extends X_AD_Sequence
 				seq.saveEx();
 				next_id = INIT_NO;
 			}
-			if (! CConnection.get().getDatabase().createSequence(TableName+"_SQ", 1, INIT_NO, Integer.MAX_VALUE, next_id, trxName))
+			if (! CConnection.Companion.get().getDatabase().createSequence(TableName+"_SQ", 1, INIT_NO, Integer.MAX_VALUE, next_id, trxName))
 				return false;
 
 			return true;
