@@ -32,4 +32,7 @@ abstract class BaseComponentTest : BaseTest() {
         assertEquals(id, obj._ID)
         return obj
     }
+
+    val ctx get() = Env.getCtx()
+    val AD_CLIENT_ID get() = ctx.getProperty(Env.AD_CLIENT_ID).toInt()
 }
