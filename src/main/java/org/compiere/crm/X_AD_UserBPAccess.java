@@ -2,7 +2,7 @@ package org.compiere.crm;
 
 import org.compiere.model.I_AD_UserBPAccess;
 import org.compiere.orm.MTable;
-import org.compiere.orm.BasePO;
+import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -13,7 +13,7 @@ import java.util.Properties;
 /** Generated Model for AD_UserBPAccess
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_UserBPAccess extends BasePO implements I_AD_UserBPAccess, I_Persistent
+public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, I_Persistent
 {
 
 	/**

@@ -63,6 +63,13 @@
             <version>${kotlin.version}</version>
 		</dependency>
 
+        <!-- Rollbar -->
+        <dependency>
+            <groupId>com.rollbar</groupId>
+            <version>[1.0,)</version>
+            <artifactId>rollbar-java</artifactId>
+        </dependency>
+
         <!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -402,7 +409,14 @@
                         <format>xml</format>
                     </formats>
                 </configuration>                
-            </plugin>            
+            </plugin>    
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                </configuration>
+            </plugin>                    
         </plugins>
     </reporting>
 </project>

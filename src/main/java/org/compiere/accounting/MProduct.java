@@ -157,12 +157,12 @@ public class MProduct extends org.compiere.product.MProduct {
     @Override
     protected boolean beforeDelete ()
     {
-        if (X_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
+        if (I_M_Product.PRODUCTTYPE_Resource.equals(getProductType()) && getS_Resource_ID() > 0)
         {
             throw new AdempiereException("@S_Resource_ID@<>0");
         }
         //	Check Storage
-        if (isStocked() || X_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
+        if (isStocked() || I_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
         {
             String errMsg = verifyStorage();
             if (! Util.isEmpty(errMsg))
@@ -310,7 +310,7 @@ public class MProduct extends org.compiere.product.MProduct {
             ((is_ValueChanged("IsActive") && !isActive())		//	now not active
                 || (is_ValueChanged("IsStocked") && !isStocked())	//	now not stocked
                 || (is_ValueChanged("ProductType") 					//	from Item
-                && X_M_Product.PRODUCTTYPE_Item.equals(get_ValueOld("ProductType")))))
+                && I_M_Product.PRODUCTTYPE_Item.equals(get_ValueOld("ProductType")))))
         {
             String errMsg = verifyStorage();
             if (! Util.isEmpty(errMsg))
@@ -329,7 +329,7 @@ public class MProduct extends org.compiere.product.MProduct {
         //	Reset Stocked if not Item
         //AZ Goodwill: Bug Fix isStocked always return false
         //if (isStocked() && !PRODUCTTYPE_Item.equals(getProductType()))
-        if (!X_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
+        if (!I_M_Product.PRODUCTTYPE_Item.equals(getProductType()))
             setIsStocked(false);
 
         //	UOM reset

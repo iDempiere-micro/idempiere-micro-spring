@@ -25,6 +25,8 @@ import org.springframework.stereotype.Component
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.concurrent.ScheduledThreadPoolExecutor
+import com.rollbar.notifier.config.ConfigBuilder.withAccessToken
+import com.rollbar.notifier.Rollbar
 
 @Configuration
 @EnableCaching
@@ -41,6 +43,13 @@ open class Application : WebMvcConfigurer {
 }
 
 fun main(args: Array<String>) {
+    val token = System.getenv("ROLLBAR_TOKEN") ?: ""
+    if (token.isEmpty()) {
+        println( "Rollbar not setup." )
+    } else {
+        val rollbar  = Rollbar.init(withAccessToken("602b880210304119b6435c4129061714").build());
+        rollbar.log("idempiere-micro-spring started");
+    }
     SpringApplication.run(Application::class.java, *args)
 }
 

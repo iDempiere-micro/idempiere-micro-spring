@@ -25,7 +25,7 @@ class FactoryTests : BaseTest() {
     @Test
     fun getUsingDefaultModelFactoryById() {
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_C_BPartner.Table_Name, 118, "pokus")
+        val result = modelFactory.getPO(I_C_BPartner.Table_Name, 118, null)
         println(result)
         assertNotNull(result)
     }
@@ -53,7 +53,7 @@ class FactoryTests : BaseTest() {
         rs.next()
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(tableName, rs, "pokus")
+        val result = modelFactory.getPO(tableName, rs, null)
         println(result)
         assertNotNull(result)
         assertEquals(id, result._ID)
@@ -65,7 +65,7 @@ class FactoryTests : BaseTest() {
     fun `Client 11 has GardenUser and GardenAdmin`() {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = 11
-        val res = MUser.getOfClient(ctx, AD_CLIENT_ID, "pokus")
+        val res = MUser.getOfClient(ctx, AD_CLIENT_ID, null)
         assertNotNull(res.find { it.firstName == "GardenUser" })
         assertNotNull(res.find { it.firstName == "GardenAdmin" })
     }
