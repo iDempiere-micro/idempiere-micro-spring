@@ -90,7 +90,7 @@ public abstract class PO extends org.idempiere.orm.PO {
      * 	Set AD_Client
      * 	@param AD_Client_ID client
      */
-    protected void setAD_Client_ID (int AD_Client_ID)
+    public void setAD_Client_ID(int AD_Client_ID)
     {
         set_ValueNoCheck ("AD_Client_ID", new Integer(AD_Client_ID));
     }	//	setAD_Client_ID
@@ -764,7 +764,7 @@ public abstract class PO extends org.idempiere.orm.PO {
     }
 
     @Override
-    protected boolean set_Value (String ColumnName, Object value) {
+    public boolean set_Value(String ColumnName, Object value) {
         return super.set_Value(ColumnName, value);
     }
 
