@@ -74,10 +74,7 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 		MLocator M_Locator = null;
 		int M_Locator_ID = 0;
 
-		if (wh != null)
-		{
-			M_Locator_ID = wh.getDefaultLocator().getM_Locator_ID();
-		}
+		M_Locator_ID = wh.getDefaultLocator().getM_Locator_ID();
 		setAD_Client_ID(line.getAD_Client_ID());
 		setAD_Org_ID(line.getAD_Org_ID());
 		setM_Product_ID(line.getM_Product_ID());
