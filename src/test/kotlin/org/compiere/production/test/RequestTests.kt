@@ -14,16 +14,8 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 class RequestTests : BaseComponentTest() {
-
-    private fun getRequestById(request_id: Int): I_R_Request {
-        val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_R_Request.Table_Name, request_id, null)
-        println(result)
-        assertNotNull(result)
-        val request = result as I_R_Request
-        assertNotNull(request)
-        assertEquals(request_id, request._ID)
-        return request
+    companion object {
+        const val SUMMARY = "summary"
     }
 
     @Test
@@ -46,9 +38,11 @@ class RequestTests : BaseComponentTest() {
         requestType.r_StatusCategory_ID = requestStatusCategory._ID
         requestType.save()
 
-        val request = MRequest(ctx, 1000001, requestType._ID, "summary", true, null)
+        val request = MRequest(ctx, 1000001, requestType._ID, SUMMARY, true, null)
         request.setR_Status_ID()
         request.save()
-        getRequestById(request._ID)
+        val req: I_R_Request = getById(request._ID, I_R_Request.Table_Name)
+
+        assertEquals(SUMMARY, req.summary)
     }
 }
