@@ -18,7 +18,10 @@ import org.compiere.orm.IModelFactory
 import org.compiere.process.DocAction
 import org.compiere.product.MPriceList
 import org.compiere.product.MProductPrice
+import org.compiere.production.MProduction
+import org.compiere.production.MProductionLine
 import org.idempiere.common.util.Env
+import org.junit.Ignore
 import org.junit.Test
 import java.math.BigDecimal
 import java.sql.Date
@@ -50,6 +53,7 @@ class InvoiceTests : BaseComponentTest() {
         const val QTY = 1
         const val PARTNER_ID = 1000000
         const val PROD_1 = 1000000
+        const val BOM_1 = 1000001
         private var index = 0
     }
 
@@ -164,6 +168,19 @@ class InvoiceTests : BaseComponentTest() {
     @Test
     fun `create invoice from order (on credit)`() {
         createInvoiceFromOrder(1000033, PROD_1, BigDecimal("1.10")) {}
+    }
+
+    @Ignore
+    @Test
+    fun `create invoice from BOM order (on credit)`() {
+        createInvoiceFromOrder(1000033, BOM_1, BigDecimal("121.00")) {
+            val orderLine = it.lines.first()
+            val prod = MProduction(orderLine)
+            prod.setIsCreated("Y")
+            prod.save()
+            prod.completeIt()
+            val prodLine = MProductionLine(prod)
+        }
     }
 
     @Test

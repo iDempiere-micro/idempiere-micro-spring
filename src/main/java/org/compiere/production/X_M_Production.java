@@ -511,7 +511,7 @@ public class X_M_Production extends PO implements I_M_Production, I_Persistent
 		@param IsUseProductionPlan Use Production Plan	  */
 	public void setIsUseProductionPlan (boolean IsUseProductionPlan)
 	{
-		set_Value (COLUMNNAME_IsUseProductionPlan, Boolean.valueOf(IsUseProductionPlan));
+		set_Value (COLUMNNAME_IsUseProductionPlan, IsUseProductionPlan);
 	}
 
 	/** Get Use Production Plan.
@@ -522,7 +522,7 @@ public class X_M_Production extends PO implements I_M_Production, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean)oo;
 			return "Y".equals(oo);
 		}
 		return false;
