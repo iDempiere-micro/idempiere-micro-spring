@@ -16,11 +16,11 @@ import org.compiere.model.I_M_Product
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.process.DocAction
+import org.compiere.process.ProcessInfo
 import org.compiere.product.MPriceList
 import org.compiere.product.MProductPrice
-import org.compiere.production.MProduction
-import org.compiere.production.MProductionLine
 import org.idempiere.common.util.Env
+import org.idempiere.process.OrderLineCreateProduction
 import org.junit.Ignore
 import org.junit.Test
 import java.math.BigDecimal
@@ -175,11 +175,9 @@ class InvoiceTests : BaseComponentTest() {
     fun `create invoice from BOM order (on credit)`() {
         createInvoiceFromOrder(1000033, BOM_1, BigDecimal("121.00")) {
             val orderLine = it.lines.first()
-            val prod = MProduction(orderLine)
-            prod.setIsCreated("Y")
-            prod.save()
-            prod.completeIt()
-            val prodLine = MProductionLine(prod)
+            val process = OrderLineCreateProduction(p_C_OrderLine_ID = orderLine._ID)
+            val pi = ProcessInfo("", 0)
+            process.startProcess(ctx, pi, null)
         }
     }
 

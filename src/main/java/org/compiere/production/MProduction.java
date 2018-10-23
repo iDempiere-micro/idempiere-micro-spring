@@ -16,6 +16,7 @@ import org.compiere.accounting.MClient;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.model.IDoc;
 import org.compiere.model.IPODoc;
+import org.compiere.model.I_M_Production;
 import org.compiere.model.I_M_ProductionPlan;
 import org.compiere.order.MOrderLine;
 import org.compiere.orm.*;
@@ -32,7 +33,7 @@ import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.idempiere.common.util.Util;
 
-public class MProduction extends X_M_Production implements DocAction, IPODoc {
+public class MProduction extends X_M_Production implements I_M_Production, DocAction, IPODoc {
 	/**
 	 * 
 	 */

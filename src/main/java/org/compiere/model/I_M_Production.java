@@ -501,4 +501,7 @@ public interface I_M_Production
 	public int getUser2_ID();
 
 	public I_C_ElementValue getUser2() throws RuntimeException;
+
+    void saveEx();
+	int createLines(boolean mustBeStocked);
 }
