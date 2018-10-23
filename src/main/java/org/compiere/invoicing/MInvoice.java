@@ -24,6 +24,7 @@ import org.compiere.order.*;
 import org.compiere.order.MInOut;
 import org.compiere.order.MInOutLine;
 import org.compiere.order.MOrder;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.product.MCurrency;
 import org.compiere.product.MPriceList;
 import org.compiere.product.MPriceListVersion;
@@ -1423,7 +1424,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		MPeriod.testPeriodOpen(getCtx(), getDateAcct(), getC_DocTypeTarget_ID(), getAD_Org_ID());
 
@@ -1432,7 +1433,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		//	No Cash Book // deprecated with IDEMPIERE-170 Complete Cash as Payment functionality 
 //		if (PAYMENTRULE_Cash.equals(getPaymentRule())
@@ -1448,14 +1449,14 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (getC_DocType_ID() == 0)
 		{
 			m_processMsg = "No Document Type";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		explodeBOM();
 		if (!calculateTaxTotal())	//	setTotals
 		{
 			m_processMsg = "Error calculating Tax";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		if (   getGrandTotal().signum() != 0
@@ -1464,13 +1465,13 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			if (!createPaySchedule())
 			{
 				m_processMsg = "@ErrorPaymentSchedule@";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 		} else {
 			if (MInvoicePaySchedule.getInvoicePaySchedule(getCtx(), getC_Invoice_ID(), 0, get_TrxName()).length > 0) 
 			{
 				m_processMsg = "@ErrorPaymentSchedule@";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 		}
 
@@ -1489,7 +1490,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 					m_processMsg = "@BPartnerCreditStop@ - @TotalOpenBalance@="
 							+ bp.getTotalOpenBalance()
 							+ ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 			}  
 		}
@@ -1504,20 +1505,20 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 				if (error != null && error.length() > 0)
 				{
 					m_processMsg = error;
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 			}
 		}
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Add up Amounts
 		m_justPrepared = true;
 		if (!X_C_Invoice.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_C_Invoice.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 
 	/**
@@ -1686,15 +1687,15 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		// Set the definite document number after completed (if needed)
@@ -1702,7 +1703,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
 		//	Implicit Approval
 		if (!isApproved())
@@ -1728,7 +1729,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 				.first();
 			if (ba == null) {
 				m_processMsg = "@NoAccountOrgCurrency@";
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			
 			String docBaseType = "";
@@ -1740,7 +1741,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			MDocType[] doctypes = MDocType.getOfDocBaseType(getCtx(), docBaseType);
 			if (doctypes == null || doctypes.length == 0) {
 				m_processMsg = "No document type ";
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			MDocType doctype = null;
 			for (MDocType doc : doctypes) {
@@ -1774,7 +1775,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			payment.setDocAction(MPayment.DOCACTION_Complete);
 			if (!payment.processIt(MPayment.DOCACTION_Complete)) {
 				m_processMsg = "Cannot Complete the Payment : [" + payment.getProcessMsg() + "] " + payment;
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 
 			payment.saveEx();
@@ -1809,7 +1810,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 				if (!inv.save(get_TrxName()))
 				{
 					m_processMsg = CLogger.retrieveErrorString("Could not create Invoice Matching");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				matchInv++;
 				addDocsPostProcess(inv);
@@ -1828,7 +1829,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 					if (!ol.save(get_TrxName()))
 					{
 						m_processMsg = "Could not update Order Line";
-						return DocAction.STATUS_Invalid;
+						return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 					}
 				}
 				//	Order Invoiced Qty updated via Matching Inv-PO
@@ -1845,7 +1846,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 						if (!po.save(get_TrxName()))
 						{
 							m_processMsg = "Could not create PO Matching";
-							return DocAction.STATUS_Invalid;
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}
 						matchPO++;
 						if (!po.isPosted() && po.getM_InOutLine_ID() > 0) // match po don't post if receipt is not assigned, and it doesn't create avg po record
@@ -1877,7 +1878,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 				if (!rmaLine.save(get_TrxName()))
 				{
 					m_processMsg = "Could not update RMA Line";
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 			}
 			//			
@@ -1899,7 +1900,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		{
 			m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingCurrencyToBaseCurrency",
 					getC_Currency_ID(), MClient.get(getCtx()).getC_Currency_ID(), getC_ConversionType_ID(), getDateAcct(), get_TrxName());
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 		//	Total Balance
 		BigDecimal newBalance = bp.getTotalOpenBalance();
@@ -1940,7 +1941,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (!bp.save(get_TrxName()))
 		{
 			m_processMsg = "Could not update Business Partner";
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//	User - Last Result/Contact
@@ -1953,7 +1954,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			if (!user.save(get_TrxName()))
 			{
 				m_processMsg = "Could not update Business Partner User";
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 		}	//	user
 
@@ -1970,7 +1971,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			{
 				m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingCurrencyToProjectCurrency",
 						getC_Currency_ID(), C_CurrencyTo_ID, 0, getDateAcct(), get_TrxName());
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			BigDecimal newAmt = project.getInvoicedAmt();
 			if (newAmt == null)
@@ -1984,7 +1985,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			if (!project.save(get_TrxName()))
 			{
 				m_processMsg = "Could not update Project";
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 		}	//	project
 		
@@ -2021,7 +2022,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 						}
 						else
 							m_processMsg = Msg.getMsg(getCtx(), "PaymentNoProcessorModel");
-						return DocAction.STATUS_Invalid;
+						return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 					}
 					
 					boolean isCIM = pt.getC_PaymentProcessor_ID() > 0 && pt.getCustomerPaymentProfileID() != null && pt.getCustomerPaymentProfileID().length() > 0;
@@ -2053,7 +2054,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 						if (!ok)
 						{
 							m_processMsg = Msg.getMsg(getCtx(), "VoidAuthorizationPaymentFailed") + ": " + pt.getErrorMessage();
-							return DocAction.STATUS_Invalid;
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}					
 					}
 					
@@ -2063,13 +2064,13 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 					if (!ok)
 					{
 						m_processMsg = Msg.getMsg(getCtx(), "CreateNewSalesPaymentFailed") + ": " + newSalesPT.getErrorMessage();
-						return DocAction.STATUS_Invalid;
+						return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 					}
 				}
 				else if (getGrandTotal().compareTo(totalPayAmt) != 0 && ptList.size() > 0)
 				{
 					m_processMsg = "InvoicedAmt: " + getGrandTotal() + " <> AuthorizedAmt: " + totalPayAmt;
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				else
 				{
@@ -2081,7 +2082,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 						if (!ok)
 						{
 							m_processMsg = Msg.getMsg(getCtx(), "DelayCaptureAuthFailed") + ": " + pt.getErrorMessage();
-							return DocAction.STATUS_Invalid;
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}					
 					}
 				}
@@ -2101,7 +2102,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//	Counter Documents
@@ -2112,7 +2113,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		m_processMsg = info.toString().trim();
 		setProcessed(true);
 		setDocAction(X_C_Invoice.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 
 	/* Save array of documents to process AFTER completing this one */
@@ -2465,7 +2466,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		reversal.docsPostProcess = this.docsPostProcess;
 		this.docsPostProcess = new ArrayList<IPODoc>();
 		//
-		if (!reversal.processIt(DocAction.ACTION_Complete))
+		if (!reversal.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reversal.getProcessMsg();
 			return null;
@@ -2530,7 +2531,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		rLine.setC_Invoice_ID(reversal.getC_Invoice_ID());
 		rLine.saveEx();
 		// added AdempiereException by zuhri
-		if (!alloc.processIt(DocAction.ACTION_Complete))
+		if (!alloc.processIt(DocAction.Companion.getACTION_Complete()))
 			throw new AdempiereException("Failed when processing document - " + alloc.getProcessMsg());
 		// end added
 		alloc.saveEx();
@@ -2541,10 +2542,10 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 	private void reverseAllocations(boolean accrual, int invoiceID) {
 		for (MAllocationHdr allocation : MAllocationHdr.getOfInvoice(getCtx(), invoiceID, get_TrxName())) {
 			if (accrual) {
-				allocation.setDocAction(DocAction.ACTION_Reverse_Accrual);
+				allocation.setDocAction(DocAction.Companion.getACTION_Reverse_Accrual());
 				allocation.reverseAccrualIt();
 			} else {
-				allocation.setDocAction(DocAction.ACTION_Reverse_Correct);
+				allocation.setDocAction(DocAction.Companion.getACTION_Reverse_Correct());
 				allocation.reverseCorrectIt();
 			}
 			allocation.saveEx(get_TrxName());

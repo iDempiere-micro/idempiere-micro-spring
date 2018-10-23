@@ -11,6 +11,7 @@ import org.compiere.order.MOrder;
 import org.compiere.orm.MOrg;
 import org.compiere.orm.PO;
 import org.compiere.orm.Query;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.util.Msg;
 import org.compiere.validation.ModelValidationEngine;
@@ -134,13 +135,13 @@ public class MRMA extends org.compiere.order.MRMA implements DocAction, IPODoc {
         if (log.isLoggable(Level.INFO)) log.info(toString());
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         MRMALine[] lines = getLines(false);
         if (lines.length == 0)
         {
             m_processMsg = "@NoLines@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         for (MRMALine line : lines)
@@ -150,7 +151,7 @@ public class MRMA extends org.compiere.order.MRMA implements DocAction, IPODoc {
                 if (!line.checkQty())
                 {
                     m_processMsg = "@AmtReturned>Shipped@";
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
             }
         }
@@ -159,30 +160,30 @@ public class MRMA extends org.compiere.order.MRMA implements DocAction, IPODoc {
         if (!calculateTaxTotal())
         {
             m_processMsg = "Error calculating tax";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         m_justPrepared = true;
-        return DocAction.STATUS_InProgress;
+        return DocAction.Companion.getSTATUS_InProgress();
     }	//	prepareIt
 
     /**
      * 	Complete Document
      * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
      */
-    public String completeIt()
+    public CompleteActionResult completeIt()
     {
         //	Re-Check
         if (!m_justPrepared)
         {
             String status = prepareIt();
             m_justPrepared = false;
-            if (!DocAction.STATUS_InProgress.equals(status))
-                return status;
+            if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+                return new CompleteActionResult(status);
         }
 
         // Set the definite document number after completed (if needed)
@@ -190,7 +191,7 @@ public class MRMA extends org.compiere.order.MRMA implements DocAction, IPODoc {
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
         //	Implicit Approval
         if (!isApproved())
@@ -216,13 +217,13 @@ public class MRMA extends org.compiere.order.MRMA implements DocAction, IPODoc {
         if (valid != null)
         {
             m_processMsg = valid;
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         //
         setProcessed(true);
         setDocAction(X_M_RMA.DOCACTION_Close);
-        return DocAction.STATUS_Completed;
+        return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
     }	//	completeIt
 
     /**

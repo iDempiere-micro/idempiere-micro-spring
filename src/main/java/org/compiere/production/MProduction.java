@@ -19,6 +19,7 @@ import org.compiere.model.IPODoc;
 import org.compiere.model.I_M_ProductionPlan;
 import org.compiere.order.MOrderLine;
 import org.compiere.orm.*;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.product.MAttributeSetInstance;
 import org.compiere.product.MProductCategory;
 import org.compiere.validation.ModelValidationEngine;
@@ -94,20 +95,20 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 	}
 
 	@Override
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		// Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
 		StringBuilder errors = new StringBuilder();
 		int processed = 0;
@@ -117,12 +118,12 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 			//IDEMPIERE-3107 Check if End Product in Production Lines exist
 			if(!isHaveEndProduct(lines)) {
 				m_processMsg = "Production does not contain End Product";
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			errors.append(processLines(lines));
 			if (errors.length() > 0) {
 				m_processMsg = errors.toString();
-				return DocAction.STATUS_Invalid;
+				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			processed = processed + lines.length;
 		} else {
@@ -134,14 +135,14 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 				//IDEMPIERE-3107 Check if End Product in Production Lines exist
 				if(!isHaveEndProduct(lines)) {
 					m_processMsg = String.format("Production plan (line %1$d id %2$d) does not contain End Product", plan.getLine(), plan.get_ID());
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				
 				if (lines.length > 0) {
 					errors.append(processLines(lines));
 					if (errors.length() > 0) {
 						m_processMsg = errors.toString();
-						return DocAction.STATUS_Invalid;
+						return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 					}
 					processed = processed + lines.length;
 				}
@@ -155,12 +156,12 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		setProcessed(true);
 		setDocAction(X_M_Production.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}
 
 	private boolean isHaveEndProduct(MProductionLine[] lines) {
@@ -484,7 +485,7 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Std Period open?
 		MPeriod.testPeriodOpen(getCtx(), getMovementDate(), MDocType.DOCBASETYPE_MaterialProduction, getAD_Org_ID());
@@ -492,13 +493,13 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 		if ( getIsCreated().equals("N") )
 		{
 			m_processMsg = "Not created";
-			return DocAction.STATUS_Invalid; 
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		if (!isUseProductionPlan()) {
 			m_processMsg = validateEndProduct(getM_Product_ID());			
 			if (!Util.isEmpty(m_processMsg)) {
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 		} else {
 			Query planQuery = new Query(getCtx(), I_M_ProductionPlan.Table_Name, "M_ProductionPlan.M_Production_ID=?", get_TrxName());
@@ -506,19 +507,19 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 			for(MProductionPlan plan : plans) {
 				m_processMsg = validateEndProduct(plan.getM_Product_ID());
 				if (!Util.isEmpty(m_processMsg)) {
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 			}
 		}
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		m_justPrepared = true;
 		if (!X_M_Production.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_M_Production.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}
 
 	protected String validateEndProduct(int M_Product_ID) {
@@ -745,7 +746,7 @@ public class MProduction extends X_M_Production implements DocAction, IPODoc {
 			}
 		}
 
-		if (!reversal.processIt(DocAction.ACTION_Complete))
+		if (!reversal.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reversal.getProcessMsg();
 			return null;

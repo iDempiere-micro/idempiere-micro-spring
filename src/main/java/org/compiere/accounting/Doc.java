@@ -481,10 +481,10 @@ public abstract class Doc implements IDoc
 	{
 		if (m_DocStatus == null)
 			;	//	return "No DocStatus for DocumentNo=" + getDocumentNo();
-		else if (m_DocStatus.equals(DocumentEngine.STATUS_Completed)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Closed)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Voided)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Reversed))
+		else if (m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Completed())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Closed())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Voided())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Reversed()))
 			;
 		else{
 			StringBuilder msgreturn = new StringBuilder("Invalid DocStatus='").append(m_DocStatus).append("' for DocumentNo=").append(getDocumentNo());

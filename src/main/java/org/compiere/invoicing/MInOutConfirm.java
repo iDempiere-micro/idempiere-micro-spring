@@ -9,6 +9,7 @@ import org.compiere.order.X_M_InOutConfirm;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.Query;
 import org.compiere.orm.X_C_DocType;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.util.Msg;
 import org.compiere.validation.ModelValidationEngine;
@@ -95,7 +96,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
         if (log.isLoggable(Level.INFO)) log.info(toString());
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         /**
          MDocType dt = MDocType.get(getCtx(), getC_DocTypeTarget_ID());
@@ -112,7 +113,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
         if (lines.length == 0)
         {
             m_processMsg = "@NoLines@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
         //	Set dispute if not fully confirmed
         boolean difference = false;
@@ -128,12 +129,12 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         //
         m_justPrepared = true;
         if (!X_M_InOutConfirm.DOCACTION_Complete.equals(getDocAction()))
             setDocAction(X_M_InOutConfirm.DOCACTION_Complete);
-        return DocAction.STATUS_InProgress;
+        return DocAction.Companion.getSTATUS_InProgress();
     }	//	prepareIt
 
 
@@ -141,20 +142,20 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
      * 	Complete Document
      * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
      */
-    public String completeIt()
+    public CompleteActionResult completeIt()
     {
         //	Re-Check
         if (!m_justPrepared)
         {
             String status = prepareIt();
             m_justPrepared = false;
-            if (!DocAction.STATUS_InProgress.equals(status))
-                return status;
+            if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+                return new CompleteActionResult(status);
         }
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
         //	Implicit Approval
         if (!isApproved())
@@ -173,7 +174,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
                 if (dt.getC_DocTypeDifference_ID() == 0)
                 {
                     m_processMsg = "No Split Document Type defined for: " + dt.getName();
-                    return DocAction.STATUS_Invalid;
+                    return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                 }
                 splitInOut (inout, dt.getC_DocTypeDifference_ID(), lines);
                 m_lines = null;
@@ -188,7 +189,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
             if (!confirmLine.processLine (inout.isSOTrx(), getConfirmType()))
             {
                 m_processMsg = "ShipLine not saved - " + confirmLine;
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             }
             if (confirmLine.isFullyConfirmed())
             {
@@ -206,7 +207,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
                 {
                     log.log(Level.SEVERE, "Scrapped=" + confirmLine.getScrappedQty()
                         + " - Difference=" + confirmLine.getDifferenceQty());
-                    return DocAction.STATUS_Invalid;
+                    return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                 }
             }
         }	//	for all lines
@@ -226,12 +227,12 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
         if (valid != null)
         {
             m_processMsg = valid;
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         setProcessed(true);
         setDocAction(X_M_InOutConfirm.DOCACTION_Close);
-        return DocAction.STATUS_Completed;
+        return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
     }	//	completeIt
 
     /**
@@ -310,7 +311,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
         }
 
         //	Create Dispute Confirmation
-        if (!split.processIt(DocAction.ACTION_Prepare))
+        if (!split.processIt(DocAction.Companion.getACTION_Prepare()))
             throw new AdempiereException(split.getProcessMsg());
         //	split.createConfirmation();
         split.saveEx();

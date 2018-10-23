@@ -9,6 +9,7 @@ import org.compiere.model.*;
 import org.compiere.order.MOrder;
 import org.compiere.order.MRMALine;
 import org.compiere.orm.*;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.production.MTransaction;
 import org.compiere.util.Msg;
@@ -135,7 +136,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         if (log.isLoggable(Level.INFO)) log.info(toString());
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         MDocType dt = MDocType.get(getCtx(), getC_DocType_ID());
 
@@ -143,13 +144,13 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         if (getC_Order_ID() != 0 && getM_RMA_ID() != 0)
         {
             m_processMsg = "@OrderOrRMA@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
         //	Std Period open?
         if (!MPeriod.isOpen(getCtx(), getDateAcct(), dt.getDocBaseType(), getAD_Org_ID()))
         {
             m_processMsg = "@PeriodClosed@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         //	Credit Check
@@ -166,14 +167,14 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                     m_processMsg = "@BPartnerCreditStop@ - @TotalOpenBalance@="
                         + bp.getTotalOpenBalance()
                         + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
                 if (MBPartner.SOCREDITSTATUS_CreditHold.equals(bp.getSOCreditStatus()))
                 {
                     m_processMsg = "@BPartnerCreditHold@ - @TotalOpenBalance@="
                         + bp.getTotalOpenBalance()
                         + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
                 if (!MBPartner.SOCREDITSTATUS_NoCreditCheck.equals(bp.getSOCreditStatus())
                     && Env.ZERO.compareTo(bp.getSO_CreditLimit()) != 0)
@@ -184,7 +185,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                         m_processMsg = "@BPartnerOverSCreditHold@ - @TotalOpenBalance@="
                             + bp.getTotalOpenBalance() + ", @NotInvoicedAmt@=" + notInvoicedAmt
                             + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
                     }
                 }
             }
@@ -195,7 +196,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         if (lines == null || lines.length == 0)
         {
             m_processMsg = "@NoLines@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
         BigDecimal Volume = Env.ZERO;
         BigDecimal Weight = Env.ZERO;
@@ -218,7 +219,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                 if (product.getAttributeSet() != null && !product.getAttributeSet().excludeTableEntry(MInOutLine.Table_ID, isSOTrx())) {
                     m_processMsg = "@M_AttributeSet_ID@ @IsMandatory@ (@Line@ #" + lines[i].getLine() +
                         ", @M_Product_ID@=" + product.getValue() + ")";
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
             }
         }
@@ -232,12 +233,12 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         m_justPrepared = true;
         if (!DOCACTION_Complete.equals(getDocAction()))
             setDocAction(DOCACTION_Complete);
-        return DocAction.STATUS_InProgress;
+        return DocAction.Companion.getSTATUS_InProgress();
     }	//	prepareIt
 
     /**
@@ -288,15 +289,15 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
      * 	Complete Document
      * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
      */
-    public String completeIt()
+    public CompleteActionResult completeIt()
     {
         //	Re-Check
         if (!m_justPrepared)
         {
             String status = prepareIt();
             m_justPrepared = false;
-            if (!DocAction.STATUS_InProgress.equals(status))
-                return status;
+            if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+                return new CompleteActionResult(status);
         }
 
         // Set the definite document number after completed (if needed)
@@ -304,7 +305,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
         //	Outstanding (not processed) Incoming Confirmations ?
         MInOutConfirm[] confirmations = getConfirmations(true);
@@ -318,7 +319,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                 //
                 m_processMsg = "Open @M_InOutConfirm_ID@: " +
                     confirm.getConfirmTypeName() + " - " + confirm.getDocumentNo();
-                return DocAction.STATUS_InProgress;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_InProgress());
             }
         }
 
@@ -379,7 +380,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                             || (qtyOnLineMA.abs().compareTo(movementQty.abs())>0)) { // compare absolute values
                             // More then line qty on attribute tab for line 10
                             m_processMsg = "@Over_Qty_On_Attribute_Tab@ " + sLine.getLine();
-                            return DOCSTATUS_Invalid;
+                            return new CompleteActionResult(DOCSTATUS_Invalid);
                         }
 
                         checkMaterialPolicy(sLine,movementQty.subtract(qtyOnLineMA));
@@ -435,7 +436,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                             {
                                 String lastError = CLogger.retrieveErrorString("");
                                 m_processMsg = "Cannot correct Inventory OnHand (MA) [" + product.getValue() + "] - " + lastError;
-                                return DocAction.STATUS_Invalid;
+                                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
 
                             //	Create Transaction
@@ -447,7 +448,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                             if (!mtrx.save())
                             {
                                 m_processMsg = "Could not create Material Transaction (MA) [" + product.getValue() + "]";
-                                return DocAction.STATUS_Invalid;
+                                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
                         }
 
@@ -464,7 +465,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                                 {
                                     String lastError = CLogger.retrieveErrorString("");
                                     m_processMsg = "Cannot correct Inventory " + (isSOTrx()? "Reserved" : "Ordered") + " (MA) - [" + product.getValue() + "] - " + lastError;
-                                    return DocAction.STATUS_Invalid;
+                                    return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                                 }
                             }
                         }
@@ -500,7 +501,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                         {
                             String lastError = CLogger.retrieveErrorString("");
                             m_processMsg = "Cannot correct Inventory OnHand [" + product.getValue() + "] - " + lastError;
-                            return DocAction.STATUS_Invalid;
+                            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                         }
                         if (oLine!=null && oLine.getQtyOrdered().signum() > 0)
                         {
@@ -510,7 +511,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                                 orderedQtyToUpdate.negate(), isSOTrx(), get_TrxName()))
                             {
                                 m_processMsg = "Cannot correct Inventory Reserved " + (isSOTrx()? "Reserved [" :"Ordered [") + product.getValue() + "]";
-                                return DocAction.STATUS_Invalid;
+                                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
                         }
 
@@ -523,7 +524,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                         if (!mtrx.save())
                         {
                             m_processMsg = CLogger.retrieveErrorString("Could not create Material Transaction [" + product.getValue() + "]");
-                            return DocAction.STATUS_Invalid;
+                            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                         }
                     }
                 }	//	stock movement
@@ -549,7 +550,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                     if (!oLine.save())
                     {
                         m_processMsg = "Could not update Order Line";
-                        return DocAction.STATUS_Invalid;
+                        return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                     }
                     else
                     if (log.isLoggable(Level.FINE)) log.fine("OrderLine -> Reserved=" + oLine.getQtyReserved()
@@ -569,7 +570,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                     if (!rmaLine.save())
                     {
                         m_processMsg = "Could not update RMA Line";
-                        return DocAction.STATUS_Invalid;
+                        return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                     }
                 }
 
@@ -597,7 +598,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                         if (!asset.save(get_TrxName()))
                         {
                             m_processMsg = "Could not create Asset";
-                            return DocAction.STATUS_Invalid;
+                            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                         }
                         info.append(asset.getValue());
                     }
@@ -631,7 +632,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                             if (!inv.save(get_TrxName()))
                             {
                                 m_processMsg = CLogger.retrieveErrorString("Could not create Inv Matching");
-                                return DocAction.STATUS_Invalid;
+                                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
                             addDocsPostProcess(inv);
                         }
@@ -647,7 +648,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                             if (!po.save(get_TrxName()))
                             {
                                 m_processMsg = "Could not create PO Matching";
-                                return DocAction.STATUS_Invalid;
+                                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
                             if (!po.isPosted())
                                 addDocsPostProcess(po);
@@ -678,7 +679,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
                                 if (!po.save(get_TrxName()))
                                 {
                                     m_processMsg = "Could not create PO(Inv) Matching";
-                                    return DocAction.STATUS_Invalid;
+                                    return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                                 }
                                 if (!po.isPosted())
                                     addDocsPostProcess(po);
@@ -707,7 +708,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         if (errors.toString().length() > 0)
         {
             m_processMsg = errors.toString();
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         //	Counter Documents
@@ -724,13 +725,13 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         if (valid != null)
         {
             m_processMsg = valid;
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         m_processMsg = info.toString();
         setProcessed(true);
         setDocAction(DOCACTION_Close);
-        return DocAction.STATUS_Completed;
+        return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
     }	//	completeIt
 
     /**
@@ -940,8 +941,8 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         reversal.docsPostProcess = this.docsPostProcess;
         this.docsPostProcess = new ArrayList<IPODoc>();
         //
-        if (!reversal.processIt(DocAction.ACTION_Complete)
-            || !reversal.getDocStatus().equals(DocAction.STATUS_Completed))
+        if (!reversal.processIt(DocAction.Companion.getACTION_Complete())
+            || !reversal.getDocStatus().equals(DocAction.Companion.getSTATUS_Completed()))
         {
             m_processMsg = "Reversal ERROR: " + reversal.getProcessMsg();
             return null;
@@ -1440,9 +1441,9 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
 
         if (log.isLoggable(Level.FINE)) log.fine(dropShipment.toString());
 
-        dropShipment.setDocAction(DocAction.ACTION_Complete);
+        dropShipment.setDocAction(DocAction.Companion.getACTION_Complete());
         // added AdempiereException by Zuhri
-        if (!dropShipment.processIt(DocAction.ACTION_Complete))
+        if (!dropShipment.processIt(DocAction.Companion.getACTION_Complete()))
             throw new AdempiereException("Failed when processing document - " + dropShipment.getProcessMsg());
         // end added
         dropShipment.saveEx();

@@ -14,6 +14,7 @@ import org.compiere.accounting.MClientInfo;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.model.*;
 import org.compiere.orm.*;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.production.MTransaction;
 import org.compiere.validation.ModelValidationEngine;
@@ -314,7 +315,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Std Period open?
 		MPeriod.testPeriodOpen(getCtx(), getMovementDate(), MDocType.DOCBASETYPE_MaterialPhysicalInventory, getAD_Org_ID());
@@ -322,7 +323,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		if (lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		// Validate mandatory ASI on lines - IDEMPIERE-1770 - ASI validation must be moved to MInventory.prepareIt
@@ -350,7 +351,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						}
 						if (qtyma.subtract(qtyDiff).signum() != 0) {
 							m_processMsg = "@Line@ " + line.getLine() + ": @FillMandatory@ @M_AttributeSetInstance_ID@";
-							return DocAction.STATUS_Invalid;
+							return DocAction.Companion.getSTATUS_Invalid();
 						}
 					}
 				}
@@ -362,12 +363,12 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		m_justPrepared = true;
 		if (!X_M_Inventory.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_M_Inventory.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -396,13 +397,13 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		MDocType dt = MDocType.get(getCtx(), getC_DocType_ID());
 		String docSubTypeInv = dt.getDocSubTypeInv();
 		if (Util.isEmpty(docSubTypeInv)) {
 			m_processMsg = "Document inventory subtype not configured, cannot complete";
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//	Re-Check
@@ -410,8 +411,8 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		// Set the definite document number after completed (if needed)
@@ -419,7 +420,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
 		//	Implicit Approval
 		if (!isApproved())
@@ -464,7 +465,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						if (cost != null && cost.getCurrentCostPrice().compareTo(currentCost) != 0) 
 						{
 							m_processMsg = "Current Cost for Line " + line.getLine() + " have changed.";
-							return DocAction.STATUS_Invalid; 
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}
 					}
 				}
@@ -480,12 +481,12 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					if(qtyDiff.signum()<0){
 						if(qtyOnLineMA.compareTo(qtyDiff)<0){
 							m_processMsg = "@Over_Qty_On_Attribute_Tab@ " + line.getLine();
-							return X_M_Inventory.DOCSTATUS_Invalid;
+							return new CompleteActionResult(X_M_Inventory.DOCSTATUS_Invalid);
 						}
 					}else{
 						if(qtyOnLineMA.compareTo(qtyDiff)>0){
 							m_processMsg = "@Over_Qty_On_Attribute_Tab@ " + line.getLine();
-							return X_M_Inventory.DOCSTATUS_Invalid;
+							return new CompleteActionResult(X_M_Inventory.DOCSTATUS_Invalid);
 						}
 					}
 					checkMaterialPolicy(line, qtyDiff.subtract(qtyOnLineMA));
@@ -519,7 +520,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							{
 								String lastError = CLogger.retrieveErrorString("");
 								m_processMsg = "Cannot correct Inventory (MA) - " + lastError;
-								return DocAction.STATUS_Invalid;
+								return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 							}
 	
 							// Only Update Date Last Inventory if is a Physical Inventory
@@ -531,7 +532,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 								if (!storage.save(get_TrxName()))
 								{
 									m_processMsg = "Storage not updated(2)";
-									return DocAction.STATUS_Invalid;
+									return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 								}
 							}
 	
@@ -549,7 +550,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 								if (!mtrx.save())
 								{
 									m_processMsg = "Transaction not inserted(2)";
-									return DocAction.STATUS_Invalid;
+									return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 								}
 								
 								qtyDiff = QtyNew;						
@@ -578,7 +579,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						{
 							String lastError = CLogger.retrieveErrorString("");
 							m_processMsg = "Cannot correct Inventory OnHand (MA) - " + lastError;
-							return DocAction.STATUS_Invalid;
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}
 	
 						// Only Update Date Last Inventory if is a Physical Inventory
@@ -591,7 +592,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							if (!storage.save(get_TrxName()))
 							{
 								m_processMsg = "Storage not updated(2)";
-								return DocAction.STATUS_Invalid;
+								return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 							}
 						}
 	
@@ -608,7 +609,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						if (!mtrx.save())
 						{
 							m_processMsg = "Transaction not inserted(2)";
-							return DocAction.STATUS_Invalid;
+							return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 						}					
 					}	//	Fallback
 				}	//	stock movement
@@ -625,7 +626,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		if (errors.toString().length() > 0)
 		{
 			m_processMsg = errors.toString();
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 		
 		//	User Validation
@@ -633,13 +634,13 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//
 		setProcessed(true);
 		setDocAction(X_M_Inventory.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**
@@ -995,7 +996,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 			}
 		}
 		//
-		if (!reversal.processIt(DocAction.ACTION_Complete))
+		if (!reversal.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reversal.getProcessMsg();
 			return null;

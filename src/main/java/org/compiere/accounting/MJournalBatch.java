@@ -16,6 +16,7 @@ import org.compiere.model.IPODoc;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.MSequence;
 import org.compiere.orm.PO;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.validation.ModelValidationEngine;
 import org.compiere.validation.ModelValidator;
 import org.idempiere.common.exceptions.AdempiereException;
@@ -299,14 +300,14 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		MDocType dt = MDocType.get(getCtx(), getC_DocType_ID());
 
 		//	Std Period open?
 		if (!MPeriod.isOpen(getCtx(), getDateAcct(), dt.getDocBaseType(), getAD_Org_ID()))
 		{
 			m_processMsg = "@PeriodClosed@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		//	Add up Amounts & prepare them
@@ -314,7 +315,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		if (journals.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		BigDecimal TotalDr = Env.ZERO;
@@ -333,7 +334,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			else
 			{
 				String status = journal.prepareIt();
-				if (!DocAction.STATUS_InProgress.equals(status))
+				if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
 				{
 					journal.setDocStatus(status);
 					journal.saveEx();
@@ -355,7 +356,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			&& getControlAmt().compareTo(getTotalDr()) != 0)
 		{
 			m_processMsg = "@ControlAmtError@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 //		 Bug 1353695 Currency Rate and COnbversion Type should get copied from journal to lines
@@ -385,11 +386,11 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		
 		//	Add up Amounts
 		m_justPrepared = true;
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -418,7 +419,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		if (log.isLoggable(Level.INFO)) log.info("completeIt - " + toString());
 		//	Re-Check
@@ -426,8 +427,8 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		// Set the definite document number after completed (if needed)
@@ -435,7 +436,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		//	Implicit Approval
 		approveIt();
@@ -464,14 +465,14 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			else
 			{
 				// added AdempiereException by zuhri
-				if (!journal.processIt(DocAction.ACTION_Complete))
+				if (!journal.processIt(DocAction.Companion.getACTION_Complete()))
 					throw new AdempiereException("Failed when processing document - " + journal.getProcessMsg());
 				// end added
 				journal.saveEx();
-				if (!DocAction.STATUS_Completed.equals(journal.getDocStatus()))
+				if (!DocAction.Companion.getSTATUS_Completed().equals(journal.getDocStatus()))
 				{
 					m_processMsg = journal.getProcessMsg();
-					return journal.getDocStatus();
+					return new CompleteActionResult(journal.getDocStatus());
 				}
 			}
 			//
@@ -485,13 +486,13 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//
 		setProcessed(true);
 		setDocAction(X_GL_JournalBatch.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**
@@ -644,7 +645,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			journal.saveEx();
 		}
 		//
-		if (!reverse.processIt(DocAction.ACTION_Complete))
+		if (!reverse.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reverse.getProcessMsg();
 			return false;
@@ -730,7 +731,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			journal.saveEx();
 		}
 		//
-		if (!reverse.processIt(DocAction.ACTION_Complete))
+		if (!reverse.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reverse.getProcessMsg();
 			return false;

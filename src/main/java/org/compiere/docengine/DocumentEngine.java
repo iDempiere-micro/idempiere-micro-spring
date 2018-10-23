@@ -15,6 +15,7 @@ import org.compiere.accounting.Doc;
 import org.compiere.accounting.MAcctSchema;
 import org.compiere.model.*;
 import org.compiere.orm.*;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.idempiere.orm.EventManager;
 import org.idempiere.orm.EventProperty;
@@ -46,7 +47,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public DocumentEngine (DocAction po)
 	{
-		this (po, DocAction.STATUS_Drafted);
+		this (po, DocAction.Companion.getSTATUS_Drafted());
 	}	//	DocActionEngine
 
 	/**
@@ -64,7 +65,7 @@ public class DocumentEngine implements DocAction
 	/** Persistent Document 	*/
 	private DocAction	m_document;
 	/** Document Status			*/
-	private String		m_status = DocAction.STATUS_Drafted;
+	private String		m_status = DocAction.Companion.getSTATUS_Drafted();
 	/**	Process Message 		*/
 	private String		m_message = null;
 	/** Actual Doc Action		*/
@@ -97,7 +98,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isDrafted()
 	{
-		return DocAction.STATUS_Drafted.equals(m_status);
+		return DocAction.Companion.getSTATUS_Drafted().equals(m_status);
 	}	//	isDrafted
 
 	/**
@@ -106,7 +107,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isInvalid()
 	{
-		return DocAction.STATUS_Invalid.equals(m_status);
+		return DocAction.Companion.getSTATUS_Invalid().equals(m_status);
 	}	//	isInvalid
 
 	/**
@@ -115,7 +116,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isInProgress()
 	{
-		return DocAction.STATUS_InProgress.equals(m_status);
+		return DocAction.Companion.getSTATUS_InProgress().equals(m_status);
 	}	//	isInProgress
 
 	/**
@@ -124,7 +125,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isApproved()
 	{
-		return DocAction.STATUS_Approved.equals(m_status);
+		return DocAction.Companion.getSTATUS_Approved().equals(m_status);
 	}	//	isApproved
 
 	/**
@@ -133,7 +134,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isNotApproved()
 	{
-		return DocAction.STATUS_NotApproved.equals(m_status);
+		return DocAction.Companion.getSTATUS_NotApproved().equals(m_status);
 	}	//	isNotApproved
 
 	/**
@@ -142,8 +143,8 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isWaiting()
 	{
-		return DocAction.STATUS_WaitingPayment.equals(m_status)
-			|| DocAction.STATUS_WaitingConfirmation.equals(m_status);
+		return DocAction.Companion.getSTATUS_WaitingPayment().equals(m_status)
+			|| DocAction.Companion.getSTATUS_WaitingConfirmation().equals(m_status);
 	}	//	isWaitingPayment
 
 	/**
@@ -152,7 +153,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isCompleted()
 	{
-		return DocAction.STATUS_Completed.equals(m_status);
+		return DocAction.Companion.getSTATUS_Completed().equals(m_status);
 	}	//	isCompleted
 
 	/**
@@ -161,7 +162,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isReversed()
 	{
-		return DocAction.STATUS_Reversed.equals(m_status);
+		return DocAction.Companion.getSTATUS_Reversed().equals(m_status);
 	}	//	isReversed
 
 	/**
@@ -170,7 +171,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isClosed()
 	{
-		return DocAction.STATUS_Closed.equals(m_status);
+		return DocAction.Companion.getSTATUS_Closed().equals(m_status);
 	}	//	isClosed
 
 	/**
@@ -179,7 +180,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isVoided()
 	{
-		return DocAction.STATUS_Voided.equals(m_status);
+		return DocAction.Companion.getSTATUS_Voided().equals(m_status);
 	}	//	isVoided
 
 	/**
@@ -188,7 +189,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean isUnknown()
 	{
-		return DocAction.STATUS_Unknown.equals(m_status) ||
+		return DocAction.Companion.getSTATUS_Unknown().equals(m_status) ||
 			!(isDrafted() || isInvalid() || isInProgress() || isNotApproved()
 				|| isApproved() || isWaiting() || isCompleted()
 				|| isReversed() || isClosed() || isVoided() );
@@ -232,8 +233,8 @@ public class DocumentEngine implements DocAction
 		else if (isValidAction(docAction))	//	User Selection second
 			m_action = docAction;
 		//	Nothing to do
-		else if (processAction.equals(DocAction.ACTION_None)
-			|| docAction.equals(DocAction.ACTION_None))
+		else if (processAction.equals(DocAction.Companion.getACTION_None())
+			|| docAction.equals(DocAction.Companion.getACTION_None()))
 		{
 			if (m_document != null)
 				m_document.get_Logger().info ("**** No Action (Prc=" + processAction + "/Doc=" + docAction + ") " + m_document);
@@ -263,30 +264,30 @@ public class DocumentEngine implements DocAction
 		m_message = null;
 		m_action = action;
 		//
-		if (DocAction.ACTION_Unlock.equals(m_action))
+		if (DocAction.Companion.getACTION_Unlock().equals(m_action))
 			return unlockIt();
-		if (DocAction.ACTION_Invalidate.equals(m_action))
+		if (DocAction.Companion.getACTION_Invalidate().equals(m_action))
 			return invalidateIt();
-		if (DocAction.ACTION_Prepare.equals(m_action))
-			return DocAction.STATUS_InProgress.equals(prepareIt());
-		if (DocAction.ACTION_Approve.equals(m_action))
+		if (DocAction.Companion.getACTION_Prepare().equals(m_action))
+			return DocAction.Companion.getSTATUS_InProgress().equals(prepareIt());
+		if (DocAction.Companion.getACTION_Approve().equals(m_action))
 			return approveIt();
-		if (DocAction.ACTION_Reject.equals(m_action))
+		if (DocAction.Companion.getACTION_Reject().equals(m_action))
 			return rejectIt();
-		if (DocAction.ACTION_Complete.equals(m_action) || DocAction.ACTION_WaitComplete.equals(m_action))
+		if (DocAction.Companion.getACTION_Complete().equals(m_action) || DocAction.Companion.getACTION_WaitComplete().equals(m_action))
 		{
 			String status = null;
 			if (isDrafted() || isInvalid())		//	prepare if not prepared yet
 			{
 				status = prepareIt();
-				if (!DocAction.STATUS_InProgress.equals(status))
+				if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
 					return false;
 			}
-			status = completeIt();
-			boolean ok =   DocAction.STATUS_Completed.equals(status)
-						|| DocAction.STATUS_InProgress.equals(status)
-						|| DocAction.STATUS_WaitingPayment.equals(status)
-						|| DocAction.STATUS_WaitingConfirmation.equals(status);
+			status = completeIt().getNewStatusName();
+			boolean ok =   DocAction.Companion.getSTATUS_Completed().equals(status)
+						|| DocAction.Companion.getSTATUS_InProgress().equals(status)
+						|| DocAction.Companion.getSTATUS_WaitingPayment().equals(status)
+						|| DocAction.Companion.getSTATUS_WaitingConfirmation().equals(status);
 			if (m_document != null && ok)
 			{
 				// PostProcess documents when invoice or inout (this is to postprocess the generated MatchPO and MatchInv if any)
@@ -307,7 +308,7 @@ public class DocumentEngine implements DocAction
 					}
 				}
 
-				if (DocAction.STATUS_Completed.equals(status) && MClient.get(Env.getCtx()).isClientAccountingImmediate())
+				if (DocAction.Companion.getSTATUS_Completed().equals(status) && MClient.get(Env.getCtx()).isClientAccountingImmediate())
 				{
 					m_document.saveEx();
 					postIt();
@@ -323,17 +324,17 @@ public class DocumentEngine implements DocAction
 			}
 			return ok;
 		}
-		if (DocAction.ACTION_ReActivate.equals(m_action))
+		if (DocAction.Companion.getACTION_ReActivate().equals(m_action))
 			return reActivateIt();
-		if (DocAction.ACTION_Reverse_Accrual.equals(m_action))
+		if (DocAction.Companion.getACTION_Reverse_Accrual().equals(m_action))
 			return reverseAccrualIt();
-		if (DocAction.ACTION_Reverse_Correct.equals(m_action))
+		if (DocAction.Companion.getACTION_Reverse_Correct().equals(m_action))
 			return reverseCorrectIt();
-		if (DocAction.ACTION_Close.equals(m_action))
+		if (DocAction.Companion.getACTION_Close().equals(m_action))
 			return closeIt();
-		if (DocAction.ACTION_Void.equals(m_action))
+		if (DocAction.Companion.getACTION_Void().equals(m_action))
 			return voidIt();
-		if (DocAction.ACTION_Post.equals(m_action))
+		if (DocAction.Companion.getACTION_Post().equals(m_action))
 			return postIt();
 		//
 		return false;
@@ -347,19 +348,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean unlockIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Unlock))
+		if (!isValidAction(DocAction.Companion.getACTION_Unlock()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.unlockIt())
 			{
-				m_status = DocAction.STATUS_Drafted;
+				m_status = DocAction.Companion.getSTATUS_Drafted();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Drafted;
+		m_status = DocAction.Companion.getSTATUS_Drafted();
 		return true;
 	}	//	unlockIt
 
@@ -371,19 +372,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean invalidateIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Invalidate))
+		if (!isValidAction(DocAction.Companion.getACTION_Invalidate()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.invalidateIt())
 			{
-				m_status = DocAction.STATUS_Invalid;
+				m_status = DocAction.Companion.getSTATUS_Invalid();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Invalid;
+		m_status = DocAction.Companion.getSTATUS_Invalid();
 		return true;
 	}	//	invalidateIt
 
@@ -395,7 +396,7 @@ public class DocumentEngine implements DocAction
 	 */
 	public String prepareIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Prepare))
+		if (!isValidAction(DocAction.Companion.getACTION_Prepare()))
 			return m_status;
 		if (m_document != null)
 		{
@@ -413,19 +414,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean  approveIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Approve))
+		if (!isValidAction(DocAction.Companion.getACTION_Approve()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.approveIt())
 			{
-				m_status = DocAction.STATUS_Approved;
+				m_status = DocAction.Companion.getSTATUS_Approved();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Approved;
+		m_status = DocAction.Companion.getSTATUS_Approved();
 		return true;
 	}	//	approveIt
 
@@ -437,19 +438,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean rejectIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Reject))
+		if (!isValidAction(DocAction.Companion.getACTION_Reject()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.rejectIt())
 			{
-				m_status = DocAction.STATUS_NotApproved;
+				m_status = DocAction.Companion.getSTATUS_NotApproved();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_NotApproved;
+		m_status = DocAction.Companion.getSTATUS_NotApproved();
 		return true;
 	}	//	rejectIt
 
@@ -459,16 +460,16 @@ public class DocumentEngine implements DocAction
 	 * 	@return new document status (Complete, In Progress, Invalid, Waiting ..)
 	 * 	@see DocAction#completeIt()
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Complete))
-			return m_status;
+		if (!isValidAction(DocAction.Companion.getACTION_Complete()))
+			return new CompleteActionResult(m_status);
 		if (m_document != null)
 		{
-			m_status = m_document.completeIt();
+			m_status = m_document.completeIt().getNewStatusName();
 			m_document.setDocStatus(m_status);
 		}
-		return m_status;
+		return new CompleteActionResult(m_status);
 	}	//	completeIt
 
 	/**
@@ -478,12 +479,12 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean postIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Post)
+		if (!isValidAction(DocAction.Companion.getACTION_Post())
 			|| m_document == null)
 			return false;
 
 		String error = DocumentEngine.postImmediate(Env.getCtx(), m_document.getAD_Client_ID(), m_document.get_Table_ID(), m_document.get_ID(), true, m_document.get_TrxName());
-		if (DocAction.ACTION_Post.equals(m_action)) {
+		if (DocAction.Companion.getACTION_Post().equals(m_action)) {
 			// forced post via process - throw exception to inform the caller about the error
 			if (! Util.isEmpty(error)) {
 				throw new AdempiereException(error);
@@ -500,20 +501,20 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean voidIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Void))
+		if (!isValidAction(DocAction.Companion.getACTION_Void()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.voidIt())
 			{
-				m_status = DocAction.STATUS_Voided;
-				if (!m_document.getDocStatus().equals(DocAction.STATUS_Reversed))
+				m_status = DocAction.Companion.getSTATUS_Voided();
+				if (!m_document.getDocStatus().equals(DocAction.Companion.getSTATUS_Reversed()))
 					m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Voided;
+		m_status = DocAction.Companion.getSTATUS_Voided();
 		return true;
 	}	//	voidIt
 
@@ -528,19 +529,19 @@ public class DocumentEngine implements DocAction
 		if (m_document != null 	//	orders can be closed any time
 			&& m_document.get_Table_ID() == I_C_Order.Table_ID)
 			;
-		else if (!isValidAction(DocAction.ACTION_Close))
+		else if (!isValidAction(DocAction.Companion.getACTION_Close()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.closeIt())
 			{
-				m_status = DocAction.STATUS_Closed;
+				m_status = DocAction.Companion.getSTATUS_Closed();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Closed;
+		m_status = DocAction.Companion.getSTATUS_Closed();
 		return true;
 	}	//	closeIt
 
@@ -552,19 +553,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean reverseCorrectIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Reverse_Correct))
+		if (!isValidAction(DocAction.Companion.getACTION_Reverse_Correct()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.reverseCorrectIt())
 			{
-				m_status = DocAction.STATUS_Reversed;
+				m_status = DocAction.Companion.getSTATUS_Reversed();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Reversed;
+		m_status = DocAction.Companion.getSTATUS_Reversed();
 		return true;
 	}	//	reverseCorrectIt
 
@@ -576,19 +577,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean reverseAccrualIt()
 	{
-		if (!isValidAction(DocAction.ACTION_Reverse_Accrual))
+		if (!isValidAction(DocAction.Companion.getACTION_Reverse_Accrual()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.reverseAccrualIt())
 			{
-				m_status = DocAction.STATUS_Reversed;
+				m_status = DocAction.Companion.getSTATUS_Reversed();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_Reversed;
+		m_status = DocAction.Companion.getSTATUS_Reversed();
 		return true;
 	}	//	reverseAccrualIt
 
@@ -600,19 +601,19 @@ public class DocumentEngine implements DocAction
 	 */
 	public boolean reActivateIt()
 	{
-		if (!isValidAction(DocAction.ACTION_ReActivate))
+		if (!isValidAction(DocAction.Companion.getACTION_ReActivate()))
 			return false;
 		if (m_document != null)
 		{
 			if (m_document.reActivateIt())
 			{
-				m_status = DocAction.STATUS_InProgress;
+				m_status = DocAction.Companion.getSTATUS_InProgress();
 				m_document.setDocStatus(m_status);
 				return true;
 			}
 			return false;
 		}
-		m_status = DocAction.STATUS_InProgress;
+		m_status = DocAction.Companion.getSTATUS_InProgress();
 		return true;
 	}	//	reActivateIt
 
@@ -634,36 +635,36 @@ public class DocumentEngine implements DocAction
 	public String[] getActionOptions()
 	{
 		if (isInvalid())
-			return new String[] {DocAction.ACTION_Prepare, DocAction.ACTION_Invalidate,
-				DocAction.ACTION_Unlock, DocAction.ACTION_Void};
+			return new String[] {DocAction.Companion.getACTION_Prepare(), DocAction.Companion.getACTION_Invalidate(),
+                DocAction.Companion.getACTION_Unlock(), DocAction.Companion.getACTION_Void()};
 
 		if (isDrafted())
-			return new String[] {DocAction.ACTION_Prepare, DocAction.ACTION_Invalidate, DocAction.ACTION_Complete,
-				DocAction.ACTION_Unlock, DocAction.ACTION_Void};
+			return new String[] {DocAction.Companion.getACTION_Prepare(), DocAction.Companion.getACTION_Invalidate(), DocAction.Companion.getACTION_Complete(),
+                DocAction.Companion.getACTION_Unlock(), DocAction.Companion.getACTION_Void()};
 
 		if (isInProgress() || isApproved())
-			return new String[] {DocAction.ACTION_Complete, DocAction.ACTION_WaitComplete,
-				DocAction.ACTION_Approve, DocAction.ACTION_Reject,
-				DocAction.ACTION_Unlock, DocAction.ACTION_Void, DocAction.ACTION_Prepare};
+			return new String[] {DocAction.Companion.getACTION_Complete(), DocAction.Companion.getACTION_WaitComplete(),
+                DocAction.Companion.getACTION_Approve(), DocAction.Companion.getACTION_Reject(),
+                DocAction.Companion.getACTION_Unlock(), DocAction.Companion.getACTION_Void(), DocAction.Companion.getACTION_Prepare()};
 
 		if (isNotApproved())
-			return new String[] {DocAction.ACTION_Reject, DocAction.ACTION_Prepare,
-				DocAction.ACTION_Unlock, DocAction.ACTION_Void};
+			return new String[] {DocAction.Companion.getACTION_Reject(), DocAction.Companion.getACTION_Prepare(),
+                DocAction.Companion.getACTION_Unlock(), DocAction.Companion.getACTION_Void()};
 
 		if (isWaiting())
-			return new String[] {DocAction.ACTION_Complete, DocAction.ACTION_WaitComplete,
-				DocAction.ACTION_ReActivate, DocAction.ACTION_Void, DocAction.ACTION_Close};
+			return new String[] {DocAction.Companion.getACTION_Complete(), DocAction.Companion.getACTION_WaitComplete(),
+                DocAction.Companion.getACTION_ReActivate(), DocAction.Companion.getACTION_Void(), DocAction.Companion.getACTION_Close()};
 
 		if (isCompleted())
-			return new String[] {DocAction.ACTION_Close, DocAction.ACTION_ReActivate,
-				DocAction.ACTION_Reverse_Accrual, DocAction.ACTION_Reverse_Correct,
-				DocAction.ACTION_Post, DocAction.ACTION_Void};
+			return new String[] {DocAction.Companion.getACTION_Close(), DocAction.Companion.getACTION_ReActivate(),
+                DocAction.Companion.getACTION_Reverse_Accrual(), DocAction.Companion.getACTION_Reverse_Correct(),
+                DocAction.Companion.getACTION_Post(), DocAction.Companion.getACTION_Void()};
 
 		if (isClosed())
-			return new String[] {DocAction.ACTION_Post, DocAction.ACTION_ReOpen};
+			return new String[] {DocAction.Companion.getACTION_Post(), DocAction.Companion.getACTION_ReOpen()};
 
 		if (isReversed() || isVoided())
-			return new String[] {DocAction.ACTION_Post};
+			return new String[] {DocAction.Companion.getACTION_Post()};
 
 		return new String[] {};
 	}	//	getActionOptions
@@ -897,46 +898,46 @@ public class DocumentEngine implements DocAction
 			if (!locked && processing instanceof Boolean)
 				locked = ((Boolean)processing).booleanValue();
 			if (locked)
-				options[index++] = DocumentEngine.ACTION_Unlock;
+				options[index++] = DocumentEngine.Companion.getACTION_Unlock();
 		}
 
 		//	Approval required           ..  NA
-		if (docStatus.equals(DocumentEngine.STATUS_NotApproved))
+		if (docStatus.equals(DocumentEngine.Companion.getSTATUS_NotApproved()))
 		{
-			options[index++] = DocumentEngine.ACTION_Prepare;
-			options[index++] = DocumentEngine.ACTION_Void;
+			options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+			options[index++] = DocumentEngine.Companion.getACTION_Void();
 		}
 		//	Draft/Invalid				..  DR/IN
-		else if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-			|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+		else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+			|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 		{
-			options[index++] = DocumentEngine.ACTION_Complete;
+			options[index++] = DocumentEngine.Companion.getACTION_Complete();
 		//	options[index++] = DocumentEngine.ACTION_Prepare;
-			options[index++] = DocumentEngine.ACTION_Void;
+			options[index++] = DocumentEngine.Companion.getACTION_Void();
 		}
 		//	In Process                  ..  IP
-		else if (docStatus.equals(DocumentEngine.STATUS_InProgress)
-			|| docStatus.equals(DocumentEngine.STATUS_Approved))
+		else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+			|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Approved()))
 		{
-			options[index++] = DocumentEngine.ACTION_Complete;
-			options[index++] = DocumentEngine.ACTION_Void;
+			options[index++] = DocumentEngine.Companion.getACTION_Complete();
+			options[index++] = DocumentEngine.Companion.getACTION_Void();
 		}
 		//	Complete                    ..  CO
-		else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+		else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 		{
-			options[index++] = DocumentEngine.ACTION_Close;
+			options[index++] = DocumentEngine.Companion.getACTION_Close();
 		}
 		//	Waiting Payment
-		else if (docStatus.equals(DocumentEngine.STATUS_WaitingPayment)
-			|| docStatus.equals(DocumentEngine.STATUS_WaitingConfirmation))
+		else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_WaitingPayment())
+			|| docStatus.equals(DocumentEngine.Companion.getSTATUS_WaitingConfirmation()))
 		{
-			options[index++] = DocumentEngine.ACTION_Void;
-			options[index++] = DocumentEngine.ACTION_Prepare;
+			options[index++] = DocumentEngine.Companion.getACTION_Void();
+			options[index++] = DocumentEngine.Companion.getACTION_Prepare();
 		}
 		//	Closed, Voided, REversed    ..  CL/VO/RE
-		else if (docStatus.equals(DocumentEngine.STATUS_Closed)
-			|| docStatus.equals(DocumentEngine.STATUS_Voided)
-			|| docStatus.equals(DocumentEngine.STATUS_Reversed))
+		else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Closed())
+			|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Voided())
+			|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Reversed()))
 			return 0;
 
 		/********************
@@ -945,27 +946,27 @@ public class DocumentEngine implements DocAction
 		if (AD_Table_ID == I_C_Order.Table_ID)
 		{
 			//	Draft                       ..  DR/IP/IN
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-				|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-				|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+				|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+				|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 			{
-				options[index++] = DocumentEngine.ACTION_Prepare;
-				options[index++] = DocumentEngine.ACTION_Close;
+				options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+				options[index++] = DocumentEngine.Companion.getACTION_Close();
 				//	Draft Sales Order Quote/Proposal - Process
 				if ("Y".equals(isSOTrx)
 					&& ("OB".equals(orderType) || "ON".equals(orderType)))
-					docAction[0] = DocumentEngine.ACTION_Prepare;
+					docAction[0] = DocumentEngine.Companion.getACTION_Prepare();
 			}
 			//	Complete                    ..  CO
-			else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
-				options[index++] = DocumentEngine.ACTION_Void;
-				options[index++] = DocumentEngine.ACTION_ReActivate;
+				options[index++] = DocumentEngine.Companion.getACTION_Void();
+				options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
 			}
-			else if (docStatus.equals(DocumentEngine.STATUS_WaitingPayment))
+			else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_WaitingPayment()))
 			{
-				options[index++] = DocumentEngine.ACTION_ReActivate;
-				options[index++] = DocumentEngine.ACTION_Close;
+				options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
+				options[index++] = DocumentEngine.Companion.getACTION_Close();
 			}
 		}
 		/********************
@@ -974,12 +975,12 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_M_InOut.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		/********************
@@ -988,12 +989,12 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_C_Invoice.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		/********************
@@ -1002,12 +1003,12 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_C_Payment.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		/********************
@@ -1016,13 +1017,13 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_GL_Journal.Table_ID || AD_Table_ID == I_GL_JournalBatch.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
-					options[index++] = DocumentEngine.ACTION_ReActivate;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
+					options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		/********************
@@ -1031,12 +1032,12 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_C_AllocationHdr.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		//[ 1782412 ]
@@ -1046,9 +1047,9 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_C_Cash.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
-				options[index++] = DocumentEngine.ACTION_Void;
+				options[index++] = DocumentEngine.Companion.getACTION_Void();
 			}
 		}
 		/********************
@@ -1057,10 +1058,10 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_C_BankStatement.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Void;
+					options[index++] = DocumentEngine.Companion.getACTION_Void();
 				}
 			}
 		}
@@ -1071,12 +1072,12 @@ public class DocumentEngine implements DocAction
 			|| AD_Table_ID == I_M_Inventory.Table_ID)
 		{
 			//	Complete                    ..  CO
-			if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 		}
 		/********************
@@ -1084,18 +1085,18 @@ public class DocumentEngine implements DocAction
 		 */
 		else if (AD_Table_ID == I_PP_Order.Table_ID)
 		{
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-					|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-					|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 				{
-					options[index++] = DocumentEngine.ACTION_Prepare;
-					options[index++] = DocumentEngine.ACTION_Close;
+					options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+					options[index++] = DocumentEngine.Companion.getACTION_Close();
 				}
 				//	Complete                    ..  CO
-				else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+				else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 				{
-					options[index++] = DocumentEngine.ACTION_Void;
-					options[index++] = DocumentEngine.ACTION_ReActivate;
+					options[index++] = DocumentEngine.Companion.getACTION_Void();
+					options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
 				}
 		}
 		/********************
@@ -1104,19 +1105,19 @@ public class DocumentEngine implements DocAction
 		else if (AD_Table_ID == I_M_Production.Table_ID)
 		{
 			//	Draft                       ..  DR/IP/IN
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-					|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-					|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 			{
-				options[index++] = DocumentEngine.ACTION_Prepare;
+				options[index++] = DocumentEngine.Companion.getACTION_Prepare();
 			}
 			//	Complete                    ..  CO
-			else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+			else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				if (periodOpen) {
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
-				options[index++] = DocumentEngine.ACTION_Reverse_Accrual;
+				options[index++] = DocumentEngine.Companion.getACTION_Reverse_Accrual();
 			}
 
 		}
@@ -1125,18 +1126,18 @@ public class DocumentEngine implements DocAction
 		 */
 		else if (AD_Table_ID == I_PP_Cost_Collector.Table_ID)
 		{
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-					|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-					|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 				{
-					options[index++] = DocumentEngine.ACTION_Prepare;
-					options[index++] = DocumentEngine.ACTION_Close;
+					options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+					options[index++] = DocumentEngine.Companion.getACTION_Close();
 				}
 				//	Complete                    ..  CO
-				else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+				else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 				{
-					options[index++] = DocumentEngine.ACTION_Void;
-					options[index++] = DocumentEngine.ACTION_Reverse_Correct;
+					options[index++] = DocumentEngine.Companion.getACTION_Void();
+					options[index++] = DocumentEngine.Companion.getACTION_Reverse_Correct();
 				}
 		}
 		/********************
@@ -1144,18 +1145,18 @@ public class DocumentEngine implements DocAction
 		 */
 		else if (AD_Table_ID == I_DD_Order.Table_ID)
 		{
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-					|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-					|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 				{
-					options[index++] = DocumentEngine.ACTION_Prepare;
-					options[index++] = DocumentEngine.ACTION_Close;
+					options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+					options[index++] = DocumentEngine.Companion.getACTION_Close();
 				}
 				//	Complete                    ..  CO
-				else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+				else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 				{
-					options[index++] = DocumentEngine.ACTION_Void;
-					options[index++] = DocumentEngine.ACTION_ReActivate;
+					options[index++] = DocumentEngine.Companion.getACTION_Void();
+					options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
 				}
 		}
 		/********************
@@ -1163,18 +1164,18 @@ public class DocumentEngine implements DocAction
 		 */
 		else if (AD_Table_ID == I_HR_Process.Table_ID)
 		{
-			if (docStatus.equals(DocumentEngine.STATUS_Drafted)
-					|| docStatus.equals(DocumentEngine.STATUS_InProgress)
-					|| docStatus.equals(DocumentEngine.STATUS_Invalid))
+			if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Drafted())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_InProgress())
+					|| docStatus.equals(DocumentEngine.Companion.getSTATUS_Invalid()))
 				{
-					options[index++] = DocumentEngine.ACTION_Prepare;
-					options[index++] = DocumentEngine.ACTION_Close;
+					options[index++] = DocumentEngine.Companion.getACTION_Prepare();
+					options[index++] = DocumentEngine.Companion.getACTION_Close();
 				}
 				//	Complete                    ..  CO
-				else if (docStatus.equals(DocumentEngine.STATUS_Completed))
+				else if (docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 				{
-					options[index++] = DocumentEngine.ACTION_Void;
-					options[index++] = DocumentEngine.ACTION_ReActivate;
+					options[index++] = DocumentEngine.Companion.getACTION_Void();
+					options[index++] = DocumentEngine.Companion.getACTION_ReActivate();
 				}
 		}
 		/********************
@@ -1182,10 +1183,10 @@ public class DocumentEngine implements DocAction
 		 */
 		else if (AD_Table_ID == I_M_RMA.Table_ID)
 		{
-			if(docStatus.equals(DocumentEngine.STATUS_Completed))
+			if(docStatus.equals(DocumentEngine.Companion.getSTATUS_Completed()))
 			{
 				// IDEMPIERE-98 - Implement void for completed RMAs - Diego Ruiz - globalqss
-				options[index++] = DocumentEngine.ACTION_Void;
+				options[index++] = DocumentEngine.Companion.getACTION_Void();
 			}
 		}
 
@@ -1242,7 +1243,7 @@ public class DocumentEngine implements DocAction
 		try
 		{
 			pstmt = DB.prepareStatement(sql, null);
-			pstmt.setInt(1, DocAction.AD_REFERENCE_ID);
+			pstmt.setInt(1, DocAction.Companion.getAD_REFERENCE_ID());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 			{

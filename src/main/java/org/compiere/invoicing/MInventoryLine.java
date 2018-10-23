@@ -319,7 +319,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 				log.saveError("Quantity", Msg.getElement(getCtx(), I_M_InventoryLine.COLUMNNAME_QtyCount));
 				return false;
 			}
-			if (getQtyInternalUse().signum() == 0 && !getParent().getDocAction().equals(DocAction.ACTION_Void)) {
+			if (getQtyInternalUse().signum() == 0 && !getParent().getDocAction().equals(DocAction.Companion.getACTION_Void())) {
 				log.saveError("FillMandatory", Msg.getElement(getCtx(), I_M_InventoryLine.COLUMNNAME_QtyInternalUse));
 				return false;
 			}

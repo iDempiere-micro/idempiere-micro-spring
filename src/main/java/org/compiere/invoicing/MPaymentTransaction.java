@@ -265,7 +265,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 							MPayment m_mPayment = createPayment(get_TrxName());
 							m_mPayment.saveEx();
 							setC_Payment_ID(m_mPayment.getC_Payment_ID());
-							processed = m_mPayment.processIt(DocAction.ACTION_Complete);
+							processed = m_mPayment.processIt(DocAction.Companion.getACTION_Complete());
 							if (!processed)
 								setErrorMessage(Msg.getMsg(Env.getCtx(), "PaymentNotProcessed"));
 							else
