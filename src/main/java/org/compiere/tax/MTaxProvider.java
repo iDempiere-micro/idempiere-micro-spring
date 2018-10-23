@@ -66,7 +66,7 @@ public class MTaxProvider extends X_C_TaxProvider
 				return null;
 			}
 
-			List<ITaxProviderFactory> factoryList = Service.locator().list(ITaxProviderFactory.class).getServices();
+			List<ITaxProviderFactory> factoryList = Service.Companion.locator().list(ITaxProviderFactory.class).getServices();
 			if (factoryList == null)
 				return null;
 			for (ITaxProviderFactory factory : factoryList)
@@ -106,7 +106,7 @@ public class MTaxProvider extends X_C_TaxProvider
 				return null;
 			}
 
-			List<ITaxProviderFactory> factoryList = Service.locator().list(ITaxProviderFactory.class).getServices();
+			List<ITaxProviderFactory> factoryList = Service.Companion.locator().list(ITaxProviderFactory.class).getServices();
 			if (factoryList == null)
 				return null;
 			for (ITaxProviderFactory factory : factoryList)

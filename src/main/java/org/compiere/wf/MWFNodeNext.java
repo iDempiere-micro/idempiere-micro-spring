@@ -146,13 +146,13 @@ public class MWFNodeNext extends X_AD_WF_NodeNext
 				DocAction da = (DocAction)po;
 				String docStatus = da.getDocStatus();
 				String docAction = da.getDocAction();
-				if (!DocAction.ACTION_Complete.equals(docAction)
-					|| DocAction.STATUS_Completed.equals(docStatus)
-					|| DocAction.STATUS_WaitingConfirmation.equals(docStatus)
-					|| DocAction.STATUS_WaitingPayment.equals(docStatus)
-					|| DocAction.STATUS_Voided.equals(docStatus)
-					|| DocAction.STATUS_Closed.equals(docStatus)
-					|| DocAction.STATUS_Reversed.equals(docStatus) )
+				if (!DocAction.Companion.getACTION_Complete().equals(docAction)
+					|| DocAction.Companion.getSTATUS_Completed().equals(docStatus)
+					|| DocAction.Companion.getSTATUS_WaitingConfirmation().equals(docStatus)
+					|| DocAction.Companion.getSTATUS_WaitingPayment().equals(docStatus)
+					|| DocAction.Companion.getSTATUS_Voided().equals(docStatus)
+					|| DocAction.Companion.getSTATUS_Closed().equals(docStatus)
+					|| DocAction.Companion.getSTATUS_Reversed().equals(docStatus) )
 					/*
 					|| DocAction.ACTION_Complete.equals(docAction)	
 					|| DocAction.ACTION_ReActivate.equals(docAction)	

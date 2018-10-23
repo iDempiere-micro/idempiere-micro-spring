@@ -17,6 +17,7 @@ import org.compiere.orm.MDocType;
 import org.compiere.orm.MSequence;
 import org.compiere.orm.PO;
 import org.compiere.orm.Query;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.validation.ModelValidationEngine;
 import org.compiere.validation.ModelValidator;
@@ -428,7 +429,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		MDocType dt = MDocType.get(getCtx(), getC_DocType_ID());
 
 		// Get Period
@@ -439,14 +440,14 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			{
 				log.warning("No Period for " + getDateAcct());
 				m_processMsg = "@PeriodNotFound@";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			//	Standard Period
 			if (period.getC_Period_ID() != getC_Period_ID()
 					&& period.isStandardPeriod())
 			{
 				m_processMsg = "@PeriodNotValid@";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 		}
 		boolean open = period.isOpen(dt.getDocBaseType(), getDateAcct());
@@ -455,7 +456,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			log.warning(period.getName()
 				+ ": Not open for " + dt.getDocBaseType() + " (" + getDateAcct() + ")");
 			m_processMsg = "@PeriodClosed@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		//	Lines
@@ -463,7 +464,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		if (lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		//	Add up Amounts
@@ -480,7 +481,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			{
 				m_processMsg = "@InActiveAccount@ - @Line@=" + line.getLine()
 				+ " - " + line.getAccountElementValue();
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			
 			// Michael Judd (mjudd) BUG: [ 2678088 ] Allow posting to system accounts for non-actual postings
@@ -493,7 +494,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			{
 				m_processMsg = "@DocControlledError@ - @Line@=" + line.getLine()
 					+ " - " + line.getAccountElementValue();
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			//
 			
@@ -502,21 +503,21 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			{
 				m_processMsg = "@PostingTypeActualError@ - @Line@=" + line.getLine()
 				+ " - " + line.getAccountElementValue();
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			
 			if (getPostingType().equals(X_GL_Journal.POSTINGTYPE_Budget) && !line.getAccountElementValue().isPostBudget())
 			{
 				m_processMsg = "@PostingTypeBudgetError@ - @Line@=" + line.getLine()
 				+ " - " + line.getAccountElementValue();
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			
 			if (getPostingType().equals(X_GL_Journal.POSTINGTYPE_Statistical) && !line.getAccountElementValue().isPostStatistical())
 			{
 				m_processMsg = "@PostingTypeStatisticalError@ - @Line@=" + line.getLine()
 				+ " - " + line.getAccountElementValue();
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 			// end BF [2789319] No check of Actual, Budget, Statistical attribute
 			
@@ -531,7 +532,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			&& getControlAmt().compareTo(getTotalDr()) != 0)
 		{
 			m_processMsg = "@ControlAmtError@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		//	Unbalanced Jornal & Not Suspense
@@ -541,7 +542,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 			if (gl == null || !gl.isUseSuspenseBalancing())
 			{
 				m_processMsg = "@UnbalancedJornal@";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 		}
 		
@@ -550,10 +551,10 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		
 		m_justPrepared = true;
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -582,15 +583,15 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		// Set the definite document number after completed (if needed)
@@ -598,7 +599,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		//	Implicit Approval
 		if (!isApproved())
@@ -609,13 +610,13 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//
 		setProcessed(true);
 		setDocAction(X_GL_Journal.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**
@@ -768,7 +769,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		//	Lines
 		reverse.copyLinesFrom(this, null, 'C');
 		//
-		if (!reverse.processIt(DocAction.ACTION_Complete))
+		if (!reverse.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reverse.getProcessMsg();
 			return null;
@@ -844,7 +845,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		//	Lines
 		reverse.copyLinesFrom(this, reverse.getDateAcct(), 'R');
 		//
-		if (!reverse.processIt(DocAction.ACTION_Complete))
+		if (!reverse.processIt(DocAction.Companion.getACTION_Complete()))
 		{
 			m_processMsg = "Reversal ERROR: " + reverse.getProcessMsg();
 			return null;

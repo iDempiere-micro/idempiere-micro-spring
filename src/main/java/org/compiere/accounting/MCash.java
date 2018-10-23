@@ -16,6 +16,7 @@ import org.compiere.orm.MDocType;
 import org.compiere.orm.MOrg;
 import org.compiere.orm.Query;
 import org.compiere.orm.TimeUtil;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.validation.ModelValidationEngine;
 import org.compiere.validation.ModelValidator;
@@ -349,19 +350,19 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Std Period open?
 		if (!MPeriod.isOpen(getCtx(), getDateAcct(), MDocType.DOCBASETYPE_CashJournal, getAD_Org_ID()))
 		{
 			m_processMsg = "@PeriodClosed@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		MCashLine[] lines = getLines(false);
 		if (lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		//	Add up Amounts
 		BigDecimal difference = Env.ZERO;
@@ -381,7 +382,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 				if (amt == null)
 				{
 					m_processMsg = "No Conversion Rate found - @C_CashLine_ID@= " + line.getLine();
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 				difference = difference.add(amt);
 			}
@@ -391,12 +392,12 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		m_justPrepared = true;
 		if (!X_C_Cash.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_C_Cash.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -425,20 +426,20 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
 		
 		//	Implicit Approval
@@ -462,7 +463,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 					)
 				{
 					m_processMsg = "@Line@ "+line.getLine()+": @InvoiceCreateDocNotCompleted@";
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				//
 				StringBuilder name = new StringBuilder().append(Msg.translate(getCtx(), "C_Cash_ID")).append(": ").append(getName())
@@ -474,7 +475,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 				if (!hdr.save())
 				{
 					m_processMsg = CLogger.retrieveErrorString("Could not create Allocation Hdr");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				//	Allocation Line
 				MAllocationLine aLine = new MAllocationLine (hdr, line.getAmount(),
@@ -484,16 +485,16 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 				if (!aLine.save())
 				{
 					m_processMsg = CLogger.retrieveErrorString("Could not create Allocation Line");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				//	Should start WF
-				if(!hdr.processIt(DocAction.ACTION_Complete)) {
+				if(!hdr.processIt(DocAction.Companion.getACTION_Complete())) {
 					m_processMsg = CLogger.retrieveErrorString("Could not process Allocation");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				if (!hdr.save()) {
 					m_processMsg = CLogger.retrieveErrorString("Could not save Allocation");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 			}
 			else if (MCashLine.CASHTYPE_BankAccountTransfer.equals(line.getCashType()))
@@ -525,14 +526,14 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 				if (!pay.save())
 				{
 					m_processMsg = CLogger.retrieveErrorString("Could not create Payment");
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				
 				line.setC_Payment_ID(pay.getC_Payment_ID());
 				if (!line.save())
 				{
 					m_processMsg = "Could not update Cash Line";
-					return DocAction.STATUS_Invalid;
+					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 			}
 		}
@@ -542,12 +543,12 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 		//
 		setProcessed(true);
 		setDocAction(X_C_Cash.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**

@@ -385,7 +385,7 @@ public class Secure implements SecureInterface
 	 * @return keystore
 	 */
 	public static IKeyStore getKeyStoreService(){
-		IServiceHolder<IKeyStore> keyStoreService = Service.locator().locate(IKeyStore.class);
+		IServiceHolder<IKeyStore> keyStoreService = Service.Companion.locator().locate(IKeyStore.class);
 		if ( keyStoreService == null ) { return null; }
 		return keyStoreService.getService();
 	}

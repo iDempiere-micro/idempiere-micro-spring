@@ -153,7 +153,7 @@ public class MTable extends X_AD_Table
 	private static CLogger	s_log	= CLogger.getCLogger (MTable.class);
 
 	private static List<IModelFactory> getFactoryList() {
-		IServicesHolder<IModelFactory> service = Service.locator().list(IModelFactory.class);
+		IServicesHolder<IModelFactory> service = Service.Companion.locator().list(IModelFactory.class);
 		List<IModelFactory> factoryList;
 		if (service==null) {
 			factoryList = Arrays.asList( new IModelFactory[] { new DefaultModelFactory() } );

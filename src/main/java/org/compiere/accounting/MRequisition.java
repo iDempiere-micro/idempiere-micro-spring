@@ -14,6 +14,7 @@ import org.compiere.docengine.DocumentEngine;
 import org.compiere.model.IDoc;
 import org.compiere.model.IPODoc;
 import org.compiere.model.I_M_RequisitionLine;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.product.MPriceList;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.MSequence;
@@ -63,8 +64,8 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 		//	setM_Warehouse_ID(0);
 			setDateDoc(new Timestamp(System.currentTimeMillis()));
 			setDateRequired (new Timestamp(System.currentTimeMillis()));
-			setDocAction (DocAction.ACTION_Complete);	// CO
-			setDocStatus (DocAction.STATUS_Drafted);		// DR
+			setDocAction (DocAction.Companion.getACTION_Complete());	// CO
+			setDocStatus (DocAction.Companion.getSTATUS_Drafted());		// DR
 			setPriorityRule (X_M_Requisition.PRIORITYRULE_Medium);	// 5
 			setTotalLines (Env.ZERO);
 			setIsApproved (false);
@@ -242,7 +243,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		MRequisitionLine[] lines = getLines();
 		
 		//	Invalid
@@ -250,7 +251,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 			|| getM_PriceList_ID() == 0
 			|| getM_Warehouse_ID() == 0)
 		{
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		if(lines.length == 0)
@@ -284,10 +285,10 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 		
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		
 		m_justPrepared = true;
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -316,15 +317,15 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		// Set the definite document number after completed (if needed)
@@ -332,7 +333,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		//	Implicit Approval
 		if (!isApproved())
@@ -344,13 +345,13 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		//
 		setProcessed(true);
-		setDocAction(ACTION_Close);
-		return DocAction.STATUS_Completed;
+		setDocAction(Companion.getACTION_Close());
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**

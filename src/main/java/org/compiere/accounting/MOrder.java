@@ -12,6 +12,7 @@ import org.compiere.order.*;
 import org.compiere.order.MInOutLine;
 import org.compiere.orm.*;
 import org.compiere.orm.MOrg;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.product.MPriceList;
 import org.compiere.product.MPriceListVersion;
@@ -192,7 +193,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         }
 
         // added AdempiereException by zuhri
-        if (!invoice.processIt(DocAction.ACTION_Complete))
+        if (!invoice.processIt(DocAction.Companion.getACTION_Complete()))
             throw new AdempiereException("Failed when processing document - " + invoice.getProcessMsg());
         // end added
         invoice.saveEx(get_TrxName());
@@ -472,14 +473,14 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         if (log.isLoggable(Level.INFO)) log.info(toString());
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         MDocType dt = MDocType.get(getCtx(), getC_DocTypeTarget_ID());
 
         //	Std Period open?
         if (!MPeriod.isOpen(getCtx(), getDateAcct(), dt.getDocBaseType(), getAD_Org_ID()))
         {
             m_processMsg = "@PeriodClosed@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         if (isSOTrx() && getDeliveryViaRule().equals(DELIVERYVIARULE_Shipper))
@@ -487,11 +488,11 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             if (getM_Shipper_ID() == 0)
             {
                 m_processMsg = "@FillMandatory@" + Msg.getElement(getCtx(), COLUMNNAME_M_Shipper_ID);
-                return DocAction.STATUS_Invalid;
+                return DocAction.Companion.getSTATUS_Invalid();
             }
 
             if (!calculateFreightCharge())
-                return DocAction.STATUS_Invalid;
+                return DocAction.Companion.getSTATUS_Invalid();
         }
 
         //	Lines
@@ -499,7 +500,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         if (lines.length == 0)
         {
             m_processMsg = "@NoLines@";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         // Bug 1564431
@@ -512,7 +513,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 if (product != null && product.isExcludeAutoDelivery())
                 {
                     m_processMsg = "@M_Product_ID@ "+product.getValue()+" @IsExcludeAutoDelivery@";
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
             }
         }
@@ -533,7 +534,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                         {
                             log.warning("different Warehouse " + lines[i]);
                             m_processMsg = "@CannotChangeDocType@";
-                            return DocAction.STATUS_Invalid;
+                            return DocAction.Companion.getSTATUS_Invalid();
                         }
                     }
                 }
@@ -554,7 +555,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 else
                 {
                     m_processMsg = "@CannotChangeDocType@";
-                    return DocAction.STATUS_Invalid;
+                    return DocAction.Companion.getSTATUS_Invalid();
                 }
             }
         }	//	convert DocType
@@ -566,7 +567,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 if (product.isASIMandatory(isSOTrx())) {
                     if(product.getAttributeSet()==null){
                         m_processMsg = "@NoAttributeSet@=" + product.getValue();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
 
                     }
                     if (! product.getAttributeSet().excludeTableEntry(MOrderLine.Table_ID, isSOTrx())) {
@@ -576,7 +577,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                             .append(product.getValue())
                             .append(")");
                         m_processMsg = msg.toString();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
                     }
                 }
             }
@@ -591,12 +592,12 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             m_processMsg = "Cannot reserve Stock";
             if (! Util.isEmpty(innerMsg))
                 m_processMsg = m_processMsg + " -> " + innerMsg;
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
         if (!calculateTaxTotal())
         {
             m_processMsg = "Error calculating tax";
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
         }
 
         if (   getGrandTotal().signum() != 0
@@ -605,13 +606,13 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             if (!createPaySchedule())
             {
                 m_processMsg = "@ErrorPaymentSchedule@";
-                return DocAction.STATUS_Invalid;
+                return DocAction.Companion.getSTATUS_Invalid();
             }
         } else {
             if (MOrderPaySchedule.getOrderPaySchedule(getCtx(), getC_Order_ID(), 0, get_TrxName()).length > 0)
             {
                 m_processMsg = "@ErrorPaymentSchedule@";
-                return DocAction.STATUS_Invalid;
+                return DocAction.Companion.getSTATUS_Invalid();
             }
         }
 
@@ -636,14 +637,14 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                         m_processMsg = "@BPartnerCreditStop@ - @TotalOpenBalance@="
                             + bp.getTotalOpenBalance()
                             + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
                     }
                     if (MBPartner.SOCREDITSTATUS_CreditHold.equals(bp.getSOCreditStatus()))
                     {
                         m_processMsg = "@BPartnerCreditHold@ - @TotalOpenBalance@="
                             + bp.getTotalOpenBalance()
                             + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
                     }
                     BigDecimal grandTotal = MConversionRate.convertBase(getCtx(),
                         getGrandTotal(), getC_Currency_ID(), getDateOrdered(),
@@ -653,7 +654,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                         m_processMsg = "@BPartnerOverOCreditHold@ - @TotalOpenBalance@="
                             + bp.getTotalOpenBalance() + ", @GrandTotal@=" + grandTotal
                             + ", @SO_CreditLimit@=" + bp.getSO_CreditLimit();
-                        return DocAction.STATUS_Invalid;
+                        return DocAction.Companion.getSTATUS_Invalid();
                     }
                 }
             }
@@ -661,12 +662,12 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return DocAction.Companion.getSTATUS_Invalid();
 
         m_justPrepared = true;
         //	if (!DOCACTION_Complete.equals(getDocAction()))		don't set for just prepare
         //		setDocAction(DOCACTION_Complete);
-        return DocAction.STATUS_InProgress;
+        return DocAction.Companion.getSTATUS_InProgress();
     }	//	prepareIt
 
     /**
@@ -774,7 +775,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
      * 	Complete Document
      * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
      */
-    public String completeIt()
+    public CompleteActionResult completeIt()
     {
         MDocType dt = MDocType.get(getCtx(), getC_DocType_ID());
         String DocSubTypeSO = dt.getDocSubTypeSO();
@@ -783,7 +784,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         if (DOCACTION_Prepare.equals(getDocAction()))
         {
             setProcessed(false);
-            return DocAction.STATUS_InProgress;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_InProgress());
         }
 
         // Set the definite document number after completed (if needed)
@@ -798,12 +799,12 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 reserveStock(dt, getLines(true, MOrderLine.COLUMNNAME_M_Product_ID));
             m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
             if (m_processMsg != null)
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_COMPLETE);
             if (m_processMsg != null)
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             setProcessed(true);
-            return DocAction.STATUS_Completed;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
         }
         //	Waiting Payment - until we have a payment
         if (!m_forceCreation
@@ -811,7 +812,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             && getC_Payment_ID() == 0 && getC_CashLine_ID() == 0)
         {
             setProcessed(true);
-            return DocAction.STATUS_WaitingPayment;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_WaitingPayment());
         }
 
         //	Re-Check
@@ -819,13 +820,13 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         {
             String status = prepareIt();
             m_justPrepared = false;
-            if (!DocAction.STATUS_InProgress.equals(status))
-                return status;
+            if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+                return new CompleteActionResult(status);
         }
 
         m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
         if (m_processMsg != null)
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 
         //	Implicit Approval
         if (!isApproved())
@@ -852,22 +853,22 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             //
             shipment = createShipment (dt, realTimePOS ? null : getDateOrdered());
             if (shipment == null)
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             info.append("@M_InOut_ID@: ").append(shipment.getDocumentNo());
             String msg = shipment.getProcessMsg();
             if (msg != null && msg.length() > 0)
                 info.append(" (").append(msg).append(")");
         }	//	Shipment
 
-
+        I_C_Invoice invoice = null;
         //	Create SO Invoice - Always invoice complete Order
         if ( MDocType.DOCSUBTYPESO_POSOrder.equals(DocSubTypeSO)
             || MDocType.DOCSUBTYPESO_OnCreditOrder.equals(DocSubTypeSO)
             || MDocType.DOCSUBTYPESO_PrepayOrder.equals(DocSubTypeSO))
         {
-            I_C_Invoice invoice = createInvoice (dt, shipment, realTimePOS ? null : getDateOrdered());
+            invoice = createInvoice (dt, shipment, realTimePOS ? null : getDateOrdered());
             if (invoice == null)
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             info.append(" - @C_Invoice_ID@: ").append(invoice.getDocumentNo());
             String msg = invoice.getProcessMsg();
             if (msg != null && msg.length() > 0)
@@ -877,7 +878,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         String msg = createPOSPayments();
         if (msg != null) {
             m_processMsg = msg;
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         //	Counter Documents
@@ -892,7 +893,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 info.append(" - ");
             info.append(valid);
             m_processMsg = info.toString();
-            return DocAction.STATUS_Invalid;
+            return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
         }
 
         //landed cost
@@ -902,7 +903,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             if (!Util.isEmpty(error))
             {
                 m_processMsg = error;
-                return DocAction.STATUS_Invalid;
+                return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
             }
         }
 
@@ -910,7 +911,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         m_processMsg = info.toString();
         //
         setDocAction(DOCACTION_Close);
-        return DocAction.STATUS_Completed;
+        return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed(), invoice);
     }	//	completeIt
 
 
@@ -1111,7 +1112,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             }
         }
         // added AdempiereException by zuhri
-        if (!shipment.processIt(DocAction.ACTION_Complete))
+        if (!shipment.processIt(DocAction.Companion.getACTION_Complete()))
             throw new AdempiereException("Failed when processing document - " + shipment.getProcessMsg());
         // end added
         shipment.saveEx(get_TrxName());

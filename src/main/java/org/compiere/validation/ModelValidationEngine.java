@@ -144,7 +144,7 @@ public class ModelValidationEngine
 	 * @return ModelValidator instance of null if validatorId not found
 	 */
 	public static ModelValidator getModelValidator(String validatorId) {
-        IServicesHolder<IModelValidatorFactory> service = Service.locator().list(IModelValidatorFactory.class);
+        IServicesHolder<IModelValidatorFactory> service = Service.Companion.locator().list(IModelValidatorFactory.class);
         if ( service != null ) {
             List<IModelValidatorFactory> factoryList = service.getServices();
             if (factoryList != null) {

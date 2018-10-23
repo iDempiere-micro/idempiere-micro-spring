@@ -441,7 +441,7 @@ public final class DB
 	public static String getDatabaseInfo()
 	{
 		if (s_cc != null)
-			return s_cc.getDBInfo();
+			return s_cc.getDbInfo();
 		return "No Database";
 	}	//	getDatabaseInfo
 

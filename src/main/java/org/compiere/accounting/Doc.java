@@ -182,7 +182,7 @@ public abstract class Doc implements IDoc
 	 */
 	public static IDoc get (MAcctSchema as, int AD_Table_ID, int Record_ID, String trxName)
 	{
-		return DocManager.getDocument(as, AD_Table_ID, Record_ID, trxName);
+		return DocManager.INSTANCE.getDocument(as, AD_Table_ID, Record_ID, trxName);
 	}	//	get
 
 	/**
@@ -196,7 +196,7 @@ public abstract class Doc implements IDoc
 	 */
 	public static IDoc get (MAcctSchema as, int AD_Table_ID, ResultSet rs, String trxName)
 	{
-		return DocManager.getDocument(as, AD_Table_ID, rs, trxName);
+		return DocManager.INSTANCE.getDocument(as, AD_Table_ID, rs, trxName);
 	}   //  get
 
 	/**
@@ -211,7 +211,7 @@ public abstract class Doc implements IDoc
 	public static String postImmediate (MAcctSchema[] ass,
 		int AD_Table_ID, int Record_ID, boolean force, String trxName)
 	{
-		return DocManager.postDocument(ass, AD_Table_ID, Record_ID, force, true, trxName);
+		return DocManager.INSTANCE.postDocument(ass, AD_Table_ID, Record_ID, force, true, trxName);
 	}   //  post
 
 	/**
@@ -481,10 +481,10 @@ public abstract class Doc implements IDoc
 	{
 		if (m_DocStatus == null)
 			;	//	return "No DocStatus for DocumentNo=" + getDocumentNo();
-		else if (m_DocStatus.equals(DocumentEngine.STATUS_Completed)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Closed)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Voided)
-			|| m_DocStatus.equals(DocumentEngine.STATUS_Reversed))
+		else if (m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Completed())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Closed())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Voided())
+			|| m_DocStatus.equals(DocumentEngine.Companion.getSTATUS_Reversed()))
 			;
 		else{
 			StringBuilder msgreturn = new StringBuilder("Invalid DocStatus='").append(m_DocStatus).append("' for DocumentNo=").append(getDocumentNo());

@@ -19,6 +19,7 @@ import org.compiere.model.IPODoc;
 import org.compiere.model.I_A_Depreciation_Entry;
 import org.compiere.orm.Query;
 import org.compiere.orm.TimeUtil;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.validation.ModelValidationEngine;
 import org.compiere.validation.ModelValidator;
 import org.idempiere.common.exceptions.AdempiereException;
@@ -203,7 +204,7 @@ implements DocAction, IPODoc
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
 		{
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		MPeriod.testPeriodOpen(getCtx(), getDateAcct(), getC_DocType_ID(), getAD_Org_ID());
@@ -213,11 +214,11 @@ implements DocAction, IPODoc
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
 		{
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 
 		setDocAction(X_A_Depreciation_Entry.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}
 	
 	
@@ -237,15 +238,15 @@ implements DocAction, IPODoc
 	}	//	rejectIt
 	
 	
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 		//	Implicit Approval
 		if (!isApproved())
@@ -293,12 +294,12 @@ implements DocAction, IPODoc
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 		
 		setProcessed(true);
 		setDocAction(X_A_Depreciation_Entry.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	

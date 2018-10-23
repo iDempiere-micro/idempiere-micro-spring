@@ -19,6 +19,7 @@ import org.compiere.model.IPODoc;
 import org.compiere.model.I_C_AllocationHdr;
 import org.compiere.model.I_C_Invoice;
 import org.compiere.orm.*;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.product.MCurrency;
 import org.compiere.validation.ModelValidationEngine;
@@ -390,7 +391,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Std Period open?
 		MPeriod.testPeriodOpen(getCtx(), getDateAcct(), MDocType.DOCBASETYPE_PaymentAllocation, getAD_Org_ID());
@@ -398,7 +399,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		if (m_lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		
 		// Stop the Document Workflow if invoice to allocate is as paid
@@ -430,20 +431,20 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 			if (line.getC_BPartner_ID() == 0)
 			{
 				m_processMsg = "No Business Partner";
-				return DocAction.STATUS_Invalid;
+				return DocAction.Companion.getSTATUS_Invalid();
 			}
 
 			// IDEMPIERE-1850 - validate date against related docs
 			if (line.getC_Invoice_ID() > 0) {
 				if (line.getC_Invoice().getDateAcct().after(getDateAcct())) {
 					m_processMsg = "Wrong allocation date";
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 			}
 			if (line.getC_Payment_ID() > 0) {
 				if (line.getC_Payment().getDateAcct().after(getDateAcct())) {
 					m_processMsg = "Wrong allocation date";
-					return DocAction.STATUS_Invalid;
+					return DocAction.Companion.getSTATUS_Invalid();
 				}
 			}
 		}
@@ -451,13 +452,13 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		//
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		
 		m_justPrepared = true;
 		if (!X_C_AllocationHdr.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_C_AllocationHdr.DOCACTION_Complete);
 		
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -486,20 +487,20 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		//	Implicit Approval
 		if (!isApproved())
@@ -509,7 +510,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		//	Link
 		getLines(false);
 		if(!updateBP(isReversal()))
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		for (int i = 0; i < m_lines.length; i++)
 		{
@@ -522,12 +523,12 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 
 		setProcessed(true);
 		setDocAction(X_C_AllocationHdr.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**
@@ -853,13 +854,13 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 			reversal.setDocumentNo(getDocumentNo()+"^");		
 			reversal.addDescription("{->" + getDocumentNo() + ")");
 			//
-			if (!DocumentEngine.processIt(reversal, DocAction.ACTION_Complete))
+			if (!DocumentEngine.processIt(reversal, DocAction.Companion.getACTION_Complete()))
 			{
 				m_processMsg = "Reversal ERROR: " + reversal.getProcessMsg();
 				return false;
 			}
 
-			DocumentEngine.processIt(reversal, DocAction.ACTION_Close);
+			DocumentEngine.processIt(reversal, DocAction.Companion.getACTION_Close());
 			reversal.setProcessing (false);
 			reversal.setDocStatus(X_C_AllocationHdr.DOCSTATUS_Reversed);
 			reversal.setDocAction(X_C_AllocationHdr.DOCACTION_None);

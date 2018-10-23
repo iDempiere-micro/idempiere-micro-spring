@@ -16,6 +16,7 @@ import org.compiere.model.I_C_BankStatement;
 import org.compiere.model.I_C_BankStatementLine;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.Query;
+import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
 import org.compiere.validation.ModelValidationEngine;
 import org.compiere.validation.ModelValidator;
@@ -291,7 +292,7 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 		if (log.isLoggable(Level.INFO)) log.info(toString());
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		//	Std Period open?
 		MPeriod.testPeriodOpen(getCtx(), getStatementDate(), MDocType.DOCBASETYPE_BankStatement, getAD_Org_ID());
@@ -299,7 +300,7 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 		if (lines.length == 0)
 		{
 			m_processMsg = "@NoLines@";
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 		}
 		//	Lines
 		BigDecimal total = Env.ZERO;
@@ -323,13 +324,13 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_AFTER_PREPARE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return DocAction.Companion.getSTATUS_Invalid();
 
 		
 		m_justPrepared = true;
 		if (!X_C_BankStatement.DOCACTION_Complete.equals(getDocAction()))
 			setDocAction(X_C_BankStatement.DOCACTION_Complete);
-		return DocAction.STATUS_InProgress;
+		return DocAction.Companion.getSTATUS_InProgress();
 	}	//	prepareIt
 	
 	/**
@@ -358,20 +359,20 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 	 * 	Complete Document
 	 * 	@return new status (Complete, In Progress, Invalid, Waiting ..)
 	 */
-	public String completeIt()
+	public CompleteActionResult completeIt()
 	{
 		//	Re-Check
 		if (!m_justPrepared)
 		{
 			String status = prepareIt();
 			m_justPrepared = false;
-			if (!DocAction.STATUS_InProgress.equals(status))
-				return status;
+			if (!DocAction.Companion.getSTATUS_InProgress().equals(status))
+				return new CompleteActionResult(status);
 		}
 
 		m_processMsg = ModelValidationEngine.get().fireDocValidate(this, ModelValidator.TIMING_BEFORE_COMPLETE);
 		if (m_processMsg != null)
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		
 		//	Implicit Approval
 		if (!isApproved())
@@ -402,12 +403,12 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 		if (valid != null)
 		{
 			m_processMsg = valid;
-			return DocAction.STATUS_Invalid;
+			return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 		}
 		//
 		setProcessed(true);
 		setDocAction(X_C_BankStatement.DOCACTION_Close);
-		return DocAction.STATUS_Completed;
+		return new CompleteActionResult(DocAction.Companion.getSTATUS_Completed());
 	}	//	completeIt
 	
 	/**

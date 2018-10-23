@@ -60,7 +60,7 @@ public class Database
 	private String[] doGetDatabaseNames()
 	{
 		List<String> names = new ArrayList<String>();
-		List<AdempiereDatabase> services = Service.locator().list(AdempiereDatabase.class).getServices();
+		List<AdempiereDatabase> services = Service.Companion.locator().list(AdempiereDatabase.class).getServices();
 		for (AdempiereDatabase db : services) {
 			names.add(db.getName());
 		}

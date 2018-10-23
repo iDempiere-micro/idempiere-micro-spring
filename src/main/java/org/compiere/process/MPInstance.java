@@ -360,7 +360,7 @@ public class MPInstance extends X_AD_PInstance
 	}
 	
 	public static void publishChangedEvent(int AD_User_ID) {
-		IMessageService service = Service.locator().locate(IMessageService.class).getService();
+		IMessageService service = Service.Companion.locator().locate(IMessageService.class).getService();
 		if (service != null) {
 			ITopic<Integer> topic = service.getTopic(ON_RUNNING_JOB_CHANGED_TOPIC);
 			topic.publish(AD_User_ID);
