@@ -2,16 +2,14 @@ package org.compiere.production.test
 
 import company.bigger.test.support.BaseComponentTest
 import org.compiere.model.I_R_Request
-import org.compiere.orm.DefaultModelFactory
-import org.compiere.orm.IModelFactory
 import org.compiere.production.MRequest
 import org.compiere.production.MRequestType
 import org.compiere.production.MStatus
 import org.compiere.production.MStatusCategory
+import org.compiere.production.MProduction
 import org.idempiere.common.util.Env
 import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 
 class RequestTests : BaseComponentTest() {
     companion object {
@@ -44,5 +42,11 @@ class RequestTests : BaseComponentTest() {
         val req: I_R_Request = getById(request._ID, I_R_Request.Table_Name)
 
         assertEquals(SUMMARY, req.summary)
+    }
+
+    @Test
+    fun `creating a new production should work`() {
+        val production = MProduction(ctx, 0, null)
+        production.save()
     }
 }
