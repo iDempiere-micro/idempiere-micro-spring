@@ -29,6 +29,8 @@ import org.idempiere.common.util.Env;
 import org.idempiere.common.util.KeyNamePair;
 import org.compiere.util.Msg;
 import org.idempiere.common.util.Trace;
+import org.idempiere.icommon.model.IPO;
+
 /**
  *	Role Model.
  *	Includes AD_User runtime info for Personal Access
@@ -3169,6 +3171,10 @@ public class MRole extends X_AD_Role
 			}
 		}
 		return m_canAccess_Info_Product.booleanValue();
+	}
+
+	public void setClientOrg(IPO a) {
+		super.setClientOrg(a);
 	}
 
 }	//	MRole

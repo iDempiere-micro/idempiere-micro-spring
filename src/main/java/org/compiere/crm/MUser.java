@@ -1036,4 +1036,6 @@ public class MUser extends X_AD_User implements IUser
 	public String getID() {
 		return ""+ getAD_User_ID();
 	}
+
+	public void setAD_Client_ID(int AD_Client_ID) {super.setAD_Client_ID(AD_Client_ID);}
 }	//	MUser

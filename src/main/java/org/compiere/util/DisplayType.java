@@ -152,7 +152,7 @@ public final class DisplayType
 			|| displayType == Image || displayType == Chart || displayType == Color)
 			return true;
 
-		IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+		IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
 		if ( service != null ) {
 			List<IDisplayTypeFactory> factoryList = service.getServices();
 			for (IDisplayTypeFactory factory : factoryList) {
@@ -175,7 +175,7 @@ public final class DisplayType
 			|| displayType == Integer || displayType == Quantity)
 			return true;
 
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -203,7 +203,7 @@ public final class DisplayType
 			|| displayType == Quantity)
 			return 4;
 
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -232,7 +232,7 @@ public final class DisplayType
 			|| displayType == MultipleSelectionGrid)
 			return true;
 		
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -254,7 +254,7 @@ public final class DisplayType
 		if (displayType == Date || displayType == DateTime || displayType == Time)
 			return true;
 
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -278,7 +278,7 @@ public final class DisplayType
 			|| displayType == TableDir || displayType == Search)
 			return true;
 
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -301,7 +301,7 @@ public final class DisplayType
 			|| displayType == TextLong)
 			return true;
 
-        IServicesHolder<IDisplayTypeFactory> service = Service.locator().list(IDisplayTypeFactory.class);
+        IServicesHolder<IDisplayTypeFactory> service = Service.Companion.locator().list(IDisplayTypeFactory.class);
         if ( service != null ) {
             List<IDisplayTypeFactory> factoryList = service.getServices();
             for (IDisplayTypeFactory factory : factoryList) {
@@ -367,7 +367,7 @@ public final class DisplayType
 		}
 		else
 		{
-			List<IDisplayTypeFactory> factoryList = Service.locator().list(IDisplayTypeFactory.class).getServices();
+			List<IDisplayTypeFactory> factoryList = Service.Companion.locator().list(IDisplayTypeFactory.class).getServices();
 			for(IDisplayTypeFactory factory : factoryList){
 				DecimalFormat osgiFormat = factory.getNumberFormat(displayType, myLanguage, pattern);
 				if(osgiFormat!=null){
@@ -473,7 +473,7 @@ public final class DisplayType
 		else if (displayType == Time)
 			return myLanguage.getTimeFormat();
 		else{
-			List<IDisplayTypeFactory> factoryList = Service.locator().list(IDisplayTypeFactory.class).getServices();
+			List<IDisplayTypeFactory> factoryList = Service.Companion.locator().list(IDisplayTypeFactory.class).getServices();
 			for(IDisplayTypeFactory factory : factoryList){
 				SimpleDateFormat osgiFormat = factory.getDateFormat(displayType, myLanguage, pattern);
 				if(osgiFormat!=null)
@@ -533,7 +533,7 @@ public final class DisplayType
 			return byte[].class;
 		else
 		{
-			List<IDisplayTypeFactory> factoryList = Service.locator().list(IDisplayTypeFactory.class).getServices();
+			List<IDisplayTypeFactory> factoryList = Service.Companion.locator().list(IDisplayTypeFactory.class).getServices();
 			for(IDisplayTypeFactory factory : factoryList){
 				Class<?> osgiClass = factory.getClass(displayType, yesNoAsBoolean); 
 				if(osgiClass!=null)
@@ -607,7 +607,7 @@ public final class DisplayType
 				return "CHAR(" + fieldLength + ")";
 		}
 		
-		List<IDisplayTypeFactory> factoryList = Service.locator().list(IDisplayTypeFactory.class).getServices();
+		List<IDisplayTypeFactory> factoryList = Service.Companion.locator().list(IDisplayTypeFactory.class).getServices();
 		for(IDisplayTypeFactory factory : factoryList){
 			String osgiSQLDataType = factory.getSQLDataType(displayType, columnName, fieldLength);
 			if(osgiSQLDataType!=null)
@@ -696,7 +696,7 @@ public final class DisplayType
 		if (displayType == Chart)
 			return "Chart";
 		
-		List<IDisplayTypeFactory> factoryList = Service.locator().list(IDisplayTypeFactory.class).getServices();
+		List<IDisplayTypeFactory> factoryList = Service.Companion.locator().list(IDisplayTypeFactory.class).getServices();
 		for(IDisplayTypeFactory factory : factoryList){
 			String osgiDescription = factory.getDescription(displayType);
 			if(osgiDescription!=null)

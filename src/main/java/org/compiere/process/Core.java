@@ -29,7 +29,7 @@ public class Core {
 	 * @return ProcessCall instance or null if processId not found
 	 */
 	public static ProcessCall getProcess(String processId) {
-		List<IProcessFactory> factories = Service.locator().list(IProcessFactory.class).getServices();
+		List<IProcessFactory> factories = Service.Companion.locator().list(IProcessFactory.class).getServices();
 		if (factories != null && !factories.isEmpty()) {
 			for(IProcessFactory factory : factories) {
 				ProcessCall process = factory.newProcessInstance(processId);

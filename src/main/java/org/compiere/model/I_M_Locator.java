@@ -216,4 +216,8 @@ public interface I_M_Locator
 	  * Z dimension, e.g., Level
 	  */
 	public String getZ();
+
+    void saveEx(String trxName);
+
+	int get_ID();
 }

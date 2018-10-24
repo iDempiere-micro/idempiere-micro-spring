@@ -106,7 +106,7 @@ public class MSystem extends X_AD_System {
      */
     private void setDBInfo()
     {
-        String dbAddress = CConnection.get().getConnectionURL();
+        String dbAddress = CConnection.Companion.get().getConnectionURL();
         setDBAddress(dbAddress.toLowerCase());
         String dbName = null;
         PreparedStatement pstmt = null;
@@ -114,7 +114,7 @@ public class MSystem extends X_AD_System {
         String sql = null;
         try
         {
-            String dbType = CConnection.get().getDatabase().getName();
+            String dbType = CConnection.Companion.get().getDatabase().getName();
             sql = getDBInfoSQL(dbType);
             pstmt = DB.prepareStatement (sql, null);
             rs = pstmt.executeQuery ();

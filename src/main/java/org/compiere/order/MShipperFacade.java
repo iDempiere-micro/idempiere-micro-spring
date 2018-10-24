@@ -172,7 +172,7 @@ public class MShipperFacade
 			return null;
 		}
 
-		List<IShipmentProcessorFactory> factoryList = Service.locator().list(IShipmentProcessorFactory.class).getServices();
+		List<IShipmentProcessorFactory> factoryList = Service.Companion.locator().list(IShipmentProcessorFactory.class).getServices();
 		if (factoryList == null)
 			return null;
 		for (IShipmentProcessorFactory factory : factoryList)

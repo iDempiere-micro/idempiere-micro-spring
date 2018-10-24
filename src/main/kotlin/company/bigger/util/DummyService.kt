@@ -6,34 +6,33 @@ import org.idempiere.common.base.IServicesHolder
 import org.idempiere.common.base.ServiceQuery
 
 class DummyService : org.idempiere.common.base.Service() {
+    override val locator: IServiceLocator
+        get() = DummyServiceLocator()
+
     class DummyServiceLocator : IServiceLocator {
-        override fun <T : Any?> locate(type: Class<T>?): IServiceHolder<T>? {
-            return null
+        override fun <T> locate(type: Class<T>): IServiceHolder<T> {
+            return DummyServiceHolder<T>()
         }
 
-        override fun <T : Any?> locate(type: Class<T>?, query: ServiceQuery?): IServiceHolder<T>? {
-            return null
+        override fun <T> locate(type: Class<T>, query: ServiceQuery): IServiceHolder<T> {
+            return DummyServiceHolder<T>()
         }
 
-        override fun <T : Any?> locate(type: Class<T>?, componentName: String?, query: ServiceQuery?): IServiceHolder<T>? {
-            return null
+        override fun <T> locate(type: Class<T>, componentName: String, query: ServiceQuery): IServiceHolder<T> {
+            return DummyServiceHolder<T>()
         }
 
-        override fun <T : Any?> list(type: Class<T>?): IServicesHolder<T>? {
-            return null
+        override fun <T> list(type: Class<T>): IServicesHolder<T> {
+            return DummyServicesHolder<T>()
         }
 
-        override fun <T : Any?> list(type: Class<T>?, query: ServiceQuery?): IServicesHolder<T>? {
-            return null
+        override fun <T> list(type: Class<T>, query: ServiceQuery): IServicesHolder<T> {
+            return DummyServicesHolder<T>()
         }
 
-        override fun <T : Any?> list(type: Class<T>?, componentName: String?, query: ServiceQuery?): IServicesHolder<T>? {
-            return null
+        override fun <T> list(type: Class<T>, componentName: String, query: ServiceQuery): IServicesHolder<T> {
+            return DummyServicesHolder<T>()
         }
-    }
-
-    override fun getLocator(): IServiceLocator {
-        return DummyServiceLocator()
     }
 
     companion object {

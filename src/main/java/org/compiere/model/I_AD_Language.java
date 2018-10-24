@@ -271,4 +271,6 @@ public interface I_AD_Language
 	  * User who updated this records
 	  */
 	public int getUpdatedBy();
+
+    void saveEx(String trxName);
 }

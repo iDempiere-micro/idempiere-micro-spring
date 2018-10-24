@@ -303,7 +303,7 @@ public class ServerProcessCtl implements Runnable {
 	{
 		if (m_server == null)
 		{
-			m_server = Service.locator().locate(Server.class).getService();
+			m_server = Service.Companion.locator().locate(Server.class).getService();
 		}
 		return m_server;
 	}	//	getServer

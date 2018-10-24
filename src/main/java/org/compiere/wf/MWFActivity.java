@@ -857,7 +857,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 				} catch (Exception e) {
 					// If we have a DocStatus, change it to Invalid, and throw the exception to the next level
 					if (m_docStatus != null)
-						m_docStatus = DocAction.STATUS_Invalid;
+						m_docStatus = DocAction.Companion.getSTATUS_Invalid();
 					throw e;
 				}
 			}
@@ -894,7 +894,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 			if (e instanceof AdempiereException && "Context lost".equals(e.getMessage()))
 			{
 				contextLost = true;			
-				m_docStatus = DocAction.STATUS_Invalid;
+				m_docStatus = DocAction.Companion.getSTATUS_Invalid();
 			}			
 			try {
 				if (contextLost)
@@ -986,8 +986,8 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 					// Bug 1904717 - Invoice reversing has incorrect doc status
 					// Just prepare and complete return a doc status to take into account
 					// the rest of methods return boolean, so doc status must not be taken into account when not successful
-					if (   DocAction.ACTION_Prepare.equals(m_node.getDocAction())
-						|| DocAction.ACTION_Complete.equals(m_node.getDocAction())
+					if (   DocAction.Companion.getACTION_Prepare().equals(m_node.getDocAction())
+						|| DocAction.Companion.getACTION_Complete().equals(m_node.getDocAction())
 						|| success)
 						m_docStatus = doc.getDocStatus();
 				}
@@ -1155,7 +1155,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 						doc.getAD_Org_ID(),
 						startAD_User_ID == doc.getDoc_User_ID());	//	own doc
                    if (nextAD_User_ID<=0) {
-                	   m_docStatus = DocAction.STATUS_Invalid;
+                	   m_docStatus = DocAction.Companion.getSTATUS_Invalid();
                 	   throw new AdempiereException(Msg.getMsg(getCtx(), "NoApprover"));
                    }
 					//	same user = approved
@@ -1208,7 +1208,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 					// end MZ
 				}
 				if (autoApproval
-					&& doc.processIt(DocAction.ACTION_Approve)
+					&& doc.processIt(DocAction.Companion.getACTION_Approve())
 					&& doc.save())
 					return true;	//	done
 			}	//	approval
@@ -1377,7 +1377,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 				if (!"Y".equals(value))
 				{
 					newState = StateEngine.STATE_Aborted;
-					if (!(doc.processIt (DocAction.ACTION_Reject)))
+					if (!(doc.processIt (DocAction.Companion.getACTION_Reject())))
 						setTextMsg ("Cannot Reject - Document Status: " + doc.getDocStatus());
 				}
 				else
@@ -1396,7 +1396,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 						{
 							newState = StateEngine.STATE_Aborted;
 							setTextMsg (Msg.getMsg(getCtx(), "NoApprover"));
-							doc.processIt (DocAction.ACTION_Reject);
+							doc.processIt (DocAction.Companion.getACTION_Reject());
 						}
 						else if (startAD_User_ID != nextAD_User_ID)
 						{
@@ -1405,7 +1405,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 						}
 						else	//	Approve
 						{
-							if (!(doc.processIt (DocAction.ACTION_Approve)))
+							if (!(doc.processIt (DocAction.Companion.getACTION_Approve())))
 							{
 								newState = StateEngine.STATE_Aborted;
 								setTextMsg ("Cannot Approve - Document Status: " + doc.getDocStatus());
@@ -1413,7 +1413,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 						}
 					}
 					//	No Invoker - Approve
-					else if (!(doc.processIt (DocAction.ACTION_Approve)))
+					else if (!(doc.processIt (DocAction.Companion.getACTION_Approve())))
 					{
 						newState = StateEngine.STATE_Aborted;
 						setTextMsg ("Cannot Approve - Document Status: " + doc.getDocStatus());

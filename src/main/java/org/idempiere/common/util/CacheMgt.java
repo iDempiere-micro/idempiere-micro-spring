@@ -88,7 +88,7 @@ public class CacheMgt
 		if (distributed) 
 		{
 			try {
-				IServiceHolder<ICacheService> service = Service.locator().locate(ICacheService.class);
+				IServiceHolder<ICacheService> service = Service.Companion.locator().locate(ICacheService.class);
 				if ( service != null ) {
 					ICacheService provider = service.getService();
 					if (provider != null)
@@ -145,7 +145,7 @@ public class CacheMgt
 	 * @return number of deleted cache entries
 	 */
 	private int clusterReset(String tableName, int recordId) {
-		IServiceHolder<IClusterService> holder = Service.locator().locate(IClusterService.class);
+		IServiceHolder<IClusterService> holder = Service.Companion.locator().locate(IClusterService.class);
 		if (holder != null) {
             IClusterService service = holder.getService();
             if (service != null) {
@@ -181,7 +181,7 @@ public class CacheMgt
 	 * @return number of deleted cache entries
 	 */
 	private void clusterNewRecord(String tableName, int recordId) {
-		IServiceHolder<IClusterService> holder = Service.locator().locate(IClusterService.class);
+		IServiceHolder<IClusterService> holder = Service.Companion.locator().locate(IClusterService.class);
 		if (holder!=null) {
             IClusterService service = holder.getService();
             if (service != null) {

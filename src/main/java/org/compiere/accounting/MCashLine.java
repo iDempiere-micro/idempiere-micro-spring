@@ -147,7 +147,7 @@ public class MCashLine extends X_C_CashLine implements IDocLine
 			saveEx(trxName);
 			order.setC_CashLine_ID(getC_CashLine_ID());
 			// added AdempiereException by Zuhri
-			if (!order.processIt(MOrder.ACTION_WaitComplete))
+			if (!order.processIt(MOrder.Companion.getACTION_WaitComplete()))
 				throw new AdempiereException("Failed when processing document - " + order.getProcessMsg());
 			// end added
 			order.saveEx(trxName);

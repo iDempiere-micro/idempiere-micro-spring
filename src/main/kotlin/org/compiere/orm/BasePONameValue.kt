@@ -1,12 +1,10 @@
 package org.compiere.orm
 
-import org.compiere.model.I_AD_Table.COLUMNNAME_Name
 import org.compiere.model.I_AD_User.COLUMNNAME_Value
-import org.idempiere.common.util.KeyNamePair
 import java.sql.ResultSet
-import java.util.*
+import java.util.Properties
 
-abstract class BasePONameValue: BasePOName  {
+abstract class BasePONameValue : BasePOName {
     constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
     constructor (ctx: Properties, rs: ResultSet, trxName: String?, a: String?) : super(ctx, rs, trxName, a)

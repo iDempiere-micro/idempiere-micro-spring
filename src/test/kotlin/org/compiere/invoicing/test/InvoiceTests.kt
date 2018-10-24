@@ -3,23 +3,35 @@ package org.compiere.invoicing.test
 import company.bigger.test.support.BaseComponentTest
 import company.bigger.test.support.asResource
 import company.bigger.test.support.executeSql
+import company.bigger.test.support.randomString
 import org.compiere.accounting.MOrder
 import org.compiere.accounting.MOrderLine
+import org.compiere.accounting.MPayment
 import org.compiere.accounting.MProduct
 import org.compiere.crm.MBPartner
 import org.compiere.invoicing.MInvoice
 import org.compiere.model.I_C_Invoice
+import org.compiere.model.I_C_Payment
+import org.compiere.model.I_M_Product
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.process.DocAction
+import org.compiere.product.MPriceList
+import org.compiere.product.MProductPrice
+import org.compiere.production.MProduction
+import org.compiere.production.MProductionLine
 import org.idempiere.common.util.Env
+import org.junit.Ignore
 import org.junit.Test
 import java.math.BigDecimal
 import java.sql.Date
+import java.sql.Timestamp
+import java.time.Instant
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
+import kotlin.test.fail
 
 data class InvoiceImportantTestAttributes(
     val grandTotal: BigDecimal,
@@ -31,12 +43,20 @@ data class InvoiceImportantTestAttributes(
 
 data class MaterialMovementImportantTestAttributes(
     val productName: String,
-    val moveDate: Date,
+    val moveDate: Date?,
     val amountIn: BigDecimal,
     val amountOut: BigDecimal
 )
 
 class InvoiceTests : BaseComponentTest() {
+    companion object {
+        const val QTY = 1
+        const val PARTNER_ID = 1000000
+        const val PROD_1 = 1000000
+        const val BOM_1 = 1000001
+        private var index = 0
+    }
+
     @Test
     fun `get invoice by id`() {
         loginClient(11)
@@ -50,19 +70,16 @@ class InvoiceTests : BaseComponentTest() {
         assertEquals(6, lines.count())
     }
 
-    @Test
-    fun `create invoice from order`() {
+    private fun createOrder(c_DocType_ID: Int, product_id: Int): Triple<MOrder, Int, Int> {
         val order = MOrder(Env.getCtx(), 0, null)
-        order.aD_Org_ID = 1000000
+        order.setAD_Org_ID(1000000)
         order.m_Warehouse_ID = 1000000
         order.setIsSOTrx(true)
-        // order.setC_DocTypeTarget_ID()
-        order.c_DocType_ID = 1000033 // 133 on credit order (generates invoice), 130 prepay order, 132 standard order
+        order.c_DocType_ID = c_DocType_ID // 133 on credit order (generates invoice), 130 prepay order, 132 standard order
 
-        val id = 1000000
+        val id = PARTNER_ID
         val partner = MBPartner.get(Env.getCtx(), id)
 
-        val product_id = 1000000
         val product = MProduct.get(Env.getCtx(), product_id)
 
         order.setBPartner(partner)
@@ -70,33 +87,60 @@ class InvoiceTests : BaseComponentTest() {
 
         val orderLine = MOrderLine(order)
         orderLine.product = product
-        val qty = 1
+        val qty = QTY
         orderLine.setQty(qty.toBigDecimal())
         orderLine.save()
 
-        order.docAction = DocAction.STATUS_Completed
-        order.completeIt()
+        return Triple(order, id, product_id)
+    }
+
+    @Test
+    fun `create invoice from order (prepay)`() {
+        createInvoiceFromOrder(1000030, PROD_1, BigDecimal("1.10")) {
+            val payment = MPayment(ctx, 0, null)
+            payment.c_BPartner_ID = PARTNER_ID
+            payment.setAD_Org_ID(1000000)
+            payment.c_BankAccount_ID = 1000000
+            payment.setC_Currency_ID(102) // EUR
+            payment.payAmt = 1.10.toBigDecimal()
+            payment.save()
+
+            val pay: MPayment = getById(payment._ID, I_C_Payment.Table_Name)
+            assertNotNull(pay)
+
+            it.c_Payment_ID = pay._ID
+            it.save()
+        }
+    }
+
+    private fun createInvoiceFromOrder(c_DocType_ID: Int, productId: Int, expectedPrice: BigDecimal, doAfterOrderTask: (MOrder) -> Unit) {
+        index++
+
+        val (order, id, product_id) = createOrder(c_DocType_ID, productId)
+        doAfterOrderTask(order)
+
+        order.setDocAction(DocAction.STATUS_Completed)
+        val completion = order.completeIt()
         order.save()
 
+        val invoice = completion.result as I_C_Invoice
         assertEquals(1, order.invoices.count())
-        val invoice = order.invoices.first()
+        assertEquals(invoice, order.invoices.first())
         assertEquals(id, invoice.c_BPartner_ID)
         val lines = invoice.getLines(false)
         assertEquals(1, lines.count())
         val line = lines.first()
         assertEquals(product_id, line.m_Product_ID)
-        assertEquals(qty.toBigDecimal(), line.qtyInvoiced)
-
-        val invoice_id = 1000001
+        assertEquals(QTY.toBigDecimal(), line.qtyInvoiced)
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice_id, null)
+        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice._ID, null)
         println(result)
         assertNotNull(result)
         val invoice1 = result as MInvoice
         assertNotNull(invoice1)
-        assertEquals(invoice_id, invoice1._ID)
-        assertEquals(BigDecimal("1.10"), invoice1.getGrandTotal(false))
+        assertEquals(invoice._ID, invoice1._ID)
+        assertEquals(expectedPrice, invoice1.getGrandTotal(false))
         val lines1 = invoice1.lines
         assertNotNull(lines1)
         assertEquals(1, lines1.count())
@@ -104,9 +148,9 @@ class InvoiceTests : BaseComponentTest() {
         "/sql/invoice_details.sql".asResource {
             val list = it.executeSql {
                 InvoiceImportantTestAttributes(
-                    it.getBigDecimal("grandtotal"), it.getBigDecimal("grandtotalvat"),
-                    it.getBoolean("reverse_charge"), it.getDate("due_previous_business_day"),
-                    it.getDate("due_previous_5business_days")
+                        it.getBigDecimal("grandtotal"), it.getBigDecimal("grandtotalvat"),
+                        it.getBoolean("reverse_charge"), it.getDate("due_previous_business_day"),
+                        it.getDate("due_previous_5business_days")
                 )
             }
             assertEquals(1, list.count())
@@ -118,16 +162,65 @@ class InvoiceTests : BaseComponentTest() {
             assertTrue(details.dueDate1 < now)
             assertTrue(details.dueDate2 < now)
         }
-        "/sql/recent_material_movements.sql".asResource {
-            val list = it.executeSql {
-                MaterialMovementImportantTestAttributes(
-                    it.getString("pro_name"), it.getDate("move_date"),
-                    it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
-                )
+        `should have 3 material movements after 2 runs`()
+    }
+
+    @Test
+    fun `create invoice from order (on credit)`() {
+        createInvoiceFromOrder(1000033, PROD_1, BigDecimal("1.10")) {}
+    }
+
+    @Ignore
+    @Test
+    fun `create invoice from BOM order (on credit)`() {
+        createInvoiceFromOrder(1000033, BOM_1, BigDecimal("121.00")) {
+            val orderLine = it.lines.first()
+            val prod = MProduction(orderLine)
+            prod.setIsCreated("Y")
+            prod.save()
+            prod.completeIt()
+            val prodLine = MProductionLine(prod)
+        }
+    }
+
+    @Test
+    fun `create invoice from order (on credit) without pricelist should fail`() {
+        val product = createAProduct("Other 1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item)
+        try {
+            createInvoiceFromOrder(1000033, product._ID, BigDecimal("1.10")) {}
+            fail("Invoice was created for a product not on a pricelist")
+        } catch (e: Exception) {
+        }
+    }
+
+    @Test
+    fun `create invoice from order (on credit) without amount on hand should fail`() {
+        val product = createAProduct("Other 1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item)
+        val pl = MPriceList(ctx, 1000000, null)
+        val plv = pl.getPriceListVersion(Timestamp.from(Instant.now()))
+        val price = 10.toBigDecimal()
+        val pp = MProductPrice(ctx, plv._ID, product._ID, price, price, price, null)
+        pp.save()
+        try {
+        createInvoiceFromOrder(1000033, product._ID, BigDecimal("11.00")) {}
+            fail("Invoice was created for a product with negative inventory")
+        } catch (e: Exception) {
+        }
+    }
+
+    fun `should have 3 material movements after 2 runs`() {
+        if (index == 2) {
+            "/sql/recent_material_movements.sql".asResource {
+                val list = it.executeSql {
+                    MaterialMovementImportantTestAttributes(
+                            it.getString("pro_name"), it.getDate("move_date"),
+                            it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
+                    )
+                }
+                kotlin.test.assertEquals(3, list.count())
+                kotlin.test.assertEquals(3, list.filter { it.productName == "Standard" }.count())
+                kotlin.test.assertEquals(1000000 - 2 * 1, list.sumBy { (it.amountIn - it.amountOut).toInt() })
             }
-            assertEquals(2, list.count())
-            assertEquals(2, list.filter { it.productName == "Standard" }.count())
-            assertEquals(1000000 - 1, list.sumBy { (it.amountIn - it.amountOut).toInt() })
         }
     }
 }
