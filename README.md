@@ -12,7 +12,7 @@
 
 - can compile and package
 - can create an empty iDempiere 5.1 database
-- deploy to the staging server http://idempiere-micro-spring.staging.hsharp.software (e.g. http://idempiere-micro-spring.staging.hsharp.software/actuator)
+- deploy to the staging server http://idempiere-micro-spring.staging-aws.hsharp.software (e.g. http://idempiere-micro-spring.staging-aws.hsharp.software/actuator)
 - can start (boot)
 - can serve REST API
 - integration test JavaScript client in [Frisby.JS](https://www.frisbyjs.com/) can login, token works (who am I and list users)
