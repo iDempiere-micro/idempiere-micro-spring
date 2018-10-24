@@ -13,15 +13,16 @@ import org.compiere.invoicing.MInvoice
 import org.compiere.model.I_C_Invoice
 import org.compiere.model.I_C_Payment
 import org.compiere.model.I_M_Product
+import org.compiere.model.I_M_Production
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.process.DocAction
 import org.compiere.process.ProcessInfo
 import org.compiere.product.MPriceList
 import org.compiere.product.MProductPrice
+import org.compiere.production.MProduction
 import org.idempiere.common.util.Env
-import org.idempiere.process.OrderLineCreateProduction
-import org.junit.Ignore
+import org.idempiere.process.ProductionCreate
 import org.junit.Test
 import java.math.BigDecimal
 import java.sql.Date
@@ -95,7 +96,7 @@ class InvoiceTests : BaseComponentTest() {
     }
 
     @Test
-    fun `create invoice from order (prepay)`() {
+    fun `create invoice from prepay order after receiving the payment`() {
         createInvoiceFromOrder(1000030, PROD_1, BigDecimal("1.10")) {
             val payment = MPayment(ctx, 0, null)
             payment.c_BPartner_ID = PARTNER_ID
@@ -114,8 +115,6 @@ class InvoiceTests : BaseComponentTest() {
     }
 
     private fun createInvoiceFromOrder(c_DocType_ID: Int, productId: Int, expectedPrice: BigDecimal, doAfterOrderTask: (MOrder) -> Unit) {
-        index++
-
         val (order, id, product_id) = createOrder(c_DocType_ID, productId)
         doAfterOrderTask(order)
 
@@ -162,6 +161,7 @@ class InvoiceTests : BaseComponentTest() {
             assertTrue(details.dueDate1 < now)
             assertTrue(details.dueDate2 < now)
         }
+        index++
         `should have 3 material movements after 2 runs`()
     }
 
@@ -170,14 +170,28 @@ class InvoiceTests : BaseComponentTest() {
         createInvoiceFromOrder(1000033, PROD_1, BigDecimal("1.10")) {}
     }
 
-    @Ignore
     @Test
-    fun `create invoice from BOM order (on credit)`() {
-        createInvoiceFromOrder(1000033, BOM_1, BigDecimal("121.00")) {
+    // @Ignore
+    fun `create invoice from BOM order with production step in between (on credit)`() {
+        createInvoiceFromOrder(1000033, BOM_1, BigDecimal("12.10")) {
             val orderLine = it.lines.first()
-            val process = OrderLineCreateProduction(p_C_OrderLine_ID = orderLine._ID)
+            val production = MProduction(orderLine)
+            production.setAD_Org_ID(1000000)
+            production.m_Product_ID = orderLine.m_Product_ID // TODO: Why? Should not this be done automatically in the constructor?
+            production.productionQty = orderLine.qtyOrdered // TODO: Why? Should not this be done automatically in the constructor?
+            production.m_Locator_ID = 1000000
+            production.save()
+
+            val productionCreate = ProductionCreate(m_production = production)
             val pi = ProcessInfo("", 0)
-            process.startProcess(ctx, pi, null)
+            productionCreate.startProcess(ctx, pi, null)
+
+            val prod: MProduction = getById(production._ID, I_M_Production.Table_Name)
+
+            prod.setDocAction(DocAction.STATUS_Completed)
+            prod.save()
+
+            prod.completeIt()
         }
     }
 
@@ -200,14 +214,14 @@ class InvoiceTests : BaseComponentTest() {
         val pp = MProductPrice(ctx, plv._ID, product._ID, price, price, price, null)
         pp.save()
         try {
-        createInvoiceFromOrder(1000033, product._ID, BigDecimal("11.00")) {}
+            createInvoiceFromOrder(1000033, product._ID, BigDecimal("11.00")) {}
             fail("Invoice was created for a product with negative inventory")
         } catch (e: Exception) {
         }
     }
 
     fun `should have 3 material movements after 2 runs`() {
-        if (index == 2) {
+        if (index == 3) {
             "/sql/recent_material_movements.sql".asResource {
                 val list = it.executeSql {
                     MaterialMovementImportantTestAttributes(
@@ -215,9 +229,10 @@ class InvoiceTests : BaseComponentTest() {
                             it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
                     )
                 }
-                kotlin.test.assertEquals(3, list.count())
-                kotlin.test.assertEquals(3, list.filter { it.productName == "Standard" }.count())
-                kotlin.test.assertEquals(1000000 - 2 * 1, list.sumBy { (it.amountIn - it.amountOut).toInt() })
+                kotlin.test.assertEquals(6, list.count())
+                val standards = list.filter { it.productName == "Standard" }
+                kotlin.test.assertEquals(4, standards.count())
+                kotlin.test.assertEquals(1000000 - 2 * 1 - 10, standards.sumBy { (it.amountIn - it.amountOut).toInt() })
             }
         }
     }
