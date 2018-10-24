@@ -37,6 +37,7 @@ import org.compiere.accounting.MRequisition;
 import org.compiere.invoicing.MInventory;
 import org.compiere.invoicing.MInvoice;
 import org.compiere.model.IProcessInfoParameter;
+import org.compiere.model.I_M_Production;
 import org.compiere.order.MInOut;
 import org.compiere.orm.TimeUtil;
 import org.compiere.production.MProjectIssue;
@@ -225,7 +226,7 @@ public class FactAcctReset extends SvrProcess
 			docBaseType = "= '" + MPeriodControl.DOCBASETYPE_PurchaseRequisition + "'";
 		else if (AD_Table_ID == MInventory.Table_ID)
 			docBaseType = "= '" + MPeriodControl.DOCBASETYPE_MaterialPhysicalInventory + "'";
-		else if (AD_Table_ID == X_M_Production.Table_ID)
+		else if (AD_Table_ID == I_M_Production.Table_ID)
 			docBaseType = "= '" + MPeriodControl.DOCBASETYPE_MaterialProduction + "'";
 		else if (AD_Table_ID == MMatchInv.Table_ID)
 			docBaseType = "= '" + MPeriodControl.DOCBASETYPE_MatchInvoice + "'";

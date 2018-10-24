@@ -235,16 +235,6 @@ public interface I_M_Production
     /** Column name DocStatus */
     public static final String COLUMNNAME_DocStatus = "DocStatus";
 
-	/** Set Document Status.
-	  * The current status of the document
-	  */
-	public void setDocStatus (String DocStatus);
-
-	/** Get Document Status.
-	  * The current status of the document
-	  */
-	public String getDocStatus();
-
     /** Column name DocumentNo */
     public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
@@ -501,4 +491,7 @@ public interface I_M_Production
 	public int getUser2_ID();
 
 	public I_C_ElementValue getUser2() throws RuntimeException;
+
+    void saveEx();
+	int createLines(boolean mustBeStocked);
 }
