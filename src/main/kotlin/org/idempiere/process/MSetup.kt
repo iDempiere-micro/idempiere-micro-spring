@@ -137,7 +137,7 @@ class MSetup
     fun createClient(clientName: String, orgValue: String?, orgName: String,
                      userClient: String, userOrg: String, phone: String, phone2: String, fax: String, eMail: String, taxID: String?,
                      adminEmail: String, userEmail: String, isSetInitialPassword: Boolean): Boolean {
-        var orgValue = orgValue
+        var orgValue1 = orgValue
         log.info(clientName)
         m_trx!!.displayName = javaClass.name + "_createClient"
         m_trx.start()
@@ -145,15 +145,15 @@ class MSetup
         //  info header
         m_info = StringBuffer()
         //  Standard columns
-        var name: String? = null
-        var sql: String? = null
-        var no = 0
+        var name: String?
+        var sql: String?
+        var no: Int
 
         /**
          * Create Client
          */
         name = clientName
-        if (name == null || name.length == 0)
+        if (name.isEmpty())
             name = "newClient"
         m_clientName = name
         m_client = MClient(m_ctx, 0, true, m_trx.trxName)
@@ -201,11 +201,11 @@ class MSetup
          * Create Org
          */
         name = orgName
-        if (name == null || name.length == 0)
+        if (name.isEmpty())
             name = "newOrg"
-        if (orgValue == null || orgValue.length == 0)
-            orgValue = name
-        m_org = MOrg(m_client!!, orgValue, name)
+        if (orgValue1 == null || orgValue1.length == 0)
+            orgValue1 = name
+        m_org = MOrg(m_client!!, orgValue1, name)
         if (!m_org!!.save()) {
             val err = "Organization NOT created"
             log.log(Level.SEVERE, err)
@@ -301,7 +301,7 @@ class MSetup
         val clientAdminUser = MUser(m_ctx, 0, m_trx.trxName)
 
         name = userClient
-        if (name == null || name.length == 0)
+        if (name.isEmpty())
             name = m_clientName!! + "Client"
 
         if (isSetInitialPassword)
@@ -331,12 +331,8 @@ class MSetup
 
         val clientUser = MUser(m_ctx, 0, m_trx.trxName)
 
-        name = userClient
-        if (name == null || name.length == 0)
-            name = m_clientName!! + "Client"
-
         name = userOrg
-        if (name == null || name.length == 0)
+        if (name.isEmpty())
             name = m_clientName!! + "Org"
 
         if (isSetInitialPassword)
@@ -397,17 +393,6 @@ class MSetup
         return true
     }   //  createClient
 
-    // preserving backward compatibility with swing client
-    fun createAccounting(currency: KeyNamePair,
-                         hasProduct: Boolean, hasBPartner: Boolean, hasProject: Boolean,
-                         hasMCampaign: Boolean, hasSRegion: Boolean,
-                         AccountingFile: File): Boolean {
-        return createAccounting(currency,
-                hasProduct, hasBPartner, hasProject,
-                hasMCampaign, hasSRegion,
-                false, AccountingFile, false, false)
-    }
-
     /**************************************************************************
      * Create Accounting elements.
      * - Calendar
@@ -431,7 +416,7 @@ class MSetup
     fun createAccounting(currency: KeyNamePair,
                          hasProduct: Boolean, hasBPartner: Boolean, hasProject: Boolean,
                          hasMCampaign: Boolean, hasSRegion: Boolean,
-                         hasActivity: Boolean, AccountingFile: File, useDefaultCoA: Boolean, inactivateDefaults: Boolean): Boolean {
+                         hasActivity: Boolean, AccountingFile: File, inactivateDefaults: Boolean): Boolean {
         if (log.isLoggable(Level.INFO)) log.info(m_client!!.toString())
         //
         m_hasProject = hasProject
@@ -441,9 +426,9 @@ class MSetup
 
         //  Standard variables
         m_info = StringBuffer()
-        var name: String? = null
-        var sqlCmd: StringBuffer? = null
-        var no = 0
+        var name: String?
+        var sqlCmd: StringBuffer?
+        var no: Int
 
         /**
          * Create Calendar
@@ -528,7 +513,7 @@ class MSetup
         /**
          * Create AccountingSchema Elements (Structure)
          */
-        var sql2: String? = null
+        var sql2: String?
         if (Env.isBaseLanguage(m_lang, "AD_Reference"))
         //	Get ElementTypes & Name
             sql2 = "SELECT Value, Name FROM AD_Ref_List WHERE AD_Reference_ID=181"
@@ -624,8 +609,6 @@ class MSetup
             return false
         } finally {
             DB.close(rs, stmt)
-            rs = null
-            stmt = null
         }
         //  Create AcctSchema
 
@@ -979,8 +962,8 @@ class MSetup
         //
         val defaultName = Msg.translate(m_lang, "Standard")
         val defaultEntry = "'$defaultName',"
-        var sqlCmd: StringBuffer? = null
-        var no = 0
+        var sqlCmd: StringBuffer?
+        var no: Int
 
         //	Create Marketing Channel/Campaign
         val C_Channel_ID = getNextID(aD_Client_ID, "C_Channel")

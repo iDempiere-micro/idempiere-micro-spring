@@ -160,8 +160,8 @@ class InitialClientSetup(
             p_CoAFile = null
 
         // Validate Mandatory parameters
-        if (p_ClientName.length == 0 || p_OrgName.length == 0 || p_AdminUserName.length == 0 ||  p_NormalUserName.length == 0
-                || p_C_Currency_ID <= 0 || p_C_Country_ID <= 0 || !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
+        if (p_ClientName.length == 0 || p_OrgName.length == 0 || p_AdminUserName.length == 0 || p_NormalUserName.length == 0 ||
+                p_C_Currency_ID <= 0 || p_C_Country_ID <= 0 || !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
             throw IllegalArgumentException("Missing required parameters")
 
         // Validate Uniqueness of client and users name
@@ -228,7 +228,7 @@ class InitialClientSetup(
             val currency_kp = KeyNamePair(p_C_Currency_ID, currency.description)
             if (!ms.createAccounting(currency_kp,
                             p_IsUseProductDimension, p_IsUseBPDimension, p_IsUseProjectDimension, p_IsUseCampaignDimension, p_IsUseSalesRegionDimension, p_IsUseActivityDimension,
-                            coaFile, p_UseDefaultCoA, p_InactivateDefaults)) {
+                            coaFile, p_InactivateDefaults)) {
                 ms.rollback()
                 throw AdempiereException("@AccountSetupError@")
             }
