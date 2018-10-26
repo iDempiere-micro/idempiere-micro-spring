@@ -1717,9 +1717,9 @@ public class MCost extends X_M_Cost
 	@Override
 	public void setCurrentQty(BigDecimal CurrentQty) {
 		MCostElement ce = (MCostElement)getM_CostElement();
-		if (ce.isAveragePO() || ce.isAverageInvoice()) 
+		if (CurrentQty.signum() < 0)
 		{
-			if (CurrentQty.signum() < 0)
+			if (ce.isAveragePO() || ce.isAverageInvoice())
 			{
 				throw new AverageCostingNegativeQtyException("Product="+getM_Product().getName()+", Current Qty="+getCurrentQty()+", New Current Qty="+CurrentQty
 						+", CostElement="+ce.getName()+", Schema="+getC_AcctSchema().getName());

@@ -45,8 +45,6 @@ public class MClientInfo extends org.compiere.orm.MClientInfo
 
 	/**	Account Schema				*/
 	private MAcctSchema 		m_acctSchema = null;
-	/** New Record					*/
-	private boolean				m_createNew = false;
 
 	/**
 	 * 	Get primary Acct Schema

@@ -96,8 +96,6 @@ public class MClient extends org.compiere.orm.MClient
 
 	/** Language					*/
 	private Language			m_language = null;
-	/** New Record					*/
-	private boolean				m_createNew = false;
 	/** Client Info Setup Tree for Account	*/
 	private int					m_AD_Tree_Account_ID;
 
