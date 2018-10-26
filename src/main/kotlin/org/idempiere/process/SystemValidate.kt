@@ -13,36 +13,33 @@
  * For the text or an alternative of this public license, you may reach us    *
  * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
  * or via info@compiere.org or http://www.compiere.org/license.html           *
- *****************************************************************************/
-package org.idempiere.process;
+ */
+package org.idempiere.process
 
 //import org.compiere.util.*;
 
-import org.compiere.process.SvrProcess;
+import org.compiere.process.SvrProcess
 
 /**
- * 	Validate Support
- *	
- *  @author Jorg Janke
- *  @version $Id: SystemValidate.java,v 1.2 2006/07/30 00:54:44 jjanke Exp $
+ * Validate Support
+ *
+ * @author Jorg Janke
+ * @version $Id: SystemValidate.java,v 1.2 2006/07/30 00:54:44 jjanke Exp $
  */
-public class SystemValidate extends SvrProcess
-{
-	/**
-	 * 	Prepare
-	 */
-	protected void prepare ()
-	{
-	}	//	prepare
+class SystemValidate : SvrProcess() {
+    /**
+     * Prepare
+     */
+    override fun prepare() {}    //	prepare
 
-	/**
-	 * 	Process
-	 *	@return -
-	 *	@throws Exception
-	 */
-	protected String doIt () throws Exception
-	{
-		return "@OK@";
-	}	//	doIt
-	
-}	//	SystemValidate
+    /**
+     * Process
+     * @return -
+     * @throws Exception
+     */
+    @Throws(Exception::class)
+    override fun doIt(): String {
+        return "@OK@"
+    }    //	doIt
+
+}    //	SystemValidate

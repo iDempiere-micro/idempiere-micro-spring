@@ -652,6 +652,7 @@ public final class MSetup
         catch (Exception e) {
             String err = e.getLocalizedMessage();
             log.log(Level.SEVERE, err);
+            e.printStackTrace();
             m_info.append(err);
             m_trx.rollback();
             m_trx.close();
@@ -820,8 +821,7 @@ public final class MSetup
         processInfo.setAD_Client_ID(getAD_Client_ID());
         processInfo.setAD_User_ID(getAD_User_ID());
         processInfo.setParameter(new ProcessInfoParameter[0]);
-        processInfo.setClassName("org.compiere.process.DocumentTypeVerify");
-        if (!ProcessUtil.startJavaProcess(m_ctx, processInfo, m_trx, false))
+        if (!ProcessUtil.startJavaProcess(m_ctx, processInfo, m_trx, false, null, new DocumentTypeVerify()))
         {
             String err = "Document type verification failed. Message="+processInfo.getSummary();
             log.log(Level.SEVERE, err);
@@ -838,7 +838,7 @@ public final class MSetup
     private void createAccountingRecord(String tableName) throws Exception
     {
         MTable table = MTable.get(m_ctx, tableName);
-        PO acct = (PO)table.getPO(0, m_trx.getTrxName());
+        PO acct = (PO)table.getPO(-1, m_trx.getTrxName()); // Note this should create a new Acct; ugly hack, because we return null for 0
 
         MColumn[] cols = table.getColumns(false);
         for (MColumn c : cols) {

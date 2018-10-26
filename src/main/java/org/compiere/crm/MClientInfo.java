@@ -32,13 +32,6 @@ public class MClientInfo extends org.compiere.orm.MClientInfo
     /**	Logger						*/
     private static CLogger s_log = CLogger.getCLogger (MClientInfo.class);
 
-
-
-
-    /** New Record					*/
-    private boolean				m_createNew = false;
-
-
     /**
      * 	Overwrite Save
      * 	@overwrite
