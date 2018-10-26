@@ -37,7 +37,10 @@ import org.compiere.orm.MSysConfig
 import org.compiere.process.SvrProcess
 import org.compiere.product.MCurrency
 import org.idempiere.common.exceptions.AdempiereException
-import org.idempiere.common.util.*
+import org.idempiere.common.util.DB
+import org.idempiere.common.util.Env
+import org.idempiere.common.util.KeyNamePair
+import org.idempiere.common.util.Util
 
 /**
  * Process to create a new client (tenant)
@@ -76,7 +79,7 @@ class InitialClientSetup(
     private var p_InactivateDefaults: Boolean = false,
     private var p_AdminUserEmail: String? = null,
     private var p_NormalUserEmail: String? = null
-): SvrProcess() {
+) : SvrProcess() {
 
     /**
      * Prepare
@@ -186,21 +189,21 @@ class InitialClientSetup(
             p_CoAFile = null
 
         // Validate Mandatory parameters
-        if (p_ClientName == null || p_ClientName!!.length == 0
-                || p_OrgName == null || p_OrgName!!.length == 0
-                || p_AdminUserName == null || p_AdminUserName!!.length == 0
-                || p_NormalUserName == null || p_NormalUserName!!.length == 0
-                || p_C_Currency_ID <= 0
-                || p_C_Country_ID <= 0
-                || !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
+        if (p_ClientName == null || p_ClientName!!.length == 0 ||
+                p_OrgName == null || p_OrgName!!.length == 0 ||
+                p_AdminUserName == null || p_AdminUserName!!.length == 0 ||
+                p_NormalUserName == null || p_NormalUserName!!.length == 0 ||
+                p_C_Currency_ID <= 0 ||
+                p_C_Country_ID <= 0 ||
+                !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
             throw IllegalArgumentException("Missing required parameters")
 
         // Validate Uniqueness of client and users name
-        //	Unique Client Name
+        // 	Unique Client Name
         if (DB.executeUpdate("UPDATE AD_Client SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_ClientName!!), false, null) != 0)
             throw AdempiereException("@NotUnique@ " + p_ClientName!!)
 
-        //	Unique User Names
+        // 	Unique User Names
         if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_AdminUserName!!), false, null) != 0)
             throw AdempiereException("@NotUnique@ " + p_AdminUserName!!)
         if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_NormalUserName!!), false, null) != 0)
@@ -230,9 +233,9 @@ class InitialClientSetup(
         }
         if (Util.isEmpty(p_CoAFile, true))
             p_CoAFile = MSysConfig.getValue(MSysConfig.DEFAULT_COA_PATH,
-                    File.separator + "data"
-                            + File.separator + "import"
-                            + File.separator + "AccountingDefaultsOnly.csv")
+                    File.separator + "data" +
+                            File.separator + "import" +
+                            File.separator + "AccountingDefaultsOnly.csv")
         val coaFile = File(p_CoAFile!!)
         if (!coaFile.exists())
             throw AdempiereException("CoaFile $p_CoAFile does not exist")
@@ -270,8 +273,8 @@ class InitialClientSetup(
             }
             addLog(ms.info)
 
-            //	Create Print Documents
-            //PrintUtil.setupPrintForm(ms.getAD_Client_ID());
+            // 	Create Print Documents
+            // PrintUtil.setupPrintForm(ms.getAD_Client_ID());
         } catch (e: Exception) {
             ms.rollback()
             throw e
@@ -285,5 +288,4 @@ class InitialClientSetup(
         /** WindowNo for this process  */
         val WINDOW_THIS_PROCESS = 9999
     }
-
 }

@@ -16,8 +16,6 @@
  */
 package org.idempiere.process
 
-//import org.compiere.util.*;
-
 import org.compiere.process.SvrProcess
 
 /**
@@ -30,7 +28,7 @@ class SystemValidate : SvrProcess() {
     /**
      * Prepare
      */
-    override fun prepare() {}    //	prepare
+    override fun prepare() {} // 	prepare
 
     /**
      * Process
@@ -40,6 +38,5 @@ class SystemValidate : SvrProcess() {
     @Throws(Exception::class)
     override fun doIt(): String {
         return "@OK@"
-    }    //	doIt
-
-}    //	SystemValidate
+    } // 	doIt
+} // 	SystemValidate
