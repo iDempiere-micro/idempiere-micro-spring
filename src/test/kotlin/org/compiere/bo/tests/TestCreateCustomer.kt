@@ -18,7 +18,7 @@ class TestCreateCustomer : BaseCustomerTest() {
     }
 
     @Test
-    fun test1() {
+    fun `Create customer works`() {
         doTheTest()
     }
 }

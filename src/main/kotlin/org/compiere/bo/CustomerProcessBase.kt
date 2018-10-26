@@ -1,12 +1,15 @@
 package org.compiere.bo
 
 import org.compiere.crm.MBPartnerLocation
+import org.compiere.crm.MCrmCustomerCategory
 import org.compiere.crm.MUser
 import org.compiere.crm.SvrProcessBaseSql
+import org.compiere.crm.MCrmCategory
 import org.compiere.model.I_C_BPartner
 import org.compiere.model.I_C_BPartner_Location
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
+import org.idempiere.common.util.Env
 import org.idempiere.common.util.Trx
 import org.idempiere.orm.I_Persistent
 import software.hsharp.business.models.IDTOReady
@@ -28,7 +31,7 @@ delete from crm_customer_category where c_bpartner_id = ?""".trimIndent()
             statement.close()
         }
     } else {
-        val sqlUpdate = "update crm_customer_category set category_id = ? where c_bpartner_id = ?"
+        val sqlUpdate = "update crm_customer_category set crm_category_id = ? where c_bpartner_id = ?"
 
         val updateStatement = cnn.prepareStatement(sqlUpdate)
         try {
@@ -36,16 +39,13 @@ delete from crm_customer_category where c_bpartner_id = ?""".trimIndent()
             updateStatement.setInt(2, bpartner.c_BPartner_ID)
             val changedRows = updateStatement.executeUpdate()
             if (changedRows == 0) {
-                val sqlInsert = "insert into crm_customer_category(c_bpartner_id,category_id) values (?,?)"
-
-                val insertStatement = cnn.prepareStatement(sqlInsert)
-                try {
-                    insertStatement.setInt(1, bpartner.c_BPartner_ID)
-                    insertStatement.setInt(2, customerCategoryId)
-                    insertStatement.executeUpdate()
-                } finally {
-                    insertStatement.close()
-                }
+                val ctx = Env.getCtx()
+                val crmCustomerCategory = MCrmCustomerCategory(ctx, 0, null)
+                val category = MCrmCategory(ctx, customerCategoryId, null)
+                crmCustomerCategory.category = category
+                crmCustomerCategory.bPartner = bpartner
+                crmCustomerCategory.setName("${bpartner.name} in ${category.getName()}")
+                crmCustomerCategory.save()
             }
         } finally {
             updateStatement.close()
