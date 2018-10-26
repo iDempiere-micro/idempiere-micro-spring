@@ -160,25 +160,20 @@ class InitialClientSetup(
             p_CoAFile = null
 
         // Validate Mandatory parameters
-        if (p_ClientName == null || p_ClientName!!.length == 0 ||
-                p_OrgName == null || p_OrgName!!.length == 0 ||
-                p_AdminUserName == null || p_AdminUserName!!.length == 0 ||
-                p_NormalUserName == null || p_NormalUserName!!.length == 0 ||
-                p_C_Currency_ID <= 0 ||
-                p_C_Country_ID <= 0 ||
-                !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
+        if (p_ClientName.length == 0 || p_OrgName.length == 0 || p_AdminUserName.length == 0 ||  p_NormalUserName.length == 0
+                || p_C_Currency_ID <= 0 || p_C_Country_ID <= 0 || !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
             throw IllegalArgumentException("Missing required parameters")
 
         // Validate Uniqueness of client and users name
         // 	Unique Client Name
-        if (DB.executeUpdate("UPDATE AD_Client SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_ClientName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_ClientName!!)
+        if (DB.executeUpdate("UPDATE AD_Client SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_ClientName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_ClientName)
 
         // 	Unique User Names
-        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_AdminUserName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_AdminUserName!!)
-        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_NormalUserName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_NormalUserName!!)
+        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_AdminUserName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_AdminUserName)
+        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_NormalUserName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_NormalUserName)
 
         // City_ID overrides CityName if both used
         if (p_C_City_ID > 0) {
@@ -221,7 +216,7 @@ class InitialClientSetup(
         val ms = MSetup(Env.getCtx(), WINDOW_THIS_PROCESS)
         try {
             if (!ms.createClient(p_ClientName, p_OrgValue, p_OrgName, p_AdminUserName, p_NormalUserName, p_Phone,
-                        p_Phone2, p_Fax, p_EMail, p_TaxID, p_AdminUserEmail, p_NormalUserEmail, p_IsSetInitialPassword)) {
+                    p_Phone2, p_Fax, p_EMail, p_TaxID, p_AdminUserEmail, p_NormalUserEmail, p_IsSetInitialPassword)) {
                 ms.rollback()
                 throw AdempiereException("Create client failed")
             }
