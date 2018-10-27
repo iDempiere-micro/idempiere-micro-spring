@@ -19,7 +19,7 @@ import java.util.logging.Level;
  *
  *  @author Jorg Janke
  *  @version $Id: MContactInterest.java,v 1.3 2006/07/30 00:51:03 jjanke Exp $
- *  @author red1 FR: [ 2214883 ] Remove SQL code and Replace for Query 
+ *  @author red1 FR: [ 2214883 ] Remove SQL code and Replace for Query
  */
 public class MContactInterest extends X_R_ContactInterest
 {

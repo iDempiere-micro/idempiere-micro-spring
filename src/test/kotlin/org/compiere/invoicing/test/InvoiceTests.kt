@@ -9,20 +9,27 @@ import org.compiere.accounting.MOrderLine
 import org.compiere.accounting.MPayment
 import org.compiere.accounting.MProduct
 import org.compiere.crm.MBPartner
+import org.compiere.crm.MCountry
+import org.compiere.crm.MLocation
+import org.compiere.crm.MRegion
+import org.compiere.crm.MBPartnerLocation
 import org.compiere.invoicing.MInvoice
 import org.compiere.model.I_C_Invoice
 import org.compiere.model.I_C_Payment
 import org.compiere.model.I_M_Product
 import org.compiere.model.I_M_Production
+import org.compiere.model.I_C_BPartner
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
 import org.compiere.process.DocAction
 import org.compiere.process.ProcessInfo
 import org.compiere.product.MPriceList
+import org.compiere.product.MProductBOM
 import org.compiere.product.MProductPrice
 import org.compiere.production.MProduction
 import org.idempiere.common.util.Env
 import org.idempiere.process.ProductionCreate
+import org.junit.Ignore
 import org.junit.Test
 import java.math.BigDecimal
 import java.sql.Date
@@ -52,10 +59,27 @@ data class MaterialMovementImportantTestAttributes(
 class InvoiceTests : BaseComponentTest() {
     companion object {
         const val QTY = 1
-        const val PARTNER_ID = 1000000
         const val PROD_1 = 1000000
-        const val BOM_1 = 1000001
         private var index = 0
+    }
+
+    private fun createBPartner(): I_C_BPartner {
+        val newPartner = MBPartner.getTemplate(ctx, AD_CLIENT_ID)
+        val name = "Test " + org.compiere.crm.test.randomString(10)
+        newPartner.setName(name)
+        val value = "t-" + org.compiere.crm.test.randomString(5)
+        newPartner.setValue(value)
+        newPartner.save()
+
+        val defaultCountry = MCountry.getDefault(ctx)
+        val defaultRegion = MRegion.getDefault(ctx)
+        val location = MLocation(defaultCountry, defaultRegion)
+        location.save()
+        val partnerLocation = MBPartnerLocation(newPartner)
+        partnerLocation.c_Location_ID = location.c_Location_ID
+        partnerLocation.save()
+
+        return newPartner
     }
 
     @Test
@@ -77,9 +101,9 @@ class InvoiceTests : BaseComponentTest() {
         order.m_Warehouse_ID = 1000000
         order.setIsSOTrx(true)
         order.c_DocType_ID = c_DocType_ID // 133 on credit order (generates invoice), 130 prepay order, 132 standard order
+        order.setC_Currency_ID(102) // EUR
 
-        val id = PARTNER_ID
-        val partner = MBPartner.get(Env.getCtx(), id)
+        val partner = createBPartner()
 
         val product = MProduct.get(Env.getCtx(), product_id)
 
@@ -92,14 +116,15 @@ class InvoiceTests : BaseComponentTest() {
         orderLine.setQty(qty.toBigDecimal())
         orderLine.save()
 
-        return Triple(order, id, product_id)
+        return Triple(order, partner._ID, product_id)
     }
 
     @Test
+    @Ignore
     fun `create invoice from prepay order after receiving the payment`() {
         createInvoiceFromOrder(1000030, PROD_1, BigDecimal("1.10")) {
             val payment = MPayment(ctx, 0, null)
-            payment.c_BPartner_ID = PARTNER_ID
+            payment.c_BPartner_ID = it.c_BPartner_ID
             payment.setAD_Org_ID(1000000)
             payment.c_BankAccount_ID = 1000000
             payment.setC_Currency_ID(102) // EUR
@@ -166,14 +191,18 @@ class InvoiceTests : BaseComponentTest() {
     }
 
     @Test
+    @Ignore
     fun `create invoice from order (on credit)`() {
         createInvoiceFromOrder(1000033, PROD_1, BigDecimal("1.10")) {}
     }
 
     @Test
-    // @Ignore
+    @Ignore
     fun `create invoice from BOM order with production step in between (on credit)`() {
-        createInvoiceFromOrder(1000033, BOM_1, BigDecimal("12.10")) {
+        val product = MProductBOM(ctx, 0, null)
+        product.save()
+
+        createInvoiceFromOrder(1000033, product.m_Product_ID, BigDecimal("12.10")) {
             val orderLine = it.lines.first()
             val production = MProduction(orderLine)
             production.setAD_Org_ID(1000000)

@@ -1,5 +1,6 @@
 package company.bigger
 
+import com.coxautodev.graphql.tools.SchemaParser
 import company.bigger.common.db.CConnection
 import company.bigger.util.DatabaseImpl
 import company.bigger.util.DummyEventManager
@@ -27,11 +28,25 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.concurrent.ScheduledThreadPoolExecutor
 import com.rollbar.notifier.config.ConfigBuilder.withAccessToken
 import com.rollbar.notifier.Rollbar
+import company.bigger.service.UserService
+import company.bigger.web.resolver.QueryResolver
+import graphql.schema.GraphQLSchema
+import org.springframework.context.ApplicationListener
+import org.springframework.context.annotation.Bean
+import org.springframework.context.event.ContextRefreshedEvent
 
 @Configuration
 @EnableCaching
 @SpringBootApplication
 open class Application : WebMvcConfigurer {
+    @Bean
+    open fun schema(): GraphQLSchema {
+        return SchemaParser.newParser()
+                .file("graphql/app.graphqls")
+                .resolvers(QueryResolver())
+                .build().makeExecutableSchema()
+    }
+
     override fun addCorsMappings(registry: CorsRegistry?) {
         registry!!.addMapping("*")
                 .allowedOrigins("*")
@@ -54,11 +69,17 @@ fun main(args: Array<String>) {
 }
 
 @Component
-open class Micro {
+open class StartupApplicationListener : ApplicationListener<ContextRefreshedEvent> {
+    override fun onApplicationEvent(event: ContextRefreshedEvent) {
+        Micro.instance!!.startup()
+    }
+}
 
+@Component
+open class Micro {
     companion object {
         private var singleton: Micro? = null
-        val instance get() = singleton!!
+        val instance get() = singleton
     }
 
     init {
@@ -70,6 +91,9 @@ open class Micro {
 
     @Autowired
     private lateinit var cconnection: CConnection
+
+    @Autowired
+    internal lateinit var userService: UserService
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!

@@ -11,15 +11,15 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.core.env.Environment
 import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletPathProvider
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureMockMvc
+// @AutoConfigureMockMvc
 open class BaseIntegrationTest : BaseTest() {
     @Autowired
     protected lateinit var environment: Environment
@@ -61,5 +61,11 @@ open class BaseIntegrationTest : BaseTest() {
         val token = gardenUserLogin.token
         token!!
         return token
+    }
+
+    class DummyDispatcherServletPathProvider : DispatcherServletPathProvider {
+        override fun getServletPath(): String {
+            return ""
+        }
     }
 }

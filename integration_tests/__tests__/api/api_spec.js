@@ -10,7 +10,7 @@ it('iDempiere login should work', function () {
         }
       }
     })
-    .get('http://localhost:8080/user/GardenUser/login/GardenUser')
+    .get('http://localhost:8080/session/GardenUser/login/GardenUser')
     .expect('status', 200)
     .expect('json', 'logged', true);
 });
@@ -24,7 +24,7 @@ it('GardenUser can login and token works', function () {
         }
       }
     })
-    .get('http://localhost:8080/user/GardenUser/login/GardenUser')
+    .get('http://localhost:8080/session/GardenUser/login/GardenUser')
     .expect('status', 200)
     .expect('json', 'logged', true)
     .then(function (res) { // res = FrisbyResponse object
@@ -54,7 +54,7 @@ it('GardenUser can login and see users', function () {
         }
       }
     })
-    .get('http://localhost:8080/user/GardenUser/login/GardenUser')
+    .get('http://localhost:8080/session/GardenUser/login/GardenUser')
     .expect('status', 200)
     .expect('json', 'logged', true)
     .then(function (res) { // res = FrisbyResponse object

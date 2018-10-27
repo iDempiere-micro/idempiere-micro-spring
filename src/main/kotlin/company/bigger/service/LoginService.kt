@@ -3,8 +3,6 @@ package company.bigger.service
 import company.bigger.dto.ILogin
 import company.bigger.dto.UserLoginModelResponse
 import org.compiere.crm.MUser
-import company.bigger.Micro
-import org.compiere.model.I_AD_User
 import software.hsharp.core.models.INameKeyPair
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -29,7 +27,7 @@ import org.idempiere.common.util.Language
 import org.springframework.stereotype.Service
 
 @Service
-class LoginService(val system: Micro) {
+class LoginService {
     companion object {
         private const val dateFormatOnlyForCtx = "yyyy-MM-dd"
         @JvmField val log = CLogger.getCLogger(LoginService::class.java)
@@ -185,70 +183,17 @@ class LoginService(val system: Micro) {
         }
 
         val hash_password = MSysConfig.getBooleanValue(MSysConfig.USER_PASSWORD_HASH, false)
-        val email_login = MSysConfig.getBooleanValue(MSysConfig.USE_EMAIL_FOR_LOGIN, false)
         val clientList = ArrayList<KeyNamePair>()
         val clientsValidated = ArrayList<Int>()
+        val users = findByUsername(app_user)
 
-        val where = StringBuilder("Password IS NOT NULL AND ")
-        if (email_login)
-            where.append("EMail=?")
-        else
-            where.append("COALESCE(LDAPUser,Name)=?")
-        where.append(" AND")
-                .append(" EXISTS (SELECT * FROM AD_User_Roles ur")
-                .append("         INNER JOIN AD_Role r ON (ur.AD_Role_ID=r.AD_Role_ID)")
-                .append("         WHERE ur.AD_User_ID=AD_User.AD_User_ID AND ur.IsActive='Y' AND r.IsActive='Y') AND ")
-                .append(" EXISTS (SELECT * FROM AD_Client c")
-                .append("         WHERE c.AD_Client_ID=AD_User.AD_Client_ID")
-                .append("         AND c.IsActive='Y') AND ")
-                .append(" AD_User.IsActive='Y'")
-
-        val users: List<MUser> = Query(m_ctx, MUser.Table_Name, where.toString(), null)
-                .setParameters(app_user)
-                .setOrderBy(MUser.COLUMNNAME_AD_User_ID)
-                .list()
-
-        if (users.size == 0) {
+        if (users.isEmpty()) {
             log.saveError("UserPwdError", app_user, false)
             return arrayOf()
         }
 
-        val MAX_ACCOUNT_LOCK_MINUTES = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_ACCOUNT_LOCK_MINUTES, 0)
-        val MAX_INACTIVE_PERIOD_DAY = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_INACTIVE_PERIOD_DAY, 0)
         val MAX_PASSWORD_AGE = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_PASSWORD_AGE_DAY, 0)
         val now = Date().time
-        for (user in users) {
-            if (MAX_ACCOUNT_LOCK_MINUTES > 0 && user.isLocked() && user.getDateAccountLocked() != null) {
-                val minutes = (now - user.getDateAccountLocked().getTime()) / (1000 * 60)
-                if (minutes > MAX_ACCOUNT_LOCK_MINUTES) {
-                    var inactive = false
-                    if (MAX_INACTIVE_PERIOD_DAY > 0 && user.getDateLastLogin() != null) {
-                        val days = (now - user.getDateLastLogin().getTime()) / (1000 * 60 * 60 * 24)
-                        if (days > MAX_INACTIVE_PERIOD_DAY)
-                            inactive = true
-                    }
-
-                    if (!inactive) {
-                        user.setIsLocked(false)
-                        user.setDateAccountLocked(null)
-                        user.setFailedLoginCount(0)
-                        if (!user.save())
-                            log.severe("Failed to unlock user account")
-                    }
-                }
-            }
-
-            if (MAX_INACTIVE_PERIOD_DAY > 0 && !user.isLocked() && user.getDateLastLogin() != null) {
-                val days = (now - user.getDateLastLogin().getTime()) / (1000 * 60 * 60 * 24)
-                if (days > MAX_INACTIVE_PERIOD_DAY) {
-                    user.setIsLocked(true)
-                    user.setDateAccountLocked(Timestamp(now))
-                    if (!user.save())
-                        log.severe("Failed to lock user account")
-                }
-            }
-        }
-
         var validButLocked = false
         for (user in users) {
             if (clientsValidated.contains(user.getAD_Client_ID())) {
@@ -571,8 +516,6 @@ class LoginService(val system: Micro) {
     }
 
     fun login(login: ILogin): UserLoginModelResponse {
-        system.startup()
-
         val ctx = Env.getCtx()
 
         // HACK - this is needed before calling the list of clients, because the user will be logged in
@@ -635,9 +578,85 @@ class LoginService(val system: Micro) {
         return UserLoginModelResponse(loginName = login.loginName)
     }
 
-    fun currentUser(): I_AD_User {
+    fun currentUser(): MUser? {
         val ctx = Env.getCtx()
         val userId = Env.getContext(ctx, Env.AD_USER_ID)
+        if (userId.isNullOrEmpty()) return null
         return MUser.get(ctx, userId.toInt())
+    }
+
+    fun findByUsername(app_user: String?): List<MUser> {
+        val m_ctx = Env.getCtx()
+        if (log.isLoggable(Level.INFO)) log.info("User=$app_user")
+
+        if (Util.isEmpty(app_user)) {
+            log.warning("No Apps User")
+            return listOf()
+        }
+
+        // 	Authentication
+        MSystem.get(m_ctx) ?: throw IllegalStateException("No System Info")
+        val email_login = MSysConfig.getBooleanValue(MSysConfig.USE_EMAIL_FOR_LOGIN, false)
+
+        val where = StringBuilder("Password IS NOT NULL AND ")
+        if (email_login)
+            where.append("EMail=?")
+        else
+            where.append("COALESCE(LDAPUser,Name)=?")
+        where.append(" AND")
+                .append(" EXISTS (SELECT * FROM AD_User_Roles ur")
+                .append("         INNER JOIN AD_Role r ON (ur.AD_Role_ID=r.AD_Role_ID)")
+                .append("         WHERE ur.AD_User_ID=AD_User.AD_User_ID AND ur.IsActive='Y' AND r.IsActive='Y') AND ")
+                .append(" EXISTS (SELECT * FROM AD_Client c")
+                .append("         WHERE c.AD_Client_ID=AD_User.AD_Client_ID")
+                .append("         AND c.IsActive='Y') AND ")
+                .append(" AD_User.IsActive='Y'")
+
+        val users: List<MUser> = Query(m_ctx, MUser.Table_Name, where.toString(), null)
+                .setParameters(app_user)
+                .setOrderBy(MUser.COLUMNNAME_AD_User_ID)
+                .list()
+
+        if (users.size == 0) {
+            log.saveError("UserPwdError", app_user, false)
+            return listOf()
+        }
+
+        val MAX_ACCOUNT_LOCK_MINUTES = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_ACCOUNT_LOCK_MINUTES, 0)
+        val MAX_INACTIVE_PERIOD_DAY = MSysConfig.getIntValue(MSysConfig.USER_LOCKING_MAX_INACTIVE_PERIOD_DAY, 0)
+        val now = Date().time
+        for (user in users) {
+            if (MAX_ACCOUNT_LOCK_MINUTES > 0 && user.isLocked() && user.getDateAccountLocked() != null) {
+                val minutes = (now - user.getDateAccountLocked().getTime()) / (1000 * 60)
+                if (minutes > MAX_ACCOUNT_LOCK_MINUTES) {
+                    var inactive = false
+                    if (MAX_INACTIVE_PERIOD_DAY > 0 && user.getDateLastLogin() != null) {
+                        val days = (now - user.getDateLastLogin().getTime()) / (1000 * 60 * 60 * 24)
+                        if (days > MAX_INACTIVE_PERIOD_DAY)
+                            inactive = true
+                    }
+
+                    if (!inactive) {
+                        user.setIsLocked(false)
+                        user.setDateAccountLocked(null)
+                        user.setFailedLoginCount(0)
+                        if (!user.save())
+                            log.severe("Failed to unlock user account")
+                    }
+                }
+            }
+
+            if (MAX_INACTIVE_PERIOD_DAY > 0 && !user.isLocked() && user.getDateLastLogin() != null) {
+                val days = (now - user.getDateLastLogin().getTime()) / (1000 * 60 * 60 * 24)
+                if (days > MAX_INACTIVE_PERIOD_DAY) {
+                    user.setIsLocked(true)
+                    user.setDateAccountLocked(Timestamp(now))
+                    if (!user.save())
+                        log.severe("Failed to lock user account")
+                }
+            }
+        }
+
+        return users
     }
 }

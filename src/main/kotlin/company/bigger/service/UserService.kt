@@ -8,6 +8,11 @@ import org.compiere.crm.MUser
 import org.compiere.model.I_AD_User
 import org.idempiere.common.util.Env
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 import java.util.Date
 
@@ -16,10 +21,16 @@ class UserService(
     val loginService: LoginService,
     @Value("\${jwt.secret}") val jwtSecret: String,
     @Value("\${jwt.issuer}")val jwtIssuer: String
-) {
+) : UserDetailsService {
+    override fun loadUserByUsername(username: String?): UserDetails {
+        val user = loginService.findByUsername(username).firstOrNull() ?: throw UsernameNotFoundException("Could not find account with username $username!")
+        return User(username, user.password, arrayListOf(SimpleGrantedAuthority(ROLE)))
+    }
+
     companion object {
         // user login result by UserName
         private val users = mutableMapOf<String, UserLoginModelResponse>()
+        const val ROLE = "USER"
     }
 
     fun findByToken(token: String) = users.values.firstOrNull { it.token == token }
@@ -61,12 +72,12 @@ class UserService(
         return user
     }
 
-    fun currentUser(): I_AD_User {
+    fun currentUser(): MUser? {
         return loginService.currentUser()
     }
 
     fun getUsers(): List<I_AD_User> {
-        val user = currentUser()
+        val user = currentUser()!!
         val ctx = Env.getCtx()
         return MUser.getOfClient(ctx, user.aD_Client_ID, null).map { it as I_AD_User }
     }

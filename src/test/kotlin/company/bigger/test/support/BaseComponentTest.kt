@@ -1,8 +1,11 @@
 package company.bigger.test.support
 
+import org.compiere.client.tests.SetupClientTests
 import org.compiere.model.I_M_Product
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
+import org.compiere.orm.MClient
+import org.compiere.orm.Query
 import org.compiere.product.MProduct
 import org.compiere.product.MUOM
 import org.idempiere.common.util.Env
@@ -12,6 +15,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
 abstract class BaseComponentTest : BaseTest() {
+    companion object {
+        val NEW_AD_CLIENT_ID = 1000000
+    }
+
     protected fun loginClient(idClient: Int) {
         val ctx = Env.getCtx()
         val AD_CLIENT_ID = idClient
@@ -22,7 +29,13 @@ abstract class BaseComponentTest : BaseTest() {
 
     @Before
     fun prepareEnv() {
-        loginClient(1000000)
+        val query = Query(this.ctx, "AD_Client", "ad_client_id=$NEW_AD_CLIENT_ID", null)
+        val result = query.list<MClient>()
+        if (result.isEmpty()) {
+            SetupClientTests.createClient(ctx, { loginClient(0) })
+        }
+
+        loginClient(NEW_AD_CLIENT_ID)
     }
 
     fun <T : IPO> getById(id: Int, tableName: String): T {
