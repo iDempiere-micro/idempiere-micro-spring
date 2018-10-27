@@ -398,7 +398,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                 if (Character.isWhitespace(c)) {
                     if (token.length > 0) {
                         val currentToken = token.toString()
-                        if ("(" == currentToken || currentToken != null && currentToken.startsWith("(")) {
+                        if ("(" == currentToken || currentToken.startsWith("(")) {
                             if ((")" == beforePreviousToken || beforePreviousToken != null && beforePreviousToken.endsWith(")")) && "=" == previousToken) {
                                 select = sqlStatement.substring(charIndex - currentToken.length)
                                 updateFields = sqlStatement.substring(updateFieldsBegin, charIndex)
@@ -426,7 +426,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                             updateFields = sqlStatement.substring(updateFieldsBegin, charIndex)
                             updateFields = updateFields.substring(0, updateFields.lastIndexOf(')'))
                             break
-                        } else if ("=(" == currentToken || currentToken != null && currentToken.startsWith("=(")) {
+                        } else if ("=(" == currentToken || currentToken.startsWith("=(")) {
                             if (")" == previousToken || previousToken != null && previousToken.endsWith(")")) {
                                 select = sqlStatement.substring(charIndex - currentToken.length)
                                 updateFields = sqlStatement.substring(updateFieldsBegin, charIndex)
@@ -492,7 +492,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
             token = StringBuilder()
             previousToken = null
             var joinFieldsBegin = 0
-            var joinFields: String? = null
+            var joinFields = ""
             var joinFromClause: String? = null
             var joinFromClauseStart = 0
             open = -1
@@ -541,9 +541,9 @@ class Convert_PostgreSQL : Convert_SQL92() {
             Update.append(" SET ")
 
             var f = updateFields?.length ?: 0
-            var fj = joinFields!!.length
-            var updateField: String? = null
-            var joinField: String? = null
+            var fj: Int
+            var updateField: String?
+            var joinField: String?
 
             var useSubQuery = false
             if (useAggregateFunction(joinFields))
@@ -553,7 +553,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                 f = Util.findIndexOf(updateFields, ',')
                 if (f < 0) {
                     updateField = updateFields
-                    joinField = joinFields!!.trim { it <= ' ' }
+                    joinField = joinFields.trim { it <= ' ' }
                     if (joinField.indexOf('.') < 0 && isIdentifier(joinField)) {
                         joinField = "$joinAlias.$joinField"
                     }
@@ -596,7 +596,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
                     fj = Util.findIndexOf(joinFields, ',')
                     // fieldsjoin.indexOf(',');
 
-                    joinField = if (fj > 0) joinFields!!.substring(0, fj).trim { it <= ' ' } else joinFields!!.trim { it <= ' ' }
+                    joinField = if (fj > 0) joinFields.substring(0, fj).trim { it <= ' ' } else joinFields.trim { it <= ' ' }
                     if (joinField.indexOf('.') < 0 && isIdentifier(joinField)) {
                         joinField = "$joinAlias.$joinField"
                     }
@@ -637,12 +637,11 @@ class Convert_PostgreSQL : Convert_SQL92() {
         val fieldsUpper = fields.toUpperCase()
         val size = fieldsUpper.length
         var buffer = StringBuilder()
-        var token: String? = null
+        var token: String?
         for (i in 0 until size) {
             val ch = fieldsUpper[i]
             if (Character.isWhitespace(ch)) {
-                if (buffer.length > 0) {
-                    token = buffer.toString()
+                if (buffer.isNotEmpty()) {
                     buffer = StringBuilder()
                 }
             } else {
@@ -678,7 +677,7 @@ class Convert_PostgreSQL : Convert_SQL92() {
 
         val st = StringTokenizer(where!!)
         var result = ""
-        var token = ""
+        var token: String
         var o = -1
         while (true) {
             token = st.nextToken()
@@ -862,11 +861,11 @@ class Convert_PostgreSQL : Convert_SQL92() {
             if (begin_col < 0)
                 return sqlStatement
 
-            var end_col = 0
-            var begin_default = -1
+            var end_col: Int
+            var begin_default: Int
 
-            var column: String? = null
-            var type: String? = null
+            var column: String?
+            var type: String?
             var defaultvalue: String? = null
             var nullclause: String? = null
             var DDL: String? = null
@@ -951,15 +950,15 @@ class Convert_PostgreSQL : Convert_SQL92() {
                         if (defaultvalue.startsWith("'") && defaultvalue.endsWith("'"))
                             defaultvalue = defaultvalue.substring(1, defaultvalue.length - 1)
 
-                        if (rest != null && rest.toUpperCase().indexOf("NOT NULL") >= 0)
+                        if (rest.toUpperCase().indexOf("NOT NULL") >= 0)
                             nullclause = "NOT NULL"
-                        else if (rest != null && rest.toUpperCase().indexOf("NULL") >= 0)
+                        else if (rest.toUpperCase().indexOf("NULL") >= 0)
                             nullclause = "NULL"
 
                         // return DDL;
-                    } else if (rest != null && rest.toUpperCase().indexOf("NOT NULL") >= 0) {
+                    } else if (rest.toUpperCase().indexOf("NOT NULL") >= 0) {
                         nullclause = "NOT NULL"
-                    } else if (rest != null && rest.toUpperCase().indexOf("NULL") >= 0) {
+                    } else if (rest.toUpperCase().indexOf("NULL") >= 0) {
                         nullclause = "NULL"
                     }
 

@@ -22,8 +22,6 @@ import software.hsharp.core.models.IGetRowResultData
 import software.hsharp.core.models.IGetRowResultObject
 import software.hsharp.core.models.IUpdateDataResult
 import software.hsharp.core.models.ICreateDataResult
-import software.hsharp.core.models.ITreeDataDescriptor
-import software.hsharp.core.models.IGetTreeDataResult
 import software.hsharp.core.models.IDataTable
 import software.hsharp.core.models.IDataColumn
 import software.hsharp.core.models.IGetRowResult
@@ -86,10 +84,6 @@ data class ExecuteJavaProcessResult(
 )
 
 open class DataService {
-    fun getTreeData(connection: Connection, root: ITreeDataDescriptor, orderBy: String, orderByOrder: String, offset: Int, limit: Int, filterName1: String, filterValue1: String, filterName2: String, filterValue2: String): IGetTreeDataResult {
-        TODO("not implemented")
-    }
-
     fun execute(connection: Connection, procName: String, jsonBody: String): String? {
         val ctx = Env.getCtx()
         val ad_Client_ID = Env.getAD_Client_ID(ctx)

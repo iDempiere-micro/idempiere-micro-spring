@@ -8,7 +8,7 @@ import java.util.Properties
 
 class MCrmCustomerCategory(ctx: Properties, crm_customer_category_ID: Int, trxName: String?) : BasePOName(ctx, crm_customer_category_ID, trxName), I_Persistent {
     companion object {
-        const val Table_ID = 200228
+        const val Table_ID = 1000000
         const val Table_Name = "Crm_Customer_Category"
     }
 

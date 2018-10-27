@@ -1,32 +1,3 @@
-/**********************************************************************
- * This file is part of Adempiere ERP Bazaar                           *
- * http://www.adempiere.org                                            *
- * *
- * Copyright (C) Carlos Ruiz - globalqss                               *
- * Copyright (C) Contributors                                          *
- * *
- * This program is free software; you can redistribute it and/or       *
- * modify it under the terms of the GNU General Public License         *
- * as published by the Free Software Foundation; either version 2      *
- * of the License, or (at your option) any later version.              *
- * *
- * This program is distributed in the hope that it will be useful,     *
- * but WITHOUT ANY WARRANTY; without even the implied warranty of      *
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the        *
- * GNU General Public License for more details.                        *
- * *
- * You should have received a copy of the GNU General Public License   *
- * along with this program; if not, write to the Free Software         *
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,          *
- * MA 02110-1301, USA.                                                 *
- * *
- * Contributors:                                                       *
- * - Carlos Ruiz - globalqss                                           *
- * *
- * Sponsors:                                                           *
- * - Company (http://www.globalqss.com)                                *
- */
-
 package org.idempiere.process
 
 import java.io.File
@@ -50,22 +21,22 @@ import org.idempiere.common.util.Util
  */
 class InitialClientSetup(
         // Process Parameters
-    private var p_ClientName: String? = null,
+    private var p_ClientName: String,
     private var p_OrgValue: String? = null,
-    private var p_OrgName: String? = null,
-    private var p_AdminUserName: String? = null,
-    private var p_NormalUserName: String? = null,
+    private var p_OrgName: String,
+    private var p_AdminUserName: String,
+    private var p_NormalUserName: String,
     private var p_IsSetInitialPassword: Boolean = true,
     private var p_C_Currency_ID: Int = 0,
     private var p_C_Country_ID: Int = 0,
     private var p_C_Region_ID: Int = 0,
-    private var p_CityName: String? = null,
-    private var p_Postal: String? = null,
-    private var p_Address1: String? = null,
-    private var p_Phone: String? = null,
-    private var p_Phone2: String? = null,
-    private var p_Fax: String? = null,
-    private var p_EMail: String? = null,
+    private var p_CityName: String,
+    private var p_Postal: String,
+    private var p_Address1: String,
+    private var p_Phone: String,
+    private var p_Phone2: String,
+    private var p_Fax: String,
+    private var p_EMail: String,
     private var p_TaxID: String? = null,
     private var p_C_City_ID: Int = 0,
     private var p_IsUseBPDimension: Boolean = true,
@@ -77,8 +48,8 @@ class InitialClientSetup(
     private var p_UseDefaultCoA: Boolean = false,
     private var p_CoAFile: String? = null,
     private var p_InactivateDefaults: Boolean = false,
-    private var p_AdminUserEmail: String? = null,
-    private var p_NormalUserEmail: String? = null
+    private var p_AdminUserEmail: String,
+    private var p_NormalUserEmail: String
 ) : SvrProcess() {
 
     /**
@@ -189,25 +160,20 @@ class InitialClientSetup(
             p_CoAFile = null
 
         // Validate Mandatory parameters
-        if (p_ClientName == null || p_ClientName!!.length == 0 ||
-                p_OrgName == null || p_OrgName!!.length == 0 ||
-                p_AdminUserName == null || p_AdminUserName!!.length == 0 ||
-                p_NormalUserName == null || p_NormalUserName!!.length == 0 ||
-                p_C_Currency_ID <= 0 ||
-                p_C_Country_ID <= 0 ||
-                !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
+        if (p_ClientName.length == 0 || p_OrgName.length == 0 || p_AdminUserName.length == 0 || p_NormalUserName.length == 0 ||
+                p_C_Currency_ID <= 0 || p_C_Country_ID <= 0 || !p_UseDefaultCoA && (p_CoAFile == null || p_CoAFile!!.length == 0))
             throw IllegalArgumentException("Missing required parameters")
 
         // Validate Uniqueness of client and users name
         // 	Unique Client Name
-        if (DB.executeUpdate("UPDATE AD_Client SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_ClientName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_ClientName!!)
+        if (DB.executeUpdate("UPDATE AD_Client SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_ClientName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_ClientName)
 
         // 	Unique User Names
-        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_AdminUserName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_AdminUserName!!)
-        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_NormalUserName!!), false, null) != 0)
-            throw AdempiereException("@NotUnique@ " + p_NormalUserName!!)
+        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_AdminUserName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_AdminUserName)
+        if (DB.executeUpdate("UPDATE AD_User SET CreatedBy=0 WHERE Name=?", arrayOf<Any>(p_NormalUserName), false, null) != 0)
+            throw AdempiereException("@NotUnique@ " + p_NormalUserName)
 
         // City_ID overrides CityName if both used
         if (p_C_City_ID > 0) {
@@ -249,7 +215,8 @@ class InitialClientSetup(
         // Process
         val ms = MSetup(Env.getCtx(), WINDOW_THIS_PROCESS)
         try {
-            if (!ms.createClient(p_ClientName, p_OrgValue, p_OrgName, p_AdminUserName, p_NormalUserName, p_Phone, p_Phone2, p_Fax, p_EMail, p_TaxID, p_AdminUserEmail, p_NormalUserEmail, p_IsSetInitialPassword)) {
+            if (!ms.createClient(p_ClientName, p_OrgValue, p_OrgName, p_AdminUserName, p_NormalUserName, p_Phone,
+                    p_Phone2, p_Fax, p_EMail, p_TaxID, p_AdminUserEmail, p_NormalUserEmail, p_IsSetInitialPassword)) {
                 ms.rollback()
                 throw AdempiereException("Create client failed")
             }
@@ -261,7 +228,7 @@ class InitialClientSetup(
             val currency_kp = KeyNamePair(p_C_Currency_ID, currency.description)
             if (!ms.createAccounting(currency_kp,
                             p_IsUseProductDimension, p_IsUseBPDimension, p_IsUseProjectDimension, p_IsUseCampaignDimension, p_IsUseSalesRegionDimension, p_IsUseActivityDimension,
-                            coaFile, p_UseDefaultCoA, p_InactivateDefaults)) {
+                            coaFile, p_InactivateDefaults)) {
                 ms.rollback()
                 throw AdempiereException("@AccountSetupError@")
             }
