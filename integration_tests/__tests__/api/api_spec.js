@@ -40,8 +40,8 @@ it('GardenUser can login and token works', function () {
         })
         .get('http://localhost:8080/user/me')
         .expect('status', 200)
-        .expect('json', 'firstName', 'GardenUser')
-        .expect('json', 'key', 102);
+        .expect('json', 'name', 'GardenUser')
+        .expect('json', 'id', 102);
     });
 });
 
