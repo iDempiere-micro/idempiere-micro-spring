@@ -23,4 +23,4 @@ migrate:
 	./mvnw flyway:migrate -Dflyway.url=jdbc:postgresql://localhost:5433/idempiere&ssl=true&sslmode=require
 
 lint:
-	./tools/ktlint/ktlint -F --color "**/src/**/*.kt"	
+	./tools/ktlint/ktlint -F --color "**/src/**/*.kt" '!**/src/**/MSetup.kt'	

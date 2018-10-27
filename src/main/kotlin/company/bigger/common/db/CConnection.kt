@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import software.hsharp.api.icommon.ICConnection
 
-import javax.naming.InitialContext
 import javax.sql.DataSource
 import java.io.Serializable
 import java.sql.Connection
@@ -381,7 +380,6 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
                     sb.append(e.localizedMessage)
                 }
             }
-            conn = null
             return sb.toString()
         } //  toStringDetail
 
@@ -685,7 +683,6 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
             } catch (e: Exception) {
             }
         }
-        conn = null
         return sb.toString()
     } //  toStringDetail
 
@@ -718,12 +715,12 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
     //  toStringLong
 
     private fun escape(value: String?): String? {
-        var value: String? = value ?: return null
+        var value1: String? = value ?: return null
 
         // use html like escape sequence to escape = and ,
-        value = value!!.replace("=", "&eq;")
-        value = value.replace(",", "&comma;")
-        return value
+        value1 = value1!!.replace("=", "&eq;")
+        value1 = value1.replace(",", "&comma;")
+        return value1
     }
 
     /**
@@ -731,11 +728,11 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
      * @param attributes attributes
      */
     private fun setAttributes(attributes: String) {
-        var attributes = attributes
+        var attributes1 = attributes
         try {
-            attributes = attributes.substring(attributes.indexOf("[") + 1)
-            attributes = attributes.substring(0, attributes.indexOf("]"))
-            val pairs = attributes.split("[,]".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            attributes1 = attributes1.substring(attributes1.indexOf("[") + 1)
+            attributes1 = attributes1.substring(0, attributes1.indexOf("]"))
+            val pairs = attributes1.split("[,]".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
             for (pair in pairs) {
                 val pairComponents = pair.split("[=]".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val key = pairComponents[0]
@@ -773,25 +770,25 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
                 }
             }
         } catch (e: Exception) {
-            log.log(Level.SEVERE, attributes + " - " + e.toString(), e)
+            log.log(Level.SEVERE, attributes1 + " - " + e.toString(), e)
         }
     } //  setAttributes
 
     private fun unescape(value: String): String {
-        var value = value
-        value = value.replace("&eq;", "=")
-        value = value.replace("&comma;", ",")
-        return value
+        var value1 = value
+        value1 = value1.replace("&eq;", "=")
+        value1 = value1.replace("&comma;", ",")
+        return value1
     }
 
     /**
      * Equals
-     * @param o object
-     * @return true if o equals this
+     * @param other object
+     * @return true if other equals this
      */
-    override fun equals(o: Any?): Boolean {
-        if (o is CConnection) {
-            val cc = o as CConnection?
+    override fun equals(other: Any?): Boolean {
+        if (other is CConnection) {
+            val cc = other as CConnection?
             if (cc!!.appsHost == appsHost &&
                     cc.dbHost == dbHost &&
                     cc.dbPort == dbPort &&
@@ -905,17 +902,6 @@ constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
         // 	System.err.println ("CConnection.getConnection - " + conn);
         return conn
     } //  getConnection
-
-    /** */
-
-    /**
-     * Get Application Server Initial Context
-     * @param useCache if true, use existing cache
-     * @return Initial Context or null
-     */
-    fun getInitialContext(useCache: Boolean): InitialContext? {
-        return null
-    } // 	getInitialContext
 
     /**
      * Convert Statement

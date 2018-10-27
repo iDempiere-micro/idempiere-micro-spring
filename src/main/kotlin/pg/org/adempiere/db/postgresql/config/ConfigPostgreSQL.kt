@@ -36,24 +36,6 @@ class ConfigPostgreSQL : IDatabaseConfig {
         return arrayOf()
     } // 	discoveredDatabases
 
-    /**
-     * Test JDBC Connection to Server
-     * @param url connection string
-     * @param uid user id
-     * @param pwd password
-     * @return true if OK
-     */
-    private fun testJDBC(url: String, uid: String, pwd: String): Boolean {
-        try {
-            val conn = p_db.getDriverConnection(url, uid, pwd)
-        } catch (e: Exception) {
-            log.severe(e.toString())
-            return false
-        }
-
-        return true
-    } // 	testJDBC
-
     override fun getDatabaseName(nativeConnectioName: String): String {
         return nativeConnectioName
     }

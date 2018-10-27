@@ -4,16 +4,15 @@ import org.compiere.bo.CustomerProcessBase
 import org.compiere.bo.CustomerProcessBaseResult
 import org.compiere.crm.MBPartner
 import company.bigger.util.DatabaseImpl
+import org.compiere.crm.MCrmCategory
 import org.idempiere.common.util.Env
-import java.util.Properties
 import java.util.Random
 // import org.compiere.bo.updateCustomerCategory
 import kotlin.test.assertEquals
 
 abstract class BaseCustomerTest : BaseProcessTest() {
-    abstract fun preparePartnerId(ctx: Properties, AD_CLIENT_ID: Int): Int?
+    abstract fun getPartnerId(): Int?
     abstract fun getProcess(): CustomerProcessBase
-    abstract fun runFinallyCleanup()
 
     // generates random string with small letters of a given length
     fun randomString(length: Int): String {
@@ -32,7 +31,13 @@ abstract class BaseCustomerTest : BaseProcessTest() {
         ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
         Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
-        val bPartnerId = preparePartnerId(ctx, AD_CLIENT_ID)
+        val bPartnerId = getPartnerId()
+
+        val category = MCrmCategory(ctx, 0, null)
+        val name = "T-" + randomString(10)
+        category.setName(name)
+        category.setValue(name)
+        category.save()
 
         val bodyParams = arrayOf(
             "id" to if (bPartnerId == null) { 0 } else { bPartnerId },
@@ -75,7 +80,7 @@ abstract class BaseCustomerTest : BaseProcessTest() {
             // already a customer
             Pair("isCustomer", true),
             // customer category
-            Pair("customerCategoryId", 1),
+            Pair("customerCategoryId", category._ID),
             // flat discount
             Pair("discount", 7),
             // account manager
@@ -87,18 +92,12 @@ abstract class BaseCustomerTest : BaseProcessTest() {
 
         val newPartner2 = MBPartner.get(Env.getCtx(), processResult.C_BPartner_Id)
 
-        try {
-            assertEquals(bodyParams.first { it.first == "bpName" }.second, newPartner2.name)
-            assertEquals(bodyParams.first { it.first == "discount" }.second.toString(), newPartner2.flatDiscount.toString())
-            assertEquals(bodyParams.first { it.first == "description" }.second, newPartner2.description)
-            assertEquals(bodyParams.first { it.first == "isCustomer" }.second, newPartner2.isCustomer)
+        assertEquals(bodyParams.first { it.first == "bpName" }.second, newPartner2.name)
+        assertEquals(bodyParams.first { it.first == "discount" }.second.toString(), newPartner2.flatDiscount.toString())
+        assertEquals(bodyParams.first { it.first == "description" }.second, newPartner2.description)
+        assertEquals(bodyParams.first { it.first == "isCustomer" }.second, newPartner2.isCustomer)
 
-            assertEquals(3, newPartner2.contacts.count())
-            assertEquals(2, newPartner2.locations.count())
-        } finally {
-            // updateCustomerCategory( null, newPartner2, DB.getConnectionRW() )
-            newPartner2.delete(true)
-            runFinallyCleanup()
-        }
+        assertEquals(3, newPartner2.contacts.count())
+        assertEquals(2, newPartner2.locations.count())
     }
 }

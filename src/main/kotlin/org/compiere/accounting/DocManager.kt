@@ -71,8 +71,6 @@ object DocManager {
                 throw DBException(e, sql)
             } finally {
                 DB.close(rs, pstmt)
-                rs = null
-                pstmt = null
             }
             // 	Convert to array
             documentsTableID = tableIDs.toIntArray()
@@ -229,8 +227,6 @@ object DocManager {
                 throw AdempiereException(e)
         } finally {
             DB.close(rs, pstmt)
-            rs = null
-            pstmt = null
         }
     }
 
@@ -252,14 +248,14 @@ object DocManager {
         repost: Boolean,
         trxName: String?
     ): String? {
-        var trxName = trxName
+        var trxName1 = trxName
         var localTrxName: String? = null
-        if (trxName == null) {
+        if (trxName1 == null) {
             localTrxName = Trx.createTrxName("Post")
-            trxName = localTrxName
+            trxName1 = localTrxName
         }
 
-        val trx = Trx.get(trxName, true)
+        val trx = Trx.get(trxName1, true)
         if (localTrxName != null)
             trx!!.displayName = DocManager::class.java.name + "_postDocument"
         var error: String? = null
@@ -268,7 +264,7 @@ object DocManager {
             savepoint = if (localTrxName == null) trx!!.setSavepoint(null) else null
             var status = ""
             for (`as` in ass) {
-                val doc = Doc.get(`as`, AD_Table_ID, rs, trxName)
+                val doc = Doc.get(`as`, AD_Table_ID, rs, trxName1)
                 if (doc != null) {
                     error = doc.post(force, repost) // 	repost
                     status = doc.postStatus
@@ -296,7 +292,7 @@ object DocManager {
             val table = MTable.get(Env.getCtx(), AD_Table_ID)
             val Record_ID = rs.getInt(table.keyColumns[0])
             //  Commit Doc
-            if (!save(trxName, AD_Table_ID, Record_ID, status)) {
+            if (!save(trxName1, AD_Table_ID, Record_ID, status)) {
                 val dbError = CLogger.retrieveError()
                 // log.log(Level.SEVERE, "(doc not saved) ... rolling back");
                 if (localTrxName != null) {

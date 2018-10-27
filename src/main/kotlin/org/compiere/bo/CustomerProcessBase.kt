@@ -1,12 +1,16 @@
 package org.compiere.bo
 
 import org.compiere.crm.MBPartnerLocation
+import org.compiere.crm.MCrmCustomerCategory
 import org.compiere.crm.MUser
 import org.compiere.crm.SvrProcessBaseSql
+import org.compiere.crm.MCrmCategory
 import org.compiere.model.I_C_BPartner
 import org.compiere.model.I_C_BPartner_Location
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
+import org.compiere.orm.Query
+import org.idempiere.common.util.Env
 import org.idempiere.common.util.Trx
 import org.idempiere.orm.I_Persistent
 import software.hsharp.business.models.IDTOReady
@@ -14,46 +18,27 @@ import java.sql.Connection
 
 data class CustomerProcessBaseResult(val C_BPartner_Id: Int) : IDTOReady
 
-/* INVALID here, move to a customization package
-fun updateCustomerCategory(customerCategoryId: Int?, bpartner: I_C_BPartner, cnn: Connection) {
+fun updateCustomerCategory(customerCategoryId: Int?, bpartner: I_C_BPartner, trx: Trx) {
+    val query = Query(Env.getCtx(), "Crm_Customer_Category", "c_bpartner_id = ${bpartner.c_BPartner_ID}", null)
+    val found = query.list<MCrmCustomerCategory>()
+    val ctx = Env.getCtx()
+    val crmCustomerCategory =
+        if (found.isEmpty()) {
+            val new = MCrmCustomerCategory(ctx, 0, trx.trxName)
+            new
+        } else {
+            found.first()
+        }
     if (customerCategoryId == null || customerCategoryId == 0) {
-        val sql =
-                """
-delete from crm_customer_category where c_bpartner_id = ?""".trimIndent()
-
-        val statement = cnn.prepareStatement(sql)
-        try {
-            statement.setInt(1, bpartner.c_BPartner_ID)
-            statement.executeUpdate()
-        } finally {
-            statement.close()
-        }
+        crmCustomerCategory.delete(true)
     } else {
-        val sqlUpdate = "update crm_customer_category set category_id = ? where c_bpartner_id = ?"
-
-        val updateStatement = cnn.prepareStatement(sqlUpdate)
-        try {
-            updateStatement.setInt(1, customerCategoryId)
-            updateStatement.setInt(2, bpartner.c_BPartner_ID)
-            val changedRows = updateStatement.executeUpdate()
-            if (changedRows == 0) {
-                val sqlInsert = "insert into crm_customer_category(c_bpartner_id,category_id) values (?,?)"
-
-                val insertStatement = cnn.prepareStatement(sqlInsert)
-                try {
-                    insertStatement.setInt(1, bpartner.c_BPartner_ID)
-                    insertStatement.setInt(2, customerCategoryId)
-                    insertStatement.executeUpdate()
-                } finally {
-                    insertStatement.close()
-                }
-            }
-        } finally {
-            updateStatement.close()
-        }
+        val category = MCrmCategory(ctx, customerCategoryId, trx.trxName)
+        crmCustomerCategory.category = category
+        crmCustomerCategory.bPartner = bpartner
+        crmCustomerCategory.setName("${bpartner.name} in ${category.getName()}")
+        crmCustomerCategory.save()
     }
 }
-*/
 
 abstract class CustomerProcessBase(
     _AD_CLIENT_ID: Int = 0,
@@ -293,14 +278,14 @@ abstract class CustomerProcessBase(
 
         result.save()
 
-        doUpdateCustomerCategory(result, m_trx.connection)
+        doUpdateCustomerCategory(result, m_trx)
 
         return CustomerProcessBaseResult(result.c_BPartner_ID)
     }
 
-    private fun doUpdateCustomerCategory(bpartner: I_C_BPartner, cnn: Connection) {
+    private fun doUpdateCustomerCategory(bpartner: I_C_BPartner, trx: Trx) {
         val _customerCategoryId = customerCategoryId
-        // updateCustomerCategory(_customerCategoryId, bpartner, cnn)
+        updateCustomerCategory(_customerCategoryId, bpartner, trx)
     }
 
     override fun getSqlResult(cnn: Connection): IDTOReady {
