@@ -67,7 +67,7 @@ jobs:
 
       # get the code climate test reporter    
       - run:
-          name: Generate the site if on develop branch
+          name: Run the code climate test reporter, Generate the DB and site if on develop branch
           command: |
             if [ "$CIRCLE_BRANCH" == "develop" ];
             then
@@ -81,11 +81,18 @@ jobs:
               ./cc-test-reporter upload-coverage -r ca3d430349a110fe3eac29ede69be4aa1c31bfc34538926d55d638ae63976f07
               rm src/main/java/software/hsharp/core/util/ParseKt.java
               find src/main/java -type f -name "*.kt" -delete
+
               (cd /tmp; rm -rf idempiere-micro-spring-site; git clone git@github.com:iDempiere-micro/idempiere-micro-spring-site.git; cd idempiere-micro-spring-site; rm -rf *)
               cp -r target/site/* /tmp/idempiere-micro-spring-site
               git log -1 --pretty=%B >/tmp/message.txt
               git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
               (cd /tmp/idempiere-micro-spring-site; git add -A && git commit -F /tmp/message.txt && git push)
+
+              (cd /tmp; rm -rf idempiere-micro-db; git clone git@github.com:iDempiere-micro/idempiere-micro-db.git; cd idempiere-micro-db; rm -rf *)
+              cp src/main/resources/db/migration/*.sql /tmp/idempiere-micro-db
+              git log -1 --pretty=%B >/tmp/message.txt
+              git config --global user.email "circleci@circleci.com" && git config --global user.name "CircleCI"
+              (cd /tmp/idempiere-micro-db; git add -A && git commit -F /tmp/message.txt && git push)
             fi
       - run: 
           name: Integration test
