@@ -642,7 +642,7 @@ public class DistributionRun extends SvrProcess
 			//+ " BETWEEN "+ DB.TO_DATE(p_DatePromised)  +" AND "+ DB.TO_DATE(p_DatePromised_To) 	
 			no = DB.executeUpdate(sql.toString(), get_TrxName());
 			
-			List<MDistributionRunDetail> records = new Query(getCtx(), 
+			List<MDistributionRunDetail> records = new Query(getCtx(),
 												   MDistributionRunDetail.Table_Name,
 												   MDistributionRunDetail.COLUMNNAME_M_DistributionRun_ID + "=?",												  
 												   get_TrxName()).setParameters( new Object[]{p_M_DistributionRun_ID}).list();

@@ -66,12 +66,12 @@ public interface I_K_IndexLog
     public static final String COLUMNNAME_IndexQuery = "IndexQuery";
 
 	/** Set Index Query.
-	  * Text Search Query 
+	  * Text Search Query
 	  */
 	public void setIndexQuery (String IndexQuery);
 
 	/** Get Index Query.
-	  * Text Search Query 
+	  * Text Search Query
 	  */
 	public String getIndexQuery();
 
