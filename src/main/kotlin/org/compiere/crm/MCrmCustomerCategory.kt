@@ -4,11 +4,16 @@ import org.compiere.model.I_C_BPartner
 import org.compiere.orm.BasePOName
 import org.idempiere.orm.I_Persistent
 import org.idempiere.orm.POInfo
+import java.sql.ResultSet
 import java.util.Properties
 
-class MCrmCustomerCategory(ctx: Properties, crm_customer_category_ID: Int, trxName: String?) : BasePOName(ctx, crm_customer_category_ID, trxName), I_Persistent {
+class MCrmCustomerCategory : BasePOName, I_Persistent {
+    constructor(ctx: Properties, ID: Int, trxName: String?) : super(ctx, ID, trxName)
+    constructor (ctx: Properties, rs: ResultSet, trxName: String?) : super(ctx, rs, trxName)
+    constructor (ctx: Properties, rs: ResultSet, trxName: String?, a: String?) : super(ctx, rs, trxName, a)
+
     companion object {
-        const val Table_ID = 1000000
+        const val Table_ID = 1000001
         const val Table_Name = "Crm_Customer_Category"
     }
 

@@ -1,4 +1,5 @@
 import company.bigger.test.support.BaseComponentTest
+import company.bigger.test.support.randomString
 import org.compiere.model.I_M_Product
 import org.junit.Test
 
@@ -10,6 +11,6 @@ class ProductTests : BaseComponentTest() {
 
     @Test
     fun `creating a new service product should work`() {
-        createAProduct("Service", I_M_Product.PRODUCTTYPE_Service)
+        createAProduct("S-" + randomString(10), I_M_Product.PRODUCTTYPE_Service)
     }
 }
