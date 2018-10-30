@@ -10,6 +10,7 @@ import java.util.logging.Level;
 
 import org.compiere.model.I_C_InvoicePaySchedule;
 import org.compiere.model.I_C_OrderPaySchedule;
+import org.compiere.model.I_C_PaymentTerm;
 import org.compiere.order.MOrderPaySchedule;
 import org.compiere.orm.Query;
 import org.idempiere.common.exceptions.AdempiereException;
@@ -27,7 +28,7 @@ import org.compiere.util.Msg;
  * 			<li>BF [ 2889886 ] Net days in payment term
  * 				https://sourceforge.net/tracker/index.php?func=detail&aid=2889886&group_id=176962&atid=879332
  */
-public class MPaymentTerm extends X_C_PaymentTerm
+public class MPaymentTerm extends X_C_PaymentTerm implements I_C_PaymentTerm
 {
 	/**
 	 * 

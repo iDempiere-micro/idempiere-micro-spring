@@ -658,8 +658,10 @@ public class MInOut extends X_M_InOut
 			return false;
 		}
 
+		String movementType = getMovementType();
+		boolean condition1 = movementType != null && !movementType.contentEquals(X_M_InOut.MOVEMENTTYPE_CustomerReturns);
 		//	Shipment - Needs Order/RMA
-		if (!getMovementType().contentEquals(X_M_InOut.MOVEMENTTYPE_CustomerReturns) && isSOTrx() && getC_Order_ID() == 0 && getM_RMA_ID() == 0)
+		if ( condition1 && isSOTrx() && getC_Order_ID() == 0 && getM_RMA_ID() == 0)
 		{
 			log.saveError("FillMandatory", Msg.translate(getCtx(), "C_Order_ID"));
 			return false;

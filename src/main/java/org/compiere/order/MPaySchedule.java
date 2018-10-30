@@ -3,6 +3,7 @@ package org.compiere.order;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.I_C_PaymentTerm;
 import org.compiere.order.MPaymentTerm;
 import org.idempiere.common.util.Env;
 
@@ -52,12 +53,12 @@ public class MPaySchedule extends X_C_PaySchedule
 	}	//	MPaySchedule
 
 	/**	Parent					*/
-	public MPaymentTerm m_parent = null;
+	public I_C_PaymentTerm m_parent = null;
 	
 	/**
 	 * @return Returns the parent.
 	 */
-	public MPaymentTerm getParent ()
+	public I_C_PaymentTerm getParent ()
 	{
 		if (m_parent == null)
 			m_parent = new MPaymentTerm (getCtx(), getC_PaymentTerm_ID(), get_TrxName());
@@ -67,7 +68,7 @@ public class MPaySchedule extends X_C_PaySchedule
 	/**
 	 * @param parent The parent to set.
 	 */
-	public void setParent (MPaymentTerm parent)
+	public void setParent (I_C_PaymentTerm parent)
 	{
 		m_parent = parent;
 	}	//	setParent
