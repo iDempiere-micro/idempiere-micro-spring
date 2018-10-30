@@ -3,12 +3,13 @@ package org.compiere.model;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for C_PaymentTerm
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_PaymentTerm 
+public interface I_C_PaymentTerm extends IPO
 {
 
     /** TableName=C_PaymentTerm */
@@ -381,4 +382,8 @@ public interface I_C_PaymentTerm
 	  * Search key for the record in the format required - must be unique
 	  */
 	public String getValue();
+
+	String validate();
+
+	void saveEx();
 }
