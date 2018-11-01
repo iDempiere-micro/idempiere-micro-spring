@@ -16,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for M_PriceList
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_PriceList extends PO implements I_M_PriceList, I_Persistent
+public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persistent
 {
 
 	/**
