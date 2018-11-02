@@ -3,13 +3,10 @@ package org.compiere.product;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.model.HasName;
 import org.compiere.model.I_M_AttributeSet;
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -28,19 +25,6 @@ public class X_M_AttributeSet extends BasePOName implements I_M_AttributeSet, I_
     public X_M_AttributeSet (Properties ctx, int M_AttributeSet_ID, String trxName)
     {
       super (ctx, M_AttributeSet_ID, trxName);
-      /** if (M_AttributeSet_ID == 0)
-        {
-			setIsGuaranteeDate (false);
-			setIsGuaranteeDateMandatory (false);
-			setIsInstanceAttribute (false);
-			setIsLot (false);
-			setIsLotMandatory (false);
-			setIsSerNo (false);
-			setIsSerNoMandatory (false);
-			setMandatoryType (null);
-			setM_AttributeSet_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
