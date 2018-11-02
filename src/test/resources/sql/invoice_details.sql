@@ -61,5 +61,5 @@ FROM
        LEFT JOIN c_bankaccount bacc ON bacc.ad_org_id = inv.ad_org_id AND inv.ad_client_id = bacc.ad_client_id
        LEFT JOIN c_bank bank ON bank.c_bank_id = bacc.c_bank_id
        LEFT JOIN fact_acct acc ON acc.ad_org_id = inv.ad_org_id AND inv.ad_client_id = acc.ad_client_id AND acc.record_id = inv.c_invoice_id AND amtsourcecr > 0.0 and acc.m_product_id is null
-WHERE inv.c_invoice_id = 1000001
+WHERE inv.c_invoice_id = $P{RECORD_ID}
 ORDER BY inv.documentno, line.line

@@ -27,13 +27,13 @@ class IdempiereMicroSpringApplicationTests : BaseIntegrationTest() {
     @Test
     fun `GardenUser can login and token works`() {
         val profile = userClient?.profile(getGardenUserToken())
-        assertEquals("GardenUser", profile?.firstName)
+        assertEquals("GardenUser", profile?.name)
     }
 
     @Test
     fun `GardenUser can login and see other users`() {
         val profiles = userClient?.all(getGardenUserToken())
-        val found = profiles?.firstOrNull { it.firstName == "GardenUser" }
+        val found = profiles?.firstOrNull { it.name == "GardenUser" }
         assertNotNull(found)
     }
 
@@ -52,7 +52,7 @@ class IdempiereMicroSpringApplicationTests : BaseIntegrationTest() {
         try {
             userClient?.profile(token)
         } catch (ex: FeignException) {
-            if (ex.status() != 401) fail("Should HTTP 401 fail, not $ex")
+            if (ex.status() != 403) fail("Should HTTP 403 fail, not $ex")
         }
     }
 }

@@ -1,13 +1,19 @@
 package org.compiere.crm.test
 
+import company.bigger.service.CategoryService
 import company.bigger.test.support.BaseComponentTest
 import org.compiere.crm.MBPartner
 import org.compiere.crm.MCrmCategory
 import org.compiere.crm.MCrmCustomerCategory
 import org.junit.Test
+import org.springframework.beans.factory.annotation.Autowired
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 
 class CategoryTests : BaseComponentTest() {
+    @Autowired
+    private lateinit var categoryService: CategoryService
+
     @Test
     fun `create crm category`() {
         val category = MCrmCategory(ctx, 0, null)
@@ -16,6 +22,8 @@ class CategoryTests : BaseComponentTest() {
         category.save()
         val cat: MCrmCategory = getById(category._ID, MCrmCategory.Table_Name)
         assertNotNull(cat)
+
+        `get all crm categories from the service works`()
     }
 
     @Test
@@ -47,5 +55,13 @@ class CategoryTests : BaseComponentTest() {
 
         val bpInCat: MCrmCustomerCategory = getById(bpartnerInCategory._ID, MCrmCustomerCategory.Table_Name)
         assertNotNull(bpInCat)
+
+        `get all crm categories from the service works`()
+    }
+
+    fun `get all crm categories from the service works`() {
+        val result = categoryService.getAllCategories()
+        assertFalse(result.isEmpty())
+        val category = result.first()
     }
 }

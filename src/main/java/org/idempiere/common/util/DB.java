@@ -494,7 +494,7 @@ public final class DB
 	public static boolean isBuildOK (Properties ctx)
 	{
 //    Check Build
-        String buildClient = "Unknown"; // TODO DAP Adempiere.getVersion();
+        String buildClient = "5.1.0.v20180116-0927"; // TODO DAP Adempiere.getVersion();
         String buildDatabase = "";
         boolean failOnBuild = false;
         String sql = "SELECT LastBuildInfo, IsFailOnBuildDiffer FROM AD_System";

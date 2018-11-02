@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
 
+import org.compiere.model.I_M_PriceList;
 import org.compiere.model.I_M_ProductPrice;
 import org.compiere.orm.Query;
 import org.compiere.orm.TimeUtil;
@@ -55,7 +56,7 @@ public class MPriceListVersion extends X_M_PriceList_Version
 	 * 	Parent Constructor
 	 *	@param pl parent
 	 */
-	public MPriceListVersion (MPriceList pl)
+	public MPriceListVersion (I_M_PriceList pl)
 	{
 		this (pl.getCtx(), 0, pl.get_TrxName());
 		setClientOrg(pl);
