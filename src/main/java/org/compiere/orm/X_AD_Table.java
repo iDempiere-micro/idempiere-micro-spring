@@ -27,26 +27,6 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
     public X_AD_Table (Properties ctx, int AD_Table_ID, String trxName)
     {
       super (ctx, AD_Table_ID, trxName);
-      /** if (AD_Table_ID == 0)
-        {
-			setAccessLevel (null);
-// 4
-			setAD_Table_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setIsChangeLog (true);
-// Y
-			setIsDeleteable (true);
-// Y
-			setIsHighVolume (false);
-			setIsSecurityEnabled (false);
-			setIsView (false);
-// N
-			setName (null);
-			setReplicationType (null);
-// L
-			setTableName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -58,7 +38,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int getAccessLevel()
+    public int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -93,7 +73,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setTableAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -102,7 +82,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getTableAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}

@@ -121,7 +121,7 @@ class MSetup
 
     init {
         m_ctx = Properties(ctx)    //	copy
-        m_lang = Env.getAD_Language(m_ctx)
+        m_lang = Env.getADLanguage(m_ctx)
     }   //  MSetup
 
     /**

@@ -31,12 +31,12 @@ public interface I_AD_Workflow
 	/** Set Data Access Level.
 	  * Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel);
+	public void setWFAccessLevel (String AccessLevel);
 
 	/** Get Data Access Level.
 	  * Access Level required
 	  */
-	public String getAccessLevel();
+	public String getWFAccessLevel();
 
     
     

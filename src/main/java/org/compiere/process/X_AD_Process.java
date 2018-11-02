@@ -88,7 +88,7 @@ public class X_AD_Process extends BasePONameValue implements I_AD_Process, I_Per
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setProcessAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -97,7 +97,7 @@ public class X_AD_Process extends BasePONameValue implements I_AD_Process, I_Per
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getProcessAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}

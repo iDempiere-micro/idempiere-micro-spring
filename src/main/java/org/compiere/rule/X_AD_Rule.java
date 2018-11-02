@@ -86,7 +86,7 @@ public class X_AD_Rule extends BasePONameValue implements I_AD_Rule, I_Persisten
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setRuleAccessLevel (String AccessLevel)
 	{
 
 		set_Value (I_AD_Rule.COLUMNNAME_AccessLevel, AccessLevel);
@@ -95,7 +95,7 @@ public class X_AD_Rule extends BasePONameValue implements I_AD_Rule, I_Persisten
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getRuleAccessLevel ()
 	{
 		return (String)get_Value(I_AD_Rule.COLUMNNAME_AccessLevel);
 	}

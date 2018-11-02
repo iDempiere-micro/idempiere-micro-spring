@@ -145,10 +145,7 @@ public class MWorkflow extends X_AD_Workflow
 		super (ctx, AD_Workflow_ID, trxName);
 		if (AD_Workflow_ID == 0)
 		{
-		//	setAD_Workflow_ID (0);
-		//	setValue (null);
-		//	setName (null);
-			setAccessLevel (X_AD_Workflow.ACCESSLEVEL_Organization);
+			setWFAccessLevel (X_AD_Workflow.ACCESSLEVEL_Organization);
 			setAuthor ("ComPiere, Inc.");
 			setDurationUnit(X_AD_Workflow.DURATIONUNIT_Day);
 			setDuration (1);

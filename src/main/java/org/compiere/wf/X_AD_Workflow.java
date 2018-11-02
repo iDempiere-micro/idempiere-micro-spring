@@ -28,29 +28,6 @@ public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_P
     public X_AD_Workflow (Properties ctx, int AD_Workflow_ID, String trxName)
     {
       super (ctx, AD_Workflow_ID, trxName);
-      /** if (AD_Workflow_ID == 0)
-        {
-			setAccessLevel (null);
-			setAD_Workflow_ID (0);
-			setAuthor (null);
-			setCost (Env.ZERO);
-			setDuration (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setIsBetaFunctionality (false);
-// N
-			setIsDefault (false);
-			setIsValid (false);
-			setName (null);
-			setPublishStatus (null);
-// U
-			setValue (null);
-			setVersion (0);
-			setWaitingTime (0);
-			setWorkflowType (null);
-// G
-			setWorkingTime (0);
-        } */
     }
 
     /** Load Constructor */
@@ -99,7 +76,7 @@ public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_P
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setWFAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -108,7 +85,7 @@ public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_P
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getWFAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}
