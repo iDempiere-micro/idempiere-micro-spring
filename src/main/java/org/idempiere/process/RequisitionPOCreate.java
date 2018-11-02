@@ -285,7 +285,7 @@ public class RequisitionPOCreate extends SvrProcess
 		}
 		if (m_orderLine == null
 			|| rLine.getM_Product_ID() != m_M_Product_ID
-			|| rLine.getM_AttributeSetInstance_ID() != m_M_AttributeSetInstance_ID
+			|| rLine.getMAttributeSetInstance_ID() != m_M_AttributeSetInstance_ID
 			|| rLine.getC_Charge_ID() != 0		//	single line per charge
 			|| m_order == null
 			|| m_order.getDatePromised().compareTo(rLine.getDateRequired()) != 0
@@ -449,7 +449,7 @@ public class RequisitionPOCreate extends SvrProcess
 		if (product != null)
 		{
 			m_orderLine.setProduct(product);
-			m_orderLine.setM_AttributeSetInstance_ID(rLine.getM_AttributeSetInstance_ID());
+			m_orderLine.setM_AttributeSetInstance_ID(rLine.getMAttributeSetInstance_ID());
 		}
 		else
 		{
@@ -461,7 +461,7 @@ public class RequisitionPOCreate extends SvrProcess
 		
 		//	Prepare Save
 		m_M_Product_ID = rLine.getM_Product_ID();
-		m_M_AttributeSetInstance_ID = rLine.getM_AttributeSetInstance_ID();
+		m_M_AttributeSetInstance_ID = rLine.getMAttributeSetInstance_ID();
 		m_orderLine.saveEx();
 	}	//	newLine
 

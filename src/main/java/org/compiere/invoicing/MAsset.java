@@ -67,7 +67,7 @@ public class MAsset extends org.compiere.product.MAsset {
         {
             name += product.getName() + "-";
             setM_Product_ID(inoutLine.getM_Product_ID());
-            setM_AttributeSetInstance_ID(inoutLine.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(inoutLine.getMAttributeSetInstance_ID());
         }
         MBPartner bp = new MBPartner(getCtx(), invoiceLine.getC_Invoice().getC_BPartner_ID(), null);
         name += bp.getName()+"-"+invoiceLine.getC_Invoice().getDocumentNo();
@@ -105,7 +105,7 @@ public class MAsset extends org.compiere.product.MAsset {
             setM_Product_ID(product.getM_Product_ID());
             setA_Asset_Group_ID(ifa.getA_Asset_Group_ID());
             MAttributeSetInstance asi = MAttributeSetInstance.create(getCtx(), product, get_TrxName());
-            setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
         }
 
         setDateAcct(ifa.getDateAcct());
@@ -174,9 +174,9 @@ public class MAsset extends org.compiere.product.MAsset {
         //setGuaranteeDate(TimeUtil.addDays(shipment.getMovementDate(), product.getGuaranteeDays()));
         setVersionNo(product.getVersionNo());
         // ASI
-        if (invLine.getM_AttributeSetInstance_ID() != 0)
+        if (invLine.getMAttributeSetInstance_ID() != 0)
         {
-            MAttributeSetInstance asi = new MAttributeSetInstance (getCtx(), invLine.getM_AttributeSetInstance_ID(), get_TrxName());
+            MAttributeSetInstance asi = new MAttributeSetInstance (getCtx(), invLine.getMAttributeSetInstance_ID(), get_TrxName());
             setASI(asi);
         }
         //setSerNo(invLine.getSerNo());

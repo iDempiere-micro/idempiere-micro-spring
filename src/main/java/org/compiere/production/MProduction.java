@@ -361,9 +361,9 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 
 
 								int loc = storages[sl].getM_Locator_ID();
-								int slASI = storages[sl].getM_AttributeSetInstance_ID();
+								int slASI = storages[sl].getMAttributeSetInstance_ID();
 								int locAttribSet = new MAttributeSetInstance(getCtx(), asi,
-										get_TrxName()).getM_AttributeSet_ID();
+										get_TrxName()).getMAttributeSet_ID();
 
 								// roll up costing attributes if in the same locator
 								if (locAttribSet == 0 && previousAttribSet == 0
@@ -731,13 +731,13 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 		for (int i = 0; i < sLines.length; i++)
 		{		
 			//	We need to copy MA
-			if (sLines[i].getM_AttributeSetInstance_ID() == 0)
+			if (sLines[i].getMAttributeSetInstance_ID() == 0)
 			{
 				MProductionLineMA mas[] = MProductionLineMA.get(getCtx(), sLines[i].get_ID(), get_TrxName());
 				for (int j = 0; j < mas.length; j++)
 				{
 					MProductionLineMA ma = new MProductionLineMA (tLines[i],
-						mas[j].getM_AttributeSetInstance_ID(),
+						mas[j].getMAttributeSetInstance_ID(),
 						mas[j].getMovementQty().negate(),mas[j].getDateMaterialPolicy());
 					ma.saveEx(get_TrxName());					
 				}

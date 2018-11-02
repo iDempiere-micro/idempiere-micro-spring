@@ -116,9 +116,9 @@ public interface I_QM_Specification
 	/** Get Attribute Set.
 	  * Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID();
+	public int getMAttributeSet_ID();
 
-	public org.compiere.model.I_M_AttributeSet getM_AttributeSet() throws RuntimeException;
+	public org.compiere.model.I_M_AttributeSet getMAttributeSet() throws RuntimeException;
 
     /** Column name M_Product_ID */
     public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";

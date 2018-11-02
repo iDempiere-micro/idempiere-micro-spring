@@ -182,7 +182,7 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 		if (dateTrx != null)
 			setDateTrx (dateTrx);
 		setM_Product_ID (iLine.getM_Product_ID());
-		setM_AttributeSetInstance_ID(iLine.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(iLine.getMAttributeSetInstance_ID());
 		setQty (qty);
 		setProcessed(true);		//	auto
 	}	//	MMatchInv
@@ -207,10 +207,10 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 				ts = getDateTrx();
 			setDateAcct (ts);
 		}
-		if (getM_AttributeSetInstance_ID() == 0 && getM_InOutLine_ID() != 0)
+		if (getMAttributeSetInstance_ID() == 0 && getM_InOutLine_ID() != 0)
 		{
 			MInOutLine iol = new MInOutLine (getCtx(), getM_InOutLine_ID(), get_TrxName());
-			setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+			setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 		}
 		return true;
 	}	//	beforeSave
@@ -313,7 +313,7 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 			MAcctSchema as = acctschemas[asn];
 
 			MCostDetail cd = MCostDetail.get (getCtx(), "M_MatchInv_ID=?", 
-					getM_MatchInv_ID(), getM_AttributeSetInstance_ID(), as.getC_AcctSchema_ID(), get_TrxName());
+					getM_MatchInv_ID(), getMAttributeSetInstance_ID(), as.getC_AcctSchema_ID(), get_TrxName());
 			if (cd != null)
 			{
 				cd.deleteEx(true);

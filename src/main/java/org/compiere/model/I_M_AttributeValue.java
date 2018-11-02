@@ -94,14 +94,14 @@ public interface I_M_AttributeValue
 	/** Set Attribute.
 	  * Product Attribute
 	  */
-	public void setM_Attribute_ID (int M_Attribute_ID);
+	public void setMAttributeID (int M_Attribute_ID);
 
 	/** Get Attribute.
 	  * Product Attribute
 	  */
-	public int getM_Attribute_ID();
+	public int getMAttribute_ID();
 
-	public I_M_Attribute getM_Attribute() throws RuntimeException;
+	public I_M_Attribute getMAttribute() throws RuntimeException;
 
     /** Column name M_AttributeValue_ID */
     public static final String COLUMNNAME_M_AttributeValue_ID = "M_AttributeValue_ID";
@@ -114,7 +114,7 @@ public interface I_M_AttributeValue
 	/** Get Attribute Value.
 	  * Product Attribute Value
 	  */
-	public int getM_AttributeValue_ID();
+	public int getMAttributeValue_ID();
 
     /** Column name M_AttributeValue_UU */
     public static final String COLUMNNAME_M_AttributeValue_UU = "M_AttributeValue_UU";
@@ -123,7 +123,7 @@ public interface I_M_AttributeValue
 	public void setM_AttributeValue_UU (String M_AttributeValue_UU);
 
 	/** Get M_AttributeValue_UU	  */
-	public String getM_AttributeValue_UU();
+	public String getMAttributeValue_UU();
 
     
     

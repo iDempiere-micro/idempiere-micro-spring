@@ -113,10 +113,10 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 		return (String)get_Value(COLUMNNAME_Lot);
 	}
 
-	public org.compiere.model.I_M_AttributeSet getM_AttributeSet() throws RuntimeException
+	public org.compiere.model.I_M_AttributeSet getMAttributeSet() throws RuntimeException
     {
 		return (org.compiere.model.I_M_AttributeSet)MTable.get(getCtx(), org.compiere.model.I_M_AttributeSet.Table_Name)
-			.getPO(getM_AttributeSet_ID(), get_TrxName());	}
+			.getPO(getMAttributeSet_ID(), get_TrxName());	}
 
 	/** Set Attribute Set.
 		@param M_AttributeSet_ID 
@@ -133,7 +133,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 	/** Get Attribute Set.
 		@return Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID () 
+	public int getMAttributeSet_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
@@ -156,7 +156,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
@@ -169,7 +169,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_AttributeSetInstance_ID()));
+        return new KeyNamePair(get_ID(), String.valueOf(getMAttributeSetInstance_ID()));
     }
 
 	/** Set M_AttributeSetInstance_UU.
@@ -181,7 +181,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 
 	/** Get M_AttributeSetInstance_UU.
 		@return M_AttributeSetInstance_UU	  */
-	public String getM_AttributeSetInstance_UU () 
+	public String getMAttributeSetInstance_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_AttributeSetInstance_UU);
 	}

@@ -101,8 +101,8 @@ public class MProductionLine extends X_M_ProductionLine {
 		}
 		StringBuilder errorString = new StringBuilder();
 		
-		MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getM_AttributeSetInstance_ID(), get_TrxName());
-		I_M_AttributeSet attributeset = prod.getM_AttributeSet();
+		MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getMAttributeSetInstance_ID(), get_TrxName());
+		I_M_AttributeSet attributeset = prod.getMAttributeSet();
 		boolean isAutoGenerateLot = false;
 		if (attributeset != null)
 			isAutoGenerateLot = attributeset.isAutoGenerateLot();		
@@ -113,14 +113,14 @@ public class MProductionLine extends X_M_ProductionLine {
 		if (log.isLoggable(Level.FINEST))	log.log(Level.FINEST, "asi Description is: " + asiString);
 		// create transactions for finished goods
 		if ( getM_Product_ID() == getEndProduct_ID()) {
-			if (reversalId <= 0  && isAutoGenerateLot && getM_AttributeSetInstance_ID() == 0)
+			if (reversalId <= 0  && isAutoGenerateLot && getMAttributeSetInstance_ID() == 0)
 			{
 				asi = MAttributeSetInstance.generateLot(getCtx(), (MProduct)getM_Product(), get_TrxName());
-				setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+				setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
 			} 
 			Timestamp dateMPolicy = date;
-			if(getM_AttributeSetInstance_ID()>0){
-				Timestamp t = MStorageOnHand.getDateMaterialPolicy(getM_Product_ID(), getM_AttributeSetInstance_ID(), getM_Locator_ID(), get_TrxName());
+			if(getMAttributeSetInstance_ID()>0){
+				Timestamp t = MStorageOnHand.getDateMaterialPolicy(getM_Product_ID(), getMAttributeSetInstance_ID(), getM_Locator_ID(), get_TrxName());
 				if (t != null)
 					dateMPolicy = t;
 			}
@@ -173,7 +173,7 @@ public class MProductionLine extends X_M_ProductionLine {
 							lineQty = qtyToMove;
 	
 					MAttributeSetInstance slASI = new MAttributeSetInstance(getCtx(),
-							storages[sl].getM_AttributeSetInstance_ID(),get_TrxName());
+							storages[sl].getMAttributeSetInstance_ID(),get_TrxName());
 					String slASIString = slASI.getDescription();
 					if (slASIString == null)
 						slASIString = "";
@@ -181,11 +181,11 @@ public class MProductionLine extends X_M_ProductionLine {
 					if (log.isLoggable(Level.FINEST))log.log(Level.FINEST,"slASI-Description =" + slASIString);
 						
 					if ( slASIString.compareTo(asiString) == 0
-							|| asi.getM_AttributeSet_ID() == 0  )  
+							|| asi.getMAttributeSet_ID() == 0  )  
 					//storage matches specified ASI or is a costing asi (inc. 0)
 				    // This process will move negative stock on hand quantities
 					{
-						lineMA = MProductionLineMA.get(this,storages[sl].getM_AttributeSetInstance_ID(),storages[sl].getDateMaterialPolicy());
+						lineMA = MProductionLineMA.get(this,storages[sl].getMAttributeSetInstance_ID(),storages[sl].getDateMaterialPolicy());
 						lineMA.setMovementQty(lineMA.getMovementQty().add(lineQty.negate()));
 						if ( !lineMA.save(get_TrxName()) ) {
 							log.log(Level.SEVERE, "Could not save MA for " + toString());
@@ -195,7 +195,7 @@ public class MProductionLine extends X_M_ProductionLine {
 						}
 						matTrx = new MTransaction (getCtx(), getAD_Org_ID(), 
 								"P-", 
-								getM_Locator_ID(), getM_Product_ID(), lineMA.getM_AttributeSetInstance_ID(), 
+								getM_Locator_ID(), getM_Product_ID(), lineMA.getMAttributeSetInstance_ID(), 
 								lineQty.negate(), date, get_TrxName());
 						matTrx.setM_ProductionLine_ID(get_ID());
 						if ( !matTrx.save(get_TrxName()) ) {
@@ -232,8 +232,8 @@ public class MProductionLine extends X_M_ProductionLine {
 			
 				if (storage != null)
 				{
-					setM_AttributeSetInstance_ID(storage.getM_AttributeSetInstance_ID());
-					asi = new MAttributeSetInstance(getCtx(), storage.getM_AttributeSetInstance_ID(), get_TrxName());
+					setM_AttributeSetInstance_ID(storage.getMAttributeSetInstance_ID());
+					asi = new MAttributeSetInstance(getCtx(), storage.getMAttributeSetInstance_ID(), get_TrxName());
 					asiString = asi.getDescription();
 				} 
 				else
@@ -250,8 +250,8 @@ public class MProductionLine extends X_M_ProductionLine {
 						.first();
 					if (cost != null)
 					{
-						setM_AttributeSetInstance_ID(cost.getM_AttributeSetInstance_ID());
-						asi = new MAttributeSetInstance(getCtx(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+						setM_AttributeSetInstance_ID(cost.getMAttributeSetInstance_ID());
+						asi = new MAttributeSetInstance(getCtx(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 						asiString = asi.getDescription();
 						
 					} 
@@ -281,7 +281,7 @@ public class MProductionLine extends X_M_ProductionLine {
 				
 				BigDecimal lineQty = qtyToMove;
 				MAttributeSetInstance slASI = new MAttributeSetInstance(getCtx(),
-						storage.getM_AttributeSetInstance_ID(),get_TrxName());
+						storage.getMAttributeSetInstance_ID(),get_TrxName());
 				String slASIString = slASI.getDescription();
 				if (slASIString == null)
 					slASIString = "";
@@ -289,11 +289,11 @@ public class MProductionLine extends X_M_ProductionLine {
 				if (log.isLoggable(Level.FINEST))log.log(Level.FINEST,"slASI-Description =" + slASIString);
 					
 				if ( slASIString.compareTo(asiString) == 0
-						|| asi.getM_AttributeSet_ID() == 0  )  
+						|| asi.getMAttributeSet_ID() == 0  )  
 				//storage matches specified ASI or is a costing asi (inc. 0)
 			    // This process will move negative stock on hand quantities
 				{
-					lineMA = MProductionLineMA.get(this,storage.getM_AttributeSetInstance_ID(),storage.getDateMaterialPolicy());
+					lineMA = MProductionLineMA.get(this,storage.getMAttributeSetInstance_ID(),storage.getDateMaterialPolicy());
 					lineMA.setMovementQty(lineMA.getMovementQty().add(lineQty.negate()));
 					
 					if ( !lineMA.save(get_TrxName()) ) {
@@ -374,7 +374,7 @@ public class MProductionLine extends X_M_ProductionLine {
 				setIsEndProduct(false);
 		}
 		
-		if ( isEndProduct() && getM_AttributeSetInstance_ID() != 0 )
+		if ( isEndProduct() && getMAttributeSetInstance_ID() != 0 )
 		{
 			String where = "M_QualityTest_ID IN (SELECT M_QualityTest_ID " +
 			"FROM M_Product_QualityTest WHERE M_Product_ID=?) " +
@@ -382,11 +382,11 @@ public class MProductionLine extends X_M_ProductionLine {
 			"FROM M_QualityTestResult WHERE M_AttributeSetInstance_ID=?)";
 
 			List<MQualityTest> tests = new Query(getCtx(), MQualityTest.Table_Name, where, get_TrxName())
-			.setOnlyActiveRecords(true).setParameters(getM_Product_ID(), getM_AttributeSetInstance_ID()).list();
+			.setOnlyActiveRecords(true).setParameters(getM_Product_ID(), getMAttributeSetInstance_ID()).list();
 			// create quality control results
 			for (MQualityTest test : tests)
 			{
-				test.createResult(getM_AttributeSetInstance_ID());
+				test.createResult(getMAttributeSetInstance_ID());
 			}
 		}
 		

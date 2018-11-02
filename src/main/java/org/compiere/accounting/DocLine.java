@@ -559,7 +559,7 @@ public class DocLine
 	 *  ASI
 	 *  @return M_AttributeSetInstance_ID
 	 */
-	public int getM_AttributeSetInstance_ID()
+	public int getMAttributeSetInstance_ID()
 	{
 		int index = p_po.get_ColumnIndex("M_AttributeSetInstance_ID");
 		if (index != -1)
@@ -569,7 +569,7 @@ public class DocLine
 				return ii;
 		}
 		return 0;
-	}   //  getM_AttributeSetInstance_ID
+	}   //  getMAttributeSetInstance_ID
 
 	/**
 	 *  Get Warehouse Locator (from)
@@ -715,7 +715,7 @@ public class DocLine
 	{
 		if (m_productCost == null)
 			m_productCost = new ProductCost (Env.getCtx(), 
-				getM_Product_ID(), getM_AttributeSetInstance_ID(), p_po.get_TrxName());
+				getM_Product_ID(), getMAttributeSetInstance_ID(), p_po.get_TrxName());
 		return m_productCost;
 	}	//	getProductCost
 	
@@ -733,7 +733,7 @@ public class DocLine
 		if (whereClause != null && !as.getCostingMethod().equals(MAcctSchema.COSTINGMETHOD_StandardCosting))
 		{
 			MCostDetail cd = MCostDetail.get (Env.getCtx(), whereClause,
-					get_ID(), getM_AttributeSetInstance_ID(), as.getC_AcctSchema_ID(), p_po.get_TrxName());
+					get_ID(), getMAttributeSetInstance_ID(), as.getC_AcctSchema_ID(), p_po.get_TrxName());
 			if (cd != null)
 				return cd.getAmt();
 		}
@@ -768,7 +768,7 @@ public class DocLine
 	{
 		if (m_productCost == null)
 			m_productCost = new ProductCost (Env.getCtx(), 
-				getM_Product_ID(), getM_AttributeSetInstance_ID(), p_po.get_TrxName());
+				getM_Product_ID(), getMAttributeSetInstance_ID(), p_po.get_TrxName());
 		if (m_productCost != null)
 			return m_productCost.getProduct();
 		return null;

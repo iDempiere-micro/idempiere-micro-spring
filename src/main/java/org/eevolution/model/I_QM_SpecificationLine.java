@@ -96,14 +96,14 @@ public interface I_QM_SpecificationLine
 	/** Set Attribute.
 	  * Product Attribute
 	  */
-	public void setM_Attribute_ID (int M_Attribute_ID);
+	public void setMAttributeID (int M_Attribute_ID);
 
 	/** Get Attribute.
 	  * Product Attribute
 	  */
-	public int getM_Attribute_ID();
+	public int getMAttribute_ID();
 
-	public org.compiere.model.I_M_Attribute getM_Attribute() throws RuntimeException;
+	public org.compiere.model.I_M_Attribute getMAttribute() throws RuntimeException;
 
     /** Column name Operation */
     public static final String COLUMNNAME_Operation = "Operation";

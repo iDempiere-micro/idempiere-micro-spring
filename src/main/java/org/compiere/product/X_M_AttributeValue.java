@@ -31,7 +31,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
         super(ctx, M_AttributeValue_ID, trxName);
         /** if (M_AttributeValue_ID == 0)
          {
-         setM_Attribute_ID (0);
+         setMAttributeID (0);
          setM_AttributeValue_ID (0);
          setName (null);
          setValue (null);
@@ -86,9 +86,9 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
         return (String) get_Value(COLUMNNAME_Description);
     }
 
-    public org.compiere.model.I_M_Attribute getM_Attribute() throws RuntimeException {
+    public org.compiere.model.I_M_Attribute getMAttribute() throws RuntimeException {
         return (org.compiere.model.I_M_Attribute) MTable.get(getCtx(), org.compiere.model.I_M_Attribute.Table_Name)
-            .getPO(getM_Attribute_ID(), get_TrxName());
+            .getPO(getMAttribute_ID(), get_TrxName());
     }
 
     /**
@@ -96,7 +96,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
      *
      * @param M_Attribute_ID Product Attribute
      */
-    public void setM_Attribute_ID(int M_Attribute_ID) {
+    public void setMAttributeID(int M_Attribute_ID) {
         if (M_Attribute_ID < 1)
             set_ValueNoCheck(COLUMNNAME_M_Attribute_ID, null);
         else
@@ -108,7 +108,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
      *
      * @return Product Attribute
      */
-    public int getM_Attribute_ID() {
+    public int getMAttribute_ID() {
         Integer ii = (Integer) get_Value(COLUMNNAME_M_Attribute_ID);
         if (ii == null)
             return 0;
@@ -132,7 +132,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
      *
      * @return Product Attribute Value
      */
-    public int getM_AttributeValue_ID() {
+    public int getMAttributeValue_ID() {
         Integer ii = (Integer) get_Value(COLUMNNAME_M_AttributeValue_ID);
         if (ii == null)
             return 0;
@@ -153,7 +153,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
      *
      * @return M_AttributeValue_UU
      */
-    public String getM_AttributeValue_UU() {
+    public String getMAttributeValue_UU() {
         return (String) get_Value(COLUMNNAME_M_AttributeValue_UU);
     }
 

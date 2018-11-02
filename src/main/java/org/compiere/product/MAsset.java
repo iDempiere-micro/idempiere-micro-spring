@@ -116,7 +116,7 @@ public class MAsset extends X_A_Asset
 	 * @param asi
 	 */
 	public void setASI(MAttributeSetInstance asi) {
-		setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
 		setLot(asi.getLot());
 		setSerNo(asi.getSerNo());
 	}
@@ -164,24 +164,24 @@ public class MAsset extends X_A_Asset
 		}
 		//
 		// Create ASI if not exist:
-		if (getM_Product_ID() > 0 && getM_AttributeSetInstance_ID() <= 0)
+		if (getM_Product_ID() > 0 && getMAttributeSetInstance_ID() <= 0)
 		{
 			MProduct product = MProduct.get(getCtx(), getM_Product_ID());
-			MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), 0, product.getM_AttributeSet_ID(), get_TrxName());
+			MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), 0, product.getMAttributeSet_ID(), get_TrxName());
 			asi.setSerNo(getSerNo());
 			asi.setDescription();
 			asi.saveEx();
-			setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+			setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
 		}
 		// TODO: With the lines below, after creating the asset, the whole system goes much slower ??? 
-//		else if (is_ValueChanged(COLUMNNAME_SerNo) && getM_AttributeSetInstance_ID() > 0) {
-//			asi = new MAttributeSetInstance(getCtx(), getM_AttributeSetInstance_ID(), get_TrxName());
+//		else if (is_ValueChanged(COLUMNNAME_SerNo) && getMAttributeSetInstance_ID() > 0) {
+//			asi = new MAttributeSetInstance(getCtx(), getMAttributeSetInstance_ID(), get_TrxName());
 //			asi.setSerNo(getSerNo());
 //			asi.setDescription();
 //			asi.saveEx();
 //		}
-//		else if ((newRecord || is_ValueChanged(COLUMNNAME_M_AttributeSetInstance_ID)) && getM_AttributeSetInstance_ID() > 0) {
-//			asi = new MAttributeSetInstance(getCtx(), getM_AttributeSetInstance_ID(), get_TrxName());
+//		else if ((newRecord || is_ValueChanged(COLUMNNAME_M_AttributeSetInstance_ID)) && getMAttributeSetInstance_ID() > 0) {
+//			asi = new MAttributeSetInstance(getCtx(), getMAttributeSetInstance_ID(), get_TrxName());
 //			setASI(asi);
 //		}
 		//

@@ -497,14 +497,14 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 			if (product.isInstanceAttribute())
 			{
 				MAttributeSet mas = product.getAttributeSet();
-				MAttributeSetInstance masi = new MAttributeSetInstance(getCtx(), 0, mas.getM_AttributeSet_ID(), get_TrxName());
+				MAttributeSetInstance masi = new MAttributeSetInstance(getCtx(), 0, mas.getMAttributeSet_ID(), get_TrxName());
 				if (mas.isLot() && imp.getLot() != null)
 					masi.setLot(imp.getLot(), imp.getM_Product_ID());
 				if (mas.isSerNo() && imp.getSerNo() != null)
 					masi.setSerNo(imp.getSerNo());
 				masi.setDescription();
 				masi.saveEx();
-				M_AttributeSetInstance_ID = masi.getM_AttributeSetInstance_ID();
+				M_AttributeSetInstance_ID = masi.getMAttributeSetInstance_ID();
 			}
 		}
 		return M_AttributeSetInstance_ID;
@@ -523,7 +523,7 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 		}
 
 		int costOrgID = p_AD_OrgTrx_ID;
-		int costASI = line.getM_AttributeSetInstance_ID();
+		int costASI = line.getMAttributeSetInstance_ID();
 		if (MAcctSchema.COSTINGLEVEL_Client.equals(costingLevel)){
 			costOrgID = 0;
 			costASI = 0;

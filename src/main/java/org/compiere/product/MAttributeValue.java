@@ -28,7 +28,7 @@ public class MAttributeValue extends X_M_AttributeValue
 		/** if (M_AttributeValue_ID == 0)
 		{
 		setM_AttributeValue_ID (0);
-		setM_Attribute_ID (0);
+		setMAttributeID (0);
 		setName (null);
 		setValue (null);
 		}

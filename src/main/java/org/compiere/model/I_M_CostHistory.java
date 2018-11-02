@@ -86,9 +86,9 @@ public interface I_M_CostHistory
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_CostDetail_ID */
     public static final String COLUMNNAME_M_CostDetail_ID = "M_CostDetail_ID";

@@ -692,7 +692,7 @@ public class MStorageOnHand extends X_M_StorageOnHand
 		//	Verify
 		if (storage.getM_Locator_ID() != M_Locator_ID 
 			&& storage.getM_Product_ID() != M_Product_ID
-			&& storage.getM_AttributeSetInstance_ID() != M_AttributeSetInstance_ID)
+			&& storage.getMAttributeSetInstance_ID() != M_AttributeSetInstance_ID)
 		{
 			s_log.severe ("No Storage found - M_Locator_ID=" + M_Locator_ID 
 				+ ",M_Product_ID=" + M_Product_ID + ",ASI=" + M_AttributeSetInstance_ID);
@@ -715,13 +715,13 @@ public class MStorageOnHand extends X_M_StorageOnHand
 		final String sql = "UPDATE M_StorageOnHand SET QtyOnHand=QtyOnHand+?, Updated=SYSDATE, UpdatedBy=? " +
 				"WHERE M_Product_ID=? AND M_Locator_ID=? AND M_AttributeSetInstance_ID=? AND DateMaterialPolicy=?";
 		DB.executeUpdateEx(sql, 
-			new Object[] {addition, Env.getAD_User_ID(Env.getCtx()), getM_Product_ID(), getM_Locator_ID(), getM_AttributeSetInstance_ID(), getDateMaterialPolicy()}, 
+			new Object[] {addition, Env.getAD_User_ID(Env.getCtx()), getM_Product_ID(), getM_Locator_ID(), getMAttributeSetInstance_ID(), getDateMaterialPolicy()}, 
 			get_TrxName());
 		load(get_TrxName());
 		if (getQtyOnHand().signum() == -1) {
 			MWarehouse wh = MWarehouse.get(Env.getCtx(), getM_Warehouse_ID());
 			if (wh.isDisallowNegativeInv()) {
-				throw new NegativeInventoryDisallowedException(getCtx(), getM_Warehouse_ID(), getM_Product_ID(), getM_AttributeSetInstance_ID(), getM_Locator_ID(),
+				throw new NegativeInventoryDisallowedException(getCtx(), getM_Warehouse_ID(), getM_Product_ID(), getMAttributeSetInstance_ID(), getM_Locator_ID(),
 						getQtyOnHand().subtract(addition), addition.negate());
 			}
 		}
@@ -876,7 +876,7 @@ public class MStorageOnHand extends X_M_StorageOnHand
 					+ " AND l.M_Warehouse_ID=?"
 					+ " AND l.M_Locator_ID=?"
 					+ " AND s.M_AttributeSetInstance_ID<>?";
-				BigDecimal QtyOnHand = DB.getSQLValueBDEx(get_TrxName(), sql, new Object[] {getM_Product_ID(), getM_Warehouse_ID(), getM_Locator_ID(), getM_AttributeSetInstance_ID()});
+				BigDecimal QtyOnHand = DB.getSQLValueBDEx(get_TrxName(), sql, new Object[] {getM_Product_ID(), getM_Warehouse_ID(), getM_Locator_ID(), getMAttributeSetInstance_ID()});
 				if (QtyOnHand == null)
 					QtyOnHand = Env.ZERO;
 				
@@ -887,14 +887,14 @@ public class MStorageOnHand extends X_M_StorageOnHand
 						QtyOnHand.compareTo(Env.ZERO) < 0)
 				{
 					log.saveError("Error", new NegativeInventoryDisallowedException(getCtx(), getM_Warehouse_ID(), getM_Product_ID(), 
-							getM_AttributeSetInstance_ID(), getM_Locator_ID(), QtyOnHand.subtract(getQtyOnHand()), getQtyOnHand().negate()));
+							getMAttributeSetInstance_ID(), getM_Locator_ID(), QtyOnHand.subtract(getQtyOnHand()), getQtyOnHand().negate()));
 					return false;
 				}
 				
-				if (getM_AttributeSetInstance_ID() > 0 && getQtyOnHand().signum() < 0)
+				if (getMAttributeSetInstance_ID() > 0 && getQtyOnHand().signum() < 0)
 				{
 					log.saveError("Error", new NegativeInventoryDisallowedException(getCtx(), getM_Warehouse_ID(), getM_Product_ID(), 
-							getM_AttributeSetInstance_ID(), getM_Locator_ID(), QtyOnHand.subtract(getQtyOnHand()), getQtyOnHand().negate()));
+							getMAttributeSetInstance_ID(), getM_Locator_ID(), QtyOnHand.subtract(getQtyOnHand()), getQtyOnHand().negate()));
 					return false;
 				}
 			}
@@ -1007,7 +1007,7 @@ public class MStorageOnHand extends X_M_StorageOnHand
 		StringBuffer sb = new StringBuffer("MStorageOnHand[")
 			.append("M_Locator_ID=").append(getM_Locator_ID())
 			.append(",M_Product_ID=").append(getM_Product_ID())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append(",DateMaterialPolicy=").append(getDateMaterialPolicy())
 			.append(": OnHand=").append(getQtyOnHand())
 			/* @win commented out

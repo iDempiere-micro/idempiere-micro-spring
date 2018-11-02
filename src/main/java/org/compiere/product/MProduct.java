@@ -447,8 +447,8 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public MAttributeSet getAttributeSet()
 	{
-		if (getM_AttributeSet_ID() != 0)
-			return MAttributeSet.get(getCtx(), getM_AttributeSet_ID());
+		if (getMAttributeSet_ID() != 0)
+			return MAttributeSet.get(getCtx(), getMAttributeSet_ID());
 		return null;
 	}	//	getAttributeSet
 	
@@ -458,9 +458,9 @@ public class MProduct extends X_M_Product implements I_M_Product
 	 */
 	public boolean isInstanceAttribute()
 	{
-		if (getM_AttributeSet_ID() == 0)
+		if (getMAttributeSet_ID() == 0)
 			return false;
-		MAttributeSet mas = MAttributeSet.get(getCtx(), getM_AttributeSet_ID());
+		MAttributeSet mas = MAttributeSet.get(getCtx(), getMAttributeSet_ID());
 		return mas.isInstanceAttribute();
 	}	//	isInstanceAttribute
 	
@@ -570,10 +570,10 @@ public class MProduct extends X_M_Product implements I_M_Product
 			m_precision = null;
 		
 		// AttributeSetInstance reset
-		if (getM_AttributeSetInstance_ID() > 0 && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSet_ID))
+		if (getMAttributeSetInstance_ID() > 0 && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSet_ID))
 		{
-			MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getM_AttributeSetInstance_ID(), get_TrxName());
-			if (asi.getM_AttributeSet_ID() != getM_AttributeSet_ID())
+			MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getMAttributeSetInstance_ID(), get_TrxName());
+			if (asi.getMAttributeSet_ID() != getMAttributeSet_ID())
 				setM_AttributeSetInstance_ID(0);
 		}
 		if (!newRecord && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID))
@@ -582,7 +582,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 			int oldasiid = get_ValueOldAsInt(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID);
 			if (oldasiid > 0) {
 				MAttributeSetInstance oldasi = new MAttributeSetInstance(getCtx(), get_ValueOldAsInt(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID), get_TrxName());
-				int cnt = DB.getSQLValueEx(get_TrxName(), "SELECT COUNT(*) FROM M_Product WHERE M_AttributeSetInstance_ID=?", oldasi.getM_AttributeSetInstance_ID());
+				int cnt = DB.getSQLValueEx(get_TrxName(), "SELECT COUNT(*) FROM M_Product WHERE M_AttributeSetInstance_ID=?", oldasi.getMAttributeSetInstance_ID());
 				if (cnt == 1) {
 					// Delete the old m_attributesetinstance
 					try {
@@ -699,7 +699,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		instance = (MAttributeInstance)table.getPO(
 				MAttributeInstance.COLUMNNAME_M_AttributeSetInstance_ID + "=?" 
 				+ " and " + MAttributeInstance.COLUMNNAME_M_Attribute_ID + "=?" ,
-				new Object[]{getM_AttributeSetInstance_ID(), attribute.getM_Attribute_ID()},
+				new Object[]{getMAttributeSetInstance_ID(), attribute.getMAttribute_ID()},
 				trxName);
 		return instance;
 	}

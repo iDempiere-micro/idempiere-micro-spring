@@ -356,7 +356,7 @@ public class X_M_AttributeSet extends BasePOName implements I_M_AttributeSet, I_
 	/** Get Attribute Set.
 		@return Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID () 
+	public int getMAttributeSet_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
@@ -373,7 +373,7 @@ public class X_M_AttributeSet extends BasePOName implements I_M_AttributeSet, I_
 
 	/** Get M_AttributeSet_UU.
 		@return M_AttributeSet_UU	  */
-	public String getM_AttributeSet_UU () 
+	public String getMAttributeSet_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_AttributeSet_UU);
 	}

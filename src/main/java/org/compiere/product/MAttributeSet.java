@@ -121,7 +121,7 @@ public class MAttributeSet extends X_M_AttributeSet
 			try
 			{
 				pstmt = DB.prepareStatement(sql, get_TrxName());
-				pstmt.setInt(1, getM_AttributeSet_ID());
+				pstmt.setInt(1, getMAttributeSet_ID());
 				pstmt.setString(2, instanceAttributes ? "Y" : "N");
 				rs = pstmt.executeQuery();
 				while (rs.next())
@@ -390,7 +390,7 @@ public class MAttributeSet extends X_M_AttributeSet
 		{
 			StringBuilder sql = new StringBuilder("UPDATE M_AttributeSet mas")
 				.append(" SET IsInstanceAttribute='Y' ")
-				.append("WHERE M_AttributeSet_ID=").append(getM_AttributeSet_ID())
+				.append("WHERE M_AttributeSet_ID=").append(getMAttributeSet_ID())
 				.append(" AND IsInstanceAttribute='N'")
 				.append(" AND (IsSerNo='Y' OR IsLot='Y' OR IsGuaranteeDate='Y'")
 					.append(" OR EXISTS (SELECT * FROM M_AttributeUse mau")
@@ -411,7 +411,7 @@ public class MAttributeSet extends X_M_AttributeSet
 		{
 			StringBuilder sql = new StringBuilder("UPDATE M_AttributeSet mas")
 				.append(" SET IsInstanceAttribute='N' ")
-				.append("WHERE M_AttributeSet_ID=").append(getM_AttributeSet_ID())
+				.append("WHERE M_AttributeSet_ID=").append(getMAttributeSet_ID())
 				.append(" AND IsInstanceAttribute='Y'")
 				.append("	AND IsSerNo='N' AND IsLot='N' AND IsGuaranteeDate='N'")
 				.append(" AND NOT EXISTS (SELECT * FROM M_AttributeUse mau")

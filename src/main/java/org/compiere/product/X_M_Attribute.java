@@ -148,7 +148,7 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
 		@param M_Attribute_ID 
 		Product Attribute
 	  */
-	public void setM_Attribute_ID (int M_Attribute_ID)
+	public void setMAttributeID (int M_Attribute_ID)
 	{
 		if (M_Attribute_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_M_Attribute_ID, null);
@@ -159,7 +159,7 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
 	/** Get Attribute.
 		@return Product Attribute
 	  */
-	public int getM_Attribute_ID () 
+	public int getMAttribute_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Attribute_ID);
 		if (ii == null)
@@ -167,10 +167,10 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
 		return ii;
 	}
 
-	public org.compiere.model.I_M_AttributeSearch getM_AttributeSearch() throws RuntimeException
+	public org.compiere.model.I_M_AttributeSearch getMAttributeSearch() throws RuntimeException
     {
 		return (org.compiere.model.I_M_AttributeSearch)MTable.get(getCtx(), org.compiere.model.I_M_AttributeSearch.Table_Name)
-			.getPO(getM_AttributeSearch_ID(), get_TrxName());	}
+			.getPO(getMAttributeSearch_ID(), get_TrxName());	}
 
 	/** Set Attribute Search.
 		@param M_AttributeSearch_ID 
@@ -187,7 +187,7 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
 	/** Get Attribute Search.
 		@return Common Search Attribute 
 	  */
-	public int getM_AttributeSearch_ID () 
+	public int getMAttributeSearch_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSearch_ID);
 		if (ii == null)
@@ -204,7 +204,7 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
 
 	/** Get M_Attribute_UU.
 		@return M_Attribute_UU	  */
-	public String getM_Attribute_UU () 
+	public String getMAttribute_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_Attribute_UU);
 	}

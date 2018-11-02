@@ -251,7 +251,7 @@ public interface I_M_AttributeSet
 	/** Get Attribute Set.
 	  * Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID();
+	public int getMAttributeSet_ID();
 
     /** Column name M_AttributeSet_UU */
     public static final String COLUMNNAME_M_AttributeSet_UU = "M_AttributeSet_UU";
@@ -260,7 +260,7 @@ public interface I_M_AttributeSet
 	public void setM_AttributeSet_UU (String M_AttributeSet_UU);
 
 	/** Get M_AttributeSet_UU	  */
-	public String getM_AttributeSet_UU();
+	public String getMAttributeSet_UU();
 
     /** Column name M_LotCtl_ID */
     public static final String COLUMNNAME_M_LotCtl_ID = "M_LotCtl_ID";

@@ -156,7 +156,7 @@ public class Doc_InOut extends Doc
                 {
                     if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
                     {
-                        if (line.getM_AttributeSetInstance_ID() == 0 )
+                        if (line.getMAttributeSetInstance_ID() == 0 )
                         {
                             MInOutLine ioLine = (MInOutLine) line.getPO();
                             MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
@@ -169,7 +169,7 @@ public class Doc_InOut extends Doc
                                     BigDecimal QtyMA = ma.getMovementQty();
                                     ProductCost pc = line.getProductCost();
                                     pc.setQty(QtyMA);
-                                    pc.setM_M_AttributeSetInstance_ID(ma.getM_AttributeSetInstance_ID());
+                                    pc.setM_M_AttributeSetInstance_ID(ma.getMAttributeSetInstance_ID());
                                     BigDecimal maCosts = line.getProductCosts(as, line.getAD_Org_ID(), true, "M_InOutLine_ID=?");
 
                                     costs = costs.add(maCosts);
@@ -275,7 +275,7 @@ public class Doc_InOut extends Doc
                 }
                 if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
                 {
-                    if (line.getM_AttributeSetInstance_ID() == 0 )
+                    if (line.getMAttributeSetInstance_ID() == 0 )
                     {
                         MInOutLine ioLine = (MInOutLine) line.getPO();
                         MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
@@ -285,7 +285,7 @@ public class Doc_InOut extends Doc
                             {
                                 MInOutLineMA ma = mas[j];
                                 if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                                    line.getM_Product_ID(), ma.getM_AttributeSetInstance_ID(),
+                                    line.getM_Product_ID(), ma.getMAttributeSetInstance_ID(),
                                     line.get_ID(), 0,
                                     costs, ma.getMovementQty().negate(),
                                     line.getDescription(), true, getTrxName()))
@@ -302,7 +302,7 @@ public class Doc_InOut extends Doc
                         if (line.getM_Product_ID() != 0)
                         {
                             if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                                line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+                                line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
                                 line.get_ID(), 0,
                                 costs, line.getQty(),
                                 line.getDescription(), true, getTrxName()))
@@ -319,7 +319,7 @@ public class Doc_InOut extends Doc
                     if (line.getM_Product_ID() != 0)
                     {
                         if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                            line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+                            line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
                             line.get_ID(), 0,
                             costs, line.getQty(),
                             line.getDescription(), true, getTrxName()))
@@ -357,7 +357,7 @@ public class Doc_InOut extends Doc
                 {
                     if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
                     {
-                        if (line.getM_AttributeSetInstance_ID() == 0 )
+                        if (line.getMAttributeSetInstance_ID() == 0 )
                         {
                             MInOutLine ioLine = (MInOutLine) line.getPO();
                             MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
@@ -370,7 +370,7 @@ public class Doc_InOut extends Doc
                                     BigDecimal QtyMA = ma.getMovementQty();
                                     ProductCost pc = line.getProductCost();
                                     pc.setQty(QtyMA);
-                                    pc.setM_M_AttributeSetInstance_ID(ma.getM_AttributeSetInstance_ID());
+                                    pc.setM_M_AttributeSetInstance_ID(ma.getMAttributeSetInstance_ID());
                                     BigDecimal maCosts = line.getProductCosts(as, line.getAD_Org_ID(), true, "M_InOutLine_ID=?");
 
                                     costs = costs.add(maCosts);
@@ -436,7 +436,7 @@ public class Doc_InOut extends Doc
                 //
                 if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
                 {
-                    if (line.getM_AttributeSetInstance_ID() == 0 )
+                    if (line.getMAttributeSetInstance_ID() == 0 )
                     {
                         MInOutLine ioLine = (MInOutLine) line.getPO();
                         MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
@@ -446,7 +446,7 @@ public class Doc_InOut extends Doc
                             {
                                 MInOutLineMA ma = mas[j];
                                 if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                                    line.getM_Product_ID(), ma.getM_AttributeSetInstance_ID(),
+                                    line.getM_Product_ID(), ma.getMAttributeSetInstance_ID(),
                                     line.get_ID(), 0,
                                     costs, ma.getMovementQty(),
                                     line.getDescription(), true, getTrxName()))
@@ -461,7 +461,7 @@ public class Doc_InOut extends Doc
                         if (line.getM_Product_ID() != 0)
                         {
                             if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                                line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+                                line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
                                 line.get_ID(), 0,
                                 costs, line.getQty(),
                                 line.getDescription(), true, getTrxName()))
@@ -477,7 +477,7 @@ public class Doc_InOut extends Doc
                     if (line.getM_Product_ID() != 0)
                     {
                         if (!MCostDetail.createShipment(as, line.getAD_Org_ID(),
-                            line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+                            line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
                             line.get_ID(), 0,
                             costs, line.getQty(),
                             line.getDescription(), true, getTrxName()))
@@ -764,7 +764,7 @@ public class Doc_InOut extends Doc
                     {
                         if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
                         {
-                            if (line.getM_AttributeSetInstance_ID() == 0 )
+                            if (line.getMAttributeSetInstance_ID() == 0 )
                             {
                                 MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
                                 costs = BigDecimal.ZERO;
@@ -776,7 +776,7 @@ public class Doc_InOut extends Doc
                                         BigDecimal QtyMA = ma.getMovementQty();
                                         ProductCost pc = line.getProductCost();
                                         pc.setQty(QtyMA);
-                                        pc.setM_M_AttributeSetInstance_ID(ma.getM_AttributeSetInstance_ID());
+                                        pc.setM_M_AttributeSetInstance_ID(ma.getMAttributeSetInstance_ID());
                                         BigDecimal maCosts = line.getProductCosts(as, line.getAD_Org_ID(), true, "M_InOutLine_ID=?");
 
                                         costs = costs.add(maCosts);
@@ -905,7 +905,7 @@ public class Doc_InOut extends Doc
         MProduct product = line.getProduct();
         if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(as)) )
         {
-            if (line.getM_AttributeSetInstance_ID() == 0 )
+            if (line.getMAttributeSetInstance_ID() == 0 )
             {
                 MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), line.get_ID(), getTrxName());
                 if (mas != null && mas.length > 0 )
@@ -914,7 +914,7 @@ public class Doc_InOut extends Doc
                     {
                         MInOutLineMA ma = mas[j];
                         if (!MCostDetail.createShipment(as, line.getAD_Org_ID(), line.getM_Product_ID(),
-                            ma.getM_AttributeSetInstance_ID(), line.get_ID(), 0, tAmt, ma.getMovementQty().negate(),
+                            ma.getMAttributeSetInstance_ID(), line.get_ID(), 0, tAmt, ma.getMovementQty().negate(),
                             line.getDescription(), false, getTrxName()))
                             return "SaveError";
                     }
@@ -923,7 +923,7 @@ public class Doc_InOut extends Doc
             else
             {
                 if (!MCostDetail.createShipment(as, line.getAD_Org_ID(), line.getM_Product_ID(),
-                    line.getM_AttributeSetInstance_ID(), line.get_ID(), 0, tAmt, tQty,
+                    line.getMAttributeSetInstance_ID(), line.get_ID(), 0, tAmt, tQty,
                     line.getDescription(), false, getTrxName()))
                     return "SaveError";
             }
@@ -931,7 +931,7 @@ public class Doc_InOut extends Doc
         else
         {
             if (!MCostDetail.createShipment(as, line.getAD_Org_ID(), line.getM_Product_ID(),
-                line.getM_AttributeSetInstance_ID(), line.get_ID(), 0, tAmt, tQty,
+                line.getMAttributeSetInstance_ID(), line.get_ID(), 0, tAmt, tQty,
                 line.getDescription(), false, getTrxName()))
                 return "SaveError";
         }

@@ -150,7 +150,7 @@ public class MProjectIssue extends X_C_ProjectIssue implements IDocLine
 		//	**	Create Material Transactions **
 		MTransaction mTrx = new MTransaction (getCtx(), getAD_Org_ID(), 
 			MTransaction.MOVEMENTTYPE_WorkOrderPlus,
-			getM_Locator_ID(), getM_Product_ID(), getM_AttributeSetInstance_ID(),
+			getM_Locator_ID(), getM_Product_ID(), getMAttributeSetInstance_ID(),
 			getMovementQty().negate(), getMovementDate(), get_TrxName());
 		mTrx.setC_ProjectIssue_ID(getC_ProjectIssue_ID());
 		//
@@ -158,8 +158,8 @@ public class MProjectIssue extends X_C_ProjectIssue implements IDocLine
 		
 		Timestamp dateMPolicy = getMovementDate();
 		
-		if(getM_AttributeSetInstance_ID()>0){
-			Timestamp t = MStorageOnHand.getDateMaterialPolicy(getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+		if(getMAttributeSetInstance_ID()>0){
+			Timestamp t = MStorageOnHand.getDateMaterialPolicy(getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
 			if (t != null)
 				dateMPolicy = t;
 		}
@@ -172,7 +172,7 @@ public class MProjectIssue extends X_C_ProjectIssue implements IDocLine
 				String MMPolicy = product.getMMPolicy();
 				Timestamp minGuaranteeDate = getMovementDate();
 				int M_Warehouse_ID = getM_Locator_ID() > 0 ? getM_Locator().getM_Warehouse_ID() : getC_Project().getM_Warehouse_ID();
-				MStorageOnHand[] storages = MStorageOnHand.getWarehouse(getCtx(), M_Warehouse_ID, getM_Product_ID(), getM_AttributeSetInstance_ID(),
+				MStorageOnHand[] storages = MStorageOnHand.getWarehouse(getCtx(), M_Warehouse_ID, getM_Product_ID(), getMAttributeSetInstance_ID(),
 						minGuaranteeDate, MClient.MMPOLICY_FiFo.equals(MMPolicy), true, getM_Locator_ID(), get_TrxName(), true);
 				BigDecimal qtyToIssue = getMovementQty();
 				for (MStorageOnHand storage: storages)
@@ -194,14 +194,14 @@ public class MProjectIssue extends X_C_ProjectIssue implements IDocLine
 				if (qtyToIssue.signum() > 0)
 				{
 					ok = MStorageOnHand.add(getCtx(), loc.getM_Warehouse_ID(), getM_Locator_ID(), 
-							getM_Product_ID(), getM_AttributeSetInstance_ID(),
+							getM_Product_ID(), getMAttributeSetInstance_ID(),
 							qtyToIssue.negate(),dateMPolicy, get_TrxName());
 				}
 			} 
 			else 
 			{
 				ok = MStorageOnHand.add(getCtx(), loc.getM_Warehouse_ID(), getM_Locator_ID(), 
-						getM_Product_ID(), getM_AttributeSetInstance_ID(),
+						getM_Product_ID(), getMAttributeSetInstance_ID(),
 						getMovementQty().negate(),dateMPolicy, get_TrxName());				
 			}
 		}

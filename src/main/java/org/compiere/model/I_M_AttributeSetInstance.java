@@ -125,9 +125,9 @@ public interface I_M_AttributeSetInstance
 	/** Get Attribute Set.
 	  * Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID();
+	public int getMAttributeSet_ID();
 
-	public I_M_AttributeSet getM_AttributeSet() throws RuntimeException;
+	public I_M_AttributeSet getMAttributeSet() throws RuntimeException;
 
     /** Column name M_AttributeSetInstance_ID */
     public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
@@ -140,7 +140,7 @@ public interface I_M_AttributeSetInstance
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
     /** Column name M_AttributeSetInstance_UU */
     public static final String COLUMNNAME_M_AttributeSetInstance_UU = "M_AttributeSetInstance_UU";
@@ -149,7 +149,7 @@ public interface I_M_AttributeSetInstance
 	public void setM_AttributeSetInstance_UU (String M_AttributeSetInstance_UU);
 
 	/** Get M_AttributeSetInstance_UU	  */
-	public String getM_AttributeSetInstance_UU();
+	public String getMAttributeSetInstance_UU();
 
     /** Column name M_Lot_ID */
     public static final String COLUMNNAME_M_Lot_ID = "M_Lot_ID";

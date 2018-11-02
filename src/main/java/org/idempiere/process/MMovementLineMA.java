@@ -176,7 +176,7 @@ public class MMovementLineMA extends X_M_MovementLineMA
     {
         StringBuilder sb = new StringBuilder ("MMovementLineMA[");
         sb.append("M_MovementLine_ID=").append(getM_MovementLine_ID())
-            .append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+            .append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
             .append(", Qty=").append(getMovementQty())
             .append ("]");
         return sb.toString ();
@@ -227,9 +227,9 @@ public class MMovementLineMA extends X_M_MovementLineMA
             I_M_MovementLine line = getM_MovementLine();
 
             Timestamp dateMPolicy = null;
-            if(getM_AttributeSetInstance_ID()>0)
+            if(getMAttributeSetInstance_ID()>0)
             {
-                dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+                dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
             }
 
             if(dateMPolicy == null)

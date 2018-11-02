@@ -162,10 +162,10 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         return new KeyNamePair(get_ID(), String.valueOf(getLine()));
     }
 
-    public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+    public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
         return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-            .getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+            .getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
     /** Set Attribute Set Instance.
      @param M_AttributeSetInstance_ID
@@ -182,7 +182,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
     /** Get Attribute Set Instance.
      @return Product Attribute Set Instance
      */
-    public int getM_AttributeSetInstance_ID ()
+    public int getMAttributeSetInstance_ID ()
     {
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
         if (ii == null)
@@ -190,10 +190,10 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         return ii;
     }
 
-    public I_M_AttributeSetInstance getM_AttributeSetInstanceTo() throws RuntimeException
+    public I_M_AttributeSetInstance getMAttributeSetInstanceTo() throws RuntimeException
     {
         return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-            .getPO(getM_AttributeSetInstanceTo_ID(), get_TrxName());	}
+            .getPO(getMAttributeSetInstanceTo_ID(), get_TrxName());	}
 
     /** Set Attribute Set Instance To.
      @param M_AttributeSetInstanceTo_ID
@@ -210,7 +210,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
     /** Get Attribute Set Instance To.
      @return Target Product Attribute Set Instance
      */
-    public int getM_AttributeSetInstanceTo_ID ()
+    public int getMAttributeSetInstanceTo_ID ()
     {
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstanceTo_ID);
         if (ii == null)
