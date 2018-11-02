@@ -308,6 +308,7 @@ class MSetup
             clientAdminUser.password = name
         clientAdminUser.description = name
         clientAdminUser.setName(name)
+        clientAdminUser.value = name
         clientAdminUser.aD_Client_ID = AD_Client_ID
         clientAdminUser.aD_Org_ID = 0
         clientAdminUser.eMail = adminEmail
@@ -339,6 +340,7 @@ class MSetup
             clientUser.password = name
         clientUser.description = name
         clientUser.setName(name)
+        clientUser.value = name
         clientUser.aD_Client_ID = AD_Client_ID
         clientUser.aD_Org_ID = 0
         clientUser.eMail = userEmail
