@@ -7,11 +7,9 @@ import java.util.Properties;
 
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_S_ResourceAssignment;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -30,14 +28,6 @@ public class X_S_ResourceAssignment extends BasePOName implements I_S_ResourceAs
     public X_S_ResourceAssignment (Properties ctx, int S_ResourceAssignment_ID, String trxName)
     {
       super (ctx, S_ResourceAssignment_ID, trxName);
-      /** if (S_ResourceAssignment_ID == 0)
-        {
-			setAssignDateFrom (new Timestamp( System.currentTimeMillis() ));
-			setIsConfirmed (false);
-			setName (null);
-			setS_ResourceAssignment_ID (0);
-			setS_Resource_ID (0);
-        } */
     }
 
     /** Load Constructor */
@@ -227,12 +217,4 @@ public class X_S_ResourceAssignment extends BasePOName implements I_S_ResourceAs
 			 return 0;
 		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getS_Resource_ID()));
-    }
 }

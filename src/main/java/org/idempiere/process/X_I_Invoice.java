@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_I_Invoice;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
+public class X_I_Invoice extends BasePOName implements I_I_Invoice, I_Persistent
 {
 
     /**
@@ -23,11 +23,6 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
     public X_I_Invoice (Properties ctx, int I_Invoice_ID, String trxName)
     {
         super (ctx, I_Invoice_ID, trxName);
-        /** if (I_Invoice_ID == 0)
-         {
-         setI_Invoice_ID (0);
-         setI_IsImported (false);
-         } */
     }
 
     /** Load Constructor */
@@ -986,23 +981,6 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         if (ii == null)
             return 0;
         return ii;
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /** Set Payment Term Key.

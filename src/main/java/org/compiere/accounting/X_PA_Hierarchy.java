@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_PA_Hierarchy;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for PA_Hierarchy
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
+public class X_PA_Hierarchy extends BasePOName implements I_PA_Hierarchy, I_Persistent
 {
 
 	/**
@@ -26,19 +25,6 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
     public X_PA_Hierarchy (Properties ctx, int PA_Hierarchy_ID, String trxName)
     {
       super (ctx, PA_Hierarchy_ID, trxName);
-      /** if (PA_Hierarchy_ID == 0)
-        {
-			setAD_Tree_Account_ID (0);
-			setAD_Tree_Activity_ID (0);
-			setAD_Tree_BPartner_ID (0);
-			setAD_Tree_Campaign_ID (0);
-			setAD_Tree_Org_ID (0);
-			setAD_Tree_Product_ID (0);
-			setAD_Tree_Project_ID (0);
-			setAD_Tree_SalesRegion_ID (0);
-			setName (null);
-			setPA_Hierarchy_ID (0);
-        } */
     }
 
     /** Load Constructor */
@@ -326,31 +312,6 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_Help);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Reporting Hierarchy.
 		@param PA_Hierarchy_ID 

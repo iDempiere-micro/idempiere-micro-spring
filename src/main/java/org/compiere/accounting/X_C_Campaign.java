@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Campaign;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_Campaign
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Campaign extends PO implements I_C_Campaign, I_Persistent
+public class X_C_Campaign extends BasePONameValue implements I_C_Campaign, I_Persistent
 {
 
 	/**
@@ -29,14 +28,6 @@ public class X_C_Campaign extends PO implements I_C_Campaign, I_Persistent
     public X_C_Campaign (Properties ctx, int C_Campaign_ID, String trxName)
     {
       super (ctx, C_Campaign_ID, trxName);
-      /** if (C_Campaign_ID == 0)
-        {
-			setC_Campaign_ID (0);
-			setCosts (Env.ZERO);
-			setIsSummary (false);
-			setName (null);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -210,31 +201,6 @@ public class X_C_Campaign extends PO implements I_C_Campaign, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Start Date.
 		@param StartDate 
 		First effective day (inclusive)
@@ -252,20 +218,4 @@ public class X_C_Campaign extends PO implements I_C_Campaign, I_Persistent
 		return (Timestamp)get_Value(COLUMNNAME_StartDate);
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

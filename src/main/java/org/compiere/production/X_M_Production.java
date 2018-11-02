@@ -5,20 +5,20 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_Locator;
 import org.compiere.model.I_M_Production;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_Production
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_Production extends PO implements I_Persistent
+public class X_M_Production extends BasePOName implements I_Persistent
 {
 
 	/**
@@ -30,21 +30,6 @@ public class X_M_Production extends PO implements I_Persistent
     public X_M_Production (Properties ctx, int M_Production_ID, String trxName)
     {
       super (ctx, M_Production_ID, trxName);
-      /** if (M_Production_ID == 0)
-        {
-			setDocumentNo (null);
-			setIsCreated (null);
-// N
-			setIsUseProductionPlan (false);
-// N
-			setMovementDate (new Timestamp( System.currentTimeMillis() ));
-// @#Date@
-			setM_Production_ID (0);
-			setPosted (false);
-			setProcessed (false);
-			setProductionQty (Env.ZERO);
-// 0
-        } */
     }
 
     /** Load Constructor */
@@ -454,14 +439,6 @@ public class X_M_Production extends PO implements I_Persistent
 		return (String)get_Value(I_M_Production.COLUMNNAME_DocumentNo);
 	}
 
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getDocumentNo());
-    }
-
 	/** Set Complete.
 		@param IsComplete 
 		It is complete
@@ -636,23 +613,6 @@ public class X_M_Production extends PO implements I_Persistent
 	public String getM_Production_UU () 
 	{
 		return (String)get_Value(I_M_Production.COLUMNNAME_M_Production_UU);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_M_Production.HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_M_Production.HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Posted.

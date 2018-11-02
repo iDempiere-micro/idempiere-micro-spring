@@ -32,6 +32,7 @@ import org.compiere.accounting.MProduct;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.invoicing.MInventory;
 import org.compiere.invoicing.MInventoryLine;
+import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.model.I_C_DocType;
 import org.compiere.model.I_M_Inventory;
@@ -328,7 +329,7 @@ public class CostUpdate extends SvrProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(m_docType.getName());
 					else
-						msg.append(m_docType.get_Translation(I_C_DocType.HasName.Companion.getCOLUMNNAME_Name()));
+						msg.append(m_docType.get_Translation(HasName.Companion.getCOLUMNNAME_Name()));
 					throw new AdempiereUserError(msg.toString());
 				}
 				else
@@ -338,7 +339,7 @@ public class CostUpdate extends SvrProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(m_docType.getName()).append(" ").append(inventoryDoc.getDocumentNo());
 					else
-						msg.append(m_docType.get_Translation(I_C_DocType.HasName.Companion.getCOLUMNNAME_Name())).append(" ").append(inventoryDoc.getDocumentNo());
+						msg.append(m_docType.get_Translation(HasName.Companion.getCOLUMNNAME_Name())).append(" ").append(inventoryDoc.getDocumentNo());
 					addBufferLog(getAD_PInstance_ID(), null, null, msg.toString(), I_M_Inventory.Table_ID, inventoryDoc.getM_Inventory_ID());
 				}
 			}

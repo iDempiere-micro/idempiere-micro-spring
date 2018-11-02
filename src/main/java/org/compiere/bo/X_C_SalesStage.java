@@ -5,17 +5,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_SalesStage;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePONameValue;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_SalesStage
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
+public class X_C_SalesStage extends BasePONameValue implements I_C_SalesStage, I_Persistent
 {
 
 	/**
@@ -27,15 +26,6 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
     public X_C_SalesStage (Properties ctx, int C_SalesStage_ID, String trxName)
     {
       super (ctx, C_SalesStage_ID, trxName);
-      /** if (C_SalesStage_ID == 0)
-        {
-			setC_SalesStage_ID (0);
-			setIsClosed (false);
-// N
-			setName (null);
-			setProbability (Env.ZERO);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -168,31 +158,6 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Probability.
 		@param Probability Probability	  */
 	public void setProbability (BigDecimal Probability)
@@ -208,22 +173,5 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
-	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
 	}
 }

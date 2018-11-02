@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Language;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Language
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Language extends PO implements I_AD_Language, I_Persistent
+public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persistent
 {
 
 	/**
@@ -26,17 +25,6 @@ public class X_AD_Language extends PO implements I_AD_Language, I_Persistent
     public X_AD_Language (Properties ctx, int AD_Language_ID, String trxName)
     {
       super (ctx, AD_Language_ID, trxName);
-      /** if (AD_Language_ID == 0)
-        {
-			setAD_Language (null);
-			setAD_Language_ID (0);
-// @SQL=SELECT NVL(MAX(AD_Language_ID),0)+1 AS DefaultValue FROM AD_Language
-			setIsBaseLanguage (false);
-// N
-			setIsSystemLanguage (false);
-			setName (null);
-			setPrintName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -289,31 +277,6 @@ public class X_AD_Language extends PO implements I_AD_Language, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_LanguageISO);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Print Text.
 		@param PrintName 

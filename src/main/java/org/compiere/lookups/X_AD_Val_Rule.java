@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Val_Rule;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Val_Rule
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Val_Rule extends PO implements I_AD_Val_Rule, I_Persistent
+public class X_AD_Val_Rule extends BasePOName implements I_AD_Val_Rule, I_Persistent
 {
 
 	/**
@@ -25,14 +24,6 @@ public class X_AD_Val_Rule extends PO implements I_AD_Val_Rule, I_Persistent
     public X_AD_Val_Rule (Properties ctx, int AD_Val_Rule_ID, String trxName)
     {
       super (ctx, AD_Val_Rule_ID, trxName);
-      /** if (AD_Val_Rule_ID == 0)
-        {
-			setAD_Val_Rule_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-			setType (null);
-        } */
     }
 
     /** Load Constructor */
@@ -153,31 +144,6 @@ public class X_AD_Val_Rule extends PO implements I_AD_Val_Rule, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_EntityType);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Type AD_Reference_ID=101 */
 	public static final int TYPE_AD_Reference_ID=101;
