@@ -54,7 +54,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

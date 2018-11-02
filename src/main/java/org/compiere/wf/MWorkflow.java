@@ -52,7 +52,7 @@ public class MWorkflow extends X_AD_Workflow
 	 */
 	public static MWorkflow get (Properties ctx, int AD_Workflow_ID)
 	{
-		String key = Env.getAD_Language(ctx) + "_" + AD_Workflow_ID;
+		String key = Env.getADLanguage(ctx) + "_" + AD_Workflow_ID;
 		MWorkflow retValue = (MWorkflow)s_cache.get(key);
 		if (retValue != null)
 			return retValue;
@@ -204,7 +204,7 @@ public class MWorkflow extends X_AD_Workflow
 		{
 			pstmt = DB.prepareStatement(sql, null);
 			pstmt.setInt(1, get_ID());
-			pstmt.setString(2, Env.getAD_Language(getCtx()));
+			pstmt.setString(2, Env.getADLanguage(getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next())
 			{

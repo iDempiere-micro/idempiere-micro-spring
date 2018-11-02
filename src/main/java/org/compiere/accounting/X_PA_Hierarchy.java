@@ -36,7 +36,7 @@ public class X_PA_Hierarchy extends BasePOName implements I_PA_Hierarchy, I_Pers
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

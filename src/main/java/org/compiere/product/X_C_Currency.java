@@ -55,7 +55,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

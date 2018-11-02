@@ -78,7 +78,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

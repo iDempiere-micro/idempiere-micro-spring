@@ -44,7 +44,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

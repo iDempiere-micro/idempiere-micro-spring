@@ -209,7 +209,7 @@ public class ProjectGenPO extends SvrProcess
 		addBufferLog (order.getC_Order_ID(),
 				order.getDateOrdered(),
 				new BigDecimal(orderLine.getLine()),
-				Msg.getElement(Env.getAD_Language(Env.getCtx()), "C_Order_ID", false)+":"+order.getDocumentNo(), 
+				Msg.getElement(Env.getADLanguage(Env.getCtx()), "C_Order_ID", false)+":"+order.getDocumentNo(), 
 				order.get_Table_ID(), 
 				order.getC_Order_ID());
 	}	//	createPOfromProjectLine

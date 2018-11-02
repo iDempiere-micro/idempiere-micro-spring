@@ -42,7 +42,7 @@ public class X_R_Resolution extends BasePOName implements I_R_Resolution, I_Pers
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

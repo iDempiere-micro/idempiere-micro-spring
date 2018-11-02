@@ -39,7 +39,7 @@ public class X_S_ResourceAssignment extends BasePOName implements I_S_ResourceAs
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

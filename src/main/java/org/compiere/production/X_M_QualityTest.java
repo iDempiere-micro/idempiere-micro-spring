@@ -35,7 +35,7 @@ public class X_M_QualityTest extends BasePOName implements I_M_QualityTest, I_Pe
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

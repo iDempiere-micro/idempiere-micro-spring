@@ -43,7 +43,7 @@ public class X_R_Category extends BasePOName implements I_R_Category, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

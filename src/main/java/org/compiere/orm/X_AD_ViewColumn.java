@@ -43,7 +43,7 @@ public class X_AD_ViewColumn extends PO implements I_AD_ViewColumn, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

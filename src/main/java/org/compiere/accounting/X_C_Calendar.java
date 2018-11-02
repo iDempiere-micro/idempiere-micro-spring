@@ -35,7 +35,7 @@ public class X_C_Calendar extends BasePOName implements I_C_Calendar, I_Persiste
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

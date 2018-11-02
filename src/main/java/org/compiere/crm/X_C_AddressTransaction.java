@@ -47,7 +47,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

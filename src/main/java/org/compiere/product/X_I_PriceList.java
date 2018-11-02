@@ -46,7 +46,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

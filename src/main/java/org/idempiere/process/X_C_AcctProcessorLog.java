@@ -37,7 +37,7 @@ public class X_C_AcctProcessorLog extends PO implements I_C_AcctProcessorLog, I_
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

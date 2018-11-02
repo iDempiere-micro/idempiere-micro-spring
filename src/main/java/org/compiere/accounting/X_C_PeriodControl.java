@@ -45,7 +45,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

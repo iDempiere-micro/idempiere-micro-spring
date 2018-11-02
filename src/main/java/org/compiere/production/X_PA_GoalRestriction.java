@@ -38,7 +38,7 @@ public class X_PA_GoalRestriction extends BasePOName implements I_PA_GoalRestric
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

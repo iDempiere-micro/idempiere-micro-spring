@@ -39,7 +39,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

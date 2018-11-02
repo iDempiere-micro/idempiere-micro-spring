@@ -44,7 +44,7 @@ public class X_C_Activity extends BasePONameValue implements I_C_Activity, I_Per
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

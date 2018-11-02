@@ -66,7 +66,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

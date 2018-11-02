@@ -37,7 +37,7 @@ public class X_C_PaymentTerm extends BasePONameValue implements I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_PaymentTerm.accessLevel.intValue();
     }

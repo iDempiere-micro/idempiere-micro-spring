@@ -42,7 +42,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

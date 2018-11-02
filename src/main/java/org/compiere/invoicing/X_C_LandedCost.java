@@ -45,7 +45,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

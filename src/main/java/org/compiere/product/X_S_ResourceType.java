@@ -69,7 +69,7 @@ public class X_S_ResourceType extends BasePONameValue implements I_S_ResourceTyp
      *
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel() {
+    protected int getAccessLevel() {
         return accessLevel.intValue();
     }
 

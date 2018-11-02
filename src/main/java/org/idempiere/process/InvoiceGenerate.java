@@ -423,14 +423,14 @@ public class InvoiceGenerate extends SvrProcess
 			
 			//	Reference: Delivery: 12345 - 12.12.12
 			MClient client = MClient.get(getCtx(), order.getAD_Client_ID ());
-			String AD_Language = client.getAD_Language();
-			if (client.isMultiLingualDocument() && m_bp.getAD_Language() != null)
-				AD_Language = m_bp.getAD_Language();
+			String AD_Language = client.getADLanguage();
+			if (client.isMultiLingualDocument() && m_bp.getADLanguage() != null)
+				AD_Language = m_bp.getADLanguage();
 			if (AD_Language == null)
 				AD_Language = Language.getBaseAD_Language();
 			java.text.SimpleDateFormat format = DisplayType.getDateFormat 
 				(DisplayType.Date, Language.getLanguage(AD_Language));
-			StringBuilder reference = new StringBuilder().append(dt.getPrintName(m_bp.getAD_Language()))
+			StringBuilder reference = new StringBuilder().append(dt.getPrintName(m_bp.getADLanguage()))
 				.append(": ").append(ship.getDocumentNo()) 
 				.append(" - ").append(format.format(ship.getMovementDate()));
 			m_ship = ship;

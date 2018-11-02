@@ -35,7 +35,7 @@ public class X_C_Dunning extends BasePOName implements I_C_Dunning, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

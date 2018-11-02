@@ -37,7 +37,7 @@ public class X_R_RequestProcessorLog extends PO implements I_R_RequestProcessorL
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

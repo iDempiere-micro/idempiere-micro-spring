@@ -60,7 +60,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

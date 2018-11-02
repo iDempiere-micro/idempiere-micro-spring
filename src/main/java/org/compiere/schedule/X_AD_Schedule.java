@@ -35,7 +35,7 @@ public class X_AD_Schedule extends BasePOName implements I_AD_Schedule, I_Persis
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Schedule.accessLevel.intValue();
     }

@@ -54,7 +54,7 @@ public class X_C_BPartner_Location extends BasePOName implements I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_BPartner_Location.accessLevel.intValue();
     }

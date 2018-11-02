@@ -48,7 +48,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

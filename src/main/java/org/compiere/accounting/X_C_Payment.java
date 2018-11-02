@@ -78,7 +78,7 @@ public class X_C_Payment extends PO implements I_C_Payment, I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

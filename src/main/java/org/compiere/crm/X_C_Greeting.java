@@ -44,7 +44,7 @@ public class X_C_Greeting extends BasePOName implements I_C_Greeting, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -40,7 +40,7 @@ public class X_C_Phase extends BasePOName implements I_C_Phase, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -64,7 +64,7 @@ public class X_AD_User extends BasePONameValue implements I_AD_User, I_Persisten
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

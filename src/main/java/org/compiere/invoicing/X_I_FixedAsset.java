@@ -53,7 +53,7 @@ public class X_I_FixedAsset extends BasePOName implements I_I_FixedAsset, I_Pers
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

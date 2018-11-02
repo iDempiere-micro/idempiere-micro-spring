@@ -61,7 +61,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

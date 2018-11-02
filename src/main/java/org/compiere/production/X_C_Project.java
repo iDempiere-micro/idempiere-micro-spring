@@ -64,7 +64,7 @@ public class X_C_Project extends BasePONameValue implements I_C_Project, I_Persi
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

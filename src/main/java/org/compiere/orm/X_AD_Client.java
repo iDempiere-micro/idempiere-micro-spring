@@ -37,7 +37,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @return 6 - System - Client
      */
-    protected int get_AccessLevel() {
+    protected int getAccessLevel() {
         return accessLevel.intValue();
     }
 
@@ -58,7 +58,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @param AD_Client_UU AD_Client_UU
      */
-    public void setAD_Client_UU(String AD_Client_UU) {
+    public void setADClientUU(String AD_Client_UU) {
         set_Value(COLUMNNAME_AD_Client_UU, AD_Client_UU);
     }
 
@@ -67,7 +67,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @return AD_Client_UU
      */
-    public String getAD_Client_UU() {
+    public String getADClientUU() {
         return (String) get_Value(COLUMNNAME_AD_Client_UU);
     }
 
@@ -81,7 +81,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @param AD_Language Language for this entity
      */
-    public void setAD_Language(String AD_Language) {
+    public void setADLanguage(String AD_Language) {
 
         set_Value(COLUMNNAME_AD_Language, AD_Language);
     }
@@ -91,13 +91,13 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @return Language for this entity
      */
-    public String getAD_Language() {
+    public String getADLanguage() {
         return (String) get_Value(COLUMNNAME_AD_Language);
     }
 
-    public org.compiere.model.I_AD_PasswordRule getAD_PasswordRule() throws RuntimeException {
+    public org.compiere.model.I_AD_PasswordRule getADPasswordRule() throws RuntimeException {
         return (org.compiere.model.I_AD_PasswordRule) MTable.get(getCtx(), org.compiere.model.I_AD_PasswordRule.Table_Name)
-            .getPO(getAD_PasswordRule_ID(), get_TrxName());
+            .getPO(getADPasswordRule_ID(), get_TrxName());
     }
 
     /**
@@ -117,16 +117,16 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @return Password Policies
      */
-    public int getAD_PasswordRule_ID() {
+    public int getADPasswordRule_ID() {
         Integer ii = (Integer) get_Value(COLUMNNAME_AD_PasswordRule_ID);
         if (ii == null)
             return 0;
         return ii;
     }
 
-    public org.compiere.model.I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException {
+    public org.compiere.model.I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException {
         return (org.compiere.model.I_AD_ReplicationStrategy) MTable.get(getCtx(), org.compiere.model.I_AD_ReplicationStrategy.Table_Name)
-            .getPO(getAD_ReplicationStrategy_ID(), get_TrxName());
+            .getPO(getADReplicationStrategyID(), get_TrxName());
     }
 
     /**
@@ -134,7 +134,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @param AD_ReplicationStrategy_ID Data Replication Strategy
      */
-    public void setAD_ReplicationStrategy_ID(int AD_ReplicationStrategy_ID) {
+    public void setADReplicationStrategyID(int AD_ReplicationStrategy_ID) {
         if (AD_ReplicationStrategy_ID < 1)
             set_Value(COLUMNNAME_AD_ReplicationStrategy_ID, null);
         else
@@ -146,7 +146,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
      *
      * @return Data Replication Strategy
      */
-    public int getAD_ReplicationStrategy_ID() {
+    public int getADReplicationStrategyID() {
         Integer ii = (Integer) get_Value(COLUMNNAME_AD_ReplicationStrategy_ID);
         if (ii == null)
             return 0;

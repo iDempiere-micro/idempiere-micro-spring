@@ -37,7 +37,7 @@ public class X_C_AcctSchema_Element extends BasePOName implements I_C_AcctSchema
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -40,7 +40,7 @@ public class X_I_BankStatement extends BasePOName implements I_I_BankStatement, 
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

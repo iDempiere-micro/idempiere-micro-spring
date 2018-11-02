@@ -55,7 +55,7 @@ public class X_DD_OrderLine extends PO implements I_DD_OrderLine, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

@@ -52,7 +52,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_ContactActivity.accessLevel.intValue();
     }

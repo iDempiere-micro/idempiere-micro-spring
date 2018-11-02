@@ -37,10 +37,10 @@ public interface I_AD_Client
     public static final String COLUMNNAME_AD_Client_UU = "AD_Client_UU";
 
 	/** Set AD_Client_UU	  */
-	public void setAD_Client_UU (String AD_Client_UU);
+	public void setADClientUU (String AD_Client_UU);
 
 	/** Get AD_Client_UU	  */
-	public String getAD_Client_UU();
+	public String getADClientUU();
 
     /** Column name AD_Language */
     public static final String COLUMNNAME_AD_Language = "AD_Language";
@@ -48,12 +48,12 @@ public interface I_AD_Client
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
@@ -75,9 +75,9 @@ public interface I_AD_Client
 	public void setAD_PasswordRule_ID (int AD_PasswordRule_ID);
 
 	/** Get Password Policies	  */
-	public int getAD_PasswordRule_ID();
+	public int getADPasswordRule_ID();
 
-	public I_AD_PasswordRule getAD_PasswordRule() throws RuntimeException;
+	public I_AD_PasswordRule getADPasswordRule() throws RuntimeException;
 
     /** Column name AD_ReplicationStrategy_ID */
     public static final String COLUMNNAME_AD_ReplicationStrategy_ID = "AD_ReplicationStrategy_ID";
@@ -85,14 +85,14 @@ public interface I_AD_Client
 	/** Set Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID);
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID);
 
 	/** Get Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID();
+	public int getADReplicationStrategyID();
 
-	public I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException;
+	public I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException;
 
     /** Column name AutoArchive */
     public static final String COLUMNNAME_AutoArchive = "AutoArchive";

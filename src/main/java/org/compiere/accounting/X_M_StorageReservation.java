@@ -49,7 +49,7 @@ public class X_M_StorageReservation extends PO implements I_M_StorageReservation
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -36,7 +36,7 @@ public class X_M_ShippingProcessor extends BasePOName implements I_M_ShippingPro
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

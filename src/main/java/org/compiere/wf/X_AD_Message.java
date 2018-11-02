@@ -46,7 +46,7 @@ public class X_AD_Message extends PO implements I_AD_Message, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

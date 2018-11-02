@@ -35,7 +35,7 @@ public class X_C_ConversionType extends BasePONameValue implements I_C_Conversio
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

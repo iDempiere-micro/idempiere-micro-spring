@@ -41,7 +41,7 @@ public class X_AD_HouseKeeping extends BasePONameValue implements I_AD_HouseKeep
     /** AccessLevel
      * @return 4 - System
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

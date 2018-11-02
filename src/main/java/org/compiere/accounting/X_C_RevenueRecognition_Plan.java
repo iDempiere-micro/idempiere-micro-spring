@@ -52,7 +52,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

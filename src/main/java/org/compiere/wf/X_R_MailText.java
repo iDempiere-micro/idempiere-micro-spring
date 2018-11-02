@@ -35,7 +35,7 @@ public class X_R_MailText extends BasePOName implements I_R_MailText, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

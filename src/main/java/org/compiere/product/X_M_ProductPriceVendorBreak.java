@@ -43,7 +43,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

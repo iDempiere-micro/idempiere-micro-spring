@@ -41,7 +41,7 @@ public class X_M_Production extends BasePOName implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_M_Production.accessLevel.intValue();
     }

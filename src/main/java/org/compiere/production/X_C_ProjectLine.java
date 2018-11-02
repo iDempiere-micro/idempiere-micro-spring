@@ -58,7 +58,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

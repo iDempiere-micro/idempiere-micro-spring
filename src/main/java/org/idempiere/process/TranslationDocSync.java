@@ -65,7 +65,7 @@ public class TranslationDocSync extends SvrProcess
 	{
 		MClient client = MClient.get(getCtx());
 		String baselang = Language.getBaseAD_Language();
-		if (client.isMultiLingualDocument() && client.getAD_Language().equals(baselang)) {
+		if (client.isMultiLingualDocument() && client.getADLanguage().equals(baselang)) {
 			throw new AdempiereUserError("@AD_Client_ID@: @IsMultiLingualDocument@");
 		}
 		if (log.isLoggable(Level.INFO)) log.info("" + client);
@@ -107,7 +107,7 @@ public class TranslationDocSync extends SvrProcess
 		
 		if (client.isMultiLingualDocument()) {
 			String baselang = Language.getBaseAD_Language();
-			if (client.getAD_Language().equals(baselang)) {
+			if (client.getADLanguage().equals(baselang)) {
 				// tenant language = base language
 				// nothing to do
 			} else {
@@ -117,7 +117,7 @@ public class TranslationDocSync extends SvrProcess
 						.append(columnNames).append(",IsTranslated) = (SELECT ").append(columnNames)
 						.append(",'Y' FROM ").append(baseTable).append(" b WHERE ").append(trlTable).append(".")
 						.append(baseTable).append("_ID=b.").append(baseTable).append("_ID) WHERE AD_Client_ID=")
-						.append(getAD_Client_ID()).append(" AND AD_Language=").append(DB.TO_STRING(client.getAD_Language()));
+						.append(getAD_Client_ID()).append(" AND AD_Language=").append(DB.TO_STRING(client.getADLanguage()));
 
 				int no = DB.executeUpdate(sql.toString(), get_TrxName());
 				addLog(0, null, new BigDecimal(no), baseTable);

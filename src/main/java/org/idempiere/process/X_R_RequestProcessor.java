@@ -32,7 +32,7 @@ public class X_R_RequestProcessor extends BasePOName implements I_R_RequestProce
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

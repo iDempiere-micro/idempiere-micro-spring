@@ -38,7 +38,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_WF_Responsible.accessLevel.intValue();
     }

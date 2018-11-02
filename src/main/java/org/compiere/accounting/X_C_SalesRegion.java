@@ -46,7 +46,7 @@ public class X_C_SalesRegion extends BasePONameValue implements I_C_SalesRegion,
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

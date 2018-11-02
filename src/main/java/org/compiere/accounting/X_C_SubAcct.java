@@ -43,7 +43,7 @@ public class X_C_SubAcct extends BasePONameValue implements I_C_SubAcct, I_Persi
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -61,7 +61,7 @@ public class X_GL_JournalLine extends PO implements I_GL_JournalLine, I_Persiste
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

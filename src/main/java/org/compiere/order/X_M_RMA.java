@@ -38,7 +38,7 @@ public class X_M_RMA extends BasePOName implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_M_RMA.accessLevel.intValue();
     }

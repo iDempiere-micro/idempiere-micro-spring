@@ -35,7 +35,7 @@ public class X_C_JobCategory extends BasePOName implements I_C_JobCategory, I_Pe
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

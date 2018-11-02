@@ -117,12 +117,12 @@ public interface I_RV_BPartner extends HasName, HasName2
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_OrgBP_ID */
     public static final String COLUMNNAME_AD_OrgBP_ID = "AD_OrgBP_ID";

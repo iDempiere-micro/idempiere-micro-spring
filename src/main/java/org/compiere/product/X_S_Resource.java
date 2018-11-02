@@ -52,7 +52,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

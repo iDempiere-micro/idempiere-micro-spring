@@ -69,7 +69,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

@@ -52,7 +52,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

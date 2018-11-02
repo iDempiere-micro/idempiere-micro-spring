@@ -35,7 +35,7 @@ public class X_AD_SysConfig extends BasePONameValue implements I_AD_SysConfig, I
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

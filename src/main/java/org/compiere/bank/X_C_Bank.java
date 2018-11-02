@@ -37,7 +37,7 @@ public class X_C_Bank extends BasePOName implements I_C_Bank, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

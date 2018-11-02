@@ -35,7 +35,7 @@ public class X_AD_EntityType extends BasePOName implements I_AD_EntityType, I_Pe
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

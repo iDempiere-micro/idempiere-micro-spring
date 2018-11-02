@@ -44,7 +44,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

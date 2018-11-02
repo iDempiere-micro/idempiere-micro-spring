@@ -44,7 +44,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

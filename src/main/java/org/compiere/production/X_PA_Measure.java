@@ -49,7 +49,7 @@ public class X_PA_Measure extends BasePOName implements I_PA_Measure, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

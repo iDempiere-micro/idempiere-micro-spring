@@ -62,7 +62,7 @@ public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_P
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

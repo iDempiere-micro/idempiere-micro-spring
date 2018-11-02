@@ -58,7 +58,7 @@ public class X_C_Tax extends PO implements I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_Tax.accessLevel.intValue();
     }

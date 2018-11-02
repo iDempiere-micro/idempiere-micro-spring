@@ -34,7 +34,7 @@ public class X_AD_Sequence extends BasePOName implements I_AD_Sequence, I_Persis
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

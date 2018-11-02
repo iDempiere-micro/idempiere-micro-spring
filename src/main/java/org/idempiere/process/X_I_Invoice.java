@@ -34,7 +34,7 @@ public class X_I_Invoice extends BasePOName implements I_I_Invoice, I_Persistent
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

@@ -35,7 +35,7 @@ public class X_AD_ModelValidator extends BasePOName implements I_AD_ModelValidat
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

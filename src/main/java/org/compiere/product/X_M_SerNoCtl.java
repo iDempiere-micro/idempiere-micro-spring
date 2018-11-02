@@ -48,7 +48,7 @@ public class X_M_SerNoCtl extends BasePOName implements I_M_SerNoCtl, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

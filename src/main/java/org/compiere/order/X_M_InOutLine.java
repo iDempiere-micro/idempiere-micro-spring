@@ -59,7 +59,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

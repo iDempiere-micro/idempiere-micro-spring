@@ -75,7 +75,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_BPartner.accessLevel.intValue();
     }
@@ -140,7 +140,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		@param AD_Language 
 		Language for this entity
 	  */
-	public void setAD_Language (String AD_Language)
+	public void setADLanguage (String AD_Language)
 	{
 
 		set_Value (I_C_BPartner.COLUMNNAME_AD_Language, AD_Language);
@@ -149,7 +149,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 	/** Get Language.
 		@return Language for this entity
 	  */
-	public String getAD_Language () 
+	public String getADLanguage () 
 	{
 		return (String)get_Value(I_C_BPartner.COLUMNNAME_AD_Language);
 	}

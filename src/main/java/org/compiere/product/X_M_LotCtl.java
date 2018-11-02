@@ -48,7 +48,7 @@ public class X_M_LotCtl extends BasePOName implements I_M_LotCtl, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

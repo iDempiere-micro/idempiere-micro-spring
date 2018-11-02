@@ -47,7 +47,7 @@ public class X_C_PaymentBatch extends BasePOName implements I_C_PaymentBatch, I_
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

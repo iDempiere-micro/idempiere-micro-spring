@@ -43,7 +43,7 @@ public class X_R_Group extends BasePOName implements I_R_Group, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

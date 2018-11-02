@@ -47,7 +47,7 @@ public class X_AD_PInstance extends BasePOName implements I_AD_PInstance, I_Pers
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -66,14 +66,14 @@ public class X_AD_PInstance extends BasePOName implements I_AD_PInstance, I_Pers
       return sb.toString();
     }
 
-	public org.compiere.model.I_AD_Language getAD_Language() throws RuntimeException
+	public org.compiere.model.I_AD_Language getADLanguage() throws RuntimeException
     {
 		return (org.compiere.model.I_AD_Language)MTable.get(getCtx(), org.compiere.model.I_AD_Language.Table_Name)
 			.getPO(getAD_Language_ID(), get_TrxName());	}
 
 	/** Set Language ID.
 		@param AD_Language_ID Language ID	  */
-	public void setAD_Language_ID (int AD_Language_ID)
+	public void setADLanguage_ID (int AD_Language_ID)
 	{
 		if (AD_Language_ID < 1) 
 			set_Value (COLUMNNAME_AD_Language_ID, null);

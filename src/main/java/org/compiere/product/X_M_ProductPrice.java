@@ -46,7 +46,7 @@ public class X_M_ProductPrice extends PO implements I_M_ProductPrice, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

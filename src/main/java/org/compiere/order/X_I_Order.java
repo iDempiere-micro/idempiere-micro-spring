@@ -39,7 +39,7 @@ public class X_I_Order extends BasePOName implements I_I_Order, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

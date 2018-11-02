@@ -41,7 +41,7 @@ public class X_M_Replenish extends PO implements I_M_Replenish, I_Persistent
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

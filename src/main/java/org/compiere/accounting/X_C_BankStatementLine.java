@@ -63,7 +63,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

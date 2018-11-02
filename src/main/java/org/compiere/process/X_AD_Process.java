@@ -51,7 +51,7 @@ public class X_AD_Process extends BasePONameValue implements I_AD_Process, I_Per
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

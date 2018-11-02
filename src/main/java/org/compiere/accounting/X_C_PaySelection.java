@@ -52,7 +52,7 @@ public class X_C_PaySelection extends BasePOName implements I_C_PaySelection, I_
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

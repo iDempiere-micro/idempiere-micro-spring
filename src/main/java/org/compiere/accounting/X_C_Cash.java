@@ -39,7 +39,7 @@ public class X_C_Cash extends BasePOName implements I_C_Cash, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

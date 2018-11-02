@@ -79,7 +79,7 @@ public class X_GL_Journal extends PO implements I_GL_Journal, I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

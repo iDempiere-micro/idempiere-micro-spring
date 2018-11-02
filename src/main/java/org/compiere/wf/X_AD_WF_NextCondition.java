@@ -52,7 +52,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -47,7 +47,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

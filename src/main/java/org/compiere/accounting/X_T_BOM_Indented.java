@@ -37,7 +37,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

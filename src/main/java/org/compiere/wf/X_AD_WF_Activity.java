@@ -49,7 +49,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

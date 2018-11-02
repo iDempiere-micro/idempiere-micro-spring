@@ -52,7 +52,7 @@ public class X_M_AttributeSet extends BasePOName implements I_M_AttributeSet, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -43,7 +43,7 @@ public class X_M_ProductDownload extends BasePOName implements I_M_ProductDownlo
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -59,7 +59,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -46,7 +46,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

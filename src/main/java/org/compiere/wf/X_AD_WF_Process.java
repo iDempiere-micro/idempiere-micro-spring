@@ -47,7 +47,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

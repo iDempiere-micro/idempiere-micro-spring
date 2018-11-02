@@ -50,7 +50,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -46,7 +46,7 @@ public class X_S_ExpenseType extends BasePONameValue implements I_S_ExpenseType,
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

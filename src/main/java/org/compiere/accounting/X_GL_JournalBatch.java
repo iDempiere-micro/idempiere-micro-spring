@@ -57,7 +57,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

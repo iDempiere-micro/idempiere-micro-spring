@@ -44,7 +44,7 @@ public class X_R_ContactInterest extends BasePOUser implements I_R_ContactIntere
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

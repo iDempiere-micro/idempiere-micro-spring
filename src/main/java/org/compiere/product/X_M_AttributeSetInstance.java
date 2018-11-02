@@ -43,7 +43,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

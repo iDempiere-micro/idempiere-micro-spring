@@ -51,7 +51,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

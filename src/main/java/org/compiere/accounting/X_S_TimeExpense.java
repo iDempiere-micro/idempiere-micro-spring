@@ -51,7 +51,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

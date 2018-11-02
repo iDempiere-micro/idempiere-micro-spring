@@ -49,7 +49,7 @@ public class X_AD_Rule extends BasePONameValue implements I_AD_Rule, I_Persisten
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Rule.accessLevel.intValue();
     }

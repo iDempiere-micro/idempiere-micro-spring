@@ -36,7 +36,7 @@ public class X_C_CountryGroup extends BasePONameValue implements I_C_CountryGrou
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

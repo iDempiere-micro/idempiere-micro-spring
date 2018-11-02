@@ -35,7 +35,7 @@ public class X_A_Depreciation extends BasePOName implements I_A_Depreciation, I_
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -84,7 +84,7 @@ public class X_M_Product extends PO implements I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_M_Product.accessLevel.intValue();
     }

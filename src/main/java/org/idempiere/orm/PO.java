@@ -231,7 +231,7 @@ public abstract class PO
 	 * 	Get Table Access Level
 	 *	@return Access Level
 	 */
-	abstract protected int get_AccessLevel();
+	abstract protected int getAccessLevel();
 
 	/**
 	 *  String representation
@@ -1417,7 +1417,7 @@ public abstract class PO
 	 */
 	public String get_Translation (String columnName, boolean fallback)
 	{
-		return get_Translation(columnName, Env.getAD_Language(getCtx()), false, fallback);
+		return get_Translation(columnName, Env.getADLanguage(getCtx()), false, fallback);
 	}
 
 
@@ -2475,7 +2475,7 @@ public abstract class PO
 		}
 
 		//	Organization Check
-		if (getAD_Org_ID() == 0 && (get_AccessLevel() == ACCESSLEVEL_ORG) )
+		if (getAD_Org_ID() == 0 && (getAccessLevel() == ACCESSLEVEL_ORG) )
 		{
 			log.saveError("FillMandatory", Msg.getElement(getCtx(), "AD_Org_ID"));
 			return false;
@@ -2483,13 +2483,13 @@ public abstract class PO
 		//	Should be Org 0
 		if (getAD_Org_ID() != 0)
 		{
-			boolean reset = get_AccessLevel() == ACCESSLEVEL_SYSTEM;
+			boolean reset = getAccessLevel() == ACCESSLEVEL_SYSTEM;
 			if (!reset && false ) // isOrgLevelOnly default is false
 			{
-				reset = get_AccessLevel() == ACCESSLEVEL_CLIENT
-						|| get_AccessLevel() == ACCESSLEVEL_SYSTEMCLIENT
-						|| get_AccessLevel() == ACCESSLEVEL_ALL
-						|| get_AccessLevel() == ACCESSLEVEL_CLIENTORG;
+				reset = getAccessLevel() == ACCESSLEVEL_CLIENT
+						|| getAccessLevel() == ACCESSLEVEL_SYSTEMCLIENT
+						|| getAccessLevel() == ACCESSLEVEL_ALL
+						|| getAccessLevel() == ACCESSLEVEL_CLIENTORG;
 			}
 			if (reset)
 			{

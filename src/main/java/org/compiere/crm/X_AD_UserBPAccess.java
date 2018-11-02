@@ -42,7 +42,7 @@ public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, 
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

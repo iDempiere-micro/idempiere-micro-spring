@@ -42,7 +42,7 @@ public class X_AD_Process_Access extends PO implements I_AD_Process_Access, I_Pe
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

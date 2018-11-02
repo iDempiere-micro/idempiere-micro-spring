@@ -78,7 +78,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

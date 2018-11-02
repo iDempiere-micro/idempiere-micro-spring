@@ -50,7 +50,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
      *
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel() {
+    protected int getAccessLevel() {
         return accessLevel.intValue();
     }
 

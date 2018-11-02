@@ -40,7 +40,7 @@ public class X_AD_User_Roles extends PO implements I_AD_User_Roles, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

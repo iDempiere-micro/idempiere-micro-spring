@@ -46,7 +46,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

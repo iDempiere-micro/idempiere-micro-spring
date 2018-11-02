@@ -46,7 +46,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

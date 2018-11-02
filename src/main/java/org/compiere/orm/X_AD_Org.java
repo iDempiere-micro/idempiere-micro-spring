@@ -34,7 +34,7 @@ public class X_AD_Org extends BasePONameValue implements I_AD_Org, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -65,16 +65,16 @@ public class X_AD_Org extends BasePONameValue implements I_AD_Org, I_Persistent
 		return (String)get_Value(COLUMNNAME_AD_Org_UU);
 	}
 
-	public org.compiere.model.I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException
+	public org.compiere.model.I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException
     {
 		return (org.compiere.model.I_AD_ReplicationStrategy)MTable.get(getCtx(), org.compiere.model.I_AD_ReplicationStrategy.Table_Name)
-			.getPO(getAD_ReplicationStrategy_ID(), get_TrxName());	}
+			.getPO(getADReplicationStrategyID(), get_TrxName());	}
 
 	/** Set Replication Strategy.
 		@param AD_ReplicationStrategy_ID 
 		Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID)
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID)
 	{
 		if (AD_ReplicationStrategy_ID < 1) 
 			set_Value (COLUMNNAME_AD_ReplicationStrategy_ID, null);
@@ -85,7 +85,7 @@ public class X_AD_Org extends BasePONameValue implements I_AD_Org, I_Persistent
 	/** Get Replication Strategy.
 		@return Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID () 
+	public int getADReplicationStrategyID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ReplicationStrategy_ID);
 		if (ii == null)

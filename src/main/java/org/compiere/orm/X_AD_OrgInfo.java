@@ -43,7 +43,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

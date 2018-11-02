@@ -38,7 +38,7 @@ public class X_C_PaymentProcessor extends BasePOName implements I_C_PaymentProce
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

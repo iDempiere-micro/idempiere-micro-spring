@@ -54,7 +54,7 @@ public class X_M_ProductionLine extends PO implements I_M_ProductionLine, I_Pers
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_M_ProductionLine.accessLevel.intValue();
     }

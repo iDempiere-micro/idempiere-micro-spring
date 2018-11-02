@@ -35,7 +35,7 @@ public class X_AD_Ref_List extends BasePONameValue implements I_AD_Ref_List, I_P
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

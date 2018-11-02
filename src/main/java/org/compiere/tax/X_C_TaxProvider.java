@@ -45,7 +45,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

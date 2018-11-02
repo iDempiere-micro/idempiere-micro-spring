@@ -38,7 +38,7 @@ public class X_M_Product_Category extends BasePONameValue implements I_M_Product
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

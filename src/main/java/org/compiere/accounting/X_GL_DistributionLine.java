@@ -60,7 +60,7 @@ public class X_GL_DistributionLine extends PO implements I_GL_DistributionLine, 
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

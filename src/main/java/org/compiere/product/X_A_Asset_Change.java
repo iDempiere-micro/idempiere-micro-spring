@@ -51,7 +51,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

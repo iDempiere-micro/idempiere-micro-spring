@@ -59,7 +59,7 @@ public class MAsset extends org.compiere.product.MAsset {
             A_Asset_Group_ID = product.getA_Asset_Group_ID();
         }
         setA_Asset_Group_ID(A_Asset_Group_ID);
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromInvoiceLine",
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromInvoiceLine",
             new Object[] {invoiceLine.getC_Invoice().getDocumentNo(), invoiceLine.getLine()}));
 
         String name = "";
@@ -123,7 +123,7 @@ public class MAsset extends org.compiere.product.MAsset {
         setIsOwned(true);
         setIsInPosession(true);
         setA_Asset_CreateDate(new Timestamp(System.currentTimeMillis()));
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromProject", new Object[] { project.getName()}));
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromProject", new Object[] { project.getName()}));
         setDateAcct(new Timestamp(System.currentTimeMillis()));
         setDescription(project.getDescription());
     }
@@ -133,7 +133,7 @@ public class MAsset extends org.compiere.product.MAsset {
         setIsOwned(false);
         setIsInPosession(false);
         setA_Asset_CreateDate(new Timestamp(System.currentTimeMillis()));
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromShipment: ", new Object[] { mInOut.getDocumentNo()}));
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromShipment: ", new Object[] { mInOut.getDocumentNo()}));
         setDateAcct(new Timestamp(System.currentTimeMillis()));
         setDescription(sLine.getDescription());
 

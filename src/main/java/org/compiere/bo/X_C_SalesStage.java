@@ -37,7 +37,7 @@ public class X_C_SalesStage extends BasePONameValue implements I_C_SalesStage, I
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

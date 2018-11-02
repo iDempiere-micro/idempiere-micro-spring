@@ -34,7 +34,7 @@ public class X_AD_TableIndex extends BasePOName implements I_AD_TableIndex, I_Pe
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

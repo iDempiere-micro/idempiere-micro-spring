@@ -42,7 +42,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Attachment.accessLevel.intValue();
     }

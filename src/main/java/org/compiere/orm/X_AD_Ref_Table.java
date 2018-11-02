@@ -46,7 +46,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

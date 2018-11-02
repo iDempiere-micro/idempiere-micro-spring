@@ -107,7 +107,7 @@ public class GenericPO extends PO {
 	}
 
 	@Override
-	protected int get_AccessLevel() {
+	protected int getAccessLevel() {
 		return Integer.parseInt(p_info.getAccessLevel());
 	}
 

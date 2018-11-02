@@ -42,7 +42,7 @@ public class X_AD_WorkflowProcessorLog extends PO implements I_AD_WorkflowProces
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -48,7 +48,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

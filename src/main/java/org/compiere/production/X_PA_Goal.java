@@ -39,7 +39,7 @@ public class X_PA_Goal extends BasePOName implements I_PA_Goal, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

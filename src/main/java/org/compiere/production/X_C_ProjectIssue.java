@@ -57,7 +57,7 @@ public class X_C_ProjectIssue extends PO implements I_C_ProjectIssue, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

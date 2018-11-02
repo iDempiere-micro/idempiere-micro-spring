@@ -58,7 +58,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

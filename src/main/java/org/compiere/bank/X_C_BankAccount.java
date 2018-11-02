@@ -40,7 +40,7 @@ public class X_C_BankAccount extends BasePONameValue implements I_C_BankAccount,
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

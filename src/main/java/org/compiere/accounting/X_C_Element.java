@@ -36,7 +36,7 @@ public class X_C_Element extends BasePOName implements I_C_Element, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

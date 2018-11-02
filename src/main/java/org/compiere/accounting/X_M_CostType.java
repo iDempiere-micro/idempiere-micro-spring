@@ -35,7 +35,7 @@ public class X_M_CostType extends BasePOName implements I_M_CostType, I_Persiste
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

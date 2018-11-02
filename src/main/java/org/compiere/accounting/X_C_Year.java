@@ -43,7 +43,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

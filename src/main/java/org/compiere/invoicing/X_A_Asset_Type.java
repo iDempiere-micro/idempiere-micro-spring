@@ -37,7 +37,7 @@ public class X_A_Asset_Type extends BasePONameValue implements I_A_Asset_Type, I
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

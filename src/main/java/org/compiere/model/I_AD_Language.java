@@ -39,18 +39,18 @@ public interface I_AD_Language
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_Language_ID */
     public static final String COLUMNNAME_AD_Language_ID = "AD_Language_ID";
 
 	/** Set Language ID	  */
-	public void setAD_Language_ID (int AD_Language_ID);
+	public void setADLanguage_ID (int AD_Language_ID);
 
 	/** Get Language ID	  */
 	public int getAD_Language_ID();
@@ -59,7 +59,7 @@ public interface I_AD_Language
     public static final String COLUMNNAME_AD_Language_UU = "AD_Language_UU";
 
 	/** Set AD_Language_UU	  */
-	public void setAD_Language_UU (String AD_Language_UU);
+	public void setADLanguage_UU (String AD_Language_UU);
 
 	/** Get AD_Language_UU	  */
 	public String getAD_Language_UU();

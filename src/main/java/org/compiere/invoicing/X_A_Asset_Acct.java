@@ -60,7 +60,7 @@ public class X_A_Asset_Acct extends PO implements I_A_Asset_Acct, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

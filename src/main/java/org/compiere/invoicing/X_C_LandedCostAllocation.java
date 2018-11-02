@@ -50,7 +50,7 @@ public class X_C_LandedCostAllocation extends PO implements I_C_LandedCostAlloca
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

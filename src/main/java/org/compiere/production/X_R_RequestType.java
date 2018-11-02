@@ -58,7 +58,7 @@ public class X_R_RequestType extends BasePOName implements I_R_RequestType, I_Pe
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

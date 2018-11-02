@@ -43,7 +43,7 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

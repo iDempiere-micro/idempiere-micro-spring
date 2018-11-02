@@ -49,7 +49,7 @@ public class X_C_Period extends BasePOName implements I_C_Period, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

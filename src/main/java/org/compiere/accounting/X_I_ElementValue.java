@@ -43,7 +43,7 @@ public class X_I_ElementValue extends BasePONameValue implements I_I_ElementValu
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

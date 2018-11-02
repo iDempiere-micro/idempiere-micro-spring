@@ -32,7 +32,7 @@ public class X_C_AcctProcessor extends BasePOName implements I_C_AcctProcessor, 
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

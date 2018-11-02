@@ -35,7 +35,7 @@ public class X_C_POSTenderType extends BasePONameValue implements I_C_POSTenderT
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

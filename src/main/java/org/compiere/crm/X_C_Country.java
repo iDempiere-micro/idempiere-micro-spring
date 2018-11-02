@@ -48,7 +48,7 @@ public class X_C_Country extends BasePOName implements I_C_Country, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -73,7 +73,7 @@ public class X_C_Country extends BasePOName implements I_C_Country, I_Persistent
 		@param AD_Language 
 		Language for this entity
 	  */
-	public void setAD_Language (String AD_Language)
+	public void setADLanguage (String AD_Language)
 	{
 
 		set_Value (COLUMNNAME_AD_Language, AD_Language);
@@ -82,7 +82,7 @@ public class X_C_Country extends BasePOName implements I_C_Country, I_Persistent
 	/** Get Language.
 		@return Language for this entity
 	  */
-	public String getAD_Language () 
+	public String getADLanguage () 
 	{
 		return (String)get_Value(COLUMNNAME_AD_Language);
 	}

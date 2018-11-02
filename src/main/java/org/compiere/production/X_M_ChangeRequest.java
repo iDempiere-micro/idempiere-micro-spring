@@ -36,7 +36,7 @@ public class X_M_ChangeRequest extends BasePOName implements I_M_ChangeRequest, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

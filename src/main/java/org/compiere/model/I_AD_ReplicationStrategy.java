@@ -52,12 +52,12 @@ public interface I_AD_ReplicationStrategy
 	/** Set Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID);
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID);
 
 	/** Get Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID();
+	public int getADReplicationStrategyID();
 
     /** Column name AD_ReplicationStrategy_UU */
     public static final String COLUMNNAME_AD_ReplicationStrategy_UU = "AD_ReplicationStrategy_UU";

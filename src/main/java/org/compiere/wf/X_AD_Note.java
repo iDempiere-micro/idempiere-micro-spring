@@ -42,7 +42,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

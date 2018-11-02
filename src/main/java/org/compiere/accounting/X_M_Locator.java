@@ -49,7 +49,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

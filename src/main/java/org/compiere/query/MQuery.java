@@ -91,7 +91,7 @@ public class MQuery implements Serializable
 			pstmt = DB.prepareStatement(SQL, null);
 			pstmt.setInt(1, AD_PInstance_ID);
 			if (trl)
-				pstmt.setString(2, Env.getAD_Language(ctx));
+				pstmt.setString(2, Env.getADLanguage(ctx));
 			rs = pstmt.executeQuery();
 			//	all records
 			for (int row = 0; rs.next(); row++)

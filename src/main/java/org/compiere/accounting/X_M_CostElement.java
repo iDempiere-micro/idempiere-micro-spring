@@ -35,7 +35,7 @@ public class X_M_CostElement extends BasePOName implements I_M_CostElement, I_Pe
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

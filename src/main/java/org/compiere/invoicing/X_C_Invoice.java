@@ -83,7 +83,7 @@ public class X_C_Invoice extends PO implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_Invoice.accessLevel.intValue();
     }

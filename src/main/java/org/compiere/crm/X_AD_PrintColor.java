@@ -35,7 +35,7 @@ public class X_AD_PrintColor extends BasePOName implements I_AD_PrintColor, I_Pe
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

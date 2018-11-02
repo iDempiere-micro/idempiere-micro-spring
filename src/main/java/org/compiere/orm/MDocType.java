@@ -352,7 +352,7 @@ public class MDocType extends X_C_DocType
 	public String getNameTrl()
 	{
 		// warning: to cache this translation you need to change the cache to include language (see i.e. MWFNode)
-		return get_Translation (HasName.Companion.getCOLUMNNAME_Name(), Env.getAD_Language(getCtx()));
+		return get_Translation (HasName.Companion.getCOLUMNNAME_Name(), Env.getADLanguage(getCtx()));
 	}	//	getNameTrl
 
 }	//	MDocType

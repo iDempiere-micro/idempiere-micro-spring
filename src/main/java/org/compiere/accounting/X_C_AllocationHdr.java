@@ -57,7 +57,7 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -42,7 +42,7 @@ public class X_C_Location extends PO implements I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_Location.accessLevel.intValue();
     }

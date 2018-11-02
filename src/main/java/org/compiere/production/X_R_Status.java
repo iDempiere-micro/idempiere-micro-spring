@@ -36,7 +36,7 @@ public class X_R_Status extends BasePONameValue implements I_R_Status, I_Persist
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

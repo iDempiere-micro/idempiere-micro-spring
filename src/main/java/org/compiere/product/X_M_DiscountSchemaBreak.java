@@ -50,7 +50,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

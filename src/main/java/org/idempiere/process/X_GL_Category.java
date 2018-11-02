@@ -30,7 +30,7 @@ public class X_GL_Category extends BasePOName implements I_GL_Category, I_Persis
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }

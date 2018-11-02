@@ -48,7 +48,7 @@ public class X_M_LocatorType extends BasePOName implements I_M_LocatorType, I_Pe
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

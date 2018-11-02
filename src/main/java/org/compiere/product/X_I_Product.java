@@ -44,7 +44,7 @@ public class X_I_Product extends BasePONameValue implements I_I_Product, I_Persi
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

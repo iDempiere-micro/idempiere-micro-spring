@@ -47,7 +47,7 @@ public class X_C_InvoiceTax extends PO implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_InvoiceTax.accessLevel.intValue();
     }

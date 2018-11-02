@@ -38,7 +38,7 @@ public class X_M_ShipperPackaging extends BasePOName implements I_M_ShipperPacka
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

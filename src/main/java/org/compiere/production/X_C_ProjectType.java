@@ -44,7 +44,7 @@ public class X_C_ProjectType extends BasePOName implements I_C_ProjectType, I_Pe
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

@@ -36,7 +36,7 @@ public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persis
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -59,7 +59,7 @@ public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persis
 		@param AD_Language 
 		Language for this entity
 	  */
-	public void setAD_Language (String AD_Language)
+	public void setADLanguage (String AD_Language)
 	{
 		set_ValueNoCheck (COLUMNNAME_AD_Language, AD_Language);
 	}
@@ -67,14 +67,14 @@ public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persis
 	/** Get Language.
 		@return Language for this entity
 	  */
-	public String getAD_Language () 
+	public String getADLanguage () 
 	{
 		return (String)get_Value(COLUMNNAME_AD_Language);
 	}
 
 	/** Set Language ID.
 		@param AD_Language_ID Language ID	  */
-	public void setAD_Language_ID (int AD_Language_ID)
+	public void setADLanguage_ID (int AD_Language_ID)
 	{
 		if (AD_Language_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_AD_Language_ID, null);
@@ -94,7 +94,7 @@ public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persis
 
 	/** Set AD_Language_UU.
 		@param AD_Language_UU AD_Language_UU	  */
-	public void setAD_Language_UU (String AD_Language_UU)
+	public void setADLanguage_UU (String AD_Language_UU)
 	{
 		set_Value (COLUMNNAME_AD_Language_UU, AD_Language_UU);
 	}

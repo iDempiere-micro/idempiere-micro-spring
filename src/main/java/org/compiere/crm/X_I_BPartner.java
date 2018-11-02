@@ -46,7 +46,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

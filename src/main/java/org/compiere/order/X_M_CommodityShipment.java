@@ -42,7 +42,7 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

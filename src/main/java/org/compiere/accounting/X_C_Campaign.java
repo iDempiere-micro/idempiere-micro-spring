@@ -39,7 +39,7 @@ public class X_C_Campaign extends BasePONameValue implements I_C_Campaign, I_Per
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

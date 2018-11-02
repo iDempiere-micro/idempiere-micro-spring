@@ -93,7 +93,7 @@ public class Language implements Serializable
 		//	Search existing Languages
 		for (int i = 0; i < s_languages.size(); i++)
 		{
-			if 	(   lang.equals(s_languages.get(i).getAD_Language())
+			if 	(   lang.equals(s_languages.get(i).getADLanguage())
 				 || lang.equals(s_languages.get(i).getLanguageCode())
 				 || lang.equals(s_languages.get(i).getName())) {
 				if (!s_languages.get(i).m_fromDB && DB.isConnected()) {
@@ -182,7 +182,7 @@ public class Language implements Serializable
 		if (langInfo == null || langInfo.length() == 0
 			|| langInfo.equals(s_baseLanguage.getName())
 			|| langInfo.equals(s_baseLanguage.getLanguageCode())
-			|| langInfo.equals(s_baseLanguage.getAD_Language()))
+			|| langInfo.equals(s_baseLanguage.getADLanguage()))
 			return true;
 		return false;
 	}   //  isBaseLanguage
@@ -202,7 +202,7 @@ public class Language implements Serializable
 	 */
 	public static String getBaseAD_Language()
 	{
-		return s_baseLanguage.getAD_Language();
+		return s_baseLanguage.getADLanguage();
 	}   //  getBase
 
 	/**
@@ -220,27 +220,27 @@ public class Language implements Serializable
 	 *  @param langInfo either language (en) or locale (en-US) or display name
 	 *  @return AD_Language (e.g. en-US)
 	 */
-	public static String getAD_Language (String langInfo)
+	public static String getADLanguage (String langInfo)
 	{
-		return getLanguage(langInfo).getAD_Language();
-	}   //  getAD_Language
+		return getLanguage(langInfo).getADLanguage();
+	}   //  getADLanguage
 
 	/**
 	 *  Get Supported Language
 	 *  @param locale Locale
 	 *  @return AD_Language (e.g. en-US)
 	 */
-	public static String getAD_Language (Locale locale)
+	public static String getADLanguage (Locale locale)
 	{
 		if (locale != null)
 		{
 			for (int i = 0; i < s_languages.size(); i++)
 			{
 				if (locale.getLanguage().equals(s_languages.get(i).getLocale().getLanguage()))
-					return s_languages.get(i).getAD_Language();
+					return s_languages.get(i).getADLanguage();
 			}
 		}
-		return s_baseLanguage.getAD_Language();
+		return s_baseLanguage.getADLanguage();
 	}   //  getLocale
 
 	/**
@@ -251,7 +251,7 @@ public class Language implements Serializable
 	public static String getName (String langInfo)
 	{
 		return getLanguage(langInfo).getName();
-	}   //  getAD_Language
+	}   //  getADLanguage
 
 	/**
 	 *  Returns true if Decimal Point (not comma)
@@ -261,7 +261,7 @@ public class Language implements Serializable
 	public static boolean isDecimalPoint(String langInfo)
 	{
 		return getLanguage(langInfo).isDecimalPoint();
-	}   //  getAD_Language
+	}   //  getADLanguage
 
 	/**
 	 *  Get Display names of supported languages
@@ -293,7 +293,7 @@ public class Language implements Serializable
 	{
 		if (language != null)
 		{
-			Env.setContext(Env.getCtx(), Env.LANGUAGE, language.getAD_Language());
+			Env.setContext(Env.getCtx(), Env.LANGUAGE, language.getADLanguage());
 			if (log.isLoggable(Level.CONFIG)) log.config(language.toString());
 		}
 	}   //  setLanguage
@@ -364,23 +364,23 @@ public class Language implements Serializable
 	 *  e.g. en-US
 	 *  @return AD_Language
 	 */
-	public String getAD_Language()
+	public String getADLanguage()
 	{
 		return m_AD_Language;
-	}   //  getAD_Language
+	}   //  getADLanguage
 
 	/**
 	 *  Set Application Dictionary Language (system supported).
 	 *  @param AD_Language e.g. en-US
 	 */
-	public void setAD_Language (String AD_Language)
+	public void setADLanguage (String AD_Language)
 	{
 		if (AD_Language != null)
 		{
 			m_AD_Language = AD_Language;
 			if (log.isLoggable(Level.CONFIG)) log.config(toString());
 		}
-	}   //  getAD_Language
+	}   //  getADLanguage
 
 	/**
 	 *  Get Locale
@@ -606,7 +606,7 @@ public class Language implements Serializable
 		if (obj instanceof Language)
 		{
 			Language cmp = (Language)obj;
-			if (cmp.getAD_Language().equals(m_AD_Language))
+			if (cmp.getADLanguage().equals(m_AD_Language))
 				return true;
 		}
 		return false;

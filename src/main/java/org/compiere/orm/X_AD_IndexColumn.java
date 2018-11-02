@@ -42,7 +42,7 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }

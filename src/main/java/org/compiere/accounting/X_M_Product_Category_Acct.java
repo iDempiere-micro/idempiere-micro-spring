@@ -53,7 +53,7 @@ public class X_M_Product_Category_Acct extends PO implements I_M_Product_Categor
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
