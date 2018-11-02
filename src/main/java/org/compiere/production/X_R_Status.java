@@ -3,18 +3,17 @@ package org.compiere.production;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_Status;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for R_Status
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_R_Status extends PO implements I_R_Status, I_Persistent
+public class X_R_Status extends BasePONameValue implements I_R_Status, I_Persistent
 {
 
 	/**
@@ -26,21 +25,6 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
     public X_R_Status (Properties ctx, int R_Status_ID, String trxName)
     {
       super (ctx, R_Status_ID, trxName);
-      /** if (R_Status_ID == 0)
-        {
-			setIsClosed (false);
-// N
-			setIsDefault (false);
-			setIsFinalClose (false);
-// N
-			setIsOpen (false);
-			setIsWebCanUpdate (false);
-			setName (null);
-			setR_StatusCategory_ID (0);
-			setR_Status_ID (0);
-			setSeqNo (0);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -225,23 +209,6 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
 	public org.compiere.model.I_R_Status getNext_Status() throws RuntimeException
     {
 		return (org.compiere.model.I_R_Status)MTable.get(getCtx(), org.compiere.model.I_R_Status.Table_Name)
@@ -355,14 +322,6 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		return ii;
 	}
 
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getSeqNo()));
-    }
-
 	/** Set Timeout in Days.
 		@param TimeoutDays 
 		Timeout in Days to change Status automatically
@@ -409,22 +368,5 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		if (ii == null)
 			 return 0;
 		return ii;
-	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
 	}
 }

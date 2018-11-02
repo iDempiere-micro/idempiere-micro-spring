@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ProjectType;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_ProjectType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ProjectType extends PO implements I_C_ProjectType, I_Persistent
+public class X_C_ProjectType extends BasePOName implements I_C_ProjectType, I_Persistent
 {
 
 	/**
@@ -132,31 +133,6 @@ public class X_C_ProjectType extends PO implements I_C_ProjectType, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_Help);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** ProjectCategory AD_Reference_ID=288 */
 	public static final int PROJECTCATEGORY_AD_Reference_ID=288;

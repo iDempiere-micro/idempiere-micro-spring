@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_AD_HouseKeeping;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persistent
+public class X_AD_HouseKeeping extends BasePONameValue implements I_AD_HouseKeeping, I_Persistent
 {
 
     /**
@@ -245,31 +246,6 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
         return (Timestamp)get_Value(COLUMNNAME_LastRun);
     }
 
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
     /** Set Process Now.
      @param Processing Process Now	  */
     public void setProcessing (boolean Processing)
@@ -289,23 +265,6 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
             return "Y".equals(oo);
         }
         return false;
-    }
-
-    /** Set Search Key.
-     @param Value
-     Search key for the record in the format required - must be unique
-     */
-    public void setValue (String Value)
-    {
-        set_Value (COLUMNNAME_Value, Value);
-    }
-
-    /** Get Search Key.
-     @return Search key for the record in the format required - must be unique
-     */
-    public String getValue ()
-    {
-        return (String)get_Value(COLUMNNAME_Value);
     }
 
     /** Set Sql WHERE.

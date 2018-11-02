@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_SerNoCtl;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for M_SerNoCtl
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_SerNoCtl extends PO implements I_M_SerNoCtl, I_Persistent
+public class X_M_SerNoCtl extends BasePOName implements I_M_SerNoCtl, I_Persistent
 {
 
 	/**
@@ -159,31 +160,6 @@ public class X_M_SerNoCtl extends PO implements I_M_SerNoCtl, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_M_SerNoCtl_UU);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Prefix.
 		@param Prefix 

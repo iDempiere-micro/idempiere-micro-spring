@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_PA_Goal;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for PA_Goal
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
+public class X_PA_Goal extends BasePOName implements I_PA_Goal, I_Persistent
 {
 
 	/**
@@ -29,22 +28,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
     public X_PA_Goal (Properties ctx, int PA_Goal_ID, String trxName)
     {
       super (ctx, PA_Goal_ID, trxName);
-      /** if (PA_Goal_ID == 0)
-        {
-			setChartType (null);
-// BC
-			setGoalPerformance (Env.ZERO);
-			setIsSummary (false);
-			setMeasureActual (Env.ZERO);
-			setMeasureScope (null);
-			setMeasureTarget (Env.ZERO);
-			setName (null);
-			setPA_ColorSchema_ID (0);
-			setPA_Goal_ID (0);
-			setRelativeWeight (Env.ZERO);
-// 1
-			setSeqNo (0);
-        } */
     }
 
     /** Load Constructor */
@@ -378,31 +361,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 			 return Env.ZERO;
 		return bd;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Note.
 		@param Note 

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -17,7 +18,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for S_ResourceAssignment
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment, I_Persistent
+public class X_S_ResourceAssignment extends BasePOName implements I_S_ResourceAssignment, I_Persistent
 {
 
 	/**
@@ -140,23 +141,6 @@ public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment
 			return "Y".equals(oo);
 		}
 		return false;
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Quantity.

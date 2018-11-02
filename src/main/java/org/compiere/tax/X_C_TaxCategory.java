@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_TaxCategory;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_TaxCategory
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_TaxCategory extends PO implements I_C_TaxCategory, I_Persistent
+public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory, I_Persistent
 {
 
 	/**

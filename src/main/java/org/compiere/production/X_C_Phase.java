@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Phase;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -16,7 +17,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_Phase
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
+public class X_C_Phase extends BasePOName implements I_C_Phase, I_Persistent
 {
 
 	/**
@@ -28,16 +29,6 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
     public X_C_Phase (Properties ctx, int C_Phase_ID, String trxName)
     {
       super (ctx, C_Phase_ID, trxName);
-      /** if (C_Phase_ID == 0)
-        {
-			setC_Phase_ID (0);
-			setC_ProjectType_ID (0);
-			setName (null);
-			setSeqNo (0);
-// @SQL=SELECT NVL(MAX(SeqNo),0)+10 AS DefaultValue FROM C_Phase WHERE C_ProjectType_ID=@C_ProjectType_ID@
-			setStandardQty (Env.ZERO);
-// 1
-        } */
     }
 
     /** Load Constructor */
@@ -194,31 +185,6 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 			 return 0;
 		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Sequence.
 		@param SeqNo 

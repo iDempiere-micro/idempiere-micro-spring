@@ -5,18 +5,17 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ProjectTask;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_ProjectTask
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
+public class X_C_ProjectTask extends BasePOName implements I_C_ProjectTask, I_Persistent
 {
 
 	/**
@@ -28,18 +27,6 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
     public X_C_ProjectTask (Properties ctx, int C_ProjectTask_ID, String trxName)
     {
       super (ctx, C_ProjectTask_ID, trxName);
-      /** if (C_ProjectTask_ID == 0)
-        {
-			setCommittedAmt (Env.ZERO);
-			setC_ProjectPhase_ID (0);
-			setC_ProjectTask_ID (0);
-			setName (null);
-			setPlannedAmt (Env.ZERO);
-			setProjInvoiceRule (null);
-// @ProjInvoiceRule@
-			setSeqNo (0);
-// @SQL=SELECT NVL(MAX(SeqNo),0)+10 AS DefaultValue FROM C_ProjectTask WHERE C_ProjectPhase_ID=@C_ProjectPhase_ID@
-        } */
     }
 
     /** Load Constructor */
@@ -245,23 +232,6 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		return ii;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
 	/** Set Planned Amount.
 		@param PlannedAmt 
 		Planned amount for this project
@@ -351,12 +321,4 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 			 return 0;
 		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getSeqNo()));
-    }
 }
