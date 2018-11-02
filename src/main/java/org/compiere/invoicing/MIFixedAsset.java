@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import org.adempiere.exceptions.FillMandatoryException;
 import org.compiere.accounting.MClient;
 import org.compiere.accounting.MProduct;
+import org.compiere.model.HasName;
 import org.compiere.model.I_I_FixedAsset;
 import org.compiere.product.MAssetGroup;
 import org.compiere.product.MUOM;
@@ -69,7 +70,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 				whereClause.append("UPPER(Value)=");
 			}
 			if (key == null || key.trim().length() == 0) {
-				throw new FillMandatoryException(I_I_FixedAsset.COLUMNNAME_ProductValue, I_I_FixedAsset.HasName.Companion.getCOLUMNNAME_Name());
+				throw new FillMandatoryException(I_I_FixedAsset.COLUMNNAME_ProductValue, HasName.Companion.getCOLUMNNAME_Name());
 			}
 			key = key.toUpperCase();
 			whereClause.append(DB.TO_STRING(key));

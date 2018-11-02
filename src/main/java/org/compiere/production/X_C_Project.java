@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Project;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -17,7 +18,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_Project
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Project extends PO implements I_C_Project, I_Persistent
+public class X_C_Project extends BasePONameValue implements I_C_Project, I_Persistent
 {
 
 	/**
@@ -704,23 +705,6 @@ public class X_C_Project extends PO implements I_C_Project, I_Persistent
 		return ii;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
 	/** Set Note.
 		@param Note 
 		Optional additional user defined information
@@ -992,28 +976,4 @@ public class X_C_Project extends PO implements I_C_Project, I_Persistent
 		return ii;
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getValue());
-    }
 }

@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_I_FixedAsset;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -16,7 +17,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for I_FixedAsset
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
+public class X_I_FixedAsset extends BasePOName implements I_I_FixedAsset, I_Persistent
 {
 
 	/**
@@ -732,23 +733,6 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		if (ii == null)
 			 return 0;
 		return ii;
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Processed.

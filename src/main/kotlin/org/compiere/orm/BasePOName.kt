@@ -22,7 +22,7 @@ abstract class BasePOName : PO {
     /** Get Name.
      * @return Alphanumeric identifier of the entity
      */
-    fun getName(): String {
+    open fun getName(): String {
         return get_Value(HasName.COLUMNNAME_Name) as String
     }
 
