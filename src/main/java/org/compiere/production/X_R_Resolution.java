@@ -3,6 +3,7 @@ package org.compiere.production;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_Resolution;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for R_Resolution
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
+public class X_R_Resolution extends BasePOName implements I_R_Resolution, I_Persistent
 {
 
 	/**
@@ -93,31 +94,6 @@ public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_Help);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Resolution.
 		@param R_Resolution_ID 

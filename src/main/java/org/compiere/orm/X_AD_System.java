@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_System
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_System extends PO implements I_AD_System, I_Persistent
+public class X_AD_System extends BasePOName implements I_AD_System, I_Persistent
 {
 
 	/**
@@ -435,31 +435,6 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_LDAPHost);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Processors.
 		@param NoProcessors 

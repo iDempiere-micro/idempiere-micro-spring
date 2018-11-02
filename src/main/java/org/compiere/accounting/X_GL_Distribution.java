@@ -5,18 +5,17 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_GL_Distribution;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for GL_Distribution
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persistent
+public class X_GL_Distribution extends BasePOName implements I_GL_Distribution, I_Persistent
 {
 
 	/**
@@ -28,43 +27,6 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
     public X_GL_Distribution (Properties ctx, int GL_Distribution_ID, String trxName)
     {
       super (ctx, GL_Distribution_ID, trxName);
-      /** if (GL_Distribution_ID == 0)
-        {
-			setAnyAcct (true);
-// Y
-			setAnyActivity (true);
-// Y
-			setAnyBPartner (true);
-// Y
-			setAnyCampaign (true);
-// Y
-			setAnyLocFrom (true);
-// Y
-			setAnyLocTo (true);
-// Y
-			setAnyOrg (true);
-// Y
-			setAnyOrgTrx (true);
-// Y
-			setAnyProduct (true);
-// Y
-			setAnyProject (true);
-// Y
-			setAnySalesRegion (true);
-// Y
-			setAnyUser1 (true);
-// Y
-			setAnyUser2 (true);
-// Y
-			setC_AcctSchema_ID (0);
-			setGL_Distribution_ID (0);
-			setIsCreateReversal (true);
-// Y
-			setIsValid (false);
-// N
-			setName (null);
-			setPercentTotal (Env.ZERO);
-        } */
     }
 
     /** Load Constructor */
@@ -856,31 +818,6 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 			 return 0;
 		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Organization.
 		@param Org_ID 

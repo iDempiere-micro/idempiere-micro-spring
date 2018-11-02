@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_C_BankStatementLoader;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoader, I_Persistent
+public class X_C_BankStatementLoader extends BasePOName implements I_C_BankStatementLoader, I_Persistent
 {
 
     /**
@@ -277,31 +278,6 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         if (ii == null)
             return 0;
         return ii;
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
     }
 
     /** Set Password.

@@ -157,8 +157,8 @@ class MSetup
             name = "newClient"
         m_clientName = name
         m_client = MClient(m_ctx, 0, true, m_trx.trxName)
-        m_client!!.value = m_clientName
-        m_client!!.name = m_clientName
+        m_client!!.value = m_clientName!!
+        m_client!!.name = m_clientName!!
         if (!m_client!!.save()) {
             val err = "Client NOT created"
             log.log(Level.SEVERE, err)

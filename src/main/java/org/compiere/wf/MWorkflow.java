@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
+import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfo;
 import org.compiere.model.I_AD_Workflow;
 import org.compiere.orm.MColumn;
@@ -622,7 +623,7 @@ public class MWorkflow extends X_AD_Workflow
 			wa.saveEx();
 		}
 		//	Menu/Workflow
-		else if (is_ValueChanged("IsActive") || is_ValueChanged(I_AD_Workflow.HasName.Companion.getCOLUMNNAME_Name())
+		else if (is_ValueChanged("IsActive") || is_ValueChanged(HasName.Companion.getCOLUMNNAME_Name())
 			|| is_ValueChanged(I_AD_Workflow.COLUMNNAME_Description))
 		{
 			/* TODO Add DAP

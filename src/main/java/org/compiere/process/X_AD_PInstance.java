@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_PInstance;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_PInstance
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
+public class X_AD_PInstance extends BasePOName implements I_AD_PInstance, I_Persistent
 {
 
 	/**
@@ -112,14 +113,6 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 			 return 0;
 		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_PInstance_ID()));
-    }
 
 	/** Set AD_PInstance_UU.
 		@param AD_PInstance_UU AD_PInstance_UU	  */
@@ -297,23 +290,6 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 			return "Y".equals(oo);
 		}
 		return false;
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** NotificationType AD_Reference_ID=344 */

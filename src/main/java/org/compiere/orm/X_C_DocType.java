@@ -4,16 +4,14 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_DocType;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_DocType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
+public class X_C_DocType extends BasePOName implements I_C_DocType, I_Persistent
 {
 
 	/**
@@ -25,32 +23,6 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
     public X_C_DocType (Properties ctx, int C_DocType_ID, String trxName)
     {
       super (ctx, C_DocType_ID, trxName);
-      /** if (C_DocType_ID == 0)
-        {
-			setC_DocType_ID (0);
-			setDocBaseType (null);
-			setDocumentCopies (0);
-// 1
-			setGL_Category_ID (0);
-			setHasCharges (false);
-			setIsCreateCounter (true);
-// Y
-			setIsDefault (false);
-			setIsDefaultCounterDoc (false);
-			setIsDocNoControlled (true);
-// Y
-			setIsIndexed (false);
-			setIsInTransit (false);
-			setIsPickQAConfirm (false);
-			setIsPrepareSplitDocument (true);
-// Y
-			setIsShipConfirm (false);
-			setIsSOTrx (false);
-			setIsSplitWhenDifference (false);
-// N
-			setName (null);
-			setPrintName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -913,31 +885,6 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Print Text.
 		@param PrintName 

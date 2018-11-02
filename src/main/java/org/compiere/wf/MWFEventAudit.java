@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_WF_EventAudit;
 import org.compiere.orm.Query;
 import org.idempiere.common.util.Env;
@@ -158,7 +159,7 @@ public class MWFEventAudit extends X_AD_WF_EventAudit
 		MWFNode node = MWFNode.get(getCtx(), getAD_WF_Node_ID());
 		if (node.get_ID() == 0)
 			return "?";
-		return node.get_Translation(MWFNode.HasName.Companion.getCOLUMNNAME_Name());
+		return node.get_Translation(HasName.Companion.getCOLUMNNAME_Name());
 	}	//	getNodeName
 	
 	
