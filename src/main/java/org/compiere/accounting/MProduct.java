@@ -245,8 +245,11 @@ public class MProduct extends org.compiere.product.MProduct {
      */
     public String getCostingLevel(MAcctSchema as)
     {
+        String costingLevel = null;
         MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.get_ID(), get_TrxName());
-        String costingLevel = pca.getCostingLevel();
+        if (pca != null) {
+            costingLevel = pca.getCostingLevel();
+        }
         if (costingLevel == null)
         {
             costingLevel = as.getCostingLevel();
@@ -261,8 +264,11 @@ public class MProduct extends org.compiere.product.MProduct {
      */
     public String getCostingMethod(MAcctSchema as)
     {
+        String costingMethod = null;
         MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.get_ID(), get_TrxName());
-        String costingMethod = pca.getCostingMethod();
+        if (pca != null) {
+            costingMethod = pca.getCostingMethod();
+        }
         if (costingMethod == null)
         {
             costingMethod = as.getCostingMethod();

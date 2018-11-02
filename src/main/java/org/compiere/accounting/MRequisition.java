@@ -37,7 +37,7 @@ import org.idempiere.orm.PO;
  *			@see http://sourceforge.net/tracker2/?func=detail&atid=879335&aid=2520591&group_id=176962 
  *  @version $Id: MRequisition.java,v 1.2 2006/07/30 00:51:05 jjanke Exp $
  *  @author red1
- *  		<li>FR [ 2214883 ] Remove SQL code and Replace for Query  
+ *  		<li>FR [ 2214883 ] Remove SQL code and Replace for Query
  *  @author Teo Sarca, www.arhipac.ro
  *  		<li>FR [ 2744682 ] Requisition: improve error reporting
  */
@@ -98,7 +98,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 			return m_lines;
 		}
 		
-		//red1 - FR: [ 2214883 ] Remove SQL code and Replace for Query  
+		//red1 - FR: [ 2214883 ] Remove SQL code and Replace for Query
  	 	final String whereClause = I_M_RequisitionLine.COLUMNNAME_M_Requisition_ID+"=?";
 	 	List <MRequisitionLine> list = new Query(getCtx(), I_M_RequisitionLine.Table_Name, whereClause, get_TrxName())
 			.setParameters(get_ID())

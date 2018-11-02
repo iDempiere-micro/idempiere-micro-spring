@@ -1,0 +1,12 @@
+type User {
+    Description: String!
+    _ID: ID!
+}
+
+type Query {
+    # The API Version
+    version: String!
+    # The currently logged user
+    me: User!
+}
+
