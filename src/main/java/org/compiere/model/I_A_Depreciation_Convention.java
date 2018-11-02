@@ -115,8 +115,8 @@ public interface I_A_Depreciation_Convention
 	  */
 	public boolean isActive();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -60,7 +60,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -132,7 +132,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Class_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create Date.
@@ -174,7 +174,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset.
@@ -197,7 +197,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revaluation Date.
@@ -281,7 +281,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Type_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Asset_UU.
@@ -320,7 +320,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Parent_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Qty.
@@ -447,7 +447,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -475,7 +475,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -503,7 +503,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartnerSR() throws RuntimeException
@@ -531,7 +531,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartnerSR_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Location getC_Location() throws RuntimeException
@@ -559,7 +559,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -587,7 +587,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -826,7 +826,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LastMaintenanceUnit);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getLease_BPartner() throws RuntimeException
@@ -854,7 +854,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Lease_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Lease Termination.
@@ -891,7 +891,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LifeUseUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Location comment.
@@ -942,7 +942,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_ManufacturedYear);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Manufacturer.
@@ -962,10 +962,10 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		return (String)get_Value(COLUMNNAME_Manufacturer);
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -982,12 +982,12 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -1015,7 +1015,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_Locator getM_Locator() throws RuntimeException
@@ -1043,7 +1043,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -1071,7 +1071,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -1080,7 +1080,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -1088,7 +1088,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Next Maintenence.
@@ -1125,7 +1125,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_NextMaintenenceUnit);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.
@@ -1227,7 +1227,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Usable Life - Years.
@@ -1247,7 +1247,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use units.
@@ -1267,7 +1267,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Search Key.

@@ -58,7 +58,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -97,7 +97,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account.
@@ -120,7 +120,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Trx Organization.
@@ -143,7 +143,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -171,7 +171,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Accounted Credit.
@@ -279,7 +279,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -307,7 +307,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -335,7 +335,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -363,7 +363,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -391,7 +391,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocFrom() throws RuntimeException
@@ -419,7 +419,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocFrom_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocTo() throws RuntimeException
@@ -447,7 +447,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocTo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Period getC_Period() throws RuntimeException
@@ -475,7 +475,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Period_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -503,7 +503,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectPhase getC_ProjectPhase() throws RuntimeException
@@ -531,7 +531,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -559,7 +559,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SalesRegion getC_SalesRegion() throws RuntimeException
@@ -587,7 +587,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SubAcct getC_SubAcct() throws RuntimeException
@@ -615,7 +615,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SubAcct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Tax getC_Tax() throws RuntimeException
@@ -643,7 +643,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -671,7 +671,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -742,7 +742,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Fact_Acct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -792,7 +792,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_Budget_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_GL_Category getGL_Category() throws RuntimeException
@@ -820,7 +820,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line ID.
@@ -843,7 +843,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Locator getM_Locator() throws RuntimeException
@@ -871,7 +871,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -899,7 +899,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PostingType AD_Reference_ID=125 */
@@ -972,7 +972,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -1000,7 +1000,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1028,7 +1028,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set User Column 1.
@@ -1051,7 +1051,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UserElement1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set User Column 2.
@@ -1074,6 +1074,6 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UserElement2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

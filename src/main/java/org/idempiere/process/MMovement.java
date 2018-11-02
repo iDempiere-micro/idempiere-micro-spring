@@ -280,7 +280,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
         for (MMovementLine line : lines) {
             //      Mandatory Instance
             MProduct product = line.getProduct();
-            if (line.getM_AttributeSetInstance_ID() == 0) {
+            if (line.getMAttributeSetInstance_ID() == 0) {
                 if (product != null && product.isASIMandatory(true)) {
                     if (! product.getAttributeSet().excludeTableEntry(MMovementLine.Table_ID, true)) {  // outgoing
                         BigDecimal qtyDiff = line.getMovementQty();
@@ -300,9 +300,9 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                     }
                 }
             }
-            if (line.getM_AttributeSetInstanceTo_ID() == 0)
+            if (line.getMAttributeSetInstanceTo_ID() == 0)
             {
-                if (product != null && product.isASIMandatory(false) && line.getM_AttributeSetInstanceTo_ID() == 0)
+                if (product != null && product.isASIMandatory(false) && line.getMAttributeSetInstanceTo_ID() == 0)
                 {
                     if (! product.getAttributeSet().excludeTableEntry(MMovementLine.Table_ID, false)) { // incoming
                         m_processMsg = "@Line@ " + line.getLine() + ": @FillMandatory@ @M_AttributeSetInstanceTo_ID@";
@@ -432,7 +432,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                     }
 
 
-                    if (line.getM_AttributeSetInstance_ID() == 0)
+                    if (line.getMAttributeSetInstance_ID() == 0)
                     {
                         MMovementLineMA mas[] = MMovementLineMA.get(getCtx(),
                             line.getM_MovementLine_ID(), get_TrxName());
@@ -445,7 +445,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                             if (!MStorageOnHand.add(getCtx(),locator.getM_Warehouse_ID(),
                                 line.getM_Locator_ID(),
                                 line.getM_Product_ID(),
-                                ma.getM_AttributeSetInstance_ID(),
+                                ma.getMAttributeSetInstance_ID(),
                                 ma.getMovementQty().negate(),ma.getDateMaterialPolicy(), get_TrxName()))
                             {
                                 String lastError = CLogger.retrieveErrorString("");
@@ -453,11 +453,11 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                                 return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
                             }
 
-                            int M_AttributeSetInstanceTo_ID = line.getM_AttributeSetInstanceTo_ID();
+                            int M_AttributeSetInstanceTo_ID = line.getMAttributeSetInstanceTo_ID();
                             //only can be same asi if locator is different
                             if (M_AttributeSetInstanceTo_ID == 0 && line.getM_Locator_ID() != line.getM_LocatorTo_ID())
                             {
-                                M_AttributeSetInstanceTo_ID = ma.getM_AttributeSetInstance_ID();
+                                M_AttributeSetInstanceTo_ID = ma.getMAttributeSetInstance_ID();
                             }
                             //Update Storage
                             MLocator locatorTo = new MLocator (getCtx(), line.getM_LocatorTo_ID(), get_TrxName());
@@ -475,7 +475,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                             //
                             trxFrom = new MTransaction (getCtx(), line.getAD_Org_ID(),
                                 MTransaction.MOVEMENTTYPE_MovementFrom,
-                                line.getM_Locator_ID(), line.getM_Product_ID(), ma.getM_AttributeSetInstance_ID(),
+                                line.getM_Locator_ID(), line.getM_Product_ID(), ma.getMAttributeSetInstance_ID(),
                                 ma.getMovementQty().negate(), getMovementDate(), get_TrxName());
                             trxFrom.setM_MovementLine_ID(line.getM_MovementLine_ID());
                             if (!trxFrom.save())
@@ -504,13 +504,13 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                         if (line.getMovementQty().compareTo(Env.ZERO) > 0) {
                             // Find Date Material Policy bases on ASI
                             storages = MStorageOnHand.getWarehouse(getCtx(), 0,
-                                line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(), null,
+                                line.getM_Product_ID(), line.getMAttributeSetInstance_ID(), null,
                                 MClient.MMPOLICY_FiFo.equals(product.getMMPolicy()), false,
                                 line.getM_Locator_ID(), get_TrxName());
                         } else {
                             //Case of reversal
                             storages = MStorageOnHand.getWarehouse(getCtx(), 0,
-                                line.getM_Product_ID(), line.getM_AttributeSetInstanceTo_ID(), null,
+                                line.getM_Product_ID(), line.getMAttributeSetInstanceTo_ID(), null,
                                 MClient.MMPOLICY_FiFo.equals(product.getMMPolicy()), false,
                                 line.getM_LocatorTo_ID(), get_TrxName());
                         }
@@ -532,7 +532,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                         if (!MStorageOnHand.add(getCtx(),locator.getM_Warehouse_ID(),
                             line.getM_Locator_ID(),
                             line.getM_Product_ID(),
-                            line.getM_AttributeSetInstance_ID(),
+                            line.getMAttributeSetInstance_ID(),
                             line.getMovementQty().negate(),effDateMPolicy, get_TrxName()))
                         {
                             String lastError = CLogger.retrieveErrorString("");
@@ -548,7 +548,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                         if (!MStorageOnHand.add(getCtx(),locatorTo.getM_Warehouse_ID(),
                             line.getM_LocatorTo_ID(),
                             line.getM_Product_ID(),
-                            line.getM_AttributeSetInstanceTo_ID(),
+                            line.getMAttributeSetInstanceTo_ID(),
                             line.getMovementQty(),effDateMPolicy, get_TrxName()))
                         {
                             String lastError = CLogger.retrieveErrorString("");
@@ -559,7 +559,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                         //
                         trxFrom = new MTransaction (getCtx(), line.getAD_Org_ID(),
                             MTransaction.MOVEMENTTYPE_MovementFrom,
-                            line.getM_Locator_ID(), line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+                            line.getM_Locator_ID(), line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
                             line.getMovementQty().negate(), getMovementDate(), get_TrxName());
                         trxFrom.setM_MovementLine_ID(line.getM_MovementLine_ID());
                         if (!trxFrom.save())
@@ -570,7 +570,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                         //
                         MTransaction trxTo = new MTransaction (getCtx(), line.getAD_Org_ID(),
                             MTransaction.MOVEMENTTYPE_MovementTo,
-                            line.getM_LocatorTo_ID(), line.getM_Product_ID(), line.getM_AttributeSetInstanceTo_ID(),
+                            line.getM_LocatorTo_ID(), line.getM_Product_ID(), line.getMAttributeSetInstanceTo_ID(),
                             line.getMovementQty(), getMovementDate(), get_TrxName());
                         trxTo.setM_MovementLine_ID(line.getM_MovementLine_ID());
                         if (!trxTo.save())
@@ -642,7 +642,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
         boolean needSave = false;
 
         //	Attribute Set Instance
-        if (line.getM_AttributeSetInstance_ID() == 0)
+        if (line.getMAttributeSetInstance_ID() == 0)
         {
 
             MProduct product = MProduct.get(getCtx(), line.getM_Product_ID());
@@ -656,7 +656,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                 if (storage.getQtyOnHand().compareTo(qtyToDeliver) >= 0)
                 {
                     MMovementLineMA ma = new MMovementLineMA (line,
-                        storage.getM_AttributeSetInstance_ID(),
+                        storage.getMAttributeSetInstance_ID(),
                         qtyToDeliver,storage.getDateMaterialPolicy(),true);
                     ma.saveEx();
                     qtyToDeliver = Env.ZERO;
@@ -665,7 +665,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
                 else
                 {
                     MMovementLineMA ma = new MMovementLineMA (line,
-                        storage.getM_AttributeSetInstance_ID(),
+                        storage.getMAttributeSetInstance_ID(),
                         storage.getQtyOnHand(),storage.getDateMaterialPolicy(),true);
                     ma.saveEx();
                     qtyToDeliver = qtyToDeliver.subtract(storage.getQtyOnHand());
@@ -866,14 +866,14 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
             }
 
             //We need to copy MA
-            if (rLine.getM_AttributeSetInstance_ID() == 0)
+            if (rLine.getMAttributeSetInstance_ID() == 0)
             {
                 MMovementLineMA mas[] = MMovementLineMA.get(getCtx(),
                     oLine.getM_MovementLine_ID(), get_TrxName());
                 for (int j = 0; j < mas.length; j++)
                 {
                     MMovementLineMA ma = new MMovementLineMA (rLine,
-                        mas[j].getM_AttributeSetInstance_ID(),
+                        mas[j].getMAttributeSetInstance_ID(),
                         mas[j].getMovementQty().negate(),mas[j].getDateMaterialPolicy(),true);
                     ma.saveEx();
                 }

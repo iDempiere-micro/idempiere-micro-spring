@@ -329,7 +329,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		// Validate mandatory ASI on lines - IDEMPIERE-1770 - ASI validation must be moved to MInventory.prepareIt
 		for (MInventoryLine line : lines) {
 			//	Product requires ASI
-			if (line.getM_AttributeSetInstance_ID() == 0)
+			if (line.getMAttributeSetInstance_ID() == 0)
 			{
 				MProduct product = MProduct.get(getCtx(), line.getM_Product_ID());
 				if (product != null && product.isASIMandatory(line.isSOTrx()))
@@ -461,7 +461,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							}
 						}
 	
-						MCost cost = product.getCostingRecord(as, getAD_Org_ID(), line.getM_AttributeSetInstance_ID(), getCostingMethod());
+						MCost cost = product.getCostingRecord(as, getAD_Org_ID(), line.getMAttributeSetInstance_ID(), getCostingMethod());
 						if (cost != null && cost.getCurrentCostPrice().compareTo(currentCost) != 0) 
 						{
 							m_processMsg = "Current Cost for Line " + line.getLine() + " have changed.";
@@ -499,7 +499,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					MTransaction mtrx = null;
 	
 					//If AttributeSetInstance = Zero then create new  AttributeSetInstance use Inventory Line MA else use current AttributeSetInstance
-					if (line.getM_AttributeSetInstance_ID() == 0 || qtyDiff.compareTo(Env.ZERO) == 0)
+					if (line.getMAttributeSetInstance_ID() == 0 || qtyDiff.compareTo(Env.ZERO) == 0)
 					{
 						MInventoryLineMA mas[] = MInventoryLineMA.get(getCtx(),
 								line.getM_InventoryLine_ID(), get_TrxName());
@@ -515,7 +515,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							if (!MStorageOnHand.add(getCtx(), getM_Warehouse_ID(),
 									line.getM_Locator_ID(),
 									line.getM_Product_ID(), 
-									ma.getM_AttributeSetInstance_ID(), 
+									ma.getMAttributeSetInstance_ID(), 
 									QtyMA.negate(),ma.getDateMaterialPolicy(), get_TrxName()))
 							{
 								String lastError = CLogger.retrieveErrorString("");
@@ -527,7 +527,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							if (MDocType.DOCSUBTYPEINV_PhysicalInventory.equals(docSubTypeInv))
 							{	
 								MStorageOnHand storage = MStorageOnHand.get(getCtx(), line.getM_Locator_ID(), 
-										line.getM_Product_ID(), ma.getM_AttributeSetInstance_ID(),ma.getDateMaterialPolicy(),get_TrxName());						
+										line.getM_Product_ID(), ma.getMAttributeSetInstance_ID(),ma.getDateMaterialPolicy(),get_TrxName());						
 								storage.setDateLastInventory(getMovementDate());
 								if (!storage.save(get_TrxName()))
 								{
@@ -543,7 +543,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 								m_MovementType = MTransaction.MOVEMENTTYPE_InventoryOut;
 							//	Transaction
 							mtrx = new MTransaction (getCtx(), line.getAD_Org_ID(), m_MovementType,
-									line.getM_Locator_ID(), line.getM_Product_ID(), ma.getM_AttributeSetInstance_ID(),
+									line.getM_Locator_ID(), line.getM_Product_ID(), ma.getMAttributeSetInstance_ID(),
 									QtyMA.negate(), getMovementDate(), get_TrxName());
 							
 								mtrx.setM_InventoryLine_ID(line.getM_InventoryLine_ID());
@@ -558,14 +558,14 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						}	
 					}
 	
-					//sLine.getM_AttributeSetInstance_ID() != 0
+					//sLine.getMAttributeSetInstance_ID() != 0
 					// Fallback
 					if (mtrx == null)
 					{
 						Timestamp dateMPolicy= qtyDiff.signum() > 0 ? getMovementDate() : null;
-						if (line.getM_AttributeSetInstance_ID() > 0)
+						if (line.getMAttributeSetInstance_ID() > 0)
 						{
-							Timestamp t = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(), line.getM_Locator_ID(), line.get_TrxName());
+							Timestamp t = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), line.getMAttributeSetInstance_ID(), line.getM_Locator_ID(), line.get_TrxName());
 							if (t != null)
 								dateMPolicy = t;
 						}
@@ -574,7 +574,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						if (!MStorageOnHand.add(getCtx(), getM_Warehouse_ID(),
 								line.getM_Locator_ID(),
 								line.getM_Product_ID(), 
-								line.getM_AttributeSetInstance_ID(), 
+								line.getMAttributeSetInstance_ID(), 
 								qtyDiff,dateMPolicy,get_TrxName()))
 						{
 							String lastError = CLogger.retrieveErrorString("");
@@ -586,7 +586,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						if (MDocType.DOCSUBTYPEINV_PhysicalInventory.equals(docSubTypeInv))
 						{	
 							MStorageOnHand storage = MStorageOnHand.get(getCtx(), line.getM_Locator_ID(), 
-									line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),dateMPolicy, get_TrxName());						
+									line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),dateMPolicy, get_TrxName());						
 	
 							storage.setDateLastInventory(getMovementDate());
 							if (!storage.save(get_TrxName()))
@@ -603,7 +603,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 							m_MovementType = MTransaction.MOVEMENTTYPE_InventoryOut;
 						//	Transaction
 						mtrx = new MTransaction (getCtx(), line.getAD_Org_ID(), m_MovementType,
-								line.getM_Locator_ID(), line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+								line.getM_Locator_ID(), line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
 								qtyDiff, getMovementDate(), get_TrxName());
 						mtrx.setM_InventoryLine_ID(line.getM_InventoryLine_ID());
 						if (!mtrx.save())
@@ -673,7 +673,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 			return;
 		
 		//	Attribute Set Instance
-		if (line.getM_AttributeSetInstance_ID() == 0)
+		if (line.getMAttributeSetInstance_ID() == 0)
 		{
 			MProduct product = MProduct.get(getCtx(), line.getM_Product_ID());
 			if (qtyDiff.signum() > 0)	//	Incoming Trx
@@ -692,7 +692,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						}
 						
 						//backward compatibility: -ve in MA is incoming trx, +ve in MA is outgoing trx 
-						MInventoryLineMA lineMA =  new MInventoryLineMA(line, storage.getM_AttributeSetInstance_ID(), maQty.negate(), storage.getDateMaterialPolicy(),true);
+						MInventoryLineMA lineMA =  new MInventoryLineMA(line, storage.getMAttributeSetInstance_ID(), maQty.negate(), storage.getDateMaterialPolicy(),true);
 						lineMA.saveEx();
 						
 						qtyDiff = qtyDiff.subtract(maQty);
@@ -704,7 +704,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 				if(qtyDiff.compareTo(Env.ZERO)>0)
 				{
 					//AttributeSetInstance enable
-					I_M_AttributeSet as = line.getM_Product().getM_AttributeSet();
+					I_M_AttributeSet as = line.getM_Product().getMAttributeSet();
 					if (as != null && as.isInstanceAttribute())
 					{
 						//add quantity to last attributesetinstance
@@ -714,7 +714,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						{
 							BigDecimal maQty = qtyDiff;
 							//backward compatibility: -ve in MA is incoming trx, +ve in MA is outgoing trx 
-							MInventoryLineMA lineMA =  new MInventoryLineMA(line, storage.getM_AttributeSetInstance_ID(), maQty.negate(), storage.getDateMaterialPolicy(),true);
+							MInventoryLineMA lineMA =  new MInventoryLineMA(line, storage.getMAttributeSetInstance_ID(), maQty.negate(), storage.getDateMaterialPolicy(),true);
 							lineMA.saveEx();
 							qtyDiff = qtyDiff.subtract(maQty);
 
@@ -737,7 +737,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 								
 							if (storage != null )
 							{
-								MInventoryLineMA lineMA =  MInventoryLineMA.addOrCreate(line, storage.getM_AttributeSetInstance_ID(), qtyDiff.negate(), getMovementDate(),true);
+								MInventoryLineMA lineMA =  MInventoryLineMA.addOrCreate(line, storage.getMAttributeSetInstance_ID(), qtyDiff.negate(), getMovementDate(),true);
 								lineMA.saveEx();
 							} 
 							else
@@ -754,7 +754,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 									.first();
 								if (cost != null)
 								{
-									MInventoryLineMA lineMA =  MInventoryLineMA.addOrCreate(line, cost.getM_AttributeSetInstance_ID(), qtyDiff.negate(), getMovementDate(),true);
+									MInventoryLineMA lineMA =  MInventoryLineMA.addOrCreate(line, cost.getMAttributeSetInstance_ID(), qtyDiff.negate(), getMovementDate(),true);
 									lineMA.saveEx();
 								} 
 								else
@@ -784,7 +784,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					if (storage.getQtyOnHand().compareTo(qtyToDeliver) >= 0)
 					{
 						MInventoryLineMA ma = new MInventoryLineMA (line, 
-								storage.getM_AttributeSetInstance_ID(),
+								storage.getMAttributeSetInstance_ID(),
 								qtyToDeliver,storage.getDateMaterialPolicy(),true);
 						ma.saveEx();		
 						qtyToDeliver = Env.ZERO;
@@ -793,7 +793,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					else
 					{	
 						MInventoryLineMA ma = new MInventoryLineMA (line, 
-								storage.getM_AttributeSetInstance_ID(),
+								storage.getMAttributeSetInstance_ID(),
 								storage.getQtyOnHand(),storage.getDateMaterialPolicy(),true);
 						ma.saveEx();
 						qtyToDeliver = qtyToDeliver.subtract(storage.getQtyOnHand());
@@ -982,14 +982,14 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 			rLine.saveEx();
 
 			//We need to copy MA
-			if (rLine.getM_AttributeSetInstance_ID() == 0)
+			if (rLine.getMAttributeSetInstance_ID() == 0)
 			{
 				MInventoryLineMA mas[] = MInventoryLineMA.get(getCtx(),
 						oLines[i].getM_InventoryLine_ID(), get_TrxName());
 				for (int j = 0; j < mas.length; j++)
 				{
 					MInventoryLineMA ma = new MInventoryLineMA (rLine, 
-							mas[j].getM_AttributeSetInstance_ID(),
+							mas[j].getMAttributeSetInstance_ID(),
 							mas[j].getMovementQty().negate(),mas[j].getDateMaterialPolicy(),true);
 					ma.saveEx();
 				}

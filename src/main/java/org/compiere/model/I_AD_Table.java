@@ -32,12 +32,12 @@ public interface I_AD_Table
 	/** Set Data Access Level.
 	  * Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel);
+	public void setTableAccessLevel (String AccessLevel);
 
 	/** Get Data Access Level.
 	  * Access Level required
 	  */
-	public String getAccessLevel();
+	public String getTableAccessLevel();
 
     
     
@@ -309,8 +309,8 @@ public interface I_AD_Table
 	/** Get Sequence	  */
 	public int getLoadSeq();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

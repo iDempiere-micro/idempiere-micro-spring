@@ -127,7 +127,7 @@ public class MBOMProduct extends X_M_BOMProduct
             return false;
         }
         //	Product Attribute Instance
-        if (getM_AttributeSetInstance_ID() != 0)
+        if (getMAttributeSetInstance_ID() != 0)
         {
             getBOM();
             if (m_bom != null

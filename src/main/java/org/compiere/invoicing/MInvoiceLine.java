@@ -223,7 +223,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 		setC_Charge_ID(oLine.getC_Charge_ID());
 		//
 		setM_Product_ID(oLine.getM_Product_ID());
-		setM_AttributeSetInstance_ID(oLine.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(oLine.getMAttributeSetInstance_ID());
 		setS_ResourceAssignment_ID(oLine.getS_ResourceAssignment_ID());
 		setC_UOM_ID(oLine.getC_UOM_ID());
 		//
@@ -271,7 +271,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 		else
 			// use product UOM if the shipment hasn't the same uom than the order
 			setC_UOM_ID(getProduct().getC_UOM_ID());
-		setM_AttributeSetInstance_ID(sLine.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(sLine.getMAttributeSetInstance_ID());
 	//	setS_ResourceAssignment_ID(sLine.getS_ResourceAssignment_ID());
 		if(getM_Product_ID() == 0)
 		    setC_Charge_ID(sLine.getC_Charge_ID());
@@ -1065,7 +1065,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 					MLandedCostAllocation lca = new MLandedCostAllocation (this, lc.getM_CostElement_ID());
 					lca.setM_Product_ID(iol.getM_Product_ID());
 					lca.setM_InOutLine_ID(iol.getM_InOutLine_ID());
-					lca.setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+					lca.setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 					BigDecimal base = iol.getBase(lc.getLandedCostDistribution());
 					lca.setBase(base);
 					// MZ Goodwill
@@ -1098,7 +1098,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 				}	
 				MLandedCostAllocation lca = new MLandedCostAllocation (this, lc.getM_CostElement_ID());
 				lca.setM_Product_ID(iol.getM_Product_ID());
-				lca.setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+				lca.setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 				lca.setM_InOutLine_ID(iol.getM_InOutLine_ID());
 				BigDecimal base = iol.getBase(lc.getLandedCostDistribution()); 
 				if (base.signum() == 0)
@@ -1199,7 +1199,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 			MInOutLine iol = (MInOutLine)list.get(i);
 			MLandedCostAllocation lca = new MLandedCostAllocation (this, lcs[0].getM_CostElement_ID());
 			lca.setM_Product_ID(iol.getM_Product_ID());
-			lca.setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+			lca.setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 			lca.setM_InOutLine_ID(iol.getM_InOutLine_ID());
 			BigDecimal base = iol.getBase(LandedCostDistribution);
 			lca.setBase(base);

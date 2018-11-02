@@ -59,7 +59,7 @@ public class MAsset extends org.compiere.product.MAsset {
             A_Asset_Group_ID = product.getA_Asset_Group_ID();
         }
         setA_Asset_Group_ID(A_Asset_Group_ID);
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromInvoiceLine",
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromInvoiceLine",
             new Object[] {invoiceLine.getC_Invoice().getDocumentNo(), invoiceLine.getLine()}));
 
         String name = "";
@@ -67,7 +67,7 @@ public class MAsset extends org.compiere.product.MAsset {
         {
             name += product.getName() + "-";
             setM_Product_ID(inoutLine.getM_Product_ID());
-            setM_AttributeSetInstance_ID(inoutLine.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(inoutLine.getMAttributeSetInstance_ID());
         }
         MBPartner bp = new MBPartner(getCtx(), invoiceLine.getC_Invoice().getC_BPartner_ID(), null);
         name += bp.getName()+"-"+invoiceLine.getC_Invoice().getDocumentNo();
@@ -105,7 +105,7 @@ public class MAsset extends org.compiere.product.MAsset {
             setM_Product_ID(product.getM_Product_ID());
             setA_Asset_Group_ID(ifa.getA_Asset_Group_ID());
             MAttributeSetInstance asi = MAttributeSetInstance.create(getCtx(), product, get_TrxName());
-            setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
         }
 
         setDateAcct(ifa.getDateAcct());
@@ -123,7 +123,7 @@ public class MAsset extends org.compiere.product.MAsset {
         setIsOwned(true);
         setIsInPosession(true);
         setA_Asset_CreateDate(new Timestamp(System.currentTimeMillis()));
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromProject", new Object[] { project.getName()}));
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromProject", new Object[] { project.getName()}));
         setDateAcct(new Timestamp(System.currentTimeMillis()));
         setDescription(project.getDescription());
     }
@@ -133,7 +133,7 @@ public class MAsset extends org.compiere.product.MAsset {
         setIsOwned(false);
         setIsInPosession(false);
         setA_Asset_CreateDate(new Timestamp(System.currentTimeMillis()));
-        setHelp(Msg.getMsg(MClient.get(getCtx()).getAD_Language(), "CreatedFromShipment: ", new Object[] { mInOut.getDocumentNo()}));
+        setHelp(Msg.getMsg(MClient.get(getCtx()).getADLanguage(), "CreatedFromShipment: ", new Object[] { mInOut.getDocumentNo()}));
         setDateAcct(new Timestamp(System.currentTimeMillis()));
         setDescription(sLine.getDescription());
 
@@ -174,9 +174,9 @@ public class MAsset extends org.compiere.product.MAsset {
         //setGuaranteeDate(TimeUtil.addDays(shipment.getMovementDate(), product.getGuaranteeDays()));
         setVersionNo(product.getVersionNo());
         // ASI
-        if (invLine.getM_AttributeSetInstance_ID() != 0)
+        if (invLine.getMAttributeSetInstance_ID() != 0)
         {
-            MAttributeSetInstance asi = new MAttributeSetInstance (getCtx(), invLine.getM_AttributeSetInstance_ID(), get_TrxName());
+            MAttributeSetInstance asi = new MAttributeSetInstance (getCtx(), invLine.getMAttributeSetInstance_ID(), get_TrxName());
             setASI(asi);
         }
         //setSerNo(invLine.getSerNo());

@@ -51,7 +51,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -95,7 +95,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -123,7 +123,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_OrderLine getC_OrderLine() throws RuntimeException
@@ -151,7 +151,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -179,7 +179,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -216,7 +216,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -247,10 +247,10 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		return bd;
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -267,12 +267,12 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -300,7 +300,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Requisition getM_Requisition() throws RuntimeException
@@ -328,7 +328,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Requisition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Requisition Line.
@@ -351,7 +351,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_RequisitionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_RequisitionLine_UU.

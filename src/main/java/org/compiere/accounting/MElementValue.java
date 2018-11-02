@@ -1,5 +1,6 @@
 package org.compiere.accounting;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_C_ElementValue;
 import org.compiere.model.I_C_ValidCombination;
 import org.compiere.model.I_Fact_Acct;
@@ -248,7 +249,7 @@ public class MElementValue extends X_C_ElementValue
 		}
 		
 		//	Value/Name change
-		if (!newRecord && (is_ValueChanged(I_C_ElementValue.COLUMNNAME_Value) || is_ValueChanged(I_C_ElementValue.COLUMNNAME_Name)))
+		if (!newRecord && (is_ValueChanged(I_C_ElementValue.COLUMNNAME_Value) || is_ValueChanged(HasName.Companion.getCOLUMNNAME_Name())))
 		{
 			MAccount.updateValueDescription(getCtx(), "Account_ID=" + getC_ElementValue_ID(),get_TrxName());
 			if ("Y".equals(Env.getContext(getCtx(), "$Element_U1"))) 

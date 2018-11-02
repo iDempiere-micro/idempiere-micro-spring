@@ -133,8 +133,8 @@ public interface I_C_TaxProvider
 	/** Get License	  */
 	public String getLicense();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

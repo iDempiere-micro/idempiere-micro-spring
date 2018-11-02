@@ -44,7 +44,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -139,7 +139,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account EMail.
@@ -350,7 +350,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Bank_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -378,7 +378,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Partner Bank Account.
@@ -401,7 +401,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_BP_BankAccount_UU.
@@ -443,7 +443,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Exp. Month.
@@ -463,7 +463,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpMM);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Exp. Year.
@@ -483,7 +483,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpYY);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Number.

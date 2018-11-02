@@ -49,7 +49,7 @@ public class X_AD_WF_NodeNext extends PO implements I_AD_WF_NodeNext, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -93,7 +93,7 @@ public class X_AD_WF_NodeNext extends PO implements I_AD_WF_NodeNext, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Next_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException
@@ -121,7 +121,7 @@ public class X_AD_WF_NodeNext extends PO implements I_AD_WF_NodeNext, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -152,7 +152,7 @@ public class X_AD_WF_NodeNext extends PO implements I_AD_WF_NodeNext, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_NodeNext_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_NodeNext_UU.
@@ -247,7 +247,7 @@ public class X_AD_WF_NodeNext extends PO implements I_AD_WF_NodeNext, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Transition Code.

@@ -49,7 +49,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -171,7 +171,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -199,7 +199,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set POS Payment.
@@ -219,7 +219,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_POSPayment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_POSPayment_UU.
@@ -258,7 +258,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_POSTenderType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Number.

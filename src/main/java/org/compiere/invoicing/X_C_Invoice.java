@@ -83,7 +83,7 @@ public class X_C_Invoice extends PO implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_Invoice.accessLevel.intValue();
     }
@@ -122,7 +122,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -150,7 +150,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -178,7 +178,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -206,7 +206,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -234,7 +234,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -262,7 +262,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashLine getC_CashLine() throws RuntimeException
@@ -290,7 +290,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_CashLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashPlanLine getC_CashPlanLine() throws RuntimeException
@@ -315,7 +315,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_CashPlanLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -343,7 +343,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -371,7 +371,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -399,7 +399,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -427,7 +427,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException
@@ -455,7 +455,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_DocTypeTarget_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DunningLevel getC_DunningLevel() throws RuntimeException
@@ -480,7 +480,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_DunningLevel_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Charge amount.
@@ -523,7 +523,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Invoice_UU.
@@ -582,7 +582,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -610,7 +610,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaymentTerm getC_PaymentTerm() throws RuntimeException
@@ -638,7 +638,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -666,7 +666,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.
@@ -1253,7 +1253,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMA getM_RMA() throws RuntimeException
@@ -1281,7 +1281,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PaymentRule AD_Reference_ID=195 */
@@ -1441,7 +1441,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_Ref_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getReversal() throws RuntimeException
@@ -1469,7 +1469,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -1497,7 +1497,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Send EMail.
@@ -1569,7 +1569,7 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1597,6 +1597,6 @@ public class X_C_Invoice extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Invoice.COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

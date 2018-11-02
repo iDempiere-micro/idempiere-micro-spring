@@ -51,7 +51,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -95,7 +95,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Accounted Balance.
@@ -269,7 +269,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionTypeReval_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocTypeReval() throws RuntimeException
@@ -297,7 +297,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeReval_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -325,7 +325,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Revaluation Date.
@@ -362,7 +362,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Fact_Acct_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Grand Total.

@@ -52,14 +52,14 @@ public interface I_AD_ReplicationTable
 	/** Set Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID);
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID);
 
 	/** Get Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID();
+	public int getADReplicationStrategyID();
 
-	public I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException;
+	public I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException;
 
     /** Column name AD_ReplicationTable_ID */
     public static final String COLUMNNAME_AD_ReplicationTable_ID = "AD_ReplicationTable_ID";

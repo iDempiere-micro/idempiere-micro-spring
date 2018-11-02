@@ -119,7 +119,7 @@ public class MAcctSchemaElement extends X_C_AcctSchema_Element
 	public static String getValueQuery (String elementType)
 	{
 		String baseLanguage = Language.getBaseAD_Language(); 
-		String language = Language.getLoginLanguage().getAD_Language();
+		String language = Language.getLoginLanguage().getADLanguage();
 		boolean translated = MClient.get(Env.getCtx()).isMultiLingualDocument() && ! language.equalsIgnoreCase(baseLanguage);
 		if (elementType.equals(X_C_AcctSchema_Element.ELEMENTTYPE_Organization)) {
 			return "SELECT Value,Name FROM AD_Org WHERE AD_Org_ID=";

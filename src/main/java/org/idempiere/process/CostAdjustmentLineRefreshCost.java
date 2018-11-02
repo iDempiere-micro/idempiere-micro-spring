@@ -50,7 +50,7 @@ public class CostAdjustmentLineRefreshCost extends SvrProcess {
 		MProduct product = line.getProduct();
 		MClient client = MClient.get(getCtx(), line.getAD_Client_ID());
 		MAcctSchema as = client.getAcctSchema();
-		MCost cost = product.getCostingRecord(as, line.getAD_Org_ID(), line.getM_AttributeSetInstance_ID(), line.getM_Inventory().getCostingMethod());
+		MCost cost = product.getCostingRecord(as, line.getAD_Org_ID(), line.getMAttributeSetInstance_ID(), line.getM_Inventory().getCostingMethod());
 		if (cost != null) {
 			line.setCurrentCostPrice(cost.getCurrentCostPrice());
 			line.setNewCostPrice(cost.getCurrentCostPrice());

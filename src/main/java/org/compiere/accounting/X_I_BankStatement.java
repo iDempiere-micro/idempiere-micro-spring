@@ -5,13 +5,14 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_I_BankStatement;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persistent
+public class X_I_BankStatement extends BasePOName implements I_I_BankStatement, I_Persistent
 {
 
     /**
@@ -39,7 +40,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -117,7 +118,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BankStatement getC_BankStatement() throws RuntimeException
@@ -145,7 +146,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BankStatementLine getC_BankStatementLine() throws RuntimeException
@@ -173,7 +174,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatementLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -201,7 +202,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -229,7 +230,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -257,7 +258,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Charge amount.
@@ -322,7 +323,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -350,7 +351,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Create Payment.
@@ -662,7 +663,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_I_BankStatement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set I_BankStatement_UU.
@@ -815,7 +816,7 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Line Description.
@@ -864,23 +865,6 @@ public class X_I_BankStatement extends PO implements I_I_BankStatement, I_Persis
     public String getMemo ()
     {
         return (String)get_Value(COLUMNNAME_Memo);
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
     }
 
     /** Set Payment Document No.

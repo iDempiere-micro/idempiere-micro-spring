@@ -182,7 +182,7 @@ public class MInventoryLineMA extends X_M_InventoryLineMA
 	{
 		StringBuilder sb = new StringBuilder ("MInventoryLineMA[");
 		sb.append("M_InventoryLine_ID=").append(getM_InventoryLine_ID())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append(", Qty=").append(getMovementQty())
 			.append ("]");
 		return sb.toString ();
@@ -230,9 +230,9 @@ public class MInventoryLineMA extends X_M_InventoryLineMA
 			I_M_InventoryLine line = getM_InventoryLine();
 			
 			Timestamp dateMPolicy = null;
-			if(getM_AttributeSetInstance_ID()>0)
+			if(getMAttributeSetInstance_ID()>0)
 			{
-				dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+				dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
 			}
 			
 			if(dateMPolicy == null)

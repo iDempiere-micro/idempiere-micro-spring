@@ -220,7 +220,7 @@ public class MProduct extends org.compiere.product.MProduct {
         }
         //
         // Check Attribute Set settings
-        int M_AttributeSet_ID = getM_AttributeSet_ID();
+        int M_AttributeSet_ID = getMAttributeSet_ID();
         if (M_AttributeSet_ID != 0)
         {
             MAttributeSet mas = MAttributeSet.get(getCtx(), M_AttributeSet_ID);
@@ -343,10 +343,10 @@ public class MProduct extends org.compiere.product.MProduct {
             m_precision = null;
 
         // AttributeSetInstance reset
-        if (getM_AttributeSetInstance_ID() > 0 && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSet_ID))
+        if (getMAttributeSetInstance_ID() > 0 && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSet_ID))
         {
-            MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getM_AttributeSetInstance_ID(), get_TrxName());
-            if (asi.getM_AttributeSet_ID() != getM_AttributeSet_ID())
+            MAttributeSetInstance asi = new MAttributeSetInstance(getCtx(), getMAttributeSetInstance_ID(), get_TrxName());
+            if (asi.getMAttributeSet_ID() != getMAttributeSet_ID())
                 setM_AttributeSetInstance_ID(0);
         }
         if (!newRecord && is_ValueChanged(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID))
@@ -355,7 +355,7 @@ public class MProduct extends org.compiere.product.MProduct {
             int oldasiid = get_ValueOldAsInt(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID);
             if (oldasiid > 0) {
                 MAttributeSetInstance oldasi = new MAttributeSetInstance(getCtx(), get_ValueOldAsInt(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID), get_TrxName());
-                int cnt = DB.getSQLValueEx(get_TrxName(), "SELECT COUNT(*) FROM M_Product WHERE M_AttributeSetInstance_ID=?", oldasi.getM_AttributeSetInstance_ID());
+                int cnt = DB.getSQLValueEx(get_TrxName(), "SELECT COUNT(*) FROM M_Product WHERE M_AttributeSetInstance_ID=?", oldasi.getMAttributeSetInstance_ID());
                 if (cnt == 1) {
                     // Delete the old m_attributesetinstance
                     try {

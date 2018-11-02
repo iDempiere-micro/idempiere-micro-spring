@@ -197,7 +197,7 @@ public class InOutGenerateRMA extends SvrProcess
                 else
                 {
                 	shipLine.setM_Product_ID(rmaLine.getM_Product_ID());
-                    shipLine.setM_AttributeSetInstance_ID(rmaLine.getM_AttributeSetInstance_ID());
+                    shipLine.setM_AttributeSetInstance_ID(rmaLine.getMAttributeSetInstance_ID());
                     shipLine.setM_Locator_ID(rmaLine.getM_Locator_ID());
                 }
                 

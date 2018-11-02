@@ -12,7 +12,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_Reference
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Reference extends PO implements I_AD_Reference, I_Persistent
+public class X_AD_Reference extends BasePOName implements I_AD_Reference, I_Persistent
 {
 
 	/**
@@ -24,14 +24,6 @@ public class X_AD_Reference extends PO implements I_AD_Reference, I_Persistent
     public X_AD_Reference (Properties ctx, int AD_Reference_ID, String trxName)
     {
       super (ctx, AD_Reference_ID, trxName);
-      /** if (AD_Reference_ID == 0)
-        {
-			setAD_Reference_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-			setValidationType (null);
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +35,7 @@ public class X_AD_Reference extends PO implements I_AD_Reference, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -82,7 +74,7 @@ public class X_AD_Reference extends PO implements I_AD_Reference, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Reference_UU.
@@ -176,31 +168,6 @@ public class X_AD_Reference extends PO implements I_AD_Reference, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** ValidationType AD_Reference_ID=2 */
 	public static final int VALIDATIONTYPE_AD_Reference_ID=2;

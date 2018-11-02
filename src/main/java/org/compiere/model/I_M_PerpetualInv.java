@@ -179,8 +179,8 @@ public interface I_M_PerpetualInv
 
 	public I_M_Warehouse getM_Warehouse() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

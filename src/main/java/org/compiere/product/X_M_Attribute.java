@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_Attribute;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_Attribute
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
+public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persistent
 {
 
 	/**
@@ -26,15 +25,6 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
     public X_M_Attribute (Properties ctx, int M_Attribute_ID, String trxName)
     {
       super (ctx, M_Attribute_ID, trxName);
-      /** if (M_Attribute_ID == 0)
-        {
-			setAttributeValueType (null);
-// S
-			setIsInstanceAttribute (false);
-			setIsMandatory (false);
-			setM_Attribute_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -46,7 +36,7 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -54,15 +44,13 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_M_Attribute[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_M_Attribute[" +
+            get_ID() + "]";
     }
 
 	/** AttributeValueType AD_Reference_ID=326 */
@@ -114,7 +102,7 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 	  */
 	public void setIsInstanceAttribute (boolean IsInstanceAttribute)
 	{
-		set_Value (COLUMNNAME_IsInstanceAttribute, Boolean.valueOf(IsInstanceAttribute));
+		set_Value (COLUMNNAME_IsInstanceAttribute, IsInstanceAttribute);
 	}
 
 	/** Get Instance Attribute.
@@ -126,7 +114,7 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -138,7 +126,7 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 	  */
 	public void setIsMandatory (boolean IsMandatory)
 	{
-		set_Value (COLUMNNAME_IsMandatory, Boolean.valueOf(IsMandatory));
+		set_Value (COLUMNNAME_IsMandatory, IsMandatory);
 	}
 
 	/** Get Mandatory.
@@ -150,7 +138,7 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -160,29 +148,29 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 		@param M_Attribute_ID 
 		Product Attribute
 	  */
-	public void setM_Attribute_ID (int M_Attribute_ID)
+	public void setMAttributeID (int M_Attribute_ID)
 	{
 		if (M_Attribute_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_M_Attribute_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_M_Attribute_ID, Integer.valueOf(M_Attribute_ID));
+			set_ValueNoCheck (COLUMNNAME_M_Attribute_ID, M_Attribute_ID);
 	}
 
 	/** Get Attribute.
 		@return Product Attribute
 	  */
-	public int getM_Attribute_ID () 
+	public int getMAttribute_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Attribute_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
-	public org.compiere.model.I_M_AttributeSearch getM_AttributeSearch() throws RuntimeException
+	public org.compiere.model.I_M_AttributeSearch getMAttributeSearch() throws RuntimeException
     {
 		return (org.compiere.model.I_M_AttributeSearch)MTable.get(getCtx(), org.compiere.model.I_M_AttributeSearch.Table_Name)
-			.getPO(getM_AttributeSearch_ID(), get_TrxName());	}
+			.getPO(getMAttributeSearch_ID(), get_TrxName());	}
 
 	/** Set Attribute Search.
 		@param M_AttributeSearch_ID 
@@ -193,18 +181,18 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 		if (M_AttributeSearch_ID < 1) 
 			set_Value (COLUMNNAME_M_AttributeSearch_ID, null);
 		else 
-			set_Value (COLUMNNAME_M_AttributeSearch_ID, Integer.valueOf(M_AttributeSearch_ID));
+			set_Value (COLUMNNAME_M_AttributeSearch_ID, M_AttributeSearch_ID);
 	}
 
 	/** Get Attribute Search.
 		@return Common Search Attribute 
 	  */
-	public int getM_AttributeSearch_ID () 
+	public int getMAttributeSearch_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSearch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Attribute_UU.
@@ -216,33 +204,8 @@ public class X_M_Attribute extends PO implements I_M_Attribute, I_Persistent
 
 	/** Get M_Attribute_UU.
 		@return M_Attribute_UU	  */
-	public String getM_Attribute_UU () 
+	public String getMAttribute_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_Attribute_UU);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

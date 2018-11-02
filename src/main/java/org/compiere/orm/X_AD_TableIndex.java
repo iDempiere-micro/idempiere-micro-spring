@@ -4,16 +4,14 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_TableIndex;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_TableIndex
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
+public class X_AD_TableIndex extends BasePOName implements I_AD_TableIndex, I_Persistent
 {
 
 	/**
@@ -25,20 +23,6 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
     public X_AD_TableIndex (Properties ctx, int AD_TableIndex_ID, String trxName)
     {
       super (ctx, AD_TableIndex_ID, trxName);
-      /** if (AD_TableIndex_ID == 0)
-        {
-			setAD_Table_ID (0);
-			setAD_TableIndex_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setIsCreateConstraint (false);
-// N
-			setIsKey (false);
-// N
-			setIsUnique (false);
-// N
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -50,7 +34,7 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -94,7 +78,7 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Message_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -122,7 +106,7 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Table Index.
@@ -142,7 +126,7 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_TableIndex_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_TableIndex_UU.
@@ -278,31 +262,6 @@ public class X_AD_TableIndex extends PO implements I_AD_TableIndex, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Process Now.
 		@param Processing Process Now	  */

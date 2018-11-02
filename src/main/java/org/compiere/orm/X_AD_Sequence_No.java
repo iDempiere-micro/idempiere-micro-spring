@@ -41,7 +41,7 @@ public class X_AD_Sequence_No extends PO implements I_AD_Sequence_No, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -85,7 +85,7 @@ public class X_AD_Sequence_No extends PO implements I_AD_Sequence_No, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Sequence_No_UU.
@@ -136,6 +136,6 @@ public class X_AD_Sequence_No extends PO implements I_AD_Sequence_No, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNext);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

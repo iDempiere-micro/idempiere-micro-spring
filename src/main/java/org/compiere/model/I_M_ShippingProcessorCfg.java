@@ -132,8 +132,8 @@ public interface I_M_ShippingProcessorCfg
 	/** Get M_ShippingProcessorCfg_UU	  */
 	public String getM_ShippingProcessorCfg_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

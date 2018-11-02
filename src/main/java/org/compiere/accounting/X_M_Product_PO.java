@@ -49,7 +49,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -93,7 +93,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -121,7 +121,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost per Order.
@@ -169,7 +169,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Actual Delivery Time.
@@ -189,7 +189,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DeliveryTime_Actual);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Promised Delivery Time.
@@ -209,7 +209,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DeliveryTime_Promised);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discontinued.
@@ -319,7 +319,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Product_PO_UU.
@@ -490,7 +490,7 @@ public class X_M_Product_PO extends PO implements I_M_Product_PO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_QualityRating);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Royalty Amount.

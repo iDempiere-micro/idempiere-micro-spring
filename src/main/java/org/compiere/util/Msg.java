@@ -275,7 +275,7 @@ public final class Msg
 	 */
 	public static String getMsg (Properties ctx, String AD_Message)
 	{
-		return getMsg (Env.getAD_Language(ctx), AD_Message);
+		return getMsg (Env.getADLanguage(ctx), AD_Message);
 	}   //  getMeg
 
 	/**
@@ -286,7 +286,7 @@ public final class Msg
 	 */
 	public static String getMsg (Language language, String AD_Message)
 	{
-		return getMsg (language.getAD_Language(), AD_Message);
+		return getMsg (language.getADLanguage(), AD_Message);
 	}   //  getMeg
 
 	/**
@@ -331,7 +331,7 @@ public final class Msg
 	 */
 	public static String getMsg (Properties ctx, String AD_Message, boolean getText)
 	{
-		return getMsg (Env.getAD_Language(ctx), AD_Message, getText);
+		return getMsg (Env.getADLanguage(ctx), AD_Message, getText);
 	}   //  getMsg
 
 	/**
@@ -343,7 +343,7 @@ public final class Msg
 	 */
 	public static String getMsg (Language language, String AD_Message, boolean getText)
 	{
-		return getMsg (language.getAD_Language(), AD_Message, getText);
+		return getMsg (language.getADLanguage(), AD_Message, getText);
 	}   //  getMsg
 
 	/**
@@ -356,7 +356,7 @@ public final class Msg
 	 */
 	public static String getMsg(Properties ctx, String AD_Message, Object[] args)
 	{
-		return getMsg (Env.getAD_Language(ctx), AD_Message, args);
+		return getMsg (Env.getADLanguage(ctx), AD_Message, args);
 	}	//	getMsg
 
 	/**
@@ -369,7 +369,7 @@ public final class Msg
 	 */
 	public static String getMsg(Language language, String AD_Message, Object[] args)
 	{
-		return getMsg (language.getAD_Language(), AD_Message, args);
+		return getMsg (language.getADLanguage(), AD_Message, args);
 	}	//	getMsg
 
 	/**
@@ -527,7 +527,7 @@ public final class Msg
 	 */
 	public static String getElement (Properties ctx, String ColumnName)
 	{
-		return getElement (Env.getAD_Language(ctx), ColumnName, true);
+		return getElement (Env.getADLanguage(ctx), ColumnName, true);
 	}   //  getElement
 
 	/**
@@ -539,7 +539,7 @@ public final class Msg
 	 */
 	public static String getElement (Properties ctx, String ColumnName, boolean isSOTrx)
 	{
-		return getElement (Env.getAD_Language(ctx), ColumnName, isSOTrx);
+		return getElement (Env.getADLanguage(ctx), ColumnName, isSOTrx);
 	}   //  getElement
 
 
@@ -612,7 +612,7 @@ public final class Msg
 		String s = (String)ctx.getProperty(text);
 		if (s != null && s.length() > 0)
 			return s;
-		return translate (Env.getAD_Language(ctx), Env.isSOTrx(ctx), text);
+		return translate (Env.getADLanguage(ctx), Env.isSOTrx(ctx), text);
 	}   //  translate
 
 	/**
@@ -627,7 +627,7 @@ public final class Msg
 	 */
 	public static String translate(Language language, String text)
 	{
-		return translate (language.getAD_Language(), false, text);
+		return translate (language.getADLanguage(), false, text);
 	}   //  translate
 
 	/**
@@ -677,7 +677,7 @@ public final class Msg
 	 *  @return translated text
 	 */
 	public static String getCleanMsg(Properties ctx, String string) {
-		return Util.cleanAmp(getMsg(Env.getAD_Language(ctx), string));
+		return Util.cleanAmp(getMsg(Env.getADLanguage(ctx), string));
 	}
 
 }	//	Msg

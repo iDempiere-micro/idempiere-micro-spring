@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_PriceList;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -51,7 +52,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -96,7 +97,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 		Integer ii = (Integer)get_Value(COLUMNNAME_BasePriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -124,7 +125,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -305,7 +306,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_PriceList_UU.
@@ -328,7 +329,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -336,7 +337,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -364,6 +365,6 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
 		Integer ii = (Integer)get_Value(COLUMNNAME_PricePrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

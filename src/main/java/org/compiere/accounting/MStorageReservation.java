@@ -218,7 +218,7 @@ public class MStorageReservation extends X_M_StorageReservation {
 
 		/* Do NOT use FIFO ASI for reservation */
 		MProduct prd = new MProduct(ctx, M_Product_ID, trxName);
-		if (prd.getM_AttributeSet_ID() == 0 || ! prd.getM_AttributeSet().isInstanceAttribute()) {
+		if (prd.getMAttributeSet_ID() == 0 || ! prd.getMAttributeSet().isInstanceAttribute()) {
 			// Product doesn't manage attribute set, always reserved with 0
 			M_AttributeSetInstance_ID = 0;
 		}
@@ -230,7 +230,7 @@ public class MStorageReservation extends X_M_StorageReservation {
 		//	Verify
 		if (storage.getM_Warehouse_ID() != M_Warehouse_ID 
 			&& storage.getM_Product_ID() != M_Product_ID
-			&& storage.getM_AttributeSetInstance_ID() != M_AttributeSetInstance_ID)
+			&& storage.getMAttributeSetInstance_ID() != M_AttributeSetInstance_ID)
 		{
 			s_log.severe ("No Storage found - M_Warehouse_ID=" + M_Warehouse_ID 
 				+ ",M_Product_ID=" + M_Product_ID + ",ASI=" + M_AttributeSetInstance_ID);
@@ -253,7 +253,7 @@ public class MStorageReservation extends X_M_StorageReservation {
 		final String sql = "UPDATE M_StorageReservation SET Qty=Qty+?, Updated=SYSDATE, UpdatedBy=? " +
 				"WHERE M_Product_ID=? AND M_Warehouse_ID=? AND M_AttributeSetInstance_ID=? AND IsSOTrx=?";
 		DB.executeUpdateEx(sql, 
-			new Object[] {addition, Env.getAD_User_ID(Env.getCtx()), getM_Product_ID(), getM_Warehouse_ID(), getM_AttributeSetInstance_ID(), isSOTrx()}, 
+			new Object[] {addition, Env.getAD_User_ID(Env.getCtx()), getM_Product_ID(), getM_Warehouse_ID(), getMAttributeSetInstance_ID(), isSOTrx()}, 
 			get_TrxName());
 		load(get_TrxName());
 	}
@@ -320,7 +320,7 @@ public class MStorageReservation extends X_M_StorageReservation {
 		StringBuffer sb = new StringBuffer("MStorageReservation[")
 			.append("M_Warehouse_ID=").append(getM_Warehouse_ID())
 			.append(",M_Product_ID=").append(getM_Product_ID())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append(",IsSOTrx=").append(isSOTrx())
 			.append(": Qty=").append(getQty())
 			.append("]");

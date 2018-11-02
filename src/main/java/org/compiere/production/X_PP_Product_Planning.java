@@ -48,7 +48,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -92,7 +92,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.eevolution.model.I_DD_NetworkDistribution getDD_NetworkDistribution() throws RuntimeException
@@ -117,7 +117,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_DD_NetworkDistribution_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Promised Delivery Time.
@@ -276,7 +276,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -312,7 +312,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Maximum Order Qty.
@@ -454,7 +454,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_Planner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.eevolution.model.I_PP_Product_BOM getPP_Product_BOM() throws RuntimeException
@@ -482,7 +482,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Product Planning.
@@ -502,7 +502,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_Planning_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PP_Product_Planning_UU.
@@ -564,7 +564,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Time Fence.
@@ -638,6 +638,6 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_Yield);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

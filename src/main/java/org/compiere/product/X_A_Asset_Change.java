@@ -51,7 +51,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -89,7 +89,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Accumdepreciation_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Asset_A() throws RuntimeException
@@ -111,7 +111,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Asset_Acct_ID.
@@ -131,7 +131,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Acct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Addition.
@@ -151,7 +151,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Addition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Asset_Change_ID.
@@ -171,7 +171,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Change_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -235,7 +235,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Retirement.
@@ -258,7 +258,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Retirement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revaluation Date.
@@ -294,7 +294,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Spread_Type);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Depreciation_A() throws RuntimeException
@@ -316,7 +316,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Method getA_Depreciation_Calc_T() throws RuntimeException
@@ -338,7 +338,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Calc_Type);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Depreciation_Manual_Amount.
@@ -401,7 +401,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Table_Header_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Variable Percent.
@@ -440,7 +440,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Loss);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Loss_A() throws RuntimeException
@@ -462,7 +462,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Loss_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Reve() throws RuntimeException
@@ -484,7 +484,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Revenue);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Revenue_A() throws RuntimeException
@@ -506,7 +506,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Revenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -534,7 +534,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Asset getA_Parent_Asset() throws RuntimeException
@@ -559,7 +559,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Parent_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Period_End.
@@ -576,7 +576,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Period_End);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Period_Start.
@@ -593,7 +593,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Period_Start);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Qty.
@@ -644,7 +644,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Accumdep_Offset_Cur);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revaluation Accumulated Depreciation Offset for Prior Year.
@@ -661,7 +661,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Accumdep_Offset_Prior);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Reval_Accumdep_Offset_Cur.
@@ -678,7 +678,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Adep_Offset_Cur_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Reval_Accumdep_Offset_Prior.
@@ -695,7 +695,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Adep_Offset_Prior_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** A_Reval_Cal_Method AD_Reference_ID=53259 */
@@ -735,7 +735,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Reval Cost Offset Acct.
@@ -752,7 +752,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revaluation Cost Offset for Prior Year.
@@ -769,7 +769,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Prior);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Reval Cost Offset Prior Acct.
@@ -786,7 +786,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Prior_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revaluation Expense Offs.
@@ -803,7 +803,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Depexp_Offset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Reval Depexp Offset Acct.
@@ -820,7 +820,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Depexp_Offset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Salvage Value.
@@ -1007,7 +1007,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -1035,7 +1035,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -1063,7 +1063,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set ChangeAmt.
@@ -1167,7 +1167,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Convention getConventionT() throws RuntimeException
@@ -1189,7 +1189,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_ConventionType);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getC_ValidCombination() throws RuntimeException
@@ -1217,7 +1217,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ValidCombination_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -1256,7 +1256,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_DepreciationType);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Depreciate.
@@ -1396,7 +1396,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_LifeUseUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Lot No.
@@ -1494,7 +1494,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Usable Life - Years.
@@ -1514,7 +1514,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use units.
@@ -1534,7 +1534,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Version No.

@@ -37,7 +37,7 @@ public class X_R_RequestProcessorLog extends PO implements I_R_RequestProcessorL
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -156,7 +156,7 @@ public class X_R_RequestProcessorLog extends PO implements I_R_RequestProcessorL
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Request Processor Log.
@@ -179,7 +179,7 @@ public class X_R_RequestProcessorLog extends PO implements I_R_RequestProcessorL
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestProcessorLog_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set R_RequestProcessorLog_UU.

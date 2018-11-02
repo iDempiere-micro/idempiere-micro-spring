@@ -46,7 +46,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -135,7 +135,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductSpent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Quantity Invoiced.
@@ -220,7 +220,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Request_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Request Update.
@@ -243,7 +243,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestUpdate_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

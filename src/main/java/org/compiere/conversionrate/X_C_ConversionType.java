@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ConversionType;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePONameValue;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_ConversionType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ConversionType extends PO implements I_C_ConversionType, I_Persistent
+public class X_C_ConversionType extends BasePONameValue implements I_C_ConversionType, I_Persistent
 {
 
 	/**
@@ -25,13 +24,6 @@ public class X_C_ConversionType extends PO implements I_C_ConversionType, I_Pers
     public X_C_ConversionType (Properties ctx, int C_ConversionType_ID, String trxName)
     {
       super (ctx, C_ConversionType_ID, trxName);
-      /** if (C_ConversionType_ID == 0)
-        {
-			setC_ConversionType_ID (0);
-			setIsDefault (false);
-			setName (null);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +35,7 @@ public class X_C_ConversionType extends PO implements I_C_ConversionType, I_Pers
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -82,7 +74,7 @@ public class X_C_ConversionType extends PO implements I_C_ConversionType, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ConversionType_UU.
@@ -140,45 +132,4 @@ public class X_C_ConversionType extends PO implements I_C_ConversionType, I_Pers
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

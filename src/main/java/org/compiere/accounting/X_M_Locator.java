@@ -49,7 +49,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -112,7 +112,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_LocatorType getM_LocatorType() throws RuntimeException
@@ -137,7 +137,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_LocatorType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Locator_UU.
@@ -179,7 +179,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Relative Priority.
@@ -199,7 +199,7 @@ public class X_M_Locator extends PO implements I_M_Locator, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PriorityNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Search Key.

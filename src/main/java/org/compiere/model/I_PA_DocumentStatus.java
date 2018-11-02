@@ -178,8 +178,8 @@ public interface I_PA_DocumentStatus
 	  */
 	public boolean isActive();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity
@@ -192,7 +192,7 @@ public interface I_PA_DocumentStatus
 	public String getName();
 
     /** Column name Name_PrintColor_ID */
-    public static final String COLUMNNAME_Name_PrintColor_ID = "Name_PrintColor_ID";
+    public static final String Name_PrintColor_ID = "Name_PrintColor_ID";
 
 	/** Set Print Color for Name	  */
 	public void setName_PrintColor_ID (int Name_PrintColor_ID);
@@ -203,7 +203,7 @@ public interface I_PA_DocumentStatus
 	public I_AD_PrintColor getName_PrintColor() throws RuntimeException;
 
     /** Column name Name_PrintFont_ID */
-    public static final String COLUMNNAME_Name_PrintFont_ID = "Name_PrintFont_ID";
+    public static final String Name_PrintFont_ID = "Name_PrintFont_ID";
 
 	/** Set Print Font for Name	  */
 	public void setName_PrintFont_ID (int Name_PrintFont_ID);

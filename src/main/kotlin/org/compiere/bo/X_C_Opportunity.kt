@@ -37,7 +37,7 @@ open class X_C_Opportunity : BasePOUser, I_C_Opportunity, I_Persistent {
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    override fun get_AccessLevel(): Int {
+    override fun getAccessLevel(): Int {
         return I_C_Opportunity.accessLevel.toInt()
     }
 

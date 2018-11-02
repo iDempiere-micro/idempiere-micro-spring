@@ -151,8 +151,8 @@ public interface I_B_Bid
 	/** Get Willing to commit	  */
 	public boolean isWillingToCommit();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

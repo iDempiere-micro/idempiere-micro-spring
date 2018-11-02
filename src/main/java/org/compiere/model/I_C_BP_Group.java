@@ -209,8 +209,8 @@ public interface I_C_BP_Group
 
 	public I_M_PriceList getM_PriceList() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

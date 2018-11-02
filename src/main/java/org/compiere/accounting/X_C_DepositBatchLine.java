@@ -50,7 +50,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -91,7 +91,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DepositBatch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -119,7 +119,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DepositBatchLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_DepositBatchLine_UU.
@@ -161,7 +161,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line No.
@@ -181,7 +181,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Payment amount.

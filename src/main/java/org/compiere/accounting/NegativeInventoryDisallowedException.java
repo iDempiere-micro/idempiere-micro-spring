@@ -57,7 +57,7 @@ public class NegativeInventoryDisallowedException extends AdempiereException
 		return M_Product_ID;
 	}
 
-	public int getM_AttributeSetInstance_ID() {
+	public int getMAttributeSetInstance_ID() {
 		return M_AttributeSetInstance_ID;
 	}
 

@@ -47,7 +47,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -91,7 +91,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -119,7 +119,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -147,7 +147,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -175,7 +175,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException
@@ -203,7 +203,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Converted Amount.
@@ -251,7 +251,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -279,7 +279,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ProjectPhase getC_ProjectPhase() throws RuntimeException
@@ -307,7 +307,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -335,7 +335,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -363,7 +363,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Expense Date.
@@ -505,7 +505,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -541,7 +541,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Note.
@@ -705,7 +705,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_S_ResourceAssignment_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_S_TimeExpense getS_TimeExpense() throws RuntimeException
@@ -733,7 +733,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_S_TimeExpense_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Expense Line.
@@ -756,7 +756,7 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_S_TimeExpenseLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set S_TimeExpenseLine_UU.
@@ -798,6 +798,6 @@ public class X_S_TimeExpenseLine extends PO implements I_S_TimeExpenseLine, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_S_TimeType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

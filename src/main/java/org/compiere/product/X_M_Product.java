@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_AttributeSetInstance;
 import org.compiere.model.I_M_Locator;
 import org.compiere.model.I_M_Product;
@@ -83,7 +84,7 @@ public class X_M_Product extends PO implements I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_M_Product.accessLevel.intValue();
     }
@@ -161,7 +162,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_C_RevenueRecognition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SubscriptionType getC_SubscriptionType() throws RuntimeException
@@ -189,7 +190,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_C_SubscriptionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_TaxCategory getC_TaxCategory() throws RuntimeException
@@ -217,7 +218,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_C_TaxCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -245,7 +246,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -385,7 +386,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_GuaranteeDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Min Guarantee Days.
@@ -405,7 +406,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_GuaranteeDaysMin);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Comment/Help.
@@ -840,13 +841,13 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_LowLevel);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
-	public org.compiere.model.I_M_AttributeSet getM_AttributeSet() throws RuntimeException
+	public org.compiere.model.I_M_AttributeSet getMAttributeSet() throws RuntimeException
     {
 		return (org.compiere.model.I_M_AttributeSet)MTable.get(getCtx(), org.compiere.model.I_M_AttributeSet.Table_Name)
-			.getPO(getM_AttributeSet_ID(), get_TrxName());	}
+			.getPO(getMAttributeSet_ID(), get_TrxName());	}
 
 	/** Set Attribute Set.
 		@param M_AttributeSet_ID 
@@ -863,18 +864,18 @@ public class X_M_Product extends PO implements I_Persistent
 	/** Get Attribute Set.
 		@return Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID () 
+	public int getMAttributeSet_ID () 
 	{
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -891,12 +892,12 @@ public class X_M_Product extends PO implements I_Persistent
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_FreightCategory getM_FreightCategory() throws RuntimeException
@@ -924,7 +925,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_FreightCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_Locator getM_Locator() throws RuntimeException
@@ -952,7 +953,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PartType getM_PartType() throws RuntimeException
@@ -977,7 +978,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_PartType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product_Category getM_Product_Category() throws RuntimeException
@@ -1005,7 +1006,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Product.
@@ -1028,7 +1029,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Product_UU.
@@ -1051,7 +1052,7 @@ public class X_M_Product extends PO implements I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_M_Product.COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -1059,7 +1060,7 @@ public class X_M_Product extends PO implements I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_M_Product.COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Process Now.
@@ -1128,7 +1129,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_R_MailText_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -1156,7 +1157,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_S_ExpenseType getS_ExpenseType() throws RuntimeException
@@ -1184,7 +1185,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_S_ExpenseType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shelf Depth.
@@ -1204,7 +1205,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_ShelfDepth);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shelf Height.
@@ -1244,7 +1245,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_ShelfWidth);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set SKU.
@@ -1289,7 +1290,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set UnitsPerPack.
@@ -1309,7 +1310,7 @@ public class X_M_Product extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Product.COLUMNNAME_UnitsPerPack);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Units Per Pallet.

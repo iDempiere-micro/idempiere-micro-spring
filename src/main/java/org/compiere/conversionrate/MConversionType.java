@@ -40,7 +40,7 @@ public class MConversionType extends X_C_ConversionType
 		Integer key = new Integer (AD_Client_ID);
 		Integer ii = (Integer)s_cache.get(key);
 		if (ii != null)
-			return ii.intValue();
+			return ii;
 			
 		//	Get from DB
 		int C_ConversionType_ID = 0;

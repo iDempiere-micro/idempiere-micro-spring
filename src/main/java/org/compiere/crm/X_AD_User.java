@@ -7,6 +7,7 @@ import java.util.Properties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.compiere.model.I_AD_User;
 import org.compiere.model.I_C_Location;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -17,7 +18,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_User
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_User extends PO implements I_AD_User, I_Persistent
+public class X_AD_User extends BasePONameValue implements I_AD_User, I_Persistent
 {
 
 	/**
@@ -63,7 +64,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -102,7 +103,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Image_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Trx Organization.
@@ -125,7 +126,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set User/Contact.
@@ -148,7 +149,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_User_UU.
@@ -221,7 +222,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_BP_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set BP Name.
@@ -264,7 +265,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	@JsonIgnore
@@ -293,7 +294,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -321,7 +322,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Greeting getC_Greeting() throws RuntimeException
@@ -349,7 +350,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Greeting_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Job getC_Job() throws RuntimeException
@@ -377,7 +378,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Job_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Location getC_Location() throws RuntimeException
@@ -405,7 +406,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Comments.
@@ -583,7 +584,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_FailedLoginCount);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Fax.
@@ -939,31 +940,6 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		return (String)get_Value(COLUMNNAME_LeadStatusDescription);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** NotificationType AD_Reference_ID=344 */
 	public static final int NOTIFICATIONTYPE_AD_Reference_ID=344;
 	/** EMail = E */
@@ -1086,7 +1062,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_DefaultMailText_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     @JsonIgnore
@@ -1115,7 +1091,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Salt.
@@ -1175,7 +1151,7 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Title.
@@ -1207,22 +1183,5 @@ public class X_AD_User extends PO implements I_AD_User, I_Persistent
 	public String getUserPIN () 
 	{
 		return (String)get_Value(COLUMNNAME_UserPIN);
-	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
 	}
 }

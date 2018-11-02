@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_C_BankStatementLoader;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoader, I_Persistent
+public class X_C_BankStatementLoader extends BasePOName implements I_C_BankStatementLoader, I_Persistent
 {
 
     /**
@@ -39,7 +40,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -117,7 +118,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Bank Statement Loader.
@@ -140,7 +141,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatementLoader_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_BankStatementLoader_UU.
@@ -276,32 +277,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_HostPort);
         if (ii == null)
             return 0;
-        return ii.intValue();
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
+        return ii;
     }
 
     /** Set Password.
@@ -406,7 +382,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_ProxyPort);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Statement Loader Class.

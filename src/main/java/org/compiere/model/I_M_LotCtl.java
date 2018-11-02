@@ -136,8 +136,8 @@ public interface I_M_LotCtl
 	/** Get M_LotCtl_UU	  */
 	public String getM_LotCtl_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

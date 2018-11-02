@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Dunning;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_Dunning
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Dunning extends PO implements I_C_Dunning, I_Persistent
+public class X_C_Dunning extends BasePOName implements I_C_Dunning, I_Persistent
 {
 
 	/**
@@ -25,14 +24,6 @@ public class X_C_Dunning extends PO implements I_C_Dunning, I_Persistent
     public X_C_Dunning (Properties ctx, int C_Dunning_ID, String trxName)
     {
       super (ctx, C_Dunning_ID, trxName);
-      /** if (C_Dunning_ID == 0)
-        {
-			setC_Dunning_ID (0);
-			setCreateLevelsSequentially (false);
-			setIsDefault (false);
-			setName (null);
-			setSendDunningLetter (false);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +35,7 @@ public class X_C_Dunning extends PO implements I_C_Dunning, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -83,7 +74,7 @@ public class X_C_Dunning extends PO implements I_C_Dunning, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Dunning_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Dunning_UU.
@@ -164,31 +155,6 @@ public class X_C_Dunning extends PO implements I_C_Dunning, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Send dunning letters.
 		@param SendDunningLetter 

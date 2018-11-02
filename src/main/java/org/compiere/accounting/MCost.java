@@ -1602,8 +1602,8 @@ public class MCost extends X_M_Cost
 		if (getAD_Org_ID() != 0)
 			sb.append (",AD_Org_ID=").append (getAD_Org_ID());
 		sb.append (",M_Product_ID=").append (getM_Product_ID());
-		if (getM_AttributeSetInstance_ID() != 0)
-			sb.append (",AD_ASI_ID=").append (getM_AttributeSetInstance_ID());
+		if (getMAttributeSetInstance_ID() != 0)
+			sb.append (",AD_ASI_ID=").append (getMAttributeSetInstance_ID());
 	//	sb.append (",C_AcctSchema_ID=").append (getC_AcctSchema_ID());
 	//	sb.append (",M_CostType_ID=").append (getM_CostType_ID());
 		sb.append (",M_CostElement_ID=").append (getM_CostElement_ID());
@@ -1645,7 +1645,7 @@ public class MCost extends X_M_Cost
 			String CostingLevel = product.getCostingLevel(as);
 			if (MAcctSchema.COSTINGLEVEL_Client.equals(CostingLevel))
 			{
-				if (getAD_Org_ID() != 0 || getM_AttributeSetInstance_ID() != 0)
+				if (getAD_Org_ID() != 0 || getMAttributeSetInstance_ID() != 0)
 				{
 					log.saveError("CostingLevelClient", "");
 					return false;
@@ -1653,7 +1653,7 @@ public class MCost extends X_M_Cost
 			}
 			else if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(CostingLevel))
 			{
-				if (getM_AttributeSetInstance_ID() == 0
+				if (getMAttributeSetInstance_ID() == 0
 					&& ce.isCostingMethod())
 				{
 					log.saveError("FillMandatory", Msg.getElement(getCtx(), "M_AttributeSetInstance_ID"));

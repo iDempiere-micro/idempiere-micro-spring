@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
+import org.compiere.model.HasName2;
 import org.compiere.model.I_I_BPartner;
 import org.compiere.orm.MTable;
 import org.compiere.orm.BasePOUser;
@@ -44,7 +46,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -156,7 +158,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -184,7 +186,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_Group getC_BP_Group() throws RuntimeException
@@ -212,7 +214,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
@@ -240,7 +242,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Country_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Greeting getC_Greeting() throws RuntimeException
@@ -268,7 +270,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Greeting_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set City.
@@ -381,7 +383,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -486,7 +488,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_I_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set I_BPartner_UU.
@@ -656,7 +658,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -664,7 +666,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Name 2.
@@ -673,7 +675,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 	  */
 	public void setName2 (String Name2)
 	{
-		set_Value (COLUMNNAME_Name2, Name2);
+		set_Value (HasName2.Companion.getCOLUMNNAME_Name2(), Name2);
 	}
 
 	/** Get Name 2.
@@ -681,7 +683,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 	  */
 	public String getName2 () 
 	{
-		return (String)get_Value(COLUMNNAME_Name2);
+		return (String)get_Value(HasName2.Companion.getCOLUMNNAME_Name2());
 	}
 
 	/** Set Password.
@@ -856,7 +858,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_InterestArea_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tax ID.

@@ -160,8 +160,8 @@ public interface I_AD_AlertProcessor
 	  */
 	public int getKeepLogDays();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -789,9 +789,9 @@ public interface I_I_Asset
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_Locator_ID */
     public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
@@ -823,8 +823,8 @@ public interface I_I_Asset
 
 	public I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

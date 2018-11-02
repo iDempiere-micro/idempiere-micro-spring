@@ -112,8 +112,8 @@ public interface I_M_Substitute
 	/** Get M_Substitute_UU	  */
 	public String getM_Substitute_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

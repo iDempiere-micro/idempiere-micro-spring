@@ -190,8 +190,8 @@ public interface I_M_Product_Category
 	/** Get M_Product_Category_UU	  */
 	public String getM_Product_Category_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -57,7 +57,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -101,7 +101,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -129,7 +129,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Control Amount.
@@ -194,7 +194,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Period_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -390,7 +390,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Journal Batch.
@@ -413,7 +413,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_JournalBatch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set GL_JournalBatch_UU.
@@ -554,7 +554,7 @@ public class X_GL_JournalBatch extends PO implements I_GL_JournalBatch, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Total Credit.

@@ -6,17 +6,16 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_M_DiscountSchema;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_DiscountSchema
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Persistent
+public class X_M_DiscountSchema extends BasePOName implements I_M_DiscountSchema, I_Persistent
 {
 
 	/**
@@ -28,16 +27,6 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
     public X_M_DiscountSchema (Properties ctx, int M_DiscountSchema_ID, String trxName)
     {
       super (ctx, M_DiscountSchema_ID, trxName);
-      /** if (M_DiscountSchema_ID == 0)
-        {
-			setDiscountType (null);
-			setIsBPartnerFlatDiscount (false);
-			setIsQuantityBased (true);
-// Y
-			setM_DiscountSchema_ID (0);
-			setName (null);
-			setValidFrom (new Timestamp( System.currentTimeMillis() ));
-        } */
     }
 
     /** Load Constructor */
@@ -49,7 +38,7 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -223,7 +212,7 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_DiscountSchema_UU.
@@ -239,31 +228,6 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
 	{
 		return (String)get_Value(COLUMNNAME_M_DiscountSchema_UU);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Process Now.
 		@param Processing Process Now	  */

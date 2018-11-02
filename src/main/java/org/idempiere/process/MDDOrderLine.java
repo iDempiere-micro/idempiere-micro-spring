@@ -529,7 +529,7 @@ public class MDDOrderLine extends X_DD_OrderLine
 
         //	Qty on instance ASI for SO
         if (m_IsSOTrx
-            && getM_AttributeSetInstance_ID() != 0
+            && getMAttributeSetInstance_ID() != 0
             && (newRecord || is_ValueChanged("M_Product_ID")
             || is_ValueChanged("M_AttributeSetInstance_ID")
             || is_ValueChanged("M_Warehouse_ID")))
@@ -537,7 +537,7 @@ public class MDDOrderLine extends X_DD_OrderLine
             I_M_Product product = getProduct();
             if (product.isStocked())
             {
-                int M_AttributeSet_ID = product.getM_AttributeSet_ID();
+                int M_AttributeSet_ID = product.getMAttributeSet_ID();
                 boolean isInstance = M_AttributeSet_ID != 0;
                 if (isInstance)
                 {
@@ -549,12 +549,12 @@ public class MDDOrderLine extends X_DD_OrderLine
                 {
                     MLocator locator_from = MLocator.get(getCtx(), getM_Locator_ID());
                     MStorageOnHand[] storages = MStorageOnHand.getWarehouse(getCtx(),
-                        locator_from.getM_Warehouse_ID(), getM_Product_ID(), getM_AttributeSetInstance_ID(),
+                        locator_from.getM_Warehouse_ID(), getM_Product_ID(), getMAttributeSetInstance_ID(),
                         null, true, false, 0, get_TrxName());
                     BigDecimal qty = Env.ZERO;
                     for (int i = 0; i < storages.length; i++)
                     {
-                        if (storages[i].getM_AttributeSetInstance_ID() == getM_AttributeSetInstance_ID())
+                        if (storages[i].getMAttributeSetInstance_ID() == getMAttributeSetInstance_ID())
                             qty = qty.add(storages[i].getQtyOnHand());
                     }
                     if (getQtyOrdered().compareTo(qty) > 0)

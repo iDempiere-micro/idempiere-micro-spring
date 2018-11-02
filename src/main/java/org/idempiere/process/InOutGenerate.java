@@ -305,7 +305,7 @@ public class InOutGenerate extends SvrProcess
 					String MMPolicy = product.getMMPolicy();
 
 					MStorageOnHand[] storages = getStorages(line.getM_Warehouse_ID(),
-							 line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+							 line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
 							 minGuaranteeDate, MClient.MMPOLICY_FiFo.equals(MMPolicy));
 					
 					for (int j = 0; j < storages.length; j++)
@@ -388,7 +388,7 @@ public class InOutGenerate extends SvrProcess
 						{
 							String MMPolicy = product.getMMPolicy();
 							storages = getStorages(line.getM_Warehouse_ID(), 
-								line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+								line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
 								minGuaranteeDate, MClient.MMPOLICY_FiFo.equals(MMPolicy));
 						}
 						//	
@@ -484,12 +484,12 @@ public class InOutGenerate extends SvrProcess
 			int M_Locator_ID = storage.getM_Locator_ID();
 			//
 			MInOutLine line = null;
-			if (orderLine.getM_AttributeSetInstance_ID() == 0)      //      find line with Locator
+			if (orderLine.getMAttributeSetInstance_ID() == 0)      //      find line with Locator
 			{
 				for (int ll = 0; ll < list.size(); ll++)
 				{
 					MInOutLine test = (MInOutLine)list.get(ll);
-					if (test.getM_Locator_ID() == M_Locator_ID && test.getM_AttributeSetInstance_ID() == 0)
+					if (test.getM_Locator_ID() == M_Locator_ID && test.getMAttributeSetInstance_ID() == 0)
 					{
 						line = test;
 						break;

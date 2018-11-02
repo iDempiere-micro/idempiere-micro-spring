@@ -56,7 +56,7 @@ public class X_C_InvoiceBatch extends PO implements I_C_InvoiceBatch, I_Persiste
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +100,7 @@ public class X_C_InvoiceBatch extends PO implements I_C_InvoiceBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -128,7 +128,7 @@ public class X_C_InvoiceBatch extends PO implements I_C_InvoiceBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Invoice Batch.
@@ -151,7 +151,7 @@ public class X_C_InvoiceBatch extends PO implements I_C_InvoiceBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceBatch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_InvoiceBatch_UU.
@@ -361,6 +361,6 @@ public class X_C_InvoiceBatch extends PO implements I_C_InvoiceBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

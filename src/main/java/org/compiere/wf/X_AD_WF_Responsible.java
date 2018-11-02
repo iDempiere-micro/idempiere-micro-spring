@@ -3,6 +3,7 @@ package org.compiere.wf;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_WF_Responsible;
 import org.compiere.orm.MTable;
 import org.compiere.orm.BasePOUser;
@@ -26,15 +27,6 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
     public X_AD_WF_Responsible (Properties ctx, int AD_WF_Responsible_ID, String trxName)
     {
       super (ctx, AD_WF_Responsible_ID, trxName);
-      /** if (AD_WF_Responsible_ID == 0)
-        {
-			setAD_Role_ID (0);
-			setAD_WF_Responsible_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-			setResponsibleType (null);
-        } */
     }
 
     /** Load Constructor */
@@ -46,7 +38,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_WF_Responsible.accessLevel.intValue();
     }
@@ -90,7 +82,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 		Integer ii = (Integer)get_Value(I_AD_WF_Responsible.COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Responsible.
@@ -113,7 +105,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 		Integer ii = (Integer)get_Value(I_AD_WF_Responsible.COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Responsible_UU.
@@ -173,7 +165,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_AD_WF_Responsible.COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -181,7 +173,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_AD_WF_Responsible.COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

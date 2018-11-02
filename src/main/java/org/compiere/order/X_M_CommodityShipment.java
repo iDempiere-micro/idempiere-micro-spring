@@ -42,7 +42,7 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -78,7 +78,7 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_CountryOfManufacture_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -143,7 +143,7 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CommodityShipment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_CommodityShipment_UU.
@@ -185,6 +185,6 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

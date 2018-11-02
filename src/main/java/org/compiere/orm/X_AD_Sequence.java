@@ -5,14 +5,13 @@ import java.util.Properties;
 
 import org.compiere.model.I_AD_Sequence;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Sequence
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
+public class X_AD_Sequence extends BasePOName implements I_AD_Sequence, I_Persistent
 {
 
 	/**
@@ -24,24 +23,6 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
     public X_AD_Sequence (Properties ctx, int AD_Sequence_ID, String trxName)
     {
       super (ctx, AD_Sequence_ID, trxName);
-      /** if (AD_Sequence_ID == 0)
-        {
-			setAD_Sequence_ID (0);
-			setCurrentNext (0);
-// 1000000
-			setCurrentNextSys (0);
-// 100
-			setIncrementNo (0);
-// 1
-			setIsAutoSequence (false);
-			setIsOrgLevelSequence (false);
-// N
-			setName (null);
-			setStartNewMonth (false);
-// N
-			setStartNo (0);
-// 1000000
-        } */
     }
 
     /** Load Constructor */
@@ -53,7 +34,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -92,7 +73,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Sequence_UU.
@@ -126,7 +107,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNext);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Next (System).
@@ -146,7 +127,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNextSys);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date Column.
@@ -217,7 +198,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_IncrementNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Activate Audit.
@@ -316,31 +297,6 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Org Column.
 		@param OrgColumn 
 		Fully qualified Organization column (AD_Org_ID)
@@ -437,7 +393,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_StartNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Suffix.

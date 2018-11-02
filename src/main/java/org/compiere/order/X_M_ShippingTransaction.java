@@ -83,7 +83,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -153,7 +153,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getBill_Location() throws RuntimeException
@@ -181,7 +181,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_Bill_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Box Count.
@@ -198,7 +198,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_BoxCount);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set COD.
@@ -247,7 +247,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -275,7 +275,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_ShippingAcct getC_BP_ShippingAcct() throws RuntimeException
@@ -300,7 +300,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_ShippingAcct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -328,7 +328,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -356,7 +356,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set COD Amount.
@@ -401,7 +401,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Length() throws RuntimeException
@@ -429,7 +429,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Length_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Weight() throws RuntimeException
@@ -457,7 +457,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Weight_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Customs Value.
@@ -796,7 +796,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_HoldAddress_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date.
@@ -1280,7 +1280,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Package getM_Package() throws RuntimeException
@@ -1308,7 +1308,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Package_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Shipper getM_Shipper() throws RuntimeException
@@ -1336,7 +1336,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperLabels getM_ShipperLabels() throws RuntimeException
@@ -1361,7 +1361,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperLabels_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperPackaging getM_ShipperPackaging() throws RuntimeException
@@ -1386,7 +1386,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPackaging_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperPickupTypes getM_ShipperPickupTypes() throws RuntimeException
@@ -1411,7 +1411,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPickupTypes_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShippingProcessor getM_ShippingProcessor() throws RuntimeException
@@ -1436,7 +1436,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipping Transaction.
@@ -1456,7 +1456,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingTransaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShippingTransaction_UU.
@@ -1498,7 +1498,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Notification Message.
@@ -1695,7 +1695,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_ReturnBPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getReturnLocation() throws RuntimeException
@@ -1720,7 +1720,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_ReturnLocation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getReturnUser() throws RuntimeException
@@ -1745,7 +1745,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_ReturnUser_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -1773,7 +1773,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
 		Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Ship Date.

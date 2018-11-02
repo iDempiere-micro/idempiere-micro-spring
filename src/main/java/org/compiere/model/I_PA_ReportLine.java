@@ -147,8 +147,8 @@ public interface I_PA_ReportLine
 	/** Get Line Type	  */
 	public String getLineType();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

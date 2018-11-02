@@ -54,7 +54,7 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -98,7 +98,7 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -177,10 +177,10 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
         return new KeyNamePair(get_ID(), getDocumentNo());
     }
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -197,12 +197,12 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -230,7 +230,7 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Match Invoice.
@@ -253,7 +253,7 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_MatchInv_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_MatchInv_UU.
@@ -295,7 +295,7 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Posted.
@@ -432,6 +432,6 @@ public class X_M_MatchInv extends PO implements I_M_MatchInv, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

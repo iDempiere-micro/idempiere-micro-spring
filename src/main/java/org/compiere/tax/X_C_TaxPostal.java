@@ -43,7 +43,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +87,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tax ZIP.
@@ -110,7 +110,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxPostal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_TaxPostal_UU.

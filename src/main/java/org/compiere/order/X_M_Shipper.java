@@ -1,8 +1,8 @@
 package org.compiere.order;
 
 import org.compiere.model.I_M_Shipper;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -13,7 +13,7 @@ import java.util.Properties;
 /** Generated Model for M_Shipper
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
+public class X_M_Shipper extends BasePOName implements I_M_Shipper, I_Persistent
 {
 
 	/**
@@ -25,11 +25,6 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
     public X_M_Shipper (Properties ctx, int M_Shipper_ID, String trxName)
     {
       super (ctx, M_Shipper_ID, trxName);
-      /** if (M_Shipper_ID == 0)
-        {
-			setM_Shipper_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -41,7 +36,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -85,7 +80,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.
@@ -127,7 +122,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper.
@@ -150,7 +145,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Shipper_UU.
@@ -189,23 +184,6 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return ii;
 	}
 }

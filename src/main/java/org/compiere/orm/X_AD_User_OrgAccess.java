@@ -41,7 +41,7 @@ public class X_AD_User_OrgAccess extends PO implements I_AD_User_OrgAccess, I_Pe
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -85,7 +85,7 @@ public class X_AD_User_OrgAccess extends PO implements I_AD_User_OrgAccess, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_User_OrgAccess_UU.

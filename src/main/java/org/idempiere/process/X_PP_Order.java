@@ -81,7 +81,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -120,7 +120,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -148,7 +148,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Quantity Assay.
@@ -196,7 +196,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -224,7 +224,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -252,7 +252,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException
@@ -280,7 +280,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeTarget_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Copy From.
@@ -325,7 +325,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -353,7 +353,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -381,7 +381,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Date Confirm.
@@ -822,7 +822,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Lot No.
@@ -842,10 +842,10 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         return (String)get_Value(COLUMNNAME_Lot);
     }
 
-    public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+    public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
         return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-            .getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+            .getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
     /** Set Attribute Set Instance.
      @param M_AttributeSetInstance_ID
@@ -862,12 +862,12 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
     /** Get Attribute Set Instance.
      @return Product Attribute Set Instance
      */
-    public int getM_AttributeSetInstance_ID ()
+    public int getMAttributeSetInstance_ID ()
     {
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -895,7 +895,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -923,7 +923,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Order Type.
@@ -965,7 +965,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Planner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Posted.
@@ -1012,7 +1012,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_PP_Order_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set PP_Order_UU.
@@ -1054,7 +1054,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** PriorityRule AD_Reference_ID=154 */
@@ -1362,7 +1362,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -1390,7 +1390,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1418,7 +1418,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Yield %.

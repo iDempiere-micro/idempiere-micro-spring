@@ -178,8 +178,8 @@ public interface I_A_Asset_Class
 	/** Get Fixed Asset Subgroup	  */
 	public int getMFX_SubGrupa();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

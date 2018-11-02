@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_ChangeRequest;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_ChangeRequest
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persistent
+public class X_M_ChangeRequest extends BasePOName implements I_M_ChangeRequest, I_Persistent
 {
 
 	/**
@@ -26,15 +25,6 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
     public X_M_ChangeRequest (Properties ctx, int M_ChangeRequest_ID, String trxName)
     {
       super (ctx, M_ChangeRequest_ID, trxName);
-      /** if (M_ChangeRequest_ID == 0)
-        {
-			setDocumentNo (null);
-			setIsApproved (false);
-// N
-			setM_ChangeRequest_ID (0);
-			setName (null);
-			setProcessed (false);
-        } */
     }
 
     /** Load Constructor */
@@ -46,7 +36,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -116,14 +106,6 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		return (String)get_Value(COLUMNNAME_DocumentNo);
 	}
 
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getDocumentNo());
-    }
-
 	/** Set Comment/Help.
 		@param Help 
 		Comment or Hint
@@ -190,7 +172,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Change Request.
@@ -213,7 +195,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeRequest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ChangeRequest_UU.
@@ -255,24 +237,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_FixChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return ii;
 	}
 
 	public org.eevolution.model.I_PP_Product_BOM getPP_Product_BOM() throws RuntimeException
@@ -300,7 +265,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

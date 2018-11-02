@@ -1,8 +1,8 @@
 package org.compiere.order;
 
 import org.compiere.model.I_M_ShippingProcessor;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -13,7 +13,7 @@ import java.util.Properties;
 /** Generated Model for M_ShippingProcessor
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, I_Persistent
+public class X_M_ShippingProcessor extends BasePOName implements I_M_ShippingProcessor, I_Persistent
 {
 
 	/**
@@ -25,14 +25,6 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
     public X_M_ShippingProcessor (Properties ctx, int M_ShippingProcessor_ID, String trxName)
     {
       super (ctx, M_ShippingProcessor_ID, trxName);
-      /** if (M_ShippingProcessor_ID == 0)
-        {
-			setConnectionPassword (null);
-			setM_ShippingProcessorCfg_ID (0);
-			setM_ShippingProcessor_ID (0);
-			setName (null);
-			setUserID (null);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +36,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -113,7 +105,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessorCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipping Processor.
@@ -133,7 +125,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShippingProcessor_UU.
@@ -148,23 +140,6 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 	public String getM_ShippingProcessor_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_ShippingProcessor_UU);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 
 	/** Set User ID.

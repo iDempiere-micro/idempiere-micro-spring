@@ -4,13 +4,12 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_C_AcctProcessor;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persistent
+public class X_C_AcctProcessor extends BasePOName implements I_C_AcctProcessor, I_Persistent
 {
 
     /**
@@ -22,15 +21,6 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
     public X_C_AcctProcessor (Properties ctx, int C_AcctProcessor_ID, String trxName)
     {
         super (ctx, C_AcctProcessor_ID, trxName);
-        /** if (C_AcctProcessor_ID == 0)
-         {
-         setAD_Schedule_ID (0);
-         setC_AcctProcessor_ID (0);
-         setKeepLogDays (0);
-         // 7
-         setName (null);
-         setSupervisor_ID (0);
-         } */
     }
 
     /** Load Constructor */
@@ -42,7 +32,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -83,7 +73,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Schedule_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -111,7 +101,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Accounting Processor.
@@ -134,7 +124,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_AcctProcessor_UU.
@@ -176,7 +166,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Date last run.
@@ -247,32 +237,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
+        return ii;
     }
 
     /** Set Process Now.
@@ -321,6 +286,6 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

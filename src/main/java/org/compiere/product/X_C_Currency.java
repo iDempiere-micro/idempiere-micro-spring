@@ -55,7 +55,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -94,7 +94,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Currency_UU.
@@ -128,7 +128,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CostingPrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Symbol.
@@ -312,6 +312,6 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_StdPrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

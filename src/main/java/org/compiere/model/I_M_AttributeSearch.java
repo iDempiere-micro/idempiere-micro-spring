@@ -99,7 +99,7 @@ public interface I_M_AttributeSearch
 	/** Get Attribute Search.
 	  * Common Search Attribute 
 	  */
-	public int getM_AttributeSearch_ID();
+	public int getMAttributeSearch_ID();
 
     /** Column name M_AttributeSearch_UU */
     public static final String COLUMNNAME_M_AttributeSearch_UU = "M_AttributeSearch_UU";
@@ -108,10 +108,10 @@ public interface I_M_AttributeSearch
 	public void setM_AttributeSearch_UU (String M_AttributeSearch_UU);
 
 	/** Get M_AttributeSearch_UU	  */
-	public String getM_AttributeSearch_UU();
+	public String getMAttributeSearch_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

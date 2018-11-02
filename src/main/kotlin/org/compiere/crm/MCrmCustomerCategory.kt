@@ -21,7 +21,7 @@ class MCrmCustomerCategory : BasePOName, I_Persistent {
         return POInfo.getPOInfo(ctx, Table_ID, _TrxName)
     }
 
-    override fun get_AccessLevel(): Int {
+    override fun getAccessLevel(): Int {
         return 3 // AccessLevel = 3 - Client - Org
     }
 

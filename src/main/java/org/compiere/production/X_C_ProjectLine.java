@@ -58,7 +58,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -142,7 +142,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Order getC_OrderPO() throws RuntimeException
@@ -170,7 +170,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderPO_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -198,7 +198,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectIssue getC_ProjectIssue() throws RuntimeException
@@ -226,7 +226,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectIssue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Project Line.
@@ -249,7 +249,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ProjectLine_UU.
@@ -291,7 +291,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -319,7 +319,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -434,7 +434,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -470,7 +470,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -498,7 +498,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Production getM_Production() throws RuntimeException
@@ -526,7 +526,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Production_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Planned Amount.

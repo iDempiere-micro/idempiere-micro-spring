@@ -572,7 +572,7 @@ public class Doc_Invoice extends Doc
 					if (line.getM_Product_ID() != 0
 						&& line.getProduct().isService())	//	otherwise Inv Matching
 						MCostDetail.createInvoice(as, line.getAD_Org_ID(),
-							line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+							line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
 							line.get_ID(), 0,		//	No Cost Element
 							line.getAmtSource(), line.getQty(),
 							line.getDescription(), getTrxName());
@@ -677,7 +677,7 @@ public class Doc_Invoice extends Doc
 					if (line.getM_Product_ID() != 0
 						&& line.getProduct().isService())	//	otherwise Inv Matching
 						MCostDetail.createInvoice(as, line.getAD_Org_ID(),
-							line.getM_Product_ID(), line.getM_AttributeSetInstance_ID(),
+							line.getM_Product_ID(), line.getMAttributeSetInstance_ID(),
 							line.get_ID(), 0,		//	No Cost Element
 							line.getAmtSource().negate(), line.getQty(),
 							line.getDescription(), getTrxName());
@@ -874,7 +874,7 @@ public class Doc_Invoice extends Doc
 			BigDecimal crAmt = null;
 			MAccount account = null;
 			ProductCost pc = new ProductCost (Env.getCtx(),
-					lca.getM_Product_ID(), lca.getM_AttributeSetInstance_ID(), getTrxName());
+					lca.getM_Product_ID(), lca.getMAttributeSetInstance_ID(), getTrxName());
 			String costingMethod = pc.getProduct().getCostingMethod(as);
 			if (X_M_Cost.COSTINGMETHOD_AverageInvoice.equals(costingMethod) || X_M_Cost.COSTINGMETHOD_AveragePO.equals(costingMethod))
 			{
@@ -977,14 +977,14 @@ public class Doc_Invoice extends Doc
 						if (costDetailAmt.scale() > as.getCostingPrecision())
 							costDetailAmt = costDetailAmt.setScale(as.getCostingPrecision(), BigDecimal.ROUND_HALF_UP);
 						
-						String key = lca.getM_Product_ID()+"_"+lca.getM_AttributeSetInstance_ID();
+						String key = lca.getM_Product_ID()+"_"+lca.getMAttributeSetInstance_ID();
 						BigDecimal prevAmt = costDetailAmtMap.remove(key);
 						if (prevAmt != null) {
 							costDetailAmt = costDetailAmt.add(prevAmt);
 						}
 						costDetailAmtMap.put(key, costDetailAmt);
 						if (!MCostDetail.createInvoice(as, lca.getAD_Org_ID(),
-								lca.getM_Product_ID(), lca.getM_AttributeSetInstance_ID(),
+								lca.getM_Product_ID(), lca.getMAttributeSetInstance_ID(),
 								C_InvoiceLine_ID, lca.getM_CostElement_ID(),
 								costDetailAmt, lca.getQty(),
 								desc, getTrxName())) {

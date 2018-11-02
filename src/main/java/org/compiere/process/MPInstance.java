@@ -212,7 +212,7 @@ public class MPInstance extends X_AD_PInstance
 			if (access == null || !access.booleanValue()) {
 				MProcess proc = MProcess.get(getCtx(), AD_Process_ID);
 				StringBuilder procMsg = new StringBuilder("[");
-				if (! Language.isBaseLanguage (Env.getAD_Language(getCtx()))) {
+				if (! Language.isBaseLanguage (Env.getADLanguage(getCtx()))) {
 					procMsg.append(proc.get_Translation("Name")).append(" / ");
 				}
 				procMsg.append(proc.getName()).append("]");

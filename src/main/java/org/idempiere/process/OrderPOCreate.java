@@ -229,7 +229,7 @@ public class OrderPOCreate extends SvrProcess
 						poLine.setLink_OrderLine_ID(soLines[i].getC_OrderLine_ID());
 						poLine.setM_Product_ID(soLines[i].getM_Product_ID());
 						poLine.setC_Charge_ID(soLines[i].getC_Charge_ID());
-						poLine.setM_AttributeSetInstance_ID(soLines[i].getM_AttributeSetInstance_ID());
+						poLine.setM_AttributeSetInstance_ID(soLines[i].getMAttributeSetInstance_ID());
 						poLine.setC_UOM_ID(soLines[i].getC_UOM_ID());
 						poLine.setQtyEntered(soLines[i].getQtyEntered());
 						poLine.setQtyOrdered(soLines[i].getQtyOrdered());

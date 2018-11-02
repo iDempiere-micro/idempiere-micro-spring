@@ -42,7 +42,7 @@ public class X_AD_Role_Included extends PO implements I_AD_Role_Included, I_Pers
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -86,7 +86,7 @@ public class X_AD_Role_Included extends PO implements I_AD_Role_Included, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Role_Included_UU.
@@ -125,7 +125,7 @@ public class X_AD_Role_Included extends PO implements I_AD_Role_Included, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_Included_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -145,6 +145,6 @@ public class X_AD_Role_Included extends PO implements I_AD_Role_Included, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

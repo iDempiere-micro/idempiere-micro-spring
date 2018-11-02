@@ -136,8 +136,8 @@ public interface I_M_SerNoCtl
 	/** Get M_SerNoCtl_UU	  */
 	public String getM_SerNoCtl_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -114,7 +114,7 @@ public interface I_M_AttributeSetExclude
 	/** Get Exclude Attribute Set.
 	  * Exclude the ability to enter Attribute Sets
 	  */
-	public int getM_AttributeSetExclude_ID();
+	public int getMAttributeSetExclude_ID();
 
     /** Column name M_AttributeSetExclude_UU */
     public static final String COLUMNNAME_M_AttributeSetExclude_UU = "M_AttributeSetExclude_UU";
@@ -123,7 +123,7 @@ public interface I_M_AttributeSetExclude
 	public void setM_AttributeSetExclude_UU (String M_AttributeSetExclude_UU);
 
 	/** Get M_AttributeSetExclude_UU	  */
-	public String getM_AttributeSetExclude_UU();
+	public String getMAttributeSetExclude_UU();
 
     /** Column name M_AttributeSet_ID */
     public static final String COLUMNNAME_M_AttributeSet_ID = "M_AttributeSet_ID";
@@ -136,9 +136,9 @@ public interface I_M_AttributeSetExclude
 	/** Get Attribute Set.
 	  * Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID();
+	public int getMAttributeSet_ID();
 
-	public I_M_AttributeSet getM_AttributeSet() throws RuntimeException;
+	public I_M_AttributeSet getMAttributeSet() throws RuntimeException;
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

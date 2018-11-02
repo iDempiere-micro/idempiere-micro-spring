@@ -50,7 +50,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -94,7 +94,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -125,7 +125,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySchedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaySchedule_UU.
@@ -179,7 +179,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DiscountDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Grace Days.
@@ -199,7 +199,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_GraceDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Valid.
@@ -277,7 +277,7 @@ public class X_C_PaySchedule extends PO implements I_C_PaySchedule, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_NetDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Percentage.
