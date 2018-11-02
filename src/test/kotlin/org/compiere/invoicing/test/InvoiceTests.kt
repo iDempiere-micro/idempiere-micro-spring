@@ -71,6 +71,8 @@ class InvoiceTests : BaseComponentTest() {
     companion object {
         const val QTY = 1
         private var index = 0
+        const val MAT = "Mat1-"
+        const val BOM = "BOM1-"
     }
 
     private var _testProduct: I_M_Product? = null
@@ -115,7 +117,7 @@ class InvoiceTests : BaseComponentTest() {
         }
 
         // get the product on hand
-        val product: MProduct = createAProduct("Mat1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
+        val product: MProduct = createAProduct(MAT + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
         _testProduct = product
 
         // put the product on the pricelist
@@ -279,7 +281,7 @@ class InvoiceTests : BaseComponentTest() {
             assertTrue(details.dueDate2 < now)
         }
         index++
-        `should have 3 material movements after 2 runs`()
+        `should have specific no of material movements after all runs`()
     }
 
     @Test
@@ -291,7 +293,7 @@ class InvoiceTests : BaseComponentTest() {
 
     @Test
     fun `create invoice from BOM order with production step in between (on credit)`() {
-        val bomProduct = createAProduct("BOM1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
+        val bomProduct = createAProduct(BOM + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
         bomProduct.setIsBOM(true)
         bomProduct.save()
         val innerProduct = MProductBOM(ctx, 0, null)
@@ -355,7 +357,7 @@ class InvoiceTests : BaseComponentTest() {
         }
     }
 
-    fun `should have 3 material movements after 2 runs`() {
+    fun `should have specific no of material movements after all runs`() {
         if (index == 3) {
             "/sql/recent_material_movements.sql".asResource {
                 val list = it.executeSql {
@@ -364,10 +366,13 @@ class InvoiceTests : BaseComponentTest() {
                             it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
                     )
                 }
-                kotlin.test.assertEquals(6, list.count())
-                val standards = list.filter { it.productName == testProduct.name }
-                kotlin.test.assertEquals(4, standards.count())
-                kotlin.test.assertEquals(1000000 - 2 * 1 - 10, standards.sumBy { (it.amountIn - it.amountOut).toInt() })
+                kotlin.test.assertEquals(11, list.count())
+                val standards = list.filter { it.productName.startsWith(MAT) }
+                val bom1s = list.filter { it.productName.startsWith(BOM) }
+                kotlin.test.assertEquals(9, standards.count())
+                kotlin.test.assertEquals(6 * 1000000 - 2 * 1 - 10, standards.sumBy { (it.amountIn - it.amountOut).toInt() })
+                kotlin.test.assertEquals(2, bom1s.count())
+                kotlin.test.assertEquals(1 - 1, bom1s.sumBy { (it.amountIn - it.amountOut).toInt() })
             }
         }
     }
