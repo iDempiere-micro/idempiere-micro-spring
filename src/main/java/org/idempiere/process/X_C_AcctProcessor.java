@@ -83,7 +83,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Schedule_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -111,7 +111,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Accounting Processor.
@@ -134,7 +134,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_AcctProcessor_UU.
@@ -176,7 +176,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Date last run.
@@ -247,7 +247,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Name.
@@ -256,7 +256,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
      */
     public void setName (String Name)
     {
-        set_Value (COLUMNNAME_Name, Name);
+        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
     }
 
     /** Get Name.
@@ -264,7 +264,7 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
      */
     public String getName ()
     {
-        return (String)get_Value(COLUMNNAME_Name);
+        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /** Get Record ID/ColumnName
@@ -321,6 +321,6 @@ public class X_C_AcctProcessor extends PO implements I_C_AcctProcessor, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

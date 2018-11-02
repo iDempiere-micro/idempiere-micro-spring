@@ -113,7 +113,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessorCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipping Processor.
@@ -133,7 +133,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShippingProcessor_UU.
@@ -156,7 +156,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -164,7 +164,7 @@ public class X_M_ShippingProcessor extends PO implements I_M_ShippingProcessor, 
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set User ID.

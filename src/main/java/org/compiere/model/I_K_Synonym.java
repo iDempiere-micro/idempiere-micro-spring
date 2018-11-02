@@ -110,8 +110,8 @@ public interface I_K_Synonym
 	/** Get K_Synonym_UU	  */
 	public String getK_Synonym_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -86,7 +86,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_BroadcastMessage_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Message getAD_Message() throws RuntimeException
@@ -114,7 +114,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Message_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -145,7 +145,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Note_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Note_UU.
@@ -187,7 +187,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -215,7 +215,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Activity getAD_WF_Activity() throws RuntimeException
@@ -243,7 +243,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -328,7 +328,7 @@ public class X_AD_Note extends PO implements I_AD_Note, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Reference.

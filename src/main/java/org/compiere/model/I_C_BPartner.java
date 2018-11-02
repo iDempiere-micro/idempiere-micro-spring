@@ -608,16 +608,16 @@ public interface I_C_BPartner extends IClientBound, ISearchableByKey, INamedEnti
 	  */
 	public String getNAICS();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity
 	  */
 	public void setName (String Name);
 
-    /** Column name Name2 */
-    public static final String COLUMNNAME_Name2 = "Name2";
+    
+    
 
 	/** Set Name 2.
 	  * Additional Name

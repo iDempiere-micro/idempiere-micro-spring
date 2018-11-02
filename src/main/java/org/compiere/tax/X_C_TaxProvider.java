@@ -1,5 +1,6 @@
 package org.compiere.tax;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_C_TaxProvider;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -113,7 +114,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxProviderCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tax Provider.
@@ -133,7 +134,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_TaxProvider_UU.
@@ -170,7 +171,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -178,7 +179,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Sequence.
@@ -198,7 +199,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Validate Connection.

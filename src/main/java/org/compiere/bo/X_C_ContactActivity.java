@@ -91,7 +91,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
 		Integer ii = (Integer)get_Value(I_C_ContactActivity.COLUMNNAME_C_ContactActivity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ContactActivity_UU.
@@ -175,7 +175,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
 		Integer ii = (Integer)get_Value(I_C_ContactActivity.COLUMNNAME_C_Opportunity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -269,7 +269,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
 		Integer ii = (Integer)get_Value(I_C_ContactActivity.COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Start Date.

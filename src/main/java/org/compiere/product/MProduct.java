@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_CostDetail;
 import org.compiere.model.I_M_Product;
 import org.compiere.model.I_M_ProductDownload;
@@ -529,7 +530,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		//
 		List<MProductDownload> list = new Query(getCtx(), I_M_ProductDownload.Table_Name, "M_Product_ID=?", get_TrxName())
 										.setOnlyActiveRecords(true)
-										.setOrderBy(I_M_ProductDownload.COLUMNNAME_Name)
+										.setOrderBy(HasName.Companion.getCOLUMNNAME_Name())
 										.setParameters(get_ID())
 										.list();
 		m_downloads = list.toArray(new MProductDownload[list.size()]);

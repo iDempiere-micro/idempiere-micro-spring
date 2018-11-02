@@ -108,7 +108,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -141,7 +141,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_CommitmentOffset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCommitmentOffsetSales_A() throws RuntimeException
@@ -166,7 +166,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_CommitmentOffsetSales_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCurrencyBalancing_A() throws RuntimeException
@@ -191,7 +191,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrencyBalancing_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getIntercompanyDueFrom_A() throws RuntimeException
@@ -216,7 +216,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_IntercompanyDueFrom_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getIntercompanyDueTo_A() throws RuntimeException
@@ -241,7 +241,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_IntercompanyDueTo_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getPPVOffset_A() throws RuntimeException
@@ -266,7 +266,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_PPVOffset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getSuspenseBalancing_A() throws RuntimeException
@@ -288,7 +288,7 @@ public class X_C_AcctSchema_GL extends PO implements I_C_AcctSchema_GL, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_SuspenseBalancing_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Currency Balancing.

@@ -120,7 +120,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Trx Organization.
@@ -143,7 +143,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Any Account.
@@ -483,7 +483,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -511,7 +511,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -539,7 +539,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -567,7 +567,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -595,7 +595,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocFrom() throws RuntimeException
@@ -623,7 +623,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocFrom_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocTo() throws RuntimeException
@@ -651,7 +651,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocTo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -679,7 +679,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SalesRegion getC_SalesRegion() throws RuntimeException
@@ -707,7 +707,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -747,7 +747,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_Distribution_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set GL_Distribution_UU.
@@ -854,7 +854,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -863,7 +863,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -871,7 +871,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -902,7 +902,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Total Percent.
@@ -1001,7 +1001,7 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1029,6 +1029,6 @@ public class X_GL_Distribution extends PO implements I_GL_Distribution, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

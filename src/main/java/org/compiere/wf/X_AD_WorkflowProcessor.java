@@ -88,7 +88,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Schedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Processor.
@@ -111,7 +111,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WorkflowProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WorkflowProcessor_UU.
@@ -145,7 +145,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_AlertOverPriority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date last run.
@@ -216,7 +216,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_InactivityAlertDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Days to keep Log.
@@ -236,7 +236,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -245,7 +245,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -253,7 +253,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -302,7 +302,7 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_RemindDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSupervisor() throws RuntimeException
@@ -330,6 +330,6 @@ public class X_AD_WorkflowProcessor extends PO implements I_AD_WorkflowProcessor
 		Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

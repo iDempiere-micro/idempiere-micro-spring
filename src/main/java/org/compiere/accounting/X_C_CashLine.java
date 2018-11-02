@@ -146,7 +146,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Cash getC_Cash() throws RuntimeException
@@ -174,7 +174,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Cash_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -205,7 +205,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_CashLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_CashLine_UU.
@@ -247,7 +247,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -275,7 +275,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -303,7 +303,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -331,7 +331,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -412,7 +412,7 @@ public class X_C_CashLine extends PO implements I_C_CashLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

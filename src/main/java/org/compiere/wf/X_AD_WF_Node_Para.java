@@ -86,7 +86,7 @@ public class X_AD_WF_Node_Para extends PO implements I_AD_WF_Node_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_Para_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException
@@ -114,7 +114,7 @@ public class X_AD_WF_Node_Para extends PO implements I_AD_WF_Node_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -145,7 +145,7 @@ public class X_AD_WF_Node_Para extends PO implements I_AD_WF_Node_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_Para_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Node_Para_UU.

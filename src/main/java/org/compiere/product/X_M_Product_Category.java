@@ -95,7 +95,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_PrintColor getAD_PrintColor() throws RuntimeException
@@ -123,7 +123,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -235,7 +235,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product_Category getM_Product_Category_Parent() throws RuntimeException
@@ -260,7 +260,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_Parent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Product_Category_UU.
@@ -283,7 +283,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -291,7 +291,7 @@ public class X_M_Product_Category extends PO implements I_M_Product_Category, I_
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

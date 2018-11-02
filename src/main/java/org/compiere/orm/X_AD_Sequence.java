@@ -92,7 +92,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Sequence_UU.
@@ -126,7 +126,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNext);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Next (System).
@@ -146,7 +146,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNextSys);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date Column.
@@ -217,7 +217,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_IncrementNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Activate Audit.
@@ -322,7 +322,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -330,7 +330,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -437,7 +437,7 @@ public class X_AD_Sequence extends PO implements I_AD_Sequence, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_StartNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Suffix.

@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_I_Product;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for I_Product
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_I_Product extends PO implements I_I_Product, I_Persistent
+public class X_I_Product extends BasePONameValue implements I_I_Product, I_Persistent
 {
 
 	/**
@@ -106,7 +105,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -134,7 +133,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Classification.
@@ -199,7 +198,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Promised Delivery Time.
@@ -219,7 +218,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DeliveryTime_Promised);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -409,7 +408,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_I_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set I_Product_UU.
@@ -485,7 +484,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -513,24 +512,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return ii;
 	}
 
 	/** Set Minimum Order Qty.
@@ -550,7 +532,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Order_Min);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Order Pack Qty.
@@ -570,7 +552,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Order_Pack);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price effective.
@@ -798,7 +780,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_ShelfDepth);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shelf Height.
@@ -838,7 +820,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_ShelfWidth);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set SKU.
@@ -875,7 +857,7 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UnitsPerPallet);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set UPC/EAN.
@@ -894,31 +876,6 @@ public class X_I_Product extends PO implements I_I_Product, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_UPC);
 	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getValue());
-    }
 
 	/** Set Partner Category.
 		@param VendorCategory 

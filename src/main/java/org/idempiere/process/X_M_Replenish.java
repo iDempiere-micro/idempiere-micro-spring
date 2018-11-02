@@ -125,7 +125,7 @@ public class X_M_Replenish extends PO implements I_M_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -153,7 +153,7 @@ public class X_M_Replenish extends PO implements I_M_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_Replenish_UU.
@@ -195,7 +195,7 @@ public class X_M_Replenish extends PO implements I_M_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_WarehouseSource() throws RuntimeException
@@ -223,7 +223,7 @@ public class X_M_Replenish extends PO implements I_M_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_WarehouseSource_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Qty Batch Size.

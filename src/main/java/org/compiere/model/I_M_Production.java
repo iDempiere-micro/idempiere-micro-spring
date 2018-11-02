@@ -357,8 +357,8 @@ public interface I_M_Production
 	/** Get M_Production_UU	  */
 	public String getM_Production_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -8,7 +8,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_A_Asset 
+public interface I_A_Asset extends HasName
 {
 
     /** TableName=A_Asset */
@@ -661,19 +661,6 @@ public interface I_A_Asset
 	public int getM_Product_ID();
 
 	public I_M_Product getM_Product() throws RuntimeException;
-
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
-
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
-
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
 
     /** Column name NextMaintenenceDate */
     public static final String COLUMNNAME_NextMaintenenceDate = "NextMaintenenceDate";

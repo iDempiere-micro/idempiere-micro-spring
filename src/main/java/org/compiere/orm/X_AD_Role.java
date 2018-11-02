@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_Role
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
+public class X_AD_Role extends BasePOName implements I_AD_Role, I_Persistent
 {
 
 	/**
@@ -136,7 +136,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Role_UU.
@@ -178,7 +178,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Menu_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Org() throws RuntimeException
@@ -206,7 +206,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Allow Info Account.
@@ -484,7 +484,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Confirm Query Records.
@@ -504,7 +504,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_ConfirmQueryRecords);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Days Approval Accumulated.
@@ -524,7 +524,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DaysApprovalAccum);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -912,33 +912,8 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_MaxQueryRecords);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Overwrite Price Limit.
 		@param OverwritePriceLimit 
@@ -946,7 +921,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 	  */
 	public void setOverwritePriceLimit (boolean OverwritePriceLimit)
 	{
-		set_Value (COLUMNNAME_OverwritePriceLimit, Boolean.valueOf(OverwritePriceLimit));
+		set_Value (COLUMNNAME_OverwritePriceLimit, OverwritePriceLimit);
 	}
 
 	/** Get Overwrite Price Limit.
@@ -958,7 +933,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -1006,7 +981,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		if (Supervisor_ID < 1) 
 			set_Value (COLUMNNAME_Supervisor_ID, null);
 		else 
-			set_Value (COLUMNNAME_Supervisor_ID, Integer.valueOf(Supervisor_ID));
+			set_Value (COLUMNNAME_Supervisor_ID, Supervisor_ID);
 	}
 
 	/** Get Supervisor.
@@ -1017,7 +992,7 @@ public class X_AD_Role extends PO implements I_AD_Role, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set UserDiscount.

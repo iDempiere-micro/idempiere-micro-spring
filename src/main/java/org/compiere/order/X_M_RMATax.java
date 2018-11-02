@@ -91,7 +91,7 @@ public class X_M_RMATax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMATax.COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_TaxProvider getC_TaxProvider() throws RuntimeException
@@ -116,7 +116,7 @@ public class X_M_RMATax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMATax.COLUMNNAME_C_TaxProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price includes Tax.
@@ -168,7 +168,7 @@ public class X_M_RMATax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMATax.COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_RMATax_UU.

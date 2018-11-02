@@ -148,7 +148,7 @@ public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -156,7 +156,7 @@ public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Quantity.
@@ -199,7 +199,7 @@ public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_ResourceAssignment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set S_ResourceAssignment_UU.
@@ -241,7 +241,7 @@ public class X_S_ResourceAssignment extends PO implements I_S_ResourceAssignment
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

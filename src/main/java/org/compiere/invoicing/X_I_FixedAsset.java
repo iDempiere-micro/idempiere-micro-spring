@@ -127,7 +127,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Class_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Class Key.
@@ -186,7 +186,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Group Key.
@@ -228,7 +228,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Asset_Type getA_Asset_Type() throws RuntimeException
@@ -253,7 +253,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Type_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Type Value.
@@ -284,7 +284,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Current_Period);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Remaining Period.
@@ -301,7 +301,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Remaining_Period);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Salvage Value.
@@ -417,7 +417,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartnerSR_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_City getC_City() throws RuntimeException
@@ -445,7 +445,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_City_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set City Value.
@@ -487,7 +487,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -606,7 +606,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_I_FixedAsset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set I_FixedAsset_UU.
@@ -703,7 +703,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -731,7 +731,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -740,7 +740,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -748,7 +748,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Processed.
@@ -850,7 +850,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Symbol.
@@ -887,7 +887,7 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Months (fiscal).
@@ -904,6 +904,6 @@ public class X_I_FixedAsset extends PO implements I_I_FixedAsset, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

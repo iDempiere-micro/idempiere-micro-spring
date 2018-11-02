@@ -87,7 +87,7 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sales Transaction.
@@ -134,7 +134,7 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetExclude_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_AttributeSetExclude_UU.
@@ -176,6 +176,6 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

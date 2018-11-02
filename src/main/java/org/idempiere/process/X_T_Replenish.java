@@ -87,7 +87,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -115,7 +115,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -143,7 +143,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Maximum Level.
@@ -211,7 +211,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -239,7 +239,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_WarehouseSource() throws RuntimeException
@@ -267,7 +267,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_WarehouseSource_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Minimum Order Qty.

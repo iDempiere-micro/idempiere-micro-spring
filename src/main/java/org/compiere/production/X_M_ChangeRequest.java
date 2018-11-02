@@ -190,7 +190,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Change Request.
@@ -213,7 +213,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeRequest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ChangeRequest_UU.
@@ -255,7 +255,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_FixChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -264,7 +264,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -272,7 +272,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	public org.eevolution.model.I_PP_Product_BOM getPP_Product_BOM() throws RuntimeException
@@ -300,7 +300,7 @@ public class X_M_ChangeRequest extends PO implements I_M_ChangeRequest, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

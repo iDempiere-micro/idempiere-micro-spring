@@ -141,7 +141,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_QualityTest getM_QualityTest() throws RuntimeException
@@ -166,7 +166,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_QualityTest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Quality Test Result.
@@ -186,7 +186,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_QualityTestResult_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_QualityTestResult_UU.

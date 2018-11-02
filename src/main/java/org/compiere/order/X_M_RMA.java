@@ -5,18 +5,17 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_RMA;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_RMA
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_RMA extends PO implements I_Persistent
+public class X_M_RMA extends BasePOName implements I_Persistent
 {
 
 	/**
@@ -28,24 +27,6 @@ public class X_M_RMA extends PO implements I_Persistent
     public X_M_RMA (Properties ctx, int M_RMA_ID, String trxName)
     {
       super (ctx, M_RMA_ID, trxName);
-      /** if (M_RMA_ID == 0)
-        {
-			setC_DocType_ID (0);
-			setDocAction (null);
-// CO
-			setDocStatus (null);
-// DR
-			setDocumentNo (null);
-			setInOut_ID (0);
-			setIsApproved (false);
-			setIsSOTrx (false);
-// @IsSOTrx@
-			setM_RMA_ID (0);
-			setM_RMAType_ID (0);
-			setName (null);
-			setProcessed (false);
-			setSalesRep_ID (0);
-        } */
     }
 
     /** Load Constructor */
@@ -65,15 +46,13 @@ public class X_M_RMA extends PO implements I_Persistent
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, I_M_RMA.Table_ID, get_TrxName());
-      return poi;
+		return POInfo.getPOInfo (ctx, I_M_RMA.Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_M_RMA[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+		return "X_M_RMA[" +
+			get_ID() + "]";
     }
 
 	/** Set Amount.
@@ -110,7 +89,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (C_BPartner_ID < 1) 
 			set_Value (I_M_RMA.COLUMNNAME_C_BPartner_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_C_BPartner_ID, Integer.valueOf(C_BPartner_ID));
+			set_Value (I_M_RMA.COLUMNNAME_C_BPartner_ID, C_BPartner_ID);
 	}
 
 	/** Get Business Partner .
@@ -121,7 +100,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -138,7 +117,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (C_Currency_ID < 1) 
 			set_Value (I_M_RMA.COLUMNNAME_C_Currency_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_C_Currency_ID, Integer.valueOf(C_Currency_ID));
+			set_Value (I_M_RMA.COLUMNNAME_C_Currency_ID, C_Currency_ID);
 	}
 
 	/** Get Currency.
@@ -149,7 +128,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -166,7 +145,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (C_DocType_ID < 0) 
 			set_Value (I_M_RMA.COLUMNNAME_C_DocType_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_C_DocType_ID, Integer.valueOf(C_DocType_ID));
+			set_Value (I_M_RMA.COLUMNNAME_C_DocType_ID, C_DocType_ID);
 	}
 
 	/** Get Document Type.
@@ -177,7 +156,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Order getC_Order() throws RuntimeException
@@ -194,7 +173,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (C_Order_ID < 1) 
 			set_ValueNoCheck (I_M_RMA.COLUMNNAME_C_Order_ID, null);
 		else 
-			set_ValueNoCheck (I_M_RMA.COLUMNNAME_C_Order_ID, Integer.valueOf(C_Order_ID));
+			set_ValueNoCheck (I_M_RMA.COLUMNNAME_C_Order_ID, C_Order_ID);
 	}
 
 	/** Get Order.
@@ -205,7 +184,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.
@@ -351,14 +330,6 @@ public class X_M_RMA extends PO implements I_Persistent
 		return (String)get_Value(I_M_RMA.COLUMNNAME_DocumentNo);
 	}
 
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getDocumentNo());
-    }
-
 	/** Set Generate To.
 		@param GenerateTo 
 		Generate To
@@ -407,7 +378,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (InOut_ID < 1) 
 			set_ValueNoCheck (I_M_RMA.COLUMNNAME_InOut_ID, null);
 		else 
-			set_ValueNoCheck (I_M_RMA.COLUMNNAME_InOut_ID, Integer.valueOf(InOut_ID));
+			set_ValueNoCheck (I_M_RMA.COLUMNNAME_InOut_ID, InOut_ID);
 	}
 
 	/** Get Shipment/Receipt.
@@ -418,7 +389,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Approved.
@@ -427,7 +398,7 @@ public class X_M_RMA extends PO implements I_Persistent
 	  */
 	public void setIsApproved (boolean IsApproved)
 	{
-		set_Value (I_M_RMA.COLUMNNAME_IsApproved, Boolean.valueOf(IsApproved));
+		set_Value (I_M_RMA.COLUMNNAME_IsApproved, IsApproved);
 	}
 
 	/** Get Approved.
@@ -439,7 +410,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -451,7 +422,7 @@ public class X_M_RMA extends PO implements I_Persistent
 	  */
 	public void setIsSOTrx (boolean IsSOTrx)
 	{
-		set_Value (I_M_RMA.COLUMNNAME_IsSOTrx, Boolean.valueOf(IsSOTrx));
+		set_Value (I_M_RMA.COLUMNNAME_IsSOTrx, IsSOTrx);
 	}
 
 	/** Get Sales Transaction.
@@ -463,7 +434,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -478,7 +449,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (M_RMA_ID < 1) 
 			set_ValueNoCheck (I_M_RMA.COLUMNNAME_M_RMA_ID, null);
 		else 
-			set_ValueNoCheck (I_M_RMA.COLUMNNAME_M_RMA_ID, Integer.valueOf(M_RMA_ID));
+			set_ValueNoCheck (I_M_RMA.COLUMNNAME_M_RMA_ID, M_RMA_ID);
 	}
 
 	/** Get RMA.
@@ -489,7 +460,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMAType getM_RMAType() throws RuntimeException
@@ -506,7 +477,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (M_RMAType_ID < 1) 
 			set_Value (I_M_RMA.COLUMNNAME_M_RMAType_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_M_RMAType_ID, Integer.valueOf(M_RMAType_ID));
+			set_Value (I_M_RMA.COLUMNNAME_M_RMAType_ID, M_RMAType_ID);
 	}
 
 	/** Get RMA Type.
@@ -517,7 +488,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_M_RMAType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_RMA_UU.
@@ -534,30 +505,13 @@ public class X_M_RMA extends PO implements I_Persistent
 		return (String)get_Value(I_M_RMA.COLUMNNAME_M_RMA_UU);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_M_RMA.COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_M_RMA.COLUMNNAME_Name);
-	}
-
 	/** Set Processed.
 		@param Processed 
 		The document has been processed
 	  */
 	public void setProcessed (boolean Processed)
 	{
-		set_Value (I_M_RMA.COLUMNNAME_Processed, Boolean.valueOf(Processed));
+		set_Value (I_M_RMA.COLUMNNAME_Processed, Processed);
 	}
 
 	/** Get Processed.
@@ -569,7 +523,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -579,7 +533,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		@param Processing Process Now	  */
 	public void setProcessing (boolean Processing)
 	{
-		set_Value (I_M_RMA.COLUMNNAME_Processing, Boolean.valueOf(Processing));
+		set_Value (I_M_RMA.COLUMNNAME_Processing, Processing);
 	}
 
 	/** Get Process Now.
@@ -590,7 +544,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -608,7 +562,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (Ref_RMA_ID < 1) 
 			set_Value (I_M_RMA.COLUMNNAME_Ref_RMA_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_Ref_RMA_ID, Integer.valueOf(Ref_RMA_ID));
+			set_Value (I_M_RMA.COLUMNNAME_Ref_RMA_ID, Ref_RMA_ID);
 	}
 
 	/** Get Referenced RMA.
@@ -618,7 +572,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_Ref_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -635,7 +589,7 @@ public class X_M_RMA extends PO implements I_Persistent
 		if (SalesRep_ID < 1) 
 			set_Value (I_M_RMA.COLUMNNAME_SalesRep_ID, null);
 		else 
-			set_Value (I_M_RMA.COLUMNNAME_SalesRep_ID, Integer.valueOf(SalesRep_ID));
+			set_Value (I_M_RMA.COLUMNNAME_SalesRep_ID, SalesRep_ID);
 	}
 
 	/** Get Sales Representative.
@@ -646,6 +600,6 @@ public class X_M_RMA extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMA.COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

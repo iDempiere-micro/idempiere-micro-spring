@@ -92,7 +92,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Class_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Group.
@@ -115,7 +115,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -162,7 +162,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Type_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -370,7 +370,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -378,6 +378,6 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 }

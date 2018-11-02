@@ -98,7 +98,7 @@ public class X_C_TaxCategory extends PO implements I_C_TaxCategory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_TaxCategory_UU.
@@ -162,7 +162,7 @@ public class X_C_TaxCategory extends PO implements I_C_TaxCategory, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -170,7 +170,7 @@ public class X_C_TaxCategory extends PO implements I_C_TaxCategory, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

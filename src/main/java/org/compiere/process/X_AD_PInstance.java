@@ -87,7 +87,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Language_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Instance.
@@ -110,7 +110,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -160,7 +160,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -188,7 +188,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -216,7 +216,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Error Msg.
@@ -305,7 +305,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -313,7 +313,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** NotificationType AD_Reference_ID=344 */
@@ -364,7 +364,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Report Type.
@@ -398,6 +398,6 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Result);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

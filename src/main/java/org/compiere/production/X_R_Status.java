@@ -231,7 +231,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -239,7 +239,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	public org.compiere.model.I_R_Status getNext_Status() throws RuntimeException
@@ -267,7 +267,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Next_Status_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_StatusCategory getR_StatusCategory() throws RuntimeException
@@ -295,7 +295,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_StatusCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Status.
@@ -318,7 +318,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Status_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_Status_UU.
@@ -352,7 +352,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -380,7 +380,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_TimeoutDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Status getUpdate_Status() throws RuntimeException
@@ -408,7 +408,7 @@ public class X_R_Status extends PO implements I_R_Status, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Update_Status_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Search Key.

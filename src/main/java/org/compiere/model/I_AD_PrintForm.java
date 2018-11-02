@@ -200,8 +200,8 @@ public interface I_AD_PrintForm
 
 	public I_AD_PrintFormat getManuf_Order_PrintFormat() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -134,7 +134,7 @@ public class X_M_StorageReservation extends PO implements I_M_StorageReservation
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -162,7 +162,7 @@ public class X_M_StorageReservation extends PO implements I_M_StorageReservation
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_StorageReservation_UU.
@@ -204,7 +204,7 @@ public class X_M_StorageReservation extends PO implements I_M_StorageReservation
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Quantity.

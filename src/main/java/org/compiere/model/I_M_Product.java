@@ -630,8 +630,8 @@ public interface I_M_Product extends IPO
 	/** Get M_Product_UU	  */
 	public String getM_Product_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

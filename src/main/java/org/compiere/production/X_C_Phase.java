@@ -88,7 +88,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Phase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Phase_UU.
@@ -130,7 +130,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -192,7 +192,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -201,7 +201,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -209,7 +209,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -237,7 +237,7 @@ public class X_C_Phase extends PO implements I_C_Phase, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Standard Quantity.

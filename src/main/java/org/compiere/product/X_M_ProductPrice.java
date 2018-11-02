@@ -90,7 +90,7 @@ public class X_M_ProductPrice extends PO implements I_M_ProductPrice, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_Version_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -118,7 +118,7 @@ public class X_M_ProductPrice extends PO implements I_M_ProductPrice, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Product Price.
@@ -141,7 +141,7 @@ public class X_M_ProductPrice extends PO implements I_M_ProductPrice, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductPrice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ProductPrice_UU.

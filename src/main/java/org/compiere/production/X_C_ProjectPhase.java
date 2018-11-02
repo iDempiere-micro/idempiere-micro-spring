@@ -118,7 +118,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Phase getC_Phase() throws RuntimeException
@@ -146,7 +146,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Phase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -174,7 +174,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Project Phase.
@@ -197,7 +197,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ProjectPhase_UU.
@@ -355,7 +355,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -364,7 +364,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -372,7 +372,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Planned Amount.
@@ -482,7 +482,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

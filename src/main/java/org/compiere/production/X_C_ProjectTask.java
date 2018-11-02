@@ -115,7 +115,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Project Task.
@@ -138,7 +138,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ProjectTask_UU.
@@ -180,7 +180,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Task_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -242,7 +242,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -251,7 +251,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -259,7 +259,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Planned Amount.
@@ -349,7 +349,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

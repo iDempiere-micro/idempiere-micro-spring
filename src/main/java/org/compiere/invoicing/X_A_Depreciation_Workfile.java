@@ -173,7 +173,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Asset_Life_Current_Year.
@@ -207,7 +207,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Life_Years);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Life Years (fiscal).
@@ -224,7 +224,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Life_Years_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Remaining Amt.
@@ -326,7 +326,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Current_Period);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Depreciation_Workfile_ID.
@@ -346,7 +346,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Workfile_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -425,7 +425,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_FundingMode_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Life Periods.
@@ -442,7 +442,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Life_Period);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Life Period (fiscal).
@@ -459,7 +459,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Life_Period_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Life periods (max).
@@ -475,7 +475,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Life_Period_Max);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Life periods (min).
@@ -491,7 +491,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Life_Period_Min);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Period_Forecast.
@@ -525,7 +525,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Period_Posted);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Prior_Year_Accumulated_Depr.
@@ -806,7 +806,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Months (fiscal).
@@ -823,7 +823,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Usable Life - Years.
@@ -843,7 +843,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Years (fiscal).
@@ -860,6 +860,6 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

@@ -100,7 +100,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -128,7 +128,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ChartType AD_Reference_ID=53315 */
@@ -385,7 +385,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -393,7 +393,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -446,7 +446,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_ColorSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Goal.
@@ -469,7 +469,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Goal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_Goal getPA_GoalParent() throws RuntimeException
@@ -497,7 +497,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_GoalParent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_Goal_UU.
@@ -539,7 +539,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Measure_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Relative Weight.
@@ -579,6 +579,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

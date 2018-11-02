@@ -112,7 +112,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AllocationHdr_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Allocation Line.
@@ -135,7 +135,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AllocationLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_AllocationLine_UU.
@@ -177,7 +177,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashLine getC_CashLine() throws RuntimeException
@@ -205,7 +205,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_CashLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -233,7 +233,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -261,7 +261,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -297,7 +297,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -325,7 +325,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Transaction Date.

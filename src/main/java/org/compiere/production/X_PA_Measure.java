@@ -109,7 +109,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -230,7 +230,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -238,7 +238,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -274,7 +274,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Benchmark_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_Hierarchy getPA_Hierarchy() throws RuntimeException
@@ -302,7 +302,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Hierarchy_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_MeasureCalc getPA_MeasureCalc() throws RuntimeException
@@ -330,7 +330,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_MeasureCalc_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Measure.
@@ -353,7 +353,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Measure_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_Measure_UU.
@@ -395,7 +395,7 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Ratio_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_RequestType getR_RequestType() throws RuntimeException
@@ -423,6 +423,6 @@ public class X_PA_Measure extends PO implements I_PA_Measure, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

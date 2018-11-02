@@ -86,7 +86,7 @@ public class X_AD_SchedulerLog extends PO implements I_AD_SchedulerLog, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Scheduler_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Scheduler Log.
@@ -109,7 +109,7 @@ public class X_AD_SchedulerLog extends PO implements I_AD_SchedulerLog, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_SchedulerLog_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_SchedulerLog_UU.

@@ -144,8 +144,8 @@ public interface I_C_Job extends IClientBound
 	  */
 	public boolean isEmployee();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

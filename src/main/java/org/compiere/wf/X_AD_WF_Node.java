@@ -153,7 +153,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_CtxHelp getAD_CtxHelp() throws RuntimeException
@@ -178,7 +178,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_CtxHelp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Form getAD_Form() throws RuntimeException
@@ -206,7 +206,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Form_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Image getAD_Image() throws RuntimeException
@@ -234,7 +234,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Image_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_InfoWindow getAD_InfoWindow() throws RuntimeException
@@ -262,7 +262,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_InfoWindow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -290,7 +290,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Task getAD_Task() throws RuntimeException
@@ -318,7 +318,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Task_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Block getAD_WF_Block() throws RuntimeException
@@ -346,7 +346,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Block_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Node.
@@ -369,7 +369,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Node_UU.
@@ -411,7 +411,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException
@@ -439,7 +439,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -467,7 +467,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Attribute Name.
@@ -529,7 +529,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost.
@@ -634,7 +634,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Duration);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Dynamic Priority Change.
@@ -894,7 +894,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Limit);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Moving Time.
@@ -911,7 +911,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_MovingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -920,7 +920,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -928,7 +928,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -956,7 +956,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_OverlapUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Priority.
@@ -976,7 +976,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Priority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Queuing Time.
@@ -996,7 +996,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_QueuingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_MailText getR_MailText() throws RuntimeException
@@ -1024,7 +1024,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_MailText_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Setup Time.
@@ -1044,7 +1044,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SetupTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** SplitElement AD_Reference_ID=301 */
@@ -1096,7 +1096,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** StartMode AD_Reference_ID=303 */
@@ -1235,7 +1235,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WaitingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Wait Time.
@@ -1255,7 +1255,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WaitTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getWorkflow() throws RuntimeException
@@ -1283,7 +1283,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Working Time.
@@ -1303,7 +1303,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WorkingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set X Position.
@@ -1323,7 +1323,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_XPosition);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Yield %.
@@ -1343,7 +1343,7 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Yield);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Y Position.
@@ -1363,6 +1363,6 @@ public class X_AD_WF_Node extends PO implements I_AD_WF_Node, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_YPosition);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

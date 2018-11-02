@@ -111,7 +111,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Tax getC_Tax() throws RuntimeException
@@ -139,7 +139,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -176,7 +176,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line Amount.
@@ -224,7 +224,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -252,7 +252,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMA getM_RMA() throws RuntimeException
@@ -280,7 +280,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -311,7 +311,7 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_M_RMALine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_RMALine_UU.
@@ -434,6 +434,6 @@ public class X_M_RMALine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_RMALine.COLUMNNAME_Ref_RMALine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

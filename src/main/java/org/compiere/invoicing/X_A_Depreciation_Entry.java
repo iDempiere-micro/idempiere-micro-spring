@@ -102,7 +102,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Entry_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -181,7 +181,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -209,7 +209,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -237,7 +237,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Period getC_Period() throws RuntimeException
@@ -265,7 +265,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Period_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.

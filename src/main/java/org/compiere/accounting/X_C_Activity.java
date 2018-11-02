@@ -83,7 +83,7 @@ public class X_C_Activity extends BasePONameValue implements I_C_Activity, I_Per
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Activity_UU.

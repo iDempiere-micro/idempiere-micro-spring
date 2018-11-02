@@ -168,7 +168,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AddressTransaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_AddressTransaction_UU.
@@ -207,7 +207,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AddressValidation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set City.
@@ -260,7 +260,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Comments.

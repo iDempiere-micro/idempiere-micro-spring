@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_C_Tax;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -98,7 +99,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_AD_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CountryGroup getC_CountryGroupFrom() throws RuntimeException
@@ -123,7 +124,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CountryGroup getC_CountryGroupTo() throws RuntimeException
@@ -148,7 +149,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Country.
@@ -171,7 +172,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_Country_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Region getC_Region() throws RuntimeException
@@ -199,7 +200,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_Region_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_TaxCategory getC_TaxCategory() throws RuntimeException
@@ -227,7 +228,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tax.
@@ -250,7 +251,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_TaxProvider getC_TaxProvider() throws RuntimeException
@@ -275,7 +276,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Tax_UU.
@@ -435,7 +436,7 @@ public class X_C_Tax extends PO implements I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_C_Tax.COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -443,7 +444,7 @@ public class X_C_Tax extends PO implements I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_C_Tax.COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -479,7 +480,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Rate.
@@ -589,7 +590,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_To_Country_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Region getTo_Region() throws RuntimeException
@@ -617,7 +618,7 @@ public class X_C_Tax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Tax.COLUMNNAME_To_Region_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Valid from.

@@ -114,7 +114,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException
@@ -142,7 +142,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_OrderLine getC_OrderLine() throws RuntimeException
@@ -170,7 +170,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectIssue getC_ProjectIssue() throws RuntimeException
@@ -198,7 +198,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectIssue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Accumulated Amt.
@@ -387,7 +387,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost Detail.
@@ -410,7 +410,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostDetail_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_CostDetail_UU.
@@ -452,7 +452,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -480,7 +480,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InventoryLine getM_InventoryLine() throws RuntimeException
@@ -508,7 +508,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InventoryLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_MatchInv getM_MatchInv() throws RuntimeException
@@ -536,7 +536,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_MatchInv_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_MovementLine getM_MovementLine() throws RuntimeException
@@ -564,7 +564,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -592,7 +592,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ProductionLine getM_ProductionLine() throws RuntimeException
@@ -620,7 +620,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.eevolution.model.I_PP_Cost_Collector getPP_Cost_Collector() throws RuntimeException
@@ -645,7 +645,7 @@ public class X_M_CostDetail extends PO implements I_M_CostDetail, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Cost_Collector_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price.

@@ -88,7 +88,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Trx Organization.
@@ -111,7 +111,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Alias.
@@ -156,7 +156,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -184,7 +184,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -212,7 +212,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -240,7 +240,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocFrom() throws RuntimeException
@@ -268,7 +268,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocFrom_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Location getC_LocTo() throws RuntimeException
@@ -296,7 +296,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LocTo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Combination.
@@ -349,7 +349,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SalesRegion getC_SalesRegion() throws RuntimeException
@@ -377,7 +377,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SubAcct getC_SubAcct() throws RuntimeException
@@ -405,7 +405,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SubAcct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Combination.
@@ -428,7 +428,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ValidCombination_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ValidCombination_UU.
@@ -511,7 +511,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -539,7 +539,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -567,7 +567,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set User Column 1.
@@ -590,7 +590,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UserElement1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set User Column 2.
@@ -613,6 +613,6 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UserElement2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

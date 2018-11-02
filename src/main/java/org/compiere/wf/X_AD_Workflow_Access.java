@@ -86,7 +86,7 @@ public class X_AD_Workflow_Access extends PO implements I_AD_Workflow_Access, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Workflow_Access_UU.
@@ -128,7 +128,7 @@ public class X_AD_Workflow_Access extends PO implements I_AD_Workflow_Access, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Read Write.

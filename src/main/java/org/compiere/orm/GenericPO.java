@@ -103,7 +103,7 @@ public class GenericPO extends PO {
 		Integer ii = (Integer) get_Value("AD_OrgTrx_ID");
 		if (ii == null)
 			return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	@Override

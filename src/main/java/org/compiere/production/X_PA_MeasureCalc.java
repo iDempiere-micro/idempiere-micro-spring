@@ -98,7 +98,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set B.Partner Column.
@@ -195,7 +195,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -203,7 +203,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -251,7 +251,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_MeasureCalc_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_MeasureCalc_UU.

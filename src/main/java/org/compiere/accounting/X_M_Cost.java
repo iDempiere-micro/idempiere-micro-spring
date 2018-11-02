@@ -95,7 +95,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** CostingMethod AD_Reference_ID=122 */
@@ -335,7 +335,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_CostElement getM_CostElement() throws RuntimeException
@@ -363,7 +363,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_CostType getM_CostType() throws RuntimeException
@@ -391,7 +391,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Cost_UU.
@@ -433,7 +433,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Percent.
@@ -453,7 +453,7 @@ public class X_M_Cost extends PO implements I_M_Cost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Percent);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

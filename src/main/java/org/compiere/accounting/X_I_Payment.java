@@ -287,7 +287,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -315,7 +315,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -343,7 +343,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -371,7 +371,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -399,7 +399,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Charge amount.
@@ -481,7 +481,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -509,7 +509,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Exp. Month.
@@ -529,7 +529,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpMM);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Exp. Year.
@@ -549,7 +549,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpYY);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Number.
@@ -803,7 +803,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_I_Payment_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set I_Payment_UU.

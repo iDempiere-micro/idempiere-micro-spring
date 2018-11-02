@@ -95,7 +95,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -123,7 +123,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -151,7 +151,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -179,7 +179,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_OrderLine getC_OrderLine() throws RuntimeException
@@ -207,7 +207,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -235,7 +235,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectPhase getC_ProjectPhase() throws RuntimeException
@@ -263,7 +263,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -291,7 +291,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.
@@ -553,7 +553,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Movement Date.
@@ -598,7 +598,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Production.
@@ -621,7 +621,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_M_Production_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Production_UU.
@@ -644,7 +644,7 @@ public class X_M_Production extends PO implements I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_M_Production.COLUMNNAME_Name, Name);
+		set_Value (I_M_Production.HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -652,7 +652,7 @@ public class X_M_Production extends PO implements I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_M_Production.COLUMNNAME_Name);
+		return (String)get_Value(I_M_Production.HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Posted.
@@ -789,7 +789,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -817,7 +817,7 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -845,6 +845,6 @@ public class X_M_Production extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_M_Production.COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

@@ -86,7 +86,7 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesStage_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_SalesStage_UU.
@@ -174,7 +174,7 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -182,7 +182,7 @@ public class X_C_SalesStage extends PO implements I_C_SalesStage, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

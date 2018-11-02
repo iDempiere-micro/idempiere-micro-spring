@@ -85,7 +85,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.
@@ -127,7 +127,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper.
@@ -150,7 +150,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Shipper_UU.
@@ -189,7 +189,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -198,7 +198,7 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -206,6 +206,6 @@ public class X_M_Shipper extends PO implements I_M_Shipper, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 }

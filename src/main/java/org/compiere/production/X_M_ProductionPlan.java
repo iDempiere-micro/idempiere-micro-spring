@@ -106,7 +106,7 @@ public class X_M_ProductionPlan extends PO implements I_M_ProductionPlan, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -142,7 +142,7 @@ public class X_M_ProductionPlan extends PO implements I_M_ProductionPlan, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -170,7 +170,7 @@ public class X_M_ProductionPlan extends PO implements I_M_ProductionPlan, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Production getM_Production() throws RuntimeException
@@ -198,7 +198,7 @@ public class X_M_ProductionPlan extends PO implements I_M_ProductionPlan, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Production_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Production Plan.
@@ -221,7 +221,7 @@ public class X_M_ProductionPlan extends PO implements I_M_ProductionPlan, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductionPlan_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ProductionPlan_UU.

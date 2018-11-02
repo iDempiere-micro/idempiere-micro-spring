@@ -136,7 +136,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_CtxHelp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -164,7 +164,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException
@@ -192,7 +192,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Responsible getAD_WF_Responsible() throws RuntimeException
@@ -220,7 +220,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow.
@@ -243,7 +243,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WorkflowProcessor getAD_WorkflowProcessor() throws RuntimeException
@@ -271,7 +271,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WorkflowProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Workflow_UU.
@@ -393,7 +393,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Duration);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** DurationUnit AD_Reference_ID=299 */
@@ -554,7 +554,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Limit);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Moving Time.
@@ -571,7 +571,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_MovingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -580,7 +580,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -588,7 +588,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -636,7 +636,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Priority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ProcessType AD_Reference_ID=53224 */
@@ -730,7 +730,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_QueuingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Setup Time.
@@ -750,7 +750,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SetupTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException
@@ -778,7 +778,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Units by Cycles.
@@ -883,7 +883,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Version);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Waiting Time.
@@ -903,7 +903,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WaitingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** WorkflowType AD_Reference_ID=328 */
@@ -955,7 +955,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WorkingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Yield %.
@@ -975,6 +975,6 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Yield);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

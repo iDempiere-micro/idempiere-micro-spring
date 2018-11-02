@@ -79,7 +79,7 @@ public class X_AD_ViewColumn extends PO implements I_AD_ViewColumn, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ViewColumn_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_ViewColumn_UU.
@@ -118,7 +118,7 @@ public class X_AD_ViewColumn extends PO implements I_AD_ViewColumn, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ViewComponent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set DB Column Name.
@@ -259,6 +259,6 @@ public class X_AD_ViewColumn extends PO implements I_AD_ViewColumn, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

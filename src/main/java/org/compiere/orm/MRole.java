@@ -2318,7 +2318,7 @@ public class MRole extends X_AD_Role
 		loadTableInfo(false);
 		Integer ii = (Integer)m_tableName.get(tableName);
 		if (ii != null)
-			return ii.intValue();
+			return ii;
 	//	log.log(Level.WARNING,"getAD_Table_ID - not found (" + tableName + ")");
 		return 0;
 	}	//	getAD_Table_ID

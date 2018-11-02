@@ -100,7 +100,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -128,7 +128,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Parameter.
@@ -148,7 +148,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_Para_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Process_Para_UU.
@@ -190,7 +190,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Reference getAD_Reference_Value() throws RuntimeException
@@ -218,7 +218,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_Value_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException
@@ -246,7 +246,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Val_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set DB Column Name.
@@ -371,7 +371,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_FieldLength);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Comment/Help.
@@ -507,7 +507,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -515,7 +515,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -560,7 +560,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Max. Value.

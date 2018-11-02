@@ -5,17 +5,16 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ElementValue;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_ElementValue
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persistent
+public class X_C_ElementValue extends BasePONameValue implements I_C_ElementValue, I_Persistent
 {
 
 	/**
@@ -27,30 +26,6 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
     public X_C_ElementValue (Properties ctx, int C_ElementValue_ID, String trxName)
     {
       super (ctx, C_ElementValue_ID, trxName);
-      /** if (C_ElementValue_ID == 0)
-        {
-			setAccountSign (null);
-// N
-			setAccountType (null);
-// E
-			setC_Element_ID (0);
-			setC_ElementValue_ID (0);
-			setIsDetailBPartner (false);
-// N
-			setIsDetailProduct (false);
-// N
-			setIsSummary (false);
-			setName (null);
-			setPostActual (true);
-// Y
-			setPostBudget (true);
-// Y
-			setPostEncumbrance (true);
-// Y
-			setPostStatistical (true);
-// Y
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -70,15 +45,13 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_C_ElementValue[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_C_ElementValue[" +
+            get_ID() + "]";
     }
 
 	/** AccountSign AD_Reference_ID=118 */
@@ -176,7 +149,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (C_BankAccount_ID < 1) 
 			set_Value (COLUMNNAME_C_BankAccount_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_BankAccount_ID, Integer.valueOf(C_BankAccount_ID));
+			set_Value (COLUMNNAME_C_BankAccount_ID, C_BankAccount_ID);
 	}
 
 	/** Get Bank Account.
@@ -187,7 +160,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -204,7 +177,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (C_Currency_ID < 1) 
 			set_Value (COLUMNNAME_C_Currency_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_Currency_ID, Integer.valueOf(C_Currency_ID));
+			set_Value (COLUMNNAME_C_Currency_ID, C_Currency_ID);
 	}
 
 	/** Get Currency.
@@ -215,7 +188,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Element getC_Element() throws RuntimeException
@@ -232,7 +205,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (C_Element_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_Element_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_Element_ID, Integer.valueOf(C_Element_ID));
+			set_ValueNoCheck (COLUMNNAME_C_Element_ID, C_Element_ID);
 	}
 
 	/** Get Element.
@@ -243,7 +216,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Element.
@@ -255,7 +228,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (C_ElementValue_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_ElementValue_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_ElementValue_ID, Integer.valueOf(C_ElementValue_ID));
+			set_ValueNoCheck (COLUMNNAME_C_ElementValue_ID, C_ElementValue_ID);
 	}
 
 	/** Get Account Element.
@@ -266,7 +239,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ElementValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ElementValue_UU.
@@ -306,7 +279,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setIsBankAccount (boolean IsBankAccount)
 	{
-		set_Value (COLUMNNAME_IsBankAccount, Boolean.valueOf(IsBankAccount));
+		set_Value (COLUMNNAME_IsBankAccount, IsBankAccount);
 	}
 
 	/** Get Bank Account.
@@ -318,7 +291,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -328,7 +301,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		@param IsDetailBPartner Manage Business Partners	  */
 	public void setIsDetailBPartner (boolean IsDetailBPartner)
 	{
-		set_Value (COLUMNNAME_IsDetailBPartner, Boolean.valueOf(IsDetailBPartner));
+		set_Value (COLUMNNAME_IsDetailBPartner, IsDetailBPartner);
 	}
 
 	/** Get Manage Business Partners.
@@ -339,7 +312,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -349,7 +322,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		@param IsDetailProduct Manage Products	  */
 	public void setIsDetailProduct (boolean IsDetailProduct)
 	{
-		set_Value (COLUMNNAME_IsDetailProduct, Boolean.valueOf(IsDetailProduct));
+		set_Value (COLUMNNAME_IsDetailProduct, IsDetailProduct);
 	}
 
 	/** Get Manage Products.
@@ -360,7 +333,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -372,7 +345,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setIsDocControlled (boolean IsDocControlled)
 	{
-		set_Value (COLUMNNAME_IsDocControlled, Boolean.valueOf(IsDocControlled));
+		set_Value (COLUMNNAME_IsDocControlled, IsDocControlled);
 	}
 
 	/** Get Document Controlled.
@@ -384,7 +357,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -396,7 +369,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setIsForeignCurrency (boolean IsForeignCurrency)
 	{
-		set_Value (COLUMNNAME_IsForeignCurrency, Boolean.valueOf(IsForeignCurrency));
+		set_Value (COLUMNNAME_IsForeignCurrency, IsForeignCurrency);
 	}
 
 	/** Get Foreign Currency Account.
@@ -408,7 +381,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -420,7 +393,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setIsSummary (boolean IsSummary)
 	{
-		set_Value (COLUMNNAME_IsSummary, Boolean.valueOf(IsSummary));
+		set_Value (COLUMNNAME_IsSummary, IsSummary);
 	}
 
 	/** Get Summary Level.
@@ -432,27 +405,10 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 
 	/** Set Post Actual.
@@ -461,7 +417,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setPostActual (boolean PostActual)
 	{
-		set_Value (COLUMNNAME_PostActual, Boolean.valueOf(PostActual));
+		set_Value (COLUMNNAME_PostActual, PostActual);
 	}
 
 	/** Get Post Actual.
@@ -473,7 +429,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -485,7 +441,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setPostBudget (boolean PostBudget)
 	{
-		set_Value (COLUMNNAME_PostBudget, Boolean.valueOf(PostBudget));
+		set_Value (COLUMNNAME_PostBudget, PostBudget);
 	}
 
 	/** Get Post Budget.
@@ -497,7 +453,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -509,7 +465,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setPostEncumbrance (boolean PostEncumbrance)
 	{
-		set_Value (COLUMNNAME_PostEncumbrance, Boolean.valueOf(PostEncumbrance));
+		set_Value (COLUMNNAME_PostEncumbrance, PostEncumbrance);
 	}
 
 	/** Get Post Encumbrance.
@@ -521,7 +477,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -533,7 +489,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	  */
 	public void setPostStatistical (boolean PostStatistical)
 	{
-		set_Value (COLUMNNAME_PostStatistical, Boolean.valueOf(PostStatistical));
+		set_Value (COLUMNNAME_PostStatistical, PostStatistical);
 	}
 
 	/** Get Post Statistical.
@@ -545,7 +501,7 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -584,29 +540,4 @@ public class X_C_ElementValue extends PO implements I_C_ElementValue, I_Persiste
 	{
 		return (Timestamp)get_Value(COLUMNNAME_ValidTo);
 	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getValue());
-    }
 }

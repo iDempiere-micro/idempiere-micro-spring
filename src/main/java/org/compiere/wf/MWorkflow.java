@@ -622,7 +622,7 @@ public class MWorkflow extends X_AD_Workflow
 			wa.saveEx();
 		}
 		//	Menu/Workflow
-		else if (is_ValueChanged("IsActive") || is_ValueChanged(I_AD_Workflow.COLUMNNAME_Name)
+		else if (is_ValueChanged("IsActive") || is_ValueChanged(I_AD_Workflow.HasName.Companion.getCOLUMNNAME_Name())
 			|| is_ValueChanged(I_AD_Workflow.COLUMNNAME_Description))
 		{
 			/* TODO Add DAP

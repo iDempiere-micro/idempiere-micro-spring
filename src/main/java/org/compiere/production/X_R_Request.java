@@ -105,7 +105,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Role getAD_Role() throws RuntimeException
@@ -133,7 +133,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -161,7 +161,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -189,7 +189,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -217,7 +217,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -245,7 +245,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -273,7 +273,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -301,7 +301,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_InvoiceRequest() throws RuntimeException
@@ -329,7 +329,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceRequest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Close Date.
@@ -430,7 +430,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -458,7 +458,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -486,7 +486,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Complete Plan.
@@ -756,7 +756,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeRequest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ChangeNotice getM_FixChangeNotice() throws RuntimeException
@@ -784,7 +784,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_FixChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOut getM_InOut() throws RuntimeException
@@ -812,7 +812,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -840,7 +840,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_ProductSpent() throws RuntimeException
@@ -868,7 +868,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductSpent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMA getM_RMA() throws RuntimeException
@@ -896,7 +896,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** NextAction AD_Reference_ID=219 */
@@ -1092,7 +1092,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Record ID.
@@ -1115,7 +1115,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Request Amount.
@@ -1180,7 +1180,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_MailText getR_MailText() throws RuntimeException
@@ -1208,7 +1208,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_MailText_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Request.
@@ -1231,7 +1231,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Request_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Request getR_RequestRelated() throws RuntimeException
@@ -1259,7 +1259,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestRelated_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_RequestType getR_RequestType() throws RuntimeException
@@ -1287,7 +1287,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_Request_UU.
@@ -1329,7 +1329,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Resolution_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_StandardResponse getR_StandardResponse() throws RuntimeException
@@ -1357,7 +1357,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_StandardResponse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Status getR_Status() throws RuntimeException
@@ -1385,7 +1385,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Status_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -1413,7 +1413,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Start Date.

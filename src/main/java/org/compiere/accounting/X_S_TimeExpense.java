@@ -115,7 +115,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Report Date.
@@ -318,7 +318,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -346,7 +346,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Processed.
@@ -414,7 +414,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_S_TimeExpense_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set S_TimeExpense_UU.

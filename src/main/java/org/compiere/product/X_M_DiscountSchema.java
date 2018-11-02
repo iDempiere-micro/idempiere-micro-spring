@@ -223,7 +223,7 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_DiscountSchema_UU.
@@ -246,7 +246,7 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -254,7 +254,7 @@ public class X_M_DiscountSchema extends PO implements I_M_DiscountSchema, I_Pers
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

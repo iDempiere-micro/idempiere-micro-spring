@@ -427,7 +427,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Charge_ID
@@ -531,7 +531,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Product_ID
@@ -566,7 +566,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_AttributeSetInstance_ID
@@ -582,7 +582,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Locator_ID
@@ -598,7 +598,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_LocatorTo_ID
@@ -632,7 +632,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Production_ID
@@ -648,7 +648,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_OrderLine_ID
@@ -798,7 +798,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		//  Storage UOM
 		MProduct product = getProduct();
@@ -858,7 +858,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Tax_ID
@@ -874,7 +874,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getLine
@@ -921,7 +921,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return m_doc.getC_BPartner_Location_ID();
 	}	//	getC_BPartner_Location_ID
@@ -937,7 +937,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getAD_OrgTrx_ID
@@ -980,7 +980,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Project_ID
@@ -996,7 +996,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_ProjectPhase_ID
@@ -1012,7 +1012,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_ProjectTask_ID
@@ -1028,7 +1028,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Campaign_ID
@@ -1044,7 +1044,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Activity_ID
@@ -1060,7 +1060,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getUser1_ID
@@ -1076,7 +1076,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getUser2_ID
@@ -1093,7 +1093,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getValue

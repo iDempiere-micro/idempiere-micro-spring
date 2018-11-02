@@ -83,7 +83,7 @@ public class X_I_Conversion_Rate extends PO implements I_I_Conversion_Rate, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Conversion_Rate_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -111,7 +111,7 @@ public class X_I_Conversion_Rate extends PO implements I_I_Conversion_Rate, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -139,7 +139,7 @@ public class X_I_Conversion_Rate extends PO implements I_I_Conversion_Rate, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency_To() throws RuntimeException
@@ -164,7 +164,7 @@ public class X_I_Conversion_Rate extends PO implements I_I_Conversion_Rate, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID_To);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Currency Type Key.
@@ -248,7 +248,7 @@ public class X_I_Conversion_Rate extends PO implements I_I_Conversion_Rate, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_I_Conversion_Rate_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName

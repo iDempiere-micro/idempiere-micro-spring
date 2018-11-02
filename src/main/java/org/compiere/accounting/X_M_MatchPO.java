@@ -98,7 +98,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_OrderLine getC_OrderLine() throws RuntimeException
@@ -126,7 +126,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -254,7 +254,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -282,7 +282,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Match PO.
@@ -305,7 +305,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_MatchPO_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_MatchPO_UU.
@@ -347,7 +347,7 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Posted.
@@ -504,6 +504,6 @@ public class X_M_MatchPO extends PO implements I_M_MatchPO, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

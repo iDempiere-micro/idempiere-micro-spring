@@ -92,7 +92,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_PrintColor getAD_PrintColor2() throws RuntimeException
@@ -120,7 +120,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_PrintColor getAD_PrintColor3() throws RuntimeException
@@ -148,7 +148,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor3_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_PrintColor getAD_PrintColor4() throws RuntimeException
@@ -176,7 +176,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor4_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -233,7 +233,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Mark1Percent);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Mark 2 Percent.
@@ -253,7 +253,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Mark2Percent);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Mark 3 Percent.
@@ -273,7 +273,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Mark3Percent);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Mark 4 Percent.
@@ -293,7 +293,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Mark4Percent);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -302,7 +302,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -310,7 +310,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -341,7 +341,7 @@ public class X_PA_ColorSchema extends PO implements I_PA_ColorSchema, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_ColorSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_ColorSchema_UU.

@@ -158,7 +158,7 @@ public class MWFEventAudit extends X_AD_WF_EventAudit
 		MWFNode node = MWFNode.get(getCtx(), getAD_WF_Node_ID());
 		if (node.get_ID() == 0)
 			return "?";
-		return node.get_Translation(MWFNode.COLUMNNAME_Name);
+		return node.get_Translation(MWFNode.HasName.Companion.getCOLUMNNAME_Name());
 	}	//	getNodeName
 	
 	

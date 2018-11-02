@@ -1648,7 +1648,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_ConversionType_ID
@@ -1664,7 +1664,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return m_GL_Category_ID;
 	}	//	getGL_Category_ID
@@ -1680,7 +1680,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getGL_Budget_ID
@@ -1797,7 +1797,7 @@ public abstract class Doc implements IDoc
 					ii = (Integer)p_po.get_Value(index);
 			}
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		else
 		{
@@ -1865,7 +1865,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Charge_ID
@@ -1881,7 +1881,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getSalesRep_ID
@@ -1957,7 +1957,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getM_Warehouse_ID
@@ -2004,7 +2004,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_BPartner_Location_ID
@@ -2020,7 +2020,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Project_ID
@@ -2036,7 +2036,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_ProjectPhase_ID
@@ -2052,7 +2052,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_ProjectTask_ID
@@ -2068,7 +2068,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_SalesRegion_ID
@@ -2114,7 +2114,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Activity_ID
@@ -2130,7 +2130,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Campaign_ID
@@ -2146,7 +2146,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getM_Product_ID
@@ -2162,7 +2162,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getAD_OrgTrx_ID
@@ -2214,7 +2214,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getUser1_ID
@@ -2230,7 +2230,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getUser2_ID
@@ -2246,7 +2246,7 @@ public abstract class Doc implements IDoc
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getValue

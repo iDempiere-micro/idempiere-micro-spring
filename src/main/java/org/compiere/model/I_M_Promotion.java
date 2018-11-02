@@ -121,8 +121,8 @@ public interface I_M_Promotion
 	/** Get M_Promotion_UU	  */
 	public String getM_Promotion_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

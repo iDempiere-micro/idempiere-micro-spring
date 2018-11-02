@@ -120,7 +120,7 @@ public class X_R_Group extends PO implements I_R_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -129,7 +129,7 @@ public class X_R_Group extends PO implements I_R_Group, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -137,7 +137,7 @@ public class X_R_Group extends PO implements I_R_Group, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -173,7 +173,7 @@ public class X_R_Group extends PO implements I_R_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Group.
@@ -196,7 +196,7 @@ public class X_R_Group extends PO implements I_R_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_Group_UU.

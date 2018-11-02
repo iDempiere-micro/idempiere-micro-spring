@@ -87,7 +87,7 @@ public class X_M_LotCtlExclude extends PO implements I_M_LotCtlExclude, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sales Transaction.
@@ -134,7 +134,7 @@ public class X_M_LotCtlExclude extends PO implements I_M_LotCtlExclude, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_LotCtlExclude_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_LotCtlExclude_UU.
@@ -176,6 +176,6 @@ public class X_M_LotCtlExclude extends PO implements I_M_LotCtlExclude, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_LotCtl_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

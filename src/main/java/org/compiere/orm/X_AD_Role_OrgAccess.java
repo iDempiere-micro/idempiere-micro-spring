@@ -84,7 +84,7 @@ public class X_AD_Role_OrgAccess extends PO implements I_AD_Role_OrgAccess, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Role_OrgAccess_UU.

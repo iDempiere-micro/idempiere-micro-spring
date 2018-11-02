@@ -3,6 +3,7 @@ package org.compiere.invoicing;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
+import org.compiere.model.HasName;
 import org.compiere.model.I_C_InvoiceSchedule;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
@@ -104,7 +105,7 @@ public class X_C_InvoiceSchedule extends PO implements I_C_InvoiceSchedule, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceSchedule_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_InvoiceSchedule_UU.
@@ -179,7 +180,7 @@ public class X_C_InvoiceSchedule extends PO implements I_C_InvoiceSchedule, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_InvoiceDay);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Invoice day cut-off.
@@ -199,7 +200,7 @@ public class X_C_InvoiceSchedule extends PO implements I_C_InvoiceSchedule, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_InvoiceDayCutoff);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** InvoiceFrequency AD_Reference_ID=168 */
@@ -352,7 +353,7 @@ public class X_C_InvoiceSchedule extends PO implements I_C_InvoiceSchedule, I_Pe
      */
     public void setName (String Name)
     {
-        set_Value (COLUMNNAME_Name, Name);
+        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
     }
 
     /** Get Name.
@@ -360,7 +361,7 @@ public class X_C_InvoiceSchedule extends PO implements I_C_InvoiceSchedule, I_Pe
      */
     public String getName ()
     {
-        return (String)get_Value(COLUMNNAME_Name);
+        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /** Get Record ID/ColumnName

@@ -84,7 +84,7 @@ public class X_AD_User_Roles extends PO implements I_AD_User_Roles, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -112,7 +112,7 @@ public class X_AD_User_Roles extends PO implements I_AD_User_Roles, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_User_Roles_UU.

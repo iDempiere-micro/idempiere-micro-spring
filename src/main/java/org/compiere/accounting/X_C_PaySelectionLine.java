@@ -103,7 +103,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaySelectionCheck getC_PaySelectionCheck() throws RuntimeException
@@ -131,7 +131,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelectionCheck_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaySelection getC_PaySelection() throws RuntimeException
@@ -159,7 +159,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelection_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Payment Selection Line.
@@ -182,7 +182,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelectionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -329,7 +329,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Open Amount.

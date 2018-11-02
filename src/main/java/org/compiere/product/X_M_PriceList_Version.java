@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_PriceList_Version;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -109,7 +110,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PriceList getM_PriceList() throws RuntimeException
@@ -137,7 +138,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PriceList_Version getM_Pricelist_Version_Base() throws RuntimeException
@@ -165,7 +166,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Pricelist_Version_Base_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price List Version.
@@ -188,7 +189,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_Version_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_PriceList_Version_UU.
@@ -211,7 +212,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -219,7 +220,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

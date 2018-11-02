@@ -429,8 +429,8 @@ public interface I_AD_Package_Exp_Detail
 	  */
 	public int getLine();
 
-    /** Column name Name2 */
-    public static final String COLUMNNAME_Name2 = "Name2";
+    
+    
 
 	/** Set Name 2.
 	  * Additional Name

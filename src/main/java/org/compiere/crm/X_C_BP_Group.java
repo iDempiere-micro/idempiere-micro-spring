@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_BP_Group;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -16,7 +17,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_BP_Group
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
+public class X_C_BP_Group extends BasePOName implements I_C_BP_Group, I_Persistent
 {
 
 	/**
@@ -92,7 +93,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Business Partner Group.
@@ -115,7 +116,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_BP_Group_UU.
@@ -157,7 +158,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Dunning_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Credit Watch %.
@@ -270,7 +271,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PriceList getM_PriceList() throws RuntimeException
@@ -298,33 +299,8 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	public org.compiere.model.I_M_DiscountSchema getPO_DiscountSchema() throws RuntimeException
     {
@@ -340,7 +316,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		if (PO_DiscountSchema_ID < 1) 
 			set_Value (COLUMNNAME_PO_DiscountSchema_ID, null);
 		else 
-			set_Value (COLUMNNAME_PO_DiscountSchema_ID, Integer.valueOf(PO_DiscountSchema_ID));
+			set_Value (COLUMNNAME_PO_DiscountSchema_ID, PO_DiscountSchema_ID);
 	}
 
 	/** Get PO Discount Schema.
@@ -351,7 +327,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PO_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PriceList getPO_PriceList() throws RuntimeException
@@ -368,7 +344,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		if (PO_PriceList_ID < 1) 
 			set_Value (COLUMNNAME_PO_PriceList_ID, null);
 		else 
-			set_Value (COLUMNNAME_PO_PriceList_ID, Integer.valueOf(PO_PriceList_ID));
+			set_Value (COLUMNNAME_PO_PriceList_ID, PO_PriceList_ID);
 	}
 
 	/** Get Purchase Pricelist.
@@ -379,7 +355,7 @@ public class X_C_BP_Group extends PO implements I_C_BP_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PO_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price Match Tolerance.

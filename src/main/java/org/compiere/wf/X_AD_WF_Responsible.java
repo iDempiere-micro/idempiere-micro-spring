@@ -90,7 +90,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 		Integer ii = (Integer)get_Value(I_AD_WF_Responsible.COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Responsible.
@@ -113,7 +113,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 		Integer ii = (Integer)get_Value(I_AD_WF_Responsible.COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Responsible_UU.
@@ -173,7 +173,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_AD_WF_Responsible.COLUMNNAME_Name, Name);
+		set_Value (I_AD_WF_Responsible.HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -181,7 +181,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_AD_WF_Responsible.COLUMNNAME_Name);
+		return (String)get_Value(I_AD_WF_Responsible.HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

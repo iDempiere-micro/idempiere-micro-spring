@@ -96,7 +96,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectIssue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
@@ -124,7 +124,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -152,7 +152,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InventoryLine getM_InventoryLine() throws RuntimeException
@@ -180,7 +180,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InventoryLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_Locator getM_Locator() throws RuntimeException
@@ -208,7 +208,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_MovementLine getM_MovementLine() throws RuntimeException
@@ -236,7 +236,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Movement Date.
@@ -353,7 +353,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ProductionLine getM_ProductionLine() throws RuntimeException
@@ -381,7 +381,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Inventory Transaction.
@@ -401,7 +401,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Transaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Transaction_UU.
@@ -440,6 +440,6 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Cost_Collector_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

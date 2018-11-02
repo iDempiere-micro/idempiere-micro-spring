@@ -98,7 +98,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -126,7 +126,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -154,7 +154,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -182,7 +182,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Confirmed Quantity.
@@ -230,7 +230,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -258,7 +258,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectPhase getC_ProjectPhase() throws RuntimeException
@@ -286,7 +286,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -314,7 +314,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -342,7 +342,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -427,7 +427,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -463,7 +463,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOut getM_InOut() throws RuntimeException
@@ -491,7 +491,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipment/Receipt Line.
@@ -514,7 +514,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_InOutLine_UU.
@@ -556,7 +556,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Movement Quantity.
@@ -604,7 +604,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMALine getM_RMALine() throws RuntimeException
@@ -632,7 +632,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_RMALine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Picked Quantity.
@@ -733,7 +733,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Ref_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getReversalLine() throws RuntimeException
@@ -761,7 +761,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_ReversalLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Scrapped Quantity.
@@ -829,7 +829,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -857,6 +857,6 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

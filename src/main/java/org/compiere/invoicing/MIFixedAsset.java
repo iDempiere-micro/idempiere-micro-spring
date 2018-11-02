@@ -69,7 +69,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 				whereClause.append("UPPER(Value)=");
 			}
 			if (key == null || key.trim().length() == 0) {
-				throw new FillMandatoryException(I_I_FixedAsset.COLUMNNAME_ProductValue, I_I_FixedAsset.COLUMNNAME_Name);
+				throw new FillMandatoryException(I_I_FixedAsset.COLUMNNAME_ProductValue, I_I_FixedAsset.HasName.Companion.getCOLUMNNAME_Name());
 			}
 			key = key.toUpperCase();
 			whereClause.append(DB.TO_STRING(key));

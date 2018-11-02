@@ -136,7 +136,7 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperLabelsCfg getM_ShipperLabelsCfg() throws RuntimeException
@@ -161,7 +161,7 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperLabelsCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper Labels.
@@ -181,7 +181,7 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperLabels_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShipperLabels_UU.
@@ -204,7 +204,7 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -212,6 +212,6 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 }

@@ -125,7 +125,7 @@ public class X_C_OrderLandedCostAllocation extends PO implements I_C_OrderLanded
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLandedCostAllocation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OrderLandedCostAllocation_UU.
@@ -164,7 +164,7 @@ public class X_C_OrderLandedCostAllocation extends PO implements I_C_OrderLanded
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLandedCost_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_OrderLine getC_OrderLine() throws RuntimeException
@@ -192,7 +192,7 @@ public class X_C_OrderLandedCostAllocation extends PO implements I_C_OrderLanded
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

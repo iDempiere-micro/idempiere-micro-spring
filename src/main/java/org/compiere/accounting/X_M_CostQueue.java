@@ -94,7 +94,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Cost Price.
@@ -162,7 +162,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_CostElement getM_CostElement() throws RuntimeException
@@ -190,7 +190,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost Queue.
@@ -213,7 +213,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostQueue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_CostQueue_UU.
@@ -255,7 +255,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -283,6 +283,6 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

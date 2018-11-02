@@ -81,7 +81,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_AcctSchema getC_AcctSchema() throws RuntimeException
@@ -109,7 +109,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Cost.
@@ -240,7 +240,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_LevelNo);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Levels.
@@ -282,7 +282,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -310,7 +310,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Quantity.
@@ -375,7 +375,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_Sel_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Sequence.
@@ -395,7 +395,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Indented BOM Report.
@@ -415,7 +415,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_T_BOM_Indented_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set T_BOM_Indented_UU.

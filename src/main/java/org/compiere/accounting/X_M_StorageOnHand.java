@@ -127,7 +127,7 @@ public class X_M_StorageOnHand extends PO implements I_M_StorageOnHand, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_Locator getM_Locator() throws RuntimeException
@@ -155,7 +155,7 @@ public class X_M_StorageOnHand extends PO implements I_M_StorageOnHand, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -183,7 +183,7 @@ public class X_M_StorageOnHand extends PO implements I_M_StorageOnHand, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_StorageOnHand_UU.

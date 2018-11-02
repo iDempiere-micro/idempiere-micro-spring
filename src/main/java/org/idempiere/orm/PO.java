@@ -1246,7 +1246,7 @@ public abstract class PO
 		Integer ii = (Integer)get_Value("AD_Client_ID");
 		if (ii == null)
 			return 0;
-		return ii.intValue();
+		return ii;
 	}	//	getAD_Client_ID
 
 	/**
@@ -1258,7 +1258,7 @@ public abstract class PO
 		Integer ii = (Integer)get_Value("AD_Org_ID");
 		if (ii == null)
 			return 0;
-		return ii.intValue();
+		return ii;
 	}	//	getAD_Org_ID
 
 
@@ -1301,7 +1301,7 @@ public abstract class PO
 		Integer ii = (Integer)get_Value("CreatedBy");
 		if (ii == null)
 			return 0;
-		return ii.intValue();
+		return ii;
 	}	//	getCreateddBy
 
 	/**
@@ -1313,7 +1313,7 @@ public abstract class PO
 		Integer ii = (Integer)get_Value("UpdatedBy");
 		if (ii == null)
 			return 0;
-		return ii.intValue();
+		return ii;
 	}	//	getUpdatedBy
 
 

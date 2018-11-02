@@ -114,7 +114,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Rule.COLUMNNAME_AD_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Rule_UU.
@@ -227,7 +227,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_AD_Rule.COLUMNNAME_Name, Name);
+		set_Value (I_AD_Rule.HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -235,7 +235,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_AD_Rule.COLUMNNAME_Name);
+		return (String)get_Value(I_AD_Rule.HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

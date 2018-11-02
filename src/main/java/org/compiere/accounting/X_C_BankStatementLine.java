@@ -107,7 +107,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Bank statement line.
@@ -130,7 +130,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatementLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_BankStatementLine_UU.
@@ -172,7 +172,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -200,7 +200,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -228,7 +228,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Charge amount.
@@ -276,7 +276,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -304,7 +304,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create Payment.
@@ -630,7 +630,7 @@ public class X_C_BankStatementLine extends PO implements I_C_BankStatementLine, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

@@ -113,7 +113,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperPickupTypesCfg getM_ShipperPickupTypesCfg() throws RuntimeException
@@ -138,7 +138,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPickupTypesCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper Pickup Types.
@@ -158,7 +158,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPickupTypes_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShipperPickupTypes_UU.
@@ -181,7 +181,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -189,6 +189,6 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 }

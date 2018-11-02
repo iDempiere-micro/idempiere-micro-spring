@@ -117,7 +117,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Bank Statement Loader.
@@ -140,7 +140,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatementLoader_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_BankStatementLoader_UU.
@@ -276,7 +276,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_HostPort);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Name.
@@ -285,7 +285,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
      */
     public void setName (String Name)
     {
-        set_Value (COLUMNNAME_Name, Name);
+        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
     }
 
     /** Get Name.
@@ -293,7 +293,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
      */
     public String getName ()
     {
-        return (String)get_Value(COLUMNNAME_Name);
+        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /** Get Record ID/ColumnName
@@ -406,7 +406,7 @@ public class X_C_BankStatementLoader extends PO implements I_C_BankStatementLoad
         Integer ii = (Integer)get_Value(COLUMNNAME_ProxyPort);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Statement Loader Class.

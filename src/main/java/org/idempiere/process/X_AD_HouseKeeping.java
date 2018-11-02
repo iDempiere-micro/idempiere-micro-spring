@@ -76,7 +76,7 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_HouseKeeping_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set AD_HouseKeeping_UU.
@@ -118,7 +118,7 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Backup Folder.
@@ -228,7 +228,7 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
         Integer ii = (Integer)get_Value(COLUMNNAME_LastDeleted);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Last Run.
@@ -251,7 +251,7 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
      */
     public void setName (String Name)
     {
-        set_Value (COLUMNNAME_Name, Name);
+        set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
     }
 
     /** Get Name.
@@ -259,7 +259,7 @@ public class X_AD_HouseKeeping extends PO implements I_AD_HouseKeeping, I_Persis
      */
     public String getName ()
     {
-        return (String)get_Value(COLUMNNAME_Name);
+        return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /** Get Record ID/ColumnName

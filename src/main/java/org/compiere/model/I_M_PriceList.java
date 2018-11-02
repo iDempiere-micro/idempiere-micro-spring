@@ -218,8 +218,8 @@ public interface I_M_PriceList extends IPO
 	/** Get M_PriceList_UU	  */
 	public String getM_PriceList_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

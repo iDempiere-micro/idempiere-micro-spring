@@ -99,7 +99,7 @@ public class X_AD_Private_Access extends PO implements I_AD_Private_Access, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -127,7 +127,7 @@ public class X_AD_Private_Access extends PO implements I_AD_Private_Access, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Record ID.
@@ -150,6 +150,6 @@ public class X_AD_Private_Access extends PO implements I_AD_Private_Access, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

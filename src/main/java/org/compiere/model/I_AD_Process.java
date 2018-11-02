@@ -309,8 +309,8 @@ public interface I_AD_Process
 	/** Get Jasper Report	  */
 	public String getJasperReport();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

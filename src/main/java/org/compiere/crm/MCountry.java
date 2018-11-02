@@ -11,6 +11,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Language;
 import org.compiere.model.I_C_Country;
 import org.compiere.orm.MClient;
@@ -236,7 +237,7 @@ public class MCountry extends X_C_Country
 	 */
 	public String getTrlName(String language)
 	{
-		return get_Translation(I_C_Country.COLUMNNAME_Name, language);
+		return get_Translation(HasName.Companion.getCOLUMNNAME_Name(), language);
 	}	//	getTrlName
 	
 	

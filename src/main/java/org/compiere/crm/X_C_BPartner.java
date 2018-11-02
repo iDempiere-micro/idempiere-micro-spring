@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName2;
 import org.compiere.model.I_C_BPartner;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
@@ -190,7 +191,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_BPartner_Parent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Business Partner .
@@ -213,7 +214,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_BPartner_UU.
@@ -255,7 +256,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_BP_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Dunning getC_Dunning() throws RuntimeException
@@ -283,7 +284,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_Dunning_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Greeting getC_Greeting() throws RuntimeException
@@ -311,7 +312,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_Greeting_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_InvoiceSchedule getC_InvoiceSchedule() throws RuntimeException
@@ -339,7 +340,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_InvoiceSchedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_PaymentTerm getC_PaymentTerm() throws RuntimeException
@@ -367,7 +368,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.eevolution.model.I_C_TaxGroup getC_TaxGroup() throws RuntimeException
@@ -392,7 +393,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_C_TaxGroup_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Customer Profile ID.
@@ -431,7 +432,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_Default1099Box_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** DeliveryRule AD_Reference_ID=151 */
@@ -526,7 +527,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_DocumentCopies);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Dunning Grace Date.
@@ -650,7 +651,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_Invoice_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** InvoiceRule AD_Reference_ID=150 */
@@ -980,7 +981,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_Logo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_DiscountSchema getM_DiscountSchema() throws RuntimeException
@@ -1008,7 +1009,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_PriceList getM_PriceList() throws RuntimeException
@@ -1036,7 +1037,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set NAICS/SIC.
@@ -1062,7 +1063,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 	  */
 	public void setName2 (String Name2)
 	{
-		set_Value (I_C_BPartner.COLUMNNAME_Name2, Name2);
+		set_Value (HasName2.Companion.getCOLUMNNAME_Name2(), Name2);
 	}
 
 	/** Get Name 2.
@@ -1070,7 +1071,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 	  */
 	public String getName2 () 
 	{
-		return (String)get_Value(I_C_BPartner.COLUMNNAME_Name2);
+		return (String)get_Value(HasName2.Companion.getCOLUMNNAME_Name2());
 	}
 
 	/** Set Employees.
@@ -1090,7 +1091,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_NumberEmployees);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PaymentRule AD_Reference_ID=195 */
@@ -1186,7 +1187,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_PO_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_PaymentTerm getPO_PaymentTerm() throws RuntimeException
@@ -1214,7 +1215,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_PO_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_PriceList getPO_PriceList() throws RuntimeException
@@ -1242,7 +1243,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_PO_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Order Reference.
@@ -1341,7 +1342,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sales Volume in 1.000.
@@ -1361,7 +1362,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_SalesVolume);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Send EMail.
@@ -1405,7 +1406,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_ShareOfCustomer);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Min Shelf Life %.
@@ -1425,7 +1426,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_BPartner.COLUMNNAME_ShelfLifeMinPct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Credit Limit.

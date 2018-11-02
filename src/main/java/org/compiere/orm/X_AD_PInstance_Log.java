@@ -87,7 +87,7 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_PInstance_Log_UU.
@@ -129,7 +129,7 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Log.
@@ -149,7 +149,7 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_Log_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Date.
@@ -186,7 +186,7 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Message.
@@ -243,6 +243,6 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

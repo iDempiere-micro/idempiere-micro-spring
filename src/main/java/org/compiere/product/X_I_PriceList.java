@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_I_PriceList;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -126,7 +127,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -154,7 +155,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -182,7 +183,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -284,7 +285,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_I_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set I_PriceList_UU.
@@ -391,7 +392,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_PriceList_Version getM_PriceList_Version() throws RuntimeException
@@ -419,7 +420,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_Version_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -447,7 +448,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -456,7 +457,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -464,7 +465,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set Limit Price.
@@ -524,7 +525,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PricePrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Standard Price.

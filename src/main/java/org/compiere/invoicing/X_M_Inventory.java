@@ -94,7 +94,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Approval Amount.
@@ -142,7 +142,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -170,7 +170,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -198,7 +198,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -226,7 +226,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -254,7 +254,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** CostingMethod AD_Reference_ID=122 */
@@ -320,7 +320,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -518,7 +518,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Inventory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Inventory_UU.
@@ -577,7 +577,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PerpetualInv_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -605,7 +605,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Posted.
@@ -722,7 +722,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Update Quantities.
@@ -764,7 +764,7 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -792,6 +792,6 @@ public class X_M_Inventory extends PO implements I_M_Inventory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

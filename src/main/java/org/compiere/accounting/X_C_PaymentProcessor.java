@@ -343,7 +343,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BankAccount getC_BankAccount() throws RuntimeException
@@ -371,7 +371,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -399,7 +399,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Commission %.
@@ -462,7 +462,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentProcessor_UU.
@@ -530,7 +530,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_HostPort);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Minimum Amt.
@@ -559,7 +559,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -567,7 +567,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -663,7 +663,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_ProxyPort);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Require CreditCard Verification Code.

@@ -125,8 +125,8 @@ public interface I_M_AttributeValue
 	/** Get M_AttributeValue_UU	  */
 	public String getM_AttributeValue_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

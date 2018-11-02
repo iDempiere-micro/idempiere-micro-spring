@@ -106,7 +106,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocTypeDifference() throws RuntimeException
@@ -134,7 +134,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeDifference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Document Type.
@@ -157,7 +157,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocTypeInvoice() throws RuntimeException
@@ -185,7 +185,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeInvoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocTypeProforma() throws RuntimeException
@@ -213,7 +213,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeProforma_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocTypeShipment() throws RuntimeException
@@ -241,7 +241,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocTypeShipment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_DocType_UU.
@@ -280,7 +280,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DefiniteSequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -409,7 +409,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DocNoSequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** DocSubTypeInv AD_Reference_ID=200068 */
@@ -491,7 +491,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DocumentCopies);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Document Note.
@@ -536,7 +536,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_GL_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Charges.
@@ -920,7 +920,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -928,7 +928,7 @@ public class X_C_DocType extends PO implements I_C_DocType, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

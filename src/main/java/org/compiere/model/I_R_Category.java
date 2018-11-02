@@ -116,8 +116,8 @@ public interface I_R_Category
 
 	public I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

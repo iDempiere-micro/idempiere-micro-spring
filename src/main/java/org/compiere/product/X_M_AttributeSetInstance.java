@@ -138,7 +138,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Attribute Set Instance.
@@ -161,7 +161,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -211,7 +211,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Lot_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Serial No.

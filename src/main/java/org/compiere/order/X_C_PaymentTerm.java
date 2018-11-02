@@ -118,7 +118,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentTerm_UU.
@@ -209,7 +209,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_DiscountDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Days 2.
@@ -229,7 +229,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_DiscountDays2);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Document Note.
@@ -266,7 +266,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthCutoff);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Fix month day.
@@ -286,7 +286,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthDay);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Fix month offset.
@@ -306,7 +306,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthOffset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Grace Days.
@@ -326,7 +326,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_GraceDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Default.
@@ -431,7 +431,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (I_C_PaymentTerm.COLUMNNAME_Name, Name);
+		set_Value (I_C_PaymentTerm.HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -439,7 +439,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_Name);
+		return (String)get_Value(I_C_PaymentTerm.HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -501,7 +501,7 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_NetDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PaymentTermUsage AD_Reference_ID=53382 */

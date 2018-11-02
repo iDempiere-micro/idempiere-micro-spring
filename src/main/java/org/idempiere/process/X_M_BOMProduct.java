@@ -192,7 +192,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_LeadTimeOffset);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Line No.
@@ -212,7 +212,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -248,7 +248,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_BOMAlternative getM_BOMAlternative() throws RuntimeException
@@ -276,7 +276,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_BOMAlternative_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_BOM getM_BOM() throws RuntimeException
@@ -304,7 +304,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_BOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set BOM Component.
@@ -327,7 +327,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_BOMProduct_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_BOMProduct_UU.
@@ -369,7 +369,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_ProductBOM() throws RuntimeException
@@ -397,7 +397,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductBOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_ProductOperation getM_ProductOperation() throws RuntimeException
@@ -425,7 +425,7 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductOperation_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Sequence.
@@ -445,6 +445,6 @@ public class X_M_BOMProduct extends PO implements I_M_BOMProduct, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

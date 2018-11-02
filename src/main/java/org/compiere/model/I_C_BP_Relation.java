@@ -222,8 +222,8 @@ public interface I_C_BP_Relation
 	  */
 	public boolean isShipTo();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -123,8 +123,8 @@ public interface I_M_RMAType
 	/** Get M_RMAType_UU	  */
 	public String getM_RMAType_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

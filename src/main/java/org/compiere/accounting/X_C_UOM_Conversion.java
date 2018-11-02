@@ -86,7 +86,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Conversion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -136,7 +136,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_To() throws RuntimeException
@@ -164,7 +164,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_To_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Divide Rate.
@@ -212,7 +212,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Multiply Rate.

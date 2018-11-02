@@ -1,5 +1,6 @@
 package org.compiere.orm
 
+import org.compiere.model.HasName
 import org.compiere.model.I_AD_Table
 import org.idempiere.common.util.KeyNamePair
 import java.sql.ResultSet
@@ -15,14 +16,14 @@ abstract class BasePOName : PO {
      * Alphanumeric identifier of the entity
      */
     fun setName(Name: String) {
-        set_Value(I_AD_Table.COLUMNNAME_Name, Name)
+        set_Value(HasName.COLUMNNAME_Name, Name)
     }
 
     /** Get Name.
      * @return Alphanumeric identifier of the entity
      */
     fun getName(): String {
-        return get_Value(I_AD_Table.COLUMNNAME_Name) as String
+        return get_Value(HasName.COLUMNNAME_Name) as String
     }
 
     /** Get Record ID/ColumnName

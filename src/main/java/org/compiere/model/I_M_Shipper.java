@@ -147,8 +147,8 @@ public interface I_M_Shipper
 
 	public I_M_ShippingProcessor getM_ShippingProcessor() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

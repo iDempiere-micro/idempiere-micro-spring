@@ -5,17 +5,16 @@ import java.util.Properties;
 
 import org.compiere.model.I_C_AcctSchema_Element;
 import org.compiere.model.I_C_Location;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_AcctSchema_Element
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element, I_Persistent
+public class X_C_AcctSchema_Element extends BasePOName implements I_C_AcctSchema_Element, I_Persistent
 {
 
 	/**
@@ -27,19 +26,6 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
     public X_C_AcctSchema_Element (Properties ctx, int C_AcctSchema_Element_ID, String trxName)
     {
       super (ctx, C_AcctSchema_Element_ID, trxName);
-      /** if (C_AcctSchema_Element_ID == 0)
-        {
-			setC_AcctSchema_Element_ID (0);
-			setC_AcctSchema_ID (0);
-			setC_Element_ID (0);
-			setElementType (null);
-			setIsBalanced (false);
-			setIsMandatory (false);
-			setName (null);
-			setOrg_ID (0);
-			setSeqNo (0);
-// @SQL=SELECT COALESCE(MAX(SeqNo),0)+10 AS DefaultValue FROM C_AcctSchema_Element WHERE C_AcctSchema_ID=@C_AcctSchema_ID@
-        } */
     }
 
     /** Load Constructor */
@@ -59,15 +45,13 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_C_AcctSchema_Element[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_C_AcctSchema_Element[" +
+            get_ID() + "]";
     }
 
 	public org.compiere.model.I_AD_Column getAD_Column() throws RuntimeException
@@ -84,7 +68,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (AD_Column_ID < 1) 
 			set_Value (COLUMNNAME_AD_Column_ID, null);
 		else 
-			set_Value (COLUMNNAME_AD_Column_ID, Integer.valueOf(AD_Column_ID));
+			set_Value (COLUMNNAME_AD_Column_ID, AD_Column_ID);
 	}
 
 	/** Get Column.
@@ -95,7 +79,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Acct.Schema Element.
@@ -105,7 +89,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_AcctSchema_Element_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_Element_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_Element_ID, Integer.valueOf(C_AcctSchema_Element_ID));
+			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_Element_ID, C_AcctSchema_Element_ID);
 	}
 
 	/** Get Acct.Schema Element.
@@ -115,7 +99,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_AcctSchema_Element_UU.
@@ -146,7 +130,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_AcctSchema_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_ID, Integer.valueOf(C_AcctSchema_ID));
+			set_ValueNoCheck (COLUMNNAME_C_AcctSchema_ID, C_AcctSchema_ID);
 	}
 
 	/** Get Accounting Schema.
@@ -157,7 +141,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -174,7 +158,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_Activity_ID < 1) 
 			set_Value (COLUMNNAME_C_Activity_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_Activity_ID, Integer.valueOf(C_Activity_ID));
+			set_Value (COLUMNNAME_C_Activity_ID, C_Activity_ID);
 	}
 
 	/** Get Activity.
@@ -185,7 +169,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -202,7 +186,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_BPartner_ID < 1) 
 			set_Value (COLUMNNAME_C_BPartner_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_BPartner_ID, Integer.valueOf(C_BPartner_ID));
+			set_Value (COLUMNNAME_C_BPartner_ID, C_BPartner_ID);
 	}
 
 	/** Get Business Partner .
@@ -213,7 +197,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -230,7 +214,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_Campaign_ID < 1) 
 			set_Value (COLUMNNAME_C_Campaign_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_Campaign_ID, Integer.valueOf(C_Campaign_ID));
+			set_Value (COLUMNNAME_C_Campaign_ID, C_Campaign_ID);
 	}
 
 	/** Get Campaign.
@@ -241,7 +225,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Element getC_Element() throws RuntimeException
@@ -258,7 +242,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_Element_ID < 1) 
 			set_Value (COLUMNNAME_C_Element_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_Element_ID, Integer.valueOf(C_Element_ID));
+			set_Value (COLUMNNAME_C_Element_ID, C_Element_ID);
 	}
 
 	/** Get Element.
@@ -269,7 +253,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getC_ElementValue() throws RuntimeException
@@ -286,7 +270,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_ElementValue_ID < 1) 
 			set_Value (COLUMNNAME_C_ElementValue_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_ElementValue_ID, Integer.valueOf(C_ElementValue_ID));
+			set_Value (COLUMNNAME_C_ElementValue_ID, C_ElementValue_ID);
 	}
 
 	/** Get Account Element.
@@ -297,7 +281,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ElementValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Location getC_Location() throws RuntimeException
@@ -314,7 +298,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_Location_ID < 1) 
 			set_Value (COLUMNNAME_C_Location_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_Location_ID, Integer.valueOf(C_Location_ID));
+			set_Value (COLUMNNAME_C_Location_ID, C_Location_ID);
 	}
 
 	/** Get Address.
@@ -325,7 +309,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -353,7 +337,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_SalesRegion getC_SalesRegion() throws RuntimeException
@@ -370,7 +354,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (C_SalesRegion_ID < 1) 
 			set_Value (COLUMNNAME_C_SalesRegion_ID, null);
 		else 
-			set_Value (COLUMNNAME_C_SalesRegion_ID, Integer.valueOf(C_SalesRegion_ID));
+			set_Value (COLUMNNAME_C_SalesRegion_ID, C_SalesRegion_ID);
 	}
 
 	/** Get Sales Region.
@@ -381,7 +365,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ElementType AD_Reference_ID=181 */
@@ -440,7 +424,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		@param IsBalanced Balanced	  */
 	public void setIsBalanced (boolean IsBalanced)
 	{
-		set_Value (COLUMNNAME_IsBalanced, Boolean.valueOf(IsBalanced));
+		set_Value (COLUMNNAME_IsBalanced, IsBalanced);
 	}
 
 	/** Get Balanced.
@@ -451,7 +435,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -463,7 +447,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 	  */
 	public void setIsMandatory (boolean IsMandatory)
 	{
-		set_Value (COLUMNNAME_IsMandatory, Boolean.valueOf(IsMandatory));
+		set_Value (COLUMNNAME_IsMandatory, IsMandatory);
 	}
 
 	/** Get Mandatory.
@@ -475,7 +459,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -495,7 +479,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (M_Product_ID < 1) 
 			set_Value (COLUMNNAME_M_Product_ID, null);
 		else 
-			set_Value (COLUMNNAME_M_Product_ID, Integer.valueOf(M_Product_ID));
+			set_Value (COLUMNNAME_M_Product_ID, M_Product_ID);
 	}
 
 	/** Get Product.
@@ -506,33 +490,8 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Organization.
 		@param Org_ID 
@@ -543,7 +502,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		if (Org_ID < 1) 
 			set_Value (COLUMNNAME_Org_ID, null);
 		else 
-			set_Value (COLUMNNAME_Org_ID, Integer.valueOf(Org_ID));
+			set_Value (COLUMNNAME_Org_ID, Org_ID);
 	}
 
 	/** Get Organization.
@@ -554,7 +513,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -563,7 +522,7 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 	  */
 	public void setSeqNo (int SeqNo)
 	{
-		set_Value (COLUMNNAME_SeqNo, Integer.valueOf(SeqNo));
+		set_Value (COLUMNNAME_SeqNo, SeqNo);
 	}
 
 	/** Get Sequence.
@@ -574,6 +533,6 @@ public class X_C_AcctSchema_Element extends PO implements I_C_AcctSchema_Element
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

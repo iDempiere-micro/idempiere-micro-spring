@@ -88,7 +88,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Role getAD_Role() throws RuntimeException
@@ -116,7 +116,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -144,7 +144,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -172,7 +172,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -200,7 +200,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -228,7 +228,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ConfidentialType AD_Reference_ID=340 */
@@ -284,7 +284,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -312,7 +312,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -340,7 +340,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Complete Plan.
@@ -508,7 +508,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -536,7 +536,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_ProductSpent() throws RuntimeException
@@ -564,7 +564,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductSpent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_RMA getM_RMA() throws RuntimeException
@@ -592,7 +592,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_RMA_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Null Columns.
@@ -757,7 +757,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Group getR_Group() throws RuntimeException
@@ -785,7 +785,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Request History.
@@ -808,7 +808,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestAction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_RequestAction_UU.
@@ -850,7 +850,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Request_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_RequestType getR_RequestType() throws RuntimeException
@@ -878,7 +878,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Resolution getR_Resolution() throws RuntimeException
@@ -906,7 +906,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Resolution_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_Status getR_Status() throws RuntimeException
@@ -934,7 +934,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Status_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -962,7 +962,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Start Date.

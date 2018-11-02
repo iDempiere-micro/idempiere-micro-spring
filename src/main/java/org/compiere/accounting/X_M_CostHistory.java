@@ -96,7 +96,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_CostDetail getM_CostDetail() throws RuntimeException
@@ -124,7 +124,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostDetail_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_CostElement getM_CostElement() throws RuntimeException
@@ -152,7 +152,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost History.
@@ -175,7 +175,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostHistory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cost History UUID.
@@ -217,7 +217,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set New Accumulated Amt.

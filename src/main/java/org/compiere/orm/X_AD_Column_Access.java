@@ -102,7 +102,7 @@ public class X_AD_Column_Access extends PO implements I_AD_Column_Access, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -138,7 +138,7 @@ public class X_AD_Column_Access extends PO implements I_AD_Column_Access, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -166,7 +166,7 @@ public class X_AD_Column_Access extends PO implements I_AD_Column_Access, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Exclude.

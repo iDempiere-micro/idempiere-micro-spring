@@ -113,7 +113,7 @@ public class X_C_PaymentAllocate extends PO implements I_C_PaymentAllocate, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AllocationLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
@@ -141,7 +141,7 @@ public class X_C_PaymentAllocate extends PO implements I_C_PaymentAllocate, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -172,7 +172,7 @@ public class X_C_PaymentAllocate extends PO implements I_C_PaymentAllocate, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentAllocate_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentAllocate_UU.
@@ -214,7 +214,7 @@ public class X_C_PaymentAllocate extends PO implements I_C_PaymentAllocate, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Amount.

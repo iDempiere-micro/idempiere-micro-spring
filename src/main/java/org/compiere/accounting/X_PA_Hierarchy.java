@@ -94,7 +94,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Activity() throws RuntimeException
@@ -122,7 +122,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_BPartner() throws RuntimeException
@@ -150,7 +150,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Campaign() throws RuntimeException
@@ -178,7 +178,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Org() throws RuntimeException
@@ -206,7 +206,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Product() throws RuntimeException
@@ -234,7 +234,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Project() throws RuntimeException
@@ -262,7 +262,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_SalesRegion() throws RuntimeException
@@ -290,7 +290,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -333,7 +333,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -341,7 +341,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -372,7 +372,7 @@ public class X_PA_Hierarchy extends PO implements I_PA_Hierarchy, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Hierarchy_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_Hierarchy_UU.

@@ -153,7 +153,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchemaBreak_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_DiscountSchemaBreak_UU.
@@ -195,7 +195,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product_Category getM_Product_Category() throws RuntimeException
@@ -223,7 +223,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -251,7 +251,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -271,7 +271,7 @@ public class X_M_DiscountSchemaBreak extends PO implements I_M_DiscountSchemaBre
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

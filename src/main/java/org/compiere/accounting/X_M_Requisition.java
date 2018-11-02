@@ -106,7 +106,7 @@ public class X_M_Requisition extends PO implements I_M_Requisition, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -134,7 +134,7 @@ public class X_M_Requisition extends PO implements I_M_Requisition, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Document Date.
@@ -371,7 +371,7 @@ public class X_M_Requisition extends PO implements I_M_Requisition, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Requisition.
@@ -394,7 +394,7 @@ public class X_M_Requisition extends PO implements I_M_Requisition, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Requisition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Requisition_UU.
@@ -436,7 +436,7 @@ public class X_M_Requisition extends PO implements I_M_Requisition, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Posted.

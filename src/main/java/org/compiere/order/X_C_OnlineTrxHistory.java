@@ -90,7 +90,7 @@ public class X_C_OnlineTrxHistory extends PO implements I_C_OnlineTrxHistory, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Online Transaction History.
@@ -110,7 +110,7 @@ public class X_C_OnlineTrxHistory extends PO implements I_C_OnlineTrxHistory, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OnlineTrxHistory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OnlineTrxHistory_UU.
@@ -195,7 +195,7 @@ public class X_C_OnlineTrxHistory extends PO implements I_C_OnlineTrxHistory, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Text Message.

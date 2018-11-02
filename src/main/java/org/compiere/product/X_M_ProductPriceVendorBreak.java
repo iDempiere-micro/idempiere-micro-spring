@@ -107,7 +107,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_PriceList_Version getM_PriceList_Version() throws RuntimeException
@@ -135,7 +135,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
         Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_Version_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -163,7 +163,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Product Price Break.
@@ -183,7 +183,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
         Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductPriceVendorBreak_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_ProductPriceVendorBreak_UU.

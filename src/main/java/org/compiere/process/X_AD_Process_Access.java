@@ -100,7 +100,7 @@ public class X_AD_Process_Access extends PO implements I_AD_Process_Access, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Role getAD_Role() throws RuntimeException
@@ -128,7 +128,7 @@ public class X_AD_Process_Access extends PO implements I_AD_Process_Access, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Read Write.

@@ -82,7 +82,7 @@ public class X_AD_Scheduler_Para extends PO implements I_AD_Scheduler_Para, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_Para_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Scheduler getAD_Scheduler() throws RuntimeException
@@ -110,7 +110,7 @@ public class X_AD_Scheduler_Para extends PO implements I_AD_Scheduler_Para, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Scheduler_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Scheduler_Para_UU.

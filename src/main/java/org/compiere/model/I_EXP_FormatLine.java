@@ -206,8 +206,8 @@ public interface I_EXP_FormatLine
 	/** Get Is Part Unique Index	  */
 	public boolean isPartUniqueIndex();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

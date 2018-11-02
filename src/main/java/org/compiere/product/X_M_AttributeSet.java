@@ -3,7 +3,9 @@ package org.compiere.product;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_M_AttributeSet;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for M_AttributeSet
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persistent
+public class X_M_AttributeSet extends BasePOName implements I_M_AttributeSet, I_Persistent
 {
 
 	/**
@@ -103,7 +105,7 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_GuaranteeDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set IsAutoGenerateLot.
@@ -375,7 +377,7 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_AttributeSet_UU.
@@ -417,7 +419,7 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_LotCtl_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_SerNoCtl getM_SerNoCtl() throws RuntimeException
@@ -445,33 +447,8 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_SerNoCtl_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set SerNo Char End Overwrite.
 		@param SerNoCharEOverwrite 
@@ -511,7 +488,7 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		@param UseGuaranteeDateForMPolicy Use Guarantee Date for Material Policy	  */
 	public void setUseGuaranteeDateForMPolicy (boolean UseGuaranteeDateForMPolicy)
 	{
-		set_Value (COLUMNNAME_UseGuaranteeDateForMPolicy, Boolean.valueOf(UseGuaranteeDateForMPolicy));
+		set_Value (COLUMNNAME_UseGuaranteeDateForMPolicy, UseGuaranteeDateForMPolicy);
 	}
 
 	/** Get Use Guarantee Date for Material Policy.
@@ -522,7 +499,7 @@ public class X_M_AttributeSet extends PO implements I_M_AttributeSet, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return ((Boolean)oo);
 			return "Y".equals(oo);
 		}
 		return false;

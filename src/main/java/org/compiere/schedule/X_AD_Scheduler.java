@@ -92,7 +92,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Schedule getAD_Schedule() throws RuntimeException
@@ -117,7 +117,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Schedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Scheduler.
@@ -140,7 +140,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Scheduler_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Scheduler_UU.
@@ -182,7 +182,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date last run.
@@ -253,7 +253,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -262,7 +262,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -270,7 +270,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -322,7 +322,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_R_MailText getR_MailText() throws RuntimeException
@@ -350,7 +350,7 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_MailText_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getSupervisor() throws RuntimeException
@@ -378,6 +378,6 @@ public class X_AD_Scheduler extends PO implements I_AD_Scheduler, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

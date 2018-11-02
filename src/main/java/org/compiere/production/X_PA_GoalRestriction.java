@@ -88,7 +88,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_Group getC_BP_Group() throws RuntimeException
@@ -116,7 +116,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** GoalRestrictionType AD_Reference_ID=368 */
@@ -174,7 +174,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -202,7 +202,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -211,7 +211,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -219,7 +219,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -250,7 +250,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_Goal getPA_Goal() throws RuntimeException
@@ -278,7 +278,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Goal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Goal Restriction.
@@ -301,7 +301,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_GoalRestriction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_GoalRestriction_UU.

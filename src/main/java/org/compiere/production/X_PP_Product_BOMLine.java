@@ -191,7 +191,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -356,7 +356,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_LeadTimeOffset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line No.
@@ -376,7 +376,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
@@ -404,7 +404,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ChangeNotice getM_ChangeNotice() throws RuntimeException
@@ -432,7 +432,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -460,7 +460,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -496,7 +496,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set BOM Line.
@@ -519,7 +519,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOMLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PP_Product_BOMLine_UU.

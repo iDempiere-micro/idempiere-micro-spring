@@ -476,7 +476,7 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(docType.getName());
 					else
-						msg.append(((PO)docType).get_Translation(I_C_DocType.COLUMNNAME_Name));
+						msg.append(((PO)docType).get_Translation(I_C_DocType.HasName.Companion.getCOLUMNNAME_Name()));
 					throw new AdempiereUserError(msg.toString());
 				}
 				costingDoc.saveEx();

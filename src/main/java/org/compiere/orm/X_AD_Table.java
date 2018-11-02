@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Table;
 import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
@@ -126,7 +127,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Table_UU.
@@ -169,7 +170,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Val_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException
@@ -197,7 +198,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Copy Columns From Table.
@@ -471,7 +472,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LoadSeq);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -480,7 +481,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -488,7 +489,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	public org.compiere.model.I_AD_Window getPO_Window() throws RuntimeException
@@ -516,7 +517,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PO_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Now.

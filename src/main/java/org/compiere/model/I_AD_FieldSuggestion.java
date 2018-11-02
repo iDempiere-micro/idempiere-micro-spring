@@ -260,8 +260,8 @@ public interface I_AD_FieldSuggestion
 	/** Get Update Base Language	  */
 	public boolean isUpdateBaseLanguage();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

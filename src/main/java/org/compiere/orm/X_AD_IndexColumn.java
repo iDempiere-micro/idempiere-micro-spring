@@ -86,7 +86,7 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Table Index Column.
@@ -106,7 +106,7 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_IndexColumn_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_IndexColumn_UU.
@@ -145,7 +145,7 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_TableIndex_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Column SQL.
@@ -202,6 +202,6 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

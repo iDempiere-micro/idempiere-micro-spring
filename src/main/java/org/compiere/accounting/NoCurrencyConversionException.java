@@ -63,7 +63,7 @@ public class NoCurrencyConversionException extends AdempiereException
 		sb.append(", @C_ConversionType_ID@: ");
 		if (C_ConversionType_ID > 0)
 		{
-			final String sql = "SELECT "+MConversionType.COLUMNNAME_Name+" FROM "+MConversionType.Table_Name
+			final String sql = "SELECT "+MConversionType.HasName.Companion.getCOLUMNNAME_Name()+" FROM "+MConversionType.Table_Name
 								+" WHERE "+MConversionType.COLUMNNAME_C_ConversionType_ID+"=?";
 			String name = DB.getSQLValueString(null, sql, C_ConversionType_ID);
 			sb.append(name);

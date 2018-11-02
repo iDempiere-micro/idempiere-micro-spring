@@ -123,7 +123,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_CtxHelp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Form getAD_Form() throws RuntimeException
@@ -151,7 +151,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Form_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	@JsonIgnore
@@ -180,7 +180,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process.
@@ -203,7 +203,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Process_UU.
@@ -245,7 +245,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ReportView_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -273,7 +273,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Classname.
@@ -480,7 +480,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -488,7 +488,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -558,7 +558,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Statistic_Count);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Statistic Seconds.
@@ -578,7 +578,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Statistic_Seconds);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Search Key.

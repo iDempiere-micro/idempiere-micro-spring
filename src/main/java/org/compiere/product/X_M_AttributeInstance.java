@@ -89,7 +89,7 @@ public class X_M_AttributeInstance extends PO implements I_M_AttributeInstance, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Attribute_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_AttributeInstance_UU.
@@ -131,7 +131,7 @@ public class X_M_AttributeInstance extends PO implements I_M_AttributeInstance, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_AttributeValue getM_AttributeValue() throws RuntimeException
@@ -159,7 +159,7 @@ public class X_M_AttributeInstance extends PO implements I_M_AttributeInstance, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

@@ -108,7 +108,7 @@ public class X_M_ProductionLineMA extends PO implements I_M_ProductionLineMA, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Movement Quantity.
@@ -156,7 +156,7 @@ public class X_M_ProductionLineMA extends PO implements I_M_ProductionLineMA, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
