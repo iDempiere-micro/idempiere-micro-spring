@@ -63,7 +63,13 @@ jobs:
       # run tests!
       - run: 
           name: Compile the code and package it
-          command: mvn package
+          command: |
+            if [ "$CIRCLE_BRANCH" == "develop" ];
+            then
+              mvn compile
+            else
+              mvn package
+            fi
 
       # get the code climate test reporter    
       - run:
