@@ -12,7 +12,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_SysConfig
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_SysConfig extends PO implements I_AD_SysConfig, I_Persistent
+public class X_AD_SysConfig extends BasePONameValue implements I_AD_SysConfig, I_Persistent
 {
 
 	/**
@@ -24,14 +24,6 @@ public class X_AD_SysConfig extends PO implements I_AD_SysConfig, I_Persistent
     public X_AD_SysConfig (Properties ctx, int AD_SysConfig_ID, String trxName)
     {
       super (ctx, AD_SysConfig_ID, trxName);
-      /** if (AD_SysConfig_ID == 0)
-        {
-			setAD_SysConfig_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -159,45 +151,4 @@ public class X_AD_SysConfig extends PO implements I_AD_SysConfig, I_Persistent
 		return (String)get_Value(COLUMNNAME_EntityType);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

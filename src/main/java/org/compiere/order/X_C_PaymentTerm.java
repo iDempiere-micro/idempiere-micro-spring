@@ -5,17 +5,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_PaymentTerm;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePONameValue;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_PaymentTerm
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_PaymentTerm extends PO implements I_Persistent
+public class X_C_PaymentTerm extends BasePONameValue implements I_Persistent
 {
 
 	/**
@@ -27,23 +26,6 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
     public X_C_PaymentTerm (Properties ctx, int C_PaymentTerm_ID, String trxName)
     {
       super (ctx, C_PaymentTerm_ID, trxName);
-      /** if (C_PaymentTerm_ID == 0)
-        {
-			setAfterDelivery (false);
-			setC_PaymentTerm_ID (0);
-			setDiscount (Env.ZERO);
-			setDiscount2 (Env.ZERO);
-			setDiscountDays (0);
-			setDiscountDays2 (0);
-			setGraceDays (0);
-			setIsDueFixed (false);
-			setIsValid (false);
-			setName (null);
-			setNetDays (0);
-			setPaymentTermUsage (null);
-// B
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -425,31 +407,6 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_C_PaymentTerm.HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_C_PaymentTerm.HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** NetDay AD_Reference_ID=167 */
 	public static final int NETDAY_AD_Reference_ID=167;
 	/** Sunday = 7 */
@@ -551,20 +508,4 @@ public class X_C_PaymentTerm extends PO implements I_Persistent
 		return false;
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (I_C_PaymentTerm.COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_Value);
-	}
 }

@@ -1,8 +1,8 @@
 package org.compiere.order;
 
 import org.compiere.model.I_M_ShipperLabels;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -13,7 +13,7 @@ import java.util.Properties;
 /** Generated Model for M_ShipperLabels
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persistent
+public class X_M_ShipperLabels extends BasePOName implements I_M_ShipperLabels, I_Persistent
 {
 
 	/**
@@ -25,15 +25,6 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
     public X_M_ShipperLabels (Properties ctx, int M_ShipperLabels_ID, String trxName)
     {
       super (ctx, M_ShipperLabels_ID, trxName);
-      /** if (M_ShipperLabels_ID == 0)
-        {
-			setIsDefault (false);
-// N
-			setM_Shipper_ID (0);
-			setM_ShipperLabelsCfg_ID (0);
-			setM_ShipperLabels_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -198,20 +189,4 @@ public class X_M_ShipperLabels extends PO implements I_M_ShipperLabels, I_Persis
 		return (String)get_Value(COLUMNNAME_M_ShipperLabels_UU);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
 }

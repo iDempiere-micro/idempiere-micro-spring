@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_QualityTest;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_QualityTest
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_QualityTest extends PO implements I_M_QualityTest, I_Persistent
+public class X_M_QualityTest extends BasePOName implements I_M_QualityTest, I_Persistent
 {
 
 	/**
@@ -25,11 +24,6 @@ public class X_M_QualityTest extends PO implements I_M_QualityTest, I_Persistent
     public X_M_QualityTest (Properties ctx, int M_QualityTest_ID, String trxName)
     {
       super (ctx, M_QualityTest_ID, trxName);
-      /** if (M_QualityTest_ID == 0)
-        {
-			setM_QualityTest_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -128,28 +122,4 @@ public class X_M_QualityTest extends PO implements I_M_QualityTest, I_Persistent
 		return (String)get_Value(COLUMNNAME_M_QualityTest_UU);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }
