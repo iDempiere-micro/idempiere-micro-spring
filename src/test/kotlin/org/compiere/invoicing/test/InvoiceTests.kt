@@ -42,7 +42,6 @@ import org.compiere.production.MProduction
 import org.idempiere.common.util.Env
 import org.idempiere.process.ProductionCreate
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 import java.math.BigDecimal
 import java.sql.Date
@@ -72,14 +71,20 @@ class InvoiceTests : BaseComponentTest() {
     companion object {
         const val QTY = 1
         private var index = 0
+        const val MAT = "Mat1-"
+        const val BOM = "BOM1-"
     }
 
     private var _testProduct: I_M_Product? = null
     private val testProduct get() = _testProduct!!
+    private var _salesPriceList: I_M_PriceList? = null
+    private val salesPriceList get() = _salesPriceList!!
+    private var _now : Timestamp? = null
+    private val now get() = _now!!
 
     @Before
     fun createProdAndReceipt() {
-        val now = Timestamp(System.currentTimeMillis())
+        _now = Timestamp(System.currentTimeMillis())
         val always = Timestamp(0)
 
         fun createSalesPriceList(): MPriceList {
@@ -96,7 +101,7 @@ class InvoiceTests : BaseComponentTest() {
         }
 
         // make sure the pricelist is there
-        val salesPriceList = MPriceList.getDefault(ctx, true) ?: createSalesPriceList()
+        _salesPriceList = MPriceList.getDefault(ctx, true) ?: createSalesPriceList()
 
         fun createSalesPriceListVersion(): MPriceListVersion {
             val priceListVersion = MPriceListVersion(salesPriceList)
@@ -112,7 +117,7 @@ class InvoiceTests : BaseComponentTest() {
         }
 
         // get the product on hand
-        val product: MProduct = createAProduct("Mat1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
+        val product: MProduct = createAProduct(MAT + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
         _testProduct = product
 
         // put the product on the pricelist
@@ -269,14 +274,14 @@ class InvoiceTests : BaseComponentTest() {
             assertEquals(1, list.count())
             val details = list.first()
             // TODO: fix accounting and then - assertFalse(details.reverseCharge)
-            assertEquals(BigDecimal("1.10"), details.grandTotal)
-            assertEquals(BigDecimal("0.10"), details.grandTotalVAT)
+            assertEquals(expectedPrice, details.grandTotal)
+            assertEquals(expectedPrice - (expectedPrice / 1.10.toBigDecimal()), details.grandTotalVAT)
             val now = java.util.Date()
             assertTrue(details.dueDate1 < now)
             assertTrue(details.dueDate2 < now)
         }
         index++
-        `should have 3 material movements after 2 runs`()
+        `should have specific no of material movements after all runs`()
     }
 
     @Test
@@ -287,12 +292,25 @@ class InvoiceTests : BaseComponentTest() {
     }
 
     @Test
-    @Ignore
     fun `create invoice from BOM order with production step in between (on credit)`() {
-        val product = MProductBOM(ctx, 0, null)
-        product.save()
+        val bomProduct = createAProduct(BOM + randomString(5), I_M_Product.PRODUCTTYPE_Item) as MProduct
+        bomProduct.setIsBOM(true)
+        bomProduct.save()
+        val innerProduct = MProductBOM(ctx, 0, null)
+        innerProduct.bomQty = 10.toBigDecimal()
+        innerProduct.m_ProductBOM_ID = testProduct._ID
+        innerProduct.m_Product_ID = bomProduct._ID
+        innerProduct.line = 10
+        innerProduct.save()
 
-        createInvoiceFromOrder(1000033, product.m_Product_ID, BigDecimal("12.10")) {
+        // put the product on the pricelist
+        val currentPriceListVersion = salesPriceList.getPriceListVersion(now)!!
+        val price = 11.0.toBigDecimal()
+        val productPrice = MProductPrice(currentPriceListVersion, bomProduct._ID, price, price, price)
+        productPrice.save()
+
+
+        createInvoiceFromOrder(1000033, bomProduct.m_Product_ID, BigDecimal("12.10")) {
             val orderLine = it.lines.first()
             val production = MProduction(orderLine)
             production.setAD_Org_ID(1000000)
@@ -328,7 +346,7 @@ class InvoiceTests : BaseComponentTest() {
     fun `create invoice from order (on credit) without amount on hand should fail`() {
         val product = createAProduct("Other 1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item)
         val pl = MPriceList(ctx, 1000000, null)
-        val plv = pl.getPriceListVersion(Timestamp.from(Instant.now()))
+        val plv = pl.getPriceListVersion(Timestamp.from(Instant.now()))!!
         val price = 10.toBigDecimal()
         val pp = MProductPrice(ctx, plv._ID, product._ID, price, price, price, null)
         pp.save()
@@ -339,7 +357,7 @@ class InvoiceTests : BaseComponentTest() {
         }
     }
 
-    fun `should have 3 material movements after 2 runs`() {
+    fun `should have specific no of material movements after all runs`() {
         if (index == 3) {
             "/sql/recent_material_movements.sql".asResource {
                 val list = it.executeSql {
@@ -348,10 +366,13 @@ class InvoiceTests : BaseComponentTest() {
                             it.getBigDecimal("amout_in"), it.getBigDecimal("amout_out")
                     )
                 }
-                kotlin.test.assertEquals(6, list.count())
-                val standards = list.filter { it.productName == testProduct.name }
-                kotlin.test.assertEquals(4, standards.count())
-                kotlin.test.assertEquals(1000000 - 2 * 1 - 10, standards.sumBy { (it.amountIn - it.amountOut).toInt() })
+                kotlin.test.assertEquals(11, list.count())
+                val standards = list.filter { it.productName.startsWith(MAT) }
+                val bom1s = list.filter { it.productName.startsWith(BOM) }
+                kotlin.test.assertEquals(9, standards.count())
+                kotlin.test.assertEquals(6 * 1000000 - 2 * 1 - 10, standards.sumBy { (it.amountIn - it.amountOut).toInt() })
+                kotlin.test.assertEquals(2, bom1s.count())
+                kotlin.test.assertEquals(1 - 1, bom1s.sumBy { (it.amountIn - it.amountOut).toInt() })
             }
         }
     }
