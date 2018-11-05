@@ -28,6 +28,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.concurrent.ScheduledThreadPoolExecutor
 import com.rollbar.notifier.config.ConfigBuilder.withAccessToken
 import com.rollbar.notifier.Rollbar
+import company.bigger.service.CategoryService
+import company.bigger.service.CountryService
 import company.bigger.service.UserService
 import company.bigger.web.resolver.QueryResolver
 import graphql.schema.GraphQLSchema
@@ -94,6 +96,12 @@ open class Micro {
 
     @Autowired
     internal lateinit var userService: UserService
+
+    @Autowired
+    internal lateinit var categoryService: CategoryService
+
+    @Autowired
+    internal lateinit var countryService: CountryService
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!
