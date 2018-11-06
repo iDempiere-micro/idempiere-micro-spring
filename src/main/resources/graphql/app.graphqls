@@ -13,9 +13,13 @@ type Country {
     _ID: ID!
 }
 
+type Version {
+   v: String!
+}
+
 type Query {
     # The API Version
-    version: String!
+    version: Version!
     # The currently logged user
     me: User!
     # All the system users
