@@ -33,7 +33,8 @@ class UserService(
         const val ROLE = "USER"
     }
 
-    fun findByToken(token: String) = users.values.firstOrNull { it.token == token }
+    fun findByToken(token: String?) = users.values.firstOrNull { token != null && it.token == token }
+
     fun clearCurrentUser() {
         loginService.clearCurrentUser()
     }
@@ -59,7 +60,6 @@ class UserService(
                 Date().before(claims.expiration)
     }
 
-    // @CachePut(cacheNames=arrayOf("usersByToken"), key="#user.token")
     private fun updateToken(user: UserLoginModelResponse): UserLoginModelResponse {
         val result = user.copy(token = newToken(user))
         users[result.loginName] = result
@@ -76,9 +76,9 @@ class UserService(
         return loginService.currentUser()
     }
 
-    fun getUsers(): List<I_AD_User> {
+    fun getUsers(): List<MUser> {
         val user = currentUser()!!
         val ctx = Env.getCtx()
-        return MUser.getOfClient(ctx, user.aD_Client_ID, null).map { it as I_AD_User }
+        return MUser.getOfClient(ctx, user.aD_Client_ID, null).map { it }
     }
 }
