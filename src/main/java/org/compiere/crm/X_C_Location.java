@@ -42,7 +42,7 @@ public class X_C_Location extends PO implements I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_Location.accessLevel.intValue();
     }
@@ -168,7 +168,7 @@ public class X_C_Location extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Location.COLUMNNAME_C_AddressValidation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_City getC_City() throws RuntimeException
@@ -196,7 +196,7 @@ public class X_C_Location extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Location.COLUMNNAME_C_City_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
@@ -224,7 +224,7 @@ public class X_C_Location extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Location.COLUMNNAME_C_Country_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set City.
@@ -272,7 +272,7 @@ public class X_C_Location extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Location.COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Location_UU.
@@ -331,7 +331,7 @@ public class X_C_Location extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_Location.COLUMNNAME_C_Region_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Valid.

@@ -380,7 +380,7 @@ public class MColumn extends X_AD_Column
 		//	Update Fields
 		if (!newRecord)
 		{
-			if (   is_ValueChanged(MColumn.COLUMNNAME_Name)
+			if (   is_ValueChanged(MColumn.HasName.Companion.getCOLUMNNAME_Name())
 				|| is_ValueChanged(MColumn.COLUMNNAME_Description)
 				|| is_ValueChanged(MColumn.COLUMNNAME_Help)
 				) {

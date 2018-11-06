@@ -123,8 +123,8 @@ public interface I_M_DistributionList
 	/** Get M_DistributionList_UU	  */
 	public String getM_DistributionList_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

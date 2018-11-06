@@ -2270,13 +2270,13 @@ public class MRole extends X_AD_Role
 		if (forInsert)
 			log.saveWarning("AccessTableNoUpdate",
 				"(Required=" + TableLevel + "("
-				+ getTableLevelString(Env.getAD_Language(ctx), TableLevel)
+				+ getTableLevelString(Env.getADLanguage(ctx), TableLevel)
 				+ ") != UserLevel=" + userLevel);
 		else
 		**/
 			log.saveWarning("AccessTableNoView",
 				"Required=" + TableLevel + "("
-				+ getTableLevelString(Env.getAD_Language(ctx), TableLevel)
+				+ getTableLevelString(Env.getADLanguage(ctx), TableLevel)
 				+ ") != UserLevel=" + userLevel);
 		if (log.isLoggable(Level.INFO)) log.info (toString());
 		return retValue;
@@ -2318,7 +2318,7 @@ public class MRole extends X_AD_Role
 		loadTableInfo(false);
 		Integer ii = (Integer)m_tableName.get(tableName);
 		if (ii != null)
-			return ii.intValue();
+			return ii;
 	//	log.log(Level.WARNING,"getAD_Table_ID - not found (" + tableName + ")");
 		return 0;
 	}	//	getAD_Table_ID

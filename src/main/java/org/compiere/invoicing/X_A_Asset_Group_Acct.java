@@ -61,7 +61,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -99,7 +99,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Accumdepreciation_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Asset_A() throws RuntimeException
@@ -121,7 +121,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Group Accounting.
@@ -141,7 +141,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_Acct_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -191,7 +191,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Asset_Spread getA_Asset_Spread_T() throws RuntimeException
@@ -213,7 +213,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Spread_Type);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Depreciation_A() throws RuntimeException
@@ -235,7 +235,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Method getA_Depreciation_Calc_T() throws RuntimeException
@@ -257,7 +257,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Calc_Type);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Convention getA_Depreciation_Conv_F() throws RuntimeException
@@ -282,7 +282,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Conv_F_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Convention getA_Depreciation_Conv() throws RuntimeException
@@ -307,7 +307,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Conv_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation getA_Depreciation_F() throws RuntimeException
@@ -332,7 +332,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_F_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation getA_Depreciation() throws RuntimeException
@@ -357,7 +357,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Depreciation_Manual_Amount.
@@ -420,7 +420,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Method_F_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Method getA_Depreciation_Method() throws RuntimeException
@@ -445,7 +445,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Method_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Table_Header getA_Depreciation_Table_Header() throws RuntimeException
@@ -470,7 +470,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Table_Header_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Variable Percent.
@@ -526,7 +526,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Gain);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Gain_A() throws RuntimeException
@@ -548,7 +548,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Gain_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_L() throws RuntimeException
@@ -570,7 +570,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Loss);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Loss_A() throws RuntimeException
@@ -592,7 +592,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Loss_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Reve() throws RuntimeException
@@ -614,7 +614,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Revenue);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Disposal_Revenue_A() throws RuntimeException
@@ -636,7 +636,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Disposal_Revenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Accumdep_Offset_() throws RuntimeException
@@ -658,7 +658,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Accumdep_Offset_Cur);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Accumdep_Offset_Pr() throws RuntimeException
@@ -680,7 +680,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Accumdep_Offset_Prior);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Adep_Offset_Cur_A() throws RuntimeException
@@ -702,7 +702,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Adep_Offset_Cur_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Adep_Offset_Prior_A() throws RuntimeException
@@ -724,7 +724,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Adep_Offset_Prior_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** A_Reval_Cal_Method AD_Reference_ID=53259 */
@@ -769,7 +769,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Cost_Offset_A() throws RuntimeException
@@ -791,7 +791,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Cost_Offset_Pr() throws RuntimeException
@@ -813,7 +813,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Prior);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Cost_Offset_Prior_A() throws RuntimeException
@@ -835,7 +835,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Cost_Offset_Prior_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Depexp_Off() throws RuntimeException
@@ -857,7 +857,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Depexp_Offset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getA_Reval_Depexp_Offset_A() throws RuntimeException
@@ -879,7 +879,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Reval_Depexp_Offset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Split Percent.
@@ -924,7 +924,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation_Convention getConventionT() throws RuntimeException
@@ -946,7 +946,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_ConventionType);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Depreciation getDepreciationT() throws RuntimeException
@@ -968,7 +968,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_DepreciationType);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PostingType AD_Reference_ID=125 */
@@ -1039,7 +1039,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Months (fiscal).
@@ -1056,7 +1056,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Usable Life - Years.
@@ -1076,7 +1076,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Years (fiscal).
@@ -1093,6 +1093,6 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeYears_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

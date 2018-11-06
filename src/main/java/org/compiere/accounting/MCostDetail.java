@@ -887,7 +887,7 @@ public class MCostDetail extends X_M_CostDetail
 		String CostingLevel = product.getCostingLevel(as);
 		//	Org Element
 		int Org_ID = getAD_Org_ID();
-		int M_ASI_ID = getM_AttributeSetInstance_ID();
+		int M_ASI_ID = getMAttributeSetInstance_ID();
 		if (MAcctSchema.COSTINGLEVEL_Client.equals(CostingLevel))
 		{
 			Org_ID = 0;
@@ -992,7 +992,7 @@ public class MCostDetail extends X_M_CostDetail
 		
 		//save history for m_cost
 		X_M_CostHistory history = new X_M_CostHistory(getCtx(), 0, get_TrxName());
-		history.setM_AttributeSetInstance_ID(cost.getM_AttributeSetInstance_ID());
+		history.setM_AttributeSetInstance_ID(cost.getMAttributeSetInstance_ID());
 		history.setM_CostDetail_ID(this.getM_CostDetail_ID());
 		history.setM_CostElement_ID(ce.getM_CostElement_ID());
 		history.setM_CostType_ID(cost.getM_CostType_ID());
@@ -1120,7 +1120,7 @@ public class MCostDetail extends X_M_CostDetail
 				|| ce.isLifo())
 			{
 				//	Real ASI - costing level Org
-				MCostQueue cq = MCostQueue.get(product, getM_AttributeSetInstance_ID(), 
+				MCostQueue cq = MCostQueue.get(product, getMAttributeSetInstance_ID(), 
 					as, Org_ID, ce.getM_CostElement_ID(), get_TrxName());
 				cq.setCosts(amt, qty, precision);
 				cq.saveEx();
@@ -1270,7 +1270,7 @@ public class MCostDetail extends X_M_CostDetail
 					if (addition)
 					{
 						//	Real ASI - costing level Org
-						MCostQueue cq = MCostQueue.get(product, getM_AttributeSetInstance_ID(), 
+						MCostQueue cq = MCostQueue.get(product, getMAttributeSetInstance_ID(), 
 							as, Org_ID, ce.getM_CostElement_ID(), get_TrxName());
 						cq.setCosts(amt, qty, precision);
 						cq.saveEx();

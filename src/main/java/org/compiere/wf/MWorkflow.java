@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
+import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfo;
 import org.compiere.model.I_AD_Workflow;
 import org.compiere.orm.MColumn;
@@ -51,7 +52,7 @@ public class MWorkflow extends X_AD_Workflow
 	 */
 	public static MWorkflow get (Properties ctx, int AD_Workflow_ID)
 	{
-		String key = Env.getAD_Language(ctx) + "_" + AD_Workflow_ID;
+		String key = Env.getADLanguage(ctx) + "_" + AD_Workflow_ID;
 		MWorkflow retValue = (MWorkflow)s_cache.get(key);
 		if (retValue != null)
 			return retValue;
@@ -144,10 +145,7 @@ public class MWorkflow extends X_AD_Workflow
 		super (ctx, AD_Workflow_ID, trxName);
 		if (AD_Workflow_ID == 0)
 		{
-		//	setAD_Workflow_ID (0);
-		//	setValue (null);
-		//	setName (null);
-			setAccessLevel (X_AD_Workflow.ACCESSLEVEL_Organization);
+			setWFAccessLevel (X_AD_Workflow.ACCESSLEVEL_Organization);
 			setAuthor ("ComPiere, Inc.");
 			setDurationUnit(X_AD_Workflow.DURATIONUNIT_Day);
 			setDuration (1);
@@ -203,7 +201,7 @@ public class MWorkflow extends X_AD_Workflow
 		{
 			pstmt = DB.prepareStatement(sql, null);
 			pstmt.setInt(1, get_ID());
-			pstmt.setString(2, Env.getAD_Language(getCtx()));
+			pstmt.setString(2, Env.getADLanguage(getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next())
 			{
@@ -622,7 +620,7 @@ public class MWorkflow extends X_AD_Workflow
 			wa.saveEx();
 		}
 		//	Menu/Workflow
-		else if (is_ValueChanged("IsActive") || is_ValueChanged(I_AD_Workflow.COLUMNNAME_Name)
+		else if (is_ValueChanged("IsActive") || is_ValueChanged(HasName.Companion.getCOLUMNNAME_Name())
 			|| is_ValueChanged(I_AD_Workflow.COLUMNNAME_Description))
 		{
 			/* TODO Add DAP

@@ -99,7 +99,7 @@ public class MTransaction extends X_M_Transaction
 		sb.append(get_ID()).append(",").append(getMovementType())
 			.append(",Qty=").append(getMovementQty())
 			.append(",M_Product_ID=").append(getM_Product_ID())
-			.append(",ASI=").append(getM_AttributeSetInstance_ID())
+			.append(",ASI=").append(getMAttributeSetInstance_ID())
 			.append ("]");
 		return sb.toString ();
 	}	//	toString

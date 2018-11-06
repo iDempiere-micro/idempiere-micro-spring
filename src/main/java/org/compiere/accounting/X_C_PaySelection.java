@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_PaySelection;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_PaySelection
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persistent
+public class X_C_PaySelection extends BasePOName implements I_C_PaySelection, I_Persistent
 {
 
 	/**
@@ -53,7 +52,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -97,7 +96,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Payment Selection.
@@ -120,7 +119,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelection_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaySelection_UU.
@@ -195,31 +194,6 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Payment date.
 		@param PayDate 
 		Date Payment made
@@ -243,7 +217,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 	  */
 	public void setProcessed (boolean Processed)
 	{
-		set_Value (COLUMNNAME_Processed, Boolean.valueOf(Processed));
+		set_Value (COLUMNNAME_Processed, Processed);
 	}
 
 	/** Get Processed.
@@ -255,7 +229,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -265,7 +239,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		@param Processing Process Now	  */
 	public void setProcessing (boolean Processing)
 	{
-		set_Value (COLUMNNAME_Processing, Boolean.valueOf(Processing));
+		set_Value (COLUMNNAME_Processing, Processing);
 	}
 
 	/** Get Process Now.
@@ -276,7 +250,7 @@ public class X_C_PaySelection extends PO implements I_C_PaySelection, I_Persiste
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;

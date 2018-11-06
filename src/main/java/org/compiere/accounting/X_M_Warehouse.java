@@ -5,17 +5,16 @@ import java.util.Properties;
 
 import org.compiere.model.I_C_Location;
 import org.compiere.model.I_M_Warehouse;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_Warehouse
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
+public class X_M_Warehouse extends BasePONameValue implements I_M_Warehouse, I_Persistent
 {
 
 	/**
@@ -27,17 +26,6 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
     public X_M_Warehouse (Properties ctx, int M_Warehouse_ID, String trxName)
     {
       super (ctx, M_Warehouse_ID, trxName);
-      /** if (M_Warehouse_ID == 0)
-        {
-			setC_Location_ID (0);
-			setIsDisallowNegativeInv (false);
-// N
-			setM_Warehouse_ID (0);
-			setName (null);
-			setSeparator (null);
-// *
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -49,7 +37,7 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -93,7 +81,7 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -186,7 +174,7 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ReserveLocator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Warehouse.
@@ -209,7 +197,7 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Warehouse getM_WarehouseSource() throws RuntimeException
@@ -237,7 +225,7 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_WarehouseSource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_Warehouse_UU.
@@ -253,31 +241,6 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_M_Warehouse_UU);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Replenishment Class.
 		@param ReplenishmentClass 
@@ -313,20 +276,4 @@ public class X_M_Warehouse extends PO implements I_M_Warehouse, I_Persistent
 		return (String)get_Value(COLUMNNAME_Separator);
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

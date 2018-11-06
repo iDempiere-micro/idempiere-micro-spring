@@ -52,7 +52,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -96,7 +96,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Transition Condition.
@@ -119,7 +119,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_NextCondition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_NextCondition_UU.
@@ -161,7 +161,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_NodeNext_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** AndOr AD_Reference_ID=204 */
@@ -263,7 +263,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Search Key.

@@ -2,10 +2,9 @@ package org.compiere.bank;
 
 import org.compiere.model.I_C_Bank;
 import org.compiere.model.I_C_Location;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -15,7 +14,7 @@ import java.util.Properties;
 /** Generated Model for C_Bank
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
+public class X_C_Bank extends BasePOName implements I_C_Bank, I_Persistent
 {
 
 	/**
@@ -27,14 +26,6 @@ public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
     public X_C_Bank (Properties ctx, int C_Bank_ID, String trxName)
     {
       super (ctx, C_Bank_ID, trxName);
-      /** if (C_Bank_ID == 0)
-        {
-			setC_Bank_ID (0);
-			setIsOwnBank (true);
-// Y
-			setName (null);
-			setRoutingNo (null);
-        } */
     }
 
     /** Load Constructor */
@@ -46,7 +37,7 @@ public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -85,7 +76,7 @@ public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Bank_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Bank_UU.
@@ -127,7 +118,7 @@ public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -170,31 +161,6 @@ public class X_C_Bank extends PO implements I_C_Bank, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Routing No.
 		@param RoutingNo 

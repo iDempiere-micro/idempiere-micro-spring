@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.BasePOUser;
 import org.idempiere.orm.I_Persistent;
@@ -51,7 +52,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -216,7 +217,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -225,7 +226,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -233,7 +234,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -278,7 +279,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_PlanningHorizon);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Queuing Time.
@@ -321,7 +322,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_S_ResourceType getS_ResourceType() throws RuntimeException
@@ -346,7 +347,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_ResourceType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set S_Resource_UU.

@@ -112,8 +112,8 @@ public interface I_M_RelatedProduct
 	/** Get M_RelatedProduct_UU	  */
 	public String getM_RelatedProduct_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

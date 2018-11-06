@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_ShipperPackaging;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.POInfo;
@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for M_ShipperPackaging
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_Persistent
+public class X_M_ShipperPackaging extends BasePOName implements I_M_ShipperPackaging, I_Persistent
 {
 
 	/**
@@ -27,15 +27,6 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
     public X_M_ShipperPackaging (Properties ctx, int M_ShipperPackaging_ID, String trxName)
     {
       super (ctx, M_ShipperPackaging_ID, trxName);
-      /** if (M_ShipperPackaging_ID == 0)
-        {
-			setIsDefault (false);
-// N
-			setM_Shipper_ID (0);
-			setM_ShipperPackagingCfg_ID (0);
-			setM_ShipperPackaging_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -47,7 +38,7 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -115,7 +106,7 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperPackagingCfg getM_ShipperPackagingCfg() throws RuntimeException
@@ -140,7 +131,7 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPackagingCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper Packaging.
@@ -160,7 +151,7 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPackaging_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShipperPackaging_UU.
@@ -175,23 +166,6 @@ public class X_M_ShipperPackaging extends PO implements I_M_ShipperPackaging, I_
 	public String getM_ShipperPackaging_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_ShipperPackaging_UU);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 
 	/** Set Weight.

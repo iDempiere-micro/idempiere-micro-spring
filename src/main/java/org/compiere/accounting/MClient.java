@@ -132,7 +132,7 @@ public class MClient extends org.compiere.orm.MClient
 	{
 		if (m_language == null)
 		{
-			m_language = Language.getLanguage(getAD_Language());
+			m_language = Language.getLanguage(getADLanguage());
 			Env.verifyLanguage (getCtx(), m_language);
 		}
 		return m_language;
@@ -143,23 +143,23 @@ public class MClient extends org.compiere.orm.MClient
 	 * 	Set AD_Language
 	 *	@param AD_Language new language
 	 */
-	public void setAD_Language (String AD_Language)
+	public void setADLanguage (String AD_Language)
 	{
 		m_language = null;
-		super.setAD_Language (AD_Language);
-	}	//	setAD_Language
+		super.setADLanguage (AD_Language);
+	}	//	setADLanguage
 
 	/**
 	 * 	Get AD_Language
 	 *	@return Language
 	 */
-	public String getAD_Language ()
+	public String getADLanguage ()
 	{
-		String s = super.getAD_Language ();
+		String s = super.getADLanguage ();
 		if (s == null)
 			return Language.getBaseAD_Language();
 		return s;
-	}	//	getAD_Language
+	}	//	getADLanguage
 
 	/**
 	 * 	Get Locale

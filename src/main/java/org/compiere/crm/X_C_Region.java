@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Region;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_Region
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Region extends PO implements I_C_Region, I_Persistent
+public class X_C_Region extends BasePOName implements I_C_Region, I_Persistent
 {
 
 	/**
@@ -26,12 +25,6 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
     public X_C_Region (Properties ctx, int C_Region_ID, String trxName)
     {
       super (ctx, C_Region_ID, trxName);
-      /** if (C_Region_ID == 0)
-        {
-			setC_Country_ID (0);
-			setC_Region_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +36,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -51,15 +44,13 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_C_Region[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_C_Region[" +
+            get_ID() + "]";
     }
 
 	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
@@ -76,7 +67,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 		if (C_Country_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_Country_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_Country_ID, Integer.valueOf(C_Country_ID));
+			set_ValueNoCheck (COLUMNNAME_C_Country_ID, C_Country_ID);
 	}
 
 	/** Get Country.
@@ -87,7 +78,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Country_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Region.
@@ -99,7 +90,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 		if (C_Region_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_C_Region_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_Region_ID, Integer.valueOf(C_Region_ID));
+			set_ValueNoCheck (COLUMNNAME_C_Region_ID, C_Region_ID);
 	}
 
 	/** Get Region.
@@ -110,7 +101,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Region_UU.
@@ -150,7 +141,7 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 	  */
 	public void setIsDefault (boolean IsDefault)
 	{
-		set_Value (COLUMNNAME_IsDefault, Boolean.valueOf(IsDefault));
+		set_Value (COLUMNNAME_IsDefault, IsDefault);
 	}
 
 	/** Get Default.
@@ -162,34 +153,9 @@ public class X_C_Region extends PO implements I_C_Region, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

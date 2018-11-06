@@ -311,9 +311,9 @@ public interface I_PP_Cost_Collector
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_Locator_ID */
     public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";

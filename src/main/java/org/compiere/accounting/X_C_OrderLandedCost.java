@@ -50,7 +50,7 @@ public class X_C_OrderLandedCost extends PO implements I_C_OrderLandedCost, I_Pe
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -114,7 +114,7 @@ public class X_C_OrderLandedCost extends PO implements I_C_OrderLandedCost, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Estimated Landed Cost.
@@ -134,7 +134,7 @@ public class X_C_OrderLandedCost extends PO implements I_C_OrderLandedCost, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderLandedCost_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OrderLandedCost_UU.
@@ -223,7 +223,7 @@ public class X_C_OrderLandedCost extends PO implements I_C_OrderLandedCost, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

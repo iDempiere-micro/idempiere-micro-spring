@@ -174,7 +174,7 @@ public class MInOutLine extends X_M_InOutLine
 		else
 		{
 			setM_Product_ID(oLine.getM_Product_ID());
-			setM_AttributeSetInstance_ID(oLine.getM_AttributeSetInstance_ID());
+			setM_AttributeSetInstance_ID(oLine.getMAttributeSetInstance_ID());
 			//
 			if (product.isItem())
 			{
@@ -475,24 +475,24 @@ public class MInOutLine extends X_M_InOutLine
 			}
 		}
 
-		I_M_AttributeSet attributeset = getM_Product().getM_AttributeSet();
+		I_M_AttributeSet attributeset = getM_Product().getMAttributeSet();
 		boolean isAutoGenerateLot = false;
 		if (attributeset != null)
 			isAutoGenerateLot = attributeset.isAutoGenerateLot();
 		if (getReversalLine_ID() == 0 && !getParent().isSOTrx() && !getParent().getMovementType().equals(MInOut.MOVEMENTTYPE_VendorReturns) && isAutoGenerateLot
-				&& getM_AttributeSetInstance_ID() == 0)
+				&& getMAttributeSetInstance_ID() == 0)
 		{
 			MAttributeSetInstance asi = MAttributeSetInstance.generateLot(getCtx(), (MProduct)getM_Product(), get_TrxName());
-			setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+			setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
 		}
 	//	if (getC_Charge_ID() == 0 && getM_Product_ID() == 0)
 	//		;
 
 		/**	 Qty on instance ASI
-		if (getM_AttributeSetInstance_ID() != 0)
+		if (getMAttributeSetInstance_ID() != 0)
 		{
 			MProduct product = getProduct();
-			int M_AttributeSet_ID = product.getM_AttributeSet_ID();
+			int M_AttributeSet_ID = product.getMAttributeSet_ID();
 			boolean isInstance = M_AttributeSet_ID != 0;
 			if (isInstance)
 			{
@@ -503,7 +503,7 @@ public class MInOutLine extends X_M_InOutLine
 			if (isInstance)
 			{
 				MStorage storage = MStorage.get(getCtx(), getM_Locator_ID(),
-					getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+					getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
 				if (storage != null)
 				{
 					BigDecimal qty = storage.getQtyOnHand();
@@ -552,7 +552,7 @@ public class MInOutLine extends X_M_InOutLine
 			.append(",M_Product_ID=").append(getM_Product_ID())
 			.append(",QtyEntered=").append(getQtyEntered())
 			.append(",MovementQty=").append(getMovementQty())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append ("]");
 		return sb.toString ();
 	}	//	toString

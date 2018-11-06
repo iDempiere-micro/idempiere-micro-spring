@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_PrintColor;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_PrintColor
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_PrintColor extends PO implements I_AD_PrintColor, I_Persistent
+public class X_AD_PrintColor extends BasePOName implements I_AD_PrintColor, I_Persistent
 {
 
 	/**
@@ -25,13 +24,6 @@ public class X_AD_PrintColor extends PO implements I_AD_PrintColor, I_Persistent
     public X_AD_PrintColor (Properties ctx, int AD_PrintColor_ID, String trxName)
     {
       super (ctx, AD_PrintColor_ID, trxName);
-      /** if (AD_PrintColor_ID == 0)
-        {
-			setAD_PrintColor_ID (0);
-			setCode (null);
-			setIsDefault (false);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +35,7 @@ public class X_AD_PrintColor extends PO implements I_AD_PrintColor, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -82,7 +74,7 @@ public class X_AD_PrintColor extends PO implements I_AD_PrintColor, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintColor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_PrintColor_UU.
@@ -140,28 +132,4 @@ public class X_AD_PrintColor extends PO implements I_AD_PrintColor, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

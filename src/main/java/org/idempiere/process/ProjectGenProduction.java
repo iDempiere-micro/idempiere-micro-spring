@@ -165,7 +165,7 @@ public class ProjectGenProduction extends SvrProcess
 		addBufferLog (production.getM_Production_ID(),
 				production.getMovementDate(),
 				new BigDecimal(0), 
-				Msg.getElement(Env.getAD_Language(Env.getCtx()), "M_Production_ID", false)+":"+production.getDocumentNo(), 
+				Msg.getElement(Env.getADLanguage(Env.getCtx()), "M_Production_ID", false)+":"+production.getDocumentNo(), 
 				production.get_Table_ID(), 
 				production.getM_Production_ID());
 	}	//	createProductionfromProjectLine

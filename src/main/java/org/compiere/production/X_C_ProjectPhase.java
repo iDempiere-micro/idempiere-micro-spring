@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ProjectPhase;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -17,7 +18,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for C_ProjectPhase
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persistent
+public class X_C_ProjectPhase extends BasePOName implements I_C_ProjectPhase, I_Persistent
 {
 
 	/**
@@ -54,7 +55,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -118,7 +119,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Phase getC_Phase() throws RuntimeException
@@ -146,7 +147,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Phase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -174,7 +175,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Project Phase.
@@ -197,7 +198,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ProjectPhase_UU.
@@ -355,24 +356,7 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return ii;
 	}
 
 	/** Set Planned Amount.
@@ -482,16 +466,8 @@ public class X_C_ProjectPhase extends PO implements I_C_ProjectPhase, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getSeqNo()));
-    }
 
 	/** Set Start Date.
 		@param StartDate 

@@ -78,7 +78,7 @@ public class MInOutLine extends org.compiere.order.MInOutLine implements IPODoc 
         else
         {
             setM_Product_ID(M_Product_ID);
-            setM_AttributeSetInstance_ID(iLine.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(iLine.getMAttributeSetInstance_ID());
             if (M_Locator_ID == 0)
                 setM_Locator_ID(Qty);	//	requires warehouse, product, asi
             else
@@ -118,7 +118,7 @@ public class MInOutLine extends org.compiere.order.MInOutLine implements IPODoc 
 
         //	Get existing Location
         int M_Locator_ID = MStorageOnHand.getM_Locator_ID (getM_Warehouse_ID(),
-            getM_Product_ID(), getM_AttributeSetInstance_ID(),
+            getM_Product_ID(), getMAttributeSetInstance_ID(),
             Qty, get_TrxName());
         //	Get default Location
         if (M_Locator_ID == 0)
@@ -208,24 +208,24 @@ public class MInOutLine extends org.compiere.order.MInOutLine implements IPODoc 
             }
 
         }
-        I_M_AttributeSet attributeset = getM_Product().getM_AttributeSet();
+        I_M_AttributeSet attributeset = getM_Product().getMAttributeSet();
         boolean isAutoGenerateLot = false;
         if (attributeset != null)
             isAutoGenerateLot = attributeset.isAutoGenerateLot();
         if (getReversalLine_ID() == 0 && !getParent().isSOTrx() && !getParent().getMovementType().equals(MInOut.MOVEMENTTYPE_VendorReturns) && isAutoGenerateLot
-            && getM_AttributeSetInstance_ID() == 0)
+            && getMAttributeSetInstance_ID() == 0)
         {
             MAttributeSetInstance asi = MAttributeSetInstance.generateLot(getCtx(), (MProduct)getM_Product(), get_TrxName());
-            setM_AttributeSetInstance_ID(asi.getM_AttributeSetInstance_ID());
+            setM_AttributeSetInstance_ID(asi.getMAttributeSetInstance_ID());
         }
         //	if (getC_Charge_ID() == 0 && getM_Product_ID() == 0)
         //		;
 
         /**	 Qty on instance ASI
-         if (getM_AttributeSetInstance_ID() != 0)
+         if (getMAttributeSetInstance_ID() != 0)
          {
          MProduct product = getProduct();
-         int M_AttributeSet_ID = product.getM_AttributeSet_ID();
+         int M_AttributeSet_ID = product.getMAttributeSet_ID();
          boolean isInstance = M_AttributeSet_ID != 0;
          if (isInstance)
          {
@@ -236,7 +236,7 @@ public class MInOutLine extends org.compiere.order.MInOutLine implements IPODoc 
          if (isInstance)
          {
          MStorage storage = MStorage.get(getCtx(), getM_Locator_ID(),
-         getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+         getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
          if (storage != null)
          {
          BigDecimal qty = storage.getQtyOnHand();

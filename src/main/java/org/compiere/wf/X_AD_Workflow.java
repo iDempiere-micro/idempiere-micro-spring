@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Workflow;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Workflow
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
+public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_Persistent
 {
 
 	/**
@@ -29,29 +28,6 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
     public X_AD_Workflow (Properties ctx, int AD_Workflow_ID, String trxName)
     {
       super (ctx, AD_Workflow_ID, trxName);
-      /** if (AD_Workflow_ID == 0)
-        {
-			setAccessLevel (null);
-			setAD_Workflow_ID (0);
-			setAuthor (null);
-			setCost (Env.ZERO);
-			setDuration (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setIsBetaFunctionality (false);
-// N
-			setIsDefault (false);
-			setIsValid (false);
-			setName (null);
-			setPublishStatus (null);
-// U
-			setValue (null);
-			setVersion (0);
-			setWaitingTime (0);
-			setWorkflowType (null);
-// G
-			setWorkingTime (0);
-        } */
     }
 
     /** Load Constructor */
@@ -63,7 +39,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +76,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setWFAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -109,7 +85,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getWFAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}
@@ -136,7 +112,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_CtxHelp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -164,7 +140,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException
@@ -192,7 +168,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Responsible getAD_WF_Responsible() throws RuntimeException
@@ -220,7 +196,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow.
@@ -243,7 +219,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WorkflowProcessor getAD_WorkflowProcessor() throws RuntimeException
@@ -271,7 +247,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WorkflowProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Workflow_UU.
@@ -393,7 +369,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Duration);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** DurationUnit AD_Reference_ID=299 */
@@ -554,7 +530,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Limit);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Moving Time.
@@ -571,33 +547,8 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_MovingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Overlap Units.
 		@param OverlapUnits 
@@ -636,7 +587,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Priority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ProcessType AD_Reference_ID=53224 */
@@ -730,7 +681,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_QueuingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Setup Time.
@@ -750,7 +701,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SetupTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException
@@ -778,7 +729,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_Resource_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Units by Cycles.
@@ -849,23 +800,6 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		return (Timestamp)get_Value(COLUMNNAME_ValidTo);
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
-
 	/** Set Version.
 		@param Version 
 		Version of the table definition
@@ -883,7 +817,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Version);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Waiting Time.
@@ -903,7 +837,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WaitingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** WorkflowType AD_Reference_ID=328 */
@@ -955,7 +889,7 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_WorkingTime);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Yield %.
@@ -975,6 +909,6 @@ public class X_AD_Workflow extends PO implements I_AD_Workflow, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Yield);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

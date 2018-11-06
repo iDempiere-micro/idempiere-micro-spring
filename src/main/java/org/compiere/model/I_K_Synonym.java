@@ -39,12 +39,12 @@ public interface I_K_Synonym
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
@@ -110,8 +110,8 @@ public interface I_K_Synonym
 	/** Get K_Synonym_UU	  */
 	public String getK_Synonym_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -166,8 +166,8 @@ public interface I_M_Demand
 	/** Get M_Demand_UU	  */
 	public String getM_Demand_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -331,7 +331,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 			{
 				C_DocTypeTarget_ID = odt.getC_DocTypeInvoice_ID();
 				if (C_DocTypeTarget_ID <= 0)
-					throw new AdempiereException("@NotFound@ @C_DocTypeInvoice_ID@ - @C_DocType_ID@:"+odt.get_Translation(MDocType.COLUMNNAME_Name));
+					throw new AdempiereException("@NotFound@ @C_DocTypeInvoice_ID@ - @C_DocType_ID@:"+odt.get_Translation(HasName.Companion.getCOLUMNNAME_Name()));
 			}
 		}
 		setC_DocTypeTarget_ID(C_DocTypeTarget_ID);

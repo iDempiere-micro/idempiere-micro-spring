@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Calendar;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_Calendar
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Calendar extends PO implements I_C_Calendar, I_Persistent
+public class X_C_Calendar extends BasePOName implements I_C_Calendar, I_Persistent
 {
 
 	/**
@@ -25,11 +24,6 @@ public class X_C_Calendar extends PO implements I_C_Calendar, I_Persistent
     public X_C_Calendar (Properties ctx, int C_Calendar_ID, String trxName)
     {
       super (ctx, C_Calendar_ID, trxName);
-      /** if (C_Calendar_ID == 0)
-        {
-			setC_Calendar_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -41,7 +35,7 @@ public class X_C_Calendar extends PO implements I_C_Calendar, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -80,7 +74,7 @@ public class X_C_Calendar extends PO implements I_C_Calendar, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Calendar_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Calendar_UU.
@@ -114,28 +108,4 @@ public class X_C_Calendar extends PO implements I_C_Calendar, I_Persistent
 		return (String)get_Value(COLUMNNAME_Description);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

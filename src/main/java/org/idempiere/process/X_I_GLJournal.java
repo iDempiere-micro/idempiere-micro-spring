@@ -40,7 +40,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -84,7 +84,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Account_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Account Key.
@@ -158,7 +158,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgDoc_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Trx Organization.
@@ -181,7 +181,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Accounted Credit.
@@ -340,7 +340,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -368,7 +368,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Campaign Key.
@@ -430,7 +430,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -458,7 +458,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -486,7 +486,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -514,7 +514,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -542,7 +542,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Client Key.
@@ -587,7 +587,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_LocFrom_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Location getC_LocTo() throws RuntimeException
@@ -615,7 +615,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_LocTo_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Currency Type Key.
@@ -660,7 +660,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Period_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -688,7 +688,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_SalesRegion getC_SalesRegion() throws RuntimeException
@@ -716,7 +716,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_SalesRegion_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -744,7 +744,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Rate.
@@ -792,7 +792,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_ValidCombination_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Account Date.
@@ -871,7 +871,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_GL_Budget_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_GL_Category getGL_Category() throws RuntimeException
@@ -899,7 +899,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_GL_Category_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_GL_JournalBatch getGL_JournalBatch() throws RuntimeException
@@ -927,7 +927,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_GL_JournalBatch_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_GL_Journal getGL_Journal() throws RuntimeException
@@ -955,7 +955,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_GL_Journal_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_GL_JournalLine getGL_JournalLine() throws RuntimeException
@@ -983,7 +983,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_GL_JournalLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Import Error Message.
@@ -1023,7 +1023,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_I_GLJournal_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -1171,7 +1171,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -1199,7 +1199,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Trx Org Key.
@@ -1441,7 +1441,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1469,6 +1469,6 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

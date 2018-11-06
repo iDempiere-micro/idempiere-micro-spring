@@ -362,11 +362,11 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 						if ((mpo.getC_InvoiceLine_ID() == 0)
 							|| (mpo.getC_InvoiceLine_ID() == iLine.getC_InvoiceLine_ID()))
 						{
-							if (iLine.getM_AttributeSetInstance_ID() != 0)
+							if (iLine.getMAttributeSetInstance_ID() != 0)
 							{
-								if (mpo.getM_AttributeSetInstance_ID() == 0)
-									mpo.setM_AttributeSetInstance_ID(iLine.getM_AttributeSetInstance_ID());
-								else if (mpo.getM_AttributeSetInstance_ID() != iLine.getM_AttributeSetInstance_ID())
+								if (mpo.getMAttributeSetInstance_ID() == 0)
+									mpo.setM_AttributeSetInstance_ID(iLine.getMAttributeSetInstance_ID());
+								else if (mpo.getMAttributeSetInstance_ID() != iLine.getMAttributeSetInstance_ID())
 									continue;
 							}
 						}
@@ -379,11 +379,11 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 							|| (mpo.getM_InOutLine_ID() == sLine.getM_InOutLine_ID()))
 						{
 							
-							if (sLine.getM_AttributeSetInstance_ID() != 0)
+							if (sLine.getMAttributeSetInstance_ID() != 0)
 							{
-								if (mpo.getM_AttributeSetInstance_ID() == 0)
-									mpo.setM_AttributeSetInstance_ID(sLine.getM_AttributeSetInstance_ID());
-								else if (mpo.getM_AttributeSetInstance_ID() != sLine.getM_AttributeSetInstance_ID())
+								if (mpo.getMAttributeSetInstance_ID() == 0)
+									mpo.setM_AttributeSetInstance_ID(sLine.getMAttributeSetInstance_ID());
+								else if (mpo.getMAttributeSetInstance_ID() != sLine.getMAttributeSetInstance_ID())
 									continue;
 							}
 						}
@@ -415,7 +415,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 							matchInv.setM_InOutLine_ID(M_InOutLine_ID);
 							matchInv.setAD_Client_ID(mpo.getAD_Client_ID());
 							matchInv.setAD_Org_ID(mpo.getAD_Org_ID());
-							matchInv.setM_AttributeSetInstance_ID(mpo.getM_AttributeSetInstance_ID());
+							matchInv.setM_AttributeSetInstance_ID(mpo.getMAttributeSetInstance_ID());
 							matchInv.setQty(mpo.getQty());
 							matchInv.setDateTrx(dateTrx);
 							matchInv.setProcessed(true);
@@ -622,7 +622,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 		if (dateTrx != null)
 			setDateTrx (dateTrx);
 		setM_Product_ID (sLine.getM_Product_ID());
-		setM_AttributeSetInstance_ID(sLine.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(sLine.getMAttributeSetInstance_ID());
 		setQty (qty);
 		setProcessed(true);		//	auto
 	}	//	MMatchPO
@@ -643,7 +643,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 		if (dateTrx != null)
 			setDateTrx (dateTrx);
 		setM_Product_ID (iLine.getM_Product_ID());
-		setM_AttributeSetInstance_ID(iLine.getM_AttributeSetInstance_ID());
+		setM_AttributeSetInstance_ID(iLine.getMAttributeSetInstance_ID());
 		setQty (qty);
 		setProcessed(true);		//	auto
 	}	//	MMatchPO
@@ -772,10 +772,10 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 			setDateAcct (ts);
 		}
 		//	Set ASI from Receipt
-		if (getM_AttributeSetInstance_ID() == 0 && getM_InOutLine_ID() != 0)
+		if (getMAttributeSetInstance_ID() == 0 && getM_InOutLine_ID() != 0)
 		{
 			MInOutLine iol = new MInOutLine (getCtx(), getM_InOutLine_ID(), get_TrxName());
-			setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+			setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 		}
 		
 		// Bayu, Sistematika
@@ -787,7 +787,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 			for (int i = 0; i < mpi.length; i++) 
 			{
 				if (mpi[i].getC_InvoiceLine_ID() != 0 && 
-						mpi[i].getM_AttributeSetInstance_ID() == getM_AttributeSetInstance_ID()) 
+						mpi[i].getMAttributeSetInstance_ID() == getMAttributeSetInstance_ID()) 
 				{
 					if (mpi[i].getQty().compareTo(getQty()) == 0)  // same quantity
 					{
@@ -969,12 +969,12 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 			}
 			
 			//	Update Order ASI if full match
-			if (orderLine.getM_AttributeSetInstance_ID() == 0
+			if (orderLine.getMAttributeSetInstance_ID() == 0
 				&& getM_InOutLine_ID() != 0)
 			{
 				MInOutLine iol = new MInOutLine (getCtx(), getM_InOutLine_ID(), get_TrxName());
 				if (iol.getMovementQty().compareTo(orderLine.getQtyOrdered()) == 0)
-					orderLine.setM_AttributeSetInstance_ID(iol.getM_AttributeSetInstance_ID());
+					orderLine.setM_AttributeSetInstance_ID(iol.getMAttributeSetInstance_ID());
 			}
 			return orderLine.save();
 		}

@@ -197,7 +197,7 @@ public class MTable extends X_AD_Table
 		{
 		//	setName (null);
 		//	setTableName (null);
-			setAccessLevel (X_AD_Table.ACCESSLEVEL_SystemOnly);	// 4
+			setTableAccessLevel (X_AD_Table.ACCESSLEVEL_SystemOnly);	// 4
 			setEntityType (org.idempiere.orm.PO.ENTITYTYPE_UserMaintained);	// U
 			setIsChangeLog (false);
 			setIsDeleteable (false);

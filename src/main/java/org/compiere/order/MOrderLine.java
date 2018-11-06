@@ -860,7 +860,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 
 		//	Qty on instance ASI for SO
 		if (m_IsSOTrx
-			&& getM_AttributeSetInstance_ID() != 0
+			&& getMAttributeSetInstance_ID() != 0
 			&& (newRecord || is_ValueChanged("M_Product_ID")
 			|| is_ValueChanged("M_AttributeSetInstance_ID")
 			|| is_ValueChanged("M_Warehouse_ID")))
@@ -868,7 +868,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 			MProduct product = getProduct();
 			if (product.isStocked())
 			{
-				int M_AttributeSet_ID = product.getM_AttributeSet_ID();
+				int M_AttributeSet_ID = product.getMAttributeSet_ID();
 				boolean isInstance = M_AttributeSet_ID != 0;
 				if (isInstance)
 				{

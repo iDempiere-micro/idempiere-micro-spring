@@ -11,6 +11,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Language;
 import org.compiere.model.I_C_Country;
 import org.compiere.orm.MClient;
@@ -104,7 +105,7 @@ public class MCountry extends X_C_Country
 	private static void loadAllCountries (Properties ctx)
 	{
 		MClient client = MClient.get (ctx);
-		I_AD_Language lang = MLanguage.get(ctx, client.getAD_Language());
+		I_AD_Language lang = MLanguage.get(ctx, client.getADLanguage());
 		//
 		s_countries = new CCache<Integer,MCountry>(I_C_Country.Table_Name, 250);
 		List<MCountry> countries = new Query(ctx, I_C_Country.Table_Name, "", null)
@@ -131,7 +132,7 @@ public class MCountry extends X_C_Country
 		if (found != null)
 			return;
 
-		I_AD_Language lang = MLanguage.get(ctx, client.getAD_Language());
+		I_AD_Language lang = MLanguage.get(ctx, client.getADLanguage());
 		MCountry usa = null;
 
 		for (Entry<Integer, MCountry> cachedEntry : s_countries.entrySet()) {
@@ -226,7 +227,7 @@ public class MCountry extends X_C_Country
 	@JsonIgnore
 	public String getTrlName()
 	{
-		return getTrlName(Env.getAD_Language(Env.getCtx()));
+		return getTrlName(Env.getADLanguage(Env.getCtx()));
 	}	//	getTrlName
 	
 	/**
@@ -236,7 +237,7 @@ public class MCountry extends X_C_Country
 	 */
 	public String getTrlName(String language)
 	{
-		return get_Translation(I_C_Country.COLUMNNAME_Name, language);
+		return get_Translation(HasName.Companion.getCOLUMNNAME_Name(), language);
 	}	//	getTrlName
 	
 	

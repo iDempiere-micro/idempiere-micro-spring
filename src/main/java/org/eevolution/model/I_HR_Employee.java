@@ -197,8 +197,8 @@ public interface I_HR_Employee
 	  */
 	public boolean isActive();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity
@@ -210,8 +210,8 @@ public interface I_HR_Employee
 	  */
 	public String getName();
 
-    /** Column name Name2 */
-    public static final String COLUMNNAME_Name2 = "Name2";
+    
+    
 
 	/** Set Name 2.
 	  * Additional Name

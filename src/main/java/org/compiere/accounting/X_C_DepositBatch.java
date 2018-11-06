@@ -55,7 +55,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -99,7 +99,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Deposit Batch.
@@ -119,7 +119,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DepositBatch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_DepositBatch_UU.
@@ -161,7 +161,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create lines from.

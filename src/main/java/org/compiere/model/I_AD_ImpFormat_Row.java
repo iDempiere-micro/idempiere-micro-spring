@@ -206,8 +206,8 @@ public interface I_AD_ImpFormat_Row
 	  */
 	public boolean isActive();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

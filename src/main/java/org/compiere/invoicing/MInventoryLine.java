@@ -234,7 +234,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 			.append(",QtyCount=").append(getQtyCount())
 			.append(",QtyInternalUse=").append(getQtyInternalUse())
 			.append(",QtyBook=").append(getQtyBook())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append("]");
 		return sb.toString ();
 	}	//	toString
@@ -254,7 +254,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 		if (m_isManualEntry)
 		{
 			//	Product requires ASI
-			if (getM_AttributeSetInstance_ID() == 0)
+			if (getMAttributeSetInstance_ID() == 0)
 			{
 				MProduct product = MProduct.get(getCtx(), getM_Product_ID());
 				if (product != null && product.isASIMandatory(isSOTrx()))
@@ -343,7 +343,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 				return false;
 			}
 		} else if (MDocType.DOCSUBTYPEINV_CostAdjustment.equals(docSubTypeInv)) {
-			int M_ASI_ID = getM_AttributeSetInstance_ID();
+			int M_ASI_ID = getMAttributeSetInstance_ID();
 			MProduct product = new MProduct(getCtx(), getM_Product_ID(), get_TrxName());
 			MClient client = MClient.get(getCtx());
 			MAcctSchema as = client.getAcctSchema();
@@ -390,7 +390,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 	//	
 	//	//	Create MA
 	//	//if (newRecord && success 
-	//	//	&& m_isManualEntry && getM_AttributeSetInstance_ID() == 0)
+	//	//	&& m_isManualEntry && getMAttributeSetInstance_ID() == 0)
 	//	//	createMA();
 	//	return true;
 	//}	//	afterSave
@@ -405,7 +405,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 		boolean allZeroASI = true;
 		for (int i = 0; i < storages.length; i++)
 		{
-			if (storages[i].getM_AttributeSetInstance_ID() != 0)
+			if (storages[i].getMAttributeSetInstance_ID() != 0)
 			{
 				allZeroASI = false;
 				break;
@@ -422,11 +422,11 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 			if (storage.getQtyOnHand().signum() == 0)
 				continue;
 			if (ma != null 
-				&& ma.getM_AttributeSetInstance_ID() == storage.getM_AttributeSetInstance_ID())
+				&& ma.getMAttributeSetInstance_ID() == storage.getMAttributeSetInstance_ID())
 				ma.setMovementQty(ma.getMovementQty().add(storage.getQtyOnHand()));
 			else
 				ma = new MInventoryLineMA (this, 
-					storage.getM_AttributeSetInstance_ID(), storage.getQtyOnHand());
+					storage.getMAttributeSetInstance_ID(), storage.getQtyOnHand());
 			if (!ma.save())
 				;
 			sum = sum.add(storage.getQtyOnHand());

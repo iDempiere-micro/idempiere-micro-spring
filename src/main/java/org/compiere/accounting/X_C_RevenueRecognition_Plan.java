@@ -52,7 +52,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -96,7 +96,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -124,7 +124,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException
@@ -152,7 +152,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_RevenueRecognition getC_RevenueRecognition() throws RuntimeException
@@ -180,7 +180,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_RevenueRecognition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -211,7 +211,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_RevenueRecognition_Plan_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_RevenueRecognition_Plan_UU.
@@ -250,7 +250,7 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_Revenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Recognized Amount.
@@ -312,6 +312,6 @@ public class X_C_RevenueRecognition_Plan extends PO implements I_C_RevenueRecogn
 		Integer ii = (Integer)get_Value(COLUMNNAME_UnEarnedRevenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

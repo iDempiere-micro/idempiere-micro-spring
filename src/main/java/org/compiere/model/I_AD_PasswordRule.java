@@ -53,7 +53,7 @@ public interface I_AD_PasswordRule
 	public void setAD_PasswordRule_ID (int AD_PasswordRule_ID);
 
 	/** Get Password Policies	  */
-	public int getAD_PasswordRule_ID();
+	public int getADPasswordRule_ID();
 
     /** Column name AD_PasswordRule_UU */
     public static final String COLUMNNAME_AD_PasswordRule_UU = "AD_PasswordRule_UU";
@@ -62,7 +62,7 @@ public interface I_AD_PasswordRule
 	public void setAD_PasswordRule_UU (String AD_PasswordRule_UU);
 
 	/** Get AD_PasswordRule_UU	  */
-	public String getAD_PasswordRule_UU();
+	public String getADPasswordRule_UU();
 
     /** Column name AlphabeticalCharacter */
     public static final String COLUMNNAME_AlphabeticalCharacter = "AlphabeticalCharacter";
@@ -228,8 +228,8 @@ public interface I_AD_PasswordRule
 	/** Get Minimum Length	  */
 	public int getMinLength();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

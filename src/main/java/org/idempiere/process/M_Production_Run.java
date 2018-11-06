@@ -148,7 +148,7 @@ public class M_Production_Run extends SvrProcess {
 								BigDecimal QtyAvailable = MStorageReservation.getQtyAvailable(
 										locator.getM_Warehouse_ID(), 
 										pline.getM_Product_ID(), 
-										pline.getM_AttributeSetInstance_ID(),
+										pline.getMAttributeSetInstance_ID(),
 										get_TrxName());
 								
 								if(mustBeStocked && QtyAvailable.add(MovementQty).signum() < 0)
@@ -160,8 +160,8 @@ public class M_Production_Run extends SvrProcess {
 							}
 						
 							Timestamp dateMPolicy = production.getMovementDate();
-							if(pline.getM_AttributeSetInstance_ID()>0){
-								Timestamp t = MStorageOnHand.getDateMaterialPolicy(pline.getM_Product_ID(), pline.getM_AttributeSetInstance_ID(), get_TrxName());
+							if(pline.getMAttributeSetInstance_ID()>0){
+								Timestamp t = MStorageOnHand.getDateMaterialPolicy(pline.getM_Product_ID(), pline.getMAttributeSetInstance_ID(), get_TrxName());
 								if (t != null)
 									dateMPolicy = t;
 							}
@@ -169,7 +169,7 @@ public class M_Production_Run extends SvrProcess {
 							if (!MStorageOnHand.add(getCtx(), locator.getM_Warehouse_ID(),
 								locator.getM_Locator_ID(),
 								pline.getM_Product_ID(), 
-								pline.getM_AttributeSetInstance_ID(),
+								pline.getMAttributeSetInstance_ID(),
 								MovementQty,
 								dateMPolicy,
 								get_TrxName()))
@@ -180,7 +180,7 @@ public class M_Production_Run extends SvrProcess {
 							//Create Transaction
 							MTransaction mtrx = new MTransaction (getCtx(), pline.getAD_Org_ID(), 
 								MovementType, locator.getM_Locator_ID(),
-								pline.getM_Product_ID(), pline.getM_AttributeSetInstance_ID(), 
+								pline.getM_Product_ID(), pline.getMAttributeSetInstance_ID(), 
 								MovementQty, production.getMovementDate(), get_TrxName());
 							mtrx.setM_ProductionLine_ID(pline.getM_ProductionLine_ID());
 							mtrx.saveEx();

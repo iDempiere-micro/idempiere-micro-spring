@@ -46,7 +46,7 @@ public class X_AD_Table_Access extends PO implements I_AD_Table_Access, I_Persis
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -116,7 +116,7 @@ public class X_AD_Table_Access extends PO implements I_AD_Table_Access, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Table_Access_UU.
@@ -158,7 +158,7 @@ public class X_AD_Table_Access extends PO implements I_AD_Table_Access, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

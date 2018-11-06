@@ -47,7 +47,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -176,7 +176,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -230,10 +230,10 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 		return (String)get_Value(COLUMNNAME_Help);
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -250,12 +250,12 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ChangeNotice getM_ChangeNotice() throws RuntimeException
@@ -283,7 +283,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -311,7 +311,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -320,7 +320,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -328,7 +328,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	/** Set BOM & Formula.
@@ -351,7 +351,7 @@ public class X_PP_Product_BOM extends PO implements I_PP_Product_BOM, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PP_Product_BOM_UU.

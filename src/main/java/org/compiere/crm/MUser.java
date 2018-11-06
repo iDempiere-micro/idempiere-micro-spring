@@ -19,6 +19,7 @@ import javax.mail.internet.InternetAddress;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_User;
 import org.compiere.model.I_C_BPartner;
 import org.compiere.orm.MClient;
@@ -925,7 +926,7 @@ public class MUser extends X_AD_User implements IUser
 						"SELECT COUNT(*) FROM AD_User WHERE Password IS NOT NULL AND COALESCE(LDAPUser,Name)=? AND AD_Client_ID=? AND AD_User_ID!=?",
 						nameToValidate, getAD_Client_ID(), getAD_User_ID());
 				if (cnt > 0) {
-					log.saveError("SaveError", Msg.getMsg(getCtx(), DBException.SAVE_ERROR_NOT_UNIQUE_MSG, true) + Msg.getElement(getCtx(), I_AD_User.COLUMNNAME_Name) + " / " + Msg.getElement(getCtx(), I_AD_User.COLUMNNAME_LDAPUser));
+					log.saveError("SaveError", Msg.getMsg(getCtx(), DBException.SAVE_ERROR_NOT_UNIQUE_MSG, true) + Msg.getElement(getCtx(), HasName.Companion.getCOLUMNNAME_Name()) + " / " + Msg.getElement(getCtx(), I_AD_User.COLUMNNAME_LDAPUser));
 					return false;
 				}
 			}

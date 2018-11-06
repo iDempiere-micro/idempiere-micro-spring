@@ -5,18 +5,17 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_PaymentProcessor;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_PaymentProcessor
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_Persistent
+public class X_C_PaymentProcessor extends BasePOName implements I_C_PaymentProcessor, I_Persistent
 {
 
 	/**
@@ -28,26 +27,6 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
     public X_C_PaymentProcessor (Properties ctx, int C_PaymentProcessor_ID, String trxName)
     {
       super (ctx, C_PaymentProcessor_ID, trxName);
-      /** if (C_PaymentProcessor_ID == 0)
-        {
-			setAcceptAMEX (false);
-			setAcceptATM (false);
-			setAcceptCheck (false);
-			setAcceptCorporate (false);
-			setAcceptDiners (false);
-			setAcceptDirectDebit (false);
-			setAcceptDirectDeposit (false);
-			setAcceptDiscover (false);
-			setAcceptMC (false);
-			setAcceptVisa (false);
-			setCommission (Env.ZERO);
-			setCostPerTrx (Env.ZERO);
-			setC_PaymentProcessor_ID (0);
-			setHostAddress (null);
-			setHostPort (0);
-			setName (null);
-			setRequireVV (false);
-        } */
     }
 
     /** Load Constructor */
@@ -59,7 +38,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -343,7 +322,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BankAccount getC_BankAccount() throws RuntimeException
@@ -371,7 +350,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -399,7 +378,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Commission %.
@@ -462,7 +441,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentProcessor_UU.
@@ -530,7 +509,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_HostPort);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Minimum Amt.
@@ -552,31 +531,6 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 			 return Env.ZERO;
 		return bd;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Payment Processor Class.
 		@param PayProcessorClass 
@@ -663,7 +617,7 @@ public class X_C_PaymentProcessor extends PO implements I_C_PaymentProcessor, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_ProxyPort);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Require CreditCard Verification Code.

@@ -3,18 +3,17 @@ package org.compiere.product;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_S_ExpenseType;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for S_ExpenseType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
+public class X_S_ExpenseType extends BasePONameValue implements I_S_ExpenseType, I_Persistent
 {
 
 	/**
@@ -47,7 +46,7 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -91,7 +90,7 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -119,7 +118,7 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -188,33 +187,8 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Expense Type.
 		@param S_ExpenseType_ID 
@@ -236,7 +210,7 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_S_ExpenseType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set S_ExpenseType_UU.
@@ -251,22 +225,5 @@ public class X_S_ExpenseType extends PO implements I_S_ExpenseType, I_Persistent
 	public String getS_ExpenseType_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_S_ExpenseType_UU);
-	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
 	}
 }

@@ -132,8 +132,8 @@ public interface I_M_ShipperPackaging
 	/** Get M_ShipperPackaging_UU	  */
 	public String getM_ShipperPackaging_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

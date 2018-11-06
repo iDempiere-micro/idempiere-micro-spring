@@ -95,7 +95,7 @@ public class RMACreateOrder extends SvrProcess
                 MOrderLine originalOLine = new MOrderLine(getCtx(), line.getShipLine().getC_OrderLine_ID(), null);
                 orderLine.setAD_Org_ID(line.getAD_Org_ID());
                 orderLine.setM_Product_ID(originalOLine.getM_Product_ID());
-                orderLine.setM_AttributeSetInstance_ID(originalOLine.getM_AttributeSetInstance_ID());
+                orderLine.setM_AttributeSetInstance_ID(originalOLine.getMAttributeSetInstance_ID());
                 orderLine.setC_UOM_ID(originalOLine.getC_UOM_ID());
                 orderLine.setC_Tax_ID(originalOLine.getC_Tax_ID());
                 orderLine.setM_Warehouse_ID(originalOLine.getM_Warehouse_ID());
@@ -119,7 +119,7 @@ public class RMACreateOrder extends SvrProcess
                 	MOrderLine orderLine = new MOrderLine(order);
                 	orderLine.setAD_Org_ID(line.getAD_Org_ID());
                     orderLine.setM_Product_ID(line.getM_Product_ID());
-                    orderLine.setM_AttributeSetInstance_ID(line.getM_AttributeSetInstance_ID());
+                    orderLine.setM_AttributeSetInstance_ID(line.getMAttributeSetInstance_ID());
                     orderLine.setC_UOM_ID(line.getC_UOM_ID());
                     orderLine.setC_Tax_ID(line.getC_Tax_ID());
                     orderLine.setM_Warehouse_ID(originalShipment.getM_Warehouse_ID());
@@ -141,7 +141,7 @@ public class RMACreateOrder extends SvrProcess
             		MOrderLine orderLine = new MOrderLine(order);
                 	orderLine.setAD_Org_ID(line.getAD_Org_ID());
                     orderLine.setM_Product_ID(line.getM_Product_ID());
-                    orderLine.setM_AttributeSetInstance_ID(line.getM_AttributeSetInstance_ID());
+                    orderLine.setM_AttributeSetInstance_ID(line.getMAttributeSetInstance_ID());
                     orderLine.setC_UOM_ID(line.getC_UOM_ID());
                     orderLine.setC_Tax_ID(line.getC_Tax_ID());
                     orderLine.setM_Warehouse_ID(originalOrder.getM_Warehouse_ID());

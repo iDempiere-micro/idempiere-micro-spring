@@ -37,12 +37,12 @@ public interface I_AD_PInstance
     public static final String COLUMNNAME_AD_Language_ID = "AD_Language_ID";
 
 	/** Set Language ID	  */
-	public void setAD_Language_ID (int AD_Language_ID);
+	public void setADLanguage_ID (int AD_Language_ID);
 
 	/** Get Language ID	  */
 	public int getAD_Language_ID();
 
-	public I_AD_Language getAD_Language() throws RuntimeException;
+	public I_AD_Language getADLanguage() throws RuntimeException;
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
@@ -193,8 +193,8 @@ public interface I_AD_PInstance
 	  */
 	public boolean isSummary();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -225,9 +225,9 @@ public class MProductionPlan extends X_M_ProductionPlan {
 
 
 								int loc = storages[sl].getM_Locator_ID();
-								int slASI = storages[sl].getM_AttributeSetInstance_ID();
+								int slASI = storages[sl].getMAttributeSetInstance_ID();
 								int locAttribSet = new MAttributeSetInstance(getCtx(), asi,
-										get_TrxName()).getM_AttributeSet_ID();
+										get_TrxName()).getMAttributeSet_ID();
 
 								// roll up costing attributes if in the same locator
 								if (locAttribSet == 0 && previousAttribSet == 0

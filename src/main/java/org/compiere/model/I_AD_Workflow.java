@@ -31,12 +31,12 @@ public interface I_AD_Workflow
 	/** Set Data Access Level.
 	  * Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel);
+	public void setWFAccessLevel (String AccessLevel);
 
 	/** Get Data Access Level.
 	  * Access Level required
 	  */
-	public String getAccessLevel();
+	public String getWFAccessLevel();
 
     
     
@@ -361,8 +361,8 @@ public interface I_AD_Workflow
 	/** Get Moving Time	  */
 	public int getMovingTime();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

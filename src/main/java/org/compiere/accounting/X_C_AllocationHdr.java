@@ -57,7 +57,7 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -116,7 +116,7 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AllocationHdr_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_AllocationHdr_UU.
@@ -158,7 +158,7 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -186,7 +186,7 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -519,6 +519,6 @@ public class X_C_AllocationHdr extends PO implements I_C_AllocationHdr, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

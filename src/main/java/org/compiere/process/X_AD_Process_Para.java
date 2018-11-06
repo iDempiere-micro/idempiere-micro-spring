@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Process_Para;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_Process_Para
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persistent
+public class X_AD_Process_Para extends BasePOName implements I_AD_Process_Para, I_Persistent
 {
 
 	/**
@@ -56,7 +57,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +101,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -128,7 +129,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Parameter.
@@ -148,7 +149,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_Para_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Process_Para_UU.
@@ -190,7 +191,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Reference getAD_Reference_Value() throws RuntimeException
@@ -218,7 +219,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_Value_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException
@@ -246,7 +247,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Val_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set DB Column Name.
@@ -371,7 +372,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_FieldLength);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Comment/Help.
@@ -501,31 +502,6 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		return (String)get_Value(COLUMNNAME_MandatoryLogic);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Read Only Logic.
 		@param ReadOnlyLogic 
 		Logic to determine if field is read only (applies only when field is read-write)
@@ -560,7 +536,7 @@ public class X_AD_Process_Para extends PO implements I_AD_Process_Para, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Max. Value.

@@ -43,7 +43,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +87,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Calendar_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Year.
@@ -110,7 +110,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Year_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Year_UU.

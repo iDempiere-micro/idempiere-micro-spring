@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_C_Charge;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -50,7 +51,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -94,7 +95,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Charge.
@@ -117,7 +118,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ChargeType getC_ChargeType() throws RuntimeException
@@ -142,7 +143,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ChargeType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Charge_UU.
@@ -204,7 +205,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_TaxCategory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -299,7 +300,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -307,7 +308,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

@@ -56,7 +56,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +100,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_BankAccount getC_BP_BankAccount() throws RuntimeException
@@ -128,7 +128,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -156,7 +156,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Pay Selection Check.
@@ -179,7 +179,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelectionCheck_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaySelectionCheck_UU.
@@ -221,7 +221,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySelection_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Amount.
@@ -425,7 +425,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_Qty);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Write-off Amount.

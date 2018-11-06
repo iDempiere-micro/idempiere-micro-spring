@@ -268,8 +268,8 @@ public interface I_PA_DashboardContent
 	  */
 	public BigDecimal getLine();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_I_ElementValue;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for I_ElementValue
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persistent
+public class X_I_ElementValue extends BasePONameValue implements I_I_ElementValue, I_Persistent
 {
 
 	/**
@@ -42,7 +43,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -144,7 +145,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Element getC_Element() throws RuntimeException
@@ -172,7 +173,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getC_ElementValue() throws RuntimeException
@@ -200,7 +201,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ElementValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Default Account.
@@ -274,7 +275,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_I_ElementValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set I_ElementValue_UU.
@@ -380,23 +381,6 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
 	public org.compiere.model.I_C_ElementValue getParentElementValue() throws RuntimeException
     {
 		return (org.compiere.model.I_C_ElementValue)MTable.get(getCtx(), org.compiere.model.I_C_ElementValue.Table_Name)
@@ -422,7 +406,7 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_ParentElementValue_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Parent Key.
@@ -583,28 +567,4 @@ public class X_I_ElementValue extends PO implements I_I_ElementValue, I_Persiste
 		return false;
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getValue());
-    }
 }

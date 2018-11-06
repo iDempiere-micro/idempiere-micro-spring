@@ -15,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_System
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_System extends PO implements I_AD_System, I_Persistent
+public class X_AD_System extends BasePOName implements I_AD_System, I_Persistent
 {
 
 	/**
@@ -59,7 +59,7 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -98,7 +98,7 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_System_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_System_UU.
@@ -436,31 +436,6 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 		return (String)get_Value(COLUMNNAME_LDAPHost);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Processors.
 		@param NoProcessors 
 		Number of Database Processors
@@ -478,7 +453,7 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_NoProcessors);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Old Name.
@@ -570,7 +545,7 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Release No.
@@ -703,7 +678,7 @@ public class X_AD_System extends PO implements I_AD_System, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SupportUnits);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** SystemStatus AD_Reference_ID=374 */

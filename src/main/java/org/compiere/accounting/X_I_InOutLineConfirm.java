@@ -44,7 +44,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -174,7 +174,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_I_InOutLineConfirm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -248,7 +248,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLineConfirm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Processed.

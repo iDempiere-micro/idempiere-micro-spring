@@ -290,7 +290,7 @@ public class InventoryCountCreate extends SvrProcess
 			if (QtyOnHand.signum() == 0)
 				return 0;
 			//	Same ASI and Date
-			if (m_line.getM_AttributeSetInstance_ID() == M_AttributeSetInstance_ID && ((dateMPolicy==null && oldDateMPolicy==null) || (dateMPolicy!=null && dateMPolicy.equals(oldDateMPolicy)) || (oldDateMPolicy!=null && oldDateMPolicy.equals(dateMPolicy))))
+			if (m_line.getMAttributeSetInstance_ID() == M_AttributeSetInstance_ID && ((dateMPolicy==null && oldDateMPolicy==null) || (dateMPolicy!=null && dateMPolicy.equals(oldDateMPolicy)) || (oldDateMPolicy!=null && oldDateMPolicy.equals(dateMPolicy))))
 			{
 				m_line.setQtyBook(m_line.getQtyBook().add(QtyOnHand));
 				m_line.setQtyCount(m_line.getQtyCount().add(QtyOnHand));
@@ -298,10 +298,10 @@ public class InventoryCountCreate extends SvrProcess
 				return 0;
 			}
 			//	Save Old Line info
-			else if (m_line.getM_AttributeSetInstance_ID() != 0 )
+			else if (m_line.getMAttributeSetInstance_ID() != 0 )
 			{
 				MInventoryLineMA ma = new MInventoryLineMA (m_line,
-					m_line.getM_AttributeSetInstance_ID(), m_line.getQtyBook(),oldDateMPolicy,true);
+					m_line.getMAttributeSetInstance_ID(), m_line.getQtyBook(),oldDateMPolicy,true);
 				if (!ma.save())
 					log.warning("Could not save " + ma);
 			}

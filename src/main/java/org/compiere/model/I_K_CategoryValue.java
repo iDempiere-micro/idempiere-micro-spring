@@ -125,8 +125,8 @@ public interface I_K_CategoryValue
 	/** Get K_CategoryValue_UU	  */
 	public String getK_CategoryValue_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

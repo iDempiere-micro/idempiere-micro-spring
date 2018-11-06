@@ -45,7 +45,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -81,7 +81,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PeriodControl_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -131,7 +131,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Period_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** DocBaseType AD_Reference_ID=183 */

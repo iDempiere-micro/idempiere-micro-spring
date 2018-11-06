@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_PA_MeasureCalc;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for PA_MeasureCalc
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persistent
+public class X_PA_MeasureCalc extends BasePOName implements I_PA_MeasureCalc, I_Persistent
 {
 
 	/**
@@ -54,7 +55,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -98,7 +99,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set B.Partner Column.
@@ -189,31 +190,6 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 		return (String)get_Value(COLUMNNAME_KeyColumn);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Org Column.
 		@param OrgColumn 
 		Fully qualified Organization column (AD_Org_ID)
@@ -251,7 +227,7 @@ public class X_PA_MeasureCalc extends PO implements I_PA_MeasureCalc, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_MeasureCalc_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_MeasureCalc_UU.

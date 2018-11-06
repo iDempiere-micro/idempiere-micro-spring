@@ -45,7 +45,7 @@ public class X_AD_PInstance_Para extends PO implements I_AD_PInstance_Para, I_Pe
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -89,7 +89,7 @@ public class X_AD_PInstance_Para extends PO implements I_AD_PInstance_Para, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_PInstance_Para_UU.
@@ -284,6 +284,6 @@ public class X_AD_PInstance_Para extends PO implements I_AD_PInstance_Para, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

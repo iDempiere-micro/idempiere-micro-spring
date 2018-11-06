@@ -3,6 +3,7 @@ package org.compiere.orm;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_ViewComponent;
 import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
@@ -45,7 +46,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -89,7 +90,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Database View Component.
@@ -109,7 +110,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ViewComponent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_ViewComponent_UU.
@@ -203,7 +204,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -211,7 +212,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName
@@ -261,7 +262,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_Referenced_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -281,7 +282,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sql WHERE.

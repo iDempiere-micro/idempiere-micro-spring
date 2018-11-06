@@ -146,8 +146,8 @@ public interface I_M_LocatorType
 	/** Get M_LocatorType_UU	  */
 	public String getM_LocatorType_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

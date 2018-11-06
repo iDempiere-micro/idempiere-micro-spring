@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_CostElement;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for M_CostElement
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
+public class X_M_CostElement extends BasePOName implements I_M_CostElement, I_Persistent
 {
 
 	/**
@@ -25,13 +24,6 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
     public X_M_CostElement (Properties ctx, int M_CostElement_ID, String trxName)
     {
       super (ctx, M_CostElement_ID, trxName);
-      /** if (M_CostElement_ID == 0)
-        {
-			setCostElementType (null);
-			setIsCalculated (false);
-			setM_CostElement_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +35,7 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -51,15 +43,13 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_M_CostElement[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_M_CostElement[" +
+            get_ID() + "]";
     }
 
 	/** CostElementType AD_Reference_ID=338 */
@@ -153,7 +143,7 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
 	  */
 	public void setIsCalculated (boolean IsCalculated)
 	{
-		set_Value (COLUMNNAME_IsCalculated, Boolean.valueOf(IsCalculated));
+		set_Value (COLUMNNAME_IsCalculated, IsCalculated);
 	}
 
 	/** Get Calculated.
@@ -165,7 +155,7 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
@@ -180,7 +170,7 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
 		if (M_CostElement_ID < 1) 
 			set_ValueNoCheck (COLUMNNAME_M_CostElement_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_M_CostElement_ID, Integer.valueOf(M_CostElement_ID));
+			set_ValueNoCheck (COLUMNNAME_M_CostElement_ID, M_CostElement_ID);
 	}
 
 	/** Get Cost Element.
@@ -191,7 +181,7 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_CostElement_UU.
@@ -208,28 +198,4 @@ public class X_M_CostElement extends PO implements I_M_CostElement, I_Persistent
 		return (String)get_Value(COLUMNNAME_M_CostElement_UU);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

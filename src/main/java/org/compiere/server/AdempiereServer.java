@@ -126,7 +126,7 @@ public abstract class AdempiereServer implements Runnable
         Properties context = new Properties();
         MClient schedclient = MClient.get(getCtx(), p_model.getAD_Client_ID());
         Env.setContext(context, "#AD_Client_ID", schedclient.getAD_Client_ID());
-        Env.setContext(context, "#AD_Language", schedclient.getAD_Language());
+        Env.setContext(context, "#AD_Language", schedclient.getADLanguage());
         if (p_model instanceof PO) {
             PO po = (PO) p_model;
             if (po.get_ColumnIndex("AD_Org_ID") >= 0) {

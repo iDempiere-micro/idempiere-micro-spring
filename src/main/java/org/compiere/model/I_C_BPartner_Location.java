@@ -224,8 +224,8 @@ public interface I_C_BPartner_Location extends IClientBound
 	  */
 	public boolean isShipTo();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

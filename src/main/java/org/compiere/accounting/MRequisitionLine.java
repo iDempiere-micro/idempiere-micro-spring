@@ -261,7 +261,7 @@ public class MRequisitionLine extends X_M_RequisitionLine implements IDocLine
 		//	Product & ASI - Charge
 		if (getM_Product_ID() != 0 && getC_Charge_ID() != 0)
 			setC_Charge_ID(0);
-		if (getM_AttributeSetInstance_ID() != 0 && getC_Charge_ID() != 0)
+		if (getMAttributeSetInstance_ID() != 0 && getC_Charge_ID() != 0)
 			setM_AttributeSetInstance_ID(0);
 		// Product UOM
 		if (getM_Product_ID() > 0 && getC_UOM_ID() <= 0)

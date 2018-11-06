@@ -3,13 +3,14 @@ package org.idempiere.process;
 import java.sql.ResultSet;
 import java.util.Properties;
 import org.compiere.model.I_M_BOM;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_M_BOM extends PO implements I_M_BOM, I_Persistent
+public class X_M_BOM extends BasePOName implements I_M_BOM, I_Persistent
 {
 
     /**
@@ -42,7 +43,7 @@ public class X_M_BOM extends PO implements I_M_BOM, I_Persistent
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -183,7 +184,7 @@ public class X_M_BOM extends PO implements I_M_BOM, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_BOM_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_BOM_UU.
@@ -225,7 +226,7 @@ public class X_M_BOM extends PO implements I_M_BOM, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -253,32 +254,7 @@ public class X_M_BOM extends PO implements I_M_BOM, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
+        return ii;
     }
 
     /** Set Process Now.

@@ -47,7 +47,7 @@ public class X_C_OrderTax extends PO implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_OrderTax.accessLevel.intValue();
     }
@@ -91,7 +91,7 @@ public class X_C_OrderTax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderTax.COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OrderTax_UU.
@@ -133,7 +133,7 @@ public class X_C_OrderTax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderTax.COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_TaxProvider getC_TaxProvider() throws RuntimeException
@@ -158,7 +158,7 @@ public class X_C_OrderTax extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderTax.COLUMNNAME_C_TaxProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Price includes Tax.

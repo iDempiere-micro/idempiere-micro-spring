@@ -46,7 +46,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -90,7 +90,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Length_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Weight() throws RuntimeException
@@ -118,7 +118,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Weight_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -208,7 +208,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_PackageMPS_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShippingTransaction getM_ShippingTransaction() throws RuntimeException
@@ -233,7 +233,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingTransaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -261,7 +261,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShippingTransactionLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShippingTransactionLine_UU.
@@ -339,7 +339,7 @@ public class X_M_ShippingTransactionLine extends PO implements I_M_ShippingTrans
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tracking No.

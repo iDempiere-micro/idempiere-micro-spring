@@ -42,7 +42,7 @@ public class X_AD_WF_ActivityApprover extends PO implements I_AD_WF_ActivityAppr
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -86,7 +86,7 @@ public class X_AD_WF_ActivityApprover extends PO implements I_AD_WF_ActivityAppr
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Activity Approver.
@@ -106,7 +106,7 @@ public class X_AD_WF_ActivityApprover extends PO implements I_AD_WF_ActivityAppr
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_ActivityApprover_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_ActivityApprover_UU.
@@ -148,6 +148,6 @@ public class X_AD_WF_ActivityApprover extends PO implements I_AD_WF_ActivityAppr
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

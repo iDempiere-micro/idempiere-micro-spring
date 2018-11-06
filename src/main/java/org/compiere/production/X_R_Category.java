@@ -3,6 +3,7 @@ package org.compiere.production;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for R_Category
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_R_Category extends PO implements I_R_Category, I_Persistent
+public class X_R_Category extends BasePOName implements I_R_Category, I_Persistent
 {
 
 	/**
@@ -42,7 +43,7 @@ public class X_R_Category extends PO implements I_R_Category, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -120,33 +121,8 @@ public class X_R_Category extends PO implements I_R_Category, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Category.
 		@param R_Category_ID 
@@ -168,7 +144,7 @@ public class X_R_Category extends PO implements I_R_Category, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_Category_UU.

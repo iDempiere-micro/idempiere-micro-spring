@@ -389,7 +389,7 @@ class LoginService {
 
         if (M_Warehouse != null) { Env.setContext(ctx, "#M_Warehouse_ID", M_Warehouse.ID) }
 
-        Env.setContext(ctx, Env.LANGUAGE, m_language.aD_Language)
+        Env.setContext(ctx, Env.LANGUAGE, m_language.adLanguage)
         Env.setContext(ctx, C_BPARTNER_ID, c_bpartner_id)
 
         return true

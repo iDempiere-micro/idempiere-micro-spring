@@ -306,8 +306,8 @@ public interface I_PP_Order_Workflow
 	/** Get Moving Time	  */
 	public int getMovingTime();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -51,7 +51,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -90,7 +90,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -118,7 +118,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Approval Amount.
@@ -166,7 +166,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -194,7 +194,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -222,7 +222,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -250,7 +250,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -278,7 +278,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -306,7 +306,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Charge amount.
@@ -354,7 +354,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Create lines from.
@@ -413,7 +413,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_DD_Order_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** DeliveryRule AD_Reference_ID=151 */
@@ -724,7 +724,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Movement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_Movement_UU.
@@ -783,7 +783,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Order Reference.
@@ -947,7 +947,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Reversal_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -975,7 +975,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -1003,7 +1003,7 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1031,6 +1031,6 @@ public class X_M_Movement extends PO implements I_M_Movement, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

@@ -85,12 +85,12 @@ public interface I_AD_FieldSuggestion
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
@@ -260,8 +260,8 @@ public interface I_AD_FieldSuggestion
 	/** Get Update Base Language	  */
 	public boolean isUpdateBaseLanguage();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

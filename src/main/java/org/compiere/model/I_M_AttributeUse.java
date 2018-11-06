@@ -81,14 +81,14 @@ public interface I_M_AttributeUse
 	/** Set Attribute.
 	  * Product Attribute
 	  */
-	public void setM_Attribute_ID (int M_Attribute_ID);
+	public void setMAttributeID (int M_Attribute_ID);
 
 	/** Get Attribute.
 	  * Product Attribute
 	  */
-	public int getM_Attribute_ID();
+	public int getMAttribute_ID();
 
-	public I_M_Attribute getM_Attribute() throws RuntimeException;
+	public I_M_Attribute getMAttribute() throws RuntimeException;
 
     /** Column name M_AttributeSet_ID */
     public static final String COLUMNNAME_M_AttributeSet_ID = "M_AttributeSet_ID";
@@ -101,9 +101,9 @@ public interface I_M_AttributeUse
 	/** Get Attribute Set.
 	  * Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID();
+	public int getMAttributeSet_ID();
 
-	public I_M_AttributeSet getM_AttributeSet() throws RuntimeException;
+	public I_M_AttributeSet getMAttributeSet() throws RuntimeException;
 
     /** Column name M_AttributeUse_UU */
     public static final String COLUMNNAME_M_AttributeUse_UU = "M_AttributeUse_UU";
@@ -112,7 +112,7 @@ public interface I_M_AttributeUse
 	public void setM_AttributeUse_UU (String M_AttributeUse_UU);
 
 	/** Get M_AttributeUse_UU	  */
-	public String getM_AttributeUse_UU();
+	public String getMAttributeUse_UU();
 
     /** Column name SeqNo */
     public static final String COLUMNNAME_SeqNo = "SeqNo";

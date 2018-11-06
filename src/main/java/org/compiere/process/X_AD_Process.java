@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.compiere.model.I_AD_Process;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -15,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_Process
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
+public class X_AD_Process extends BasePONameValue implements I_AD_Process, I_Persistent
 {
 
 	/**
@@ -50,7 +51,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +88,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setProcessAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -96,7 +97,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getProcessAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}
@@ -123,7 +124,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_CtxHelp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Form getAD_Form() throws RuntimeException
@@ -151,7 +152,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Form_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	@JsonIgnore
@@ -180,7 +181,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process.
@@ -203,7 +204,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Process_UU.
@@ -245,7 +246,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ReportView_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -273,7 +274,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Classname.
@@ -474,31 +475,6 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		return (String)get_Value(COLUMNNAME_JasperReport);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Procedure.
 		@param ProcedureName 
 		Name of the Database Procedure
@@ -558,7 +534,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Statistic_Count);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Statistic Seconds.
@@ -578,24 +554,7 @@ public class X_AD_Process extends PO implements I_AD_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Statistic_Seconds);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
+		return ii;
 	}
 
 	/** Set Workflow Key.

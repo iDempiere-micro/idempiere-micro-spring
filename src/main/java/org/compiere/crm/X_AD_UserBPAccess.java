@@ -42,7 +42,7 @@ public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, 
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -81,7 +81,7 @@ public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_UserBPAccess_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_UserBPAccess_UU.
@@ -233,6 +233,6 @@ public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

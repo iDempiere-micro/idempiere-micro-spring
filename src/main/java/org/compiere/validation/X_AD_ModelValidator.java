@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_ModelValidator;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_ModelValidator
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Persistent
+public class X_AD_ModelValidator extends BasePOName implements I_AD_ModelValidator, I_Persistent
 {
 
 	/**
@@ -25,14 +24,6 @@ public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Pe
     public X_AD_ModelValidator (Properties ctx, int AD_ModelValidator_ID, String trxName)
     {
       super (ctx, AD_ModelValidator_ID, trxName);
-      /** if (AD_ModelValidator_ID == 0)
-        {
-			setAD_ModelValidator_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setModelValidationClass (null);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +35,7 @@ public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Pe
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -80,7 +71,7 @@ public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ModelValidator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_ModelValidator_UU.
@@ -165,31 +156,6 @@ public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Pe
 		return (String)get_Value(COLUMNNAME_ModelValidationClass);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Sequence.
 		@param SeqNo 
 		Method of ordering records; lowest number comes first
@@ -207,6 +173,6 @@ public class X_AD_ModelValidator extends PO implements I_AD_ModelValidator, I_Pe
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

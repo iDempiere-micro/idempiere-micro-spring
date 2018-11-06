@@ -52,7 +52,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -191,7 +191,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -356,7 +356,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_LeadTimeOffset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line No.
@@ -376,13 +376,13 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -399,12 +399,12 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ChangeNotice getM_ChangeNotice() throws RuntimeException
@@ -432,7 +432,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ChangeNotice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -460,7 +460,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -496,7 +496,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set BOM Line.
@@ -519,7 +519,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOMLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PP_Product_BOMLine_UU.

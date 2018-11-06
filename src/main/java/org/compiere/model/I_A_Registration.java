@@ -235,8 +235,8 @@ public interface I_A_Registration
 
 	public I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

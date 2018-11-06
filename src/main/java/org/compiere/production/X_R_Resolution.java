@@ -3,6 +3,7 @@ package org.compiere.production;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_Resolution;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for R_Resolution
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
+public class X_R_Resolution extends BasePOName implements I_R_Resolution, I_Persistent
 {
 
 	/**
@@ -41,7 +42,7 @@ public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -94,31 +95,6 @@ public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
 		return (String)get_Value(COLUMNNAME_Help);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Resolution.
 		@param R_Resolution_ID 
 		Request Resolution
@@ -139,7 +115,7 @@ public class X_R_Resolution extends PO implements I_R_Resolution, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_Resolution_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set R_Resolution_UU.

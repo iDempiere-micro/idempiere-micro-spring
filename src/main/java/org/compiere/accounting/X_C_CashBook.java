@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_CashBook;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_CashBook
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_CashBook extends PO implements I_C_CashBook, I_Persistent
+public class X_C_CashBook extends BasePOName implements I_C_CashBook, I_Persistent
 {
 
 	/**
@@ -44,7 +43,7 @@ public class X_C_CashBook extends PO implements I_C_CashBook, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -83,7 +82,7 @@ public class X_C_CashBook extends PO implements I_C_CashBook, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_CashBook_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_CashBook_UU.
@@ -125,7 +124,7 @@ public class X_C_CashBook extends PO implements I_C_CashBook, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -168,29 +167,4 @@ public class X_C_CashBook extends PO implements I_C_CashBook, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

@@ -232,8 +232,8 @@ public interface I_A_Asset_Group
 	  */
 	public boolean isTrackIssues();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

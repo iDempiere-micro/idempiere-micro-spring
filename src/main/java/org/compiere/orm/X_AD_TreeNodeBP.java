@@ -40,7 +40,7 @@ public class X_AD_TreeNodeBP extends PO implements I_AD_TreeNodeBP, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -84,7 +84,7 @@ public class X_AD_TreeNodeBP extends PO implements I_AD_TreeNodeBP, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_TreeNodeBP_UU.
@@ -118,7 +118,7 @@ public class X_AD_TreeNodeBP extends PO implements I_AD_TreeNodeBP, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Parent.
@@ -141,7 +141,7 @@ public class X_AD_TreeNodeBP extends PO implements I_AD_TreeNodeBP, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Parent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -161,6 +161,6 @@ public class X_AD_TreeNodeBP extends PO implements I_AD_TreeNodeBP, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

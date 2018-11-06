@@ -37,7 +37,7 @@ public class X_C_AcctProcessorLog extends PO implements I_C_AcctProcessorLog, I_
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -98,7 +98,7 @@ public class X_C_AcctProcessorLog extends PO implements I_C_AcctProcessorLog, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Accounting Processor Log.
@@ -121,7 +121,7 @@ public class X_C_AcctProcessorLog extends PO implements I_C_AcctProcessorLog, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctProcessorLog_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_AcctProcessorLog_UU.

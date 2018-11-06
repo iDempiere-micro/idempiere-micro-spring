@@ -45,7 +45,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -89,7 +89,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -120,7 +120,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_LandedCost_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_LandedCost_UU.
@@ -209,7 +209,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_CostElement_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOut getM_InOut() throws RuntimeException
@@ -237,7 +237,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
@@ -265,7 +265,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -293,7 +293,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Now.

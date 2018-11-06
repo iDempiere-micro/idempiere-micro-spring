@@ -181,8 +181,8 @@ public interface I_K_Entry
 
 	public I_K_Topic getK_Topic() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

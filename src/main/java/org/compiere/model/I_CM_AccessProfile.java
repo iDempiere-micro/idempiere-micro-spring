@@ -136,8 +136,8 @@ public interface I_CM_AccessProfile
 	  */
 	public boolean isExclude();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

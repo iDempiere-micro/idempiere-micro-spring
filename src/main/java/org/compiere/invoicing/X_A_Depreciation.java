@@ -1,7 +1,7 @@
 package org.compiere.invoicing;
 
 import org.compiere.model.I_A_Depreciation;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -12,7 +12,7 @@ import java.util.Properties;
 /** Generated Model for A_Depreciation
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_A_Depreciation extends PO implements I_A_Depreciation, I_Persistent
+public class X_A_Depreciation extends BasePOName implements I_A_Depreciation, I_Persistent
 {
 
 	/**
@@ -24,14 +24,6 @@ public class X_A_Depreciation extends PO implements I_A_Depreciation, I_Persiste
     public X_A_Depreciation (Properties ctx, int A_Depreciation_ID, String trxName)
     {
       super (ctx, A_Depreciation_ID, trxName);
-      /** if (A_Depreciation_ID == 0)
-        {
-			setA_Depreciation_ID (0);
-			setDepreciationType (null);
-			setName (null);
-			setProcessed (false);
-// N
-        } */
     }
 
     /** Load Constructor */
@@ -43,7 +35,7 @@ public class X_A_Depreciation extends PO implements I_A_Depreciation, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -79,7 +71,7 @@ public class X_A_Depreciation extends PO implements I_A_Depreciation, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Depreciation_UU.
@@ -125,23 +117,6 @@ public class X_A_Depreciation extends PO implements I_A_Depreciation, I_Persiste
 	public String getDescription () 
 	{
 		return (String)get_Value(COLUMNNAME_Description);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 
 	/** Set Processed.

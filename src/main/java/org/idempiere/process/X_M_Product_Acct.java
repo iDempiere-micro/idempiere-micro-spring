@@ -48,7 +48,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
     /** AccessLevel
      * @return 3 - Client - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -92,7 +92,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_Product_Acct_UU.
@@ -134,7 +134,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_Asset_A() throws RuntimeException
@@ -159,7 +159,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_Asset_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_AverageCostVariance_A() throws RuntimeException
@@ -184,7 +184,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_AverageCostVariance_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_COGS_A() throws RuntimeException
@@ -209,7 +209,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_COGS_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_CostAdjustment_A() throws RuntimeException
@@ -234,7 +234,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_CostAdjustment_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_Expense_A() throws RuntimeException
@@ -259,7 +259,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_Expense_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_InventoryClearing_A() throws RuntimeException
@@ -284,7 +284,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_InventoryClearing_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_InvoicePriceVariance_A() throws RuntimeException
@@ -309,7 +309,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_InvoicePriceVariance_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_LandedCostClearing_A() throws RuntimeException
@@ -334,7 +334,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_LandedCostClearing_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_PurchasePriceVariance_A() throws RuntimeException
@@ -359,7 +359,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_PurchasePriceVariance_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_RateVariance_A() throws RuntimeException
@@ -384,7 +384,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_RateVariance_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_Revenue_A() throws RuntimeException
@@ -409,7 +409,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_Revenue_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_TradeDiscountGrant_A() throws RuntimeException
@@ -434,7 +434,7 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_TradeDiscountGrant_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_C_ValidCombination getP_TradeDiscountRec_A() throws RuntimeException
@@ -459,6 +459,6 @@ public class X_M_Product_Acct extends PO implements I_M_Product_Acct, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_P_TradeDiscountRec_Acct);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

@@ -108,9 +108,9 @@ public interface I_M_InventoryLineMA
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_InventoryLine_ID */
     public static final String COLUMNNAME_M_InventoryLine_ID = "M_InventoryLine_ID";

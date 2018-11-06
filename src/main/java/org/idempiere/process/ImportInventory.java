@@ -1,19 +1,3 @@
-/******************************************************************************
- * Product: Adempiere ERP & CRM Smart Business Solution                       *
- * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.                *
- * This program is free software; you can redistribute it and/or modify it    *
- * under the terms version 2 of the GNU General Public License as published   *
- * by the Free Software Foundation. This program is distributed in the hope   *
- * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied *
- * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
- * See the GNU General Public License for more details.                       *
- * You should have received a copy of the GNU General Public License along    *
- * with this program; if not, write to the Free Software Foundation, Inc.,    *
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
- * For the text or an alternative of this public license, you may reach us    *
- * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
- * or via info@compiere.org or http://www.compiere.org/license.html           *
- *****************************************************************************/
 package org.idempiere.process;
 
 import java.math.BigDecimal;
@@ -29,6 +13,7 @@ import org.compiere.accounting.MProductCategoryAcct;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.invoicing.MInventory;
 import org.compiere.invoicing.MInventoryLine;
+import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.TimeUtil;
 import org.compiere.process.DocAction;
@@ -476,7 +461,7 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(docType.getName());
 					else
-						msg.append(((PO)docType).get_Translation(I_C_DocType.COLUMNNAME_Name));
+						msg.append(((PO)docType).get_Translation(HasName.Companion.getCOLUMNNAME_Name()));
 					throw new AdempiereUserError(msg.toString());
 				}
 				costingDoc.saveEx();
@@ -512,14 +497,14 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 			if (product.isInstanceAttribute())
 			{
 				MAttributeSet mas = product.getAttributeSet();
-				MAttributeSetInstance masi = new MAttributeSetInstance(getCtx(), 0, mas.getM_AttributeSet_ID(), get_TrxName());
+				MAttributeSetInstance masi = new MAttributeSetInstance(getCtx(), 0, mas.getMAttributeSet_ID(), get_TrxName());
 				if (mas.isLot() && imp.getLot() != null)
 					masi.setLot(imp.getLot(), imp.getM_Product_ID());
 				if (mas.isSerNo() && imp.getSerNo() != null)
 					masi.setSerNo(imp.getSerNo());
 				masi.setDescription();
 				masi.saveEx();
-				M_AttributeSetInstance_ID = masi.getM_AttributeSetInstance_ID();
+				M_AttributeSetInstance_ID = masi.getMAttributeSetInstance_ID();
 			}
 		}
 		return M_AttributeSetInstance_ID;
@@ -538,7 +523,7 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 		}
 
 		int costOrgID = p_AD_OrgTrx_ID;
-		int costASI = line.getM_AttributeSetInstance_ID();
+		int costASI = line.getMAttributeSetInstance_ID();
 		if (MAcctSchema.COSTINGLEVEL_Client.equals(costingLevel)){
 			costOrgID = 0;
 			costASI = 0;

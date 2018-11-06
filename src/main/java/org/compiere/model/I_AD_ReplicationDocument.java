@@ -70,12 +70,12 @@ public interface I_AD_ReplicationDocument
 	/** Set Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID);
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID);
 
 	/** Get Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID();
+	public int getADReplicationStrategyID();
 
     /** Column name AD_Table_ID */
     public static final String COLUMNNAME_AD_Table_ID = "AD_Table_ID";

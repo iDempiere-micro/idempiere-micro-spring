@@ -87,11 +87,9 @@ public class MProcess extends X_AD_Process
 		super (ctx, AD_Process_ID, trxName);
 		if (AD_Process_ID == 0)
 		{
-		//	setValue (null);
-		//	setName (null);
 			setIsReport (false);
 			setIsServerProcess(false);
-			setAccessLevel (X_AD_Process.ACCESSLEVEL_All);
+			setProcessAccessLevel (X_AD_Process.ACCESSLEVEL_All);
 			setEntityType (PO.ENTITYTYPE_UserMaintained);
 			setIsBetaFunctionality(false);
 		}
@@ -388,7 +386,7 @@ public class MProcess extends X_AD_Process
 	{
 
 		if (log.isLoggable(Level.FINE))log.log(Level.FINE, "Copying from:" + source + ", to: " + this);
-		setAccessLevel(source.getAccessLevel());
+		setProcessAccessLevel(source.getProcessAccessLevel());
 		setAD_Form_ID(source.getAD_Form_ID());
 		setAD_PrintFormat_ID(source.getAD_PrintFormat_ID());
 		setAD_ReportView_ID(source.getAD_ReportView_ID());

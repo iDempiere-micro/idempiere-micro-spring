@@ -115,7 +115,7 @@ public class MAttribute extends X_M_Attribute
 			if (!isMandatory())
 				list.add (null);
 			list = new Query(getCtx(),I_M_AttributeValue.Table_Name,whereClause,null)
-			.setParameters(getM_Attribute_ID())
+			.setParameters(getMAttribute_ID())
 			.setOrderBy("Value")
 			.list();
 			m_values = new MAttributeValue[list.size()];
@@ -134,7 +134,7 @@ public class MAttribute extends X_M_Attribute
 	{
 		final String whereClause = I_M_AttributeInstance.COLUMNNAME_M_Attribute_ID+"=? AND "+I_M_AttributeInstance.COLUMNNAME_M_AttributeSetInstance_ID+"=?";
 		MAttributeInstance retValue = new Query(getCtx(),I_M_AttributeInstance.Table_Name,whereClause,get_TrxName())
-		.setParameters(getM_Attribute_ID(),M_AttributeSetInstance_ID)
+		.setParameters(getMAttribute_ID(),M_AttributeSetInstance_ID)
 		.first();
 
 		return retValue;
@@ -151,18 +151,18 @@ public class MAttribute extends X_M_Attribute
 		if (instance == null)
 		{
 			if (value != null)
-				instance = new MAttributeInstance (getCtx (), getM_Attribute_ID (),
-					M_AttributeSetInstance_ID, value.getM_AttributeValue_ID (),
+				instance = new MAttributeInstance (getCtx (), getMAttribute_ID (),
+					M_AttributeSetInstance_ID, value.getMAttributeValue_ID (),
 					value.getName (), get_TrxName()); 					//	Cached !!
 			else
-				instance = new MAttributeInstance (getCtx(), getM_Attribute_ID(),
+				instance = new MAttributeInstance (getCtx(), getMAttribute_ID(),
 					M_AttributeSetInstance_ID, 0, null, get_TrxName());
 		}
 		else
 		{
 			if (value != null)
 			{
-				instance.setM_AttributeValue_ID (value.getM_AttributeValue_ID ());
+				instance.setM_AttributeValue_ID (value.getMAttributeValue_ID ());
 				instance.setValue (value.getName()); 	//	Cached !!
 			}
 			else
@@ -183,7 +183,7 @@ public class MAttribute extends X_M_Attribute
 	{
 		MAttributeInstance instance = getMAttributeInstance(M_AttributeSetInstance_ID);
 		if (instance == null)
-			instance = new MAttributeInstance (getCtx(), getM_Attribute_ID(), 
+			instance = new MAttributeInstance (getCtx(), getMAttribute_ID(), 
 				M_AttributeSetInstance_ID, value, get_TrxName());
 		else
 			instance.setValue(value);
@@ -199,7 +199,7 @@ public class MAttribute extends X_M_Attribute
 	{
 		MAttributeInstance instance = getMAttributeInstance(M_AttributeSetInstance_ID);
 		if (instance == null)
-			instance = new MAttributeInstance (getCtx(), getM_Attribute_ID(), 
+			instance = new MAttributeInstance (getCtx(), getMAttribute_ID(), 
 				M_AttributeSetInstance_ID, value, get_TrxName());
 		else
 			instance.setValueNumber(value);
@@ -239,7 +239,7 @@ public class MAttribute extends X_M_Attribute
 				.append("WHERE IsInstanceAttribute='N'")
 				.append(" AND EXISTS (SELECT * FROM M_AttributeUse mau ")
 					.append("WHERE mas.M_AttributeSet_ID=mau.M_AttributeSet_ID")
-					.append(" AND mau.M_Attribute_ID=").append(getM_Attribute_ID()).append(")");
+					.append(" AND mau.M_Attribute_ID=").append(getMAttribute_ID()).append(")");
 			int no = DB.executeUpdate(sql.toString(), get_TrxName());
 			if (log.isLoggable(Level.FINE)) log.fine("AttributeSet Instance set #" + no);
 		}

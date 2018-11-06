@@ -240,10 +240,12 @@ abstract class CustomerProcessBase(
             if (contactPersons.count() > 0) {
                 val orderContact = contactPersons[0]
                 orderContact.name = "" + orderContactPerson
+                orderContact.value = orderContact.name
                 orderContact
             } else {
                 val orderContact = MUser(result)
                 orderContact.setName("" + orderContactPerson)
+                orderContact.value = orderContact.name
                 orderContact
             }
         (orderContact as I_Persistent).save()
@@ -252,10 +254,12 @@ abstract class CustomerProcessBase(
             if (contactPersons.count() > 1) {
                 val decisionMaker = contactPersons[1]
                 decisionMaker.name = "" + this.decisionMaker
+                decisionMaker.value = decisionMaker.name
                 decisionMaker
             } else {
                 val decisionMaker = MUser(result)
                 decisionMaker.setName("" + this.decisionMaker)
+                decisionMaker.value = decisionMaker.name
                 decisionMaker
             }
         (decisionMaker as I_Persistent).save()
@@ -264,10 +268,12 @@ abstract class CustomerProcessBase(
             if (contactPersons.count() > 2) {
                 val invoicingPerson = contactPersons[2]
                 invoicingPerson.name = "" + invoicingContact
+                invoicingPerson.value = invoicingPerson.name
                 invoicingPerson
             } else {
                 val invoicingPerson = MUser(result)
                 invoicingPerson.setName("" + invoicingContact)
+                invoicingPerson.value = invoicingPerson.name
                 invoicingPerson
             }
         (invoicingPerson as I_Persistent).save()
