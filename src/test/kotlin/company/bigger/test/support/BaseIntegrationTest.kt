@@ -7,6 +7,9 @@ import company.bigger.test.clients.UserClient
 import feign.Feign
 import feign.gson.GsonDecoder
 import feign.gson.GsonEncoder
+import io.aexp.nodes.graphql.GraphQLRequestEntity
+import io.aexp.nodes.graphql.GraphQLResponseEntity
+import io.aexp.nodes.graphql.GraphQLTemplate
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -69,5 +72,16 @@ open class BaseIntegrationTest : BaseTest() {
         override fun getServletPath(): String {
             return ""
         }
+    }
+
+    fun <T> getGraphQL(t: Class<T>): GraphQLResponseEntity<T> {
+        val token = getGardenUserToken()
+        val graphQLTemplate = GraphQLTemplate()
+        val requestEntity = GraphQLRequestEntity.Builder()
+                .url("$serverUrl/graphql")
+                .headers(mapOf("Authorization" to "Bearer $token"))
+                .request(t)
+                .build()
+        return graphQLTemplate.query(requestEntity, t)
     }
 }

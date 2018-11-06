@@ -48,11 +48,11 @@ class TokenAuthenticationFilter : OncePerRequestFilter() {
 
         val user =
                 if (!autoLoginName.isNullOrEmpty() && !autoLoginPassword.isNullOrEmpty()) {
-                    _userService.login(UserLoginModel(loginName=autoLoginName!!, password=autoLoginPassword!!))
+                    _userService.login(UserLoginModel(loginName = autoLoginName!!, password = autoLoginPassword!!))
                 } else {
                     // Get username from token
                     _userService.findByToken(authToken)
-                 }
+                }
 
         if (user != null) {
             // Get user

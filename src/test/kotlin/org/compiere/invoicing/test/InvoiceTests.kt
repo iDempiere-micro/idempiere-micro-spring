@@ -79,7 +79,7 @@ class InvoiceTests : BaseComponentTest() {
     private val testProduct get() = _testProduct!!
     private var _salesPriceList: I_M_PriceList? = null
     private val salesPriceList get() = _salesPriceList!!
-    private var _now : Timestamp? = null
+    private var _now: Timestamp? = null
     private val now get() = _now!!
 
     @Before
@@ -308,7 +308,6 @@ class InvoiceTests : BaseComponentTest() {
         val price = 11.0.toBigDecimal()
         val productPrice = MProductPrice(currentPriceListVersion, bomProduct._ID, price, price, price)
         productPrice.save()
-
 
         createInvoiceFromOrder(1000033, bomProduct.m_Product_ID, BigDecimal("12.10")) {
             val orderLine = it.lines.first()
