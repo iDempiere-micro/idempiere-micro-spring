@@ -45,7 +45,7 @@ public class X_M_MovementConfirm extends PO implements I_M_MovementConfirm, I_Pe
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -267,7 +267,7 @@ public class X_M_MovementConfirm extends PO implements I_M_MovementConfirm, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Inventory_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Move Confirm.
@@ -290,7 +290,7 @@ public class X_M_MovementConfirm extends PO implements I_M_MovementConfirm, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementConfirm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_MovementConfirm_UU.
@@ -332,7 +332,7 @@ public class X_M_MovementConfirm extends PO implements I_M_MovementConfirm, I_Pe
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Movement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Processed.

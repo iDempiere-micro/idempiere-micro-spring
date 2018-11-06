@@ -146,8 +146,8 @@ public interface I_S_ExpenseType
 
 	public I_M_Product_Category getM_Product_Category() throws RuntimeException;
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

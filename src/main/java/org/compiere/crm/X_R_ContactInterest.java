@@ -44,7 +44,7 @@ public class X_R_ContactInterest extends BasePOUser implements I_R_ContactIntere
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -127,7 +127,7 @@ public class X_R_ContactInterest extends BasePOUser implements I_R_ContactIntere
 		Integer ii = (Integer)get_Value(COLUMNNAME_R_InterestArea_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Subscribe Date.

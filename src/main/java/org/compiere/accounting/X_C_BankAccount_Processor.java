@@ -67,7 +67,7 @@ public class X_C_BankAccount_Processor extends PO implements I_C_BankAccount_Pro
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -351,7 +351,7 @@ public class X_C_BankAccount_Processor extends PO implements I_C_BankAccount_Pro
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_BankAccount_Processor_UU.
@@ -393,7 +393,7 @@ public class X_C_BankAccount_Processor extends PO implements I_C_BankAccount_Pro
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException
@@ -421,7 +421,7 @@ public class X_C_BankAccount_Processor extends PO implements I_C_BankAccount_Pro
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Accept AMEX.

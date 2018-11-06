@@ -112,8 +112,8 @@ public interface I_K_EntryRelated
 	/** Get K_EntryRelated_UU	  */
 	public String getK_EntryRelated_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

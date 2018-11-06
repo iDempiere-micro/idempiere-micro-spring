@@ -1,5 +1,6 @@
 package company.bigger.web.filter
 
+import company.bigger.dto.UserLoginModel
 import company.bigger.service.UserService
 import company.bigger.web.jwt.AnonAuthentication
 import company.bigger.web.jwt.TokenBasedAuthentication
@@ -19,6 +20,12 @@ class TokenAuthenticationFilter : OncePerRequestFilter() {
     @Value("\${jwt.header:Authorization}")
     private val AUTH_HEADER: String? = null
 
+    @Value("\${jwt.autologin.name:}")
+    private val autoLoginName: String? = null
+
+    @Value("\${jwt.autologin.password:}")
+    private val autoLoginPassword: String? = null
+
     @Autowired
     internal var userService: UserService? = null
 
@@ -36,24 +43,28 @@ class TokenAuthenticationFilter : OncePerRequestFilter() {
 
         var error = ""
         val authToken = getToken(request)
+        val autoLoginName = autoLoginName
+        val autoLoginPassword = autoLoginPassword
 
-        if (authToken != null) {
+        val user =
+                if (!autoLoginName.isNullOrEmpty() && !autoLoginPassword.isNullOrEmpty()) {
+                    _userService.login(UserLoginModel(loginName=autoLoginName!!, password=autoLoginPassword!!))
+                } else {
+                    // Get username from token
+                    _userService.findByToken(authToken)
+                 }
 
-            // Get username from token
-            val user = _userService.findByToken(authToken)
-            if (user != null) {
+        if (user != null) {
+            // Get user
+            val userDetails = _userService.loadUserByUsername(user.loginName)
 
-                // Get user
-                val userDetails = _userService.loadUserByUsername(user.loginName)
-
-                // Create authentication
-                val authentication = TokenBasedAuthentication(userDetails)
-                authentication.token = authToken
-                SecurityContextHolder.getContext().authentication = authentication
-                _userService.setCurrentUser(user)
-            } else {
-                error = "Username from token can't be found in DB."
-            }
+            // Create authentication
+            val authentication = TokenBasedAuthentication(userDetails)
+            authentication.token = authToken
+            SecurityContextHolder.getContext().authentication = authentication
+            _userService.setCurrentUser(user)
+        } else {
+            error = "Username from token '$authToken' can't be found in DB."
         }
         if (error != "") {
             println(error)

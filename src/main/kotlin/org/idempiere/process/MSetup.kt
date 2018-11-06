@@ -121,7 +121,7 @@ class MSetup
 
     init {
         m_ctx = Properties(ctx)    //	copy
-        m_lang = Env.getAD_Language(m_ctx)
+        m_lang = Env.getADLanguage(m_ctx)
     }   //  MSetup
 
     /**
@@ -157,8 +157,8 @@ class MSetup
             name = "newClient"
         m_clientName = name
         m_client = MClient(m_ctx, 0, true, m_trx.trxName)
-        m_client!!.value = m_clientName
-        m_client!!.name = m_clientName
+        m_client!!.value = m_clientName!!
+        m_client!!.name = m_clientName!!
         if (!m_client!!.save()) {
             val err = "Client NOT created"
             log.log(Level.SEVERE, err)
@@ -308,6 +308,7 @@ class MSetup
             clientAdminUser.password = name
         clientAdminUser.description = name
         clientAdminUser.setName(name)
+        clientAdminUser.value = name
         clientAdminUser.aD_Client_ID = AD_Client_ID
         clientAdminUser.aD_Org_ID = 0
         clientAdminUser.eMail = adminEmail
@@ -339,6 +340,7 @@ class MSetup
             clientUser.password = name
         clientUser.description = name
         clientUser.setName(name)
+        clientUser.value = name
         clientUser.aD_Client_ID = AD_Client_ID
         clientUser.aD_Org_ID = 0
         clientUser.eMail = userEmail

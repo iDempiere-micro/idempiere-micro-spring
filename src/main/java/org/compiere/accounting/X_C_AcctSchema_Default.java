@@ -78,7 +78,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -119,7 +119,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getB_InterestExp_A() throws RuntimeException
@@ -144,7 +144,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_InterestExp_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getB_InterestRev_A() throws RuntimeException
@@ -169,7 +169,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_InterestRev_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getB_InTransit_A() throws RuntimeException
@@ -194,7 +194,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_InTransit_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getB_PaymentSelect_A() throws RuntimeException
@@ -219,7 +219,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_PaymentSelect_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getB_UnallocatedCash_A() throws RuntimeException
@@ -244,7 +244,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_B_UnallocatedCash_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_AcctSchema_Default_UU.
@@ -286,7 +286,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -319,7 +319,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_CB_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCB_CashTransfer_A() throws RuntimeException
@@ -344,7 +344,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_CB_CashTransfer_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCB_Differences_A() throws RuntimeException
@@ -369,7 +369,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_CB_Differences_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCB_Expense_A() throws RuntimeException
@@ -394,7 +394,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_CB_Expense_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCB_Receipt_A() throws RuntimeException
@@ -419,7 +419,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_CB_Receipt_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCh_Expense_A() throws RuntimeException
@@ -444,7 +444,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_Ch_Expense_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getC_Prepayment_A() throws RuntimeException
@@ -469,7 +469,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Prepayment_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getC_Receivable_A() throws RuntimeException
@@ -494,7 +494,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Receivable_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getC_Receivable_Services_A() throws RuntimeException
@@ -519,7 +519,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Receivable_Services_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getNotInvoicedReceipts_A() throws RuntimeException
@@ -544,7 +544,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_NotInvoicedReceipts_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_Asset_A() throws RuntimeException
@@ -569,7 +569,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_AverageCostVariance_A() throws RuntimeException
@@ -594,7 +594,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_AverageCostVariance_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getPayDiscount_Exp_A() throws RuntimeException
@@ -619,7 +619,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_PayDiscount_Exp_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getPayDiscount_Rev_A() throws RuntimeException
@@ -644,7 +644,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_PayDiscount_Rev_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_COGS_A() throws RuntimeException
@@ -669,7 +669,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_COGS_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_CostAdjustment_A() throws RuntimeException
@@ -694,7 +694,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_CostAdjustment_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_Expense_A() throws RuntimeException
@@ -719,7 +719,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_Expense_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_InventoryClearing_A() throws RuntimeException
@@ -744,7 +744,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_InventoryClearing_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_InvoicePriceVariance_A() throws RuntimeException
@@ -769,7 +769,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_InvoicePriceVariance_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getPJ_Asset_A() throws RuntimeException
@@ -794,7 +794,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_PJ_Asset_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getPJ_WIP_A() throws RuntimeException
@@ -819,7 +819,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_PJ_WIP_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_LandedCostClearing_A() throws RuntimeException
@@ -844,7 +844,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_LandedCostClearing_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_PurchasePriceVariance_A() throws RuntimeException
@@ -869,7 +869,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_PurchasePriceVariance_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_RateVariance_A() throws RuntimeException
@@ -894,7 +894,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_RateVariance_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_Revenue_A() throws RuntimeException
@@ -919,7 +919,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_Revenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Now.
@@ -965,7 +965,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_TradeDiscountGrant_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getP_TradeDiscountRec_A() throws RuntimeException
@@ -990,7 +990,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_P_TradeDiscountRec_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getRealizedGain_A() throws RuntimeException
@@ -1015,7 +1015,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_RealizedGain_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getRealizedLoss_A() throws RuntimeException
@@ -1040,7 +1040,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_RealizedLoss_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getT_Credit_A() throws RuntimeException
@@ -1065,7 +1065,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_T_Credit_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getT_Due_A() throws RuntimeException
@@ -1090,7 +1090,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_T_Due_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getT_Expense_A() throws RuntimeException
@@ -1115,7 +1115,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_T_Expense_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getUnEarnedRevenue_A() throws RuntimeException
@@ -1140,7 +1140,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_UnEarnedRevenue_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getUnrealizedGain_A() throws RuntimeException
@@ -1165,7 +1165,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_UnrealizedGain_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getUnrealizedLoss_A() throws RuntimeException
@@ -1190,7 +1190,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_UnrealizedLoss_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getV_Liability_A() throws RuntimeException
@@ -1215,7 +1215,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_V_Liability_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getV_Liability_Services_A() throws RuntimeException
@@ -1240,7 +1240,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_V_Liability_Services_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getV_Prepayment_A() throws RuntimeException
@@ -1265,7 +1265,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_V_Prepayment_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getW_Differences_A() throws RuntimeException
@@ -1290,7 +1290,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_W_Differences_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getWriteOff_A() throws RuntimeException
@@ -1315,6 +1315,6 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
 		Integer ii = (Integer)get_Value(COLUMNNAME_WriteOff_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

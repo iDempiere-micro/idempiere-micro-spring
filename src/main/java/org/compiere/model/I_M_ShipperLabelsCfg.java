@@ -148,8 +148,8 @@ public interface I_M_ShipperLabelsCfg
 	/** Get M_ShipperLabelsCfg_UU	  */
 	public String getM_ShipperLabelsCfg_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -583,11 +583,11 @@ public class MRMALine extends X_M_RMALine implements I_M_RMALine
      * Get Attribute Set Instance
      * @return ASI if based on shipment line and 0 for charge based
      */
-    public int getM_AttributeSetInstance_ID()
+    public int getMAttributeSetInstance_ID()
     {
         if (m_ioLine == null)
             return 0;
-        return m_ioLine.getM_AttributeSetInstance_ID();
+        return m_ioLine.getMAttributeSetInstance_ID();
     }
 
     /**

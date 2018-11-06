@@ -49,7 +49,7 @@ public class MWFNode extends X_AD_WF_Node
 	 */
 	public static MWFNode get (Properties ctx, int AD_WF_Node_ID)
 	{
-		String key = Env.getAD_Language(ctx) + "_" + AD_WF_Node_ID;
+		String key = Env.getADLanguage(ctx) + "_" + AD_WF_Node_ID;
 		MWFNode retValue = (MWFNode) s_cache.get (key);
 		if (retValue != null)
 			return retValue;
@@ -128,7 +128,7 @@ public class MWFNode extends X_AD_WF_Node
 		try {
 			Integer wfnodeid = new Integer (rs.getInt("AD_WF_Node_ID"));
 			if (wfnodeid != null && wfnodeid.intValue() > 0)
-				key = Env.getAD_Language(ctx) + "_" + wfnodeid;
+				key = Env.getADLanguage(ctx) + "_" + wfnodeid;
 		} catch (SQLException e) {
 			throw new AdempiereException(e);
 		}
@@ -198,7 +198,7 @@ public class MWFNode extends X_AD_WF_Node
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
 			pstmt.setInt(1, get_ID());
-			pstmt.setString(2, Env.getAD_Language(getCtx()));
+			pstmt.setString(2, Env.getADLanguage(getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next())
 			{

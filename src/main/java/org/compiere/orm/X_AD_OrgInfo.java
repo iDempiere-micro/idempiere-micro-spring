@@ -43,7 +43,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -101,7 +101,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Calendar getC_Calendar() throws RuntimeException
@@ -129,7 +129,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Calendar_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_Location getC_Location() throws RuntimeException
@@ -157,7 +157,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Warehouse getDropShip_Warehouse() throws RuntimeException
@@ -185,7 +185,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_DropShip_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set D-U-N-S.
@@ -256,7 +256,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Logo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -284,7 +284,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Parent Organization.
@@ -307,7 +307,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Parent_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Phone.
@@ -386,7 +386,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Tax ID.
@@ -431,7 +431,7 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_TransferBank_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashBook getTransferCashBook() throws RuntimeException
@@ -456,6 +456,6 @@ public class X_AD_OrgInfo extends PO implements I_AD_OrgInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_TransferCashBook_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

@@ -12,7 +12,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_EntityType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_EntityType extends PO implements I_AD_EntityType, I_Persistent
+public class X_AD_EntityType extends BasePOName implements I_AD_EntityType, I_Persistent
 {
 
 	/**
@@ -24,13 +24,6 @@ public class X_AD_EntityType extends PO implements I_AD_EntityType, I_Persistent
     public X_AD_EntityType (Properties ctx, int AD_EntityType_ID, String trxName)
     {
       super (ctx, AD_EntityType_ID, trxName);
-      /** if (AD_EntityType_ID == 0)
-        {
-			setAD_EntityType_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -42,7 +35,7 @@ public class X_AD_EntityType extends PO implements I_AD_EntityType, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -81,7 +74,7 @@ public class X_AD_EntityType extends PO implements I_AD_EntityType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_EntityType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_EntityType_UU.
@@ -182,31 +175,6 @@ public class X_AD_EntityType extends PO implements I_AD_EntityType, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_ModelPackage);
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Process Now.
 		@param Processing Process Now	  */

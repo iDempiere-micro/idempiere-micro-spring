@@ -43,7 +43,7 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
     /** AccessLevel
       * @return 2 - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +87,7 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sales Transaction.
@@ -129,12 +129,12 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 	/** Get Exclude Attribute Set.
 		@return Exclude the ability to enter Attribute Sets
 	  */
-	public int getM_AttributeSetExclude_ID () 
+	public int getMAttributeSetExclude_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetExclude_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_AttributeSetExclude_UU.
@@ -146,15 +146,15 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 
 	/** Get M_AttributeSetExclude_UU.
 		@return M_AttributeSetExclude_UU	  */
-	public String getM_AttributeSetExclude_UU () 
+	public String getMAttributeSetExclude_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_AttributeSetExclude_UU);
 	}
 
-	public org.compiere.model.I_M_AttributeSet getM_AttributeSet() throws RuntimeException
+	public org.compiere.model.I_M_AttributeSet getMAttributeSet() throws RuntimeException
     {
 		return (org.compiere.model.I_M_AttributeSet)MTable.get(getCtx(), org.compiere.model.I_M_AttributeSet.Table_Name)
-			.getPO(getM_AttributeSet_ID(), get_TrxName());	}
+			.getPO(getMAttributeSet_ID(), get_TrxName());	}
 
 	/** Set Attribute Set.
 		@param M_AttributeSet_ID 
@@ -171,11 +171,11 @@ public class X_M_AttributeSetExclude extends PO implements I_M_AttributeSetExclu
 	/** Get Attribute Set.
 		@return Product Attribute Set
 	  */
-	public int getM_AttributeSet_ID () 
+	public int getMAttributeSet_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSet_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

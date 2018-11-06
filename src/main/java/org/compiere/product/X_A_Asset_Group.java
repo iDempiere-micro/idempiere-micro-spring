@@ -4,17 +4,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_A_Asset_Group;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for A_Asset_Group
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
+public class X_A_Asset_Group extends BasePOName implements I_A_Asset_Group, I_Persistent
 {
 
 	/**
@@ -26,20 +25,6 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
     public X_A_Asset_Group (Properties ctx, int A_Asset_Group_ID, String trxName)
     {
       super (ctx, A_Asset_Group_ID, trxName);
-      /** if (A_Asset_Group_ID == 0)
-        {
-			setA_Asset_Group_ID (0);
-			setIsCreateAsActive (true);
-// Y
-			setIsDefault (false);
-// 'N'
-			setIsDepreciated (false);
-			setIsOneAssetPerUOM (false);
-			setIsOwned (false);
-			setIsTrackIssues (false);
-// N
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -51,7 +36,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -92,7 +77,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Class_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Group.
@@ -115,16 +100,8 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getA_Asset_Group_ID()));
-    }
 
 	/** Set A_Asset_Group_UU.
 		@param A_Asset_Group_UU A_Asset_Group_UU	  */
@@ -162,7 +139,7 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Type_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -364,20 +341,4 @@ public class X_A_Asset_Group extends PO implements I_A_Asset_Group, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
 }

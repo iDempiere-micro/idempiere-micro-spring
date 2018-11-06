@@ -650,9 +650,9 @@ public class ReplenishReportProduction extends SvrProcess
 				if (replenish.getQtyToOrder().compareTo(moveQty) != 0)
 					line.setDescription("Total: " + replenish.getQtyToOrder());
 				line.setM_Locator_ID(storage.getM_Locator_ID());		//	from
-				line.setM_AttributeSetInstance_ID(storage.getM_AttributeSetInstance_ID());
+				line.setM_AttributeSetInstance_ID(storage.getMAttributeSetInstance_ID());
 				line.setM_LocatorTo_ID(M_LocatorTo_ID);					//	to
-				line.setM_AttributeSetInstanceTo_ID(storage.getM_AttributeSetInstance_ID());
+				line.setM_AttributeSetInstanceTo_ID(storage.getMAttributeSetInstance_ID());
 				line.saveEx();
 				//
 				target = target.subtract(moveQty);
@@ -787,9 +787,9 @@ public class ReplenishReportProduction extends SvrProcess
 				if (replenish.getQtyToOrder().compareTo(moveQty) != 0)
 					line.setDescription("Total: " + replenish.getQtyToOrder());
 				line.setM_Locator_ID(storage.getM_Locator_ID());		//	from
-				line.setM_AttributeSetInstance_ID(storage.getM_AttributeSetInstance_ID());
+				line.setM_AttributeSetInstance_ID(storage.getMAttributeSetInstance_ID());
 				line.setM_LocatorTo_ID(M_LocatorTo_ID);					//	to
-				line.setM_AttributeSetInstanceTo_ID(storage.getM_AttributeSetInstance_ID());
+				line.setM_AttributeSetInstanceTo_ID(storage.getMAttributeSetInstance_ID());
 				line.setIsInvoiced(false);
 				line.saveEx();
 				//

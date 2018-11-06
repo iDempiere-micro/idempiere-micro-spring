@@ -49,7 +49,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -93,7 +93,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Message_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -121,7 +121,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -149,7 +149,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Activity.
@@ -172,7 +172,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Activity_UU.
@@ -214,7 +214,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Node_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -250,7 +250,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_WF_Responsible getAD_WF_Responsible() throws RuntimeException
@@ -278,7 +278,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -306,7 +306,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Last Alert.
@@ -343,7 +343,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_DynPriorityStart);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set End Wait.
@@ -380,7 +380,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Priority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.
@@ -448,7 +448,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Text Message.

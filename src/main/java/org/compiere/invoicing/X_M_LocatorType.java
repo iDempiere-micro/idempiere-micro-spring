@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_M_LocatorType;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -13,7 +14,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for M_LocatorType
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_LocatorType extends PO implements I_M_LocatorType, I_Persistent
+public class X_M_LocatorType extends BasePOName implements I_M_LocatorType, I_Persistent
 {
 
 	/**
@@ -47,7 +48,7 @@ public class X_M_LocatorType extends PO implements I_M_LocatorType, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -180,7 +181,7 @@ public class X_M_LocatorType extends PO implements I_M_LocatorType, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_LocatorType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_LocatorType_UU.
@@ -197,28 +198,4 @@ public class X_M_LocatorType extends PO implements I_M_LocatorType, I_Persistent
 		return (String)get_Value(COLUMNNAME_M_LocatorType_UU);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 }

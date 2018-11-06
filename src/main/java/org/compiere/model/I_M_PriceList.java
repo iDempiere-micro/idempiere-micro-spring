@@ -2,13 +2,17 @@ package org.compiere.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import org.compiere.product.MPriceListVersion;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /** Generated Interface for M_PriceList
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_M_PriceList 
+public interface I_M_PriceList extends IPO
 {
 
     /** TableName=M_PriceList */
@@ -214,8 +218,8 @@ public interface I_M_PriceList
 	/** Get M_PriceList_UU	  */
 	public String getM_PriceList_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity
@@ -255,4 +259,7 @@ public interface I_M_PriceList
 	  * User who updated this records
 	  */
 	public int getUpdatedBy();
+
+	@Nullable
+	MPriceListVersion getPriceListVersion(@NotNull Timestamp now);
 }

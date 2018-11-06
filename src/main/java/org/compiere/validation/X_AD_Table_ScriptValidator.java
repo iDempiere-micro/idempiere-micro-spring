@@ -46,7 +46,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +87,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -115,7 +115,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Table Script Validator.
@@ -135,7 +135,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ScriptValidator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Table_ScriptValidator_UU.
@@ -244,6 +244,6 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

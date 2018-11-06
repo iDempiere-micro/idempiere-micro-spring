@@ -47,7 +47,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -91,7 +91,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Message_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -119,7 +119,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -147,7 +147,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Process.
@@ -170,7 +170,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WF_Process_UU.
@@ -212,7 +212,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WF_Responsible_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException
@@ -240,7 +240,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Workflow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -268,7 +268,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Priority);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.
@@ -336,7 +336,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Text Message.

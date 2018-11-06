@@ -3,12 +3,13 @@ package org.idempiere.process;
 import java.sql.ResultSet;
 import java.util.Properties;
 import org.compiere.model.I_C_BankStatementMatcher;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_C_BankStatementMatcher extends PO implements I_C_BankStatementMatcher, I_Persistent
+public class X_C_BankStatementMatcher extends BasePOName implements I_C_BankStatementMatcher, I_Persistent
 {
 
     /**
@@ -38,7 +39,7 @@ public class X_C_BankStatementMatcher extends PO implements I_C_BankStatementMat
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -77,7 +78,7 @@ public class X_C_BankStatementMatcher extends PO implements I_C_BankStatementMat
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BankStatementMatcher_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set C_BankStatementMatcher_UU.
@@ -128,31 +129,6 @@ public class X_C_BankStatementMatcher extends PO implements I_C_BankStatementMat
         return (String)get_Value(COLUMNNAME_Description);
     }
 
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
     /** Set Sequence.
      @param SeqNo
      Method of ordering records; lowest number comes first
@@ -170,6 +146,6 @@ public class X_C_BankStatementMatcher extends PO implements I_C_BankStatementMat
         Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

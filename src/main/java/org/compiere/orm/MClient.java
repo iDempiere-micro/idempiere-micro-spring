@@ -37,7 +37,7 @@ public class MClient extends X_AD_Client {
                 setIsSmtpAuthorization (false);
                 setIsUseBetaFunctions (true);
                 setIsServerEMail(false);
-                setAD_Language(Language.getBaseAD_Language());
+                setADLanguage(Language.getBaseAD_Language());
                 setAutoArchive(AUTOARCHIVE_None);
                 setMMPolicy (MMPOLICY_FiFo);	// F
                 setIsPostImmediate(false);

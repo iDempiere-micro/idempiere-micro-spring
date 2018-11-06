@@ -46,7 +46,7 @@ public class MLanguage extends X_AD_Language
 	 */
 	public static I_AD_Language get (Properties ctx, Language lang)
 	{
-		return get (ctx, lang.getAD_Language());
+		return get (ctx, lang.getADLanguage());
 	}	//	getMLanguage
 
 	/**
@@ -115,7 +115,7 @@ public class MLanguage extends X_AD_Language
 		String CountryCode, String LanguageISO, String trxName)
 	{
 		super(ctx, 0, trxName);
-		setAD_Language (AD_Language);	//	en_US
+		setADLanguage (AD_Language);	//	en_US
 		setIsBaseLanguage (false);
 		setIsSystemLanguage (false);
 		setName (Name);
@@ -134,7 +134,7 @@ public class MLanguage extends X_AD_Language
 	 */
 	public String toString()
 	{
-		StringBuilder str = new StringBuilder("MLanguage[").append(getAD_Language()).append("-").append(getName())
+		StringBuilder str = new StringBuilder("MLanguage[").append(getADLanguage()).append("-").append(getName())
 				.append(",Language=").append(getLanguageISO()).append(",Country=").append(getCountryCode())
 				.append("]");
 		return str.toString();
@@ -227,16 +227,16 @@ public class MLanguage extends X_AD_Language
 	/**
 	 * 	Set AD_Language_ID
 	 */
-	private void setAD_Language_ID()
+	private void setADLanguage_ID()
 	{
 		int AD_Language_ID = getAD_Language_ID();
 		if (AD_Language_ID == 0)
 		{
 			String sql = "SELECT NVL(MAX(AD_Language_ID), 999999) FROM AD_Language WHERE AD_Language_ID > 1000";
 			AD_Language_ID = DB.getSQLValue (get_TrxName(), sql);
-			setAD_Language_ID(AD_Language_ID+1);
+			setADLanguage_ID(AD_Language_ID+1);
 		}
-	}	//	setAD_Language_ID
+	}	//	setADLanguage_ID
 
 	/**
 	 * 	Before Save
@@ -278,7 +278,7 @@ public class MLanguage extends X_AD_Language
 			}
 		}
 		if (newRecord)
-			setAD_Language_ID();
+			setADLanguage_ID();
 		return true;
 	}	//	beforeSae
 	
@@ -339,7 +339,7 @@ public class MLanguage extends X_AD_Language
 	private int deleteTable (String tableName)
 	{
 		StringBuilder sql = new StringBuilder("DELETE  FROM  ").append(tableName).append(" WHERE AD_Language=?");
-		int no = DB.executeUpdateEx(sql.toString(), new Object[]{getAD_Language()}, get_TrxName());
+		int no = DB.executeUpdateEx(sql.toString(), new Object[]{getADLanguage()}, get_TrxName());
 		if (log.isLoggable(Level.FINE)) log.fine(tableName + " #" + no);
 		return no;
 	}	//	deleteTable
@@ -397,14 +397,14 @@ public class MLanguage extends X_AD_Language
 							.append("(AD_Language,IsTranslated, AD_Client_ID,AD_Org_ID, ")
 							.append("Createdby,UpdatedBy,Created,Updated, ")
 							.append(keyColumn).append(cols).append(") ")
-							.append("SELECT '").append(getAD_Language()).append("','N', AD_Client_ID,AD_Org_ID, ")
+							.append("SELECT '").append(getADLanguage()).append("','N', AD_Client_ID,AD_Org_ID, ")
 							.append(AD_User_ID).append(",").append(AD_User_ID).append(", SysDate, SysDate, ")
 							.append(keyColumn).append(cols)
 							.append(" FROM ").append(baseTable)
 							.append(" WHERE ").append(keyColumn).append(" NOT IN (SELECT ").append(keyColumn)
 							.append(" FROM ").append(tableName)
-							.append(" WHERE AD_Language='").append(getAD_Language()).append("')");
-		//	+ " WHERE (" + keyColumn + ",'" + getAD_Language()+ "') NOT IN (SELECT " 
+							.append(" WHERE AD_Language='").append(getADLanguage()).append("')");
+		//	+ " WHERE (" + keyColumn + ",'" + getADLanguage()+ "') NOT IN (SELECT " 
 		//		+ keyColumn + ",AD_Language FROM " + tableName + ")";
 		int no = DB.executeUpdateEx(insert.toString(), null, get_TrxName());
 		//

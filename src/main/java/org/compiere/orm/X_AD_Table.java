@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Table;
 import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
@@ -26,26 +27,6 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
     public X_AD_Table (Properties ctx, int AD_Table_ID, String trxName)
     {
       super (ctx, AD_Table_ID, trxName);
-      /** if (AD_Table_ID == 0)
-        {
-			setAccessLevel (null);
-// 4
-			setAD_Table_ID (0);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setIsChangeLog (true);
-// Y
-			setIsDeleteable (true);
-// Y
-			setIsHighVolume (false);
-			setIsSecurityEnabled (false);
-			setIsView (false);
-// N
-			setName (null);
-			setReplicationType (null);
-// L
-			setTableName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -57,7 +38,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    public int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -92,7 +73,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setTableAccessLevel (String AccessLevel)
 	{
 
 		set_Value (COLUMNNAME_AccessLevel, AccessLevel);
@@ -101,7 +82,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getTableAccessLevel ()
 	{
 		return (String)get_Value(COLUMNNAME_AccessLevel);
 	}
@@ -126,7 +107,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Table_UU.
@@ -169,7 +150,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Val_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException
@@ -197,7 +178,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Copy Columns From Table.
@@ -471,7 +452,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LoadSeq);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Name.
@@ -480,7 +461,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -488,7 +469,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	public org.compiere.model.I_AD_Window getPO_Window() throws RuntimeException
@@ -516,7 +497,7 @@ public class X_AD_Table extends PO implements I_AD_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PO_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Now.

@@ -300,7 +300,7 @@ public class MLookupFactory
 			realSQL.append("trl.Name, AD_Ref_List.IsActive ")
 				.append("FROM AD_Ref_List  INNER JOIN AD_Ref_List_Trl trl ")
 				.append(" ON (AD_Ref_List.AD_Ref_List_ID=trl.AD_Ref_List_ID AND trl.AD_Language='")
-					.append(language.getAD_Language()).append("')");
+					.append(language.getADLanguage()).append("')");
 		realSQL.append(" WHERE AD_Ref_List.AD_Reference_ID=").append(AD_Reference_Value_ID);
 		
 		String directSql = realSQL.toString() + " AND AD_Ref_List.Value=?";
@@ -335,7 +335,7 @@ public class MLookupFactory
 			realSQL.append("trl.Name ")
 				.append("FROM AD_Ref_List  INNER JOIN AD_Ref_List_Trl trl ")
 				.append(" ON (AD_Ref_List.AD_Ref_List_ID=trl.AD_Ref_List_ID AND trl.AD_Language='")
-					.append(language.getAD_Language()).append("')");
+					.append(language.getADLanguage()).append("')");
 		realSQL.append(" WHERE AD_Ref_List.AD_Reference_ID=").append(AD_Reference_Value_ID)
 			.append(" AND AD_Ref_List.Value=").append(linkColumnName);
 
@@ -357,9 +357,9 @@ public class MLookupFactory
 	{
 		String lang;
 		if (language == null) {
-			lang = Env.getAD_Language(Env.getCtx());
+			lang = Env.getADLanguage(Env.getCtx());
 		} else {
-			lang = language.getAD_Language();
+			lang = language.getADLanguage();
 		}
 		StringBuilder key = new StringBuilder()
 				.append(Env.getAD_Client_ID(ctx)).append("|")
@@ -499,7 +499,7 @@ public class MLookupFactory
 				.append(TableName).append(".").append(KeyColumn)
 				.append("=").append(TableName).append("_Trl.").append(KeyColumn)
 				.append(" AND ").append(TableName).append("_Trl.AD_Language='")
-				.append(language.getAD_Language()).append("')");
+				.append(language.getADLanguage()).append("')");
 		}
 		//	Not Translated
 		else
@@ -668,7 +668,7 @@ public class MLookupFactory
 				.append(TableNameAlias).append(".").append(KeyColumn)
 				.append("=").append(TableName).append("_Trl.").append(KeyColumn)
 				.append(" AND ").append(TableName).append("_Trl.AD_Language='")
-				.append(language.getAD_Language()).append("')");
+				.append(language.getADLanguage()).append("')");
 		}
 		//	Not Translated
 		else
@@ -728,7 +728,7 @@ public class MLookupFactory
 				.append(Env.getAD_Client_ID(ctx)).append("|")
 				.append(Env.getAD_Role_ID(ctx)).append("|")
 				.append(Env.getAD_User_ID(ctx)).append("|")
-				.append(language.getAD_Language()).append("|")
+				.append(language.getADLanguage()).append("|")
 				.append(TableName).append(".")
 				.append(KeyColumn);
 		if (s_cacheRefTable.containsKey(cacheKey.toString()))
@@ -776,7 +776,7 @@ public class MLookupFactory
 				.append(TableName).append(".").append(KeyColumn)
 				.append("=").append(TableName).append("_Trl.").append(KeyColumn)
 				.append(" AND ").append(TableName).append("_Trl.AD_Language='")
-				.append(language.getAD_Language()).append("')");
+				.append(language.getADLanguage()).append("')");
 		}
 		else	//	no translation
 		{
@@ -833,7 +833,7 @@ public class MLookupFactory
 			//  date, number
 			else if (DisplayType.isDate(ldc.DisplayType) || DisplayType.isNumeric(ldc.DisplayType))
 			{
-				displayColumn.append(DB.TO_CHAR(columnSQL, ldc.DisplayType, language.getAD_Language()));
+				displayColumn.append(DB.TO_CHAR(columnSQL, ldc.DisplayType, language.getADLanguage()));
 			}
 			//	Table
 			else if ((ldc.DisplayType == DisplayType.Table || ldc.DisplayType == DisplayType.Search) && ldc.AD_Reference_ID != 0)
@@ -861,7 +861,7 @@ public class MLookupFactory
 			//	ID
 			else if (DisplayType.isID(ldc.DisplayType))
 			{
-				displayColumn.append(DB.TO_CHAR(columnSQL, ldc.DisplayType, language.getAD_Language()));
+				displayColumn.append(DB.TO_CHAR(columnSQL, ldc.DisplayType, language.getADLanguage()));
 			}
 			//  String
 			else
@@ -936,7 +936,7 @@ public class MLookupFactory
 				.append(TableName).append(".").append(KeyColumn)
 				.append("=").append(TableName).append("_Trl.").append(KeyColumn)
 				.append(" AND ").append(TableName).append("_Trl.AD_Language=")
-				.append(DB.TO_STRING(language.getAD_Language())).append(")");
+				.append(DB.TO_STRING(language.getADLanguage())).append(")");
 		}
 		embedSQL.append(" WHERE ");
 		// If is not virtual column - teo_sarca [ 1739530 ]

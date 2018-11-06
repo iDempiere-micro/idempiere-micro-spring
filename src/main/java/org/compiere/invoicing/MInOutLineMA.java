@@ -166,7 +166,7 @@ public class MInOutLineMA extends X_M_InOutLineMA
 	{
 		StringBuilder sb = new StringBuilder ("MInOutLineMA[");
 		sb.append("M_InOutLine_ID=").append(getM_InOutLine_ID())
-			.append(",M_AttributeSetInstance_ID=").append(getM_AttributeSetInstance_ID())
+			.append(",M_AttributeSetInstance_ID=").append(getMAttributeSetInstance_ID())
 			.append(", Qty=").append(getMovementQty())
 			.append ("]");
 		return sb.toString ();
@@ -255,9 +255,9 @@ public class MInOutLineMA extends X_M_InOutLineMA
 			I_M_InOutLine line = getM_InOutLine();
 			
 			Timestamp dateMPolicy = null;
-			if(getM_AttributeSetInstance_ID()>0)
+			if(getMAttributeSetInstance_ID()>0)
 			{
-				dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getM_AttributeSetInstance_ID(), get_TrxName());
+				dateMPolicy = MStorageOnHand.getDateMaterialPolicy(line.getM_Product_ID(), getMAttributeSetInstance_ID(), get_TrxName());
 			}
 			
 			if(dateMPolicy == null)

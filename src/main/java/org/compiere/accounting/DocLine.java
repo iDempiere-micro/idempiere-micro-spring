@@ -427,7 +427,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Charge_ID
@@ -531,7 +531,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Product_ID
@@ -559,17 +559,17 @@ public class DocLine
 	 *  ASI
 	 *  @return M_AttributeSetInstance_ID
 	 */
-	public int getM_AttributeSetInstance_ID()
+	public int getMAttributeSetInstance_ID()
 	{
 		int index = p_po.get_ColumnIndex("M_AttributeSetInstance_ID");
 		if (index != -1)
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
-	}   //  getM_AttributeSetInstance_ID
+	}   //  getMAttributeSetInstance_ID
 
 	/**
 	 *  Get Warehouse Locator (from)
@@ -582,7 +582,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Locator_ID
@@ -598,7 +598,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_LocatorTo_ID
@@ -632,7 +632,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getM_Production_ID
@@ -648,7 +648,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_OrderLine_ID
@@ -715,7 +715,7 @@ public class DocLine
 	{
 		if (m_productCost == null)
 			m_productCost = new ProductCost (Env.getCtx(), 
-				getM_Product_ID(), getM_AttributeSetInstance_ID(), p_po.get_TrxName());
+				getM_Product_ID(), getMAttributeSetInstance_ID(), p_po.get_TrxName());
 		return m_productCost;
 	}	//	getProductCost
 	
@@ -733,7 +733,7 @@ public class DocLine
 		if (whereClause != null && !as.getCostingMethod().equals(MAcctSchema.COSTINGMETHOD_StandardCosting))
 		{
 			MCostDetail cd = MCostDetail.get (Env.getCtx(), whereClause,
-					get_ID(), getM_AttributeSetInstance_ID(), as.getC_AcctSchema_ID(), p_po.get_TrxName());
+					get_ID(), getMAttributeSetInstance_ID(), as.getC_AcctSchema_ID(), p_po.get_TrxName());
 			if (cd != null)
 				return cd.getAmt();
 		}
@@ -768,7 +768,7 @@ public class DocLine
 	{
 		if (m_productCost == null)
 			m_productCost = new ProductCost (Env.getCtx(), 
-				getM_Product_ID(), getM_AttributeSetInstance_ID(), p_po.get_TrxName());
+				getM_Product_ID(), getMAttributeSetInstance_ID(), p_po.get_TrxName());
 		if (m_productCost != null)
 			return m_productCost.getProduct();
 		return null;
@@ -798,7 +798,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		//  Storage UOM
 		MProduct product = getProduct();
@@ -858,7 +858,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}	//	getC_Tax_ID
@@ -874,7 +874,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getLine
@@ -921,7 +921,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return m_doc.getC_BPartner_Location_ID();
 	}	//	getC_BPartner_Location_ID
@@ -937,7 +937,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getAD_OrgTrx_ID
@@ -980,7 +980,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Project_ID
@@ -996,7 +996,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_ProjectPhase_ID
@@ -1012,7 +1012,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_ProjectTask_ID
@@ -1028,7 +1028,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Campaign_ID
@@ -1044,7 +1044,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getC_Activity_ID
@@ -1060,7 +1060,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getUser1_ID
@@ -1076,7 +1076,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getUser2_ID
@@ -1093,7 +1093,7 @@ public class DocLine
 		{
 			Integer ii = (Integer)p_po.get_Value(index);
 			if (ii != null)
-				return ii.intValue();
+				return ii;
 		}
 		return 0;
 	}   //  getValue

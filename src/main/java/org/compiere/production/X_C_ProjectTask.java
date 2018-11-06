@@ -5,18 +5,17 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_ProjectTask;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_ProjectTask
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
+public class X_C_ProjectTask extends BasePOName implements I_C_ProjectTask, I_Persistent
 {
 
 	/**
@@ -28,18 +27,6 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
     public X_C_ProjectTask (Properties ctx, int C_ProjectTask_ID, String trxName)
     {
       super (ctx, C_ProjectTask_ID, trxName);
-      /** if (C_ProjectTask_ID == 0)
-        {
-			setCommittedAmt (Env.ZERO);
-			setC_ProjectPhase_ID (0);
-			setC_ProjectTask_ID (0);
-			setName (null);
-			setPlannedAmt (Env.ZERO);
-			setProjInvoiceRule (null);
-// @ProjInvoiceRule@
-			setSeqNo (0);
-// @SQL=SELECT NVL(MAX(SeqNo),0)+10 AS DefaultValue FROM C_ProjectTask WHERE C_ProjectPhase_ID=@C_ProjectPhase_ID@
-        } */
     }
 
     /** Load Constructor */
@@ -51,7 +38,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -115,7 +102,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Project Task.
@@ -138,7 +125,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_ProjectTask_UU.
@@ -180,7 +167,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Task_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -242,24 +229,7 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return ii;
 	}
 
 	/** Set Planned Amount.
@@ -349,14 +319,6 @@ public class X_C_ProjectTask extends PO implements I_C_ProjectTask, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getSeqNo()));
-    }
 }

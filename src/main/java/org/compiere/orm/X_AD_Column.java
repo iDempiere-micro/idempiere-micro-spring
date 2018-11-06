@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Column;
 import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
@@ -70,7 +71,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -111,7 +112,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Chart_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Column.
@@ -134,7 +135,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Column_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Column_UU.
@@ -176,7 +177,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -204,7 +205,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Reference getAD_Reference() throws RuntimeException
@@ -232,7 +233,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Reference getAD_Reference_Value() throws RuntimeException
@@ -260,7 +261,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_Value_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
@@ -288,7 +289,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException
@@ -316,7 +317,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Val_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Callout.
@@ -449,7 +450,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_FieldLength);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Constraint Name.
@@ -902,7 +903,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -910,7 +911,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
 	public org.compiere.model.I_PA_DashboardContent getPA_DashboardContent() throws RuntimeException
@@ -935,7 +936,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_DashboardContent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Read Only Logic.
@@ -972,7 +973,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Selection Column Sequence.
@@ -992,7 +993,7 @@ public class X_AD_Column extends PO implements I_AD_Column, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNoSelection);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Max. Value.

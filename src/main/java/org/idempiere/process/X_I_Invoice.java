@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_I_Invoice;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
+public class X_I_Invoice extends BasePOName implements I_I_Invoice, I_Persistent
 {
 
     /**
@@ -23,11 +23,6 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
     public X_I_Invoice (Properties ctx, int I_Invoice_ID, String trxName)
     {
         super (ctx, I_Invoice_ID, trxName);
-        /** if (I_Invoice_ID == 0)
-         {
-         setI_Invoice_ID (0);
-         setI_IsImported (false);
-         } */
     }
 
     /** Load Constructor */
@@ -39,7 +34,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -129,7 +124,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -157,7 +152,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Business Partner Key.
@@ -199,7 +194,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_1099Box_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set 1099 Box Value.
@@ -241,7 +236,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -269,7 +264,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -297,7 +292,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -325,7 +320,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -353,7 +348,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Country getC_Country() throws RuntimeException
@@ -381,7 +376,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Country_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -409,7 +404,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -437,7 +432,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Charge Name.
@@ -482,7 +477,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException
@@ -510,7 +505,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set City.
@@ -555,7 +550,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Location_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Contact Name.
@@ -624,7 +619,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentTerm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -652,7 +647,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Region getC_Region() throws RuntimeException
@@ -680,7 +675,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Region_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Tax getC_Tax() throws RuntimeException
@@ -708,7 +703,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Tax_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Account Date.
@@ -850,7 +845,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_I_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set I_Invoice_UU.
@@ -957,7 +952,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_PriceList_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -985,24 +980,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
+        return ii;
     }
 
     /** Set Payment Term Key.
@@ -1217,7 +1195,7 @@ public class X_I_Invoice extends PO implements I_I_Invoice, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set SKU.

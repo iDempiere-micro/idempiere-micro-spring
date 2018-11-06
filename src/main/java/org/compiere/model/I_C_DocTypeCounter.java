@@ -179,8 +179,8 @@ public interface I_C_DocTypeCounter
 	  */
 	public boolean isValid();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

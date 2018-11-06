@@ -130,8 +130,8 @@ public interface I_M_ShipperPickupTypesCfg
 	/** Get M_ShipperPickupTypesCfg_UU	  */
 	public String getM_ShipperPickupTypesCfg_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

@@ -14,7 +14,7 @@ install:
 	./mvnw install
 
 package:
-	./mvnw package
+	./mvnw -DforkCount=0 package
 
 migrate:	
 	rm -rf ./src/main/resources/db/migration/V1__iDempiere_5.1.0.sql
@@ -24,3 +24,6 @@ migrate:
 
 lint:
 	./tools/ktlint/ktlint -F --color "**/src/**/*.kt" '!**/src/**/MSetup.kt'	
+
+site:
+	./mvnw site

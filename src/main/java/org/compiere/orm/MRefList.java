@@ -56,7 +56,7 @@ public class MRefList extends X_AD_Ref_List
 	 */
 	public static String getListName (Properties ctx, int AD_Reference_ID, String Value)
 	{
-		String AD_Language = Env.getAD_Language(ctx);
+		String AD_Language = Env.getADLanguage(ctx);
 		return getListName (AD_Language, AD_Reference_ID, Value);
 	}
 
@@ -125,7 +125,7 @@ public class MRefList extends X_AD_Ref_List
 	 */
 	public static String getListDescription (Properties ctx, String ListName, String Value)
 	{
-		String AD_Language = Env.getAD_Language(ctx);
+		String AD_Language = Env.getADLanguage(ctx);
 		return getListDescription (AD_Language, ListName, Value);
 	}
 
@@ -196,7 +196,7 @@ public class MRefList extends X_AD_Ref_List
 	 */
 	public static ValueNamePair[] getList (Properties ctx, int AD_Reference_ID, boolean optional)
 	{
-		String ad_language = Env.getAD_Language(ctx);
+		String ad_language = Env.getADLanguage(ctx);
 		boolean isBaseLanguage = Env.isBaseLanguage(ad_language, "AD_Ref_List");
 		String sql = isBaseLanguage ?
 			"SELECT Value, Name FROM AD_Ref_List WHERE AD_Reference_ID=? AND IsActive='Y' ORDER BY Name"

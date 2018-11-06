@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_PInstance;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_PInstance
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
+public class X_AD_PInstance extends BasePOName implements I_AD_PInstance, I_Persistent
 {
 
 	/**
@@ -46,7 +47,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -65,14 +66,14 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
       return sb.toString();
     }
 
-	public org.compiere.model.I_AD_Language getAD_Language() throws RuntimeException
+	public org.compiere.model.I_AD_Language getADLanguage() throws RuntimeException
     {
 		return (org.compiere.model.I_AD_Language)MTable.get(getCtx(), org.compiere.model.I_AD_Language.Table_Name)
 			.getPO(getAD_Language_ID(), get_TrxName());	}
 
 	/** Set Language ID.
 		@param AD_Language_ID Language ID	  */
-	public void setAD_Language_ID (int AD_Language_ID)
+	public void setADLanguage_ID (int AD_Language_ID)
 	{
 		if (AD_Language_ID < 1) 
 			set_Value (COLUMNNAME_AD_Language_ID, null);
@@ -87,7 +88,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Language_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Process Instance.
@@ -110,16 +111,8 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_PInstance_ID()));
-    }
 
 	/** Set AD_PInstance_UU.
 		@param AD_PInstance_UU AD_PInstance_UU	  */
@@ -160,7 +153,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_PrintFormat_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException
@@ -188,7 +181,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Process_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -216,7 +209,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Error Msg.
@@ -299,23 +292,6 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
 	/** NotificationType AD_Reference_ID=344 */
 	public static final int NOTIFICATIONTYPE_AD_Reference_ID=344;
 	/** EMail = E */
@@ -364,7 +340,7 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Report Type.
@@ -398,6 +374,6 @@ public class X_AD_PInstance extends PO implements I_AD_PInstance, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Result);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

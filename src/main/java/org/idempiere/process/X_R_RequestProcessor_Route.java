@@ -39,7 +39,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -83,7 +83,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Keyword.
@@ -128,7 +128,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Request Routing.
@@ -151,7 +151,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestProcessor_Route_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set R_RequestProcessor_Route_UU.
@@ -193,7 +193,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Sequence.
@@ -213,7 +213,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
         Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName

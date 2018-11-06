@@ -55,7 +55,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -119,7 +119,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Confirmation No.
@@ -409,7 +409,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutConfirm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_InOutConfirm_UU.
@@ -451,7 +451,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOut_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Inventory getM_Inventory() throws RuntimeException
@@ -479,7 +479,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Inventory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

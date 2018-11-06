@@ -42,7 +42,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -86,7 +86,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Scheduler getAD_Scheduler() throws RuntimeException
@@ -114,7 +114,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Scheduler_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Scheduler Recipient.
@@ -137,7 +137,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_SchedulerRecipient_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_SchedulerRecipient_UU.
@@ -179,7 +179,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

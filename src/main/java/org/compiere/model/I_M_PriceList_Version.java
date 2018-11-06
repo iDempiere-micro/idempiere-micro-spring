@@ -155,8 +155,8 @@ public interface I_M_PriceList_Version
 	/** Get M_PriceList_Version_UU	  */
 	public String getM_PriceList_Version_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

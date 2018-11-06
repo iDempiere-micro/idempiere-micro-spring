@@ -149,9 +149,9 @@ public interface I_C_ProjectIssue
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_InOutLine_ID */
     public static final String COLUMNNAME_M_InOutLine_ID = "M_InOutLine_ID";

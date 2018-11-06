@@ -69,7 +69,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -108,7 +108,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -136,7 +136,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -164,7 +164,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -192,7 +192,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -220,7 +220,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_Location_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -248,7 +248,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -276,7 +276,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException
@@ -304,7 +304,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_DocType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Charge amount.
@@ -352,7 +352,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Order getC_Order() throws RuntimeException
@@ -380,7 +380,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -408,7 +408,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Create Confirm.
@@ -541,7 +541,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_DD_Order_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set DD_Order_UU.
@@ -1026,7 +1026,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -1054,7 +1054,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set No Packages.
@@ -1074,7 +1074,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_NoPackages);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Pick Date.
@@ -1255,7 +1255,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_Ref_Order_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getSalesRep() throws RuntimeException
@@ -1283,7 +1283,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_SalesRep_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Send EMail.
@@ -1369,7 +1369,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1397,7 +1397,7 @@ public class X_DD_Order extends PO implements I_DD_Order, I_Persistent
         Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Volume.

@@ -32,6 +32,7 @@ import org.compiere.accounting.MProduct;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.invoicing.MInventory;
 import org.compiere.invoicing.MInventoryLine;
+import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.model.I_C_DocType;
 import org.compiere.model.I_M_Inventory;
@@ -328,7 +329,7 @@ public class CostUpdate extends SvrProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(m_docType.getName());
 					else
-						msg.append(m_docType.get_Translation(I_C_DocType.COLUMNNAME_Name));
+						msg.append(m_docType.get_Translation(HasName.Companion.getCOLUMNNAME_Name()));
 					throw new AdempiereUserError(msg.toString());
 				}
 				else
@@ -338,7 +339,7 @@ public class CostUpdate extends SvrProcess
 					if (Env.isBaseLanguage(getCtx(), I_C_DocType.Table_Name))
 						msg.append(m_docType.getName()).append(" ").append(inventoryDoc.getDocumentNo());
 					else
-						msg.append(m_docType.get_Translation(I_C_DocType.COLUMNNAME_Name)).append(" ").append(inventoryDoc.getDocumentNo());
+						msg.append(m_docType.get_Translation(HasName.Companion.getCOLUMNNAME_Name())).append(" ").append(inventoryDoc.getDocumentNo());
 					addBufferLog(getAD_PInstance_ID(), null, null, msg.toString(), I_M_Inventory.Table_ID, inventoryDoc.getM_Inventory_ID());
 				}
 			}
@@ -451,7 +452,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_AverageInvoice);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_AverageInvoice);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null)
 				retValue = xCost.getCurrentCostPrice();
 		}
@@ -461,7 +462,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_AverageInvoice);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_AverageInvoice);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null) 
 				retValue = xCost.getHistoryAverage();
 		}
@@ -472,7 +473,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_AveragePO);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_AveragePO);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null)
 				retValue = xCost.getCurrentCostPrice();
 		}
@@ -482,7 +483,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_AveragePO);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_AveragePO);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null) 
 				retValue = xCost.getHistoryAverage();
 		}
@@ -493,7 +494,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_FiFo);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_FiFo);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null)
 				retValue = xCost.getCurrentCostPrice();
 		}
@@ -508,7 +509,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_LastInvoicePrice);
 			if (ce != null)
 			{
-				MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+				MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 				if (xCost != null)
 					retValue = xCost.getCurrentCostPrice();
 			}
@@ -517,7 +518,7 @@ public class CostUpdate extends SvrProcess
 				MProduct product = new MProduct(getCtx(), cost.getM_Product_ID(), get_TrxName());
 				MAcctSchema as = MAcctSchema.get(getCtx(), cost.getC_AcctSchema_ID());
 				retValue = MCost.getLastInvoicePrice(product, 
-					cost.getM_AttributeSetInstance_ID(), cost.getAD_Org_ID(), as.getC_Currency_ID());				
+					cost.getMAttributeSetInstance_ID(), cost.getAD_Org_ID(), as.getC_Currency_ID());				
 			}
 		}
 		
@@ -527,7 +528,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_LastPOPrice);
 			if (ce != null)
 			{
-				MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+				MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 				if (xCost != null)
 					retValue = xCost.getCurrentCostPrice();
 			}
@@ -536,7 +537,7 @@ public class CostUpdate extends SvrProcess
 				MProduct product = new MProduct(getCtx(), cost.getM_Product_ID(), get_TrxName());
 				MAcctSchema as = MAcctSchema.get(getCtx(), cost.getC_AcctSchema_ID());
 				retValue = MCost.getLastPOPrice(product, 
-					cost.getM_AttributeSetInstance_ID(), cost.getAD_Org_ID(), as.getC_Currency_ID());				
+					cost.getMAttributeSetInstance_ID(), cost.getAD_Org_ID(), as.getC_Currency_ID());				
 			}
 		}
 	
@@ -546,7 +547,7 @@ public class CostUpdate extends SvrProcess
 			MCostElement ce = getCostElement(TO_LiFo);
 			if (ce == null)
 				throw new AdempiereSystemError("CostElement not found: " + TO_LiFo);
-			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getM_AttributeSetInstance_ID(), get_TrxName());
+			MCost xCost = MCost.get(getCtx(), cost.getAD_Client_ID(), cost.getAD_Org_ID(), cost.getM_Product_ID(), cost.getM_CostType_ID(), cost.getC_AcctSchema_ID(), ce.getM_CostElement_ID(), cost.getMAttributeSetInstance_ID(), get_TrxName());
 			if (xCost != null)
 				retValue = xCost.getCurrentCostPrice();
 		}

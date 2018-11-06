@@ -3,12 +3,13 @@ package org.compiere.model;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for C_BankAccount
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_BankAccount 
+public interface I_C_BankAccount extends IPO
 {
 
     /** TableName=C_BankAccount */
@@ -231,8 +232,8 @@ public interface I_C_BankAccount
 	  */
 	public boolean isDefault();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

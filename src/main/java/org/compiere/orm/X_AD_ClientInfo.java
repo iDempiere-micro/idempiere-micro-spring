@@ -44,7 +44,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -99,7 +99,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_StorageProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Activity() throws RuntimeException
@@ -127,7 +127,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_BPartner() throws RuntimeException
@@ -155,7 +155,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Campaign() throws RuntimeException
@@ -183,7 +183,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Menu() throws RuntimeException
@@ -211,7 +211,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Menu_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Org() throws RuntimeException
@@ -239,7 +239,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Product() throws RuntimeException
@@ -267,7 +267,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_Project() throws RuntimeException
@@ -295,7 +295,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Tree getAD_Tree_SalesRegion() throws RuntimeException
@@ -323,7 +323,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Tree_SalesRegion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_AcctSchema getC_AcctSchema1() throws RuntimeException
@@ -351,7 +351,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_AcctSchema1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartnerCashTrx() throws RuntimeException
@@ -379,7 +379,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartnerCashTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Calendar getC_Calendar() throws RuntimeException
@@ -407,7 +407,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Calendar_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_ChargeFreight() throws RuntimeException
@@ -432,7 +432,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ChargeFreight_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Length() throws RuntimeException
@@ -460,7 +460,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Length_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Time() throws RuntimeException
@@ -488,7 +488,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Time_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Volume() throws RuntimeException
@@ -516,7 +516,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Volume_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM_Weight() throws RuntimeException
@@ -544,7 +544,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_Weight_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Financial Year Start Date.
@@ -644,7 +644,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Logo.
@@ -664,7 +664,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_Logo_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Logo Report.
@@ -684,7 +684,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LogoReport_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Logo Web.
@@ -704,7 +704,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_LogoWeb_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_ProductFreight() throws RuntimeException
@@ -729,7 +729,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ProductFreight_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_StorageProvider getStorageArchive() throws RuntimeException
@@ -754,6 +754,6 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_StorageArchive_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

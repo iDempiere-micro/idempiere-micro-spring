@@ -274,7 +274,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
             splitLine.setDescription(oldLine.getDescription());
             splitLine.setIsDescription(oldLine.isDescription());
             splitLine.setLine(oldLine.getLine());
-            splitLine.setM_AttributeSetInstance_ID(oldLine.getM_AttributeSetInstance_ID());
+            splitLine.setM_AttributeSetInstance_ID(oldLine.getMAttributeSetInstance_ID());
             splitLine.setM_Locator_ID(oldLine.getM_Locator_ID());
             splitLine.setM_Product_ID(oldLine.getM_Product_ID());
             splitLine.setM_Warehouse_ID(oldLine.getM_Warehouse_ID());
@@ -402,7 +402,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
             }
             MInOutLine ioLine = confirm.getLine();
             MInventoryLine line = new MInventoryLine (m_inventory,
-                ioLine.getM_Locator_ID(), ioLine.getM_Product_ID(), ioLine.getM_AttributeSetInstance_ID(),
+                ioLine.getM_Locator_ID(), ioLine.getM_Product_ID(), ioLine.getMAttributeSetInstance_ID(),
                 confirm.getScrappedQty(), Env.ZERO);
             if (!line.save(get_TrxName()))
             {

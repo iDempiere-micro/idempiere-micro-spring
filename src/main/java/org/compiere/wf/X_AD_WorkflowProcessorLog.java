@@ -42,7 +42,7 @@ public class X_AD_WorkflowProcessorLog extends PO implements I_AD_WorkflowProces
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -86,7 +86,7 @@ public class X_AD_WorkflowProcessorLog extends PO implements I_AD_WorkflowProces
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WorkflowProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Workflow Processorl Log.
@@ -109,7 +109,7 @@ public class X_AD_WorkflowProcessorLog extends PO implements I_AD_WorkflowProces
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_WorkflowProcessorLog_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_WorkflowProcessorLog_UU.

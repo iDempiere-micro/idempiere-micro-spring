@@ -48,7 +48,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -92,7 +92,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Confirmation No.
@@ -194,7 +194,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutConfirm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Ship/Receipt Confirmation Line.
@@ -217,7 +217,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLineConfirm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_InOutLineConfirm_UU.
@@ -259,7 +259,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -295,7 +295,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InventoryLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Processed.

@@ -4,13 +4,12 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 import org.compiere.model.I_R_RequestProcessor;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
-public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_Persistent
+public class X_R_RequestProcessor extends BasePOName implements I_R_RequestProcessor, I_Persistent
 {
 
     /**
@@ -22,23 +21,6 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
     public X_R_RequestProcessor (Properties ctx, int R_RequestProcessor_ID, String trxName)
     {
         super (ctx, R_RequestProcessor_ID, trxName);
-        /** if (R_RequestProcessor_ID == 0)
-         {
-         setAD_Schedule_ID (0);
-         setInactivityAlertDays (0);
-         // 0
-         setKeepLogDays (0);
-         // 7
-         setName (null);
-         setOverdueAlertDays (0);
-         // 0
-         setOverdueAssignDays (0);
-         // 0
-         setRemindDays (0);
-         // 0
-         setR_RequestProcessor_ID (0);
-         setSupervisor_ID (0);
-         } */
     }
 
     /** Load Constructor */
@@ -50,7 +32,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
     /** AccessLevel
      * @return 2 - Client
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -91,7 +73,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_AD_Schedule_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Date last run.
@@ -162,7 +144,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_InactivityAlertDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Days to keep Log.
@@ -182,32 +164,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_KeepLogDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
-    }
-
-    /** Set Name.
-     @param Name
-     Alphanumeric identifier of the entity
-     */
-    public void setName (String Name)
-    {
-        set_Value (COLUMNNAME_Name, Name);
-    }
-
-    /** Get Name.
-     @return Alphanumeric identifier of the entity
-     */
-    public String getName ()
-    {
-        return (String)get_Value(COLUMNNAME_Name);
-    }
-
-    /** Get Record ID/ColumnName
-     @return ID/ColumnName pair
-     */
-    public KeyNamePair getKeyNamePair()
-    {
-        return new KeyNamePair(get_ID(), getName());
+        return ii;
     }
 
     /** Set Alert after Days Due.
@@ -227,7 +184,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_OverdueAlertDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Escalate after Days Due.
@@ -247,7 +204,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_OverdueAssignDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Process Now.
@@ -288,7 +245,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_RemindDays);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Request Processor.
@@ -311,7 +268,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestProcessor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set R_RequestProcessor_UU.
@@ -353,7 +310,7 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_R_RequestType_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_AD_User getSupervisor() throws RuntimeException
@@ -381,6 +338,6 @@ public class X_R_RequestProcessor extends PO implements I_R_RequestProcessor, I_
         Integer ii = (Integer)get_Value(COLUMNNAME_Supervisor_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 }

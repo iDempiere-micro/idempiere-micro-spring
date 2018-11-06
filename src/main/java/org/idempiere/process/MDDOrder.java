@@ -855,7 +855,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
                         //	Update Storage
                         if (!MStorageOnHand.add(getCtx(), locator_to.getM_Warehouse_ID(), locator_to.getM_Locator_ID(),
                             line.getM_Product_ID(),
-                            line.getM_AttributeSetInstance_ID(),
+                            line.getMAttributeSetInstance_ID(),
                             Env.ZERO,null, get_TrxName()))
                         {
                             throw new AdempiereException();
@@ -863,7 +863,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
 
                         if (!MStorageOnHand.add(getCtx(), locator_from.getM_Warehouse_ID(), locator_from.getM_Locator_ID(),
                             line.getM_Product_ID(),
-                            line.getM_AttributeSetInstanceTo_ID(),
+                            line.getMAttributeSetInstanceTo_ID(),
                             Env.ZERO,null, get_TrxName()))
                         {
                             throw new AdempiereException();

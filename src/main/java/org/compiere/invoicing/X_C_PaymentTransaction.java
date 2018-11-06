@@ -63,7 +63,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -153,7 +153,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account EMail.
@@ -300,7 +300,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BankAccount getC_BankAccount() throws RuntimeException
@@ -328,7 +328,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -356,7 +356,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_BankAccount getC_BP_BankAccount() throws RuntimeException
@@ -384,7 +384,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_BankAccount_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -412,7 +412,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashBook getC_CashBook() throws RuntimeException
@@ -440,7 +440,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_CashBook_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -468,7 +468,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -496,7 +496,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -524,7 +524,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Check No.
@@ -569,7 +569,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Invoice_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Order getC_Order() throws RuntimeException
@@ -597,7 +597,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaymentBatch getC_PaymentBatch() throws RuntimeException
@@ -625,7 +625,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentBatch_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Payment getC_Payment() throws RuntimeException
@@ -653,7 +653,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Payment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException
@@ -681,7 +681,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentProcessor_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Payment Transaction.
@@ -701,7 +701,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentTransaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentTransaction_UU.
@@ -740,7 +740,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_POSTenderType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException
@@ -768,7 +768,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Exp. Month.
@@ -788,7 +788,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpMM);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Exp. Year.
@@ -808,7 +808,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_CreditCardExpYY);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Number.
@@ -1323,7 +1323,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_Ref_PaymentTransaction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Info.
@@ -1551,7 +1551,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1579,7 +1579,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Voice authorization code.

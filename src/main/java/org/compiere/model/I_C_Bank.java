@@ -139,8 +139,8 @@ public interface I_C_Bank
 	  */
 	public boolean isOwnBank();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

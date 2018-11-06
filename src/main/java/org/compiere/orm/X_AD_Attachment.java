@@ -42,7 +42,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Attachment.accessLevel.intValue();
     }
@@ -81,7 +81,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Attachment.COLUMNNAME_AD_Attachment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Attachment_UU.
@@ -123,7 +123,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Attachment.COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Binary Data.
@@ -163,7 +163,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Attachment.COLUMNNAME_Record_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Text Message.

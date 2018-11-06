@@ -1,5 +1,6 @@
 package org.compiere.orm;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_StorageProvider;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -40,7 +41,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -76,7 +77,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_StorageProvider_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_StorageProvider_UU.
@@ -137,7 +138,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
 	  */
 	public void setName (String Name)
 	{
-		set_Value (COLUMNNAME_Name, Name);
+		set_Value (HasName.Companion.getCOLUMNNAME_Name(), Name);
 	}
 
 	/** Get Name.
@@ -145,7 +146,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
 	  */
 	public String getName () 
 	{
-		return (String)get_Value(COLUMNNAME_Name);
+		return (String)get_Value(HasName.Companion.getCOLUMNNAME_Name());
 	}
 
     /** Get Record ID/ColumnName

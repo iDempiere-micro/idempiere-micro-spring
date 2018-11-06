@@ -45,7 +45,7 @@ public class X_M_MovementLineConfirm extends PO implements I_M_MovementLineConfi
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -146,7 +146,7 @@ public class X_M_MovementLineConfirm extends PO implements I_M_MovementLineConfi
         Integer ii = (Integer)get_Value(COLUMNNAME_M_InventoryLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_MovementConfirm getM_MovementConfirm() throws RuntimeException
@@ -174,7 +174,7 @@ public class X_M_MovementLineConfirm extends PO implements I_M_MovementLineConfi
         Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementConfirm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -205,7 +205,7 @@ public class X_M_MovementLineConfirm extends PO implements I_M_MovementLineConfi
         Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementLineConfirm_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_MovementLineConfirm_UU.
@@ -247,7 +247,7 @@ public class X_M_MovementLineConfirm extends PO implements I_M_MovementLineConfi
         Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Processed.

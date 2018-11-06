@@ -922,12 +922,12 @@ public final class Env
 	{
 		/**
 		if (isBaseTranslation(tableName))
-			return Language.isBaseLanguage (getAD_Language(ctx));
+			return Language.isBaseLanguage (getADLanguage(ctx));
 		else	//	No AD Table
 			if (!isMultiLingualDocument(ctx))
 				return true;		//	access base table
 		**/
-		return Language.isBaseLanguage (getAD_Language(ctx));
+		return Language.isBaseLanguage (getADLanguage(ctx));
 	}	//	isBaseLanguage
 
 	/**
@@ -984,7 +984,7 @@ public final class Env
 	 *  @param ctx context
 	 *	@return AD_Language eg. en_US
 	 */
-	public static String getAD_Language (Properties ctx)
+	public static String getADLanguage (Properties ctx)
 	{
 		if (ctx != null)
 		{
@@ -993,7 +993,7 @@ public final class Env
 				return lang;
 		}
 		return Language.getBaseAD_Language();
-	}	//	getAD_Language
+	}	//	getADLanguage
 
 	/**
 	 *  Get System Language
@@ -1105,7 +1105,7 @@ public final class Env
 			while (rs.next())
 			{
 				String AD_Language = rs.getString(1);
-				if (AD_Language.equals(language.getAD_Language()))
+				if (AD_Language.equals(language.getADLanguage()))
 				{
 					isSystemLanguage = true;
 					break;
@@ -1128,7 +1128,7 @@ public final class Env
 		if (AD_Languages.size() == 0)
 		{
 			log.warning ("NO System Language - Set to Base " + Language.getBaseAD_Language());
-			language.setAD_Language(Language.getBaseAD_Language());
+			language.setADLanguage(Language.getBaseAD_Language());
 			return;
 		}
 
@@ -1137,11 +1137,11 @@ public final class Env
 			String AD_Language = (String)AD_Languages.get(i);	//	en_US
 			String lang = AD_Language.substring(0, 2);			//	en
 			//
-			String langCompare = language.getAD_Language().substring(0, 2);
+			String langCompare = language.getADLanguage().substring(0, 2);
 			if (lang.equals(langCompare))
 			{
 				if (log.isLoggable(Level.INFO)) log.info("Found similar Language " + AD_Language);
-				language.setAD_Language(AD_Language);
+				language.setADLanguage(AD_Language);
 				return;
 			}
 		}
@@ -1151,7 +1151,7 @@ public final class Env
 
 		log.warning ("Not System Language=" + language
 			+ " - Set to Base Language " + Language.getBaseAD_Language());
-		language.setAD_Language(Language.getBaseAD_Language());
+		language.setADLanguage(Language.getBaseAD_Language());
 	}   //  verifyLanguage
 
 	/**************************************************************************

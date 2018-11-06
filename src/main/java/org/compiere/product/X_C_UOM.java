@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_UOM;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_UOM
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
+public class X_C_UOM extends BasePOName implements I_C_UOM, I_Persistent
 {
 
 	/**
@@ -25,15 +24,6 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
     public X_C_UOM (Properties ctx, int C_UOM_ID, String trxName)
     {
       super (ctx, C_UOM_ID, trxName);
-      /** if (C_UOM_ID == 0)
-        {
-			setCostingPrecision (0);
-			setC_UOM_ID (0);
-			setIsDefault (false);
-			setName (null);
-			setStdPrecision (0);
-			setX12DE355 (null);
-        } */
     }
 
     /** Load Constructor */
@@ -45,7 +35,7 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -81,7 +71,7 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_CostingPrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set UOM.
@@ -104,7 +94,7 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_UOM_UU.
@@ -162,31 +152,6 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Standard Precision.
 		@param StdPrecision 
 		Rule for rounding  calculated amounts
@@ -204,7 +169,7 @@ public class X_C_UOM extends PO implements I_C_UOM, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_StdPrecision);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Symbol.

@@ -4,16 +4,14 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Org;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Org
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
+public class X_AD_Org extends BasePONameValue implements I_AD_Org, I_Persistent
 {
 
 	/**
@@ -25,12 +23,6 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
     public X_AD_Org (Properties ctx, int AD_Org_ID, String trxName)
     {
       super (ctx, AD_Org_ID, trxName);
-      /** if (AD_Org_ID == 0)
-        {
-			setIsSummary (false);
-			setName (null);
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -42,7 +34,7 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
     /** AccessLevel
       * @return 7 - System - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -50,15 +42,13 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
+        return POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
     }
 
     public String toString()
     {
-      StringBuffer sb = new StringBuffer ("X_AD_Org[")
-        .append(get_ID()).append("]");
-      return sb.toString();
+        return "X_AD_Org[" +
+            get_ID() + "]";
     }
 
 	/** Set AD_Org_UU.
@@ -75,32 +65,32 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
 		return (String)get_Value(COLUMNNAME_AD_Org_UU);
 	}
 
-	public org.compiere.model.I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException
+	public org.compiere.model.I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException
     {
 		return (org.compiere.model.I_AD_ReplicationStrategy)MTable.get(getCtx(), org.compiere.model.I_AD_ReplicationStrategy.Table_Name)
-			.getPO(getAD_ReplicationStrategy_ID(), get_TrxName());	}
+			.getPO(getADReplicationStrategyID(), get_TrxName());	}
 
 	/** Set Replication Strategy.
 		@param AD_ReplicationStrategy_ID 
 		Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID)
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID)
 	{
 		if (AD_ReplicationStrategy_ID < 1) 
 			set_Value (COLUMNNAME_AD_ReplicationStrategy_ID, null);
 		else 
-			set_Value (COLUMNNAME_AD_ReplicationStrategy_ID, Integer.valueOf(AD_ReplicationStrategy_ID));
+			set_Value (COLUMNNAME_AD_ReplicationStrategy_ID, AD_ReplicationStrategy_ID);
 	}
 
 	/** Get Replication Strategy.
 		@return Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID () 
+	public int getADReplicationStrategyID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_ReplicationStrategy_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Description.
@@ -126,7 +116,7 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
 	  */
 	public void setIsSummary (boolean IsSummary)
 	{
-		set_Value (COLUMNNAME_IsSummary, Boolean.valueOf(IsSummary));
+		set_Value (COLUMNNAME_IsSummary, IsSummary);
 	}
 
 	/** Get Summary Level.
@@ -138,51 +128,10 @@ public class X_AD_Org extends PO implements I_AD_Org, I_Persistent
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
+				 return (Boolean) oo;
 			return "Y".equals(oo);
 		}
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

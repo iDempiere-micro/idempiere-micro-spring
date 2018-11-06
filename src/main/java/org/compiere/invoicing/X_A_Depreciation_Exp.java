@@ -61,7 +61,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -99,7 +99,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Account_Number_Acct);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Accumulated Depreciation.
@@ -192,7 +192,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Addition_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Asset Cost.
@@ -251,7 +251,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_Disposed_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_A_Asset getA_Asset() throws RuntimeException
@@ -279,7 +279,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Asset_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Remaining Amt.
@@ -338,7 +338,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Entry_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set A_Depreciation_Exp_ID.
@@ -358,7 +358,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Depreciation_Exp_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -426,7 +426,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_A_Period);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public I_C_ValidCombination getCR_Account() throws RuntimeException
@@ -454,7 +454,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_CR_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -516,7 +516,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_DR_Account_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Expense.
@@ -686,7 +686,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Use Life - Months (fiscal).
@@ -703,6 +703,6 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_UseLifeMonths_F);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

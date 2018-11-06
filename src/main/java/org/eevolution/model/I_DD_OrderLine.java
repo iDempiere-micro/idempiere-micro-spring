@@ -335,9 +335,9 @@ public interface I_DD_OrderLine
 	/** Get Attribute Set Instance.
 	  * Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID();
+	public int getMAttributeSetInstance_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
     /** Column name M_AttributeSetInstanceTo_ID */
     public static final String COLUMNNAME_M_AttributeSetInstanceTo_ID = "M_AttributeSetInstanceTo_ID";
@@ -350,9 +350,9 @@ public interface I_DD_OrderLine
 	/** Get Attribute Set Instance To.
 	  * Target Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstanceTo_ID();
+	public int getMAttributeSetInstanceTo_ID();
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstanceTo() throws RuntimeException;
+	public I_M_AttributeSetInstance getMAttributeSetInstanceTo() throws RuntimeException;
 
     /** Column name M_Locator_ID */
     public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";

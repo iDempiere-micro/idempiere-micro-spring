@@ -3,10 +3,30 @@ type User {
     _ID: ID!
 }
 
+type Category {
+    Name: String!
+    _ID: ID!
+}
+
+type Country {
+    Name: String!
+    _ID: ID!
+}
+
+type Version {
+   v: String!
+}
+
 type Query {
     # The API Version
-    version: String!
+    version: Version!
     # The currently logged user
     me: User!
+    # All the system users
+    users: [User]!
+    # All the crm categories
+    categories: [Category]!
+    # All countries
+    countries: [Country]!
 }
 

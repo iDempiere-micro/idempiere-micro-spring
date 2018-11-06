@@ -51,7 +51,7 @@ public class X_C_OrderPaySchedule extends PO implements I_C_OrderPaySchedule, I_
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -95,7 +95,7 @@ public class X_C_OrderPaySchedule extends PO implements I_C_OrderPaySchedule, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Order Payment Schedule.
@@ -115,7 +115,7 @@ public class X_C_OrderPaySchedule extends PO implements I_C_OrderPaySchedule, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_OrderPaySchedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OrderPaySchedule_UU.
@@ -157,7 +157,7 @@ public class X_C_OrderPaySchedule extends PO implements I_C_OrderPaySchedule, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaySchedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Amount.

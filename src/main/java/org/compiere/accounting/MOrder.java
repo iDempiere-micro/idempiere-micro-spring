@@ -562,7 +562,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
 
         //	Mandatory Product Attribute Set Instance
         for (MOrderLine line : getLines()) {
-            if (line.getM_Product_ID() > 0 && line.getM_AttributeSetInstance_ID() == 0) {
+            if (line.getM_Product_ID() > 0 && line.getMAttributeSetInstance_ID() == 0) {
                 MProduct product = line.getProduct();
                 if (product.isASIMandatory(isSOTrx())) {
                     if(product.getAttributeSet()==null){
@@ -752,7 +752,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                     //	Update Reservation Storage
                     if (!MStorageReservation.add(getCtx(), line.getM_Warehouse_ID(),
                         line.getM_Product_ID(),
-                        line.getM_AttributeSetInstance_ID(),
+                        line.getMAttributeSetInstance_ID(),
                         difference, isSOTrx, get_TrxName()))
                         return false;
                 }	//	stocked
@@ -1091,7 +1091,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             BigDecimal MovementQty = oLine.getQtyOrdered().subtract(oLine.getQtyDelivered());
             //	Location
             int M_Locator_ID = MStorageOnHand.getM_Locator_ID (oLine.getM_Warehouse_ID(),
-                oLine.getM_Product_ID(), oLine.getM_AttributeSetInstance_ID(),
+                oLine.getM_Product_ID(), oLine.getMAttributeSetInstance_ID(),
                 MovementQty, get_TrxName());
             if (M_Locator_ID == 0)		//	Get default Location
             {
@@ -1633,7 +1633,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             if (mPO.length == 0)
             {
                 MCostDetail cd = MCostDetail.get(getCtx(), "C_OrderLine_ID=?",
-                    line.getC_OrderLine_ID(), line.getM_AttributeSetInstance_ID(),
+                    line.getC_OrderLine_ID(), line.getMAttributeSetInstance_ID(),
                     as.getC_AcctSchema_ID(), get_TrxName());
                 if (cd !=  null)
                 {

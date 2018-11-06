@@ -73,13 +73,13 @@ public class MMovementLine extends X_M_MovementLine
      *	@return ASI
      */
     @Override
-    public int getM_AttributeSetInstanceTo_ID ()
+    public int getMAttributeSetInstanceTo_ID ()
     {
-        int M_AttributeSetInstanceTo_ID = super.getM_AttributeSetInstanceTo_ID();
+        int M_AttributeSetInstanceTo_ID = super.getMAttributeSetInstanceTo_ID();
         if (M_AttributeSetInstanceTo_ID == 0 && (getM_Locator_ID() == getM_LocatorTo_ID()))
-            M_AttributeSetInstanceTo_ID = super.getM_AttributeSetInstance_ID();
+            M_AttributeSetInstanceTo_ID = super.getMAttributeSetInstance_ID();
         return M_AttributeSetInstanceTo_ID;
-    }	//	getM_AttributeSetInstanceTo_ID
+    }	//	getMAttributeSetInstanceTo_ID
 
     /**
      * 	Add to Description
@@ -160,7 +160,7 @@ public class MMovementLine extends X_M_MovementLine
         }
 
         //either movement between locator or movement between lot
-        if (getM_Locator_ID() == getM_LocatorTo_ID() && getM_AttributeSetInstance_ID() == getM_AttributeSetInstanceTo_ID())
+        if (getM_Locator_ID() == getM_LocatorTo_ID() && getMAttributeSetInstance_ID() == getMAttributeSetInstanceTo_ID())
         {
             log.saveError("Error", Msg.parseTranslation(getCtx(), "@M_Locator_ID@ == @M_LocatorTo_ID@ and @M_AttributeSetInstance_ID@ == @M_AttributeSetInstanceTo_ID@"));
             return false;
@@ -192,7 +192,7 @@ public class MMovementLine extends X_M_MovementLine
         //      Mandatory Instance
 		/* IDEMPIERE-1770 - ASI validation must be moved to MMovement.prepareIt, saving a line without ASI is ok on draft
 		MProduct product = getProduct();
-		if (getM_AttributeSetInstance_ID() == 0) {
+		if (getMAttributeSetInstance_ID() == 0) {
 			if (product != null && product.isASIMandatory(true)) {
 				if (product.getAttributeSet()==null) {
 					log.saveError("NoAttributeSet", product.getValue());
@@ -205,17 +205,17 @@ public class MMovementLine extends X_M_MovementLine
 			}
 		}
 		*/
-        if (getM_AttributeSetInstanceTo_ID() == 0)
+        if (getMAttributeSetInstanceTo_ID() == 0)
         {
             //instance id default to same for movement between locator
             if (getM_Locator_ID() != getM_LocatorTo_ID())
             {
-                if (getM_AttributeSetInstance_ID() != 0)        //set to from
-                    setM_AttributeSetInstanceTo_ID(getM_AttributeSetInstance_ID());
+                if (getMAttributeSetInstance_ID() != 0)        //set to from
+                    setM_AttributeSetInstanceTo_ID(getMAttributeSetInstance_ID());
             }
 
 			/* IDEMPIERE-1770 - ASI validation must be moved to MMovement.prepareIt, saving a line without ASI is ok on draft
-			if (product != null && product.isASIMandatory(false) && getM_AttributeSetInstanceTo_ID() == 0)
+			if (product != null && product.isASIMandatory(false) && getMAttributeSetInstanceTo_ID() == 0)
 			{
 				if (product.getAttributeSet()==null) {
 					log.saveError("NoAttributeSet", product.getValue());
@@ -256,8 +256,8 @@ public class MMovementLine extends X_M_MovementLine
         else
         {
             setM_Product_ID(oLine.getM_Product_ID());
-            setM_AttributeSetInstance_ID(oLine.getM_AttributeSetInstance_ID());
-            setM_AttributeSetInstanceTo_ID(oLine.getM_AttributeSetInstanceTo_ID());
+            setM_AttributeSetInstance_ID(oLine.getMAttributeSetInstance_ID());
+            setM_AttributeSetInstanceTo_ID(oLine.getMAttributeSetInstanceTo_ID());
             //
             if (product.isItem())
             {
@@ -341,8 +341,8 @@ public class MMovementLine extends X_M_MovementLine
     {
         return Table_Name + "[" + get_ID()
             + ", M_Product_ID=" + getM_Product_ID()
-            + ", M_ASI_ID=" + getM_AttributeSetInstance_ID()
-            + ", M_ASITo_ID=" + getM_AttributeSetInstanceTo_ID()
+            + ", M_ASI_ID=" + getMAttributeSetInstance_ID()
+            + ", M_ASITo_ID=" + getMAttributeSetInstanceTo_ID()
             + ", M_Locator_ID=" + getM_Locator_ID()
             + ", M_LocatorTo_ID=" + getM_LocatorTo_ID()
             + "]"

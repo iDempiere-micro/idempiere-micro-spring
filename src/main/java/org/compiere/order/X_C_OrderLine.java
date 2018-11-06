@@ -77,7 +77,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_C_OrderLine.accessLevel.intValue();
     }
@@ -116,7 +116,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException
@@ -144,7 +144,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException
@@ -172,7 +172,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BPartner_Location getC_BPartner_Location() throws RuntimeException
@@ -200,7 +200,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_BPartner_Location_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -228,7 +228,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException
@@ -256,7 +256,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Currency getC_Currency() throws RuntimeException
@@ -284,7 +284,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Currency_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Order getC_Order() throws RuntimeException
@@ -312,7 +312,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Order_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -343,7 +343,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_OrderLine_UU.
@@ -385,7 +385,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectPhase getC_ProjectPhase() throws RuntimeException
@@ -413,7 +413,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_ProjectPhase_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ProjectTask getC_ProjectTask() throws RuntimeException
@@ -441,7 +441,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_ProjectTask_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Create Production.
@@ -497,7 +497,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_Tax_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -525,7 +525,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_C_UOM_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Date Delivered.
@@ -694,7 +694,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Line Amount.
@@ -742,13 +742,13 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_Link_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -765,12 +765,12 @@ public class X_C_OrderLine extends PO implements I_Persistent
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -798,7 +798,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Promotion getM_Promotion() throws RuntimeException
@@ -823,7 +823,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_M_Promotion_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Shipper getM_Shipper() throws RuntimeException
@@ -851,7 +851,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException
@@ -879,7 +879,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_M_Warehouse_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.eevolution.model.I_PP_Cost_Collector getPP_Cost_Collector() throws RuntimeException
@@ -904,7 +904,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_PP_Cost_Collector_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Unit Price.
@@ -1176,7 +1176,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_Ref_OrderLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Revenue Recognition Amt.
@@ -1236,7 +1236,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_S_ResourceAssignment_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser1() throws RuntimeException
@@ -1264,7 +1264,7 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -1292,6 +1292,6 @@ public class X_C_OrderLine extends PO implements I_Persistent
 		Integer ii = (Integer)get_Value(I_C_OrderLine.COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

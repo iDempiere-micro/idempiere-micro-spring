@@ -365,8 +365,8 @@ public interface I_CM_Container
 	  */
 	public String getMeta_RobotsTag();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

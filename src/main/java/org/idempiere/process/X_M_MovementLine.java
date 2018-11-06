@@ -53,7 +53,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
     /** AccessLevel
      * @return 1 - Org
      */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
         return accessLevel.intValue();
     }
@@ -114,7 +114,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_DD_OrderLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Description.
@@ -151,7 +151,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_Line);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Get Record ID/ColumnName
@@ -162,10 +162,10 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         return new KeyNamePair(get_ID(), String.valueOf(getLine()));
     }
 
-    public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+    public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
         return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-            .getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+            .getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
     /** Set Attribute Set Instance.
      @param M_AttributeSetInstance_ID
@@ -182,18 +182,18 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
     /** Get Attribute Set Instance.
      @return Product Attribute Set Instance
      */
-    public int getM_AttributeSetInstance_ID ()
+    public int getMAttributeSetInstance_ID ()
     {
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
-    public I_M_AttributeSetInstance getM_AttributeSetInstanceTo() throws RuntimeException
+    public I_M_AttributeSetInstance getMAttributeSetInstanceTo() throws RuntimeException
     {
         return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-            .getPO(getM_AttributeSetInstanceTo_ID(), get_TrxName());	}
+            .getPO(getMAttributeSetInstanceTo_ID(), get_TrxName());	}
 
     /** Set Attribute Set Instance To.
      @param M_AttributeSetInstanceTo_ID
@@ -210,12 +210,12 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
     /** Get Attribute Set Instance To.
      @return Target Product Attribute Set Instance
      */
-    public int getM_AttributeSetInstanceTo_ID ()
+    public int getMAttributeSetInstanceTo_ID ()
     {
         Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstanceTo_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_M_Locator getM_Locator() throws RuntimeException
@@ -243,7 +243,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public I_M_Locator getM_LocatorTo() throws RuntimeException
@@ -271,7 +271,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_LocatorTo_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     public org.compiere.model.I_M_Movement getM_Movement() throws RuntimeException
@@ -299,7 +299,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Movement_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Move Line.
@@ -322,7 +322,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_MovementLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set M_MovementLine_UU.
@@ -384,7 +384,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Processed.
@@ -436,7 +436,7 @@ public class X_M_MovementLine extends PO implements I_M_MovementLine, I_Persiste
         Integer ii = (Integer)get_Value(COLUMNNAME_ReversalLine_ID);
         if (ii == null)
             return 0;
-        return ii.intValue();
+        return ii;
     }
 
     /** Set Scrapped Quantity.

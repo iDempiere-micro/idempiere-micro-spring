@@ -106,8 +106,8 @@ public interface I_M_PromotionGroup
 	/** Get M_PromotionGroup_UU	  */
 	public String getM_PromotionGroup_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

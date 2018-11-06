@@ -5,17 +5,16 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_C_PaymentTerm;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePONameValue;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_PaymentTerm
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
+public class X_C_PaymentTerm extends BasePONameValue implements I_Persistent
 {
 
 	/**
@@ -27,23 +26,6 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
     public X_C_PaymentTerm (Properties ctx, int C_PaymentTerm_ID, String trxName)
     {
       super (ctx, C_PaymentTerm_ID, trxName);
-      /** if (C_PaymentTerm_ID == 0)
-        {
-			setAfterDelivery (false);
-			setC_PaymentTerm_ID (0);
-			setDiscount (Env.ZERO);
-			setDiscount2 (Env.ZERO);
-			setDiscountDays (0);
-			setDiscountDays2 (0);
-			setGraceDays (0);
-			setIsDueFixed (false);
-			setIsValid (false);
-			setName (null);
-			setNetDays (0);
-			setPaymentTermUsage (null);
-// B
-			setValue (null);
-        } */
     }
 
     /** Load Constructor */
@@ -55,15 +37,15 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
-      return accessLevel.intValue();
+      return I_C_PaymentTerm.accessLevel.intValue();
     }
 
     /** Load Meta Data */
     protected POInfo initPO (Properties ctx)
     {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
+      POInfo poi = POInfo.getPOInfo (ctx, I_C_PaymentTerm.Table_ID, get_TrxName());
       return poi;
     }
 
@@ -80,7 +62,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setAfterDelivery (boolean AfterDelivery)
 	{
-		set_Value (COLUMNNAME_AfterDelivery, Boolean.valueOf(AfterDelivery));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_AfterDelivery, Boolean.valueOf(AfterDelivery));
 	}
 
 	/** Get After Delivery.
@@ -88,7 +70,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public boolean isAfterDelivery () 
 	{
-		Object oo = get_Value(COLUMNNAME_AfterDelivery);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_AfterDelivery);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -105,9 +87,9 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	public void setC_PaymentTerm_ID (int C_PaymentTerm_ID)
 	{
 		if (C_PaymentTerm_ID < 1) 
-			set_ValueNoCheck (COLUMNNAME_C_PaymentTerm_ID, null);
+			set_ValueNoCheck (I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_ID, null);
 		else 
-			set_ValueNoCheck (COLUMNNAME_C_PaymentTerm_ID, Integer.valueOf(C_PaymentTerm_ID));
+			set_ValueNoCheck (I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_ID, Integer.valueOf(C_PaymentTerm_ID));
 	}
 
 	/** Get Payment Term.
@@ -115,24 +97,24 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getC_PaymentTerm_ID () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_C_PaymentTerm_ID);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_PaymentTerm_UU.
 		@param C_PaymentTerm_UU C_PaymentTerm_UU	  */
 	public void setC_PaymentTerm_UU (String C_PaymentTerm_UU)
 	{
-		set_Value (COLUMNNAME_C_PaymentTerm_UU, C_PaymentTerm_UU);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_UU, C_PaymentTerm_UU);
 	}
 
 	/** Get C_PaymentTerm_UU.
 		@return C_PaymentTerm_UU	  */
 	public String getC_PaymentTerm_UU () 
 	{
-		return (String)get_Value(COLUMNNAME_C_PaymentTerm_UU);
+		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_C_PaymentTerm_UU);
 	}
 
 	/** Set Description.
@@ -141,7 +123,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDescription (String Description)
 	{
-		set_Value (COLUMNNAME_Description, Description);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_Description, Description);
 	}
 
 	/** Get Description.
@@ -149,7 +131,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public String getDescription () 
 	{
-		return (String)get_Value(COLUMNNAME_Description);
+		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_Description);
 	}
 
 	/** Set Discount %.
@@ -158,7 +140,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDiscount (BigDecimal Discount)
 	{
-		set_Value (COLUMNNAME_Discount, Discount);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_Discount, Discount);
 	}
 
 	/** Get Discount %.
@@ -166,7 +148,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public BigDecimal getDiscount () 
 	{
-		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_Discount);
+		BigDecimal bd = (BigDecimal)get_Value(I_C_PaymentTerm.COLUMNNAME_Discount);
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
@@ -178,7 +160,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDiscount2 (BigDecimal Discount2)
 	{
-		set_Value (COLUMNNAME_Discount2, Discount2);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_Discount2, Discount2);
 	}
 
 	/** Get Discount 2 %.
@@ -186,7 +168,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public BigDecimal getDiscount2 () 
 	{
-		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_Discount2);
+		BigDecimal bd = (BigDecimal)get_Value(I_C_PaymentTerm.COLUMNNAME_Discount2);
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
@@ -198,7 +180,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDiscountDays (int DiscountDays)
 	{
-		set_Value (COLUMNNAME_DiscountDays, Integer.valueOf(DiscountDays));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_DiscountDays, Integer.valueOf(DiscountDays));
 	}
 
 	/** Get Discount Days.
@@ -206,10 +188,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getDiscountDays () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_DiscountDays);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_DiscountDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Days 2.
@@ -218,7 +200,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDiscountDays2 (int DiscountDays2)
 	{
-		set_Value (COLUMNNAME_DiscountDays2, Integer.valueOf(DiscountDays2));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_DiscountDays2, Integer.valueOf(DiscountDays2));
 	}
 
 	/** Get Discount Days 2.
@@ -226,10 +208,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getDiscountDays2 () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_DiscountDays2);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_DiscountDays2);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Document Note.
@@ -238,7 +220,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setDocumentNote (String DocumentNote)
 	{
-		set_Value (COLUMNNAME_DocumentNote, DocumentNote);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_DocumentNote, DocumentNote);
 	}
 
 	/** Get Document Note.
@@ -246,7 +228,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public String getDocumentNote () 
 	{
-		return (String)get_Value(COLUMNNAME_DocumentNote);
+		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_DocumentNote);
 	}
 
 	/** Set Fix month cutoff.
@@ -255,7 +237,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setFixMonthCutoff (int FixMonthCutoff)
 	{
-		set_Value (COLUMNNAME_FixMonthCutoff, Integer.valueOf(FixMonthCutoff));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_FixMonthCutoff, Integer.valueOf(FixMonthCutoff));
 	}
 
 	/** Get Fix month cutoff.
@@ -263,10 +245,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getFixMonthCutoff () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_FixMonthCutoff);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthCutoff);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Fix month day.
@@ -275,7 +257,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setFixMonthDay (int FixMonthDay)
 	{
-		set_Value (COLUMNNAME_FixMonthDay, Integer.valueOf(FixMonthDay));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_FixMonthDay, Integer.valueOf(FixMonthDay));
 	}
 
 	/** Get Fix month day.
@@ -283,10 +265,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getFixMonthDay () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_FixMonthDay);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthDay);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Fix month offset.
@@ -295,7 +277,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setFixMonthOffset (int FixMonthOffset)
 	{
-		set_Value (COLUMNNAME_FixMonthOffset, Integer.valueOf(FixMonthOffset));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_FixMonthOffset, Integer.valueOf(FixMonthOffset));
 	}
 
 	/** Get Fix month offset.
@@ -303,10 +285,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getFixMonthOffset () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_FixMonthOffset);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_FixMonthOffset);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Grace Days.
@@ -315,7 +297,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setGraceDays (int GraceDays)
 	{
-		set_Value (COLUMNNAME_GraceDays, Integer.valueOf(GraceDays));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_GraceDays, Integer.valueOf(GraceDays));
 	}
 
 	/** Get Grace Days.
@@ -323,10 +305,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getGraceDays () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_GraceDays);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_GraceDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Default.
@@ -335,7 +317,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setIsDefault (boolean IsDefault)
 	{
-		set_Value (COLUMNNAME_IsDefault, Boolean.valueOf(IsDefault));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_IsDefault, Boolean.valueOf(IsDefault));
 	}
 
 	/** Get Default.
@@ -343,7 +325,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public boolean isDefault () 
 	{
-		Object oo = get_Value(COLUMNNAME_IsDefault);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_IsDefault);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -359,7 +341,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setIsDueFixed (boolean IsDueFixed)
 	{
-		set_Value (COLUMNNAME_IsDueFixed, Boolean.valueOf(IsDueFixed));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_IsDueFixed, Boolean.valueOf(IsDueFixed));
 	}
 
 	/** Get Fixed due date.
@@ -367,7 +349,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public boolean isDueFixed () 
 	{
-		Object oo = get_Value(COLUMNNAME_IsDueFixed);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_IsDueFixed);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -383,7 +365,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setIsNextBusinessDay (boolean IsNextBusinessDay)
 	{
-		set_Value (COLUMNNAME_IsNextBusinessDay, Boolean.valueOf(IsNextBusinessDay));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_IsNextBusinessDay, Boolean.valueOf(IsNextBusinessDay));
 	}
 
 	/** Get Next Business Day.
@@ -391,7 +373,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public boolean isNextBusinessDay () 
 	{
-		Object oo = get_Value(COLUMNNAME_IsNextBusinessDay);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_IsNextBusinessDay);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -407,7 +389,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setIsValid (boolean IsValid)
 	{
-		set_Value (COLUMNNAME_IsValid, Boolean.valueOf(IsValid));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_IsValid, Boolean.valueOf(IsValid));
 	}
 
 	/** Get Valid.
@@ -415,7 +397,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public boolean isValid () 
 	{
-		Object oo = get_Value(COLUMNNAME_IsValid);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_IsValid);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -424,31 +406,6 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 		}
 		return false;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** NetDay AD_Reference_ID=167 */
 	public static final int NETDAY_AD_Reference_ID=167;
@@ -473,7 +430,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	public void setNetDay (String NetDay)
 	{
 
-		set_Value (COLUMNNAME_NetDay, NetDay);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_NetDay, NetDay);
 	}
 
 	/** Get Net Day.
@@ -481,7 +438,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public String getNetDay () 
 	{
-		return (String)get_Value(COLUMNNAME_NetDay);
+		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_NetDay);
 	}
 
 	/** Set Net Days.
@@ -490,7 +447,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public void setNetDays (int NetDays)
 	{
-		set_Value (COLUMNNAME_NetDays, Integer.valueOf(NetDays));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_NetDays, Integer.valueOf(NetDays));
 	}
 
 	/** Get Net Days.
@@ -498,10 +455,10 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public int getNetDays () 
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_NetDays);
+		Integer ii = (Integer)get_Value(I_C_PaymentTerm.COLUMNNAME_NetDays);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** PaymentTermUsage AD_Reference_ID=53382 */
@@ -519,7 +476,7 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	public void setPaymentTermUsage (String PaymentTermUsage)
 	{
 
-		set_Value (COLUMNNAME_PaymentTermUsage, PaymentTermUsage);
+		set_Value (I_C_PaymentTerm.COLUMNNAME_PaymentTermUsage, PaymentTermUsage);
 	}
 
 	/** Get Payment Term Usage.
@@ -527,21 +484,21 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 	  */
 	public String getPaymentTermUsage () 
 	{
-		return (String)get_Value(COLUMNNAME_PaymentTermUsage);
+		return (String)get_Value(I_C_PaymentTerm.COLUMNNAME_PaymentTermUsage);
 	}
 
 	/** Set Process Now.
 		@param Processing Process Now	  */
 	public void setProcessing (boolean Processing)
 	{
-		set_Value (COLUMNNAME_Processing, Boolean.valueOf(Processing));
+		set_Value (I_C_PaymentTerm.COLUMNNAME_Processing, Boolean.valueOf(Processing));
 	}
 
 	/** Get Process Now.
 		@return Process Now	  */
 	public boolean isProcessing () 
 	{
-		Object oo = get_Value(COLUMNNAME_Processing);
+		Object oo = get_Value(I_C_PaymentTerm.COLUMNNAME_Processing);
 		if (oo != null) 
 		{
 			 if (oo instanceof Boolean) 
@@ -551,20 +508,4 @@ public class X_C_PaymentTerm extends PO implements I_C_PaymentTerm, I_Persistent
 		return false;
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(COLUMNNAME_Value);
-	}
 }

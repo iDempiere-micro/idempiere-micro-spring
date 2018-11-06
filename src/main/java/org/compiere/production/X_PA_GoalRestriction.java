@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_PA_GoalRestriction;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
@@ -14,7 +15,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for PA_GoalRestriction
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_Persistent
+public class X_PA_GoalRestriction extends BasePOName implements I_PA_GoalRestriction, I_Persistent
 {
 
 	/**
@@ -26,13 +27,6 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
     public X_PA_GoalRestriction (Properties ctx, int PA_GoalRestriction_ID, String trxName)
     {
       super (ctx, PA_GoalRestriction_ID, trxName);
-      /** if (PA_GoalRestriction_ID == 0)
-        {
-			setGoalRestrictionType (null);
-			setName (null);
-			setPA_Goal_ID (0);
-			setPA_GoalRestriction_ID (0);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +38,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -88,7 +82,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_BP_Group getC_BP_Group() throws RuntimeException
@@ -116,7 +110,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BP_Group_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** GoalRestrictionType AD_Reference_ID=368 */
@@ -174,7 +168,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -202,33 +196,8 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Organization.
 		@param Org_ID 
@@ -250,7 +219,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_Org_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_Goal getPA_Goal() throws RuntimeException
@@ -278,7 +247,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Goal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Goal Restriction.
@@ -301,7 +270,7 @@ public class X_PA_GoalRestriction extends PO implements I_PA_GoalRestriction, I_
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_GoalRestriction_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_GoalRestriction_UU.

@@ -164,8 +164,8 @@ public interface I_CM_BroadcastServer
 	  */
 	public Timestamp getLastSynchronized();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

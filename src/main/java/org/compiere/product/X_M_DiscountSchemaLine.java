@@ -74,7 +74,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -118,7 +118,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_BPartner_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ConversionType getC_ConversionType() throws RuntimeException
@@ -146,7 +146,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_ConversionType_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Classification.
@@ -568,7 +568,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Discount Pricelist.
@@ -591,7 +591,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_DiscountSchemaLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_DiscountSchemaLine_UU.
@@ -633,7 +633,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_Category_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -661,7 +661,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Sequence.
@@ -681,7 +681,7 @@ public class X_M_DiscountSchemaLine extends PO implements I_M_DiscountSchemaLine
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName

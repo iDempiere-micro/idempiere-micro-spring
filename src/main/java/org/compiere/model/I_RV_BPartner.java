@@ -8,7 +8,7 @@ import org.idempiere.common.util.KeyNamePair;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_RV_BPartner 
+public interface I_RV_BPartner extends HasName, HasName2
 {
 
     /** TableName=RV_BPartner */
@@ -117,12 +117,12 @@ public interface I_RV_BPartner
 	/** Set Language.
 	  * Language for this entity
 	  */
-	public void setAD_Language (String AD_Language);
+	public void setADLanguage (String AD_Language);
 
 	/** Get Language.
 	  * Language for this entity
 	  */
-	public String getAD_Language();
+	public String getADLanguage();
 
     /** Column name AD_OrgBP_ID */
     public static final String COLUMNNAME_AD_OrgBP_ID = "AD_OrgBP_ID";
@@ -1335,32 +1335,6 @@ public interface I_RV_BPartner
 	  * Standard Industry Code or its successor NAIC - http://www.osha.gov/oshstats/sicser.html
 	  */
 	public String getNAICS();
-
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
-
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
-
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
-
-    /** Column name Name2 */
-    public static final String COLUMNNAME_Name2 = "Name2";
-
-	/** Set Name 2.
-	  * Additional Name
-	  */
-	public void setName2 (String Name2);
-
-	/** Get Name 2.
-	  * Additional Name
-	  */
-	public String getName2();
 
     /** Column name NotificationType */
     public static final String COLUMNNAME_NotificationType = "NotificationType";

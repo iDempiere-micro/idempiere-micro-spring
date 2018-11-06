@@ -138,7 +138,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	public void setMAttributeSet (MAttributeSet mas)
 	{
 		m_mas = mas;
-		setM_AttributeSet_ID(mas.getM_AttributeSet_ID());
+		setM_AttributeSet_ID(mas.getMAttributeSet_ID());
 	}	//	setAttributeSet
 
 	/**
@@ -147,8 +147,8 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	 */
 	public MAttributeSet getMAttributeSet()
 	{
-		if (m_mas == null && getM_AttributeSet_ID() != 0)
-			m_mas = new MAttributeSet (getCtx(), getM_AttributeSet_ID(), get_TrxName());
+		if (m_mas == null && getMAttributeSet_ID() != 0)
+			m_mas = new MAttributeSet (getCtx(), getMAttributeSet_ID(), get_TrxName());
 		return m_mas;
 	}	//	getMAttributeSet
 
@@ -176,7 +176,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 		MAttribute[] attributes = m_mas.getMAttributes(true);
 		for (int i = 0; i < attributes.length; i++)
 		{
-			MAttributeInstance mai = attributes[i].getMAttributeInstance(getM_AttributeSetInstance_ID());
+			MAttributeInstance mai = attributes[i].getMAttributeInstance(getMAttributeSetInstance_ID());
 			if (mai != null && mai.getValue() != null)
 			{
 				if (sb.length() > 0)
@@ -210,7 +210,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 		attributes = m_mas.getMAttributes(false);
 		for (int i = 0; i < attributes.length; i++)
 		{
-			MAttributeInstance mai = attributes[i].getMAttributeInstance(getM_AttributeSetInstance_ID());
+			MAttributeInstance mai = attributes[i].getMAttributeInstance(getMAttributeSetInstance_ID());
 			if (mai != null)
 			{
 				if (sb.length() > 0)
@@ -349,10 +349,10 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 				String desc = this.getDescription();
 				if (desc == null || desc.trim().length() == 0)
 				{
-					this.set_ValueNoCheck("Description", Integer.toString(getM_AttributeSetInstance_ID()));
+					this.set_ValueNoCheck("Description", Integer.toString(getMAttributeSetInstance_ID()));
 					String sql = "UPDATE M_AttributeSetInstance SET Description = ? WHERE M_AttributeSetInstance_ID = ?";
 					int no = DB.executeUpdateEx(sql, 
-							new Object[]{Integer.toString(getM_AttributeSetInstance_ID()), getM_AttributeSetInstance_ID()}, 
+							new Object[]{Integer.toString(getMAttributeSetInstance_ID()), getMAttributeSetInstance_ID()}, 
 							get_TrxName());
 					if (no <= 0)
 					{
@@ -379,9 +379,9 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	{
 		MAttributeSetInstance asi = new MAttributeSetInstance(ctx, 0, trxName);
 		asi.setClientOrg(product.getAD_Client_ID(), 0);
-		asi.setM_AttributeSet_ID(product.getM_AttributeSet_ID());
+		asi.setM_AttributeSet_ID(product.getMAttributeSet_ID());
 		// Create new Lot, Serial# and Guarantee Date
-		if (asi.getM_AttributeSet_ID() > 0)
+		if (asi.getMAttributeSet_ID() > 0)
 		{
 			asi.getLot(true, product.get_ID());
 			asi.getSerNo(true);
@@ -404,9 +404,9 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	{
 		MAttributeSetInstance asi = new MAttributeSetInstance(ctx, 0, trxName);
 		asi.setClientOrg(product.getAD_Client_ID(), 0);
-		asi.setM_AttributeSet_ID(product.getM_AttributeSet_ID());
+		asi.setM_AttributeSet_ID(product.getMAttributeSet_ID());
 		// Create new Lot
-		if (asi.getM_AttributeSet_ID() > 0)
+		if (asi.getMAttributeSet_ID() > 0)
 		{
 			asi.getLot(true, product.get_ID());
 		}

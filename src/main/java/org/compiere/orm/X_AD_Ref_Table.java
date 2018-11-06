@@ -46,7 +46,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -87,7 +87,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Display);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_InfoWindow getAD_InfoWindow() throws RuntimeException
@@ -115,7 +115,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_InfoWindow_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Column getAD_() throws RuntimeException
@@ -140,7 +140,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Key);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Reference getAD_Reference() throws RuntimeException
@@ -168,7 +168,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Reference_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -218,7 +218,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException
@@ -246,7 +246,7 @@ public class X_AD_Ref_Table extends PO implements I_AD_Ref_Table, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Window_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** EntityType AD_Reference_ID=389 */

@@ -1,8 +1,8 @@
 package org.compiere.order;
 
 import org.compiere.model.I_M_ShipperPickupTypes;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -13,7 +13,7 @@ import java.util.Properties;
 /** Generated Model for M_ShipperPickupTypes
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes, I_Persistent
+public class X_M_ShipperPickupTypes extends BasePOName implements I_M_ShipperPickupTypes, I_Persistent
 {
 
 	/**
@@ -25,15 +25,6 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
     public X_M_ShipperPickupTypes (Properties ctx, int M_ShipperPickupTypes_ID, String trxName)
     {
       super (ctx, M_ShipperPickupTypes_ID, trxName);
-      /** if (M_ShipperPickupTypes_ID == 0)
-        {
-			setIsDefault (false);
-// N
-			setM_Shipper_ID (0);
-			setM_ShipperPickupTypesCfg_ID (0);
-			setM_ShipperPickupTypes_ID (0);
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -45,7 +36,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -113,7 +104,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Shipper_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_ShipperPickupTypesCfg getM_ShipperPickupTypesCfg() throws RuntimeException
@@ -138,7 +129,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPickupTypesCfg_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Shipper Pickup Types.
@@ -158,7 +149,7 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_ShipperPickupTypes_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_ShipperPickupTypes_UU.
@@ -173,22 +164,5 @@ public class X_M_ShipperPickupTypes extends PO implements I_M_ShipperPickupTypes
 	public String getM_ShipperPickupTypes_UU () 
 	{
 		return (String)get_Value(COLUMNNAME_M_ShipperPickupTypes_UU);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 }

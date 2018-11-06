@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_PA_Goal;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for PA_Goal
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
+public class X_PA_Goal extends BasePOName implements I_PA_Goal, I_Persistent
 {
 
 	/**
@@ -29,22 +28,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
     public X_PA_Goal (Properties ctx, int PA_Goal_ID, String trxName)
     {
       super (ctx, PA_Goal_ID, trxName);
-      /** if (PA_Goal_ID == 0)
-        {
-			setChartType (null);
-// BC
-			setGoalPerformance (Env.ZERO);
-			setIsSummary (false);
-			setMeasureActual (Env.ZERO);
-			setMeasureScope (null);
-			setMeasureTarget (Env.ZERO);
-			setName (null);
-			setPA_ColorSchema_ID (0);
-			setPA_Goal_ID (0);
-			setRelativeWeight (Env.ZERO);
-// 1
-			setSeqNo (0);
-        } */
     }
 
     /** Load Constructor */
@@ -56,7 +39,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
     /** AccessLevel
       * @return 6 - System - Client 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +83,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Role_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException
@@ -128,7 +111,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_User_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** ChartType AD_Reference_ID=53315 */
@@ -379,31 +362,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		return bd;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Note.
 		@param Note 
 		Optional additional user defined information
@@ -446,7 +404,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_ColorSchema_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Goal.
@@ -469,7 +427,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Goal_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_PA_Goal getPA_GoalParent() throws RuntimeException
@@ -497,7 +455,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_GoalParent_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set PA_Goal_UU.
@@ -539,7 +497,7 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_PA_Measure_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Relative Weight.
@@ -579,6 +537,6 @@ public class X_PA_Goal extends PO implements I_PA_Goal, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

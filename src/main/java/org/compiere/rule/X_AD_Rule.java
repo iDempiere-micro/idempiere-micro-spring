@@ -3,7 +3,10 @@ package org.compiere.rule;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Rule;
+import org.compiere.orm.BasePOName;
+import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
@@ -13,7 +16,7 @@ import org.idempiere.orm.POInfo;
 /** Generated Model for AD_Rule
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
+public class X_AD_Rule extends BasePONameValue implements I_AD_Rule, I_Persistent
 {
 
 	/**
@@ -46,7 +49,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Rule.accessLevel.intValue();
     }
@@ -83,7 +86,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 		@param AccessLevel 
 		Access Level required
 	  */
-	public void setAccessLevel (String AccessLevel)
+	public void setRuleAccessLevel (String AccessLevel)
 	{
 
 		set_Value (I_AD_Rule.COLUMNNAME_AccessLevel, AccessLevel);
@@ -92,7 +95,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 	/** Get Data Access Level.
 		@return Access Level required
 	  */
-	public String getAccessLevel () 
+	public String getRuleAccessLevel ()
 	{
 		return (String)get_Value(I_AD_Rule.COLUMNNAME_AccessLevel);
 	}
@@ -114,7 +117,7 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Rule.COLUMNNAME_AD_Rule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Rule_UU.
@@ -221,31 +224,6 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 		return (String)get_Value(I_AD_Rule.COLUMNNAME_Help);
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_AD_Rule.COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_AD_Rule.COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** RuleType AD_Reference_ID=53235 */
 	public static final int RULETYPE_AD_Reference_ID=53235;
 	/** Aspect Orient Program = A */
@@ -288,20 +266,4 @@ public class X_AD_Rule extends PO implements I_AD_Rule, I_Persistent
 		return (String)get_Value(I_AD_Rule.COLUMNNAME_Script);
 	}
 
-	/** Set Search Key.
-		@param Value 
-		Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value)
-	{
-		set_Value (I_AD_Rule.COLUMNNAME_Value, Value);
-	}
-
-	/** Get Search Key.
-		@return Search key for the record in the format required - must be unique
-	  */
-	public String getValue () 
-	{
-		return (String)get_Value(I_AD_Rule.COLUMNNAME_Value);
-	}
 }

@@ -4,16 +4,15 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Schedule;
-import org.compiere.orm.PO;
+import org.compiere.orm.BasePOName;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Schedule
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
+public class X_AD_Schedule extends BasePOName implements I_AD_Schedule, I_Persistent
 {
 
 	/**
@@ -25,14 +24,6 @@ public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
     public X_AD_Schedule (Properties ctx, int AD_Schedule_ID, String trxName)
     {
       super (ctx, AD_Schedule_ID, trxName);
-      /** if (AD_Schedule_ID == 0)
-        {
-			setIsIgnoreProcessingTime (false);
-// N
-			setIsSystemSchedule (false);
-// N
-			setName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +35,7 @@ public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return I_AD_Schedule.accessLevel.intValue();
     }
@@ -80,7 +71,7 @@ public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Schedule.COLUMNNAME_AD_Schedule_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Schedule_UU.
@@ -148,7 +139,7 @@ public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Schedule.COLUMNNAME_Frequency);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** FrequencyType AD_Reference_ID=221 */
@@ -242,33 +233,8 @@ public class X_AD_Schedule extends PO implements I_AD_Schedule, I_Persistent
 		Integer ii = (Integer)get_Value(I_AD_Schedule.COLUMNNAME_MonthDay);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (I_AD_Schedule.COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(I_AD_Schedule.COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
 
 	/** Set Run only on IP.
 		@param RunOnlyOnIP Run only on IP	  */

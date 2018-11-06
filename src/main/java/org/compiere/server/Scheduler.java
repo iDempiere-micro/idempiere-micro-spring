@@ -67,7 +67,7 @@ public class Scheduler extends AdempiereServer
         // Prepare a ctx for the report/process - BF [1966880]
         MClient schedclient = MClient.get(getCtx(), m_model.getAD_Client_ID());
         Env.setContext(getCtx(), "#AD_Client_ID", schedclient.getAD_Client_ID());
-        Env.setContext(getCtx(), "#AD_Language", schedclient.getAD_Language());
+        Env.setContext(getCtx(), "#AD_Language", schedclient.getADLanguage());
         Env.setContext(getCtx(), "#AD_Org_ID", m_model.getAD_Org_ID());
         if (m_model.getAD_Org_ID() != 0) {
             MOrgInfo schedorg = MOrgInfo.get(getCtx(), m_model.getAD_Org_ID(), null);

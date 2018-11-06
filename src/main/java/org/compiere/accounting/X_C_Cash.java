@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_C_Cash;
+import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for C_Cash
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
+public class X_C_Cash extends BasePOName implements I_C_Cash, I_Persistent
 {
 
 	/**
@@ -29,27 +28,6 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
     public X_C_Cash (Properties ctx, int C_Cash_ID, String trxName)
     {
       super (ctx, C_Cash_ID, trxName);
-      /** if (C_Cash_ID == 0)
-        {
-			setBeginningBalance (Env.ZERO);
-			setC_CashBook_ID (0);
-			setC_Cash_ID (0);
-			setDateAcct (new Timestamp( System.currentTimeMillis() ));
-// @#Date@
-			setDocAction (null);
-// CO
-			setDocStatus (null);
-// DR
-			setEndingBalance (Env.ZERO);
-			setIsApproved (false);
-			setName (null);
-// @#Date@
-			setPosted (false);
-// N
-			setProcessed (false);
-			setStatementDate (new Timestamp( System.currentTimeMillis() ));
-// @#Date@
-        } */
     }
 
     /** Load Constructor */
@@ -61,7 +39,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -100,7 +78,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_OrgTrx_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Beginning Balance.
@@ -148,7 +126,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Activity_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException
@@ -176,7 +154,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Campaign_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_CashBook getC_CashBook() throws RuntimeException
@@ -204,7 +182,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_CashBook_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Cash Journal.
@@ -227,7 +205,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Cash_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set C_Cash_UU.
@@ -269,7 +247,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Project_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Account Date.
@@ -442,31 +420,6 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		return false;
 	}
 
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
-	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getName());
-    }
-
 	/** Set Posted.
 		@param Posted 
 		Posting status
@@ -618,7 +571,7 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User1_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_C_ElementValue getUser2() throws RuntimeException
@@ -646,6 +599,6 @@ public class X_C_Cash extends PO implements I_C_Cash, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_User2_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 }

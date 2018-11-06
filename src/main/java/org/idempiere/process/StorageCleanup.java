@@ -156,10 +156,10 @@ public class StorageCleanup extends SvrProcess
 			MMovementLine ml = new MMovementLine(mh);
 			ml.setM_Product_ID(target.getM_Product_ID());
 			ml.setM_LocatorTo_ID(target.getM_Locator_ID());
-			ml.setM_AttributeSetInstanceTo_ID(target.getM_AttributeSetInstance_ID());
+			ml.setM_AttributeSetInstanceTo_ID(target.getMAttributeSetInstance_ID());
 			//	From
 			ml.setM_Locator_ID(source.getM_Locator_ID());
-			ml.setM_AttributeSetInstance_ID(source.getM_AttributeSetInstance_ID());
+			ml.setM_AttributeSetInstance_ID(source.getMAttributeSetInstance_ID());
 			
 			BigDecimal qtyMove = qty;
 			if (qtyMove.compareTo(source.getQtyOnHand()) > 0)
@@ -228,12 +228,12 @@ public class StorageCleanup extends SvrProcess
 				{
 					if (MStorageOnHand.add(getCtx(), target.getM_Warehouse_ID(), target.getM_Locator_ID(), 
 						target.getM_Product_ID(), 
-						target.getM_AttributeSetInstance_ID(), target.getM_AttributeSetInstance_ID(),
+						target.getMAttributeSetInstance_ID(), target.getMAttributeSetInstance_ID(),
 						Env.ZERO,  get_TrxName()))
 					{
 						if (MStorageOnHand.add(getCtx(), storage0.getM_Warehouse_ID(), storage0.getM_Locator_ID(), 
 							storage0.getM_Product_ID(), 
-							storage0.getM_AttributeSetInstance_ID(), storage0.getM_AttributeSetInstance_ID(),
+							storage0.getMAttributeSetInstance_ID(), storage0.getMAttributeSetInstance_ID(),
 							Env.ZERO, get_TrxName()))
 							log.info("Reserved=" + reserved + ",Ordered=" + ordered);
 						else

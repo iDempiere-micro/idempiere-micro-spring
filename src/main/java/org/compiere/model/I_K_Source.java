@@ -110,8 +110,8 @@ public interface I_K_Source
 	/** Get K_Source_UU	  */
 	public String getK_Source_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

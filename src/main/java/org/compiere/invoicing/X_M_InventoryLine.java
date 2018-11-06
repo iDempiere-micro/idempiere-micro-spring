@@ -54,7 +54,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
     /** AccessLevel
       * @return 1 - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -98,7 +98,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_C_Charge_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Current Cost Price.
@@ -179,7 +179,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_Line);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
     /** Get Record ID/ColumnName
@@ -190,10 +190,10 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
         return new KeyNamePair(get_ID(), String.valueOf(getLine()));
     }
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -210,12 +210,12 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Inventory getM_Inventory() throws RuntimeException
@@ -243,7 +243,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Inventory_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Phys.Inventory Line.
@@ -266,7 +266,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_InventoryLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_InventoryLine_UU.
@@ -308,7 +308,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Locator_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
@@ -336,7 +336,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set New Cost Price.
@@ -485,7 +485,7 @@ public class X_M_InventoryLine extends PO implements I_M_InventoryLine, I_Persis
 		Integer ii = (Integer)get_Value(COLUMNNAME_ReversalLine_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set UPC/EAN.

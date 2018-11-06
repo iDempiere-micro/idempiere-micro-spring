@@ -175,8 +175,8 @@ public interface I_M_DiscountSchema
 	/** Get M_DiscountSchema_UU	  */
 	public String getM_DiscountSchema_UU();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity

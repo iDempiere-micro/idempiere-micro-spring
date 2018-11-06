@@ -32,6 +32,7 @@ public class DefaultModelFactory implements IModelFactory {
 
 		"org.compiere.impl",	// order is important this must be BEFORE the bundles
 
+		"org.compiere.bank",
 		"org.compiere.bo",
 		"org.compiere.conversionrate",
 		"org.compiere.crm",

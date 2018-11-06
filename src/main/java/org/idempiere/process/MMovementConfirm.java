@@ -490,7 +490,7 @@ public class MMovementConfirm extends X_M_MovementConfirm implements DocAction, 
 
             if (log.isLoggable(Level.INFO)) log.info("createDifferenceDoc - Difference=" + confirm.getDifferenceQty());
             MInventoryLine line = new MInventoryLine (m_inventoryFrom,
-                mLine.getM_Locator_ID(), mLine.getM_Product_ID(), mLine.getM_AttributeSetInstance_ID(),
+                mLine.getM_Locator_ID(), mLine.getM_Product_ID(), mLine.getMAttributeSetInstance_ID(),
                 confirm.getDifferenceQty(), Env.ZERO);
             line.setDescription(Msg.translate(getCtx(), "DifferenceQty"));
             if (!line.save(get_TrxName()))
@@ -534,7 +534,7 @@ public class MMovementConfirm extends X_M_MovementConfirm implements DocAction, 
 
             if (log.isLoggable(Level.INFO)) log.info("createDifferenceDoc - Scrapped=" + confirm.getScrappedQty());
             MInventoryLine line = new MInventoryLine (m_inventoryTo,
-                mLine.getM_LocatorTo_ID(), mLine.getM_Product_ID(), mLine.getM_AttributeSetInstance_ID(),
+                mLine.getM_LocatorTo_ID(), mLine.getM_Product_ID(), mLine.getMAttributeSetInstance_ID(),
                 confirm.getScrappedQty(), Env.ZERO);
             line.setDescription(Msg.translate(getCtx(), "ScrappedQty"));
             if (!line.save(get_TrxName()))

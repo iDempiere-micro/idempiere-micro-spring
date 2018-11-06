@@ -47,7 +47,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
     /** AccessLevel
       * @return 3 - Client - Org 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -116,10 +116,10 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		return false;
 	}
 
-	public I_M_AttributeSetInstance getM_AttributeSetInstance() throws RuntimeException
+	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException
     {
 		return (I_M_AttributeSetInstance)MTable.get(getCtx(), I_M_AttributeSetInstance.Table_Name)
-			.getPO(getM_AttributeSetInstance_ID(), get_TrxName());	}
+			.getPO(getMAttributeSetInstance_ID(), get_TrxName());	}
 
 	/** Set Attribute Set Instance.
 		@param M_AttributeSetInstance_ID 
@@ -136,12 +136,12 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 	/** Get Attribute Set Instance.
 		@return Product Attribute Set Instance
 	  */
-	public int getM_AttributeSetInstance_ID () 
+	public int getMAttributeSetInstance_ID () 
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_AttributeSetInstance_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	public org.compiere.model.I_M_QualityTest getM_QualityTest() throws RuntimeException
@@ -166,7 +166,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_QualityTest_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set Quality Test Result.
@@ -186,7 +186,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_QualityTestResult_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set M_QualityTestResult_UU.

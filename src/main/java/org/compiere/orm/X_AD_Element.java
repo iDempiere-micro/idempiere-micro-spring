@@ -5,14 +5,13 @@ import java.util.Properties;
 
 import org.compiere.model.I_AD_Element;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
 /** Generated Model for AD_Element
  *  @author iDempiere (generated) 
  *  @version Release 5.1 - $Id$ */
-public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
+public class X_AD_Element extends BasePOName implements I_AD_Element, I_Persistent
 {
 
 	/**
@@ -24,15 +23,6 @@ public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
     public X_AD_Element (Properties ctx, int AD_Element_ID, String trxName)
     {
       super (ctx, AD_Element_ID, trxName);
-      /** if (AD_Element_ID == 0)
-        {
-			setAD_Element_ID (0);
-			setColumnName (null);
-			setEntityType (null);
-// @SQL=select get_sysconfig('DEFAULT_ENTITYTYPE','U',0,0) from dual
-			setName (null);
-			setPrintName (null);
-        } */
     }
 
     /** Load Constructor */
@@ -44,7 +34,7 @@ public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
     /** AccessLevel
       * @return 4 - System 
       */
-    protected int get_AccessLevel()
+    protected int getAccessLevel()
     {
       return accessLevel.intValue();
     }
@@ -83,7 +73,7 @@ public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
 		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Element_ID);
 		if (ii == null)
 			 return 0;
-		return ii.intValue();
+		return ii;
 	}
 
 	/** Set AD_Element_UU.
@@ -116,14 +106,6 @@ public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
 	{
 		return (String)get_Value(COLUMNNAME_ColumnName);
 	}
-
-    /** Get Record ID/ColumnName
-        @return ID/ColumnName pair
-      */
-    public KeyNamePair getKeyNamePair() 
-    {
-        return new KeyNamePair(get_ID(), getColumnName());
-    }
 
 	/** Set Description.
 		@param Description 
@@ -177,23 +159,6 @@ public class X_AD_Element extends PO implements I_AD_Element, I_Persistent
 	public String getHelp () 
 	{
 		return (String)get_Value(COLUMNNAME_Help);
-	}
-
-	/** Set Name.
-		@param Name 
-		Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name)
-	{
-		set_Value (COLUMNNAME_Name, Name);
-	}
-
-	/** Get Name.
-		@return Alphanumeric identifier of the entity
-	  */
-	public String getName () 
-	{
-		return (String)get_Value(COLUMNNAME_Name);
 	}
 
 	/** Set PO Description.

@@ -65,14 +65,14 @@ public interface I_AD_Replication
 	/** Set Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public void setAD_ReplicationStrategy_ID (int AD_ReplicationStrategy_ID);
+	public void setADReplicationStrategyID (int AD_ReplicationStrategy_ID);
 
 	/** Get Replication Strategy.
 	  * Data Replication Strategy
 	  */
-	public int getAD_ReplicationStrategy_ID();
+	public int getADReplicationStrategyID();
 
-	public I_AD_ReplicationStrategy getAD_ReplicationStrategy() throws RuntimeException;
+	public I_AD_ReplicationStrategy getADReplicationStrategy() throws RuntimeException;
 
     /** Column name AD_Replication_UU */
     public static final String COLUMNNAME_AD_Replication_UU = "AD_Replication_UU";
@@ -216,8 +216,8 @@ public interface I_AD_Replication
 	  */
 	public boolean isRMIoverHTTP();
 
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
+    
+    
 
 	/** Set Name.
 	  * Alphanumeric identifier of the entity
