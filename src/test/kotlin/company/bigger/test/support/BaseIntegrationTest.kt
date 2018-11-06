@@ -27,11 +27,13 @@ open class BaseIntegrationTest : BaseTest() {
     @LocalServerPort
     var randomServerPort: Int = 0
 
+    val serverUrl get() = "http://localhost:$randomServerPort"
+
     private fun <T> buildClient(t: Class<T>): T {
         environment.let {
             return Feign.builder()
                     .encoder(GsonEncoder()).decoder(GsonDecoder())
-                    .target(t, "http://localhost:$randomServerPort")
+                    .target(t, serverUrl)
         }
     }
 
