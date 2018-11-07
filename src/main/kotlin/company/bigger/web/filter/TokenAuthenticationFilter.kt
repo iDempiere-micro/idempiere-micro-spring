@@ -4,7 +4,6 @@ import company.bigger.dto.UserLoginModel
 import company.bigger.service.UserService
 import company.bigger.web.jwt.AnonAuthentication
 import company.bigger.web.jwt.TokenBasedAuthentication
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.filter.OncePerRequestFilter
@@ -15,7 +14,9 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import java.io.IOException
 
-class TokenAuthenticationFilter : OncePerRequestFilter() {
+class TokenAuthenticationFilter(
+    internal val userService: UserService
+) : OncePerRequestFilter() {
 
     @Value("\${jwt.header:Authorization}")
     private val AUTH_HEADER: String? = null
@@ -25,9 +26,6 @@ class TokenAuthenticationFilter : OncePerRequestFilter() {
 
     @Value("\${jwt.autologin.password:}")
     private val autoLoginPassword: String? = null
-
-    @Autowired
-    internal var userService: UserService? = null
 
     private fun getToken(request: HttpServletRequest): String? {
 

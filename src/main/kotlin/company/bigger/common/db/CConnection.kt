@@ -4,7 +4,6 @@ import org.idempiere.common.db.Database
 import org.idempiere.common.db.SecurityPrincipal
 import org.idempiere.common.util.CLogger
 import org.idempiere.icommon.db.AdempiereDatabase
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import software.hsharp.api.icommon.ICConnection
 
@@ -23,13 +22,7 @@ import company.bigger.util.Ini
  * @version $Id: CConnection.java,v 1.5 2006/07/30 00:55:13 jjanke Exp $
  */
 @Component
-class CConnection
-/**************************************************************************
- * Adempiere Connection
- * @param host optional application/db host
- */
-@Autowired
-constructor(ini: Ini) : Serializable, Cloneable, ICConnection {
+class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
 
     /** Name of Connection   */
     /*************************************************************************

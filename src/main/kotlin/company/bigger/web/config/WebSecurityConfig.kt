@@ -1,4 +1,5 @@
 package company.bigger.web.config
+import company.bigger.service.UserService
 import company.bigger.service.UserService.Companion.ROLE
 import company.bigger.web.filter.TokenAuthenticationFilter
 import org.springframework.context.annotation.Bean
@@ -10,11 +11,14 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 @Configuration
 @EnableWebSecurity
-open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
+open class WebSecurityConfig(
+    private val userService: UserService
+) : WebSecurityConfigurerAdapter() {
+
     @Bean
     @Throws(Exception::class)
     open fun jwtAuthenticationTokenFilter(): TokenAuthenticationFilter {
-        return TokenAuthenticationFilter()
+        return TokenAuthenticationFilter(userService)
     }
 
     override fun configure(http: HttpSecurity) {
