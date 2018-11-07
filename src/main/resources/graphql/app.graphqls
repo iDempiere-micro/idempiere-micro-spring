@@ -1,19 +1,30 @@
+# User
 type User {
-    Description: String!
+    # Full Name
+    description: String!
+    # System ID
     id: ID!
 }
 
+# CRM Category
 type Category {
-    Name: String!
-    id: ID!
-}
-
-type Country {
+    # Name
     name: String!
+    # Id
     id: ID!
 }
 
+# Country
+type Country {
+    # Name
+    name: String!
+    # Id
+    id: ID!
+}
+
+# Version
 type Version {
+   # SemVer identifier
    v: String!
 }
 
@@ -29,4 +40,3 @@ type Query {
     # All countries
     countries: [Country]!
 }
-

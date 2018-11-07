@@ -24,6 +24,10 @@ import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletPathP
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 // @AutoConfigureMockMvc
 open class BaseIntegrationTest : BaseTest() {
+    companion object {
+        const val USER = "GardenUser"
+    }
+
     @Autowired
     protected lateinit var environment: Environment
 
@@ -61,7 +65,7 @@ open class BaseIntegrationTest : BaseTest() {
     }
 
     protected fun getGardenUserToken(): String {
-        val gardenUserLogin = loginClient?.login("GardenUser", "GardenUser")
+        val gardenUserLogin = loginClient?.login(USER, USER)
         gardenUserLogin!!
         val token = gardenUserLogin.token
         token!!
@@ -83,5 +87,16 @@ open class BaseIntegrationTest : BaseTest() {
                 .request(t)
                 .build()
         return graphQLTemplate.query(requestEntity, t)
+    }
+
+    fun <T, R> getGraphQL(t: Class<T>, r: Class<R>): GraphQLResponseEntity<R> {
+        val token = getGardenUserToken()
+        val graphQLTemplate = GraphQLTemplate()
+        val requestEntity = GraphQLRequestEntity.Builder()
+                .url("$serverUrl/graphql")
+                .headers(mapOf("Authorization" to "Bearer $token"))
+                .request(t)
+                .build()
+        return graphQLTemplate.query(requestEntity, r)
     }
 }

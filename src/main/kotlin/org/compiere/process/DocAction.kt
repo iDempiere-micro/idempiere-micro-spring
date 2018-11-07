@@ -4,11 +4,9 @@ import org.compiere.util.SystemIDs
 import org.idempiere.common.exceptions.AdempiereException
 import org.idempiere.common.util.CLogger
 import org.idempiere.icommon.model.IBasePO
-import org.idempiere.icommon.model.IPO
 
 import java.io.File
 import java.math.BigDecimal
-import java.util.Properties
 
 interface DocAction<T> : IBasePO {
 
