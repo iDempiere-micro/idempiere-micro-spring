@@ -3,6 +3,9 @@ package company.bigger.web.resolver
 import company.bigger.util.Version
 import org.springframework.stereotype.Component
 
+/**
+ * GraphQL Query. Put all your queries here. Use the services from [BaseResolver]
+ */
 @Component
 class QueryResolver : BaseResolver() {
     companion object {
