@@ -377,7 +377,7 @@ public class MGoal extends X_PA_Goal
 			measure.set_TrxName(get_TrxName());
 			if (measure.updateGoals())		//	saves
 			{
-				load(get_ID(), get_TrxName());
+				load(getId(), get_TrxName());
 				return true;
 			}
 		}
@@ -511,7 +511,7 @@ public class MGoal extends X_PA_Goal
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MGoal[");
-		sb.append (get_ID ())
+		sb.append (getId())
 			.append ("-").append (getName())
 			.append(",").append(getGoalPerformance())
 			.append ("]");

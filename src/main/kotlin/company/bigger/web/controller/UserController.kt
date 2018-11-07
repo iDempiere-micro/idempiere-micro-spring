@@ -13,7 +13,7 @@ data class User(
     val name: String,
     val description: String?
 ) {
-    constructor(user: I_AD_User): this(user._ID, user.name, user.description)
+    constructor(user: I_AD_User): this(user.id, user.name, user.description)
 }
 
 @RestController

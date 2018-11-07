@@ -339,7 +339,7 @@ public class MMovementLine extends X_M_MovementLine
 
     public String toString()
     {
-        return Table_Name + "[" + get_ID()
+        return Table_Name + "[" + getId()
             + ", M_Product_ID=" + getM_Product_ID()
             + ", M_ASI_ID=" + getMAttributeSetInstance_ID()
             + ", M_ASITo_ID=" + getMAttributeSetInstanceTo_ID()

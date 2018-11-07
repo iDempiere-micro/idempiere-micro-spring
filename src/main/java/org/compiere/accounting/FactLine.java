@@ -989,14 +989,14 @@ public final class FactLine extends X_Fact_Acct
 			C_Project_ID, C_Campaign_ID, C_Activity_ID, 
 			User1_ID, User2_ID, UserElement1_ID, UserElement2_ID,
 			get_TrxName());
-		if (revenue != null && revenue.get_ID() == 0)
+		if (revenue != null && revenue.getId() == 0)
 			revenue.saveEx();
-		if (revenue == null || revenue.get_ID() == 0)
+		if (revenue == null || revenue.getId() == 0)
 		{
 			log.severe ("Revenue_Acct not found");
 			return Account_ID;
 		}
-		int P_Revenue_Acct = revenue.get_ID();
+		int P_Revenue_Acct = revenue.getId();
 
 		//  get Unearned Revenue Acct from BPartner Group
 		int UnearnedRevenue_Acct = 0;

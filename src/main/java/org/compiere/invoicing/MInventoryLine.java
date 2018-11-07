@@ -45,7 +45,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 		final String whereClause = "M_Inventory_ID=? AND M_Locator_ID=?"
 									+" AND M_Product_ID=? AND M_AttributeSetInstance_ID=?";
 		return new Query(inventory.getCtx(), I_M_InventoryLine.Table_Name, whereClause, inventory.get_TrxName())
-			.setParameters(inventory.get_ID(), M_Locator_ID, M_Product_ID, M_AttributeSetInstance_ID)
+			.setParameters(inventory.getId(), M_Locator_ID, M_Product_ID, M_AttributeSetInstance_ID)
 			.firstOnly();
 	}	//	get
 	
@@ -100,7 +100,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 		BigDecimal QtyBook, BigDecimal QtyCount, BigDecimal QtyInternalUse)
 	{
 		this (inventory.getCtx(), 0, inventory.get_TrxName());
-		if (inventory.get_ID() == 0)
+		if (inventory.getId() == 0)
 			throw new IllegalArgumentException("Header not saved");
 		m_parent = inventory;
 		setM_Inventory_ID (inventory.getM_Inventory_ID());		//	Parent
@@ -229,7 +229,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MInventoryLine[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append("-M_Product_ID=").append (getM_Product_ID())
 			.append(",QtyCount=").append(getQtyCount())
 			.append(",QtyInternalUse=").append(getQtyInternalUse())

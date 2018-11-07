@@ -71,7 +71,7 @@ public class X_C_PaySelectionCheck extends PO implements I_C_PaySelectionCheck, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaySelectionCheck[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -11,7 +11,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.compiere.invoicing.MBPBankAccount;
-import org.compiere.invoicing.MInvoice;
 import org.compiere.model.I_C_Invoice;
 import org.compiere.order.X_C_Order;
 import org.compiere.orm.MDocType;
@@ -339,7 +338,7 @@ public class MPaySelectionCheck extends X_C_PaySelectionCheck
 				}
 				payment.saveEx();
 				//
-				int C_Payment_ID = payment.get_ID();
+				int C_Payment_ID = payment.getId();
 				if (C_Payment_ID < 1)
 					s_log.log(Level.SEVERE, "Payment not created=" + check);
 				else
@@ -666,7 +665,7 @@ public class MPaySelectionCheck extends X_C_PaySelectionCheck
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MPaymentCheck[");
-		sb.append(get_ID()).append("-").append(getDocumentNo())
+		sb.append(getId()).append("-").append(getDocumentNo())
 			.append("-").append(getPayAmt())
 			.append(",PaymetRule=").append(getPaymentRule())
 			.append(",Qty=").append(getQty())

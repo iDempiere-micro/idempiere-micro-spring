@@ -67,7 +67,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PP_Product_BOMLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -468,7 +468,7 @@ public class X_PP_Product_BOMLine extends PO implements I_PP_Product_BOMLine, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_Product_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_Product_ID()));
     }
 
 	public org.eevolution.model.I_PP_Product_BOM getPP_Product_BOM() throws RuntimeException

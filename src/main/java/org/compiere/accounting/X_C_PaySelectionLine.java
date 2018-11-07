@@ -74,7 +74,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaySelectionLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -190,7 +190,7 @@ public class X_C_PaySelectionLine extends PO implements I_C_PaySelectionLine, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_PaySelectionLine_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_PaySelectionLine_ID()));
     }
 
 	/** Set C_PaySelectionLine_UU.

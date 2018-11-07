@@ -49,7 +49,7 @@ public class MatchInvDelete extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info ("M_MatchInv_ID=" + p_M_MatchInv_ID);
 		MMatchInv inv = new MMatchInv (getCtx(), p_M_MatchInv_ID, get_TrxName());
-		if (inv.get_ID() == 0)
+		if (inv.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ @M_MatchInv_ID@ " + p_M_MatchInv_ID);
 		if (inv.delete(true))
 			return "@OK@";

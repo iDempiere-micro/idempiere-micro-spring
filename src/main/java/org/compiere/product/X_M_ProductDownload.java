@@ -58,7 +58,7 @@ public class X_M_ProductDownload extends BasePOName implements I_M_ProductDownlo
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ProductDownload[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

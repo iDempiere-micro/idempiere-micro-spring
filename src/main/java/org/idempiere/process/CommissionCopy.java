@@ -69,10 +69,10 @@ public class CommissionCopy extends SvrProcess
 
 		/*
 		MCommission comFrom = new MCommission (getCtx(), p_C_Commission_ID, get_TrxName());
-		if (comFrom.get_ID() == 0)
+		if (comFrom.getId() == 0)
 			throw new AdempiereUserError ("No From Commission");
 		MCommission comTo = new MCommission (getCtx(), p_C_CommissionTo_ID, get_TrxName());
-		if (comTo.get_ID() == 0)
+		if (comTo.getId() == 0)
 			throw new AdempiereUserError ("No To Commission");
 		
 		//

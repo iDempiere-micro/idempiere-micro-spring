@@ -63,7 +63,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PP_Product_Planning[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -284,7 +284,7 @@ public class X_PP_Product_Planning extends PO implements I_PP_Product_Planning, 
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_Product_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_Product_ID()));
     }
 
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException

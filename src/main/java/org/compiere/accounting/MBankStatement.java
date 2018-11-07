@@ -159,7 +159,7 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder sql = new StringBuilder("UPDATE C_BankStatementLine SET Processed='")
 			.append((processed ? "Y" : "N"))
@@ -205,7 +205,7 @@ public class MBankStatement extends X_C_BankStatement implements DocAction, IPOD
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}

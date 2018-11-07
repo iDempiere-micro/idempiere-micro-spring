@@ -5,10 +5,8 @@ import java.util.Properties;
 
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_RequestType;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -73,7 +71,7 @@ public class X_R_RequestType extends BasePOName implements I_R_RequestType, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_RequestType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

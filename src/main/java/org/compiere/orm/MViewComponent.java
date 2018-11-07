@@ -1,7 +1,5 @@
 package org.compiere.orm;
 
-import org.compiere.orm.MTable;
-
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
@@ -147,7 +145,7 @@ public class MViewComponent extends X_AD_ViewComponent {
 	public String toString()
     {
 	    StringBuffer sb = new StringBuffer("MViewComponent[")
-	    	.append(get_ID())
+	    	.append(getId())
 	        .append("-").append(getName());
 	    sb.append("]");
 	    return sb.toString();

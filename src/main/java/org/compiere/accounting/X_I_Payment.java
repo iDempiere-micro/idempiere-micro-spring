@@ -54,7 +54,7 @@ public class X_I_Payment extends PO implements I_I_Payment, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_I_Payment[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

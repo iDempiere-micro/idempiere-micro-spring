@@ -56,7 +56,7 @@ class FactoryTests : BaseTest() {
         val result = modelFactory.getPO(tableName, rs, null)
         println(result)
         assertNotNull(result)
-        assertEquals(id, result._ID)
+        assertEquals(id, result.id)
 
         cnn.close()
     }

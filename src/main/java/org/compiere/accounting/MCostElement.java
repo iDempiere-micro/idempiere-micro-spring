@@ -182,7 +182,7 @@ public class MCostElement extends X_M_CostElement
 		if (retValue != null)
 			return retValue;
 		retValue = new MCostElement (ctx, M_CostElement_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -277,7 +277,7 @@ public class MCostElement extends X_M_CostElement
 			String sql = "SELECT  COALESCE(MAX(M_CostElement_ID),0) FROM M_CostElement "
 				+ "WHERE AD_Client_ID=? AND CostingMethod=? AND CostElementType=?";
 			int id = DB.getSQLValue(get_TrxName(), sql, getAD_Client_ID(), getCostingMethod() , getCostElementType());
-			if (id > 0 && id != get_ID())
+			if (id > 0 && id != getId())
 			{
 				log.saveError("AlreadyExists", Msg.getElement(getCtx(), "CostingMethod"));
 				return false;
@@ -455,7 +455,7 @@ public class MCostElement extends X_M_CostElement
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MCostElement[");
-		sb.append (get_ID ())
+		sb.append (getId())
 			.append ("-").append (getName())
 			.append(",Type=").append(getCostElementType())
 			.append(",Method=").append(getCostingMethod())

@@ -10,7 +10,6 @@ import org.compiere.model.IDocLine;
 import org.compiere.model.I_C_Order;
 import org.compiere.model.I_C_OrderLine;
 import org.compiere.orm.MRole;
-import org.compiere.process.Core;
 import org.compiere.tax.ITaxProvider;
 import org.compiere.product.*;
 import org.compiere.tax.MTax;
@@ -167,7 +166,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 	public MOrderLine (MOrder order)
 	{
 		this (order.getCtx(), 0, order.get_TrxName());
-		if (order.get_ID() == 0)
+		if (order.getId() == 0)
 			throw new IllegalArgumentException("Header not saved");
 		setC_Order_ID (order.getC_Order_ID());	//	parent
 		setOrder(order);
@@ -438,7 +437,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 		if (getC_Currency_ID() != 0)
 		{
 			MCurrency cur = MCurrency.get(getCtx(), getC_Currency_ID());
-			if (cur.get_ID() != 0)
+			if (cur.getId() != 0)
 			{
 				m_precision = new Integer (cur.getStdPrecision());
 				return m_precision.intValue();
@@ -643,7 +642,7 @@ public class MOrderLine extends X_C_OrderLine implements I_C_OrderLine, IDocLine
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MOrderLine[")
-			.append(get_ID())
+			.append(getId())
 			.append(", Line=").append(getLine())
 			.append(", Ordered=").append(getQtyOrdered())
 			.append(", Delivered=").append(getQtyDelivered())

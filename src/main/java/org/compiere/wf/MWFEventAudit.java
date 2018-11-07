@@ -136,7 +136,7 @@ public class MWFEventAudit extends X_AD_WF_EventAudit
 		setElapsedTimeMS (Env.ZERO);
 		//
 		MWFNode node = activity.getNode();
-		if (node != null && node.get_ID() != 0)
+		if (node != null && node.getId() != 0)
 		{
 			String action = node.getAction();
 			if (MWFNode.ACTION_SetVariable.equals(action)
@@ -157,7 +157,7 @@ public class MWFEventAudit extends X_AD_WF_EventAudit
 	public String getNodeName()
 	{
 		MWFNode node = MWFNode.get(getCtx(), getAD_WF_Node_ID());
-		if (node.get_ID() == 0)
+		if (node.getId() == 0)
 			return "?";
 		return node.get_Translation(HasName.Companion.getCOLUMNNAME_Name());
 	}	//	getNodeName

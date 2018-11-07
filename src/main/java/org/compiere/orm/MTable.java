@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.Arrays;
 
 import org.compiere.model.I_AD_Table;
-import org.idempiere.common.base.IServiceHolder;
 import org.idempiere.common.base.IServicesHolder;
 import org.idempiere.common.base.Service;
 import org.idempiere.common.util.CCache;
@@ -76,7 +75,7 @@ public class MTable extends X_AD_Table
 			return retValue;
 		}
 		retValue = new MTable (ctx, AD_Table_ID, trxName);
-		if (retValue.get_ID () != 0) {
+		if (retValue.getId() != 0) {
 			s_cache.put (key, retValue);
 		}
 		return retValue;
@@ -409,7 +408,7 @@ public class MTable extends X_AD_Table
 				po = factory.getPO(tableName, Record_ID, trxName);
 				if (po != null)
 				{
-					if (po.get_ID() != Record_ID && Record_ID > 0)
+					if (po.getId() != Record_ID && Record_ID > 0)
 						po = null;
 					else
 						break;
@@ -420,7 +419,7 @@ public class MTable extends X_AD_Table
 		if (po == null)
 		{
 			po = new GenericPO(tableName, getCtx(), Record_ID, trxName);
-			if (po.get_ID() != Record_ID && Record_ID > 0)
+			if (po.getId() != Record_ID && Record_ID > 0)
 				po = null;
 		}
 
@@ -542,7 +541,7 @@ public class MTable extends X_AD_Table
 			return success;
 		//	Sync Table ID
 		MSequence seq = MSequence.get(getCtx(), getTableName(), get_TrxName());
-		if (seq == null || seq.get_ID() == 0)
+		if (seq == null || seq.getId() == 0)
 			MSequence.createTableSequence(getCtx(), getTableName(), get_TrxName());
 		else if (!seq.getName().equals(getTableName()))
 		{
@@ -689,7 +688,7 @@ public class MTable extends X_AD_Table
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MTable[");
-		sb.append (get_ID()).append ("-").append (getTableName()).append ("]");
+		sb.append (getId()).append ("-").append (getTableName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 

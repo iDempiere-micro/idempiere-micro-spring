@@ -93,7 +93,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_AcctSchema_Default[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -294,7 +294,7 @@ public class X_C_AcctSchema_Default extends PO implements I_C_AcctSchema_Default
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_AcctSchema_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_AcctSchema_ID()));
     }
 
 	public I_C_ValidCombination getCB_Asset_A() throws RuntimeException

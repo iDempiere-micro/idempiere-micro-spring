@@ -61,7 +61,7 @@ public class X_C_OnlineTrxHistory extends PO implements I_C_OnlineTrxHistory, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_OnlineTrxHistory[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

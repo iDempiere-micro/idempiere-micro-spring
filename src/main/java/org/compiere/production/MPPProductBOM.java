@@ -60,7 +60,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 		if (bom != null)
 			return bom;
 		bom = new MPPProductBOM(ctx, PP_Product_BOM_ID, null);
-		if (bom.get_ID() == PP_Product_BOM_ID)
+		if (bom.getId() == PP_Product_BOM_ID)
 		{
 			s_cache.put(PP_Product_BOM_ID, bom);
 		}
@@ -81,7 +81,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 		int AD_Client_ID = Env.getAD_Client_ID(product.getCtx());
 		String sql = "SELECT PP_Product_BOM_ID FROM PP_Product_BOM"
 						+" WHERE Value=? AND M_Product_ID=? AND AD_Client_ID=?";
-		return DB.getSQLValueEx(null, sql, product.getValue(), product.get_ID(), AD_Client_ID);
+		return DB.getSQLValueEx(null, sql, product.getValue(), product.getId(), AD_Client_ID);
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 		// If outside trx, then cache it
 		if (bom != null && trxName == null)
 		{
-			s_cache.put(bom.get_ID(), bom);
+			s_cache.put(bom.getId(), bom);
 		}
 		//
 		return bom;
@@ -260,7 +260,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MPPProductBOM[")
-		.append(get_ID()).append("-").append(getDocumentNo())
+		.append(getId()).append("-").append(getDocumentNo())
 		.append(", Value=").append(getValue())
 		.append ("]");
 		return sb.toString ();

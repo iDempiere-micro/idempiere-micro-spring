@@ -64,7 +64,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_Activity[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -222,7 +222,7 @@ public class X_AD_WF_Activity extends PO implements I_AD_WF_Activity, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_WF_Node_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_WF_Node_ID()));
     }
 
 	public org.compiere.model.I_AD_WF_Process getAD_WF_Process() throws RuntimeException

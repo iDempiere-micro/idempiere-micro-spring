@@ -15,8 +15,6 @@ import org.compiere.model.I_AD_Attachment;
 import org.compiere.model.I_AD_AttachmentEntry;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
-import org.idempiere.common.util.Env;
-import org.idempiere.common.util.MimeType;
 import org.idempiere.common.util.Util;
 
 
@@ -98,7 +96,7 @@ public class MAttachment extends X_AD_Attachment implements I_AD_Attachment
 	public MAttachment(Properties ctx, int AD_Table_ID, int Record_ID, String trxName)
 	{
 		this (ctx, MAttachment.getID(AD_Table_ID, Record_ID) > 0 ? MAttachment.getID(AD_Table_ID, Record_ID) : 0, trxName);
-		if (get_ID() == 0) {
+		if (getId() == 0) {
 			setAD_Table_ID (AD_Table_ID);
 			setRecord_ID (Record_ID);
 		}

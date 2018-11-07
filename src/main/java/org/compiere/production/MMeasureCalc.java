@@ -41,7 +41,7 @@ public class MMeasureCalc extends X_PA_MeasureCalc
 		if (retValue != null)
 			return retValue;
 		retValue = new MMeasureCalc (ctx, PA_MeasureCalc_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -445,7 +445,7 @@ public class MMeasureCalc extends X_PA_MeasureCalc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MMeasureCalc[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

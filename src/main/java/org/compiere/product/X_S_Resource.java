@@ -67,7 +67,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_S_Resource[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -242,7 +242,7 @@ public class X_S_Resource extends BasePOUser implements I_S_Resource, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** Set % Utilization.

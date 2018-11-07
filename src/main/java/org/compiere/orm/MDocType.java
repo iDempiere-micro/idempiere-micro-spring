@@ -38,7 +38,7 @@ public class MDocType extends X_C_DocType
 	static public int getDocType(String DocBaseType)
 	{
 		MDocType[] doc = MDocType.getOfDocBaseType(Env.getCtx(), DocBaseType);
-		return doc.length > 0 ? doc[0].get_ID() : 0;
+		return doc.length > 0 ? doc[0].getId() : 0;
 	}
 	
 	/**
@@ -181,7 +181,7 @@ public class MDocType extends X_C_DocType
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MDocType[");
-		sb.append(get_ID()).append("-").append(getName())
+		sb.append(getId()).append("-").append(getName())
 			.append(",DocNoSequence_ID=").append(getDocNoSequence_ID())
 			.append("]");
 		return sb.toString();
@@ -266,7 +266,7 @@ public class MDocType extends X_C_DocType
 				.append("INNER JOIN AD_Ref_List action ON (action.AD_Reference_ID=135) ")
 				.append("INNER JOIN AD_Role rol ON (rol.AD_Client_ID=client.AD_Client_ID) ")
 				.append("WHERE client.AD_Client_ID=").append(getAD_Client_ID()) 
-				.append(" AND doctype.C_DocType_ID=").append(get_ID())
+				.append(" AND doctype.C_DocType_ID=").append(getId())
 				.append(" AND rol.IsManual='N'")
 				.append(")");
 			
@@ -284,9 +284,9 @@ public class MDocType extends X_C_DocType
 	protected boolean beforeDelete ()
 	{
 		// delete access records
-		StringBuilder msgdb = new StringBuilder("DELETE FROM AD_Document_Action_Access WHERE C_DocType_ID=").append(get_ID());
+		StringBuilder msgdb = new StringBuilder("DELETE FROM AD_Document_Action_Access WHERE C_DocType_ID=").append(getId());
 		int docactDel = DB.executeUpdate(msgdb.toString(), get_TrxName());
-		if (log.isLoggable(Level.FINE)) log.fine("Delete AD_Document_Action_Access=" + docactDel + " for C_DocType_ID: " + get_ID());
+		if (log.isLoggable(Level.FINE)) log.fine("Delete AD_Document_Action_Access=" + docactDel + " for C_DocType_ID: " + getId());
 		return docactDel >= 0;
 	}   //  beforeDelete
 

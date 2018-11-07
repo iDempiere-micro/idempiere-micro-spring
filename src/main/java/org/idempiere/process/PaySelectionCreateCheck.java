@@ -26,7 +26,6 @@ import org.compiere.crm.MBPartner;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.model.I_C_BPartner;
 import org.compiere.order.X_C_Order;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 
@@ -78,7 +77,7 @@ public class PaySelectionCreateCheck extends SvrProcess
 			+ ", PaymentRule=" + p_PaymentRule);
 		
 		MPaySelection psel = new MPaySelection (getCtx(), p_C_PaySelection_ID, get_TrxName());
-		if (psel.get_ID() == 0)
+		if (psel.getId() == 0)
 			throw new IllegalArgumentException("Not found C_PaySelection_ID=" + p_C_PaySelection_ID);
 		if (psel.isProcessed())
 			throw new IllegalArgumentException("@Processed@");

@@ -133,7 +133,7 @@ public class MSchedule extends X_AD_Schedule
 		if (retValue != null)
 			return retValue;
 		retValue = new MSchedule (ctx, AD_Schedule_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}

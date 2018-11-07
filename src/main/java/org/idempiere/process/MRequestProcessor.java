@@ -216,7 +216,7 @@ public class MRequestProcessor extends X_R_RequestProcessor
      */
     public String getServerID()
     {
-        return "RequestProcessor" + get_ID();
+        return "RequestProcessor" + getId();
     }	//	getServerID
 
     /**

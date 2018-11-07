@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.accounting.MPaySelection;
 import org.compiere.invoicing.MInvoice;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
@@ -181,7 +180,7 @@ public class MPaySelectionLine extends X_C_PaySelectionLine
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MPaySelectionLine[");
-		sb.append(get_ID()).append(",C_Invoice_ID=").append(getC_Invoice_ID())
+		sb.append(getId()).append(",C_Invoice_ID=").append(getC_Invoice_ID())
 			.append(",PayAmt=").append(getPayAmt())
 			.append(",DifferenceAmt=").append(getDifferenceAmt())
 			.append("]");

@@ -1,6 +1,5 @@
 package org.compiere.order;
 
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
@@ -40,7 +39,7 @@ public class MCharge extends X_C_Charge
 		if (retValue != null)
 			return retValue;
 		retValue = new MCharge (ctx, C_Charge_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get

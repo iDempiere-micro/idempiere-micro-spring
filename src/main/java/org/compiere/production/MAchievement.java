@@ -86,7 +86,7 @@ public class MAchievement extends X_PA_Achievement
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MAchievement[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

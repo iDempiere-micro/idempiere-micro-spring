@@ -113,7 +113,7 @@ public class InventoryCountCreate extends SvrProcess
 			+ ", M_Product_Category_ID=" + p_M_Product_Category_ID
 			+ ", QtyRange=" + p_QtyRange + ", DeleteOld=" + p_DeleteOld);
 		m_inventory = new MInventory (getCtx(), p_M_Inventory_ID, get_TrxName());
-		if (m_inventory.get_ID() == 0)
+		if (m_inventory.getId() == 0)
 			throw new AdempiereSystemError ("Not found: M_Inventory_ID=" + p_M_Inventory_ID);
 		if (m_inventory.isProcessed())
 			throw new AdempiereSystemError("@M_Inventory_ID@ @Processed@");

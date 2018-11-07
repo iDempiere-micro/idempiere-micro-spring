@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import org.compiere.accounting.MRequisitionLine;
 import org.compiere.crm.MUser;
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.model.IDoc;
@@ -101,7 +100,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 		//red1 - FR: [ 2214883 ] Remove SQL code and Replace for Query
  	 	final String whereClause = I_M_RequisitionLine.COLUMNNAME_M_Requisition_ID+"=?";
 	 	List <MRequisitionLine> list = new Query(getCtx(), I_M_RequisitionLine.Table_Name, whereClause, get_TrxName())
-			.setParameters(get_ID())
+			.setParameters(getId())
 			.setOrderBy(I_M_RequisitionLine.COLUMNNAME_Line)
 			.list();
 	 	//  red1 - end -
@@ -118,7 +117,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MRequisition[");
-		sb.append(get_ID()).append("-").append(getDocumentNo())
+		sb.append(getId()).append("-").append(getDocumentNo())
 			.append(",Status=").append(getDocStatus()).append(",Action=").append(getDocAction())
 			.append ("]");
 		return sb.toString ();
@@ -141,7 +140,7 @@ public class MRequisition extends X_M_Requisition implements DocAction, IPODoc
 	{
 		try
 		{
-			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+			File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
 			return createPDF (temp);
 		}
 		catch (Exception e)

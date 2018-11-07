@@ -224,7 +224,7 @@ public class MRequest extends X_R_Request
 	{
 		final String whereClause = MRequestAction.COLUMNNAME_R_Request_ID+"=?";
 		List<MRequestAction> list = new Query(getCtx(), I_R_RequestAction.Table_Name, whereClause, get_TrxName())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.setOrderBy("Created DESC")
 										.list();
 		return list.toArray(new MRequestAction[list.size()]);
@@ -239,7 +239,7 @@ public class MRequest extends X_R_Request
 	{
 		final String whereClause = MRequestUpdate.COLUMNNAME_R_Request_ID+"=?";
 		List<MRequestUpdate> listUpdates = new Query(getCtx(), I_R_RequestUpdate.Table_Name, whereClause, get_TrxName())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.setOrderBy("Created DESC")
 										.list();
 		ArrayList<MRequestUpdate> list = new ArrayList<MRequestUpdate>();
@@ -666,7 +666,7 @@ public class MRequest extends X_R_Request
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MRequest[");
-		sb.append (get_ID()).append ("-").append(getDocumentNo()).append ("]");
+		sb.append (getId()).append ("-").append(getDocumentNo()).append ("]");
 		return sb.toString ();
 	}	//	toString
 
@@ -679,7 +679,7 @@ public class MRequest extends X_R_Request
 		// globalqss - comment to solve bug [ 1688794 ] System is generating lots of temp files
 //		try
 //		{
-//			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+//			File temp = File.createTempFile(get_TableName()+getId()+"_", ".pdf");
 //			return createPDF (temp);
 //		}
 //		catch (Exception e)
@@ -923,7 +923,7 @@ public class MRequest extends X_R_Request
 	 */
 	public String getMailTag()
 	{
-		return TAG_START + get_ID() + TAG_END;
+		return TAG_START + getId() + TAG_END;
 	}	//	getMailTag
 	
 	/**

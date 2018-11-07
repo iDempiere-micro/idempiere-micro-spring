@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
-import org.compiere.model.HasName;
 import org.compiere.model.I_M_Locator;
 import org.compiere.model.I_M_Production;
 import org.compiere.orm.BasePOName;
@@ -56,7 +55,7 @@ public class X_M_Production extends BasePOName implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Production[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

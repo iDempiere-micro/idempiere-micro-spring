@@ -64,7 +64,7 @@ public class X_C_OrderLandedCostAllocation extends PO implements I_C_OrderLanded
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_OrderLandedCostAllocation[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -1,7 +1,5 @@
 package org.compiere.wf;
 
-import static org.compiere.util.SystemIDs.MESSAGE_WORKFLOWRESULT;
-
 import java.io.File;
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
@@ -183,7 +181,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 		this(process, next_ID);
 		if (lastPO != null) {
 			// Compare if the last PO is the same type and record needed here, if yes, use it
-			if (lastPO.get_Table_ID() == getAD_Table_ID() && lastPO.get_ID() == getRecord_ID()) {
+			if (lastPO.get_Table_ID() == getAD_Table_ID() && lastPO.getId() == getRecord_ID()) {
 				m_po = lastPO;
 			}
 		}
@@ -365,7 +363,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 		if (AD_Column_ID == 0)
 			return null;
 		PO po = getPO();
-		if (po.get_ID() == 0)
+		if (po.getId() == 0)
 			return null;
 		return po.get_ValueOfColumn(AD_Column_ID);
 	}	//	getAttributeValue
@@ -377,7 +375,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 	public boolean isSOTrx()
 	{
 		PO po = getPO();
-		if (po.get_ID() == 0)
+		if (po.getId() == 0)
 			return true;
 		//	Is there a Column?
 		int index = po.get_ColumnIndex("IsSOTrx");
@@ -759,7 +757,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 			+ "       AND n.AD_Column_ID = c.AD_Column_ID "
 			+ "       AND a.AD_Table_ID = " + po.get_Table_ID()
 			+ "       AND a.Record_ID = doc." + tablename + "_ID "
-			+ "       AND a.Record_ID != " + po.get_ID()
+			+ "       AND a.Record_ID != " + po.getId()
 			+ "       AND c.ColumnName = 'IsApproved' "
 			+ "       AND n.Action = 'C' "
 			+ "       AND a.WFState = 'CC' "
@@ -837,7 +835,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 			//
 			setWFState(StateEngine.STATE_Running);
 
-			if (getNode().get_ID() == 0)
+			if (getNode().getId() == 0)
 			{
 				setTextMsg("Node not found - AD_WF_Node_ID=" + getAD_WF_Node_ID());
 				setWFState(StateEngine.STATE_Aborted);
@@ -1267,7 +1265,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 				dbValue = Integer.valueOf(value);
 				boolean validValue = true;
 				PO po = (PO)refTable.getPO((Integer)dbValue, trx.getTrxName());
-				if (po == null || po.get_ID() == 0) {
+				if (po == null || po.getId() == 0) {
 					// foreign key does not exist
 					validValue = false;
 				}
@@ -1451,7 +1449,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 					// 2007-06-08, matthiasO.
 					// Add record information to the note, so that the user receiving the
 					// note can jump to the doc easily
-					note.setRecord(m_po.get_Table_ID(), m_po.get_ID());
+					note.setRecord(m_po.get_Table_ID(), m_po.getId());
 					note.saveEx();
 				}
 			}
@@ -1476,7 +1474,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 		//
 		MUser oldUser = MUser.get(getCtx(), getAD_User_ID());
 		MUser user = MUser.get(getCtx(), AD_User_ID);
-		if (user == null || user.get_ID() == 0)
+		if (user == null || user.getId() == 0)
 		{
 			log.log(Level.WARNING, "Does not exist - AD_User_ID=" + AD_User_ID);
 			return false;
@@ -1854,7 +1852,7 @@ public class MWFActivity extends X_AD_WF_Activity implements Runnable
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MWFActivity[");
-		sb.append(get_ID()).append(",Node=");
+		sb.append(getId()).append(",Node=");
 		if (m_node == null)
 			sb.append(getAD_WF_Node_ID());
 		else

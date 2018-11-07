@@ -66,7 +66,7 @@ public class X_T_InvoiceGL extends PO implements I_T_InvoiceGL, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_T_InvoiceGL[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

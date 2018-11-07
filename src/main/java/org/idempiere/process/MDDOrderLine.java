@@ -117,7 +117,7 @@ public class MDDOrderLine extends X_DD_OrderLine
     public MDDOrderLine (MDDOrder order)
     {
         this (order.getCtx(), 0, order.get_TrxName());
-        if (order.get_ID() == 0)
+        if (order.getId() == 0)
             throw new IllegalArgumentException("Header not saved");
         setDD_Order_ID (order.getDD_Order_ID());	//	parent
         setOrder(order);
@@ -375,7 +375,7 @@ public class MDDOrderLine extends X_DD_OrderLine
     public String toString ()
     {
         StringBuffer sb = new StringBuffer ("MDDOrderLine[")
-            .append(get_ID()).append(",Line=").append(getLine())
+            .append(getId()).append(",Line=").append(getLine())
             .append(",Ordered=").append(getQtyOrdered())
             .append(",Delivered=").append(getQtyDelivered())
             .append(",Reserved=").append(getQtyReserved())

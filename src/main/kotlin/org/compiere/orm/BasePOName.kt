@@ -29,6 +29,6 @@ abstract class BasePOName : PO {
      * @return ID/ColumnName pair
      */
     fun getKeyNamePair(): KeyNamePair {
-        return KeyNamePair(_ID, getName())
+        return KeyNamePair(id, getName())
     }
 }

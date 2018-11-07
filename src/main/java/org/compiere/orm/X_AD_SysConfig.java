@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import org.compiere.model.I_AD_SysConfig;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -50,7 +49,7 @@ public class X_AD_SysConfig extends BasePONameValue implements I_AD_SysConfig, I
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_SysConfig[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

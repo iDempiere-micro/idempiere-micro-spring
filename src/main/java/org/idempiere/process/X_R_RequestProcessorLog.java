@@ -52,7 +52,7 @@ public class X_R_RequestProcessorLog extends PO implements I_R_RequestProcessorL
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_R_RequestProcessorLog[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

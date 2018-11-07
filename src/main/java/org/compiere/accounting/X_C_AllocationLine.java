@@ -63,7 +63,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_AllocationLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -269,7 +269,7 @@ public class X_C_AllocationLine extends PO implements I_C_AllocationLine, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_Invoice_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_Invoice_ID()));
     }
 
 	public org.compiere.model.I_C_Order getC_Order() throws RuntimeException

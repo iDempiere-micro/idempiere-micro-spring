@@ -57,7 +57,7 @@ public class MMeasure extends X_PA_Measure
 		if (retValue != null)
 			return retValue;
 		retValue = new MMeasure (ctx, PA_Measure_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -95,7 +95,7 @@ public class MMeasure extends X_PA_Measure
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MMeasure[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	
@@ -274,7 +274,7 @@ public class MMeasure extends X_PA_Measure
 				role = MRole.getDefault(getCtx(), false);	//	could result in wrong data
 			//
 			MMeasureCalc mc = MMeasureCalc.get(getCtx(), getPA_MeasureCalc_ID());
-			if (mc == null || mc.get_ID() == 0 || mc.get_ID() != getPA_MeasureCalc_ID())
+			if (mc == null || mc.getId() == 0 || mc.getId() != getPA_MeasureCalc_ID())
 			{
 				log.log(Level.SEVERE, "Not found PA_MeasureCalc_ID=" + getPA_MeasureCalc_ID());
 				return false;
@@ -400,7 +400,7 @@ public class MMeasure extends X_PA_Measure
 		for (MGoal goal:goals)
 		{
 			BigDecimal amt = Env.ZERO;
-			PO po = (PO)new MTable(getCtx(),get_Table_ID(),get_TrxName()).getPO(get_ID(), get_TrxName());
+			PO po = (PO)new MTable(getCtx(),get_Table_ID(),get_TrxName()).getPO(getId(), get_TrxName());
 			StringTokenizer st = new StringTokenizer(getCalculationClass(), ";,", false);
 			while (st.hasMoreTokens())      //  for each class
 			{

@@ -58,7 +58,7 @@ public class X_M_LotCtlExclude extends PO implements I_M_LotCtlExclude, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_LotCtlExclude[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

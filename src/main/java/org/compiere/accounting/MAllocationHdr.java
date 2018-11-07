@@ -273,7 +273,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder sql = new StringBuilder("UPDATE C_AllocationHdr SET Processed='")
 			.append((processed ? "Y" : "N"))
@@ -313,7 +313,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		{
 			MPeriod.testPeriodOpen(getCtx(), getDateTrx(), MDocType.DOCBASETYPE_PaymentAllocation, getAD_Org_ID());
 			setPosted(false);
-			MFactAcct.deleteEx (I_C_AllocationHdr.Table_ID, get_ID(), trxName);
+			MFactAcct.deleteEx (I_C_AllocationHdr.Table_ID, getId(), trxName);
 		}
 		//	Mark as Inactive
 		setIsActive(false);		//	updated DB for line delete/process
@@ -707,7 +707,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MAllocationHdr[");
-		sb.append(get_ID()).append("-").append(getSummary()).append ("]");
+		sb.append(getId()).append("-").append(getSummary()).append ("]");
 		return sb.toString ();
 	}	//	toString
 
@@ -729,7 +729,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 	{
 		try
 		{
-			StringBuilder msgctf = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgctf = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgctf.toString(), ".pdf");
 			return createPDF (temp);
 		}

@@ -60,7 +60,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PeriodControl[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -89,7 +89,7 @@ public class X_C_PeriodControl extends PO implements I_C_PeriodControl, I_Persis
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_PeriodControl_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_PeriodControl_ID()));
     }
 
 	/** Set C_PeriodControl_UU.

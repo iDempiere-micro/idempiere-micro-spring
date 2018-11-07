@@ -52,7 +52,7 @@ public class X_C_AcctProcessorLog extends PO implements I_C_AcctProcessorLog, I_
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_C_AcctProcessorLog[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

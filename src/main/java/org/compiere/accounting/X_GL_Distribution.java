@@ -53,7 +53,7 @@ public class X_GL_Distribution extends BasePOName implements I_GL_Distribution, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_GL_Distribution[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -23,7 +23,6 @@ import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MTable;
 import org.compiere.util.Msg;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.DB;
 
@@ -67,7 +66,7 @@ public class ImportDelete extends SvrProcess
 		if (log.isLoggable(Level.INFO)) log.info(msglog.toString());
 		//	get Table Info
 		MTable table = new MTable (getCtx(), p_AD_Table_ID, get_TrxName());
-		if (table.get_ID() == 0){
+		if (table.getId() == 0){
 			StringBuilder msgexc = new StringBuilder("No AD_Table_ID=").append(p_AD_Table_ID);
 			throw new IllegalArgumentException (msgexc.toString());
 		}	

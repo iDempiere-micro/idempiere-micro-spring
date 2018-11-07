@@ -27,7 +27,6 @@ import org.compiere.orm.MColumn;
 import org.compiere.orm.MTable;
 import org.compiere.orm.M_Element;
 import org.idempiere.orm.PO;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.DisplayType;
 import org.idempiere.common.util.AdempiereSystemError;
@@ -107,7 +106,7 @@ public class TableCreateColumns extends SvrProcess
 			else
 			{
 				MTable table = new MTable (getCtx(), p_AD_Table_ID, get_TrxName());
-				if (table == null || table.get_ID() == 0)
+				if (table == null || table.getId() == 0)
 					throw new AdempiereSystemError("@NotFound@ @AD_Table_ID@ " + p_AD_Table_ID);
 				if (log.isLoggable(Level.INFO)) log.info(table.getTableName() + ", EntityType=" + p_EntityType);
 				String tableName = table.getTableName();

@@ -26,7 +26,6 @@ import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MColumn;
 import org.compiere.orm.MTable;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.*;
 
@@ -74,11 +73,11 @@ public class ColumnSync extends SvrProcess
 		if (p_AD_Column_ID == 0)
 			throw new AdempiereUserError("@No@ @AD_Column_ID@");
 		MColumn column = new MColumn (getCtx(), p_AD_Column_ID, get_TrxName());
-		if (column.get_ID() == 0)
+		if (column.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ @AD_Column_ID@ " + p_AD_Column_ID);
 		
 		MTable table = new MTable(getCtx(), column.getAD_Table_ID(), get_TrxName());
-		if (table.get_ID() == 0)
+		if (table.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ @AD_Table_ID@ " + column.getAD_Table_ID());
 		
 		//	Find Column in Database

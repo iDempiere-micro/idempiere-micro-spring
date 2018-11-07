@@ -824,7 +824,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MJournalBatch[");
-		sb.append(get_ID()).append(",").append(getDescription())
+		sb.append(getId()).append(",").append(getDescription())
 			.append(",DR=").append(getTotalDr())
 			.append(",CR=").append(getTotalCr())
 			.append ("]");
@@ -850,7 +850,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}

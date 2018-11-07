@@ -57,7 +57,7 @@ public class X_AD_Process_Access extends PO implements I_AD_Process_Access, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Process_Access[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -63,7 +63,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_InOutLineConfirm[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -267,7 +267,7 @@ public class X_M_InOutLineConfirm extends PO implements I_M_InOutLineConfirm, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_InOutLine_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_InOutLine_ID()));
     }
 
 	public org.compiere.model.I_M_InventoryLine getM_InventoryLine() throws RuntimeException

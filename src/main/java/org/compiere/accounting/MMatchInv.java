@@ -280,7 +280,7 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 		{
 			MPeriod.testPeriodOpen(getCtx(), getDateTrx(), MDocType.DOCBASETYPE_MatchInvoice, getAD_Org_ID());
 			setPosted(false);
-			MFactAcct.deleteEx (I_M_MatchInv.Table_ID, get_ID(), get_TrxName());
+			MFactAcct.deleteEx (I_M_MatchInv.Table_ID, getId(), get_TrxName());
 		}
 		return true;
 	}	//	beforeDelete

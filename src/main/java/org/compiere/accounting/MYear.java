@@ -138,7 +138,7 @@ public class MYear extends X_C_Year
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MYear[");
-		sb.append(get_ID()).append("-")
+		sb.append(getId()).append("-")
 			.append(getFiscalYear())
 			.append ("]");
 		return sb.toString ();

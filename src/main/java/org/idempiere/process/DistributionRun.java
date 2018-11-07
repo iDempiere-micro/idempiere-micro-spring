@@ -140,7 +140,7 @@ public class DistributionRun extends SvrProcess
 		if (p_M_DistributionRun_ID == 0)
 			throw new IllegalArgumentException ("No Distribution Run ID");
 		m_run = new MDistributionRun(getCtx(), p_M_DistributionRun_ID, get_TrxName());
-		if (m_run.get_ID() == 0)
+		if (m_run.getId() == 0)
 			throw new Exception ("Distribution Run not found -  M_DistributionRun_ID=" +  p_M_DistributionRun_ID);
 		m_runLines = m_run.getLines(true);
 		if (m_runLines == null || m_runLines.length == 0)
@@ -150,7 +150,7 @@ public class DistributionRun extends SvrProcess
 		if (p_C_DocType_ID == 0)
 			throw new IllegalArgumentException ("No Document Type ID");
 		m_docType = new MDocType(getCtx(), p_C_DocType_ID, null);	//	outside trx
-		if (m_docType.get_ID() == 0)
+		if (m_docType.getId() == 0)
 			throw new Exception ("Document Type not found -  C_DocType_ID=" +  p_C_DocType_ID);
 		//
 		m_DateOrdered = new Timestamp (System.currentTimeMillis());
@@ -456,7 +456,7 @@ public class DistributionRun extends SvrProcess
 			&& runC_BPartner_ID > 0						//	Org linked to BP
 			&& !m_docType.isSOTrx();					//	PO
 		MBPartner runBPartner = counter ? new MBPartner(getCtx(), runC_BPartner_ID, get_TrxName()) : null;
-		if (!counter || runBPartner == null || runBPartner.get_ID() != runC_BPartner_ID)
+		if (!counter || runBPartner == null || runBPartner.getId() != runC_BPartner_ID)
 			counter = false;
 		if (counter)
 			if (log.isLoggable(Level.INFO)) log.info("RunBP=" + runBPartner
@@ -473,7 +473,7 @@ public class DistributionRun extends SvrProcess
 		if (m_run.isCreateSingleOrder())
 		{
 			bp = new MBPartner (getCtx(), m_run.getC_BPartner_ID(), get_TrxName());
-			if (bp.get_ID() == 0)
+			if (bp.getId() == 0)
 				throw new IllegalArgumentException("Business Partner not found - C_BPartner_ID=" + m_run.getC_BPartner_ID());
 			//
 			if (!p_IsTest)
@@ -865,7 +865,7 @@ public class DistributionRun extends SvrProcess
 			&& runC_BPartner_ID > 0						//	Org linked to BP
 			&& !m_docType.isSOTrx();					//	PO
 		MBPartner runBPartner = counter ? new MBPartner(getCtx(), runC_BPartner_ID, get_TrxName()) : null;
-		if (!counter || runBPartner == null || runBPartner.get_ID() != runC_BPartner_ID)
+		if (!counter || runBPartner == null || runBPartner.getId() != runC_BPartner_ID)
 			counter = false;
 		if (counter)
 			if (log.isLoggable(Level.INFO)) log.info("RunBP=" + runBPartner
@@ -903,7 +903,7 @@ public class DistributionRun extends SvrProcess
 		if (m_run.isCreateSingleOrder())
 		{
 			bp = new MBPartner (getCtx(), m_run.getC_BPartner_ID(), get_TrxName());
-			if (bp.get_ID() == 0)
+			if (bp.getId() == 0)
 				throw new IllegalArgumentException("Business Partner not found - C_BPartner_ID=" + m_run.getC_BPartner_ID());
 			//
 			if (!p_IsTest)

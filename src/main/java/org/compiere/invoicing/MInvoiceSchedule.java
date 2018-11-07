@@ -31,7 +31,7 @@ public class MInvoiceSchedule extends X_C_InvoiceSchedule
         if (retValue != null)
             return retValue;
         retValue = new MInvoiceSchedule (ctx, C_InvoiceSchedule_ID, trxName);
-        if (retValue.get_ID () != 0)
+        if (retValue.getId() != 0)
             s_cache.put (key, retValue);
         return retValue;
     }	//	get

@@ -57,7 +57,7 @@ public class X_AD_WorkflowProcessorLog extends PO implements I_AD_WorkflowProces
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WorkflowProcessorLog[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

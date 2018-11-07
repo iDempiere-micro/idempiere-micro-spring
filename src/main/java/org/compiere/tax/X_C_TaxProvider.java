@@ -60,7 +60,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_TaxProvider[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

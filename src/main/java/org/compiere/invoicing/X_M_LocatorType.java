@@ -5,9 +5,7 @@ import java.util.Properties;
 
 import org.compiere.model.I_M_LocatorType;
 import org.compiere.orm.BasePOName;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -63,7 +61,7 @@ public class X_M_LocatorType extends BasePOName implements I_M_LocatorType, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_LocatorType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

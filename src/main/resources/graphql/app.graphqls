@@ -1,16 +1,16 @@
 type User {
     Description: String!
-    _ID: ID!
+    id: ID!
 }
 
 type Category {
     Name: String!
-    _ID: ID!
+    id: ID!
 }
 
 type Country {
-    Name: String!
-    _ID: ID!
+    name: String!
+    id: ID!
 }
 
 type Version {

@@ -32,7 +32,7 @@ public class MRequestCategory extends X_R_Category
 		if (retValue != null)
 			return retValue;
 		retValue = new MRequestCategory (ctx, R_Category_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get

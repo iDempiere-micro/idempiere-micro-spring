@@ -182,7 +182,7 @@ public class MInvoicePaySchedule extends X_C_InvoicePaySchedule
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MInvoicePaySchedule[");
-		sb.append(get_ID()).append("-Due=").append(getDueDate()).append("/").append(getDueAmt())
+		sb.append(getId()).append("-Due=").append(getDueDate()).append("/").append(getDueAmt())
 			.append(";Discount=").append(getDiscountDate()).append("/").append(getDiscountAmt())
 			.append("]");
 		return sb.toString();

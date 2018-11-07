@@ -632,7 +632,7 @@ public class MPayment extends X_C_Payment
 		if (log.isLoggable(Level.INFO)) log.info("startProcess - " + pi.getRecord_ID());
 		boolean retValue = false;
 		//
-		if (pi.getRecord_ID() != get_ID())
+		if (pi.getRecord_ID() != getId())
 		{
 			log.log(Level.SEVERE, "startProcess - Not same Payment - " + pi.getRecord_ID());
 			return false;
@@ -2030,7 +2030,7 @@ public class MPayment extends X_C_Payment
 				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 			}
 			MCash cash = MCash.get (getCtx(), getAD_Org_ID(), getDateAcct(), getC_Currency_ID(), get_TrxName());
-			if (cash == null || cash.get_ID() == 0)
+			if (cash == null || cash.getId() == 0)
 			{
 				m_processMsg = "@NoCashBook@";
 				return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
@@ -2369,7 +2369,7 @@ public class MPayment extends X_C_Payment
 				BigDecimal OverUnderAmt = OpenAmt.subtract(PayAmt)
 					.subtract(DiscountAmt).subtract(WriteOffAmt);
 				//
-				if (alloc.get_ID() == 0 && !alloc.save(get_TrxName()))
+				if (alloc.getId() == 0 && !alloc.save(get_TrxName()))
 				{
 					log.log(Level.SEVERE, "Could not create Allocation Hdr");
 					return false;
@@ -2400,7 +2400,7 @@ public class MPayment extends X_C_Payment
 		
 		//	Should start WF
 		boolean ok = true;
-		if (alloc.get_ID() == 0)
+		if (alloc.getId() == 0)
 		{
 			if (log.isLoggable(Level.FINE)) log.fine("No Allocation created - C_Payment_ID=" 
 				+ getC_Payment_ID());
@@ -2787,7 +2787,7 @@ public class MPayment extends X_C_Payment
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MPayment[");
-		sb.append(get_ID()).append("-").append(getDocumentNo())
+		sb.append(getId()).append("-").append(getDocumentNo())
 			.append(",Receipt=").append(isReceipt())
 			.append(",PayAmt=").append(getPayAmt())
 			.append(",Discount=").append(getDiscountAmt())
@@ -2814,7 +2814,7 @@ public class MPayment extends X_C_Payment
 	{
 		try
 		{
-			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+			File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
 			return createPDF (temp);
 		}
 		catch (Exception e)

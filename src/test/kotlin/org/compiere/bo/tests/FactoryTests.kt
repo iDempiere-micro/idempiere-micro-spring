@@ -57,7 +57,7 @@ class FactoryTests : BaseTest() {
         println(result2)
         assertNotNull(result)
         assertNotNull(result2)
-        assertEquals(id, result._ID)
+        assertEquals(id, result.id)
         assertEquals(123, result2.c_ContactActivity_ID)
 
         cnn.close()
@@ -107,8 +107,8 @@ class FactoryTests : BaseTest() {
         println(result2)
         assertNotNull(result)
         assertNotNull(result2)
-        assertEquals(id, result._ID)
-        assertEquals(101, result2._ID)
+        assertEquals(id, result.id)
+        assertEquals(101, result2.id)
 
         cnn.close()
     }

@@ -61,7 +61,7 @@ public class MAssetAcct extends X_A_Asset_Acct
 			return acct;
 		}
 		acct = new MAssetAcct(ctx, A_Asset_Acct_ID, null);
-		if (acct.get_ID() > 0)
+		if (acct.getId() > 0)
 		{
 			addToCache(acct);
 		}
@@ -105,11 +105,11 @@ public class MAssetAcct extends X_A_Asset_Acct
 	
 	private static void addToCache(MAssetAcct acct)
 	{
-		if (acct == null || acct.get_ID() <= 0)
+		if (acct == null || acct.getId() <= 0)
 		{
 			return;
 		}
-		s_cache.put(acct.get_ID(), acct);
+		s_cache.put(acct.getId(), acct);
 	}
 	
 	/**

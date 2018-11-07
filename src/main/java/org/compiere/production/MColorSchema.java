@@ -77,7 +77,7 @@ public class MColorSchema extends X_PA_ColorSchema
 		if (retValue != null)
 			return retValue;
 		retValue = new MColorSchema (ctx, PA_ColorSchema_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -186,7 +186,7 @@ public class MColorSchema extends X_PA_ColorSchema
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MColorSchema[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

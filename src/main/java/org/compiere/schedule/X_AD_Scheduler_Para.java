@@ -56,7 +56,7 @@ public class X_AD_Scheduler_Para extends PO implements I_AD_Scheduler_Para, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Scheduler_Para[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

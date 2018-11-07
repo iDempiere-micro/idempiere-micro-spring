@@ -48,7 +48,7 @@ public class X_AD_Org extends BasePONameValue implements I_AD_Org, I_Persistent
     public String toString()
     {
         return "X_AD_Org[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	/** Set AD_Org_UU.

@@ -33,7 +33,7 @@ public class MBank extends X_C_Bank
 		if (retValue != null)
 			return retValue;
 		retValue = new MBank (ctx, C_Bank_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -72,7 +72,7 @@ public class MBank extends X_C_Bank
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MBank[");
-		sb.append (get_ID ()).append ("-").append(getName ()).append ("]");
+		sb.append (getId()).append ("-").append(getName ()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

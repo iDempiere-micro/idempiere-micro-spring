@@ -70,7 +70,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Currency[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -272,7 +272,7 @@ public class X_C_Currency extends PO implements I_C_Currency, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getISO_Code());
+        return new KeyNamePair(getId(), getISO_Code());
     }
 
 	/** Set Round Off Factor.

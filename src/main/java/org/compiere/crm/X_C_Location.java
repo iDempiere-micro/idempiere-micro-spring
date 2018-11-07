@@ -57,7 +57,7 @@ public class X_C_Location extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Location[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -249,7 +249,7 @@ public class X_C_Location extends PO implements I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getCity());
+        return new KeyNamePair(getId(), getCity());
     }
 
 	/** Set Address.

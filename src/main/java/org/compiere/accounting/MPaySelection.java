@@ -108,7 +108,7 @@ public class MPaySelection extends X_C_PaySelection
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MPaySelection[");
-		sb.append(get_ID()).append(",").append(getName())
+		sb.append(getId()).append(",").append(getName())
 			.append("]");
 		return sb.toString();
 	}	//	toString

@@ -54,7 +54,7 @@ public class X_PA_Achievement extends BasePOName implements I_PA_Achievement, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PA_Achievement[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

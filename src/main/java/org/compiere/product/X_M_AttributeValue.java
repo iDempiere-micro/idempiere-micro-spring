@@ -3,14 +3,10 @@ package org.compiere.product;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.model.HasName;
 import org.compiere.model.I_M_AttributeValue;
-import org.compiere.orm.BasePOName;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -64,7 +60,7 @@ public class X_M_AttributeValue extends BasePONameValue implements I_M_Attribute
 
     public String toString() {
         StringBuffer sb = new StringBuffer("X_M_AttributeValue[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

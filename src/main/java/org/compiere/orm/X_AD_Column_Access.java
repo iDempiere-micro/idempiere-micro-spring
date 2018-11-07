@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Column_Access;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
@@ -59,7 +58,7 @@ public class X_AD_Column_Access extends PO implements I_AD_Column_Access, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Column_Access[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -110,7 +109,7 @@ public class X_AD_Column_Access extends PO implements I_AD_Column_Access, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_Column_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_Column_ID()));
     }
 
 	public org.compiere.model.I_AD_Role getAD_Role() throws RuntimeException

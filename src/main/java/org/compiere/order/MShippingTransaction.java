@@ -41,7 +41,7 @@ public class MShippingTransaction extends X_M_ShippingTransaction
 			whereClauseFinal.append(whereClause);
 		//
 		List<MShippingTransactionLine> list = new Query(getCtx(), MShippingTransactionLine.Table_Name, whereClauseFinal.toString(), get_TrxName())
-				.setParameters(get_ID())
+				.setParameters(getId())
 				.setOrderBy(MShippingTransactionLine.COLUMNNAME_SeqNo)
 				.list();
 		//

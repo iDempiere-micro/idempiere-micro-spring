@@ -51,7 +51,7 @@ public class X_A_Asset_Group extends BasePOName implements I_A_Asset_Group, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Asset_Group[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

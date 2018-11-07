@@ -73,7 +73,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_Fact_Acct[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -750,7 +750,7 @@ public class X_Fact_Acct extends PO implements I_Fact_Acct, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getFact_Acct_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getFact_Acct_ID()));
     }
 
 	/** Set Fact_Acct_UU.

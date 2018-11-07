@@ -349,7 +349,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
     public String toString ()
     {
         StringBuffer sb = new StringBuffer ("MDDOrder[")
-            .append(get_ID()).append("-").append(getDocumentNo())
+            .append(getId()).append("-").append(getDocumentNo())
             .append(",IsSOTrx=").append(isSOTrx())
             .append(",C_DocType_ID=").append(getC_DocType_ID())
             .append ("]");
@@ -374,7 +374,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
     {
         try
         {
-            File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+            File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
             return createPDF (temp);
         }
         catch (Exception e)
@@ -537,7 +537,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
     public void setProcessed (boolean processed)
     {
         super.setProcessed (processed);
-        if (get_ID() == 0)
+        if (getId() == 0)
             return;
         String set = "SET Processed='"
             + (processed ? "Y" : "N")

@@ -312,7 +312,7 @@ public class MRequestType extends X_R_RequestType
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MRequestType[");
-		sb.append(get_ID()).append("-").append(getName())
+		sb.append(getId()).append("-").append(getName())
 			.append ("]");
 		return sb.toString();
 	}	//	toString

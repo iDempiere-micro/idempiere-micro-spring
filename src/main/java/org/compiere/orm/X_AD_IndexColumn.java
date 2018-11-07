@@ -1,7 +1,6 @@
 package org.compiere.orm;
 
 import org.compiere.model.I_AD_IndexColumn;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -57,7 +56,7 @@ public class X_AD_IndexColumn extends PO implements I_AD_IndexColumn, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_IndexColumn[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

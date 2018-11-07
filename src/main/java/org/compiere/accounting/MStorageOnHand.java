@@ -628,7 +628,7 @@ public class MStorageOnHand extends X_M_StorageOnHand
 		
 		//	Insert row based on locator
 		MLocator locator = new MLocator (ctx, M_Locator_ID, trxName);
-		if (locator.get_ID() != M_Locator_ID)
+		if (locator.getId() != M_Locator_ID)
 			throw new IllegalArgumentException("Not found M_Locator_ID=" + M_Locator_ID);
 		//
 		if (dateMPolicy == null)

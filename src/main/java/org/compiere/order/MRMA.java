@@ -114,7 +114,7 @@ public class MRMA extends X_M_RMA implements I_M_RMA
 			return m_taxes;
 		//
 		List<MRMATax> list = new Query(getCtx(), I_M_RMATax.Table_Name, "M_RMA_ID=?", get_TrxName())
-									.setParameters(get_ID())
+									.setParameters(getId())
 									.list();
 		m_taxes = list.toArray(new MRMATax[list.size()]);
 		return m_taxes;
@@ -179,7 +179,7 @@ public class MRMA extends X_M_RMA implements I_M_RMA
 	{
 		try
 		{
-			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+			File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
 			return createPDF (temp);
 		}
 		catch (Exception e)
@@ -470,10 +470,10 @@ public class MRMA extends X_M_RMA implements I_M_RMA
     public void setProcessed (boolean processed)
     {
         super.setProcessed (processed);
-        if (get_ID() <= 0)
+        if (getId() <= 0)
             return;
         int noLine = DB.executeUpdateEx("UPDATE M_RMALine SET Processed=? WHERE M_RMA_ID=?",
-        		new Object[]{processed, get_ID()},
+        		new Object[]{processed, getId()},
         		get_TrxName());
         m_lines = null;
         if (log.isLoggable(Level.FINE)) log.fine("setProcessed - " + processed + " - Lines=" + noLine);
@@ -518,7 +518,7 @@ public class MRMA extends X_M_RMA implements I_M_RMA
     {
         StringBuilder whereClause = new StringBuilder();
         whereClause.append("IsActive='Y' AND M_RMA_ID=");
-        whereClause.append(get_ID());
+        whereClause.append(getId());
         whereClause.append(" AND C_Charge_ID IS NOT null");
 
         int rmaLineIds[] = MRMALine.getAllIDs(MRMALine.Table_Name, whereClause.toString(), get_TrxName());
@@ -545,7 +545,7 @@ public class MRMA extends X_M_RMA implements I_M_RMA
     {
         MOrder order = getOriginalOrder();
 
-        if (order != null && order.get_ID() != 0)
+        if (order != null && order.getId() != 0)
         {
             return order.isTaxIncluded();
         }

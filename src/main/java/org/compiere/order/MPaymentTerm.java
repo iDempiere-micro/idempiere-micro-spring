@@ -8,10 +8,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import org.compiere.model.I_C_InvoicePaySchedule;
 import org.compiere.model.I_C_OrderPaySchedule;
 import org.compiere.model.I_C_PaymentTerm;
-import org.compiere.order.MOrderPaySchedule;
 import org.compiere.orm.Query;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.DB;
@@ -172,7 +170,7 @@ public class MPaymentTerm extends X_C_PaymentTerm implements I_C_PaymentTerm
 	public boolean applyOrder (int C_Order_ID)
 	{
 		MOrder order = new MOrder (getCtx(), C_Order_ID, get_TrxName());
-		if (order == null || order.get_ID() == 0)
+		if (order == null || order.getId() == 0)
 		{
 			log.log(Level.SEVERE, "apply - Not valid C_Order_ID=" + C_Order_ID);
 			return false;
@@ -187,7 +185,7 @@ public class MPaymentTerm extends X_C_PaymentTerm implements I_C_PaymentTerm
 	 */
 	public boolean applyOrder (MOrder order)
 	{
-		if (order == null || order.get_ID() == 0)
+		if (order == null || order.getId() == 0)
 		{
 			log.log(Level.SEVERE, "No valid order - " + order);
 			return false;
@@ -280,7 +278,7 @@ public class MPaymentTerm extends X_C_PaymentTerm implements I_C_PaymentTerm
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MPaymentTerm[");
-		sb.append(get_ID()).append("-").append(getName())
+		sb.append(getId()).append("-").append(getName())
 			.append(",Valid=").append(isValid())
 			.append ("]");
 		return sb.toString ();

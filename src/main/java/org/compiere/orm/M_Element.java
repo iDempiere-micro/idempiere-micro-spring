@@ -176,7 +176,7 @@ public class M_Element extends X_AD_Element
 			
 			StringBuilder sql = new StringBuilder("select count(*) from AD_Element where UPPER(ColumnName)=?");
 			if (!newRecord)
-				sql.append(" AND AD_Element_ID<>").append(get_ID()); 
+				sql.append(" AND AD_Element_ID<>").append(getId());
 			int no = DB.getSQLValue(null, sql.toString(), columnName.toUpperCase());
 			if (no > 0) {
 				log.saveError(DBException.SAVE_ERROR_NOT_UNIQUE_MSG, Msg.getElement(getCtx(), I_AD_Element.COLUMNNAME_ColumnName));
@@ -214,7 +214,7 @@ public class M_Element extends X_AD_Element
 					.append(", Name=").append(DB.TO_STRING(getName()))
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
-					.append(" WHERE AD_Element_ID=").append(get_ID());
+					.append(" WHERE AD_Element_ID=").append(getId());
 				no = DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("afterSave - Columns updated #" + no);
 
@@ -224,7 +224,7 @@ public class M_Element extends X_AD_Element
 					.append(", Name=").append(DB.TO_STRING(getName()))
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
-					.append(", AD_Element_ID=").append(get_ID())
+					.append(", AD_Element_ID=").append(getId())
 					.append(" WHERE UPPER(ColumnName)=")
 					.append(DB.TO_STRING(getColumnName().toUpperCase()))
 					.append(" AND IsCentrallyMaintained='Y' AND AD_Element_ID IS NULL");
@@ -235,7 +235,7 @@ public class M_Element extends X_AD_Element
 					.append(", Name=").append(DB.TO_STRING(getName()))
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
-					.append(" WHERE AD_Element_ID=").append(get_ID())
+					.append(" WHERE AD_Element_ID=").append(getId())
 					.append(" AND IsCentrallyMaintained='Y'");
 				no += DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("Parameters updated #" + no);
@@ -246,7 +246,7 @@ public class M_Element extends X_AD_Element
 					.append(", Name=").append(DB.TO_STRING(getName()))
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
-					.append(" WHERE AD_Element_ID=").append(get_ID())
+					.append(" WHERE AD_Element_ID=").append(getId())
 					.append(" AND IsCentrallyMaintained='Y'");
 				no += DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("Info Column updated #" + no);
@@ -262,7 +262,7 @@ public class M_Element extends X_AD_Element
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
 					.append(" WHERE AD_Column_ID IN (SELECT AD_Column_ID FROM AD_Column WHERE AD_Element_ID=")
-					.append(get_ID())
+					.append(getId())
 					.append(") AND IsCentrallyMaintained='Y'");
 				no = DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("Fields updated #" + no);
@@ -282,7 +282,7 @@ public class M_Element extends X_AD_Element
 					.append(" WHERE IsCentrallyMaintained='Y'")	
 					.append(" AND EXISTS (SELECT * FROM AD_Column c ")
 						.append("WHERE c.AD_Column_ID=AD_PrintFormatItem.AD_Column_ID AND c.AD_Element_ID=")
-						.append(get_ID()).append(")");
+						.append(getId()).append(")");
 				no = DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("PrintFormatItem updated #" + no);
 			}
@@ -298,7 +298,7 @@ public class M_Element extends X_AD_Element
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("M_Element[");
-		sb.append (get_ID()).append ("-").append (getColumnName()).append ("]");
+		sb.append (getId()).append ("-").append (getColumnName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

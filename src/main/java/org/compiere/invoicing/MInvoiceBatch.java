@@ -113,7 +113,7 @@ public class MInvoiceBatch extends X_C_InvoiceBatch
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder set = new StringBuilder("SET Processed='")
 			.append((processed ? "Y" : "N"))

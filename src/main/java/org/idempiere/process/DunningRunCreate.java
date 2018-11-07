@@ -102,7 +102,7 @@ public class DunningRunCreate extends SvrProcess
 			+ ", C_BP_Group_ID=" + p_C_BP_Group_ID
 			+ ", C_BPartner_ID=" + p_C_BPartner_ID);
 		m_run = new MDunningRun (getCtx(),p_C_DunningRun_ID, get_TrxName());
-		if (m_run.get_ID() == 0)
+		if (m_run.getId() == 0)
 			throw new IllegalArgumentException ("Not found MDunningRun");
 		if (!m_run.deleteEntries(true))
 			throw new IllegalArgumentException ("Cannot delete existing entries");
@@ -123,7 +123,7 @@ public class DunningRunCreate extends SvrProcess
 			checkDunningEntry(l_level);
 		}
 
-		int entries = DB.getSQLValue(get_TrxName(), "SELECT COUNT(*) FROM C_DunningRunEntry WHERE C_DunningRun_ID=?", m_run.get_ID());
+		int entries = DB.getSQLValue(get_TrxName(), "SELECT COUNT(*) FROM C_DunningRunEntry WHERE C_DunningRun_ID=?", m_run.getId());
 		
 		StringBuilder msgreturn = new StringBuilder("@C_DunningRunEntry_ID@ #").append(entries);
 		return msgreturn.toString();
@@ -188,7 +188,7 @@ public class DunningRunCreate extends SvrProcess
 					sqlAppend.append("C_DunningRunEntry_ID IN (SELECT C_DunningRunEntry_ID FROM C_DunningRunEntry WHERE ");
 					sqlAppend.append("C_DunningRun_ID IN (SELECT C_DunningRun_ID FROM C_DunningRunEntry WHERE ");
 					sqlAppend.append("C_DunningLevel_ID="); 
-					sqlAppend.append(element.get_ID ());
+					sqlAppend.append(element.getId ());
 					sqlAppend.append(")) AND Processed<>'N')");
 				}
 				sql.append(sqlAppend.toString());
@@ -258,7 +258,7 @@ public class DunningRunCreate extends SvrProcess
 				int TimesDunned = 0;
 				int DaysAfterLast = 0;
 				//	SubQuery
-				pstmt2.setInt (1, m_run.get_ID ());
+				pstmt2.setInt (1, m_run.getId ());
 				pstmt2.setInt (2, C_Invoice_ID);
 				rs2 = pstmt2.executeQuery ();
 				if (rs2.next())
@@ -347,7 +347,7 @@ public class DunningRunCreate extends SvrProcess
 			return false;
 		}
 		
-		if (entry.get_ID() == 0)
+		if (entry.getId() == 0)
 		{
 			if (!entry.save())
 				throw new IllegalStateException("Cannot save MDunningRunEntry");
@@ -399,7 +399,7 @@ public class DunningRunCreate extends SvrProcess
 		// because we do not want to dunn for money we owe the customer!
 		if (!level.isStatement())
 			sql.append(" AND C_BPartner_ID IN (SELECT C_BPartner_ID FROM C_DunningRunEntry WHERE C_DunningRun_ID=")
-			   .append(m_run.get_ID ()).append(")");
+			   .append(m_run.getId ()).append(")");
 		// show only receipts / if only Sales
 		if (p_OnlySOTrx)
 			sql.append(" AND IsReceipt='Y'");
@@ -480,7 +480,7 @@ public class DunningRunCreate extends SvrProcess
 			getProcessInfo().addLog(getProcessInfo().getAD_PInstance_ID(), null, null, msg.toString());
 			return false;
 		}
-		if (entry.get_ID() == 0)
+		if (entry.getId() == 0)
 			if (!entry.save())
 				throw new IllegalStateException("Cannot save MDunningRunEntry");
 		//

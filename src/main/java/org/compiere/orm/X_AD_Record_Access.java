@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Record_Access;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
@@ -62,7 +61,7 @@ public class X_AD_Record_Access extends PO implements I_AD_Record_Access, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Record_Access[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -141,7 +140,7 @@ public class X_AD_Record_Access extends PO implements I_AD_Record_Access, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_Table_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_Table_ID()));
     }
 
 	/** Set Dependent Entities.

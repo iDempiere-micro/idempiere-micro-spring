@@ -60,17 +60,17 @@ public class CommissionAPInvoice extends SvrProcess
 		/*
 		//	Load Data
 		MCommissionRun comRun = new MCommissionRun (getCtx(), getRecord_ID(), get_TrxName());
-		if (comRun.get_ID() == 0)
+		if (comRun.getId() == 0)
 			throw new IllegalArgumentException("CommissionAPInvoice - No Commission Run");
 		if (Env.ZERO.compareTo(comRun.getGrandTotal()) == 0)
 			throw new IllegalArgumentException("@GrandTotal@ = 0");
 		MCommission com = new MCommission (getCtx(), comRun.getC_Commission_ID(), get_TrxName());
-		if (com.get_ID() == 0)
+		if (com.getId() == 0)
 			throw new IllegalArgumentException("CommissionAPInvoice - No Commission");
 		if (com.getC_Charge_ID() == 0)
 			throw new IllegalArgumentException("CommissionAPInvoice - No Charge on Commission");
 		MBPartner bp = new MBPartner (getCtx(), com.getC_BPartner_ID(), get_TrxName());
-		if (bp.get_ID() == 0)
+		if (bp.getId() == 0)
 			throw new IllegalArgumentException("CommissionAPInvoice - No BPartner");
 			
 		//	Create Invoice

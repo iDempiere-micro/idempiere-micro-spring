@@ -67,7 +67,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_PriceList[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -345,7 +345,7 @@ public abstract class X_M_PriceList extends PO implements I_M_PriceList, I_Persi
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** Set Price Precision.

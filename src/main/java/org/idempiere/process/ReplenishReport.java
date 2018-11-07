@@ -37,7 +37,6 @@ import org.compiere.invoicing.MLocatorType;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.MOrg;
-import org.compiere.process.Core;
 import org.compiere.production.MLocator;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
@@ -113,7 +112,7 @@ public class ReplenishReport extends SvrProcess
 			throw new AdempiereUserError("@FillMandatory@ @C_DocType_ID@");
 		
 		MWarehouse wh = MWarehouse.get(getCtx(), p_M_Warehouse_ID);
-		if (wh.get_ID() == 0)  
+		if (wh.getId() == 0)
 			throw new AdempiereSystemError("@FillMandatory@ @M_Warehouse_ID@");
 		//
 		prepareTable();

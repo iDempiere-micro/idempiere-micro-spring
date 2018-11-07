@@ -65,7 +65,7 @@ public class TaxNotFoundException extends AdempiereException
 			return "?";
 		}
 		MTaxCategory cat = new MTaxCategory(Env.getCtx(), C_TaxCategory_ID, null);
-		if (cat.get_ID() != C_TaxCategory_ID)
+		if (cat.getId() != C_TaxCategory_ID)
 		{
 			return "?";
 		}
@@ -79,7 +79,7 @@ public class TaxNotFoundException extends AdempiereException
 			return "?";
 		}
 		MLocation loc = MLocation.get(Env.getCtx(), C_Location_ID, null);
-		if (loc == null || loc.get_ID() != C_Location_ID)
+		if (loc == null || loc.getId() != C_Location_ID)
 		{
 			return "?";
 		}

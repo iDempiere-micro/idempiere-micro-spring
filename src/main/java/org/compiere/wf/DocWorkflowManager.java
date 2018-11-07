@@ -8,7 +8,6 @@ import org.compiere.process.ProcessInfo;
 import org.compiere.util.SystemIDs;
 import org.idempiere.orm.DocWorkflowMgr;
 import org.idempiere.orm.PO;
-import static org.compiere.util.SystemIDs.*;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
@@ -108,7 +107,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 			log.fine(logic);
 			int AD_Process_ID = SystemIDs.PROCESS_AD_WORKFLOW_DOCVALUE;		//	HARDCODED
 			ProcessInfo pi = new ProcessInfo (wf.getName(), AD_Process_ID,
-				AD_Table_ID, document.get_ID());
+				AD_Table_ID, document.getId());
 			pi.setAD_User_ID (Env.getAD_User_ID(document.getCtx()));
 			pi.setAD_Client_ID(document.getAD_Client_ID());
 			//
@@ -160,7 +159,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 		{
 			pstmt = DB.prepareStatement (sql.toString(), document.get_TrxName());
 			pstmt.setInt (1, wf.getAD_Client_ID());
-			pstmt.setInt (2, document.get_ID());
+			pstmt.setInt (2, document.getId());
 			pstmt.setInt (3, document.get_Table_ID());
 			pstmt.setInt (4, wf.getAD_Workflow_ID());
 			rs = pstmt.executeQuery ();

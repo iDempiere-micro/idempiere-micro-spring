@@ -48,7 +48,7 @@ public class MResourceType extends X_S_ResourceType
 		MResourceType type = s_cache.get(S_ResourceType_ID);
 		if (type == null) {
 			type = new MResourceType(ctx, S_ResourceType_ID, null);
-			if (type.get_ID() == S_ResourceType_ID) {
+			if (type.getId() == S_ResourceType_ID) {
 				s_cache.put(S_ResourceType_ID, type);
 			}
 		}
@@ -268,7 +268,7 @@ public class MResourceType extends X_S_ResourceType
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("MResourceType[")
-			.append(get_ID())
+			.append(getId())
 			.append(",Value=").append(getValue())
 			.append(",Name=").append(getName());
 		if (isTimeSlot())

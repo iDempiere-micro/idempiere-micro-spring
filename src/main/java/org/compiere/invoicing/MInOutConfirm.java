@@ -654,7 +654,7 @@ public class MInOutConfirm extends org.compiere.order.MInOutConfirm implements D
     public String toString ()
     {
         StringBuilder sb = new StringBuilder ("MInOutConfirm[");
-        sb.append(get_ID()).append("-").append(getSummary())
+        sb.append(getId()).append("-").append(getSummary())
             .append ("]");
         return sb.toString ();
     }	//	toString

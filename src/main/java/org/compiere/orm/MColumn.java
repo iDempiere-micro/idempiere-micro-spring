@@ -60,7 +60,7 @@ public class MColumn extends X_AD_Column
 			return retValue;
 		}
 		retValue = new MColumn (ctx, AD_Column_ID, trxName);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -93,7 +93,7 @@ public class MColumn extends X_AD_Column
 	public static String getColumnName (Properties ctx, int AD_Column_ID, String trxName)
 	{
 		MColumn col = MColumn.get(ctx, AD_Column_ID, trxName);
-		if (col.get_ID() == 0)
+		if (col.getId() == 0)
 			return null;
 		return col.getColumnName();
 	}	//	getColumnName
@@ -388,7 +388,7 @@ public class MColumn extends X_AD_Column
 					.append(DB.TO_STRING(getName()))
 					.append(", Description=").append(DB.TO_STRING(getDescription()))
 					.append(", Help=").append(DB.TO_STRING(getHelp()))
-					.append(" WHERE AD_Column_ID=").append(get_ID())
+					.append(" WHERE AD_Column_ID=").append(getId())
 					.append(" AND IsCentrallyMaintained='Y'");
 				int no = DB.executeUpdate(sql.toString(), get_TrxName());
 				if (log.isLoggable(Level.FINE)) log.fine("afterSave - Fields updated #" + no);
@@ -623,7 +623,7 @@ public class MColumn extends X_AD_Column
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MColumn[");
-		sb.append (get_ID()).append ("-").append (getColumnName()).append ("]");
+		sb.append (getId()).append ("-").append (getColumnName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 	

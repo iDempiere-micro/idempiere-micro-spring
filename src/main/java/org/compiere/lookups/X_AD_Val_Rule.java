@@ -50,7 +50,7 @@ public class X_AD_Val_Rule extends BasePOName implements I_AD_Val_Rule, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Val_Rule[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

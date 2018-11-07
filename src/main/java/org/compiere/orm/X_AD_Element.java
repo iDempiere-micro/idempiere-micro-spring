@@ -49,7 +49,7 @@ public class X_AD_Element extends BasePOName implements I_AD_Element, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Element[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

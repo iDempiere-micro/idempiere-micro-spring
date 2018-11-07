@@ -50,7 +50,7 @@ public class X_C_POSTenderType extends BasePONameValue implements I_C_POSTenderT
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_POSTenderType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

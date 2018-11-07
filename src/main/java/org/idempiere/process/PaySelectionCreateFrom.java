@@ -109,7 +109,7 @@ public class PaySelectionCreateFrom extends SvrProcess
 			+ ", C_BP_Group_ID=" + p_C_BP_Group_ID + ", C_BPartner_ID=" + p_C_BPartner_ID);
 		
 		MPaySelection psel = new MPaySelection (getCtx(), p_C_PaySelection_ID, get_TrxName());
-		if (psel.get_ID() == 0)
+		if (psel.getId() == 0)
 			throw new IllegalArgumentException("Not found C_PaySelection_ID=" + p_C_PaySelection_ID);
 		if (psel.isProcessed())
 			throw new IllegalArgumentException("@Processed@");

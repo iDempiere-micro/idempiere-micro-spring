@@ -4,7 +4,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -13,10 +12,6 @@ import org.compiere.crm.MBPartner;
 import org.compiere.crm.MUser;
 import org.compiere.model.*;
 import org.compiere.orm.*;
-import org.compiere.process.DocAction;
-import org.compiere.product.MProduct;
-import org.idempiere.common.exceptions.AdempiereException;
-import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
@@ -336,7 +331,7 @@ public class MInOut extends X_M_InOut
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MInOut[")
-			.append (get_ID()).append("-").append(getDocumentNo())
+			.append (getId()).append("-").append(getDocumentNo())
 			.append(",DocStatus=").append(getDocStatus())
 			.append ("]");
 		return sb.toString ();
@@ -361,7 +356,7 @@ public class MInOut extends X_M_InOut
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}
@@ -547,7 +542,7 @@ public class MInOut extends X_M_InOut
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder sql = new StringBuilder("UPDATE M_InOutLine SET Processed='")
 			.append((processed ? "Y" : "N"))

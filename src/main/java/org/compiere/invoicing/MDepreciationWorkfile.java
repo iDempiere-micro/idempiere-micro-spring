@@ -79,7 +79,7 @@ public class MDepreciationWorkfile extends X_A_Depreciation_Workfile
 		if (m_asset == null || requery) {
 			m_asset = MAsset.get(getCtx(), getA_Asset_ID(), get_TrxName());
 		}
-		if (m_asset.get_ID() <= 0) {
+		if (m_asset.getId() <= 0) {
 			m_asset = null;
 		}
 		return m_asset;
@@ -90,7 +90,7 @@ public class MDepreciationWorkfile extends X_A_Depreciation_Workfile
 	 */
 	public void setAsset(MAsset asset)
 	{
-		setA_Asset_ID(asset.get_ID());
+		setA_Asset_ID(asset.getId());
 		m_asset = asset;
 	}
 	

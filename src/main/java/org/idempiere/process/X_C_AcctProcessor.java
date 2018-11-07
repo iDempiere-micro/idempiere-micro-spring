@@ -47,7 +47,7 @@ public class X_C_AcctProcessor extends BasePOName implements I_C_AcctProcessor, 
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_C_AcctProcessor[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

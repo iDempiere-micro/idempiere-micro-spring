@@ -274,7 +274,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder sql = new StringBuilder("UPDATE GL_JournalLine SET Processed='")
 			.append((processed ? "Y" : "N"))
@@ -880,7 +880,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		
 		// teo_sarca - FR [ 1776045 ] Add ReActivate action to GL Journal
 		MPeriod.testPeriodOpen(getCtx(), getDateAcct(), getC_DocType_ID(), getAD_Org_ID());
-		MFactAcct.deleteEx(MJournal.Table_ID, get_ID(), get_TrxName());
+		MFactAcct.deleteEx(MJournal.Table_ID, getId(), get_TrxName());
 		setPosted(false);
 		setProcessed(false);
 		setDocAction(X_GL_Journal.DOCACTION_Complete);
@@ -921,7 +921,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MJournal[");
-		sb.append(get_ID()).append(",").append(getDescription())
+		sb.append(getId()).append(",").append(getDescription())
 			.append(",DR=").append(getTotalDr())
 			.append(",CR=").append(getTotalCr())
 			.append ("]");
@@ -947,7 +947,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}

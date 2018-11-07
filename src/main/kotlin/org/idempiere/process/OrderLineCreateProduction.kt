@@ -67,7 +67,7 @@ class OrderLineCreateProduction(
             throw IllegalArgumentException("No OrderLine")
         //
         val line = MOrderLine(ctx, p_C_OrderLine_ID, _TrxName)
-        if (line._ID == 0)
+        if (line.id == 0)
             throw IllegalArgumentException("Order line not found")
         val order: I_C_Order = MOrder(ctx, line.c_Order_ID, _TrxName)
         if (MOrder.DOCSTATUS_Completed != order.docStatus)
@@ -106,7 +106,7 @@ class OrderLineCreateProduction(
 
         var locator = product.m_Locator_ID
         if (locator == 0)
-            locator = MWarehouse.get(ctx, line.m_Warehouse_ID).defaultLocator!!._ID
+            locator = MWarehouse.get(ctx, line.m_Warehouse_ID).defaultLocator!!.id
         production.m_Locator_ID = locator
 
         if (line.c_BPartner_ID > 0) {

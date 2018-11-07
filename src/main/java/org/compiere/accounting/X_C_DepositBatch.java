@@ -70,7 +70,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_DepositBatch[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -312,7 +312,7 @@ public class X_C_DepositBatch extends PO implements I_C_DepositBatch, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
 	/** Set Processed.

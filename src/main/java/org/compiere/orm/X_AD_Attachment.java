@@ -57,7 +57,7 @@ public class X_AD_Attachment extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Attachment[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -205,6 +205,6 @@ public class X_AD_Attachment extends PO implements I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getTitle());
+        return new KeyNamePair(getId(), getTitle());
     }
 }

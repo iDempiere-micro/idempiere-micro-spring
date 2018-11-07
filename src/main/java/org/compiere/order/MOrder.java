@@ -525,7 +525,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MOrder[")
-			.append(get_ID()).append("-").append(getDocumentNo())
+			.append(getId()).append("-").append(getDocumentNo())
 			.append(",IsSOTrx=").append(isSOTrx())
 			.append(",C_DocType_ID=").append(getC_DocType_ID())
 			.append(", GrandTotal=").append(getGrandTotal())
@@ -551,7 +551,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 	{
 		try
 		{
-			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+			File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
 			return createPDF (temp);
 		}
 		catch (Exception e)
@@ -578,7 +578,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 	public void setM_PriceList_ID (int M_PriceList_ID)
 	{
 		MPriceList pl = MPriceList.get(getCtx(), M_PriceList_ID, null);
-		if (pl.get_ID() == M_PriceList_ID)
+		if (pl.getId() == M_PriceList_ID)
 		{
 			super.setM_PriceList_ID(M_PriceList_ID);
 			setC_Currency_ID(pl.getC_Currency_ID());
@@ -603,7 +603,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 			orderClause = MOrderLine.COLUMNNAME_Line;
 		//
 		List<MOrderLine> list = new Query(getCtx(), I_C_OrderLine.Table_Name, whereClauseFinal.toString(), get_TrxName())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.setOrderBy(orderClause)
 										.list();
 		for (MOrderLine ol : list) {
@@ -689,7 +689,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 			return m_taxes;
 		//
 		List<MOrderTax> list = new Query(getCtx(), I_C_OrderTax.Table_Name, "C_Order_ID=?", get_TrxName())
-									.setParameters(get_ID())
+									.setParameters(getId())
 									.list();
 		m_taxes = list.toArray(new MOrderTax[list.size()]);
 		return m_taxes;
@@ -707,7 +707,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 							        		+" AND il.C_OrderLine_ID=ol.C_OrderLine_ID"
 							        		+" AND ol.C_Order_ID=?)";
 		List<PO> list = new Query(getCtx(), I_C_Invoice.Table_Name, whereClause, get_TrxName())
-									.setParameters(get_ID())
+									.setParameters(getId())
 									.setOrderBy("C_Invoice_ID DESC")
 									.list();
 		return list.toArray(new I_C_Invoice[list.size()]);
@@ -722,7 +722,7 @@ public class MOrder extends X_C_Order implements I_C_Order
  		String sql = "SELECT C_Invoice_ID FROM C_Invoice "
 			+ "WHERE C_Order_ID=? AND DocStatus IN ('CO','CL') "
 			+ "ORDER BY C_Invoice_ID DESC";
-		int C_Invoice_ID = DB.getSQLValue(get_TrxName(), sql, get_ID());
+		int C_Invoice_ID = DB.getSQLValue(get_TrxName(), sql, getId());
 		return C_Invoice_ID;
 	}	//	getC_Invoice_ID
 
@@ -738,7 +738,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 			+" AND iol.C_OrderLine_ID=ol.C_OrderLine_ID"
 			+" AND ol.C_Order_ID=?)";
 		List<PO> list = new Query(getCtx(), I_M_InOut.Table_Name, whereClause, get_TrxName())
-									.setParameters(get_ID())
+									.setParameters(getId())
 									.setOrderBy("M_InOut_ID DESC")
 									.list();
 		return list.toArray(new MInOut[list.size()]);
@@ -799,7 +799,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		String set = "SET Processed='"
 			+ (processed ? "Y" : "N")

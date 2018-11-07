@@ -80,7 +80,7 @@ abstract class BaseCustomerTest : BaseProcessTest() {
             // already a customer
             Pair("isCustomer", true),
             // customer category
-            Pair("customerCategoryId", category._ID),
+            Pair("customerCategoryId", category.id),
             // flat discount
             Pair("discount", 7),
             // account manager

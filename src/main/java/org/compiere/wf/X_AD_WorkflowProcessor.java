@@ -61,7 +61,7 @@ public class X_AD_WorkflowProcessor extends BasePOName implements I_AD_WorkflowP
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WorkflowProcessor[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

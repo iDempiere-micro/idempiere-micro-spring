@@ -55,7 +55,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_I_GLJournal[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -1031,7 +1031,7 @@ public class X_I_GLJournal extends PO implements I_I_GLJournal, I_Persistent
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getI_GLJournal_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getI_GLJournal_ID()));
     }
 
     /** Set I_GLJournal_UU.

@@ -6,9 +6,7 @@ import java.util.Properties;
 import org.compiere.model.I_PA_MeasureCalc;
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -70,7 +68,7 @@ public class X_PA_MeasureCalc extends BasePOName implements I_PA_MeasureCalc, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PA_MeasureCalc[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

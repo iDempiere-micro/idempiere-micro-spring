@@ -6,7 +6,6 @@ import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_PInstance_Log;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
 import org.idempiere.orm.POInfo;
@@ -58,7 +57,7 @@ public class X_AD_PInstance_Log extends PO implements I_AD_PInstance_Log, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_PInstance_Log[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

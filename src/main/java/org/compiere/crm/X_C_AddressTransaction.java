@@ -62,7 +62,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_AddressTransaction[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -232,7 +232,7 @@ public class X_C_AddressTransaction extends PO implements I_C_AddressTransaction
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getCity());
+        return new KeyNamePair(getId(), getCity());
     }
 
 	public I_C_Location getC_Location() throws RuntimeException

@@ -75,7 +75,7 @@ public class X_A_Asset extends BasePOUser implements I_A_Asset, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Asset[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

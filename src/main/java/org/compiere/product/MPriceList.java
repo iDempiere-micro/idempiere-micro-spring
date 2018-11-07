@@ -81,7 +81,7 @@ public class MPriceList extends X_M_PriceList
 		//	Return value
 		if (retValue != null)
 		{
-			s_cache.put(retValue.get_ID(), retValue);
+			s_cache.put(retValue.getId(), retValue);
 		}
 		return retValue;
 	}	//	getDefault
@@ -100,7 +100,7 @@ public class MPriceList extends X_M_PriceList
 		// If currency is null, return the default without looking at currency
 		if (currency==null) return(getDefault(ctx, IsSOPriceList));
 
-		int M_Currency_ID = currency.get_ID();
+		int M_Currency_ID = currency.getId();
 		
 		MPriceList retValue = null;
 		//	Search for it in cache
@@ -129,7 +129,7 @@ public class MPriceList extends X_M_PriceList
 		//	Return value
 		if (retValue != null)
 		{
-			s_cache.put(retValue.get_ID(), retValue);
+			s_cache.put(retValue.getId(), retValue);
 		}
 		return retValue;
 	}

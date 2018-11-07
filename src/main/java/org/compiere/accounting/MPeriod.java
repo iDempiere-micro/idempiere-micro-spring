@@ -62,7 +62,7 @@ public class MPeriod extends X_C_Period
 			return retValue;
 		//
 		retValue = new MPeriod (ctx, C_Period_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} 	//	get
@@ -746,7 +746,7 @@ public class MPeriod extends X_C_Period
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MPeriod[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append("-").append (getName())
 			.append(", ").append(getStartDate()).append("-").append(getEndDate())
 			.append ("]");

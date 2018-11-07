@@ -6,8 +6,6 @@ import java.util.Properties;
 import org.compiere.model.I_AD_HouseKeeping;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -56,7 +54,7 @@ public class X_AD_HouseKeeping extends BasePONameValue implements I_AD_HouseKeep
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_AD_HouseKeeping[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

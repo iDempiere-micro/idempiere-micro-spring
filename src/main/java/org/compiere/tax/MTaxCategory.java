@@ -77,7 +77,7 @@ public class MTaxCategory extends X_C_TaxCategory
 	@Override
 	public String toString()
 	{
-		return getClass().getSimpleName()+"["+get_ID()
+		return getClass().getSimpleName()+"["+ getId()
 		+", Name="+getName()
 		+", IsDefault="+isDefault()
 		+", IsActive="+isActive()

@@ -75,7 +75,7 @@ public class X_GL_DistributionLine extends PO implements I_GL_DistributionLine, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_GL_DistributionLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -428,7 +428,7 @@ public class X_GL_DistributionLine extends PO implements I_GL_DistributionLine, 
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
 	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException

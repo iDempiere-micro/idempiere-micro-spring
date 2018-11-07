@@ -188,7 +188,7 @@ public class MDepositBatch extends X_C_DepositBatch implements IPODoc
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MDepositBatch[");
-		sb.append(get_ID()).append(",").append(getDescription())
+		sb.append(getId()).append(",").append(getDescription())
 			.append(",Amount=").append(getDepositAmt())
 			.append ("]");
 		return sb.toString ();
@@ -212,7 +212,7 @@ public class MDepositBatch extends X_C_DepositBatch implements IPODoc
 	{
 		try
 		{
-			File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+			File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
 			return createPDF (temp);
 		}
 		catch (Exception e)

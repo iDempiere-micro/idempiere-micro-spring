@@ -94,7 +94,7 @@ public class X_M_InOut extends PO implements I_M_InOut, I_Persistent
 	public String toString()
 	{
 		StringBuffer sb = new StringBuffer ("X_M_InOut[")
-			.append(get_ID()).append("]");
+			.append(getId()).append("]");
 		return sb.toString();
 	}
 
@@ -723,7 +723,7 @@ public class X_M_InOut extends PO implements I_M_InOut, I_Persistent
 	 */
 	public KeyNamePair getKeyNamePair()
 	{
-		return new KeyNamePair(get_ID(), getDocumentNo());
+		return new KeyNamePair(getId(), getDocumentNo());
 	}
 
 	public org.compiere.model.I_C_BPartner getDropShip_BPartner() throws RuntimeException

@@ -61,7 +61,7 @@ public class X_I_PriceList extends PO implements I_I_PriceList, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_I_PriceList[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

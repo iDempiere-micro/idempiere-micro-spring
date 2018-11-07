@@ -158,7 +158,7 @@ public class RecurringRun extends SvrProcess
 				}
 
 				msg = Msg.parseTranslation(getCtx(), msg);
-				addBufferLog(po.get_ID(), currdate, null, msg, po.get_Table_ID(), po.get_ID());
+				addBufferLog(po.getId(), currdate, null, msg, po.get_Table_ID(), po.getId());
 			}
 		}
 

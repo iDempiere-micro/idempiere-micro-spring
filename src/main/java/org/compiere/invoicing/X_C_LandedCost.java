@@ -60,7 +60,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_LandedCost[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -97,7 +97,7 @@ public class X_C_LandedCost extends PO implements I_C_LandedCost, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_InvoiceLine_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_InvoiceLine_ID()));
     }
 
 	/** Set Landed Cost.

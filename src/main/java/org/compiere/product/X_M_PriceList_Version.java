@@ -64,7 +64,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_PriceList_Version[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -228,7 +228,7 @@ public class X_M_PriceList_Version extends PO implements I_M_PriceList_Version, 
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** Set Create.

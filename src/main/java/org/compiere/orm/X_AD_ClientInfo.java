@@ -1,7 +1,6 @@
 package org.compiere.orm;
 
 import org.compiere.model.I_AD_ClientInfo;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -59,7 +58,7 @@ public class X_AD_ClientInfo extends PO implements I_AD_ClientInfo, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_ClientInfo[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

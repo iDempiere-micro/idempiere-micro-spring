@@ -57,7 +57,7 @@ public class IssueReport extends SvrProcess
 			return "NOT reported - Enable Error Reporting in Window System";
 		//
 		MIssue issue = new MIssue(getCtx(), m_AD_Issue_ID, get_TrxName());
-		if (issue.get_ID() == 0){
+		if (issue.getId() == 0){
 			StringBuilder msgreturn = new StringBuilder("No Issue to report - ID=").append(m_AD_Issue_ID);
 			return msgreturn.toString();
 		}	

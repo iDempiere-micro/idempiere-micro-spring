@@ -91,7 +91,7 @@ public class MAcctSchema extends X_C_AcctSchema
 		ArrayList<MAcctSchema> list = new ArrayList<MAcctSchema>();
 		MClientInfo info = MClientInfo.get(ctx, AD_Client_ID, trxName);
 		MAcctSchema as = MAcctSchema.get (ctx, info.getC_AcctSchema1_ID(), trxName);
-		if (as.get_ID() != 0)
+		if (as.getId() != 0)
 			list.add(as);
 		
 		ArrayList<Object> params = new ArrayList<Object>();
@@ -112,9 +112,9 @@ public class MAcctSchema extends X_C_AcctSchema
 		
 		for(MAcctSchema acctschema : ass)
 		{
-			if (acctschema.get_ID() != info.getC_AcctSchema1_ID())	//	already in list
+			if (acctschema.getId() != info.getC_AcctSchema1_ID())	//	already in list
 			{
-				if (acctschema.get_ID() != 0)	
+				if (acctschema.getId() != 0)
 					list.add(acctschema);
 			}
 		}
@@ -277,7 +277,7 @@ public class MAcctSchema extends X_C_AcctSchema
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("AcctSchema[");
-			sb.append(get_ID()).append("-").append(getName())
+			sb.append(getId()).append("-").append(getName())
 				.append("]");
 		return sb.toString();
 	}	//	toString

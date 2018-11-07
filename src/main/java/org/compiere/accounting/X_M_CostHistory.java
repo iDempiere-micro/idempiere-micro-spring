@@ -67,7 +67,7 @@ public class X_M_CostHistory extends PO implements I_M_CostHistory, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_CostHistory[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

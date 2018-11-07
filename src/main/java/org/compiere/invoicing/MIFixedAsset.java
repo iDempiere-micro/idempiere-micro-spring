@@ -295,7 +295,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 	private MProduct m_product = null;
 	public void setProduct(MProduct product) {
 		m_product = product;
-		setM_Product_ID(product.get_ID());
+		setM_Product_ID(product.getId());
 		setProductValue(product.getValue());
 		if (Util.isEmpty(getName()))
 			setName(product.getName());
@@ -310,7 +310,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 	/**	Depreciation Method */
 	public int getA_Depreciation_ID() {
 		MDepreciation depr = MDepreciation.get(getCtx(), s_defaultDepreciationType);
-		return depr != null ? depr.get_ID() : 0;
+		return depr != null ? depr.getId() : 0;
 	}
 	public int getA_Depreciation_F_ID() {
 		return getA_Depreciation_ID();

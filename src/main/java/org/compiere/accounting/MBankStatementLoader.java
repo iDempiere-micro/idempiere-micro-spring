@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import org.compiere.bank.X_C_BankAccount;
 import org.compiere.orm.MTable;
 import org.compiere.orm.Query;
-import org.compiere.process.Core;
 import org.compiere.product.X_C_Currency;
 import org.idempiere.common.base.Service;
 import org.idempiere.common.util.Env;
@@ -143,7 +142,7 @@ public class MBankStatementLoader extends X_C_BankStatementLoader
     public String toString ()
     {
         StringBuilder sb = new StringBuilder ("MBankStatementLoader[")
-            .append(get_ID ()).append("-").append(getName())
+            .append(getId()).append("-").append(getName())
             .append ("]");
         return sb.toString ();
     }	//	toString
@@ -181,7 +180,7 @@ public class MBankStatementLoader extends X_C_BankStatementLoader
         currencyMap = new HashMap<String,Integer>() ;
 
         for (X_C_Currency currency : currencyList) {
-            currencyMap.put(currency.getISO_Code(), currency.get_ID()) ;
+            currencyMap.put(currency.getISO_Code(), currency.getId()) ;
         }
         //	Initialize the Loader
         if (!m_loader.init(this))
@@ -285,7 +284,7 @@ public class MBankStatementLoader extends X_C_BankStatementLoader
                 || (!Util.isEmpty(imp.getBankAccountNo()) && !Util.isEmpty(imp.getRoutingNo())
                 && imp.getBankAccountNo().equalsIgnoreCase(bankAccount.getAccountNo())
                 && imp.getRoutingNo().equalsIgnoreCase(bankAccount.getC_Bank().getRoutingNo()))) {
-                imp.setC_BankAccount_ID(bankAccount.get_ID());
+                imp.setC_BankAccount_ID(bankAccount.getId());
                 break;
             }
         }

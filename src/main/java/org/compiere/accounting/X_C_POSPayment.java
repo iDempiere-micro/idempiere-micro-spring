@@ -64,7 +64,7 @@ public class X_C_POSPayment extends PO implements I_C_POSPayment, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_POSPayment[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -51,7 +51,7 @@ public class X_M_Shipper extends BasePOName implements I_M_Shipper, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Shipper[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

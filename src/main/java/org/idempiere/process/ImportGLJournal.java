@@ -787,9 +787,9 @@ public class ImportGLJournal extends SvrProcess
 						imp.getC_Project_ID(), imp.getC_Campaign_ID(), imp.getC_Activity_ID(),
 						imp.getUser1_ID(), imp.getUser2_ID(), 0, 0,
 						get_TrxName());
-					if (acct != null && acct.get_ID() == 0)
+					if (acct != null && acct.getId() == 0)
 						acct.saveEx();
-					if (acct == null || acct.get_ID() == 0)
+					if (acct == null || acct.getId() == 0)
 					{
 						imp.setI_ErrorMsg("ERROR creating Account");
 						imp.setI_IsImported(false);
@@ -798,8 +798,8 @@ public class ImportGLJournal extends SvrProcess
 					}
 					else
 					{
-						line.setC_ValidCombination_ID(acct.get_ID());
-						imp.setC_ValidCombination_ID(acct.get_ID());
+						line.setC_ValidCombination_ID(acct.getId());
+						imp.setC_ValidCombination_ID(acct.getId());
 					}
 				}
 				else

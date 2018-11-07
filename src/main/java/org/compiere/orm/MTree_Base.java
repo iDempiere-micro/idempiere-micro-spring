@@ -65,7 +65,7 @@ public class MTree_Base extends X_AD_Tree
 		if (AD_Tree_ID == 0)
 			throw new IllegalArgumentException("No Tree found");
 		MTree_Base tree = MTree_Base.get(ctx, AD_Tree_ID, trxName);
-		if (tree.get_ID() != AD_Tree_ID)
+		if (tree.getId() != AD_Tree_ID)
 			throw new IllegalArgumentException("Tree found AD_Tree_ID=" + AD_Tree_ID);
 
 		//	Insert Tree in correct tree
@@ -195,7 +195,7 @@ public class MTree_Base extends X_AD_Tree
 		if (retValue != null)
 			return retValue;
 		retValue = new MTree_Base (ctx, AD_Tree_ID, trxName);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get

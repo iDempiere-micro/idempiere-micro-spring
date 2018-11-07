@@ -76,7 +76,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_Request[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -596,7 +596,7 @@ public class X_R_Request extends PO implements I_R_Request, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
 	/** DueType AD_Reference_ID=222 */

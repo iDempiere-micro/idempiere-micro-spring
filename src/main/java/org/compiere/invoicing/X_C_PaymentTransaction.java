@@ -78,7 +78,7 @@ public class X_C_PaymentTransaction extends PO implements I_C_PaymentTransaction
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaymentTransaction[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

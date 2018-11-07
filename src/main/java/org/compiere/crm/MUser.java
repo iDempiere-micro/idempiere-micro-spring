@@ -557,7 +557,7 @@ public class MUser extends X_AD_User implements IUser
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MUser[")
-			.append(get_ID())
+			.append(getId())
 			.append(",Name=").append(getName())
 			.append(",EMailUserID=").append(getEMailUser())
 			.append ("]");

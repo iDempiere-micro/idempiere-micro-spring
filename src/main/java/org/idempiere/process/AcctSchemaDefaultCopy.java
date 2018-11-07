@@ -22,7 +22,6 @@ import java.util.logging.Level;
 import org.compiere.accounting.MAcctSchema;
 import org.compiere.accounting.MAcctSchemaDefault;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereSystemError;
 import org.idempiere.common.util.DB;
@@ -73,10 +72,10 @@ public class AcctSchemaDefaultCopy extends SvrProcess
 		if (p_C_AcctSchema_ID == 0)
 			throw new AdempiereSystemError("C_AcctSchema_ID=0");
 		MAcctSchema as = MAcctSchema.get(getCtx(), p_C_AcctSchema_ID);
-		if (as.get_ID() == 0)
+		if (as.getId() == 0)
 			throw new AdempiereSystemError("Not Found - C_AcctSchema_ID=" + p_C_AcctSchema_ID);
 		MAcctSchemaDefault acct = MAcctSchemaDefault.get (getCtx(), p_C_AcctSchema_ID);
-		if (acct == null || acct.get_ID() == 0)
+		if (acct == null || acct.getId() == 0)
 			throw new AdempiereSystemError("Default Not Found - C_AcctSchema_ID=" + p_C_AcctSchema_ID);
 		
 		StringBuilder sql = null;

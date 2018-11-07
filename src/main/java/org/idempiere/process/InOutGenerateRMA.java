@@ -32,7 +32,6 @@ import org.compiere.model.I_C_InvoiceLine;
 import org.compiere.order.MRMALine;
 import org.compiere.orm.Query;
 import org.compiere.process.DocAction;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Msg;
 import org.idempiere.common.exceptions.AdempiereException;
@@ -139,7 +138,7 @@ public class InOutGenerateRMA extends SvrProcess
     
     private MInOut createShipment(MRMA rma)
     {
-        int docTypeId = getShipmentDocTypeId(rma.get_ID());
+        int docTypeId = getShipmentDocTypeId(rma.getId());
         
         if (docTypeId == -1)
         {
@@ -149,7 +148,7 @@ public class InOutGenerateRMA extends SvrProcess
         MInOut originalReceipt = rma.getShipment();
         
         MInOut shipment = new MInOut(getCtx(), 0, get_TrxName());
-        shipment.setM_RMA_ID(rma.get_ID());
+        shipment.setM_RMA_ID(rma.getId());
         shipment.setAD_Org_ID(rma.getAD_Org_ID());
         shipment.setAD_OrgTrx_ID(originalReceipt.getAD_OrgTrx_ID());
         shipment.setDescription(rma.getDescription());
@@ -183,7 +182,7 @@ public class InOutGenerateRMA extends SvrProcess
         	if (rmaLine.getM_InOutLine_ID() != 0 || rmaLine.getC_Charge_ID() != 0 || rmaLine.getM_Product_ID() != 0)
             {
                 MInOutLine shipLine = new MInOutLine(shipment);
-                shipLine.setM_RMALine_ID(rmaLine.get_ID());
+                shipLine.setM_RMALine_ID(rmaLine.getId());
                 shipLine.setLine(rmaLine.getLine());
                 shipLine.setDescription(rmaLine.getDescription());
                 
@@ -246,7 +245,7 @@ public class InOutGenerateRMA extends SvrProcess
         if (shipmentLines.length == 0)
         {
             StringBuilder msglog = new StringBuilder("No shipment lines created: M_RMA_ID=")
-                    .append(M_RMA_ID).append(", M_InOut_ID=").append(shipment.get_ID());
+                    .append(M_RMA_ID).append(", M_InOut_ID=").append(shipment.getId());
         	log.log(Level.WARNING, msglog.toString());
         }
         

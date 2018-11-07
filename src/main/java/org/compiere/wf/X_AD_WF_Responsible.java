@@ -53,7 +53,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_Responsible[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -181,7 +181,7 @@ public class X_AD_WF_Responsible extends BasePOUser implements I_AD_WF_Responsib
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** ResponsibleType AD_Reference_ID=304 */

@@ -132,7 +132,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 				
 				//IDEMPIERE-3107 Check if End Product in Production Lines exist
 				if(!isHaveEndProduct(lines)) {
-					m_processMsg = String.format("Production plan (line %1$d id %2$d) does not contain End Product", plan.getLine(), plan.get_ID());
+					m_processMsg = String.format("Production plan (line %1$d id %2$d) does not contain End Product", plan.getLine(), plan.getId());
 					return new CompleteActionResult(DocAction.Companion.getSTATUS_Invalid());
 				}
 				
@@ -199,7 +199,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, get_ID());
+			pstmt.setInt(1, getId());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				list.add( new MProductionLine( getCtx(), rs.getInt(1), get_TrxName() ) );	
@@ -241,7 +241,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 
 		MProductionLine line = new MProductionLine( this );
 		line.setLine( lineno );
-		line.setM_Product_ID( finishedProduct.get_ID() );
+		line.setM_Product_ID( finishedProduct.getId() );
 		line.setM_Locator_ID( getM_Locator_ID() );
 		line.setMovementQty( getProductionQty());
 		line.setPlannedQty(getProductionQty());
@@ -333,7 +333,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 						defaultLocator = usedProduct.getM_Locator_ID();
 						if ( defaultLocator == 0 )
 							defaultLocator = getM_Locator_ID();
-						if (usedProduct == null || usedProduct.get_ID() == 0)
+						if (usedProduct == null || usedProduct.getId() == 0)
 							return 0;
 
 						MClient client = MClient.get(getCtx());
@@ -733,7 +733,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 			//	We need to copy MA
 			if (sLines[i].getMAttributeSetInstance_ID() == 0)
 			{
-				MProductionLineMA mas[] = MProductionLineMA.get(getCtx(), sLines[i].get_ID(), get_TrxName());
+				MProductionLineMA mas[] = MProductionLineMA.get(getCtx(), sLines[i].getId(), get_TrxName());
 				for (int j = 0; j < mas.length; j++)
 				{
 					MProductionLineMA ma = new MProductionLineMA (tLines[i],
