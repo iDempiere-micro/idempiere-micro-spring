@@ -20,7 +20,7 @@ class CategoryTests : BaseComponentTest() {
         category.setName("Test")
         category.setValue("Test")
         category.save()
-        val cat: MCrmCategory = getById(category._ID, MCrmCategory.Table_Name)
+        val cat: MCrmCategory = getById(category.id, MCrmCategory.Table_Name)
         assertNotNull(cat)
 
         `get all crm categories from the service works`()
@@ -33,7 +33,7 @@ class CategoryTests : BaseComponentTest() {
         category.setName(catName)
         category.setValue(catName)
         category.save()
-        val cat: MCrmCategory = getById(category._ID, MCrmCategory.Table_Name)
+        val cat: MCrmCategory = getById(category.id, MCrmCategory.Table_Name)
         assertNotNull(cat)
 
         val newPartner = MBPartner.getTemplate(ctx, AD_CLIENT_ID)
@@ -43,7 +43,7 @@ class CategoryTests : BaseComponentTest() {
         newPartner.setValue(value)
         newPartner.save()
 
-        val bp: MBPartner = getById(newPartner._ID, MBPartner.Table_Name)
+        val bp: MBPartner = getById(newPartner.id, MBPartner.Table_Name)
         assertNotNull(bp)
 
         val bpartnerInCategory = MCrmCustomerCategory(ctx, 0, null)
@@ -53,7 +53,7 @@ class CategoryTests : BaseComponentTest() {
 
         bpartnerInCategory.save()
 
-        val bpInCat: MCrmCustomerCategory = getById(bpartnerInCategory._ID, MCrmCustomerCategory.Table_Name)
+        val bpInCat: MCrmCustomerCategory = getById(bpartnerInCategory.id, MCrmCustomerCategory.Table_Name)
         assertNotNull(bpInCat)
 
         `get all crm categories from the service works`()

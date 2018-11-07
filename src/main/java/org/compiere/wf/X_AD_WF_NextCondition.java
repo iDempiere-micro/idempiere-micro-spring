@@ -67,7 +67,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_NextCondition[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -288,7 +288,7 @@ public class X_AD_WF_NextCondition extends PO implements I_AD_WF_NextCondition, 
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getValue());
+        return new KeyNamePair(getId(), getValue());
     }
 
 	/** Set Value To.

@@ -50,7 +50,7 @@ public class X_C_Calendar extends BasePOName implements I_C_Calendar, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Calendar[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

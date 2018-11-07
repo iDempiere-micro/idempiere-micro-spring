@@ -23,7 +23,6 @@ import org.compiere.invoicing.MInvoiceBatch;
 import org.compiere.invoicing.MInvoiceBatchLine;
 import org.compiere.invoicing.MInvoiceLine;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 import org.compiere.util.Msg;
@@ -82,7 +81,7 @@ public class InvoiceBatchProcess extends SvrProcess
 		if (p_C_InvoiceBatch_ID == 0)
 			throw new AdempiereUserError("C_InvoiceBatch_ID = 0");
 		MInvoiceBatch batch = new MInvoiceBatch(getCtx(), p_C_InvoiceBatch_ID, get_TrxName());
-		if (batch.get_ID() == 0)
+		if (batch.getId() == 0)
 			throw new AdempiereUserError("@NotFound@: @C_InvoiceBatch_ID@ - " + p_C_InvoiceBatch_ID);
 		if (batch.isProcessed())
 			throw new AdempiereUserError("@Processed@");

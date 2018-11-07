@@ -50,7 +50,7 @@ public class X_M_QualityTest extends BasePOName implements I_M_QualityTest, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_QualityTest[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

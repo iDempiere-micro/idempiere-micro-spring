@@ -93,7 +93,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Depreciation_Workfile[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -354,7 +354,7 @@ public class X_A_Depreciation_Workfile extends PO implements I_A_Depreciation_Wo
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getA_Depreciation_Workfile_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getA_Depreciation_Workfile_ID()));
     }
 
 	/** Set A_Depreciation_Workfile_UU.

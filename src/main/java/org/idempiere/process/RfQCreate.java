@@ -99,7 +99,7 @@ public class RfQCreate extends SvrProcess
 			
 			//	Create Response
 			MRfQResponse response = new MRfQResponse (rfq, subscriber);
-			if (response.get_ID() == 0)	//	no lines
+			if (response.getId() == 0)	//	no lines
 				continue;
 			
 			counter++;

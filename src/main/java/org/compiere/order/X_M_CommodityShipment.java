@@ -57,7 +57,7 @@ public class X_M_CommodityShipment extends PO implements I_M_CommodityShipment, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_CommodityShipment[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

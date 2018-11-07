@@ -390,7 +390,7 @@ public class MAcctSchemaElement extends X_C_AcctSchema_Element
 	 */
 	public String toString()
 	{
-		StringBuilder msgreturn = new StringBuilder("AcctSchemaElement[").append(get_ID()) 
+		StringBuilder msgreturn = new StringBuilder("AcctSchemaElement[").append(getId())
 				.append("-").append(getName()) 
 				.append("(").append(getElementType()).append(")=").append(getDefaultValue())  
 				.append(",Pos=").append(getSeqNo()).append("]");

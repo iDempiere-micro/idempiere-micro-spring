@@ -21,7 +21,6 @@ import java.util.logging.Level;
 
 import org.compiere.accounting.MClient;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.wf.MMailText;
 import org.idempiere.common.util.*;
@@ -104,7 +103,7 @@ public class InvoicePrint extends SvrProcess
 		if (p_R_MailText_ID != 0)
 		{
 			mText = new MMailText(getCtx(), p_R_MailText_ID, get_TrxName());
-			if (mText.get_ID() != p_R_MailText_ID)
+			if (mText.getId() != p_R_MailText_ID)
 				throw new AdempiereUserError ("@NotFound@: @R_MailText_ID@ - " + p_R_MailText_ID);
 		}
 
@@ -239,7 +238,7 @@ public class InvoicePrint extends SvrProcess
 				if (documentDir == null || documentDir.length() == 0)
 					documentDir = ".";
 				//
-				if (p_EMailPDF && (to.get_ID() == 0 || to.getEMail() == null || to.getEMail().length() == 0))
+				if (p_EMailPDF && (to.getId() == 0 || to.getEMail() == null || to.getEMail().length() == 0))
 				{
 					addLog (C_Invoice_ID, null, null, DocumentNo + " @RequestActionEMailNoTo@");
 					errors++;

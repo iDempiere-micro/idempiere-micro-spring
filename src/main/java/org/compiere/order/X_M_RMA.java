@@ -52,7 +52,7 @@ public class X_M_RMA extends BasePOName implements I_Persistent
     public String toString()
     {
 		return "X_M_RMA[" +
-			get_ID() + "]";
+			getId() + "]";
     }
 
 	/** Set Amount.

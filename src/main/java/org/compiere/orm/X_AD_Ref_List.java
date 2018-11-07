@@ -50,7 +50,7 @@ public class X_AD_Ref_List extends BasePONameValue implements I_AD_Ref_List, I_P
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Ref_List[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

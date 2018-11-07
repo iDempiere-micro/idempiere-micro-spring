@@ -52,7 +52,7 @@ public class LandedCostDistribute extends SvrProcess
 	{
 		m_lc = new MLandedCost (getCtx(), p_C_LandedCost_ID, get_TrxName());
 		if (log.isLoggable(Level.INFO)) log.info(m_lc.toString());
-		if (m_lc.get_ID() == 0)
+		if (m_lc.getId() == 0)
 			throw new AdempiereUserError("@NotFound@: @C_LandedCost_ID@ - " + p_C_LandedCost_ID);
 
 		String error = m_lc.allocateCosts();

@@ -8,7 +8,6 @@ import java.util.Properties;
 import org.compiere.model.I_AD_System;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -74,7 +73,7 @@ public class X_AD_System extends BasePOName implements I_AD_System, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_System[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

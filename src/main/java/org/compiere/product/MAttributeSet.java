@@ -43,7 +43,7 @@ public class MAttributeSet extends X_M_AttributeSet
 		if (retValue != null)
 			return retValue;
 		retValue = new MAttributeSet (ctx, M_AttributeSet_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -234,7 +234,7 @@ public class MAttributeSet extends X_M_AttributeSet
 		{
 			final String whereClause = X_M_AttributeSetExclude.COLUMNNAME_M_AttributeSet_ID+"=?";
 			List<X_M_AttributeSetExclude> list = new Query(getCtx(), X_M_AttributeSetExclude.Table_Name, whereClause, null)
-				.setParameters(get_ID())
+				.setParameters(getId())
 				.setOnlyActiveRecords(true)
 				.list();
 			m_excludes = new X_M_AttributeSetExclude[list.size ()];

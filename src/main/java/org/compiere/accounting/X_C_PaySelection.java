@@ -67,7 +67,7 @@ public class X_C_PaySelection extends BasePOName implements I_C_PaySelection, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaySelection[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import org.compiere.model.IProcessInfo;
 import org.compiere.orm.*;
 import org.compiere.process.DocAction;
-import org.compiere.process.ProcessInfo;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.idempiere.common.util.Util;
@@ -243,7 +242,7 @@ public class MWFProcess extends X_AD_WF_Process
 		if (m_state.isClosed())
 			return;
 		
-		if (lastPO != null && lastPO.get_ID() == this.getRecord_ID())
+		if (lastPO != null && lastPO.getId() == this.getRecord_ID())
 			m_po = lastPO;
 		
 		//
@@ -429,7 +428,7 @@ public class MWFProcess extends X_AD_WF_Process
 	{
 		if (m_wf == null)
 			m_wf = MWorkflow.get (getCtx(), getAD_Workflow_ID());
-		if (m_wf.get_ID() == 0)
+		if (m_wf.getId() == 0)
 			throw new IllegalStateException("Not found - AD_Workflow_ID=" + getAD_Workflow_ID());
 		return m_wf;
 	}	//	getWorkflow

@@ -54,7 +54,7 @@ public class X_C_Campaign extends BasePONameValue implements I_C_Campaign, I_Per
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Campaign[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

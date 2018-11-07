@@ -52,7 +52,7 @@ public class X_M_Lot extends BasePOName implements I_M_Lot, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Lot[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

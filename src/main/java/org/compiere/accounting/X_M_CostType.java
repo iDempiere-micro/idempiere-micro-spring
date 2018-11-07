@@ -50,7 +50,7 @@ public class X_M_CostType extends BasePOName implements I_M_CostType, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_CostType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -50,7 +50,7 @@ public class X_C_ConversionType extends BasePONameValue implements I_C_Conversio
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ConversionType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

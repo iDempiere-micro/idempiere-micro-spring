@@ -20,7 +20,6 @@ import java.util.logging.Level;
 
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.wf.MMailText;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 
@@ -91,7 +90,7 @@ public class DunningPrint extends SvrProcess
 		if (p_EMailPDF)
 		{
 			mText = new MMailText (getCtx(), p_R_MailText_ID, get_TrxName());
-			if (p_EMailPDF && mText.get_ID() == 0)
+			if (p_EMailPDF && mText.getId() == 0)
 				throw new AdempiereUserError ("@NotFound@: @R_MailText_ID@ - " + p_R_MailText_ID);
 //			subject = mText.getMailHeader();
 		}
@@ -101,7 +100,7 @@ public class DunningPrint extends SvrProcess
 
 		/*
 		MDunningRun run = new MDunningRun (getCtx(), p_C_DunningRun_ID, get_TrxName());
-		if (run.get_ID() == 0)
+		if (run.getId() == 0)
 			throw new AdempiereUserError ("@NotFound@: @C_DunningRun_ID@ - " + p_C_DunningRun_ID);
 		MClient client = MClient.get(getCtx());
 		

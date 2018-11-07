@@ -74,7 +74,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_InOutLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -435,7 +435,7 @@ public class X_M_InOutLine extends PO implements I_M_InOutLine, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
 	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException

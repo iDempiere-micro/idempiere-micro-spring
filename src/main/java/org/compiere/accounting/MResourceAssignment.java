@@ -97,7 +97,7 @@ public class MResourceAssignment extends X_S_ResourceAssignment
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MResourceAssignment[ID=");
-		sb.append(get_ID())
+		sb.append(getId())
 			.append(",S_Resource_ID=").append(getS_Resource_ID())
 			.append(",From=").append(getAssignDateFrom())
 			.append(",To=").append(getAssignDateTo())

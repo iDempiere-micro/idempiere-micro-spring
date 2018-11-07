@@ -17,7 +17,6 @@ import org.idempiere.common.util.Env
 import org.idempiere.common.util.SecureInterface
 import org.idempiere.common.util.SecureEngine
 import org.idempiere.common.util.Trx
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.cache.annotation.EnableCaching
@@ -78,7 +77,13 @@ open class StartupApplicationListener : ApplicationListener<ContextRefreshedEven
 }
 
 @Component
-open class Micro {
+open class Micro(
+    private val ini: Ini,
+    private val cconnection: CConnection,
+    internal val userService: UserService,
+    internal val categoryService: CategoryService,
+    internal val countryService: CountryService
+) {
     companion object {
         private var singleton: Micro? = null
         val instance get() = singleton
@@ -87,21 +92,6 @@ open class Micro {
     init {
         singleton = this
     }
-
-    @Autowired
-    private lateinit var ini: Ini
-
-    @Autowired
-    private lateinit var cconnection: CConnection
-
-    @Autowired
-    internal lateinit var userService: UserService
-
-    @Autowired
-    internal lateinit var categoryService: CategoryService
-
-    @Autowired
-    internal lateinit var countryService: CountryService
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
         return threadPoolExecutor!!

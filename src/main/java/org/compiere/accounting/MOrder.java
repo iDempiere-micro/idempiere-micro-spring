@@ -454,7 +454,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             orderClause = MOrderLine.COLUMNNAME_Line;
         //
         List<MOrderLine> list = new Query(getCtx(), I_C_OrderLine.Table_Name, whereClauseFinal.toString(), get_TrxName())
-            .setParameters(get_ID())
+            .setParameters(getId())
             .setOrderBy(orderClause)
             .list();
         for (MOrderLine ol : list) {
@@ -1291,7 +1291,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         }
 
         // UnLink All Requisitions
-        MRequisitionLine.unlinkC_Order_ID(getCtx(), get_ID(), get_TrxName());
+        MRequisitionLine.unlinkC_Order_ID(getCtx(), getId(), get_TrxName());
 
         /* globalqss - 2317928 - Reactivating/Voiding order must reset posted */
         MFactAcct.deleteEx(Table_ID, getC_Order_ID(), get_TrxName());
@@ -1320,7 +1320,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             +" AND iol.C_OrderLine_ID=ol.C_OrderLine_ID"
             +" AND ol.C_Order_ID=?)";
         List<PO> list = new Query(getCtx(), I_M_InOut.Table_Name, whereClause, get_TrxName())
-            .setParameters(get_ID())
+            .setParameters(getId())
             .setOrderBy("M_InOut_ID DESC")
             .list();
         return list.toArray(new MInOut[list.size()]);

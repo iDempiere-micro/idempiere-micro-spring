@@ -45,7 +45,7 @@ public class MProcessPara extends X_AD_Process_Para
 		if (retValue != null)
 			return retValue;
 		retValue = new MProcessPara (ctx, AD_Process_Para_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -184,7 +184,7 @@ public class MProcessPara extends X_AD_Process_Para
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MProcessPara[")
-			.append (get_ID ())
+			.append (getId())
 			.append ("]");
 		return sb.toString ();
 	}	//	toString

@@ -59,7 +59,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_BP_BankAccount[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -215,7 +215,7 @@ public class X_C_BP_BankAccount extends PO implements I_C_BP_BankAccount, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getA_Name());
+        return new KeyNamePair(getId(), getA_Name());
     }
 
 	/** Set Account State.

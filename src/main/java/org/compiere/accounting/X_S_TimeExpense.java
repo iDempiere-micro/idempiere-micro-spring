@@ -66,7 +66,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_S_TimeExpense[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -266,7 +266,7 @@ public class X_S_TimeExpense extends PO implements I_S_TimeExpense, I_Persistent
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
     /** Set Approved.

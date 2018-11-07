@@ -24,7 +24,6 @@ import org.compiere.accounting.MOrder;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MDocType;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 
 /**
@@ -81,7 +80,7 @@ public class CopyOrder extends SvrProcess
 		if (p_C_Order_ID == 0)
 			throw new IllegalArgumentException("No Order");
 		MDocType dt = MDocType.get(getCtx(), p_C_DocType_ID);
-		if (dt.get_ID() == 0)
+		if (dt.getId() == 0)
 			throw new IllegalArgumentException("No DocType");
 		if (p_DateDoc == null)
 			p_DateDoc = new Timestamp (System.currentTimeMillis());

@@ -62,7 +62,7 @@ public class X_M_QualityTestResult extends PO implements I_M_QualityTestResult, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_QualityTestResult[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

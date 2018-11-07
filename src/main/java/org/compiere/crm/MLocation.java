@@ -16,7 +16,6 @@ import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
-import org.idempiere.common.util.Trx;
 import org.idempiere.common.util.Util;
 import org.compiere.model.I_C_Location;
  
@@ -68,7 +67,7 @@ public class MLocation extends X_C_Location implements I_C_Location, Comparator<
 		if (retValue != null)
 			return retValue;
 		retValue = new MLocation (ctx, C_Location_ID, trxName);
-		if (retValue.get_ID () != 0)		//	found
+		if (retValue.getId() != 0)		//	found
 		{
 			if (trxName == null)
 				s_cache.put (key, retValue);
@@ -215,7 +214,7 @@ public class MLocation extends X_C_Location implements I_C_Location, Comparator<
 	public MCountry getCountry()
 	{
 		// Reset country if not match
-		if (m_c != null && m_c.get_ID() != getC_Country_ID())
+		if (m_c != null && m_c.getId() != getC_Country_ID())
 			m_c = null;
 		// Load
 		if (m_c == null)
@@ -317,7 +316,7 @@ public class MLocation extends X_C_Location implements I_C_Location, Comparator<
 	public MRegion getRegion()
 	{
 		// Reset region if not match
-		if (m_r != null && m_r.get_ID() != getC_Region_ID())
+		if (m_r != null && m_r.getId() != getC_Region_ID())
 			m_r = null;
 		//
 		if (m_r == null && getC_Region_ID() != 0)
@@ -412,7 +411,7 @@ public class MLocation extends X_C_Location implements I_C_Location, Comparator<
 		if (cmp == null)
 			return false;
 		if (cmp.getClass().equals(this.getClass()))
-			return ((PO)cmp).get_ID() == get_ID();
+			return ((PO)cmp).getId() == getId();
 		return equals(cmp);
 	}	//	equals
 
@@ -607,7 +606,7 @@ public class MLocation extends X_C_Location implements I_C_Location, Comparator<
 	public String toStringX()
 	{
 		StringBuilder sb = new StringBuilder("MLocation=[");
-		sb.append(get_ID())
+		sb.append(getId())
 			.append(",C_Country_ID=").append(getC_Country_ID())
 			.append(",C_Region_ID=").append(getC_Region_ID())
 			.append(",Postal=").append(getPostal())

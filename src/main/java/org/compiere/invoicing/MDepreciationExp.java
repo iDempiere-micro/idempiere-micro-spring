@@ -66,7 +66,7 @@ public class MDepreciationExp extends X_A_Depreciation_Exp implements IDocLine
 			return null;
 		}
 		MDepreciationExp depexp = new MDepreciationExp(ctx, A_Depreciation_Exp_ID, null);
-		if (depexp.get_ID() != A_Depreciation_Exp_ID) {
+		if (depexp.getId() != A_Depreciation_Exp_ID) {
 			depexp = null;
 		}
 		return depexp;
@@ -185,7 +185,7 @@ public class MDepreciationExp extends X_A_Depreciation_Exp implements IDocLine
 			// Check if the asset is Active:
 			if (!assetwk.getAsset().getA_Asset_Status().equals(MAsset.A_ASSET_STATUS_Activated))
 			{
-				throw new AssetNotActiveException(assetwk.getAsset().get_ID());
+				throw new AssetNotActiveException(assetwk.getAsset().getId());
 			}
 			//
 			setDateAcct(assetwk.getDateAcct());
@@ -284,17 +284,17 @@ public class MDepreciationExp extends X_A_Depreciation_Exp implements IDocLine
 	{
 		super.setProcessed(Processed);
 		//
-		if (get_ID() > 0)
+		if (getId() > 0)
 		{
 			final String sql = "UPDATE "+ I_A_Depreciation_Exp.Table_Name+" SET Processed=? WHERE "+ I_A_Depreciation_Exp.COLUMNNAME_A_Depreciation_Exp_ID+"=?";
-			DB.executeUpdateEx(sql, new Object[]{Processed, get_ID()}, get_TrxName());
+			DB.executeUpdateEx(sql, new Object[]{Processed, getId()}, get_TrxName());
 		}
 	}
 	
 	
 	public String toString()
 	{
-		return getClass().getSimpleName()+"["+get_ID()
+		return getClass().getSimpleName()+"["+ getId()
 			+",A_Asset_ID="+getA_Asset_ID()
 			+",A_Period="+getA_Period()
 			+",DateAcct="+getDateAcct()

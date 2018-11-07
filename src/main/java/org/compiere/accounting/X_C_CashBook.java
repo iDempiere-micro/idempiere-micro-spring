@@ -58,7 +58,7 @@ public class X_C_CashBook extends BasePOName implements I_C_CashBook, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_CashBook[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

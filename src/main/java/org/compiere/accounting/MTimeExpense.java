@@ -183,7 +183,7 @@ public class MTimeExpense extends X_S_TimeExpense implements DocAction, IPODoc
     public void setProcessed (boolean processed)
     {
         super.setProcessed (processed);
-        if (get_ID() == 0)
+        if (getId() == 0)
             return;
         String sql = "UPDATE S_TimeExpenseLine SET Processed='"
             + (processed ? "Y" : "N")
@@ -210,7 +210,7 @@ public class MTimeExpense extends X_S_TimeExpense implements DocAction, IPODoc
     {
         try
         {
-            File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+            File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
             return createPDF (temp);
         }
         catch (Exception e)

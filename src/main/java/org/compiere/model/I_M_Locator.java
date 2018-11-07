@@ -3,12 +3,13 @@ package org.compiere.model;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
+import org.idempiere.icommon.model.IPO;
 
 /** Generated Interface for M_Locator
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_M_Locator 
+public interface I_M_Locator extends IPO
 {
 
     /** TableName=M_Locator */
@@ -218,6 +219,4 @@ public interface I_M_Locator
 	public String getZ();
 
     void saveEx(String trxName);
-
-	int get_ID();
 }

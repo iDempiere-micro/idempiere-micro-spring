@@ -75,7 +75,7 @@ public class MLookupFactory
 	public static MLookupInfo getLookupInfo(Properties ctx, int WindowNo, int TabNo, int Column_ID, int AD_Reference_ID)
 	{
 		MColumn column = MColumn.get(ctx, Column_ID);
-		if (column.get_ID() == 0)
+		if (column.getId() == 0)
 			s_log.log(Level.SEVERE, "Column Not Found - AD_Column_ID=" + Column_ID);
 
 		String ColumnName = column.getColumnName();

@@ -73,7 +73,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ProjectLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -442,7 +442,7 @@ public class X_C_ProjectLine extends PO implements I_C_ProjectLine, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
 	public org.compiere.model.I_M_Product_Category getM_Product_Category() throws RuntimeException

@@ -155,7 +155,7 @@ public class MProject extends X_C_Project
 	 */
 	public String toString()
 	{
-		StringBuffer sb = new StringBuffer ("MProject[").append(get_ID())
+		StringBuffer sb = new StringBuffer ("MProject[").append(getId())
 			.append("-").append(getValue()).append(",ProjectCategory=").append(getProjectCategory())
 			.append("]");
 		return sb.toString();
@@ -420,7 +420,7 @@ public class MProject extends X_C_Project
 		if (is_ValueChanged("M_PriceList_Version_ID") && getM_PriceList_Version_ID() != 0)
 		{
 			MPriceList pl = MPriceList.get(getCtx(), getM_PriceList_ID(), null);
-			if (pl != null && pl.get_ID() != 0)
+			if (pl != null && pl.getId() != 0)
 				setC_Currency_ID(pl.getC_Currency_ID());
 		}
 		

@@ -66,7 +66,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_RequisitionLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -224,7 +224,7 @@ public class X_M_RequisitionLine extends PO implements I_M_RequisitionLine, I_Pe
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
 	/** Set Line Amount.

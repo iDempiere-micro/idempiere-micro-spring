@@ -329,11 +329,11 @@ public class MSequence extends X_AD_Sequence
 			throw new IllegalArgumentException("TableName missing");
 
 		MSequence seq = get(Env.getCtx(), TableName, trxName, /*tableID=*/false);
-		if (seq == null || seq.get_ID() == 0) {
+		if (seq == null || seq.getId() == 0) {
 			if (!MSequence.createTableSequence(Env.getCtx(), TableName, trxName, /*tableID=*/false))
 				throw new AdempiereException("Could not create table sequence");
 			seq = get(Env.getCtx(), TableName, trxName, /*tableID=*/false);
-			if (seq == null || seq.get_ID() == 0)
+			if (seq == null || seq.getId() == 0)
 				throw new AdempiereException("Could not find table sequence");
 		}
 		

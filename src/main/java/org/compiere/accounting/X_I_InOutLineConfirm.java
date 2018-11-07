@@ -59,7 +59,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_I_InOutLineConfirm[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -182,7 +182,7 @@ public class X_I_InOutLineConfirm extends PO implements I_I_InOutLineConfirm, I_
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getI_InOutLineConfirm_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getI_InOutLineConfirm_ID()));
     }
 
     /** Set I_InOutLineConfirm_UU.

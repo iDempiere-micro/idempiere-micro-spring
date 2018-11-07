@@ -66,7 +66,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Asset_Change[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -179,7 +179,7 @@ public class X_A_Asset_Change extends PO implements I_A_Asset_Change, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getA_Asset_Change_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getA_Asset_Change_ID()));
     }
 
 	/** Set A_Asset_Change_UU.

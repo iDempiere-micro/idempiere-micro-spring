@@ -50,7 +50,7 @@ public class X_R_MailText extends BasePOName implements I_R_MailText, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_MailText[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

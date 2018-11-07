@@ -64,7 +64,7 @@ public class X_M_Product_BOM extends PO implements I_M_Product_BOM, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Product_BOM[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -302,7 +302,7 @@ public class X_M_Product_BOM extends PO implements I_M_Product_BOM, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_ProductBOM_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_ProductBOM_ID()));
     }
 
 	/** Set M_Product_BOM_UU.

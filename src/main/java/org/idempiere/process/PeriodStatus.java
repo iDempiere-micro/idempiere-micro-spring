@@ -22,7 +22,6 @@ import org.compiere.accounting.MPeriod;
 import org.compiere.accounting.MPeriodControl;
 
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.*;
 
@@ -68,7 +67,7 @@ public class PeriodStatus extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info ("C_Period_ID=" + p_C_Period_ID + ", PeriodAction=" + p_PeriodAction);
 		MPeriod period = new MPeriod (getCtx(), p_C_Period_ID, get_TrxName());
-		if (period.get_ID() == 0)
+		if (period.getId() == 0)
 			throw new AdempiereUserError("@NotFound@  @C_Period_ID@=" + p_C_Period_ID);
 
 		StringBuilder sql = new StringBuilder ("UPDATE C_PeriodControl ");

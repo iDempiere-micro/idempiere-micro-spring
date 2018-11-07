@@ -26,7 +26,6 @@ import org.compiere.accounting.MPayment;
 import org.compiere.accounting.X_I_Payment;
 import org.compiere.bank.MBankAccount;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 import org.idempiere.common.util.DB;
@@ -87,7 +86,7 @@ public class ImportPayment extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info("C_BankAccount_ID" + p_C_BankAccount_ID);
 		MBankAccount ba = MBankAccount.get(getCtx(), p_C_BankAccount_ID);
-		if (p_C_BankAccount_ID == 0 || ba.get_ID() != p_C_BankAccount_ID)
+		if (p_C_BankAccount_ID == 0 || ba.getId() != p_C_BankAccount_ID)
 			throw new AdempiereUserError("@NotFound@ @C_BankAccount_ID@ - " + p_C_BankAccount_ID);
 		if (p_AD_Org_ID != ba.getAD_Org_ID() && ba.getAD_Org_ID() != 0)
 			p_AD_Org_ID = ba.getAD_Org_ID();

@@ -41,7 +41,7 @@ public class MProductCategory extends X_M_Product_Category
 		if (retValue != null)
 			return retValue;
 		retValue = new MProductCategory (ctx, M_Product_Category_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (M_Product_Category_ID, retValue);
 		return retValue;
 	}	//	get

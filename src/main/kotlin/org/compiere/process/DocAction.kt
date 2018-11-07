@@ -3,12 +3,12 @@ package org.compiere.process
 import org.compiere.util.SystemIDs
 import org.idempiere.common.exceptions.AdempiereException
 import org.idempiere.common.util.CLogger
+import org.idempiere.icommon.model.IBasePO
 
 import java.io.File
 import java.math.BigDecimal
-import java.util.Properties
 
-interface DocAction<T> {
+interface DocAction<T> : IBasePO {
 
     /**
      * Get Doc Status
@@ -63,52 +63,16 @@ interface DocAction<T> {
     val approvalAmt: BigDecimal
 
     /**
-     * Get Document Client
-     * @return AD_Client_ID
-     */
-    val aD_Client_ID: Int
-
-    /**
-     * Get Document Organization
-     * @return AD_Org_ID
-     */
-    val aD_Org_ID: Int
-
-    /**
      * Get Doc Action
      * @return Document Action
      */
     val docAction: String
 
     /**
-     * Get Context
-     * @return context
-     */
-    val ctx: Properties
-
-    /**
-     * Get ID of record
-     * @return ID
-     */
-    val _ID: Int
-
-    /**
-     * Get AD_Table_ID
-     * @return AD_Table_ID
-     */
-    val _Table_ID: Int
-
-    /**
      * Get Logger
      * @return logger
      */
     val _Logger: CLogger
-
-    /**
-     * Get Transaction
-     * @return trx name
-     */
-    val _TrxName: String
 
     /*************************************************************************
      * Process document

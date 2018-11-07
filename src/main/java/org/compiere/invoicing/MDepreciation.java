@@ -63,7 +63,7 @@ public class MDepreciation extends X_A_Depreciation
 			return ;
 		}
 		
-		s_cache.put(depr.get_ID(), depr);
+		s_cache.put(depr.getId(), depr);
 		String key = "" + depr.getAD_Client_ID() + "_" + depr.getDepreciationType();
 		s_cache_forType.put(key, depr);
 	}
@@ -81,7 +81,7 @@ public class MDepreciation extends X_A_Depreciation
 			return depr;
 		}
 		depr = new MDepreciation(ctx, A_Depreciation_ID, null);
-		if (depr.get_ID() > 0)
+		if (depr.getId() > 0)
 		{
 			addToCache(depr);
 		}

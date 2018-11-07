@@ -64,7 +64,7 @@ public class MProductionLine extends X_M_ProductionLine {
 	 */
 	public MProductionLine( MProduction header ) {
 		super( header.getCtx(), 0, header.get_TrxName() );
-		setM_Production_ID( header.get_ID());
+		setM_Production_ID( header.getId());
 		setAD_Client_ID(header.getAD_Client_ID());
 		setAD_Org_ID(header.getAD_Org_ID());
 		productionParent = header;
@@ -72,7 +72,7 @@ public class MProductionLine extends X_M_ProductionLine {
 	
 	public MProductionLine( MProductionPlan header ) {
 		super( header.getCtx(), 0, header.get_TrxName() );
-		setM_ProductionPlan_ID( header.get_ID());
+		setM_ProductionPlan_ID( header.getId());
 		setAD_Client_ID(header.getAD_Client_ID());
 		setAD_Org_ID(header.getAD_Org_ID());
 	}
@@ -130,7 +130,7 @@ public class MProductionLine extends X_M_ProductionLine {
 			if (reversalId <= 0  ) 
 			{
 				MProductionLineMA lineMA = new MProductionLineMA( this,
-						asi.get_ID(), getMovementQty(),dateMPolicy);
+						asi.getId(), getMovementQty(),dateMPolicy);
 				if ( !lineMA.save(get_TrxName()) ) {
 					log.log(Level.SEVERE, "Could not save MA for " + toString());
 					errorString.append("Could not save MA for " + toString() + "\n" );
@@ -138,15 +138,15 @@ public class MProductionLine extends X_M_ProductionLine {
 			}
 			MTransaction matTrx = new MTransaction (getCtx(), getAD_Org_ID(), 
 					"P+", 
-					getM_Locator_ID(), getM_Product_ID(), asi.get_ID(), 
+					getM_Locator_ID(), getM_Product_ID(), asi.getId(),
 					getMovementQty(), date, get_TrxName());
-			matTrx.setM_ProductionLine_ID(get_ID());
+			matTrx.setM_ProductionLine_ID(getId());
 			if ( !matTrx.save(get_TrxName()) ) {
 				log.log(Level.SEVERE, "Could not save transaction for " + toString());
 				errorString.append("Could not save transaction for " + toString() + "\n");
 			}
 			MStorageOnHand storage = MStorageOnHand.getCreate(getCtx(), getM_Locator_ID(),
-					getM_Product_ID(), asi.get_ID(),dateMPolicy, get_TrxName());
+					getM_Product_ID(), asi.getId(),dateMPolicy, get_TrxName());
 			storage.addQtyOnHand(getMovementQty());
 			if (log.isLoggable(Level.FINE))log.log(Level.FINE, "Created finished goods line " + getLine());
 			
@@ -197,7 +197,7 @@ public class MProductionLine extends X_M_ProductionLine {
 								"P-", 
 								getM_Locator_ID(), getM_Product_ID(), lineMA.getMAttributeSetInstance_ID(), 
 								lineQty.negate(), date, get_TrxName());
-						matTrx.setM_ProductionLine_ID(get_ID());
+						matTrx.setM_ProductionLine_ID(getId());
 						if ( !matTrx.save(get_TrxName()) ) {
 							log.log(Level.SEVERE, "Could not save transaction for " + toString());
 							errorString.append("Could not save transaction for " + toString() + "\n");
@@ -221,7 +221,7 @@ public class MProductionLine extends X_M_ProductionLine {
 		
 			MClientInfo m_clientInfo = MClientInfo.get(getCtx(), getAD_Client_ID(), get_TrxName());
 			MAcctSchema acctSchema = new MAcctSchema(getCtx(), m_clientInfo.getC_AcctSchema1_ID(), get_TrxName());
-			if (asi.get_ID() == 0 && MAcctSchema.COSTINGLEVEL_BatchLot.equals(prod.getCostingLevel(acctSchema)) )
+			if (asi.getId() == 0 && MAcctSchema.COSTINGLEVEL_BatchLot.equals(prod.getCostingLevel(acctSchema)) )
 			{
 				//add quantity to last attributesetinstance
 				String sqlWhere = "M_Product_ID=? AND M_Locator_ID=? AND M_AttributeSetInstance_ID > 0 ";
@@ -244,7 +244,7 @@ public class MProductionLine extends X_M_ProductionLine {
 							.append(" AND ce.CostingMethod = ? ")
 							.append(" AND CurrentCostPrice <> 0 ");
 						MCost cost = new Query(getCtx(), I_M_Cost.Table_Name,localWhereClause.toString(),get_TrxName())
-						.setParameters(getM_Product_ID(), acctSchema.get_ID(), costingMethod)
+						.setParameters(getM_Product_ID(), acctSchema.getId(), costingMethod)
 						.addJoinClause(" INNER JOIN M_CostElement ce ON (M_Cost.M_CostElement_ID =ce.M_CostElement_ID ) ")
 						.setOrderBy("Updated DESC")
 						.first();
@@ -277,7 +277,7 @@ public class MProductionLine extends X_M_ProductionLine {
 			else
 			{
 				MStorageOnHand storage = MStorageOnHand.getCreate(Env.getCtx(), getM_Locator_ID(), getM_Product_ID(),
-						asi.get_ID(), date, get_TrxName(), true);
+						asi.getId(), date, get_TrxName(), true);
 				
 				BigDecimal lineQty = qtyToMove;
 				MAttributeSetInstance slASI = new MAttributeSetInstance(getCtx(),
@@ -304,9 +304,9 @@ public class MProductionLine extends X_M_ProductionLine {
 					}
 					matTrx = new MTransaction (getCtx(), getAD_Org_ID(), 
 							"P-", 
-							getM_Locator_ID(), getM_Product_ID(), asi.get_ID(), 
+							getM_Locator_ID(), getM_Product_ID(), asi.getId(),
 							lineQty.negate(), date, get_TrxName());
-					matTrx.setM_ProductionLine_ID(get_ID());
+					matTrx.setM_ProductionLine_ID(getId());
 					if ( !matTrx.save(get_TrxName()) ) {
 						log.log(Level.SEVERE, "Could not save transaction for " + toString());
 						errorString.append("Could not save transaction for " + toString() + "\n");
@@ -340,7 +340,7 @@ public class MProductionLine extends X_M_ProductionLine {
 	}
 
 	private int deleteMA() {
-		String sql = "DELETE FROM M_ProductionLineMA WHERE M_ProductionLine_ID = " + get_ID();
+		String sql = "DELETE FROM M_ProductionLineMA WHERE M_ProductionLine_ID = " + getId();
 		int count = DB.executeUpdateEx( sql, get_TrxName() );
 		return count;
 	}
@@ -432,7 +432,7 @@ public class MProductionLine extends X_M_ProductionLine {
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, get_ID());			
+			pstmt.setInt(1, getId());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				list.add( new MProductionLineMA( this, rs.getInt(2), rs.getBigDecimal(3), rs.getTimestamp(4) ) );	

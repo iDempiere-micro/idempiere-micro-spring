@@ -67,7 +67,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Transaction[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -261,7 +261,7 @@ public class X_M_Transaction extends PO implements I_M_Transaction, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getMovementDate()));
+        return new KeyNamePair(getId(), String.valueOf(getMovementDate()));
     }
 
 	/** Set Movement Quantity.

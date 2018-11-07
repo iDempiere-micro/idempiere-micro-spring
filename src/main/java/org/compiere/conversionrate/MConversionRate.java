@@ -12,7 +12,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 
 import org.compiere.model.I_C_Conversion_Rate;
-import org.compiere.orm.MClient;
 import org.compiere.orm.PO;
 import org.compiere.orm.Query;
 import org.compiere.product.MCurrency;
@@ -154,7 +153,7 @@ public class MConversionRate extends X_C_Conversion_Rate
 		final String whereClause = "C_Currency_ID=? and C_Currency_ID_To=? and ValidFrom>=? and ValidTo<=? and C_ConversionType_ID=?";
 		MConversionRate rate, updateRate = null;
 		List<MConversionRate> rates = new Query(ctx, I_C_Conversion_Rate.Table_Name, whereClause,trxName)
-				.setParameters(curFrom.get_ID(), curTo.get_ID(), startTs, startTs, MConversionType.TYPE_SPOT)
+				.setParameters(curFrom.getId(), curTo.getId(), startTs, startTs, MConversionType.TYPE_SPOT)
 				.list();
 
 		if (rates.size()>0) {
@@ -172,8 +171,8 @@ public class MConversionRate extends X_C_Conversion_Rate
 			updateRate = new MConversionRate(ctx, 0, trxName);
 			updateRate.setAD_Client_ID(0);
 			updateRate.setAD_Org_ID(0);
-			updateRate.setC_Currency_ID(curFrom.get_ID());
-			updateRate.setC_Currency_ID_To(curTo.get_ID());
+			updateRate.setC_Currency_ID(curFrom.getId());
+			updateRate.setC_Currency_ID_To(curTo.getId());
 			updateRate.setValidFrom(startTs);
 			updateRate.setValidTo(startTs);
 			updateRate.setC_ConversionType_ID(MConversionType.TYPE_SPOT);
@@ -361,7 +360,7 @@ public class MConversionRate extends X_C_Conversion_Rate
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MConversionRate[");
-		sb.append(get_ID())
+		sb.append(getId())
 			.append(",Currency=").append(getC_Currency_ID())
 			.append(",To=").append(getC_Currency_ID_To())
 			.append(", Multiply=").append(getMultiplyRate())

@@ -53,7 +53,7 @@ public class X_C_PaymentProcessor extends BasePOName implements I_C_PaymentProce
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaymentProcessor[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

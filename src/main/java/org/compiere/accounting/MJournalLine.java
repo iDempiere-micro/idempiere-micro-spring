@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
-import org.compiere.accounting.MJournal;
 import org.compiere.model.IDoc;
 import org.compiere.model.IPODoc;
 import org.compiere.model.I_GL_JournalLine;
@@ -436,9 +435,9 @@ public class MJournalLine extends X_GL_JournalLine implements IPODoc
 			if (acct != null)
 			{
 				acct.saveEx(get_TrxName());	// get ID from transaction
-				setC_ValidCombination_ID(acct.get_ID());
+				setC_ValidCombination_ID(acct.getId());
 				if (acct.getAlias() != null && acct.getAlias().length() > 0)
-					setAlias_ValidCombination_ID(acct.get_ID());
+					setAlias_ValidCombination_ID(acct.getId());
 				else
 					setAlias_ValidCombination_ID(0);
 			}

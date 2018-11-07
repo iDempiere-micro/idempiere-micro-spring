@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import org.compiere.model.HasName;
 import org.compiere.model.I_AD_ViewComponent;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
@@ -61,7 +60,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_ViewComponent[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -220,7 +219,7 @@ public class X_AD_ViewComponent extends PO implements I_AD_ViewComponent, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** Set Other SQL Clause.

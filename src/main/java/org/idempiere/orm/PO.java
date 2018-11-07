@@ -257,10 +257,10 @@ public abstract class PO
 			return false;
 		if (cmp.getClass().equals(this.getClass()))
 			// if both ID's are zero they can't be compared by ID
-			if (((PO)cmp).get_ID() == 0 && get_ID() == 0)
+			if (((PO)cmp).getId() == 0 && getId() == 0)
 				return super.equals(cmp);
 			else
-				return ((PO)cmp).get_ID() == get_ID();
+				return ((PO)cmp).getId() == getId();
 		return super.equals(cmp);
 	}	//	equals
 	
@@ -344,11 +344,11 @@ public abstract class PO
 	 *  Return Single Key Record ID
 	 *  @return ID or 0
 	 */
-	public int get_ID()
+	public int getId()
 	{
 		Object oo = m_IDs[0];
 		if (oo != null && oo instanceof Integer)
-			return ((Integer)oo).intValue();
+			return (Integer) oo;
 		return 0;
 	}   //  getID
 
@@ -413,7 +413,7 @@ public abstract class PO
 		if (value == null)
 			return 0;
 		if (value instanceof Integer)
-			return ((Integer)value).intValue();
+			return (Integer) value;
 		try
 		{
 			return Integer.parseInt(value.toString());
@@ -523,7 +523,7 @@ public abstract class PO
 		if (value == null)
 			return 0;
 		if (value instanceof Integer)
-			return ((Integer)value).intValue();
+			return (Integer) value;
 		try
 		{
 			return Integer.parseInt(value.toString());
@@ -600,9 +600,9 @@ public abstract class PO
 		}
 		else if (nValue instanceof Integer)
 		{
-			int result = ((Integer)nValue).intValue();
-			result -= ((Integer)oValue).intValue();
-			return new Integer(result);
+			int result = (Integer) nValue;
+			result -= (Integer) oValue;
+			return result;
 		}
 		//
 		log.warning("Invalid type - New=" + nValue);
@@ -779,7 +779,7 @@ public abstract class PO
 		if (ID > 0)
 		{
 			setKeyInfo();
-			m_IDs = new Object[] {new Integer(ID)};
+			m_IDs = new Object[] {ID};
 			//m_KeyColumns = new String[] {p_info.getTableName() + "_ID"};
 			load(trxName);
 		}
@@ -826,7 +826,7 @@ public abstract class PO
 			{
 				Object oo = m_IDs[i];
 				if (oo instanceof Integer)
-					pstmt.setInt(i+1, ((Integer)m_IDs[i]).intValue());
+					pstmt.setInt(i+1, (Integer) m_IDs[i]);
 				else if (oo instanceof Boolean)
 					pstmt.setString(i+1, ((Boolean) m_IDs[i] ? "Y" : "N"));
 				else if (oo instanceof Timestamp)
@@ -895,11 +895,11 @@ public abstract class PO
 			try
 			{
 				if (clazz == Integer.class)
-					m_oldValues[index] = decrypt(index, new Integer(rs.getInt(columnName)));
+					m_oldValues[index] = decrypt(index, rs.getInt(columnName));
 				else if (clazz == BigDecimal.class)
 					m_oldValues[index] = decrypt(index, rs.getBigDecimal(columnName));
 				else if (clazz == Boolean.class)
-					m_oldValues[index] = new Boolean ("Y".equals(decrypt(index, rs.getString(columnName))));
+					m_oldValues[index] = "Y".equals(decrypt(index, rs.getString(columnName)));
 				else if (clazz == Timestamp.class)
 					m_oldValues[index] = decrypt(index, rs.getTimestamp(columnName));
 				else if (DisplayType.isLOB(dt))
@@ -971,11 +971,11 @@ public abstract class PO
 			try
 			{
 				if (clazz == Integer.class)
-					m_oldValues[index] = new Integer(value);
+					m_oldValues[index] = Integer.valueOf(value);
 				else if (clazz == BigDecimal.class)
 					m_oldValues[index] = new BigDecimal(value);
 				else if (clazz == Boolean.class)
-					m_oldValues[index] = new Boolean ("Y".equals(value));
+					m_oldValues[index] = "Y".equals(value);
 				else if (clazz == Timestamp.class)
 					m_oldValues[index] = Timestamp.valueOf(value);
 				else if (DisplayType.isLOB(dt))
@@ -1039,7 +1039,7 @@ public abstract class PO
 			{
 				boolean bValue = false;
 				if (value instanceof Boolean)
-					bValue = ((Boolean)value).booleanValue();
+					bValue = (Boolean) value;
 				else
 					bValue = "Y".equals(value);
 				stringValue = bValue ? "Y" : "N";
@@ -1059,12 +1059,9 @@ public abstract class PO
 		//	Custom Columns
 		if (m_custom != null)
 		{
-			Iterator<String> it = m_custom.keySet().iterator();
-			while (it.hasNext())
-			{
-				String column = (String)it.next();
-//				int index = p_info.getColumnIndex(column);
-				String value = (String)m_custom.get(column);
+			for (String column : m_custom.keySet()) {
+				//				int index = p_info.getColumnIndex(column);
+				String value = (String) m_custom.get(column);
 				if (value != null)
 					hmOut.put(column, value);
 			}
@@ -1122,23 +1119,23 @@ public abstract class PO
 			String colName = p_info.getColumnName(i);
 			//  Set Standard Values
 			if (colName.endsWith("tedBy"))
-				m_newValues[i] = new Integer (Env.getContextAsInt(p_ctx, "#AD_User_ID"));
+				m_newValues[i] = Env.getContextAsInt(p_ctx, "#AD_User_ID");
 			else if (colName.equals("Created") || colName.equals("Updated"))
 				m_newValues[i] = new Timestamp (System.currentTimeMillis());
 			else if (colName.equals(p_info.getTableName() + "_ID"))    //  KeyColumn
 				m_newValues[i] = I_ZERO;
 			else if (colName.equals("IsActive"))
-				m_newValues[i] = new Boolean(true);
+				m_newValues[i] = Boolean.TRUE;
 			else if (colName.equals("AD_Client_ID"))
-				m_newValues[i] = new Integer(Env.getAD_Client_ID(p_ctx));
+				m_newValues[i] = Env.getAD_Client_ID(p_ctx);
 			else if (colName.equals("AD_Org_ID"))
-				m_newValues[i] = new Integer(Env.getAD_Org_ID(p_ctx));
+				m_newValues[i] = Env.getAD_Org_ID(p_ctx);
 			else if (colName.equals("Processed"))
-				m_newValues[i] = new Boolean(false);
+				m_newValues[i] = Boolean.FALSE;
 			else if (colName.equals("Processing"))
-				m_newValues[i] = new Boolean(false);
+				m_newValues[i] = Boolean.FALSE;
 			else if (colName.equals("Posted"))
-				m_newValues[i] = new Boolean(false);
+				m_newValues[i] = Boolean.FALSE;
 		}
 	}   //  setDefaults
 
@@ -1270,7 +1267,7 @@ public abstract class PO
 	{
 		Boolean bb = (Boolean)get_Value("IsActive");
 		if (bb != null)
-			return bb.booleanValue();
+			return bb;
 		return false;
 	}	//	isActive
 
@@ -1365,7 +1362,7 @@ public abstract class PO
 				)
 			{
 				// Load translation from database
-				int ID = ((Integer)m_IDs[0]).intValue();
+				int ID = (Integer) m_IDs[0];
 				StringBuilder sql = new StringBuilder("SELECT ").append(columnName)
 										.append(" FROM ").append(p_info.getTableName()).append("_Trl WHERE ")
 										.append(m_KeyColumns[0]).append("=?")
@@ -1386,7 +1383,7 @@ public abstract class PO
 
 	/** Return the key used in the translation cache */
     protected String getTrlCacheKey(String columnName, String AD_Language) {
-		return get_TableName() + "." + columnName + "|" + get_ID() + "|" + AD_Language;
+		return get_TableName() + "." + columnName + "|" + getId() + "|" + AD_Language;
 	}
 
 	/**
@@ -1488,7 +1485,7 @@ public abstract class PO
 	 */
 	protected int saveNew_getID()
 	{
-		int result = get_ID();
+		int result = getId();
 		if ( result > 0 && result < 999999) // 2Pack assigns official ID's when importing
 			return result;
 		return 0;
@@ -1628,10 +1625,10 @@ public abstract class PO
 		//
 		String tableName = p_info.getTableName();
 		String keyColumn = m_KeyColumns[0];
-		StringBuilder sql = new StringBuilder ("DELETE  FROM  ")
-			.append(tableName).append("_Trl WHERE ")
-			.append(keyColumn).append("=").append(get_ID());
-		int no = DB.executeUpdate(sql.toString(), trxName);
+		String sql = "DELETE  FROM  " +
+			tableName + "_Trl WHERE " +
+			keyColumn + "=" + getId();
+		int no = DB.executeUpdate(sql, trxName);
 		if (log.isLoggable(Level.FINE)) log.fine("#" + no);
 		return no >= 0;
 	}	//	deleteTranslations
@@ -1829,7 +1826,7 @@ public abstract class PO
 			pstmt = DB.prepareStatement(sql.toString(), trxName);
 			rs = pstmt.executeQuery();
 			while (rs.next())
-				list.add(new Integer(rs.getInt(1)));
+				list.add(rs.getInt(1));
 		}
 		catch (SQLException e)
 		{
@@ -1843,7 +1840,7 @@ public abstract class PO
 		//	Convert to array
 		int[] retValue = new int[list.size()];
 		for (int i = 0; i < retValue.length; i++)
-			retValue[i] = ((Integer)list.get(i)).intValue();
+			retValue[i] = list.get(i);
 		return retValue;
 	}	//	getAllIDs
 
@@ -2031,7 +2028,7 @@ public abstract class PO
 		//	Root
 		Element root = document.createElement(get_TableName());
 		root.setAttribute(XML_ATTRIBUTE_AD_Table_ID, String.valueOf(get_Table_ID()));
-		root.setAttribute(XML_ATTRIBUTE_Record_ID, String.valueOf(get_ID()));
+		root.setAttribute(XML_ATTRIBUTE_Record_ID, String.valueOf(getId()));
 		document.appendChild(root);
 		//	Columns
 		int size = get_ColumnCount();
@@ -2057,7 +2054,7 @@ public abstract class PO
 			{
 				boolean bValue = false;
 				if (value instanceof Boolean)
-					bValue = ((Boolean)value).booleanValue();
+					bValue = (Boolean) value;
 				else
 					bValue = "Y".equals(value);
 				col.appendChild(document.createTextNode(bValue ? "Y" : "N"));
@@ -2296,11 +2293,11 @@ public abstract class PO
 				//  Integer can be set as BigDecimal
 			else if (value.getClass() == BigDecimal.class
 					&& p_info.getColumnClass(index) == Integer.class)
-				m_newValues[index] = new Integer (((BigDecimal)value).intValue());
+				m_newValues[index] = ((BigDecimal) value).intValue();
 				//	Set Boolean
 			else if (p_info.getColumnClass(index) == Boolean.class
 					&& ("Y".equals(value) || "N".equals(value)) )
-				m_newValues[index] = new Boolean("Y".equals(value));
+				m_newValues[index] = "Y".equals(value);
 				// added by vpj-cd
 				// To solve BUG [ 1618423 ] Set Project Type button in Project window throws warning
 				// generated because C_Project.C_Project_Type_ID is defined as button in dictionary
@@ -2312,7 +2309,7 @@ public abstract class PO
 					&& p_info.getColumnClass(index) == Integer.class)
 				try
 				{
-					m_newValues[index] = new Integer((String)value);
+					m_newValues[index] = Integer.valueOf((String) value);
 				}
 				catch (NumberFormatException e)
 				{
@@ -2377,7 +2374,7 @@ public abstract class PO
 	protected final boolean set_Value (String ColumnName, Object value, boolean checkWritable)
 	{
 		if (value instanceof String && ColumnName.equals("WhereClause")
-				&& value.toString().toUpperCase().indexOf("=NULL") != -1)
+				&& value.toString().toUpperCase().contains("=NULL"))
 			log.warning("Invalid Null Value - " + ColumnName + "=" + value);
 
 		int index = get_ColumnIndex(ColumnName);
@@ -2419,7 +2416,7 @@ public abstract class PO
 	 */
 	public final void setIsActive (boolean active)
 	{
-		set_Value("IsActive", new Boolean(active));
+		set_Value("IsActive", active);
 	}	//	setActive
 
 	/**
@@ -2428,7 +2425,7 @@ public abstract class PO
 	 */
 	public void setAD_Org_ID (int AD_Org_ID)
 	{
-		set_ValueNoCheck ("AD_Org_ID", new Integer(AD_Org_ID));
+		set_ValueNoCheck ("AD_Org_ID", AD_Org_ID);
 	}	//	setAD_Org_ID
 
 	/**
@@ -2667,9 +2664,9 @@ public abstract class PO
 			// the primary key is not overwrite with the local sequence
 			if (isReplication())
 			{
-				if (get_ID() > 0)
+				if (getId() > 0)
 				{
-					no = get_ID();
+					no = getId();
 				}
 			}
 			if (no <= 0)
@@ -2677,7 +2674,7 @@ public abstract class PO
 				log.severe("No NextID (" + no + ")");
 				return saveFinish (true, false);
 			}
-			m_IDs[0] = new Integer(no);
+			m_IDs[0] = no;
 			set_ValueNoCheck(m_KeyColumns[0], m_IDs[0]);
 		}
 		//uuid secondary key
@@ -2759,8 +2756,8 @@ public abstract class PO
 		}
 		if (!newRecord)
 			CacheMgt.get().reset(p_info.getTableName());
-		else if (get_ID() > 0 && success)
-			CacheMgt.get().newRecord(p_info.getTableName(), get_ID());
+		else if (getId() > 0 && success)
+			CacheMgt.get().newRecord(p_info.getTableName(), getId());
 
 		return success;
 	}	//	saveFinish
@@ -2821,7 +2818,7 @@ public abstract class PO
 				if (!changes && !updatedBy)
 				{
 					int AD_User_ID = Env.getContextAsInt(p_ctx, "#AD_User_ID");
-					set_ValueNoCheck("UpdatedBy", new Integer(AD_User_ID));
+					set_ValueNoCheck("UpdatedBy", AD_User_ID);
 					sql.append("UpdatedBy=").append(AD_User_ID);
 					changes = true;
 					updatedBy = true;
@@ -2860,7 +2857,7 @@ public abstract class PO
 				{
 					boolean bValue = false;
 					if (value instanceof Boolean)
-						bValue = ((Boolean)value).booleanValue();
+						bValue = (Boolean) value;
 					else
 						bValue = "Y".equals(value);
 					sql.append(encrypt(i,bValue ? "'Y'" : "'N'"));
@@ -2892,7 +2889,7 @@ public abstract class PO
 				{
 					boolean bValue = false;
 					if (value instanceof Boolean)
-						bValue = ((Boolean)value).booleanValue();
+						bValue = (Boolean) value;
 					else
 						bValue = "Y".equals(value);
 					params.add(encrypt(i,bValue ? "Y" : "N"));
@@ -2918,30 +2915,22 @@ public abstract class PO
 		//	Custom Columns (cannot be logged as no column)
 		if (m_custom != null)
 		{
-			Iterator<String> it = m_custom.keySet().iterator();
-			while (it.hasNext())
-			{
+			for (String s : m_custom.keySet()) {
 				if (changes)
 					sql.append(", ");
 				changes = true;
 				//
-				String column = (String)it.next();
-				String value = (String)m_custom.get(column);
+				String column = s;
+				String value = (String) m_custom.get(column);
 				int index = p_info.getColumnIndex(column);
-				if (withValues)
-				{
-					sql.append(column).append("=").append(encrypt(index,value));
-				}
-				else
-				{
+				if (withValues) {
+					sql.append(column).append("=").append(encrypt(index, value));
+				} else {
 					sql.append(column).append("=?");
-					if (value == null || value.toString().length() == 0)
-					{
+					if (value == null || value.toString().length() == 0) {
 						params.add(null);
-					}
-					else
-					{
-						params.add(encrypt(index,value));
+					} else {
+						params.add(encrypt(index, value));
 					}
 				}
 			}
@@ -2973,7 +2962,7 @@ public abstract class PO
 			if (!updatedBy)	//	UpdatedBy not explicitly set
 			{
 				int AD_User_ID = Env.getContextAsInt(p_ctx, "#AD_User_ID");
-				set_ValueNoCheck("UpdatedBy", new Integer(AD_User_ID));
+				set_ValueNoCheck("UpdatedBy", AD_User_ID);
 				if (withValues)
 				{
 					sql.append(",UpdatedBy=").append(AD_User_ID);
@@ -3071,7 +3060,7 @@ public abstract class PO
 					{
 						boolean bValue = false;
 						if (value instanceof Boolean)
-							bValue = ((Boolean)value).booleanValue();
+							bValue = (Boolean) value;
 						else
 							bValue = "Y".equals(value);
 						sqlValues.append (encrypt(i,bValue ? "'Y'" : "'N'"));
@@ -3116,7 +3105,7 @@ public abstract class PO
 				{
 					boolean bValue = false;
 					if (value instanceof Boolean)
-						bValue = ((Boolean)value).booleanValue();
+						bValue = (Boolean) value;
 					else
 						bValue = "Y".equals(value);
 					params.add(encrypt(i,bValue ? "Y" : "N"));
@@ -3142,35 +3131,24 @@ public abstract class PO
 		//	Custom Columns
 		if (m_custom != null)
 		{
-			Iterator<String> it = m_custom.keySet().iterator();
-			while (it.hasNext())
-			{
-				String column = (String)it.next();
+			for (String column : m_custom.keySet()) {
 				index = p_info.getColumnIndex(column);
-				String value = (String)m_custom.get(column);
+				String value = (String) m_custom.get(column);
 				if (value == null)
 					continue;
-				if (doComma)
-				{
+				if (doComma) {
 					sqlInsert.append(",");
 					sqlValues.append(",");
-				}
-				else
+				} else
 					doComma = true;
 				sqlInsert.append(column);
-				if (withValues)
-				{
+				if (withValues) {
 					sqlValues.append(encrypt(index, value));
-				}
-				else
-				{
+				} else {
 					sqlValues.append("?");
-					if (value == null || value.toString().length() == 0)
-					{
+					if (value == null || value.toString().length() == 0) {
 						params.add(null);
-					}
-					else
-					{
+					} else {
 						params.add(encrypt(index, value));
 					}
 				}

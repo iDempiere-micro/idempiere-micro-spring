@@ -69,7 +69,7 @@ public class X_M_ProductionLine extends PO implements I_M_ProductionLine, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ProductionLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -271,7 +271,7 @@ public class X_M_ProductionLine extends PO implements I_M_ProductionLine, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_Production_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_Production_ID()));
     }
 
 	/** Set Production Line.

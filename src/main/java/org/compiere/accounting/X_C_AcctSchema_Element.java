@@ -51,7 +51,7 @@ public class X_C_AcctSchema_Element extends BasePOName implements I_C_AcctSchema
     public String toString()
     {
         return "X_C_AcctSchema_Element[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	public org.compiere.model.I_AD_Column getAD_Column() throws RuntimeException

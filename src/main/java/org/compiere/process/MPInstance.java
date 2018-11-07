@@ -245,7 +245,7 @@ public class MPInstance extends X_AD_PInstance
 	public String toString ()
 	{
 		StringBuffer sb = new StringBuffer ("MPInstance[")
-			.append (get_ID())
+			.append (getId())
 			.append(",OK=").append(isOK());
 		String msg = getErrorMsg();
 		if (msg != null && msg.length() > 0)

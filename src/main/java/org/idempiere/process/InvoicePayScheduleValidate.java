@@ -65,7 +65,7 @@ public class InvoicePayScheduleValidate extends SvrProcess
 			throw new IllegalArgumentException("InvoicePayScheduleValidate - No Schedule");
 		//	Get Invoice
 		MInvoice invoice = new MInvoice (getCtx(), schedule[0].getC_Invoice_ID(), null);
-		if (invoice.get_ID() == 0)
+		if (invoice.getId() == 0)
 			throw new IllegalArgumentException("InvoicePayScheduleValidate - No Invoice");
 		//
 		BigDecimal total = Env.ZERO;

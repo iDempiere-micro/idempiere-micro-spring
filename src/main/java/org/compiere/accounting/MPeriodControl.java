@@ -1,7 +1,5 @@
 package org.compiere.accounting;
 
-import org.compiere.accounting.MPeriod;
-
 import java.sql.ResultSet;
 import java.util.Properties;
 
@@ -94,7 +92,7 @@ public class MPeriodControl extends X_C_PeriodControl
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MPeriodControl[");
-		sb.append(get_ID()).append(",").append(getDocBaseType())
+		sb.append(getId()).append(",").append(getDocBaseType())
 			.append(",Status=").append(getPeriodStatus())
 			.append ("]");
 		return sb.toString ();

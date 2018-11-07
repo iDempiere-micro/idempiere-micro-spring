@@ -59,7 +59,7 @@ public class X_R_ContactInterest extends BasePOUser implements I_R_ContactIntere
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_ContactInterest[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -68,7 +68,7 @@ public class X_R_ContactInterest extends BasePOUser implements I_R_ContactIntere
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_User_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_User_ID()));
     }
 
 	/** Set Opt-out Date.

@@ -31,7 +31,6 @@ import org.compiere.orm.PO;
 import org.compiere.product.MCurrency;
 import org.idempiere.common.util.Env;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 
 
@@ -85,7 +84,7 @@ public class InOutCreateInvoice extends SvrProcess
 			throw new IllegalArgumentException("No Shipment");
 		//
 		MInOut ship = new MInOut (getCtx(), p_M_InOut_ID, get_TrxName());
-		if (ship.get_ID() == 0)
+		if (ship.getId() == 0)
 			throw new IllegalArgumentException("Shipment not found");
 		if (!MInOut.DOCSTATUS_Completed.equals(ship.getDocStatus()))
 			throw new IllegalArgumentException("Shipment not completed");

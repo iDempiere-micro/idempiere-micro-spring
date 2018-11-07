@@ -19,7 +19,6 @@ package org.idempiere.process;
 import java.util.logging.Level;
 
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.production.MRequest;
 import org.idempiere.common.util.AdempiereUserError;
@@ -63,7 +62,7 @@ public class RequestReOpen extends SvrProcess
 	{
 		MRequest request = new MRequest (getCtx(), p_R_Request_ID, get_TrxName());
 		if (log.isLoggable(Level.INFO)) log.info(request.toString());
-		if (request.get_ID() == 0)
+		if (request.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ @R_Request_ID@ " + p_R_Request_ID);
 		
 		request.setR_Status_ID();	//	set default status

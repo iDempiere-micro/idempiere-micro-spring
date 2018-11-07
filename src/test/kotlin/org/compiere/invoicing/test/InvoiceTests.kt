@@ -79,7 +79,7 @@ class InvoiceTests : BaseComponentTest() {
     private val testProduct get() = _testProduct!!
     private var _salesPriceList: I_M_PriceList? = null
     private val salesPriceList get() = _salesPriceList!!
-    private var _now : Timestamp? = null
+    private var _now: Timestamp? = null
     private val now get() = _now!!
 
     @Before
@@ -94,7 +94,7 @@ class InvoiceTests : BaseComponentTest() {
             salesPriceList.name = "S-" + randomString(10)
             salesPriceList.c_Currency_ID = EUR
             salesPriceList.save()
-            val check1: MPriceList = getById(salesPriceList._ID, I_M_PriceList.Table_Name)
+            val check1: MPriceList = getById(salesPriceList.id, I_M_PriceList.Table_Name)
             assertNotNull(check1)
 
             return salesPriceList
@@ -107,10 +107,10 @@ class InvoiceTests : BaseComponentTest() {
             val priceListVersion = MPriceListVersion(salesPriceList)
             priceListVersion.name = salesPriceList.name
             priceListVersion.validFrom = always
-            priceListVersion.m_DiscountSchema_ID = MDiscountSchema(ctx, 1000000, null)._ID
+            priceListVersion.m_DiscountSchema_ID = MDiscountSchema(ctx, 1000000, null).id
             priceListVersion.save()
 
-            val check2: MPriceListVersion = getById(priceListVersion._ID, I_M_PriceList_Version.Table_Name)
+            val check2: MPriceListVersion = getById(priceListVersion.id, I_M_PriceList_Version.Table_Name)
             assertNotNull(check2)
 
             return priceListVersion
@@ -123,7 +123,7 @@ class InvoiceTests : BaseComponentTest() {
         // put the product on the pricelist
         val currentPriceListVersion = salesPriceList.getPriceListVersion(now) ?: createSalesPriceListVersion()
         val price = 1.toBigDecimal()
-        val productPrice = MProductPrice(currentPriceListVersion, product._ID, price, price, price)
+        val productPrice = MProductPrice(currentPriceListVersion, product.id, price, price, price)
         productPrice.save()
 
         val vendor = createBPartner()
@@ -133,23 +133,23 @@ class InvoiceTests : BaseComponentTest() {
         vendorShipment.setIsSOTrx(false)
         vendorShipment.movementType = X_M_InOut.MOVEMENTTYPE_VendorReceipts
         vendorShipment.setC_DocType_ID()
-        vendorShipment.c_BPartner_ID = vendor._ID
+        vendorShipment.c_BPartner_ID = vendor.id
         vendorShipment.c_BPartner_Location_ID = vendor.locations.first().c_BPartner_Location_ID
         vendorShipment.m_Warehouse_ID = warehouse.m_Warehouse_ID
         vendorShipment.save()
-        val receipt = getById<MInOut>(vendorShipment._ID, I_M_InOut.Table_Name)
+        val receipt = getById<MInOut>(vendorShipment.id, I_M_InOut.Table_Name)
         assertNotNull(receipt)
         val receiptLine = MInOutLine(receipt)
         receiptLine.aD_Org_ID = org.aD_Org_ID
         receiptLine.product = product
         receiptLine.movementQty = 1000000.toBigDecimal()
-        receiptLine.m_Locator_ID = MLocator(ctx, MLocator(ctx, 1000000, null)._ID, null)._ID
+        receiptLine.m_Locator_ID = MLocator(ctx, MLocator(ctx, 1000000, null).id, null).id
         receiptLine.save()
-        val line = getById<MInOutLine>(receiptLine._ID, I_M_InOutLine.Table_Name)
+        val line = getById<MInOutLine>(receiptLine.id, I_M_InOutLine.Table_Name)
         assertNotNull(line)
         vendorShipment.setDocAction(DocAction.STATUS_Completed)
         vendorShipment.completeIt()
-        val storageOnHand = MStorageOnHand.getOfProduct(ctx, product._ID, null).first()
+        val storageOnHand = MStorageOnHand.getOfProduct(ctx, product.id, null).first()
         assertEquals(0.0.toBigDecimal(), receiptLine.movementQty - storageOnHand.qtyOnHand)
     }
 
@@ -179,7 +179,7 @@ class InvoiceTests : BaseComponentTest() {
 
         val invoice: MInvoice = getById(invoice_id, I_C_Invoice.Table_Name)
         assertNotNull(invoice)
-        assertEquals(invoice_id, invoice._ID)
+        assertEquals(invoice_id, invoice.id)
         val lines = invoice.lines
         assertNotNull(lines)
         assertEquals(6, lines.count())
@@ -192,9 +192,9 @@ class InvoiceTests : BaseComponentTest() {
         order.setIsSOTrx(true)
         order.c_DocType_ID = c_DocType_ID // 133 on credit order (generates invoice), 130 prepay order, 132 standard order
         order.c_DocTypeTarget_ID = c_DocType_ID
-        order.m_PriceList_ID = MPriceList.getDefault(ctx, true)._ID
+        order.m_PriceList_ID = MPriceList.getDefault(ctx, true).id
         order.setC_Currency_ID(EUR) // EUR
-        order.c_PaymentTerm_ID = paymentTerm._ID
+        order.c_PaymentTerm_ID = paymentTerm.id
 
         val partner = createBPartner()
 
@@ -210,24 +210,24 @@ class InvoiceTests : BaseComponentTest() {
         orderLine.setQty(qty.toBigDecimal())
         orderLine.save()
 
-        return Triple(order, partner._ID, product_id)
+        return Triple(order, partner.id, product_id)
     }
 
     @Test
     fun `create invoice from prepay order after receiving the payment`() {
-        createInvoiceFromOrder(1000030, testProduct._ID, BigDecimal("1.10")) {
+        createInvoiceFromOrder(1000030, testProduct.id, BigDecimal("1.10")) {
             val payment = MPayment(ctx, 0, null)
             payment.c_BPartner_ID = it.c_BPartner_ID
             payment.setAD_Org_ID(org.aD_Org_ID)
-            payment.c_BankAccount_ID = bankAccount._ID
+            payment.c_BankAccount_ID = bankAccount.id
             payment.setC_Currency_ID(EUR) // EUR
             payment.payAmt = 1.10.toBigDecimal()
             payment.save()
 
-            val pay: MPayment = getById(payment._ID, I_C_Payment.Table_Name)
+            val pay: MPayment = getById(payment.id, I_C_Payment.Table_Name)
             assertNotNull(pay)
 
-            it.c_Payment_ID = pay._ID
+            it.c_Payment_ID = pay.id
             it.save()
         }
     }
@@ -251,19 +251,19 @@ class InvoiceTests : BaseComponentTest() {
         assertEquals(QTY.toBigDecimal(), line.qtyInvoiced)
 
         val modelFactory: IModelFactory = DefaultModelFactory()
-        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice._ID, null)
+        val result = modelFactory.getPO(I_C_Invoice.Table_Name, invoice.id, null)
         println(result)
         assertNotNull(result)
         val invoice1 = result as MInvoice
         assertNotNull(invoice1)
-        assertEquals(invoice._ID, invoice1._ID)
+        assertEquals(invoice.id, invoice1.id)
         assertEquals(expectedPrice, invoice1.getGrandTotal(false))
         val lines1 = invoice1.lines
         assertNotNull(lines1)
         assertEquals(1, lines1.count())
 
         "/sql/invoice_details.sql".asResource {
-            val sql = it.replace("\$P{RECORD_ID}", invoice1._ID.toString())
+            val sql = it.replace("\$P{RECORD_ID}", invoice1.id.toString())
             val list = sql.executeSql {
                 InvoiceImportantTestAttributes(
                         it.getBigDecimal("grandtotal"), it.getBigDecimal("grandtotalvat"),
@@ -288,7 +288,7 @@ class InvoiceTests : BaseComponentTest() {
     fun `create invoice from order (on credit)`() {
         val salesOrderTypes = MDocType.getOfDocBaseType(ctx, MDocType.DOCBASETYPE_SalesOrder)
         val onCreditOrder = salesOrderTypes.first { it.name == "Credit Order" }
-        createInvoiceFromOrder(onCreditOrder._ID, testProduct._ID, BigDecimal("1.10")) {}
+        createInvoiceFromOrder(onCreditOrder.id, testProduct.id, BigDecimal("1.10")) {}
     }
 
     @Test
@@ -298,17 +298,16 @@ class InvoiceTests : BaseComponentTest() {
         bomProduct.save()
         val innerProduct = MProductBOM(ctx, 0, null)
         innerProduct.bomQty = 10.toBigDecimal()
-        innerProduct.m_ProductBOM_ID = testProduct._ID
-        innerProduct.m_Product_ID = bomProduct._ID
+        innerProduct.m_ProductBOM_ID = testProduct.id
+        innerProduct.m_Product_ID = bomProduct.id
         innerProduct.line = 10
         innerProduct.save()
 
         // put the product on the pricelist
         val currentPriceListVersion = salesPriceList.getPriceListVersion(now)!!
         val price = 11.0.toBigDecimal()
-        val productPrice = MProductPrice(currentPriceListVersion, bomProduct._ID, price, price, price)
+        val productPrice = MProductPrice(currentPriceListVersion, bomProduct.id, price, price, price)
         productPrice.save()
-
 
         createInvoiceFromOrder(1000033, bomProduct.m_Product_ID, BigDecimal("12.10")) {
             val orderLine = it.lines.first()
@@ -323,7 +322,7 @@ class InvoiceTests : BaseComponentTest() {
             val pi = ProcessInfo("", 0)
             productionCreate.startProcess(ctx, pi, null)
 
-            val prod: MProduction = getById(production._ID, I_M_Production.Table_Name)
+            val prod: MProduction = getById(production.id, I_M_Production.Table_Name)
 
             prod.setDocAction(DocAction.STATUS_Completed)
             prod.save()
@@ -336,7 +335,7 @@ class InvoiceTests : BaseComponentTest() {
     fun `create invoice from order (on credit) without pricelist should fail`() {
         val product = createAProduct("Other 1-" + randomString(5), I_M_Product.PRODUCTTYPE_Item)
         try {
-            createInvoiceFromOrder(1000033, product._ID, BigDecimal("1.10")) {}
+            createInvoiceFromOrder(1000033, product.id, BigDecimal("1.10")) {}
             fail("Invoice was created for a product not on a pricelist")
         } catch (e: Exception) {
         }
@@ -348,10 +347,10 @@ class InvoiceTests : BaseComponentTest() {
         val pl = MPriceList(ctx, 1000000, null)
         val plv = pl.getPriceListVersion(Timestamp.from(Instant.now()))!!
         val price = 10.toBigDecimal()
-        val pp = MProductPrice(ctx, plv._ID, product._ID, price, price, price, null)
+        val pp = MProductPrice(ctx, plv.id, product.id, price, price, price, null)
         pp.save()
         try {
-            createInvoiceFromOrder(1000033, product._ID, BigDecimal("11.00")) {}
+            createInvoiceFromOrder(1000033, product.id, BigDecimal("11.00")) {}
             fail("Invoice was created for a product with negative inventory")
         } catch (e: Exception) {
         }

@@ -53,7 +53,7 @@ public class X_M_Product_Category extends BasePONameValue implements I_M_Product
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_Product_Category[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

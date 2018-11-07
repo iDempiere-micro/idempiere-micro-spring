@@ -51,7 +51,7 @@ public class X_M_ShippingProcessor extends BasePOName implements I_M_ShippingPro
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ShippingProcessor[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -69,7 +69,7 @@ public class MWFNextCondition extends X_AD_WF_NextCondition
 			throw new IllegalStateException("No Column defined - " + this);
 			
 		IPO po = activity.getPO();
-		if (po == null || po.get_ID() == 0)
+		if (po == null || po.getId() == 0)
 			throw new IllegalStateException("Could not evaluate " + po + " - " + this);
 		//
 		Object valueObj = po.get_ValueOfColumn(getAD_Column_ID());
@@ -279,7 +279,7 @@ public class MWFNextCondition extends X_AD_WF_NextCondition
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MWFNextCondition[");
-		sb.append(get_ID()).append(",SeqNo=").append(getSeqNo())
+		sb.append(getId()).append(",SeqNo=").append(getSeqNo())
 			.append ("]");
 		return sb.toString ();
 	} //	toString

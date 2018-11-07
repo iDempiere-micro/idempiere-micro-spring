@@ -1,7 +1,6 @@
 package org.compiere.orm
 
 import org.compiere.model.HasName
-import org.compiere.model.I_AD_Table
 import org.idempiere.common.util.KeyNamePair
 import java.sql.ResultSet
 import java.util.Properties
@@ -30,6 +29,6 @@ abstract class BasePOName : PO {
      * @return ID/ColumnName pair
      */
     fun getKeyNamePair(): KeyNamePair {
-        return KeyNamePair(_ID, getName())
+        return KeyNamePair(id, getName())
     }
 }

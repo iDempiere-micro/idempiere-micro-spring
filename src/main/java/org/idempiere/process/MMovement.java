@@ -112,7 +112,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
             return m_confirms;
 
         List<MMovementConfirm> list = new Query(getCtx(), I_M_MovementConfirm.Table_Name, "M_Movement_ID=?", get_TrxName())
-            .setParameters(get_ID())
+            .setParameters(getId())
             .list();
         m_confirms = list.toArray(new MMovementConfirm[list.size()]);
         return m_confirms;
@@ -149,7 +149,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
     {
         try
         {
-            File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+            File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
             return createPDF (temp);
         }
         catch (Exception e)
@@ -203,10 +203,10 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
     public void setProcessed (boolean processed)
     {
         super.setProcessed (processed);
-        if (get_ID() == 0)
+        if (getId() == 0)
             return;
         final String sql = "UPDATE M_MovementLine SET Processed=? WHERE M_Movement_ID=?";
-        int noLine = DB.executeUpdateEx(sql, new Object[]{processed, get_ID()}, get_TrxName());
+        int noLine = DB.executeUpdateEx(sql, new Object[]{processed, getId()}, get_TrxName());
         m_lines = null;
         if (log.isLoggable(Level.FINE)) log.fine("Processed=" + processed + " - Lines=" + noLine);
     }	//	setProcessed

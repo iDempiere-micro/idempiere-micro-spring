@@ -51,7 +51,7 @@ public class X_C_ElementValue extends BasePONameValue implements I_C_ElementValu
     public String toString()
     {
         return "X_C_ElementValue[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	/** AccountSign AD_Reference_ID=118 */

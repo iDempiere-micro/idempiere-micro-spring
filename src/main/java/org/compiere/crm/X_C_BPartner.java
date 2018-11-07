@@ -9,11 +9,9 @@ import org.compiere.model.HasName2;
 import org.compiere.model.I_C_BPartner;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
- 
+
 import org.compiere.model.I_C_BP_Group;
 import org.compiere.model.I_C_Dunning;
 import org.compiere.model.I_C_Greeting;
@@ -90,7 +88,7 @@ public class X_C_BPartner extends BasePONameValue implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_BPartner[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

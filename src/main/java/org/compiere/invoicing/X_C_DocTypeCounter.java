@@ -50,7 +50,7 @@ public class X_C_DocTypeCounter extends BasePOName implements I_C_DocTypeCounter
     public String toString()
     {
 		return "X_C_DocTypeCounter[" +
-			get_ID() + "]";
+			getId() + "]";
     }
 
 	/** Set Counter Document.

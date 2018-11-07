@@ -76,7 +76,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Depreciation_Exp[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -366,7 +366,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getA_Depreciation_Exp_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getA_Depreciation_Exp_ID()));
     }
 
 	/** Set A_Depreciation_Exp_UU.

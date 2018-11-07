@@ -87,7 +87,7 @@ public class MScheduler extends X_AD_Scheduler
 	 */
 	public String getServerID ()
 	{
-		return "Scheduler" + get_ID();
+		return "Scheduler" + getId();
 	}	//	getServerID
 
 	/**
@@ -249,7 +249,7 @@ public class MScheduler extends X_AD_Scheduler
 			// Validate the record must exists on the same client of the scheduler
 			MTable table = MTable.get(getCtx(), getAD_Table_ID());
 			IPO po = (IPO)table.getPO(getRecord_ID(), get_TrxName());
-			if (po == null || po.get_ID() <= 0 || po.getAD_Client_ID() != getAD_Client_ID()) {
+			if (po == null || po.getId() <= 0 || po.getAD_Client_ID() != getAD_Client_ID()) {
 				log.saveError("Error", Msg.getMsg(getCtx(), "NoRecordID"));
 				return false;
 			}
@@ -271,7 +271,7 @@ public class MScheduler extends X_AD_Scheduler
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MScheduler[");
-		sb.append (get_ID ()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 

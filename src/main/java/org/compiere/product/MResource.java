@@ -42,7 +42,7 @@ public class MResource extends X_S_Resource
 		MResource r = s_cache.get(S_Resource_ID);
 		if (r == null) {
 			r = new MResource(ctx, S_Resource_ID, null);
-			if (r.get_ID() == S_Resource_ID) {
+			if (r.getId() == S_Resource_ID) {
 				s_cache.put(S_Resource_ID, r);
 			}
 		}
@@ -165,7 +165,7 @@ public class MResource extends X_S_Resource
 	public String toString()
 	{
 	      StringBuffer sb = new StringBuffer ("MResource[")
-	        .append(get_ID())
+	        .append(getId())
 	        .append(", Value=").append(getValue())
 	        .append(", Name=").append(getName())
 	        .append("]");

@@ -30,7 +30,7 @@ public class MGLCategory extends X_GL_Category
         if (retValue != null)
             return retValue;
         retValue = new MGLCategory (ctx, GL_Category_ID, null);
-        if (retValue.get_ID () != 0)
+        if (retValue.getId() != 0)
             s_cache.put (key, retValue);
         return retValue;
     }	//	get
@@ -138,7 +138,7 @@ public class MGLCategory extends X_GL_Category
     @Override
     public String toString()
     {
-        StringBuilder msgreturn = new StringBuilder().append(getClass().getSimpleName()).append("[").append(get_ID())
+        StringBuilder msgreturn = new StringBuilder().append(getClass().getSimpleName()).append("[").append(getId())
             .append(", Name=").append(getName())
             .append(", IsDefault=").append(isDefault())
             .append(", IsActive=").append(isActive())

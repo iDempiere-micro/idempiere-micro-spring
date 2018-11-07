@@ -85,7 +85,7 @@ public class X_C_InvoiceBatchLine extends PO implements I_C_InvoiceBatchLine, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_InvoiceBatchLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -574,7 +574,7 @@ public class X_C_InvoiceBatchLine extends PO implements I_C_InvoiceBatchLine, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
 	/** Set Line Amount.

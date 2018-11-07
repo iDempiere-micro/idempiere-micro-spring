@@ -54,7 +54,7 @@ public class X_S_ResourceAssignment extends BasePOName implements I_S_ResourceAs
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_S_ResourceAssignment[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

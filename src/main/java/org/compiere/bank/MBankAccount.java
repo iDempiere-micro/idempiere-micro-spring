@@ -36,7 +36,7 @@ public class MBankAccount extends X_C_BankAccount
 		if (retValue != null)
 			return retValue;
 		retValue = new MBankAccount (ctx, C_BankAccount_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -83,7 +83,7 @@ public class MBankAccount extends X_C_BankAccount
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MBankAccount[")
-			.append (get_ID())
+			.append (getId())
 			.append("-").append(getAccountNo())
 			.append ("]");
 		return sb.toString ();

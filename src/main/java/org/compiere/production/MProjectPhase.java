@@ -258,7 +258,7 @@ public class MProjectPhase extends X_C_ProjectPhase
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MProjectPhase[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append ("-").append (getSeqNo())
 			.append ("-").append (getName())
 			.append ("]");

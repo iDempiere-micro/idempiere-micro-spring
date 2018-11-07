@@ -46,7 +46,7 @@ class ProductionCreate(
     @Throws(Exception::class)
     override fun doIt(): String {
 
-        if (m_production!!._ID == 0)
+        if (m_production!!.id == 0)
             throw AdempiereUserError("Could not load production header")
 
         return if (m_production!!.isProcessed) "Already processed" else createLines()

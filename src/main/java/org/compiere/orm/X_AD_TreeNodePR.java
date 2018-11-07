@@ -1,7 +1,6 @@
 package org.compiere.orm;
 
 import org.compiere.model.I_AD_TreeNodePR;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
@@ -55,7 +54,7 @@ public class X_AD_TreeNodePR extends PO implements I_AD_TreeNodePR, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_TreeNodePR[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

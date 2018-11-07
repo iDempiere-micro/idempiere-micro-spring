@@ -48,7 +48,7 @@ public class MGoalRestriction extends X_PA_GoalRestriction
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MGoalRestriction[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 }	//	MGoalRestriction

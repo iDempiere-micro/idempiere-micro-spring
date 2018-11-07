@@ -51,7 +51,7 @@ public class X_C_Element extends BasePOName implements I_C_Element, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Element[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

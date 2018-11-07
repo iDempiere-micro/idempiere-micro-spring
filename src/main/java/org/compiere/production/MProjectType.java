@@ -41,7 +41,7 @@ public class MProjectType extends X_C_ProjectType
 		if (retValue != null)
 			return retValue;
 		retValue = new MProjectType (ctx, C_ProjectType_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -87,7 +87,7 @@ public class MProjectType extends X_C_ProjectType
 	public String toString()
 	{
 		StringBuffer sb = new StringBuffer ("MProjectType[")
-			.append(get_ID())
+			.append(getId())
 			.append("-").append(getName())
 			.append("]");
 		return sb.toString();

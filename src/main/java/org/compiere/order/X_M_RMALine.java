@@ -62,7 +62,7 @@ public class X_M_RMALine extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_RMALine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -288,7 +288,7 @@ public class X_M_RMALine extends PO implements I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_RMA_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_RMA_ID()));
     }
 
 	/** Set RMA Line.

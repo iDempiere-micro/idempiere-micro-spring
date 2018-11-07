@@ -21,7 +21,6 @@ import java.util.logging.Level;
 import org.compiere.accounting.MCostDetail;
 import org.compiere.accounting.MProduct;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 
@@ -66,7 +65,7 @@ public class CostCreate extends SvrProcess
 		if (p_M_Product_ID == 0)
 			throw new AdempiereUserError("@NotFound@: @M_Product_ID@ = " + p_M_Product_ID);
 		MProduct product = MProduct.get(getCtx(), p_M_Product_ID);
-		if (product.get_ID() != p_M_Product_ID)
+		if (product.getId() != p_M_Product_ID)
 			throw new AdempiereUserError("@NotFound@: @M_Product_ID@ = " + p_M_Product_ID);
 		//
 		if (MCostDetail.processProduct(product, get_TrxName()))

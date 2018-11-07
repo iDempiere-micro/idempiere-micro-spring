@@ -245,7 +245,7 @@ public class Doc_AllocationHdr extends Doc
 						fl = fact.createLine (line, getCashAcct(as, line.getC_CashLine_ID()),
 							getC_Currency_ID(), line.getAmtSource(), null);
 						MCashLine cashLine = new MCashLine (getCtx(), line.getC_CashLine_ID(), getTrxName());
-						if (fl != null && cashLine.get_ID() != 0)
+						if (fl != null && cashLine.getId() != 0)
 							fl.setAD_Org_ID(cashLine.getAD_Org_ID());
 					}
 
@@ -375,7 +375,7 @@ public class Doc_AllocationHdr extends Doc
 					fl = fact.createLine (line, getCashAcct(as, line.getC_CashLine_ID()),
 						getC_Currency_ID(), null, line.getAmtSource().negate());
 					MCashLine cashLine = new MCashLine (getCtx(), line.getC_CashLine_ID(), getTrxName());
-					if (fl != null && cashLine.get_ID() != 0)
+					if (fl != null && cashLine.getId() != 0)
 						fl.setAD_Org_ID(cashLine.getAD_Org_ID());
 				}
 			}
@@ -959,7 +959,7 @@ class Doc_AllocationTax
 
 			//	Create Tax Account
 			MAccount taxAcct = factAcct.getMAccount();
-			if (taxAcct == null || taxAcct.get_ID() == 0)
+			if (taxAcct == null || taxAcct.getId() == 0)
 			{
 				log.severe ("Tax Account not found/created");
 				return false;

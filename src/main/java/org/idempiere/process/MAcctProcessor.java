@@ -104,7 +104,7 @@ public class MAcctProcessor extends X_C_AcctProcessor
      */
     public String getServerID ()
     {
-        StringBuilder msgreturn = new StringBuilder("AcctProcessor").append(get_ID());
+        StringBuilder msgreturn = new StringBuilder("AcctProcessor").append(getId());
         return msgreturn.toString();
     }	//	getServerID
 

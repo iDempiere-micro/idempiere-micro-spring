@@ -107,7 +107,7 @@ public class MClient extends org.compiere.orm.MClient
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MClient[")
-			.append(get_ID()).append("-").append(getValue())
+			.append(getId()).append("-").append(getValue())
 			.append("]");
 		return sb.toString();
 	}	//	toString
@@ -342,7 +342,7 @@ public class MClient extends org.compiere.orm.MClient
 	 */
 	public boolean save ()
 	{
-		if (get_ID() == 0 && !m_createNew)
+		if (getId() == 0 && !m_createNew)
 			return saveUpdate();
 		return super.save ();
 	}	//	save

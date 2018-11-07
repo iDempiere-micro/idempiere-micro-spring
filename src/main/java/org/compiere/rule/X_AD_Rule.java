@@ -3,13 +3,9 @@ package org.compiere.rule;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.model.HasName;
 import org.compiere.model.I_AD_Rule;
-import org.compiere.orm.BasePOName;
 import org.compiere.orm.BasePONameValue;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -64,7 +60,7 @@ public class X_AD_Rule extends BasePONameValue implements I_AD_Rule, I_Persisten
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Rule[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

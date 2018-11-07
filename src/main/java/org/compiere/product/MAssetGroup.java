@@ -59,7 +59,7 @@ public class MAssetGroup extends X_A_Asset_Group
 			return ag;
 		// Load
 		ag = new MAssetGroup(ctx, A_Asset_Group_ID, null);
-		if (ag != null && ag.get_ID() != A_Asset_Group_ID)
+		if (ag != null && ag.getId() != A_Asset_Group_ID)
 			ag = null;
 		else
 			s_cache.put(A_Asset_Group_ID, ag);

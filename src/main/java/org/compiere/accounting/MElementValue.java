@@ -186,7 +186,7 @@ public class MElementValue extends X_C_ElementValue
 	public String toStringX ()
 	{
 		StringBuilder sb = new StringBuilder ("MElementValue[");
-		sb.append(get_ID()).append(",").append(getValue()).append(" - ").append(getName())
+		sb.append(getId()).append(",").append(getValue()).append(" - ").append(getName())
 			.append ("]");
 		return sb.toString ();
 	}	//	toStringX
@@ -217,7 +217,7 @@ public class MElementValue extends X_C_ElementValue
 			POResultSet<MAccount> rs = null;
 			try {
 				rs = new Query(getCtx(), I_C_ValidCombination.Table_Name, whereClause, get_TrxName())
-				.setParameters(get_ID())
+				.setParameters(getId())
 				.scroll();
 				while(rs.hasNext()) {
 					rs.next().deleteEx(true);

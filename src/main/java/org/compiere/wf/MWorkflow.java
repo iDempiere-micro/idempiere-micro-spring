@@ -12,12 +12,9 @@ import java.util.logging.Level;
 import org.compiere.model.HasName;
 import org.compiere.model.IProcessInfo;
 import org.compiere.model.I_AD_Workflow;
-import org.compiere.orm.MColumn;
-import org.compiere.orm.MTable;
 import org.compiere.orm.Query;
 import org.compiere.product.MProduct;
 import org.idempiere.common.exceptions.DBException;
-import org.compiere.process.DocAction;
 import org.compiere.process.ProcessInfo;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
@@ -57,7 +54,7 @@ public class MWorkflow extends X_AD_Workflow
 		if (retValue != null)
 			return retValue;
 		retValue = new MWorkflow (ctx, AD_Workflow_ID, null);
-		if (retValue.get_ID() != 0)
+		if (retValue.getId() != 0)
 			s_cache.put(key, retValue);
 		return retValue;
 	}	//	get
@@ -192,7 +189,7 @@ public class MWorkflow extends X_AD_Workflow
 	 */
 	private void loadTrl()
 	{
-		if (Env.isBaseLanguage(getCtx(), "AD_Workflow") || get_ID() == 0)
+		if (Env.isBaseLanguage(getCtx(), "AD_Workflow") || getId() == 0)
 			return;
 		String sql = "SELECT Name, Description, Help FROM AD_Workflow_Trl WHERE AD_Workflow_ID=? AND AD_Language=?";
 		PreparedStatement pstmt = null;
@@ -200,7 +197,7 @@ public class MWorkflow extends X_AD_Workflow
 		try
 		{
 			pstmt = DB.prepareStatement(sql, null);
-			pstmt.setInt(1, get_ID());
+			pstmt.setInt(1, getId());
 			pstmt.setString(2, Env.getADLanguage(getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next())
@@ -230,7 +227,7 @@ public class MWorkflow extends X_AD_Workflow
 	private void loadNodes()
 	{
 		m_nodes = new Query(getCtx(), MWFNode.Table_Name, "AD_WorkFlow_ID=?", get_TrxName())
-			.setParameters(new Object[]{get_ID()})
+			.setParameters(new Object[]{getId()})
 			.setOnlyActiveRecords(true)
 			.list();
 		if (log.isLoggable(Level.FINE)) log.fine("#" + m_nodes.size());
@@ -427,7 +424,7 @@ public class MWorkflow extends X_AD_Workflow
 			}
 			//	Remainder Nodes not connected
 			for (int i = 0; i < tmplist.size(); i++)
-				addNodesSF (list, tmplist.get(i).get_ID(), AD_Client_ID);
+				addNodesSF (list, tmplist.get(i).getId(), AD_Client_ID);
 		}
 	}	//	addNodesSF
 	
@@ -574,7 +571,7 @@ public class MWorkflow extends X_AD_Workflow
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MWorkflow[");
-		sb.append(get_ID()).append("-").append(getName())
+		sb.append(getId()).append("-").append(getName())
 			.append ("]");
 		return sb.toString ();
 	} //	toString

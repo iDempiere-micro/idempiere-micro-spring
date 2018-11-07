@@ -146,7 +146,7 @@ public class MProjectTask extends X_C_ProjectTask
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MProjectTask[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append ("-").append (getSeqNo())
 			.append ("-").append (getName())
 			.append ("]");

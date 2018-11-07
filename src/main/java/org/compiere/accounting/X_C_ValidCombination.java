@@ -59,7 +59,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ValidCombination[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -321,7 +321,7 @@ public class X_C_ValidCombination extends PO implements I_C_ValidCombination, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getCombination());
+        return new KeyNamePair(getId(), getCombination());
     }
 
 	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException

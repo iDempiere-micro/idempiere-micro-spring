@@ -33,7 +33,7 @@ data class BusinessPartnerLocation(private val location: I_C_BPartner_Location) 
 data class ExportProduct(private val product: I_M_Product) {
     val name: String get() = product.name
     val SKU: String? get() = product.sku
-    val internalId: Int get() = product._ID
+    val internalId: Int get() = product.id
     val externalId: String get() = product.value
 }
 
@@ -48,7 +48,7 @@ data class ExportOrder(
     private val order: I_C_Order
 ) {
     val documentNumber: String get() = order.documentNo
-    val internalId: Int get() = order._ID
+    val internalId: Int get() = order.id
     val billingPartner: BusinessPartner get() = BusinessPartner(order.bill_BPartner)
     val billingAddress: BusinessPartnerLocation get() = BusinessPartnerLocation(order.bill_Location)
     val shippingAddress: BusinessPartnerLocation get() = BusinessPartnerLocation(order.c_BPartner_Location)

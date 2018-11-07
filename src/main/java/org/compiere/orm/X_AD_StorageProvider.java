@@ -56,7 +56,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_StorageProvider[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -154,7 +154,7 @@ public class X_AD_StorageProvider extends PO implements I_AD_StorageProvider, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	/** Set Password.

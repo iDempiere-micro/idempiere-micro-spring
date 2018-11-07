@@ -70,7 +70,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_InOutConfirm[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -314,7 +314,7 @@ public class X_M_InOutConfirm extends PO implements I_M_InOutConfirm, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
 	/** Set Approved.

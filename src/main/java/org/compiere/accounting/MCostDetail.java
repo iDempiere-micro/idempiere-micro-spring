@@ -842,7 +842,7 @@ public class MCostDetail extends X_M_CostDetail
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MCostDetail[");
-		sb.append (get_ID());
+		sb.append (getId());
 		if (getC_OrderLine_ID() != 0)
 			sb.append (",C_OrderLine_ID=").append (getC_OrderLine_ID());
 		if (getM_InOutLine_ID() != 0)

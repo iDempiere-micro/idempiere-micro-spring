@@ -94,7 +94,7 @@ public class X_GL_Journal extends PO implements I_GL_Journal, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_GL_Journal[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -460,7 +460,7 @@ public class X_GL_Journal extends PO implements I_GL_Journal, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
 	public org.compiere.model.I_GL_Budget getGL_Budget() throws RuntimeException

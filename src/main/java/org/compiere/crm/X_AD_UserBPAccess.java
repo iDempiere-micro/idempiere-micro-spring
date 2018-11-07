@@ -57,7 +57,7 @@ public class X_AD_UserBPAccess extends BasePOUser implements I_AD_UserBPAccess, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_UserBPAccess[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -53,7 +53,7 @@ public class X_M_DiscountSchema extends BasePOName implements I_M_DiscountSchema
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_DiscountSchema[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

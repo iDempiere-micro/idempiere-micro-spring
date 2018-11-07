@@ -9,7 +9,6 @@ import org.compiere.orm.X_AD_Tree;
 import org.compiere.product.MAttributeSet;
 import org.compiere.product.MAttributeSetInstance;
 import org.compiere.product.X_I_Product;
-import org.compiere.product.X_M_Product;
 import org.compiere.util.Msg;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CCache;
@@ -59,11 +58,11 @@ public class MProduct extends org.compiere.product.MProduct {
         BigDecimal qtyOnHand = Env.ZERO;
         BigDecimal qtyOrdered = Env.ZERO;
         BigDecimal qtyReserved = Env.ZERO;
-        for (MStorageOnHand ohs: MStorageOnHand.getOfProduct(getCtx(), get_ID(), get_TrxName()))
+        for (MStorageOnHand ohs: MStorageOnHand.getOfProduct(getCtx(), getId(), get_TrxName()))
         {
             qtyOnHand = qtyOnHand.add(ohs.getQtyOnHand());
         }
-        for (MStorageReservation rs : MStorageReservation.getOfProduct(getCtx(), get_ID(), get_TrxName()))
+        for (MStorageReservation rs : MStorageReservation.getOfProduct(getCtx(), getId(), get_TrxName()))
         {
             if (rs.isSOTrx())
                 qtyReserved = qtyReserved.add(rs.getQty());
@@ -91,7 +90,7 @@ public class MProduct extends org.compiere.product.MProduct {
         boolean hasTrx = new Query(getCtx(), I_M_Transaction.Table_Name,
                 I_M_Transaction.COLUMNNAME_M_Product_ID+"=?", get_TrxName())
             .setOnlyActiveRecords(true)
-            .setParameters(new Object[]{get_ID()})
+            .setParameters(new Object[]{getId()})
             .match();
         if (hasTrx)
         {
@@ -102,7 +101,7 @@ public class MProduct extends org.compiere.product.MProduct {
         boolean hasCosts = new Query(getCtx(), I_M_CostDetail.Table_Name,
             I_M_CostDetail.COLUMNNAME_M_Product_ID+"=?", get_TrxName())
             .setOnlyActiveRecords(true)
-            .setParameters(get_ID())
+            .setParameters(getId())
             .match();
         if (hasCosts)
         {
@@ -246,7 +245,7 @@ public class MProduct extends org.compiere.product.MProduct {
     public String getCostingLevel(MAcctSchema as)
     {
         String costingLevel = null;
-        MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.get_ID(), get_TrxName());
+        MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.getId(), get_TrxName());
         if (pca != null) {
             costingLevel = pca.getCostingLevel();
         }
@@ -265,7 +264,7 @@ public class MProduct extends org.compiere.product.MProduct {
     public String getCostingMethod(MAcctSchema as)
     {
         String costingMethod = null;
-        MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.get_ID(), get_TrxName());
+        MProductCategoryAcct pca = MProductCategoryAcct.get(getCtx(), getM_Product_Category_ID(), as.getId(), get_TrxName());
         if (pca != null) {
             costingMethod = pca.getCostingMethod();
         }
@@ -394,7 +393,7 @@ public class MProduct extends org.compiere.product.MProduct {
             return retValue;
         }
         retValue = new MProduct(ctx, M_Product_ID, null);
-        if (retValue.get_ID () != 0)
+        if (retValue.getId() != 0)
         {
             s_cache.put (key, retValue);
         }

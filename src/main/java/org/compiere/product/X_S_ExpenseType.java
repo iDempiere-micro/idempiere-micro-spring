@@ -61,7 +61,7 @@ public class X_S_ExpenseType extends BasePONameValue implements I_S_ExpenseType,
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_S_ExpenseType[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

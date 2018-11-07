@@ -26,7 +26,6 @@ import org.compiere.order.MInOut;
 import org.compiere.order.MInOutLine;
 import org.idempiere.common.util.Env;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.DB;
 
@@ -79,7 +78,7 @@ public class OrderLineCreateShipment extends SvrProcess
 			throw new IllegalArgumentException("No OrderLine");
 		//
 		MOrderLine line = new MOrderLine (getCtx(), p_C_OrderLine_ID, get_TrxName());
-		if (line.get_ID() == 0)
+		if (line.getId() == 0)
 			throw new IllegalArgumentException("Order line not found");
 		MOrder order = new MOrder (getCtx(), line.getC_Order_ID(), get_TrxName());
 		if (!MOrder.DOCSTATUS_Completed.equals(order.getDocStatus()))

@@ -260,7 +260,7 @@ public class MDistribution extends X_GL_Distribution
 		//	Update Ratio when saved and difference
 		if (hasNullRemainder)
 			PercentTotal = Env.ONEHUNDRED;
-		if (get_ID() != 0 && PercentTotal.compareTo(getPercentTotal()) != 0)
+		if (getId() != 0 && PercentTotal.compareTo(getPercentTotal()) != 0)
 		{
 			setPercentTotal(PercentTotal);
 			saveEx();

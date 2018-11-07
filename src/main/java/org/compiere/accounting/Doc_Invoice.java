@@ -1115,7 +1115,7 @@ public class Doc_Invoice extends Doc
 			.append("FROM C_Invoice i, C_InvoiceLine il ")
 			.append("WHERE i.C_Invoice_ID=il.C_Invoice_ID")
 			.append(" AND po.M_Product_ID=il.M_Product_ID AND po.C_BPartner_ID=i.C_BPartner_ID");
-			//jz + " AND ROWNUM=1 AND i.C_Invoice_ID=").append(get_ID()).append(") ")
+			//jz + " AND ROWNUM=1 AND i.C_Invoice_ID=").append(getId()).append(") ")
 			if (DB.isOracle()) //jz
 			{
 				sql.append(" AND ROWNUM=1 ");

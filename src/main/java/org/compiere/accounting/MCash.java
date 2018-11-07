@@ -10,7 +10,6 @@ import java.util.logging.Level;
 
 import org.compiere.docengine.DocumentEngine;
 import org.compiere.invoicing.MConversionRate;
-import org.compiere.invoicing.MInvoice;
 import org.compiere.model.*;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.MOrg;
@@ -117,7 +116,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 		
 		//	Get CashBook
 		MCashBook cb = new MCashBook (ctx, C_CashBook_ID, trxName);
-		if (cb.get_ID() ==0)
+		if (cb.getId() ==0)
 		{
 			s_log.warning("Not found C_CashBook_ID=" + C_CashBook_ID);
 			return null;
@@ -262,7 +261,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}
@@ -774,7 +773,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MCash[");
-		sb.append (get_ID ())
+		sb.append (getId())
 			.append ("-").append (getName())
 			.append(", Balance=").append(getBeginningBalance())
 			.append("->").append(getEndingBalance())

@@ -50,7 +50,7 @@ public class X_C_Region extends BasePOName implements I_C_Region, I_Persistent
     public String toString()
     {
         return "X_C_Region[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	public org.compiere.model.I_C_Country getC_Country() throws RuntimeException

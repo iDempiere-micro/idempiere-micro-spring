@@ -252,7 +252,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 		if (retValue != null)
 			return retValue;
 		retValue = new MInvoice (ctx, C_Invoice_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -833,7 +833,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 
 		final String whereClause = MInvoiceTax.COLUMNNAME_C_Invoice_ID+"=?";
 		List<MInvoiceTax> list = new Query(getCtx(), I_C_InvoiceTax.Table_Name, whereClause, get_TrxName())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.list();
 		m_taxes = list.toArray(new MInvoiceTax[list.size()]);
 		return m_taxes;
@@ -874,7 +874,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		StringBuilder set = new StringBuilder("SET Processed='")
 		.append((processed ? "Y" : "N"))
@@ -1091,7 +1091,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MInvoice[")
-			.append(get_ID()).append("-").append(getDocumentNo())
+			.append(getId()).append("-").append(getDocumentNo())
 			.append(",GrandTotal=").append(getGrandTotal());
 		if (m_lines != null)
 			sb.append(" (#").append(m_lines.length).append(")");
@@ -1326,7 +1326,7 @@ public class MInvoice extends X_C_Invoice implements DocAction, I_C_Invoice, IPO
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}

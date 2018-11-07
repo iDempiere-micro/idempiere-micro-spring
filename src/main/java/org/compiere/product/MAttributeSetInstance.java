@@ -383,7 +383,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 		// Create new Lot, Serial# and Guarantee Date
 		if (asi.getMAttributeSet_ID() > 0)
 		{
-			asi.getLot(true, product.get_ID());
+			asi.getLot(true, product.getId());
 			asi.getSerNo(true);
 			asi.getGuaranteeDate(true);
 		}
@@ -408,7 +408,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 		// Create new Lot
 		if (asi.getMAttributeSet_ID() > 0)
 		{
-			asi.getLot(true, product.get_ID());
+			asi.getLot(true, product.getId());
 		}
 		//
 		asi.setDescription();

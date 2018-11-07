@@ -61,7 +61,7 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_I_BPartner[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -951,6 +951,6 @@ public class X_I_BPartner extends BasePOUser implements I_I_BPartner, I_Persiste
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getValue());
+        return new KeyNamePair(getId(), getValue());
     }
 }

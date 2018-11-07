@@ -5,10 +5,8 @@ import java.sql.ResultSet;
 import java.util.Properties;
 
 import org.compiere.model.I_AD_Role;
-import org.compiere.orm.MTable;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -112,7 +110,7 @@ public class X_AD_Role extends BasePOName implements I_AD_Role, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Role[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

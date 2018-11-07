@@ -61,7 +61,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_RequestUpdate[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -251,7 +251,7 @@ public class X_R_RequestUpdate extends PO implements I_R_RequestUpdate, I_Persis
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getR_RequestUpdate_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getR_RequestUpdate_ID()));
     }
 
 	/** Set R_RequestUpdate_UU.

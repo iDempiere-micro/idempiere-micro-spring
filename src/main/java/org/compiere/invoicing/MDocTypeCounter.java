@@ -132,7 +132,7 @@ public class MDocTypeCounter extends X_C_DocTypeCounter
 		if (retValue != null)
 			return retValue;
 		retValue = new MDocTypeCounter (ctx, C_DocTypeCounter_ID, trxName);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -248,7 +248,7 @@ public class MDocTypeCounter extends X_C_DocTypeCounter
 		if (getC_DocType_ID() > 0)
 		{
 			dt = MDocType.get(getCtx(), getC_DocType_ID());
-			if (dt.get_ID() == 0)
+			if (dt.getId() == 0)
 				dt = null;
 		}
 		return dt;
@@ -264,7 +264,7 @@ public class MDocTypeCounter extends X_C_DocTypeCounter
 		if (getCounter_C_DocType_ID() > 0)
 		{
 			dt = MDocType.get(getCtx(), getCounter_C_DocType_ID());
-			if (dt.get_ID() == 0)
+			if (dt.getId() == 0)
 				dt = null;
 		}
 		return dt;
@@ -335,7 +335,7 @@ public class MDocTypeCounter extends X_C_DocTypeCounter
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MDocTypeCounter[");
-		sb.append(get_ID()).append(",").append(getName())
+		sb.append(getId()).append(",").append(getName())
 			.append(",C_DocType_ID=").append(getC_DocType_ID())
 			.append(",Counter=").append(getCounter_C_DocType_ID())
 			.append(",DocAction=").append(getDocAction())

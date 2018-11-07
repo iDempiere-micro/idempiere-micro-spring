@@ -11,7 +11,6 @@ import java.util.logging.Level;
 
 import org.compiere.conversionrate.MConversionRate;
 import org.compiere.crm.MBPGroup;
-import org.compiere.invoicing.MInvoice;
 import org.compiere.invoicing.MInvoiceLine;
 import org.compiere.model.*;
 import org.compiere.order.MInOutLine;
@@ -1032,7 +1031,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 		{
 			MPeriod.testPeriodOpen(getCtx(), getDateTrx(), MDocType.DOCBASETYPE_MatchPO, getAD_Org_ID());
 			setPosted(false);
-			MFactAcct.deleteEx (I_M_MatchPO.Table_ID, get_ID(), get_TrxName());
+			MFactAcct.deleteEx (I_M_MatchPO.Table_ID, getId(), get_TrxName());
 		}
 		return true;
 	}	//	beforeDelete
@@ -1068,7 +1067,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MMatchPO[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append (",Qty=").append (getQty())
 			.append (",C_OrderLine_ID=").append (getC_OrderLine_ID())
 			.append (",M_InOutLine_ID=").append (getM_InOutLine_ID())

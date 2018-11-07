@@ -148,7 +148,7 @@ public class MProjectLine extends X_C_ProjectLine
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MProjectLine[");
-			sb.append (get_ID()).append ("-")
+			sb.append (getId()).append ("-")
 				.append (getLine())
 				.append(",C_Project_ID=").append(getC_Project_ID())
 				.append(",C_ProjectPhase_ID=").append(getC_ProjectPhase_ID())
@@ -194,7 +194,7 @@ public class MProjectLine extends X_C_ProjectLine
 		if (is_ValueChanged("C_ProjectTask_ID") && getC_ProjectTask_ID() != 0)
 		{
 			MProjectTask pt = new MProjectTask(getCtx(), getC_ProjectTask_ID(), get_TrxName());
-			if (pt == null || pt.get_ID() == 0)
+			if (pt == null || pt.getId() == 0)
 			{
 				log.warning("Project Task Not Found - ID=" + getC_ProjectTask_ID());
 				return false;
@@ -205,7 +205,7 @@ public class MProjectLine extends X_C_ProjectLine
 		if (is_ValueChanged("C_ProjectPhase_ID") && getC_ProjectPhase_ID() != 0)
 		{
 			MProjectPhase pp = new MProjectPhase(getCtx(), getC_ProjectPhase_ID(), get_TrxName());
-			if (pp == null || pp.get_ID() == 0)
+			if (pp == null || pp.getId() == 0)
 			{
 				log.warning("Project Phase Not Found - " + getC_ProjectPhase_ID());
 				return false;

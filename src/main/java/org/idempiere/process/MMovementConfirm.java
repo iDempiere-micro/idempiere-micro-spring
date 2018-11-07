@@ -212,7 +212,7 @@ public class MMovementConfirm extends X_M_MovementConfirm implements DocAction, 
     {
         try
         {
-            File temp = File.createTempFile(get_TableName()+get_ID()+"_", ".pdf");
+            File temp = File.createTempFile(get_TableName()+ getId()+"_", ".pdf");
             return createPDF (temp);
         }
         catch (Exception e)

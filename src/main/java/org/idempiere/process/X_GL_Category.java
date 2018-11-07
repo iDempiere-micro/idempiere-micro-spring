@@ -45,7 +45,7 @@ public class X_GL_Category extends BasePOName implements I_GL_Category, I_Persis
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_GL_Category[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

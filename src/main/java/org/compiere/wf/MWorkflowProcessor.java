@@ -72,7 +72,7 @@ public class MWorkflowProcessor extends X_AD_WorkflowProcessor
 	 */
 	public String getServerID ()
 	{
-		return "WorkflowProcessor" + get_ID();
+		return "WorkflowProcessor" + getId();
 	}	//	getServerID
 
 	/**

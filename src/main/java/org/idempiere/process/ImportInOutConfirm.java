@@ -24,7 +24,6 @@ import java.util.logging.Level;
 import org.compiere.accounting.X_I_InOutLineConfirm;
 import org.compiere.invoicing.MInOutLineConfirm;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.DB;
 
@@ -155,8 +154,8 @@ public class ImportInOutConfirm extends SvrProcess
 				X_I_InOutLineConfirm importLine = new X_I_InOutLineConfirm (getCtx(), rs, get_TrxName());
 				MInOutLineConfirm confirmLine = new MInOutLineConfirm (getCtx(),
 					importLine.getM_InOutLineConfirm_ID(), get_TrxName());
-				if (confirmLine.get_ID() == 0
-					|| confirmLine.get_ID() != importLine.getM_InOutLineConfirm_ID())
+				if (confirmLine.getId() == 0
+					|| confirmLine.getId() != importLine.getM_InOutLineConfirm_ID())
 				{
 					importLine.setI_IsImported(false);
 					importLine.setI_ErrorMsg("ID Not Found");

@@ -548,7 +548,7 @@ public class MInOutLine extends X_M_InOutLine
 	 */
 	public String toString ()
 	{
-		StringBuilder sb = new StringBuilder ("MInOutLine[").append (get_ID())
+		StringBuilder sb = new StringBuilder ("MInOutLine[").append (getId())
 			.append(",M_Product_ID=").append(getM_Product_ID())
 			.append(",QtyEntered=").append(getQtyEntered())
 			.append(",MovementQty=").append(getMovementQty())

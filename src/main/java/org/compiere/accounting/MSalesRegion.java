@@ -34,7 +34,7 @@ public class MSalesRegion extends X_C_SalesRegion
 		if (retValue != null)
 			return retValue;
 		retValue = new MSalesRegion (ctx, C_SalesRegion_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get

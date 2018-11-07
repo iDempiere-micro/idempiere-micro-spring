@@ -51,7 +51,7 @@ public class X_PA_Hierarchy extends BasePOName implements I_PA_Hierarchy, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PA_Hierarchy[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

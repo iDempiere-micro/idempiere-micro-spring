@@ -57,7 +57,7 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_SchedulerRecipient[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -187,6 +187,6 @@ public class X_AD_SchedulerRecipient extends PO implements I_AD_SchedulerRecipie
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_User_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_User_ID()));
     }
 }

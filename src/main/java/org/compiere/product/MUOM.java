@@ -133,7 +133,7 @@ public class MUOM extends X_C_UOM
 								.list();
 		//
 		for (MUOM uom : list) {
-			s_cache.put(uom.get_ID(), uom);
+			s_cache.put(uom.getId(), uom);
 		}
 	}	//	loadUOMs
 	
@@ -175,7 +175,7 @@ public class MUOM extends X_C_UOM
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("UOM[");
-		sb.append("ID=").append(get_ID())
+		sb.append("ID=").append(getId())
 			.append(", Name=").append(getName());
 		return sb.toString();
 	}	//	toString

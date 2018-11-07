@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class CategoryService {
     fun getAllCategories(): List<MCrmCategory> {
-        val query = Query(Env.getCtx(), "Crm_Category", "", null)
+        val query = Query(Env.getCtx(), MCrmCategory.Table_Name, "", null)
         val found = query.list<MCrmCategory>()
         return found
     }

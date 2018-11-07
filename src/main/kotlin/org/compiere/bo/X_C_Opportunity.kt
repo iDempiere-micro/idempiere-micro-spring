@@ -48,7 +48,7 @@ open class X_C_Opportunity : BasePOUser, I_C_Opportunity, I_Persistent {
 
     override fun toString(): String {
         val sb = StringBuffer("X_C_Opportunity[")
-                .append(_ID).append("]")
+                .append(id).append("]")
         return sb.toString()
     }
 
@@ -284,7 +284,7 @@ open class X_C_Opportunity : BasePOUser, I_C_Opportunity, I_Persistent {
      * @return ID/ColumnName pair
      */
     fun getKeyNamePair(): KeyNamePair {
-        return KeyNamePair(_ID, documentNo)
+        return KeyNamePair(id, documentNo)
     }
 
     /** Set Expected Close Date.

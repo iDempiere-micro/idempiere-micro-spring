@@ -61,7 +61,7 @@ public class X_AD_Message extends PO implements I_AD_Message, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Message[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -204,6 +204,6 @@ public class X_AD_Message extends PO implements I_AD_Message, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getValue());
+        return new KeyNamePair(getId(), getValue());
     }
 }

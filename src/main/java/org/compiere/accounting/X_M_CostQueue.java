@@ -65,7 +65,7 @@ public class X_M_CostQueue extends PO implements I_M_CostQueue, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_CostQueue[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
