@@ -27,19 +27,19 @@ class RequestTests : BaseComponentTest() {
         requestStatus.name = "Default"
         requestStatus.value = "Default"
         requestStatus.setIsDefault(true)
-        requestStatus.r_StatusCategory_ID = requestStatusCategory._ID
+        requestStatus.r_StatusCategory_ID = requestStatusCategory.id
         requestStatus.save()
 
         val requestType = MRequestType(ctx, 0, null)
         requestType.name = "General Request"
         requestType.setIsDefault(true)
-        requestType.r_StatusCategory_ID = requestStatusCategory._ID
+        requestType.r_StatusCategory_ID = requestStatusCategory.id
         requestType.save()
 
-        val request = MRequest(ctx, 1000001, requestType._ID, SUMMARY, true, null)
+        val request = MRequest(ctx, 1000001, requestType.id, SUMMARY, true, null)
         request.setR_Status_ID()
         request.save()
-        val req: I_R_Request = getById(request._ID, I_R_Request.Table_Name)
+        val req: I_R_Request = getById(request.id, I_R_Request.Table_Name)
 
         assertEquals(SUMMARY, req.summary)
     }

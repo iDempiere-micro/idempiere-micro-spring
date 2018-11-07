@@ -62,7 +62,7 @@ public class MProductionPlan extends X_M_ProductionPlan {
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, get_ID());
+			pstmt.setInt(1, getId());
 			rs = pstmt.executeQuery();
 			while (rs.next())
 				list.add( new MProductionLine( getCtx(), rs.getInt(1), get_TrxName() ) );	
@@ -104,7 +104,7 @@ public class MProductionPlan extends X_M_ProductionPlan {
 
 		MProductionLine line = new MProductionLine( this );
 		line.setLine( lineno );
-		line.setM_Product_ID( finishedProduct.get_ID() );
+		line.setM_Product_ID( finishedProduct.getId() );
 		line.setM_Locator_ID( getM_Locator_ID() );
 		line.setMovementQty( getProductionQty());
 		line.setPlannedQty(getProductionQty());
@@ -197,7 +197,7 @@ public class MProductionPlan extends X_M_ProductionPlan {
 						defaultLocator = usedProduct.getM_Locator_ID();
 						if ( defaultLocator == 0 )
 							defaultLocator = getM_Locator_ID();
-						if (usedProduct == null || usedProduct.get_ID() == 0)
+						if (usedProduct == null || usedProduct.getId() == 0)
 							return 0;
 
 						MClient client = MClient.get(getCtx());

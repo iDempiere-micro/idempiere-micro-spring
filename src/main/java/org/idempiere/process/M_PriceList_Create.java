@@ -39,7 +39,6 @@ import org.compiere.product.MProductPrice;
 import org.compiere.orm.MSequence;
 import org.idempiere.common.util.*;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.Env;
 
@@ -413,7 +412,7 @@ public class M_PriceList_Create extends SvrProcess {
 					//	Copy (Insert) Prices
 					//
 					v_temp = rsCurgen.getInt("M_PriceList_Version_Base_ID");
-					int seqproductpriceid = MSequence.get(getCtx(), "M_ProductPrice").get_ID();
+					int seqproductpriceid = MSequence.get(getCtx(), "M_ProductPrice").getId();
 					int currentUserID = Env.getAD_User_ID(getCtx());
 					if (v_temp == p_PriceList_Version_ID)
 						//

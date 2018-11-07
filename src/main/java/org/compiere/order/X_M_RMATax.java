@@ -62,7 +62,7 @@ public class X_M_RMATax extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_RMATax[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

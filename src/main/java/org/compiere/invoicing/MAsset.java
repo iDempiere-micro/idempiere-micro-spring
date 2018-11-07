@@ -3,7 +3,6 @@ package org.compiere.invoicing;
 import org.compiere.accounting.MClient;
 import org.compiere.accounting.MMatchInv;
 import org.compiere.accounting.MProduct;
-import org.compiere.crm.EMail;
 import org.compiere.crm.MBPartner;
 import org.compiere.model.I_A_Asset;
 import org.compiere.model.I_A_Asset_Addition;
@@ -17,7 +16,6 @@ import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.idempiere.icommon.model.IPO;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -233,7 +231,7 @@ public class MAsset extends org.compiere.product.MAsset {
         String invNo = getInventoryNo();
         if(invNo == null || invNo.trim().length() == 0)
         {
-            invNo = "" + get_ID();
+            invNo = "" + getId();
             setInventoryNo(invNo);
             DB.executeUpdateEx("UPDATE A_Asset SET InventoryNo=" + DB.TO_STRING(invNo) + " WHERE A_Asset_ID=" + getA_Asset_ID(), get_TrxName());
             if (log.isLoggable(Level.FINE)) log.fine("InventoryNo=" + getInventoryNo());

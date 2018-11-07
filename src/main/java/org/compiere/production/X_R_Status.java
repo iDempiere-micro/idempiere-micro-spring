@@ -51,7 +51,7 @@ public class X_R_Status extends BasePONameValue implements I_R_Status, I_Persist
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_Status[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

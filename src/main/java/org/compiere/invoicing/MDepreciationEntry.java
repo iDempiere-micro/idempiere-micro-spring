@@ -50,7 +50,7 @@ implements DocAction, IPODoc
 		if (A_Depreciation_Entry_ID == 0)
 		{
 			MAcctSchema acctSchema = MClient.get(getCtx()).getAcctSchema();
-			setC_AcctSchema_ID(acctSchema.get_ID());
+			setC_AcctSchema_ID(acctSchema.getId());
 			setC_Currency_ID(acctSchema.getC_Currency_ID());
 			setA_Entry_Type (X_A_Depreciation_Entry.A_ENTRY_TYPE_Depreciation); // TODO: workaround
 			setPostingType (X_A_Depreciation_Entry.POSTINGTYPE_Actual);	// A
@@ -106,7 +106,7 @@ implements DocAction, IPODoc
 		{
 			throw new AdempiereException("@NotFound@ @C_Period_ID@");
 		}
-		setC_Period_ID(period.get_ID());
+		setC_Period_ID(period.getId());
 	}
 
 	private void unselectLines()
@@ -115,7 +115,7 @@ implements DocAction, IPODoc
 						+ MDepreciationExp.COLUMNNAME_A_Depreciation_Entry_ID + "=NULL "
 					+ " WHERE "
 						+ MDepreciationExp.COLUMNNAME_A_Depreciation_Entry_ID + "=?";
-		int id = get_ID();
+		int id = getId();
 		if (id <= 0) 
 		{ // Use old ID is current ID is missing (i.e. object was deleted)
 			id = get_IDOld();
@@ -137,7 +137,7 @@ implements DocAction, IPODoc
 					+ " AND AD_Client_ID=? AND AD_Org_ID=?";
 		;
 		Timestamp dateAcct = TimeUtil.trunc(getDateAcct(), TimeUtil.TRUNC_MONTH);
-		int no = DB.executeUpdateEx(sql, new Object[]{get_ID(), dateAcct, getAD_Client_ID(), getAD_Org_ID()}, get_TrxName());
+		int no = DB.executeUpdateEx(sql, new Object[]{getId(), dateAcct, getAD_Client_ID(), getAD_Org_ID()}, get_TrxName());
 		if (log.isLoggable(Level.FINE)) log.fine("Updated #" + no);
 	}
 	
@@ -149,7 +149,7 @@ implements DocAction, IPODoc
 		final String trxName = get_TrxName();
 		final List<Object> params = new ArrayList<Object>();
 		String whereClause = MDepreciationExp.COLUMNNAME_A_Depreciation_Entry_ID+"=?";
-		params.add(get_ID());
+		params.add(getId());
 		
 		if (onlyNotProcessed)
 		{
@@ -373,7 +373,7 @@ implements DocAction, IPODoc
 	public static void deleteFacts(MDepreciationExp depexp)
 	{
 		final String sql = "DELETE FROM Fact_Acct WHERE AD_Table_ID=? AND Record_ID=? AND Line_ID=?";
-		Object[] params = new Object[]{I_A_Depreciation_Entry.Table_ID, depexp.getA_Depreciation_Entry_ID(), depexp.get_ID()};
+		Object[] params = new Object[]{I_A_Depreciation_Entry.Table_ID, depexp.getA_Depreciation_Entry_ID(), depexp.getId()};
 		DB.executeUpdateEx(sql, params, depexp.get_TrxName());
 	}
 

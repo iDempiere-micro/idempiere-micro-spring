@@ -38,6 +38,6 @@ class MCrmCustomerCategory : BasePOName, I_Persistent {
             return MCrmCategory(ctx, get_Value("Crm_Category_ID") as Int, null)
         }
         set(cat) {
-            set_ValueNoCheck("Crm_Category_ID", cat._ID)
+            set_ValueNoCheck("Crm_Category_ID", cat.id)
         }
 }

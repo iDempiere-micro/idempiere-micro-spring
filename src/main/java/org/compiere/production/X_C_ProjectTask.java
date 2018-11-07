@@ -53,7 +53,7 @@ public class X_C_ProjectTask extends BasePOName implements I_C_ProjectTask, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ProjectTask[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

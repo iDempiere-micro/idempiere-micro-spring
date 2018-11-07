@@ -30,7 +30,7 @@ public class MBOM  extends X_M_BOM
         if (retValue != null)
             return retValue;
         retValue = new MBOM (ctx, M_BOM_ID, null);
-        if (retValue.get_ID () != 0)
+        if (retValue.getId() != 0)
             s_cache.put (key, retValue);
         return retValue;
     }	//	get

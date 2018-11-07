@@ -65,7 +65,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_DepositBatchLine[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -99,7 +99,7 @@ public class X_C_DepositBatchLine extends PO implements I_C_DepositBatchLine, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_DepositBatch_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_DepositBatch_ID()));
     }
 
 	/** Set Deposit Batch Line.

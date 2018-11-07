@@ -5,10 +5,8 @@ import java.util.Properties;
 
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_R_Category;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -58,7 +56,7 @@ public class X_R_Category extends BasePOName implements I_R_Category, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_Category[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

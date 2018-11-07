@@ -42,7 +42,7 @@ public class MCharge extends org.compiere.order.MCharge {
             return null;
 
         String sql = "SELECT Ch_Expense_Acct FROM C_Charge_Acct WHERE C_Charge_ID=? AND C_AcctSchema_ID=?";
-        int Account_ID = DB.getSQLValueEx(null, sql, C_Charge_ID, as.get_ID());
+        int Account_ID = DB.getSQLValueEx(null, sql, C_Charge_ID, as.getId());
         //	No account
         if (Account_ID <= 0)
         {

@@ -514,7 +514,7 @@ public class ServerProcessCtl implements Runnable {
 			po.set_ValueOfColumn(column.getColumnName(), docAction);
 			po.saveEx();
 		}
-		ProcessInfo processInfo = new ProcessInfo (((DocAction)po).getDocumentInfo(),column.getAD_Process_ID(),po.get_Table_ID(),po.get_ID());
+		ProcessInfo processInfo = new ProcessInfo (((DocAction)po).getDocumentInfo(),column.getAD_Process_ID(),po.get_Table_ID(),po.getId());
 		processInfo.setTransactionName(po.get_TrxName());
 		processInfo.setPO(po);
 		ServerProcessCtl.process(processInfo, Trx.get(processInfo.getTransactionName(), false));

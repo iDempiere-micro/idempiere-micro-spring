@@ -97,7 +97,7 @@ public class RequestInvoice extends SvrProcess
 			+ ", p_M_Product_ID=" + p_M_Product_ID);
 		
 		MRequestType type = MRequestType.get (getCtx(), p_R_RequestType_ID);
-		if (type.get_ID() == 0)
+		if (type.getId() == 0)
 			throw new AdempiereSystemError("@R_RequestType_ID@ @NotFound@ " + p_R_RequestType_ID);
 		if (!type.isInvoiced())
 			throw new AdempiereSystemError("@R_RequestType_ID@ <> @IsInvoiced@");

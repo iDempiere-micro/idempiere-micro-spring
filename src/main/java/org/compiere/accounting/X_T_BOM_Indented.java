@@ -52,7 +52,7 @@ public class X_T_BOM_Indented extends PO implements I_T_BOM_Indented, I_Persiste
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_T_BOM_Indented[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

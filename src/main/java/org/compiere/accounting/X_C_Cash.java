@@ -54,7 +54,7 @@ public class X_C_Cash extends BasePOName implements I_C_Cash, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Cash[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

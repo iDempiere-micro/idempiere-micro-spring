@@ -65,7 +65,7 @@ public class X_C_OrderLandedCost extends PO implements I_C_OrderLandedCost, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_OrderLandedCost[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -7,9 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.compiere.model.I_AD_Process;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -66,7 +64,7 @@ public class X_AD_Process extends BasePONameValue implements I_AD_Process, I_Per
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Process[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

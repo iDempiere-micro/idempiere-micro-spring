@@ -1,6 +1,5 @@
 package org.compiere.product;
 
-import org.compiere.product.MProductCategory;
 import org.idempiere.orm.PO;
 
 import java.math.BigDecimal;
@@ -97,7 +96,7 @@ public class MDiscountSchemaBreak extends X_M_DiscountSchemaBreak
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MDiscountSchemaBreak[");
-		sb.append(get_ID()).append("-Seq=").append(getSeqNo());
+		sb.append(getId()).append("-Seq=").append(getSeqNo());
 		if (getM_Product_Category_ID() != 0)
 			sb.append(",M_Product_Category_ID=").append(getM_Product_Category_ID());
 		if (getM_Product_ID() != 0)

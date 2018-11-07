@@ -370,7 +370,7 @@ public class MRole extends X_AD_Role
 
 		//	Default Role changed
 		if (getDefaultRole() != null
-			&& getDefaultRole().get_ID() == get_ID())
+			&& getDefaultRole().getId() == getId())
 			setDefaultRole(this);
 		return success;
 	}	//	afterSave

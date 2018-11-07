@@ -50,7 +50,7 @@ public class X_C_AcctSchema extends BasePOName implements I_C_AcctSchema, I_Pers
     public String toString()
     {
 		return "X_C_AcctSchema[" +
-			get_ID() + "]";
+			getId() + "]";
     }
 
 	/** Set Only Organization.

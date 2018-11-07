@@ -240,7 +240,7 @@ public abstract class Doc implements IDoc
 				{
 					if (!matchPo.isPosted())
 					{
-						error = postImmediate(ass, matchPo.get_Table_ID(), matchPo.get_ID(), force, matchPo.get_TrxName());
+						error = postImmediate(ass, matchPo.get_Table_ID(), matchPo.getId(), force, matchPo.get_TrxName());
 						if (!Util.isEmpty(error))
 							break;
 					}
@@ -260,7 +260,7 @@ public abstract class Doc implements IDoc
 					{
 						if (!matchInv.isPosted())
 						{
-							error = postImmediate(ass, matchInv.get_Table_ID(), matchInv.get_ID(), force, matchInv.get_TrxName());
+							error = postImmediate(ass, matchInv.get_Table_ID(), matchInv.getId(), force, matchInv.get_TrxName());
 							if (!Util.isEmpty(error))
 								break;
 						}
@@ -339,7 +339,7 @@ public abstract class Doc implements IDoc
 		m_manageLocalTrx = false;
 		if (m_trxName == null)
 		{
-			m_trxName = "Post" + m_DocumentType + p_po.get_ID();
+			m_trxName = "Post" + m_DocumentType + p_po.getId();
 			m_manageLocalTrx = true;
 		}
 		p_po.set_TrxName(m_trxName);
@@ -450,8 +450,8 @@ public abstract class Doc implements IDoc
 	 */
 	public int get_ID()
 	{
-		return p_po.get_ID();
-	}	//	get_ID
+		return p_po.getId();
+	}	//	getId
 
 	/**
 	 * 	Get Persistent Object
@@ -626,7 +626,7 @@ public abstract class Doc implements IDoc
 			int AD_User_ID = p_po.getUpdatedBy();
 			MNote note = new MNote (getCtx(), AD_MessageValue, AD_User_ID,
 				getAD_Client_ID(), getAD_Org_ID(), null);
-			note.setRecord(p_po.get_Table_ID(), p_po.get_ID());
+			note.setRecord(p_po.get_Table_ID(), p_po.getId());
 			//  Reference
 			note.setReference(toString());	//	Document
 			//	Text
@@ -670,7 +670,7 @@ public abstract class Doc implements IDoc
 	{
 		StringBuilder sql = new StringBuilder ("DELETE Fact_Acct WHERE AD_Table_ID=")
 			.append(get_Table_ID())
-			.append(" AND Record_ID=").append(p_po.get_ID())
+			.append(" AND Record_ID=").append(p_po.getId())
 			.append(" AND C_AcctSchema_ID=").append(m_as.getC_AcctSchema_ID());
 		int no = DB.executeUpdate(sql.toString(), getTrxName());
 		if (no != 0)
@@ -763,7 +763,7 @@ public abstract class Doc implements IDoc
 	private final String postCommit (String status)
 	{
 		if (log.isLoggable(Level.INFO)) log.info("Sta=" + status + " DT=" + getDocumentType()
-			+ " ID=" +  p_po.get_ID());
+			+ " ID=" +  p_po.getId());
 		p_Status = status;
 
 		Trx trx = Trx.get(getTrxName(), true);
@@ -843,7 +843,7 @@ public abstract class Doc implements IDoc
 			trxName = getTrxName(); // on trx if it's in client
 		StringBuilder sql = new StringBuilder ("UPDATE ");
 		sql.append(get_TableName()).append( " SET Processing='N' WHERE ")
-			.append(get_TableName()).append("_ID=").append(p_po.get_ID());
+			.append(get_TableName()).append("_ID=").append(p_po.getId());
 		DB.executeUpdate(sql.toString(), trxName);
 	}   //  unlock
 
@@ -1469,7 +1469,7 @@ public abstract class Doc implements IDoc
 		if (Account_ID == 0)
 		{
 			log.severe ("NO account Type="
-				+ AcctType + ", Record=" + p_po.get_ID());
+				+ AcctType + ", Record=" + p_po.getId());
 			return 0;
 		}
 		return Account_ID;

@@ -69,7 +69,7 @@ public class RfQCreateSO extends SvrProcess
 		throw new NotImplementedException();
 		/*
 		MRfQ rfq = new MRfQ (getCtx(), p_C_RfQ_ID, get_TrxName());
-		if (rfq.get_ID() == 0)
+		if (rfq.getId() == 0)
 			throw new IllegalArgumentException("No RfQ found");
 		if (log.isLoggable(Level.INFO)) log.info("doIt - " + rfq);
 		

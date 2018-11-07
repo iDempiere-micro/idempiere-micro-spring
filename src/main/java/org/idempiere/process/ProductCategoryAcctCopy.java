@@ -70,7 +70,7 @@ public class ProductCategoryAcctCopy extends SvrProcess
 		if (p_C_AcctSchema_ID == 0)
 			throw new AdempiereSystemError("C_AcctSchema_ID=0");
 		MAcctSchema as = MAcctSchema.get(getCtx(), p_C_AcctSchema_ID);
-		if (as.get_ID() == 0)
+		if (as.getId() == 0)
 			throw new AdempiereSystemError("Not Found - C_AcctSchema_ID=" + p_C_AcctSchema_ID);
 
 		//	Update

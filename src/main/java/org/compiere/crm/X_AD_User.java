@@ -9,9 +9,7 @@ import org.compiere.model.I_AD_User;
 import org.compiere.model.I_C_Location;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -79,7 +77,7 @@ public class X_AD_User extends BasePONameValue implements I_AD_User, I_Persisten
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_User[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -76,13 +76,13 @@ abstract class BaseComponentTest : BaseTest() {
         newBank.routingNo = newBank.name
         newBank.save()
         val newBankAccount = MBankAccount(ctx, 0, null)
-        newBankAccount.c_Bank_ID = newBank._ID
+        newBankAccount.c_Bank_ID = newBank.id
         newBankAccount.name = newBank.name
         newBankAccount.value = newBankAccount.name
         newBankAccount.c_Currency_ID = EUR
         newBankAccount.accountNo = newBank.name
         newBankAccount.save()
-        _bankAccount = getById(newBankAccount._ID, I_C_BankAccount.Table_Name)
+        _bankAccount = getById(newBankAccount.id, I_C_BankAccount.Table_Name)
         assertNotNull(_bankAccount)
     }
 
@@ -92,10 +92,10 @@ abstract class BaseComponentTest : BaseTest() {
         newPaymentTerm.name = "P-" + randomString(10)
         newPaymentTerm.value = newPaymentTerm.name
         newPaymentTerm.save()
-        _paymentTerm = getById(newPaymentTerm._ID, I_C_PaymentTerm.Table_Name)
+        _paymentTerm = getById(newPaymentTerm.id, I_C_PaymentTerm.Table_Name)
         assertNotNull(_paymentTerm)
         val paySchedule = MPaySchedule(ctx, 0, null)
-        paySchedule.c_PaymentTerm_ID = paymentTerm._ID
+        paySchedule.c_PaymentTerm_ID = paymentTerm.id
         paySchedule.percentage = 100.toBigDecimal()
         paySchedule.save()
     }
@@ -107,7 +107,7 @@ abstract class BaseComponentTest : BaseTest() {
         assertNotNull(result)
         val obj = result as T
         assertNotNull(obj)
-        assertEquals(id, obj._ID)
+        assertEquals(id, obj.id)
         return obj
     }
 
@@ -121,7 +121,7 @@ abstract class BaseComponentTest : BaseTest() {
         assertNotNull(result)
         val product = result as I_M_Product
         assertNotNull(product)
-        assertEquals(product_id, product._ID)
+        assertEquals(product_id, product.id)
         return product
     }
 
@@ -129,13 +129,13 @@ abstract class BaseComponentTest : BaseTest() {
         val newCategory = MTaxCategory(ctx, 0, null)
         newCategory.name = "T-" + randomString(10)
         newCategory.save()
-        _taxCategory = getById(newCategory._ID, I_C_TaxCategory.Table_Name)
+        _taxCategory = getById(newCategory.id, I_C_TaxCategory.Table_Name)
         assertNotNull(_taxCategory)
-        val newTax = MTax(ctx, newCategory.name, 10.toBigDecimal(), taxCategory._ID, null)
+        val newTax = MTax(ctx, newCategory.name, 10.toBigDecimal(), taxCategory.id, null)
         newTax.setIsActive(true)
         newTax.setIsDefault(true)
         newTax.save()
-        _tax = getById(newTax._ID, I_C_Tax.Table_Name)
+        _tax = getById(newTax.id, I_C_Tax.Table_Name)
         assertNotNull(_tax)
     }
 
@@ -150,6 +150,6 @@ abstract class BaseComponentTest : BaseTest() {
         product.c_TaxCategory_ID = taxCategory.c_TaxCategory_ID
         product.productType = productType // I_M_Product.PRODUCTTYPE_Service
         product.save()
-        return getProductById(product._ID)
+        return getProductById(product.id)
     }
 }

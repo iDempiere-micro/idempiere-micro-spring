@@ -38,7 +38,7 @@ public class MCalendar extends X_C_Calendar
 		if (retValue != null)
 			return retValue;
 		retValue = new MCalendar (ctx, C_Calendar_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -111,7 +111,7 @@ public class MCalendar extends X_C_Calendar
 	 */
 	public MYear createYear(Locale locale)
 	{
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return null;
 		MYear year = new MYear (this);
 		year.saveEx();

@@ -42,7 +42,6 @@ import org.compiere.product.MPriceList;
 import org.compiere.product.MPriceListVersion;
 import org.compiere.product.MProductPrice;
 import org.compiere.orm.Query;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.Env;
 
@@ -187,7 +186,7 @@ public class ExpenseTypesFromAccounts extends SvrProcess {
                 product.saveEx(get_TrxName());
 
                 // Add a zero product price to the price list so it shows up in the price list
-                priceRec = new MProductPrice(getCtx(), pv.get_ID(), product.get_ID(), get_TrxName());
+                priceRec = new MProductPrice(getCtx(), pv.getId(), product.getId(), get_TrxName());
                 priceRec.set_ValueOfColumn("AD_Client_ID", Integer.valueOf(m_clientId));
                 priceRec.setPrices(zero, zero, zero);
                 priceRec.saveEx(get_TrxName());
@@ -201,7 +200,7 @@ public class ExpenseTypesFromAccounts extends SvrProcess {
                     validComb.set_ValueOfColumn("AD_Client_ID", Integer.valueOf(m_clientId));
                     validComb.setAD_Org_ID(0);
                     validComb.setAlias(elem.getValue());
-                    validComb.setAccount_ID(elem.get_ID());
+                    validComb.setAccount_ID(elem.getId());
                     validComb.setC_AcctSchema_ID(m_acctSchemaId);
                     validComb.saveEx(get_TrxName());
                 }
@@ -209,10 +208,10 @@ public class ExpenseTypesFromAccounts extends SvrProcess {
                 // TODO: It might be needed to make the accounting more specific, but the purpose
                 // of the process now is to create general accounts so this is intentional.
                 productAcct = new Query(getCtx(), I_M_Product_Acct.Table_Name, "M_Product_ID=? and C_AcctSchema_ID=?", get_TrxName())
-                        .setParameters(product.get_ID(), m_acctSchemaId)
+                        .setParameters(product.getId(), m_acctSchemaId)
                         .first();
-                productAcct.setP_Expense_Acct(validComb.get_ID());
-                productAcct.setP_Revenue_Acct(validComb.get_ID());
+                productAcct.setP_Expense_Acct(validComb.getId());
+                productAcct.setP_Revenue_Acct(validComb.getId());
                 productAcct.saveEx(get_TrxName());
 
                 addCount++;

@@ -51,7 +51,7 @@ public class X_M_ChangeRequest extends BasePOName implements I_M_ChangeRequest, 
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ChangeRequest[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

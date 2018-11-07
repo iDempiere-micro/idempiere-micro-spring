@@ -50,7 +50,7 @@ public class X_AD_Schedule extends BasePOName implements I_AD_Schedule, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Schedule[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

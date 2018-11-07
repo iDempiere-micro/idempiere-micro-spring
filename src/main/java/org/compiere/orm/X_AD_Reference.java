@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import org.compiere.model.I_AD_Reference;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -50,7 +49,7 @@ public class X_AD_Reference extends BasePOName implements I_AD_Reference, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Reference[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

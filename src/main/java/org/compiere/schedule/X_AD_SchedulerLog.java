@@ -57,7 +57,7 @@ public class X_AD_SchedulerLog extends PO implements I_AD_SchedulerLog, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_SchedulerLog[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

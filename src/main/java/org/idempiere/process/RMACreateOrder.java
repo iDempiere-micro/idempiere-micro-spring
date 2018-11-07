@@ -50,7 +50,7 @@ public class RMACreateOrder extends SvrProcess
         // Load Original Order
         org.compiere.order.MOrder originalOrder = rma.getOriginalOrder();
         
-        if (rma.get_ID() == 0)
+        if (rma.getId() == 0)
         {
             throw new Exception("No RMA defined");
         }

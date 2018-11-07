@@ -67,7 +67,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ContactActivity[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -200,7 +200,7 @@ public class X_C_ContactActivity extends BasePOUser implements I_C_ContactActivi
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDescription());
+        return new KeyNamePair(getId(), getDescription());
     }
 
 	/** Set End Date.

@@ -52,7 +52,7 @@ public class X_C_PaymentTerm extends BasePONameValue implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_PaymentTerm[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

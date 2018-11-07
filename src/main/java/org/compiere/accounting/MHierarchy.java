@@ -32,7 +32,7 @@ public class MHierarchy extends X_PA_Hierarchy
 		if (retValue != null)
 			return retValue;
 		retValue = new MHierarchy (ctx, PA_Hierarchy_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get

@@ -35,7 +35,7 @@ public class MWFResponsible extends X_AD_WF_Responsible
 		if (retValue != null)
 			return retValue;
 		retValue = new MWFResponsible (ctx, AD_WF_Responsible_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -154,7 +154,7 @@ public class MWFResponsible extends X_AD_WF_Responsible
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder("MWFResponsible[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append("-").append(getName())
 			.append(",Type=").append(getResponsibleType());
 		if (getAD_User_ID() != 0)

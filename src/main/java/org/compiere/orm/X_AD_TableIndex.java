@@ -49,7 +49,7 @@ public class X_AD_TableIndex extends BasePOName implements I_AD_TableIndex, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_TableIndex[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

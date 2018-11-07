@@ -5,7 +5,6 @@ import company.bigger.dto.UserLoginModelResponse
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.compiere.crm.MUser
-import org.compiere.model.I_AD_User
 import org.idempiere.common.util.Env
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.core.authority.SimpleGrantedAuthority

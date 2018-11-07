@@ -58,7 +58,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_AttributeSetInstance[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -169,7 +169,7 @@ public class X_M_AttributeSetInstance extends PO implements I_M_AttributeSetInst
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getMAttributeSetInstance_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getMAttributeSetInstance_ID()));
     }
 
 	/** Set M_AttributeSetInstance_UU.

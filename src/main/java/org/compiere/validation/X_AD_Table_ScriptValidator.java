@@ -61,7 +61,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Table_ScriptValidator[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -224,7 +224,7 @@ public class X_AD_Table_ScriptValidator extends PO implements I_AD_Table_ScriptV
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getEventModelValidator()));
+        return new KeyNamePair(getId(), String.valueOf(getEventModelValidator()));
     }
 
 	/** Set Sequence.

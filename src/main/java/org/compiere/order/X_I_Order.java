@@ -54,7 +54,7 @@ public class X_I_Order extends BasePOName implements I_I_Order, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_I_Order[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

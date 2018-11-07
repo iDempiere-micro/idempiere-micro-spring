@@ -5,9 +5,7 @@ import java.util.Properties;
 
 import org.compiere.model.I_A_Asset_Type;
 import org.compiere.orm.BasePONameValue;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -52,7 +50,7 @@ public class X_A_Asset_Type extends BasePONameValue implements I_A_Asset_Type, I
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Asset_Type[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -212,7 +212,7 @@ public class MTableIndex extends X_AD_TableIndex {
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MTableIndex[");
-		sb.append(get_ID()).append("-")
+		sb.append(getId()).append("-")
 			.append(getName())
 			.append(",AD_Table_ID=").append(getAD_Table_ID())
 			.append("]");

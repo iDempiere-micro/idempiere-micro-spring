@@ -112,13 +112,13 @@ public class DistributionCreate extends SvrProcess
 
 		/*
 		m_dl = new MDistributionList(getCtx(), p_M_DistributionList_ID, get_TrxName());
-		if (m_dl.get_ID() == 0)
+		if (m_dl.getId() == 0)
 			throw new Exception ("Distribution List not found -  M_DistributionList_ID=" +  p_M_DistributionList_ID);
 		//
 		if (p_M_Product_ID == 0)
 			throw new IllegalArgumentException ("No Product");
 		m_product = MProduct.get (getCtx(), p_M_Product_ID);
-		if (m_product.get_ID() == 0)
+		if (m_product.getId() == 0)
 			throw new Exception ("Product not found -  M_Product_ID=" +  p_M_Product_ID);
 		if (p_Qty == null || p_Qty.signum() != 1)
 			throw new IllegalArgumentException ("No Quantity");
@@ -129,7 +129,7 @@ public class DistributionCreate extends SvrProcess
 		if (!p_IsTest && p_IsCreateSingleOrder) 
 		{
 			MBPartner bp = new MBPartner (getCtx(), p_Bill_BPartner_ID, get_TrxName());
-			if (bp.get_ID() == 0)
+			if (bp.getId() == 0)
 				throw new IllegalArgumentException("Single Business Partner not found - C_BPartner_ID=" + p_Bill_BPartner_ID);
 			//
 			m_singleOrder = new MOrder (getCtx(), 0, get_TrxName());
@@ -172,7 +172,7 @@ public class DistributionCreate extends SvrProcess
 	private boolean createOrder (MDistributionListLine dll)
 	{
 		MBPartner bp = new MBPartner (getCtx(), dll.getC_BPartner_ID(), get_TrxName());
-		if (bp.get_ID() == 0)
+		if (bp.getId() == 0)
 			throw new IllegalArgumentException("Business Partner not found - C_BPartner_ID=" + dll.getC_BPartner_ID());
 
 		//	Create Order

@@ -51,7 +51,7 @@ public class X_AD_Language extends BasePOName implements I_AD_Language, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Language[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

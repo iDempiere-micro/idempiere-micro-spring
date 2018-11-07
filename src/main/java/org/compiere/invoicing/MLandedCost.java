@@ -134,7 +134,7 @@ public class MLandedCost extends X_C_LandedCost
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MLandedCost[");
-		sb.append (get_ID ())
+		sb.append (getId())
 			.append (",CostDistribution=").append (getLandedCostDistribution())
 			.append(",M_CostElement_ID=").append(getM_CostElement_ID());
 		if (getM_InOut_ID() != 0)

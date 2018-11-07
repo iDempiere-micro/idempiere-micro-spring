@@ -50,7 +50,7 @@ public class DocTypeCounterValidate extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info("C_DocTypeCounter_ID=" + p_C_DocTypeCounter_ID);
 		m_counter = new MDocTypeCounter (getCtx(), p_C_DocTypeCounter_ID, get_TrxName());
-		if (m_counter == null || m_counter.get_ID() == 0)
+		if (m_counter == null || m_counter.getId() == 0)
 			throw new IllegalArgumentException("Not found C_DocTypeCounter_ID=" + p_C_DocTypeCounter_ID);
 		//
 		String error = m_counter.validate();

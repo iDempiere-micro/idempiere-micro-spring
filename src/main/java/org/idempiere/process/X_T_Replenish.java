@@ -58,7 +58,7 @@ public class X_T_Replenish extends PO implements I_T_Replenish, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_T_Replenish[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

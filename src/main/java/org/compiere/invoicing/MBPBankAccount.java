@@ -220,7 +220,7 @@ public class MBPBankAccount extends X_C_BP_BankAccount
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MBP_BankAccount[")
-			.append (get_ID ())
+			.append (getId())
 			.append(", Name=").append(getA_Name())
 			.append ("]");
 		return sb.toString ();

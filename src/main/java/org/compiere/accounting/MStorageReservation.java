@@ -302,7 +302,7 @@ public class MStorageReservation extends X_M_StorageReservation {
 		
 		//	Insert row based on warehouse
 		MWarehouse warehouse = new MWarehouse (ctx, M_Warehouse_ID, trxName);
-		if (warehouse.get_ID() != M_Warehouse_ID)
+		if (warehouse.getId() != M_Warehouse_ID)
 			throw new IllegalArgumentException("Not found M_Warehouse_ID=" + M_Warehouse_ID);
 		//
 		retValue = new MStorageReservation (warehouse, M_Product_ID, M_AttributeSetInstance_ID, isSOTrx);

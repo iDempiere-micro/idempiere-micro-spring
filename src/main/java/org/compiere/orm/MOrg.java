@@ -3,8 +3,7 @@ package org.compiere.orm;
 import org.compiere.model.I_AD_Org;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.DB;
-import org.idempiere.common.util.Env;
- 
+
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -38,7 +37,7 @@ public class MOrg extends X_AD_Org
 								.list();
 		for (MOrg org : list)
 		{
-			s_cache.put(org.get_ID(), org);
+			s_cache.put(org.getId(), org);
 		}
 		return list.toArray(new MOrg[list.size()]);
 	}	//	getOfClient
@@ -55,7 +54,7 @@ public class MOrg extends X_AD_Org
 		if (retValue != null)
 			return retValue;
 		retValue = new MOrg (ctx, AD_Org_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (AD_Org_ID, retValue);
 		return retValue;
 	}	//	get

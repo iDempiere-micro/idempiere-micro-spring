@@ -25,7 +25,6 @@ import org.compiere.accounting.MAcctSchemaDefault;
 import org.compiere.accounting.MAcctSchemaElement;
 import org.compiere.accounting.MAcctSchemaGL;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereSystemError;
 import org.idempiere.common.util.AdempiereUserError;
@@ -78,10 +77,10 @@ public class AcctSchemaCopyAcct extends SvrProcess
 			throw new AdempiereUserError("Must be different");
 		
 		MAcctSchema source = MAcctSchema.get(getCtx(), p_SourceAcctSchema_ID, null);
-		if (source.get_ID() == 0)
+		if (source.getId() == 0)
 			throw new AdempiereSystemError("NotFound Source C_AcctSchema_ID=" + p_SourceAcctSchema_ID);
 		MAcctSchema target = new MAcctSchema (getCtx(), p_TargetAcctSchema_ID, get_TrxName());
-		if (target.get_ID() == 0)
+		if (target.getId() == 0)
 			throw new AdempiereSystemError("NotFound Target C_AcctSchema_ID=" + p_TargetAcctSchema_ID);
 		
 		//

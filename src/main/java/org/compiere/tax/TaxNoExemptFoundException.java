@@ -38,7 +38,7 @@ public class TaxNoExemptFoundException extends AdempiereException
 			return "*";
 		}
 		MOrg org = MOrg.get(Env.getCtx(), AD_Org_ID);
-		if (org == null || org.get_ID() != AD_Org_ID)
+		if (org == null || org.getId() != AD_Org_ID)
 		{
 			return "?";
 		}

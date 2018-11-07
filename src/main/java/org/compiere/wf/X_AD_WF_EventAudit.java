@@ -66,7 +66,7 @@ public class X_AD_WF_EventAudit extends PO implements I_AD_WF_EventAudit, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_EventAudit[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -154,7 +154,7 @@ public class X_AD_WF_EventAudit extends PO implements I_AD_WF_EventAudit, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_WF_EventAudit_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_WF_EventAudit_ID()));
     }
 
 	/** Set AD_WF_EventAudit_UU.

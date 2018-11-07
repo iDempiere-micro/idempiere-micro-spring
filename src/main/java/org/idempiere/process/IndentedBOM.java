@@ -109,7 +109,7 @@ public class IndentedBOM extends SvrProcess
 		tboml.setC_AcctSchema_ID(p_C_AcctSchema_ID);
 		tboml.setAD_PInstance_ID(getAD_PInstance_ID());
 		tboml.setM_CostElement_ID(p_M_CostElement_ID);
-		tboml.setSel_Product_ID(product.get_ID());
+		tboml.setSel_Product_ID(product.getId());
 		tboml.setM_Product_ID(p_M_Product_ID);
 		tboml.setQtyBOM(qty);
 		tboml.setQty(accumQty);
@@ -177,7 +177,7 @@ public class IndentedBOM extends SvrProcess
 		ArrayList<Object> params = new ArrayList<Object>();
 		StringBuilder whereClause = new StringBuilder();
 		whereClause.append(MProductBOM.COLUMNNAME_M_Product_ID).append("=?");
-		params.add(product.get_ID());
+		params.add(product.getId());
 		
 		List<MProductBOM> list = new Query(getCtx(), MProductBOM.Table_Name, whereClause.toString(), get_TrxName())
 									.setParameters(params)

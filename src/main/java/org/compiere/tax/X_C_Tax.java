@@ -73,7 +73,7 @@ public class X_C_Tax extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Tax[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -452,7 +452,7 @@ public class X_C_Tax extends PO implements I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 
 	public org.compiere.model.I_C_Tax getParent_Tax() throws RuntimeException

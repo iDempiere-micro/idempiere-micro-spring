@@ -1,24 +1,16 @@
 package org.compiere.order;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 
 import org.compiere.crm.MUser;
-import org.compiere.model.I_M_InOutLineConfirm;
-import org.compiere.orm.MDocType;
 import org.compiere.orm.MRefList;
-import org.compiere.orm.Query;
-import org.compiere.orm.X_C_DocType;
-import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
-import org.idempiere.orm.PO;
 
 /**
  *	Shipment Confirmation Model
@@ -137,7 +129,7 @@ public class MInOutConfirm extends X_M_InOutConfirm
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}

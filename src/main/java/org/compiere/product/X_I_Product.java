@@ -59,7 +59,7 @@ public class X_I_Product extends BasePONameValue implements I_I_Product, I_Persi
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_I_Product[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

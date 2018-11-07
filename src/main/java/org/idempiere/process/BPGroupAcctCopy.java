@@ -21,7 +21,6 @@ import java.util.logging.Level;
 
 import org.compiere.accounting.MAcctSchema;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereSystemError;
 import org.idempiere.common.util.DB;
@@ -72,7 +71,7 @@ public class BPGroupAcctCopy extends SvrProcess
 		if (p_C_AcctSchema_ID == 0)
 			throw new AdempiereSystemError("C_AcctSchema_ID=0");
 		MAcctSchema as = MAcctSchema.get(getCtx(), p_C_AcctSchema_ID);
-		if (as.get_ID() == 0)
+		if (as.getId() == 0)
 			throw new AdempiereSystemError("Not Found - C_AcctSchema_ID=" + p_C_AcctSchema_ID);
 		//
 		String sql = null;

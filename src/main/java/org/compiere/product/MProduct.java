@@ -1,14 +1,11 @@
 package org.compiere.product;
 
-import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.compiere.model.HasName;
-import org.compiere.model.I_M_CostDetail;
 import org.compiere.model.I_M_Product;
 import org.compiere.model.I_M_ProductDownload;
 import org.compiere.orm.*;
@@ -18,8 +15,6 @@ import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.compiere.util.Msg;
-import org.idempiere.common.util.Util;
 
 /**
  * 	Product Model
@@ -64,7 +59,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 			return retValue;
 		}
 		retValue = new MProduct (ctx, M_Product_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 		{
 			s_cache.put (key, retValue);
 		}
@@ -531,7 +526,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 		List<MProductDownload> list = new Query(getCtx(), I_M_ProductDownload.Table_Name, "M_Product_ID=?", get_TrxName())
 										.setOnlyActiveRecords(true)
 										.setOrderBy(HasName.Companion.getCOLUMNNAME_Name())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.list();
 		m_downloads = list.toArray(new MProductDownload[list.size()]);
 		return m_downloads;
@@ -550,7 +545,7 @@ public class MProduct extends X_M_Product implements I_M_Product
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MProduct[");
-		sb.append(get_ID()).append("-").append(getValue())
+		sb.append(getId()).append("-").append(getValue())
 			.append("]");
 		return sb.toString();
 	}	//	toString

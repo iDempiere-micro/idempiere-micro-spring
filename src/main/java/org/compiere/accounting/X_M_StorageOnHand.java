@@ -64,7 +64,7 @@ public class X_M_StorageOnHand extends PO implements I_M_StorageOnHand, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_StorageOnHand[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

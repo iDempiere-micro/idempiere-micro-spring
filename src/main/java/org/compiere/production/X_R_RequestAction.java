@@ -59,7 +59,7 @@ public class X_R_RequestAction extends PO implements I_R_RequestAction, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_RequestAction[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -39,7 +39,7 @@ public class MTableScriptValidator extends X_AD_Table_ScriptValidator
 		if (retValue != null)
 			return retValue;
 		retValue = new MTableScriptValidator (ctx, AD_Table_ScriptValidator_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -74,7 +74,7 @@ public class MTableScriptValidator extends X_AD_Table_ScriptValidator
 		// Store to cache
 		for (MTableScriptValidator rule : mvrs)
 		{
-			s_cache.put(rule.get_ID(), rule);
+			s_cache.put(rule.getId(), rule);
 		}
 		
 		// Store to cache
@@ -134,7 +134,7 @@ public class MTableScriptValidator extends X_AD_Table_ScriptValidator
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MTableScriptValidator[");
-		sb.append(get_ID()).append("-").append(getAD_Table_ID()).append("-")
+		sb.append(getId()).append("-").append(getAD_Table_ID()).append("-")
 				.append(getEventModelValidator()).append("]");
 		return sb.toString ();
 	}	//	toString

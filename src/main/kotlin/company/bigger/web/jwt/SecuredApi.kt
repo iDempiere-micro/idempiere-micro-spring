@@ -2,7 +2,6 @@ package company.bigger.web.jwt
 
 import company.bigger.service.UserService
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
@@ -12,9 +11,9 @@ import org.springframework.util.StringUtils
  * Component to test if the authorization token is valid
  */
 @Component
-class SecuredApi {
-    @Autowired
-    lateinit var userService: UserService
+class SecuredApi(
+    private val userService: UserService
+) {
 
     companion object {
         private val LOG = LoggerFactory.getLogger(SecuredApi::class.java)

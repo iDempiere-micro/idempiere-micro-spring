@@ -56,7 +56,7 @@ public class X_M_MovementLineMA extends PO implements I_M_MovementLineMA, I_Pers
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_M_MovementLineMA[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -159,7 +159,7 @@ public class X_M_MovementLineMA extends PO implements I_M_MovementLineMA, I_Pers
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getM_MovementLine_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getM_MovementLine_ID()));
     }
 
     /** Set M_MovementLineMA_UU.

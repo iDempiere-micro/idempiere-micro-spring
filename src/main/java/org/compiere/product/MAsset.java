@@ -16,8 +16,7 @@ import org.compiere.orm.Query;
 import org.compiere.orm.SetGetUtil;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import org.compiere.util.Msg;
- 
+
 
 /**
  * Asset Model
@@ -221,7 +220,7 @@ public class MAsset extends X_A_Asset
 		String invNo = getInventoryNo();
 		if(invNo == null || invNo.trim().length() == 0)
 		{
-			invNo = "" + get_ID();
+			invNo = "" + getId();
 			setInventoryNo(invNo);
 			DB.executeUpdateEx("UPDATE A_Asset SET InventoryNo=" + DB.TO_STRING(invNo) + " WHERE A_Asset_ID=" + getA_Asset_ID(), get_TrxName());
 			if (log.isLoggable(Level.FINE)) log.fine("InventoryNo=" + getInventoryNo());

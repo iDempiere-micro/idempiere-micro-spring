@@ -56,7 +56,7 @@ public class MValRule extends X_AD_Val_Rule
 		if (retValue != null)
 			return retValue;
 		retValue = new MValRule (ctx, AD_Val_Rule_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -97,7 +97,7 @@ public class MValRule extends X_AD_Val_Rule
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MValRule[");
-		sb.append (get_ID()).append ("-").append (getName()).append ("]");
+		sb.append (getId()).append ("-").append (getName()).append ("]");
 		return sb.toString ();
 	}	//	toString
 

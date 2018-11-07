@@ -95,7 +95,7 @@ public class MFactAcct extends X_Fact_Acct
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MFactAcct[");
-		sb.append(get_ID()).append("-Acct=").append(getAccount_ID())
+		sb.append(getId()).append("-Acct=").append(getAccount_ID())
 			.append(",Dr=").append(getAmtSourceDr()).append("|").append(getAmtAcctDr())
 			.append(",Cr=").append(getAmtSourceCr()).append("|").append(getAmtAcctCr())
 			.append ("]");
@@ -115,7 +115,7 @@ public class MFactAcct extends X_Fact_Acct
 			getC_Project_ID(), getC_Campaign_ID(), getC_Activity_ID(),
 			getUser1_ID(), getUser2_ID(), getUserElement1_ID(), getUserElement2_ID(),
 			get_TrxName());
-		if (acct != null && acct.get_ID() == 0)
+		if (acct != null && acct.getId() == 0)
 			acct.saveEx();
 		return acct;
 	}	//	getMAccount

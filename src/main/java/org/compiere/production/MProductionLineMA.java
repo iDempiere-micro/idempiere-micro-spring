@@ -39,7 +39,7 @@ public class MProductionLineMA extends X_M_ProductionLineMA {
 	public MProductionLineMA(MProductionLine parent, int asi, BigDecimal qty, Timestamp dateMaterialPolicy)	{
 		super(parent.getCtx(),0,parent.get_TrxName());
 		setM_AttributeSetInstance_ID(asi);
-		setM_ProductionLine_ID(parent.get_ID());
+		setM_ProductionLine_ID(parent.getId());
 		setMovementQty(qty);
 		setAD_Org_ID(parent.getAD_Org_ID());
 		if (dateMaterialPolicy == null)

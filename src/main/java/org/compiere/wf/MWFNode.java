@@ -54,7 +54,7 @@ public class MWFNode extends X_AD_WF_Node
 		if (retValue != null)
 			return retValue;
 		retValue = new MWFNode (ctx, AD_WF_Node_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -171,7 +171,7 @@ public class MWFNode extends X_AD_WF_Node
 	private void loadNext()
 	{
 		m_next = new Query(getCtx(), MWFNodeNext.Table_Name, "AD_WF_Node_ID=?", get_TrxName())
-								.setParameters(new Object[]{get_ID()})
+								.setParameters(new Object[]{getId()})
 								.setOnlyActiveRecords(true)
 								.setOrderBy(MWFNodeNext.COLUMNNAME_SeqNo)
 								.list();
@@ -188,7 +188,7 @@ public class MWFNode extends X_AD_WF_Node
 	 */
 	private void loadTrl()
 	{
-		if (Env.isBaseLanguage(getCtx(), "AD_Workflow") || get_ID() == 0)
+		if (Env.isBaseLanguage(getCtx(), "AD_Workflow") || getId() == 0)
 			return;
 		final String sql = "SELECT Name, Description, Help FROM AD_WF_Node_Trl"
 							+" WHERE AD_WF_Node_ID=? AND AD_Language=?";
@@ -197,7 +197,7 @@ public class MWFNode extends X_AD_WF_Node
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, get_ID());
+			pstmt.setInt(1, getId());
 			pstmt.setString(2, Env.getADLanguage(getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next())
@@ -521,7 +521,7 @@ public class MWFNode extends X_AD_WF_Node
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MWFNode[");
-		sb.append(get_ID())
+		sb.append(getId())
 			.append("-").append(getName())
 			.append(",Action=").append(getActionInfo())
 			.append ("]");

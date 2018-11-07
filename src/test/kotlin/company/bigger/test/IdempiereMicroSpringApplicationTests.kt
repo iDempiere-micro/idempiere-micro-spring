@@ -1,23 +1,18 @@
 package company.bigger.test
 
+import company.bigger.test.graphql.Version
 import company.bigger.test.support.BaseIntegrationTest
 import company.bigger.test.support.randomString
 import company.bigger.web.resolver.QueryResolver
 import feign.FeignException
-import io.aexp.nodes.graphql.GraphQLRequestEntity
 import org.junit.Test
 import kotlin.test.assertTrue
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertEquals
 import kotlin.test.fail
-import io.aexp.nodes.graphql.GraphQLTemplate
-import io.aexp.nodes.graphql.annotations.GraphQLProperty
 
 class IdempiereMicroSpringApplicationTests : BaseIntegrationTest() {
-
-    @GraphQLProperty(name="version")
-    class Version(@GraphQLProperty(name="v") var v: String? = null)
 
     @Test
     fun contextLoads() {
@@ -65,16 +60,7 @@ class IdempiereMicroSpringApplicationTests : BaseIntegrationTest() {
 
     @Test
     fun `Can ask the GraphQL for version`() {
-        val token = getGardenUserToken()
-        val graphQLTemplate = GraphQLTemplate()
-        println("$serverUrl/graphql")
-        val requestEntity = GraphQLRequestEntity.Builder()
-            .url("$serverUrl/graphql")
-            .headers(mapOf("Authorization" to "Bearer $token"))
-            .request(Version::class.java)
-            .build()
-        val responseEntity = graphQLTemplate.query(requestEntity, Version::class.java)
-        println(responseEntity)
+        val responseEntity = getGraphQL(Version::class.java)
         assertEquals(QueryResolver.VER, responseEntity.response.v)
     }
 }

@@ -8,10 +8,8 @@ import java.util.Properties;
 import org.compiere.model.I_C_ProjectPhase;
 import org.compiere.orm.BasePOName;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.common.util.Env;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -70,7 +68,7 @@ public class X_C_ProjectPhase extends BasePOName implements I_C_ProjectPhase, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_ProjectPhase[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

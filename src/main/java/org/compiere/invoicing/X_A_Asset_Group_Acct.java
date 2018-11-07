@@ -76,7 +76,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_A_Asset_Group_Acct[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -149,7 +149,7 @@ public class X_A_Asset_Group_Acct extends PO implements I_A_Asset_Group_Acct, I_
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getA_Asset_Group_Acct_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getA_Asset_Group_Acct_ID()));
     }
 
 	/** Set A_Asset_Group_Acct_UU.

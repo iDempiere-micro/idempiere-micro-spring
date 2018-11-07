@@ -136,9 +136,9 @@ public abstract class PO extends org.idempiere.orm.PO {
             // the primary key is not overwrite with the local sequence
             if (isReplication())
             {
-                if (get_ID() > 0)
+                if (getId() > 0)
                 {
-                    no = get_ID();
+                    no = getId();
                 }
             }
             if (no <= 0)
@@ -227,7 +227,7 @@ public abstract class PO extends org.idempiere.orm.PO {
         else
             sb.append(") ");
         sb.append("SELECT t.AD_Client_ID, 0, 'Y', SysDate, "+getUpdatedBy()+", SysDate, "+getUpdatedBy()+","
-                + "t.AD_Tree_ID, ").append(get_ID()).append(", 0, 999");
+                + "t.AD_Tree_ID, ").append(getId()).append(", 0, 999");
         if (uuidColumnId > 0 && uuidFunction)
             sb.append(", Generate_UUID() ");
         else
@@ -244,7 +244,7 @@ public abstract class PO extends org.idempiere.orm.PO {
             sb.append(" AND t.AD_Table_ID=").append(get_Table_ID());
         //	Duplicate Check
         sb.append(" AND NOT EXISTS (SELECT * FROM " + MTree_Base.getNodeTableName(treeType) + " e "
-                + "WHERE e.AD_Tree_ID=t.AD_Tree_ID AND Node_ID=").append(get_ID()).append(")");
+                + "WHERE e.AD_Tree_ID=t.AD_Tree_ID AND Node_ID=").append(getId()).append(")");
         int no = DB.executeUpdate(sb.toString(), get_TrxName());
         if (no > 0) {
             if (log.isLoggable(Level.FINE)) log.fine("#" + no + " - TreeType=" + treeType);
@@ -314,7 +314,7 @@ public abstract class PO extends org.idempiere.orm.PO {
                 if (seqNo == -1)
                     seqNo = DB.getSQLValueEx(get_TrxName(), selMaxSeqNo, newParentID, tree.getAD_Tree_ID(), value);
                 DB.executeUpdateEx(updateSeqNo, new Object[] {newParentID, seqNo, tree.getAD_Tree_ID()}, get_TrxName());
-                DB.executeUpdateEx(update, new Object[] {seqNo, newParentID, get_ID(), tree.getAD_Tree_ID()}, get_TrxName());
+                DB.executeUpdateEx(update, new Object[] {seqNo, newParentID, getId(), tree.getAD_Tree_ID()}, get_TrxName());
             }
         }
     }	//	update_Tree
@@ -326,7 +326,7 @@ public abstract class PO extends org.idempiere.orm.PO {
      */
     protected boolean delete_Tree (String treeType)
     {
-        int id = get_ID();
+        int id = getId();
         if (id == 0)
             id = get_IDOld();
 
@@ -385,7 +385,7 @@ public abstract class PO extends org.idempiere.orm.PO {
             return true;
 
         int AD_Table_ID = p_info.getAD_Table_ID();
-        int Record_ID = get_ID();
+        int Record_ID = getId();
 
         if (!force)
         {
@@ -512,7 +512,7 @@ public abstract class PO extends org.idempiere.orm.PO {
             }
 
             //	Save ID
-            m_idOld = get_ID();
+            m_idOld = getId();
             //
             if (!success)
             {
@@ -647,7 +647,7 @@ public abstract class PO extends org.idempiere.orm.PO {
 
     public static void copyValues (PO from, PO to)
     {
-        if (s_log.isLoggable(Level.FINE)) s_log.fine("From ID=" + from.get_ID() + " - To ID=" + to.get_ID());
+        if (s_log.isLoggable(Level.FINE)) s_log.fine("From ID=" + from.getId() + " - To ID=" + to.getId());
         //	Different Classes
         if (from.getClass() != to.getClass())
         {
@@ -922,7 +922,7 @@ public abstract class PO extends org.idempiere.orm.PO {
         if (uuidColumnId > 0 && uuidFunction)
             sb.append(",").append(org.idempiere.orm.PO.getUUIDColumnName(acctTable));
         //	..	SELECT
-        sb.append(") SELECT ").append(get_ID())
+        sb.append(") SELECT ").append(getId())
             .append(", p.C_AcctSchema_ID, p.AD_Client_ID,0,'Y', SysDate,")
             .append(getUpdatedBy()).append(",SysDate,").append(getUpdatedBy());
         for (int i = 0; i < s_acctColumns.size(); i++)
@@ -937,7 +937,7 @@ public abstract class PO extends org.idempiere.orm.PO {
             sb.append (" AND ").append(whereClause);
         sb.append(" AND NOT EXISTS (SELECT * FROM ").append(acctTable)
             .append(" e WHERE e.C_AcctSchema_ID=p.C_AcctSchema_ID AND e.")
-            .append(get_TableName()).append("_ID=").append(get_ID()).append(")");
+            .append(get_TableName()).append("_ID=").append(getId()).append(")");
         //
         int no = DB.executeUpdate(sb.toString(), get_TrxName());
         if (no > 0) {
@@ -1034,7 +1034,7 @@ public abstract class PO extends org.idempiere.orm.PO {
     public MAttachment getAttachment (boolean requery)
     {
         if (m_attachment == null || requery)
-            m_attachment = MAttachment.get (getCtx(), p_info.getAD_Table_ID(), get_ID());
+            m_attachment = MAttachment.get (getCtx(), p_info.getAD_Table_ID(), getId());
         return m_attachment;
     }	//	getAttachment
 

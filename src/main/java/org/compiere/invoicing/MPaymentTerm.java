@@ -22,7 +22,7 @@ public class MPaymentTerm extends org.compiere.order.MPaymentTerm {
      */
     public boolean apply (MInvoice invoice)
     {
-        if (invoice == null || invoice.get_ID() == 0)
+        if (invoice == null || invoice.getId() == 0)
         {
             log.log(Level.SEVERE, "No valid invoice - " + invoice);
             return false;

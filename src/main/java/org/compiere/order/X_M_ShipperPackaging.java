@@ -53,7 +53,7 @@ public class X_M_ShipperPackaging extends BasePOName implements I_M_ShipperPacka
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ShipperPackaging[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

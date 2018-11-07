@@ -38,7 +38,6 @@ import org.compiere.model.I_C_DocType;
 import org.compiere.model.I_M_Inventory;
 import org.compiere.orm.MDocType;
 import org.compiere.process.DocAction;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.*;
 import org.compiere.util.Msg;
@@ -152,7 +151,7 @@ public class CostUpdate extends SvrProcess
 		//	Prepare
 		MClient client = MClient.get(getCtx());
 		m_ce = MCostElement.getMaterialCostElement(client, MAcctSchema.COSTINGMETHOD_StandardCosting);
-		if (m_ce.get_ID() == 0)
+		if (m_ce.getId() == 0)
 			throw new AdempiereUserError ("@NotFound@ @M_CostElement_ID@ (StdCost)");
 		if (log.isLoggable(Level.CONFIG)) log.config(m_ce.toString());
 		m_ass = MAcctSchema.getClientAcctSchema(getCtx(), client.getAD_Client_ID());

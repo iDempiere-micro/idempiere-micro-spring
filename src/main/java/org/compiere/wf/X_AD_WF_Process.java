@@ -62,7 +62,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_Process[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -248,7 +248,7 @@ public class X_AD_WF_Process extends PO implements I_AD_WF_Process, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getAD_Workflow_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getAD_Workflow_ID()));
     }
 
 	/** Set Priority.

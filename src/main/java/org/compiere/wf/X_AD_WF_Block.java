@@ -51,7 +51,7 @@ public class X_AD_WF_Block extends BasePOName implements I_AD_WF_Block, I_Persis
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_Block[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

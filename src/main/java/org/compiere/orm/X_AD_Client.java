@@ -50,7 +50,7 @@ public class X_AD_Client extends BasePONameValue implements I_AD_Client, I_Persi
 
     public String toString() {
         return "X_AD_Client[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
     /**

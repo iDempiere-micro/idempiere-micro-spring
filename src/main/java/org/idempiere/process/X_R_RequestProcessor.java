@@ -47,7 +47,7 @@ public class X_R_RequestProcessor extends BasePOName implements I_R_RequestProce
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_R_RequestProcessor[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

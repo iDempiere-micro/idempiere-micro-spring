@@ -1,8 +1,5 @@
 package org.compiere.orm;
 
-import org.compiere.orm.MColumn;
-import org.compiere.orm.MTableIndex;
-
 import java.sql.ResultSet;
 import java.util.Properties;
 
@@ -72,7 +69,7 @@ public class MIndexColumn extends X_AD_IndexColumn {
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MIndexColumn[");
-		sb.append(get_ID()).append("-").append(getAD_Column_ID()).append("]");
+		sb.append(getId()).append("-").append(getAD_Column_ID()).append("]");
 		return sb.toString();
 	}
 }

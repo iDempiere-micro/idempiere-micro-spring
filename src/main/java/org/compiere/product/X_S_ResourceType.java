@@ -4,13 +4,10 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
 
-import org.compiere.model.HasName;
 import org.compiere.orm.BasePONameValue;
 import org.compiere.orm.MTable;
-import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.compiere.model.I_S_ResourceType;
-import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.orm.POInfo;
 
 
@@ -83,7 +80,7 @@ public class X_S_ResourceType extends BasePONameValue implements I_S_ResourceTyp
 
     public String toString() {
         StringBuffer sb = new StringBuffer("X_S_ResourceType[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

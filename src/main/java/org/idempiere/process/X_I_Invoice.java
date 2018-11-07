@@ -49,7 +49,7 @@ public class X_I_Invoice extends BasePOName implements I_I_Invoice, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_I_Invoice[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

@@ -58,7 +58,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_TaxPostal[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -149,7 +149,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getPostal());
+        return new KeyNamePair(getId(), getPostal());
     }
 
 	/** Set ZIP To.

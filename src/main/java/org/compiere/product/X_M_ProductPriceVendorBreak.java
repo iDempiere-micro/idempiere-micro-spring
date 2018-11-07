@@ -58,7 +58,7 @@ public class X_M_ProductPriceVendorBreak extends PO implements I_M_ProductPriceV
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_M_ProductPriceVendorBreak[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 

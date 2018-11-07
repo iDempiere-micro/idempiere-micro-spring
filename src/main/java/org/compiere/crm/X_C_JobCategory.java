@@ -50,7 +50,7 @@ public class X_C_JobCategory extends BasePOName implements I_C_JobCategory, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_JobCategory[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

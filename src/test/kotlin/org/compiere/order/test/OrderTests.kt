@@ -20,7 +20,7 @@ class OrderTests : BaseComponentTest() {
         assertNotNull(result)
         val order = result as MOrder
         assertNotNull(order)
-        assertEquals(order_id, order._ID)
+        assertEquals(order_id, order.id)
         val lines = order.lines
         assertNotNull(lines)
         assertEquals(6, lines.count())

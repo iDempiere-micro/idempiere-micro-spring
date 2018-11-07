@@ -56,7 +56,7 @@ public class MLocatorType extends X_M_LocatorType {
 		if (retValue != null)
 			return retValue;
 		retValue = new MLocatorType (ctx, M_LocatorType_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get

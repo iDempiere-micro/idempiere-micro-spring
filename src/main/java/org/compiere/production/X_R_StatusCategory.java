@@ -50,7 +50,7 @@ public class X_R_StatusCategory extends BasePOName implements I_R_StatusCategory
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_R_StatusCategory[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

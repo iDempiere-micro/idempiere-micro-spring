@@ -65,7 +65,7 @@ public class InOutCreateConfirm extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info("M_InOut_ID=" + p_M_InOut_ID + ", Type=" + p_ConfirmType);
 		MInOut shipment = new MInOut (getCtx(), p_M_InOut_ID, get_TrxName());
-		if (shipment.get_ID() == 0)
+		if (shipment.getId() == 0)
 			throw new IllegalArgumentException("Not found M_InOut_ID=" + p_M_InOut_ID);
 		//
 		MInOutConfirm confirm = MInOutConfirm.create (shipment, p_ConfirmType, true);

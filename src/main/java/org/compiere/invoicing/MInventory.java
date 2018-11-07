@@ -61,7 +61,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		if (retValue != null)
 			return retValue;
 		retValue = new MInventory (ctx, M_Inventory_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -143,7 +143,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		}
 		//
 		List<MInventoryLine> list = new Query(getCtx(), I_M_InventoryLine.Table_Name, "M_Inventory_ID=?", get_TrxName())
-										.setParameters(get_ID())
+										.setParameters(getId())
 										.setOrderBy(MInventoryLine.COLUMNNAME_Line)
 										.list();
 		m_lines = list.toArray(new MInventoryLine[list.size()]);
@@ -182,7 +182,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MInventory[");
-		sb.append (get_ID())
+		sb.append (getId())
 			.append ("-").append (getDocumentNo())
 			.append (",M_Warehouse_ID=").append(getM_Warehouse_ID())
 			.append ("]");
@@ -208,7 +208,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 	{
 		try
 		{
-			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(get_ID()).append("_");
+			StringBuilder msgfile = new StringBuilder().append(get_TableName()).append(getId()).append("_");
 			File temp = File.createTempFile(msgfile.toString(), ".pdf");
 			return createPDF (temp);
 		}
@@ -257,7 +257,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 	public void setProcessed (boolean processed)
 	{
 		super.setProcessed (processed);
-		if (get_ID() == 0)
+		if (getId() == 0)
 			return;
 		//
 		final String sql = "UPDATE M_InventoryLine SET Processed=? WHERE M_Inventory_ID=?";
@@ -449,7 +449,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 						BigDecimal currentCost = line.getCurrentCostPrice();
 						MClient client = MClient.get(getCtx(), getAD_Client_ID());
 						MAcctSchema as = client.getAcctSchema();
-						MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(getCtx(), client.get_ID());
+						MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(getCtx(), client.getId());
 						
 						if (as.getC_Currency_ID() != getC_Currency_ID()) 
 						{
@@ -748,7 +748,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 										.append(" AND ce.CostingMethod = ? ")
 										.append(" AND CurrentCostPrice <> 0 ");
 								MCost cost = new Query(getCtx(), I_M_Cost.Table_Name,localWhereClause.toString(),get_TrxName())
-									.setParameters(line.getM_Product_ID(), acctSchema.get_ID(), costingMethod)
+									.setParameters(line.getM_Product_ID(), acctSchema.getId(), costingMethod)
 									.addJoinClause(" INNER JOIN M_CostElement ce ON (M_Cost.M_CostElement_ID =ce.M_CostElement_ID ) ")
 									.setOrderBy("Updated DESC")
 									.first();

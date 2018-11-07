@@ -34,7 +34,7 @@ public class MWFBlock extends X_AD_WF_Block
 		if (retValue != null)
 			return retValue;
 		retValue = new MWFBlock (ctx, AD_WF_Block_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get

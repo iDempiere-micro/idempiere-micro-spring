@@ -1,8 +1,5 @@
 package org.compiere.accounting;
 
-import org.compiere.accounting.MOrder;
-import org.compiere.accounting.MProduct;
-import org.compiere.accounting.MRequisitionLine;
 import org.compiere.invoicing.MLandedCost;
 import org.compiere.model.IDoc;
 import org.compiere.model.IPODoc;
@@ -266,7 +263,7 @@ public class MOrderLine extends org.compiere.order.MOrderLine implements IPODoc 
         }
 
         // UnLink All Requisitions
-        MRequisitionLine.unlinkC_OrderLine_ID(getCtx(), get_ID(), get_TrxName());
+        MRequisitionLine.unlinkC_OrderLine_ID(getCtx(), getId(), get_TrxName());
 
         return true;
     }	//	beforeDelete

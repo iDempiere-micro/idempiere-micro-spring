@@ -96,7 +96,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_PP_Order[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -651,7 +651,7 @@ public class X_PP_Order extends PO implements I_PP_Order, I_Persistent
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
     /** Set Float After.

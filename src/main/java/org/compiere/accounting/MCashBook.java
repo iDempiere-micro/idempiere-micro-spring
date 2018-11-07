@@ -48,7 +48,7 @@ public class MCashBook extends X_C_CashBook
 		if (retValue != null)
 			return retValue;
 		retValue = new MCashBook (ctx, C_CashBook_ID, trxName);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get

@@ -58,7 +58,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Year[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -166,7 +166,7 @@ public class X_C_Year extends PO implements I_C_Year, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getFiscalYear());
+        return new KeyNamePair(getId(), getFiscalYear());
     }
 
 	/** Set Process Now.

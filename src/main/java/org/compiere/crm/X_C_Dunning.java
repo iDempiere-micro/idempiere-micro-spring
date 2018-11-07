@@ -50,7 +50,7 @@ public class X_C_Dunning extends BasePOName implements I_C_Dunning, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Dunning[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

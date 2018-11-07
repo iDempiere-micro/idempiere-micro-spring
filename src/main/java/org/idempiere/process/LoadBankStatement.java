@@ -100,7 +100,7 @@ public class LoadBankStatement extends SvrProcess
 		m_controller = new MBankStatementLoader(m_ctx, m_C_BankStmtLoader_ID, fileName, get_TrxName());
 		if (log.isLoggable(Level.INFO)) log.info(m_controller.toString());
 		
-		if (m_controller == null || m_controller.get_ID() == 0)
+		if (m_controller == null || m_controller.getId() == 0)
 			log.log(Level.SEVERE, "Invalid Loader");
 
 		// Start loading bank statement lines

@@ -50,7 +50,7 @@ public class X_C_UOM extends BasePOName implements I_C_UOM, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_UOM[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

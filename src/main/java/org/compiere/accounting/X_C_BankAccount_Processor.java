@@ -82,7 +82,7 @@ public class X_C_BankAccount_Processor extends PO implements I_C_BankAccount_Pro
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_BankAccount_Processor[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

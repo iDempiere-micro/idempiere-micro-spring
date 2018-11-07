@@ -491,8 +491,8 @@ public class DocLine
 	 */
 	public int get_ID()
 	{
-		return p_po.get_ID();
-	}	//	get_ID
+		return p_po.getId();
+	}	//	getId
 	
 	/**
 	 * 	Get AD_Org_ID
@@ -549,7 +549,7 @@ public class DocLine
 		if (getM_Product_ID() != 0)
 		{
 			org.compiere.product.MProduct product = MProduct.get(Env.getCtx(), getM_Product_ID());
-			if (product.get_ID() == getM_Product_ID() && product.isItem())
+			if (product.getId() == getM_Product_ID() && product.isItem())
 				m_isItem = Boolean.TRUE;
 		}
 		return m_isItem.booleanValue();
@@ -1133,7 +1133,7 @@ public class DocLine
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("DocLine=[");
-		sb.append(p_po.get_ID());
+		sb.append(p_po.getId());
 		if (getDescription() != null)
 			sb.append(",").append(getDescription());
 		if (getM_Product_ID() != 0)

@@ -61,7 +61,7 @@ public class X_M_ProductPrice extends PO implements I_M_ProductPrice, I_Persiste
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ProductPrice[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

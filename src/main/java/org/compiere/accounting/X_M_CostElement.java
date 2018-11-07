@@ -49,7 +49,7 @@ public class X_M_CostElement extends BasePOName implements I_M_CostElement, I_Pe
     public String toString()
     {
         return "X_M_CostElement[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	/** CostElementType AD_Reference_ID=338 */

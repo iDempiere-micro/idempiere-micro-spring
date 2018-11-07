@@ -66,7 +66,7 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Charge[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -316,6 +316,6 @@ public class X_C_Charge extends PO implements I_C_Charge, I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getName());
+        return new KeyNamePair(getId(), getName());
     }
 }

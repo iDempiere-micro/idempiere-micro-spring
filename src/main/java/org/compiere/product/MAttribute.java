@@ -214,7 +214,7 @@ public class MAttribute extends X_M_Attribute
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MAttribute[");
-		sb.append (get_ID()).append ("-").append (getName())
+		sb.append (getId()).append ("-").append (getName())
 			.append(",Type=").append(getAttributeValueType())
 			.append(",Instance=").append(isInstanceAttribute())
 			.append ("]");

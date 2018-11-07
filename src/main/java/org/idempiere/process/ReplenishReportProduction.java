@@ -38,7 +38,6 @@ import org.compiere.invoicing.MLocatorType;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MDocType;
 import org.compiere.orm.MOrg;
-import org.compiere.process.Core;
 import org.compiere.production.MLocator;
 import org.compiere.production.MProduction;
 import org.idempiere.common.base.Service;
@@ -121,7 +120,7 @@ public class ReplenishReportProduction extends SvrProcess
 			throw new AdempiereUserError("@FillMandatory@ @C_DocType_ID@");
 		
 		MWarehouse wh = MWarehouse.get(getCtx(), p_M_Warehouse_ID);
-		if (wh.get_ID() == 0)  
+		if (wh.getId() == 0)
 			throw new AdempiereSystemError("@FillMandatory@ @M_Warehouse_ID@");
 		//
 		prepareTable();
@@ -867,7 +866,7 @@ public class ReplenishReportProduction extends SvrProcess
 				production.setDescription(Msg.getMsg(getCtx(), "Replenishment"));
 				//	Set Org/WH
 				production.setAD_Org_ID(wh.getAD_Org_ID());
-				production.setM_Locator_ID(wh.getDefaultLocator().get_ID());
+				production.setM_Locator_ID(wh.getDefaultLocator().getId());
 				production.setM_Product_ID(replenish.getM_Product_ID());
 				production.setProductionQty(qty);
 				production.setMovementDate(Env.getContextAsDate(getCtx(), "#Date"));

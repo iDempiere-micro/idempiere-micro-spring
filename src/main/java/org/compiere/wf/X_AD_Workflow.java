@@ -54,7 +54,7 @@ public class X_AD_Workflow extends BasePONameValue implements I_AD_Workflow, I_P
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_Workflow[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

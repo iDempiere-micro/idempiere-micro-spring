@@ -29,7 +29,6 @@ import org.compiere.invoicing.MInvoiceLine;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MDocType;
 import org.compiere.process.DocAction;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.DisplayType;
 import org.idempiere.common.util.DB;
@@ -228,7 +227,7 @@ public class ExpenseAPInvoice extends SvrProcess
 			throw new IllegalStateException("Cannot save Invoice");
 		//
 		m_noInvoices++;
-		addBufferLog(invoice.get_ID(), invoice.getDateInvoiced(), 
+		addBufferLog(invoice.getId(), invoice.getDateInvoiced(),
 			invoice.getGrandTotal(), invoice.getDocumentNo(), invoice.get_Table_ID(), invoice.getC_Invoice_ID());
 	}	//	completeInvoice
 

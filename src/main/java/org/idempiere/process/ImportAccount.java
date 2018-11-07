@@ -30,7 +30,6 @@ import org.compiere.accounting.X_I_ElementValue;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MColumn;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.DB;
 
@@ -303,7 +302,7 @@ public class ImportAccount extends SvrProcess
 				else							//	Update existing
 				{
 					MElementValue ev = new MElementValue (getCtx(), C_ElementValue_ID, get_TrxName());
-					if (ev.get_ID() != C_ElementValue_ID)
+					if (ev.getId() != C_ElementValue_ID)
 					{
 						
 					}

@@ -558,7 +558,7 @@ public abstract class SvrProcess implements ProcessCall
 				Env.getCtx().put("#AD_Client_ID", m_pi.getAD_Client_ID());
 			
 			MPInstance mpi = new MPInstance (getCtx(), m_pi.getAD_PInstance_ID(), null);
-			if (mpi.get_ID() == 0)
+			if (mpi.getId() == 0)
 			{
 				log.log(Level.SEVERE, "Did not find PInstance " + m_pi.getAD_PInstance_ID());
 				return;

@@ -9,8 +9,6 @@ import org.compiere.model.I_C_BPartner_Location;
 import org.compiere.model.I_C_Location;
 import org.compiere.orm.MSysConfig;
 import org.compiere.orm.Query;
-import software.hsharp.business.models.IBusinessPartnerLocation;
-import software.hsharp.business.models.ILocation;
 
 /**
  * Partner Location Model
@@ -145,7 +143,7 @@ public class MBPartnerLocation extends X_C_BPartner_Location implements I_C_BPar
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder("MBPartner_Location[ID=")
-				.append(get_ID()).append(",C_Location_ID=")
+				.append(getId()).append(",C_Location_ID=")
 				.append(getC_Location_ID()).append(",Name=").append(getName())
 				.append("]");
 		return sb.toString();
@@ -214,9 +212,9 @@ public class MBPartnerLocation extends X_C_BPartner_Location implements I_C_BPar
 		}
 		// 4 - ID
 		if (m_unique >= 4 || m_uniqueName.length() == 0) {
-			int id = get_ID();
+			int id = getId();
 			if (id == 0)
-				id = address.get_ID();
+				id = address.getId();
 			m_uniqueName += "#" + id;
 		}
 	} // makeUnique
@@ -241,7 +239,7 @@ public class MBPartnerLocation extends X_C_BPartner_Location implements I_C_BPar
 			unique = true;
 			for (int i = 0; i < locations.length; i++) {
 				MBPartnerLocation location = locations[i];
-				if (location.getC_BPartner_Location_ID() == get_ID())
+				if (location.getC_BPartner_Location_ID() == getId())
 					continue;
 				if (m_uniqueName.equals(location.getName())) {
 					// m_uniqueName = null;

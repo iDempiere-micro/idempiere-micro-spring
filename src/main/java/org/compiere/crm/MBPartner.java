@@ -8,7 +8,6 @@ import org.compiere.util.Msg;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
-import software.hsharp.business.models.IBusinessPartner;
 
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
@@ -482,7 +481,7 @@ public class MBPartner extends X_C_BPartner implements I_C_BPartner
     public String toString ()
     {
         StringBuilder sb = new StringBuilder ("MBPartner[ID=")
-                .append(get_ID())
+                .append(getId())
                 .append(",Value=").append(getValue())
                 .append(",Name=").append(getName())
                 .append(",Open=").append(getTotalOpenBalance())

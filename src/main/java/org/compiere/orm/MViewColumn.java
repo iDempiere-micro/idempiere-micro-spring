@@ -1,7 +1,5 @@
 package org.compiere.orm;
 
-import org.compiere.orm.MViewComponent;
-
 import java.sql.ResultSet;
 import java.util.Properties;
 
@@ -54,7 +52,7 @@ public class MViewColumn extends X_AD_ViewColumn {
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MViewColumn[");
-		sb.append(get_ID()).append("-")
+		sb.append(getId()).append("-")
 			.append(getColumnName())
 			.append("]");
 		return sb.toString();

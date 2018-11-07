@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Properties;
-import org.compiere.accounting.MAcctSchemaDefault;
 import org.compiere.model.I_M_AttributeSetInstance;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
@@ -70,7 +69,7 @@ public class X_DD_OrderLine extends PO implements I_DD_OrderLine, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_DD_OrderLine[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -477,7 +476,7 @@ public class X_DD_OrderLine extends PO implements I_DD_OrderLine, I_Persistent
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getLine()));
+        return new KeyNamePair(getId(), String.valueOf(getLine()));
     }
 
     /** Set Line Amount.

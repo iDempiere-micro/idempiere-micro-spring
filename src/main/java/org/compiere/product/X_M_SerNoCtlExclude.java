@@ -58,7 +58,7 @@ public class X_M_SerNoCtlExclude extends PO implements I_M_SerNoCtlExclude, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_SerNoCtlExclude[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -57,7 +57,7 @@ public class X_AD_WF_ActivityApprover extends PO implements I_AD_WF_ActivityAppr
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_WF_ActivityApprover[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -17,9 +17,6 @@ import org.compiere.model.*;
 import org.compiere.orm.*;
 import org.compiere.process.CompleteActionResult;
 import org.compiere.process.DocAction;
-import org.idempiere.orm.EventManager;
-import org.idempiere.orm.EventProperty;
-import org.idempiere.orm.IEventTopics;
 import org.idempiere.common.exceptions.AdempiereException;
 import org.idempiere.common.util.CLogger;
 import org.idempiere.common.util.DB;
@@ -209,13 +206,13 @@ public class DocumentEngine implements DocAction
 		//ensure doc status not change by other session
 		if (m_document instanceof PO) {
 			PO docPO = (PO) m_document;
-			if (docPO.get_ID() > 0 && docPO.get_TrxName() != null && docPO.get_ValueOld("DocStatus") != null) {
+			if (docPO.getId() > 0 && docPO.get_TrxName() != null && docPO.get_ValueOld("DocStatus") != null) {
 				DB.getDatabase().forUpdate(docPO, 30);
 				String docStatusOriginal = (String) docPO.get_ValueOld("DocStatus");
 				String statusSql = "SELECT DocStatus FROM " + docPO.get_TableName() + " WHERE " + docPO.get_KeyColumns()[0] + " = ? ";
-				String currentStatus = DB.getSQLValueString((String)null, statusSql, docPO.get_ID());
+				String currentStatus = DB.getSQLValueString((String)null, statusSql, docPO.getId());
 				if (!docStatusOriginal.equals(currentStatus) && currentStatus != null) {
-					currentStatus = DB.getSQLValueString(docPO.get_TrxName(), statusSql, docPO.get_ID());
+					currentStatus = DB.getSQLValueString(docPO.get_TrxName(), statusSql, docPO.getId());
 					if (!docStatusOriginal.equals(currentStatus)) {
 						throw new IllegalStateException(Msg.getMsg(docPO.getCtx(), "DocStatusChanged") + " " + docPO.toString());
 					}
@@ -316,7 +313,7 @@ public class DocumentEngine implements DocAction
 					if (m_document instanceof PO && docsPostProcess.size() > 0) {
 						for (IPODoc docafter : docsPostProcess) {
 							@SuppressWarnings("unused")
-							String ignoreError = DocumentEngine.postImmediate(docafter.getCtx(), docafter.getAD_Client_ID(), docafter.get_Table_ID(), docafter.get_ID(), true, docafter.get_TrxName());
+							String ignoreError = DocumentEngine.postImmediate(docafter.getCtx(), docafter.getAD_Client_ID(), docafter.get_Table_ID(), docafter.getId(), true, docafter.get_TrxName());
 						}
 					}
 				}
@@ -483,7 +480,7 @@ public class DocumentEngine implements DocAction
 			|| m_document == null)
 			return false;
 
-		String error = DocumentEngine.postImmediate(Env.getCtx(), m_document.getAD_Client_ID(), m_document.get_Table_ID(), m_document.get_ID(), true, m_document.get_TrxName());
+		String error = DocumentEngine.postImmediate(Env.getCtx(), m_document.getAD_Client_ID(), m_document.get_Table_ID(), m_document.getId(), true, m_document.get_TrxName());
 		if (DocAction.Companion.getACTION_Post().equals(m_action)) {
 			// forced post via process - throw exception to inform the caller about the error
 			if (! Util.isEmpty(error)) {
@@ -821,12 +818,12 @@ public class DocumentEngine implements DocAction
 	 * 	Get ID of record
 	 *	@return ID
 	 */
-	public int get_ID()
+	public int getId()
 	{
 		if (m_document != null)
-			return m_document.get_ID();
+			return m_document.getId();
 		throw new IllegalStateException(EXCEPTION_MSG);
-	}	//	get_ID
+	}	//	getId
 
 	/**
 	 * 	Get AD_Table_ID

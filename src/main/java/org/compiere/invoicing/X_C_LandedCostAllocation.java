@@ -65,7 +65,7 @@ public class X_C_LandedCostAllocation extends PO implements I_C_LandedCostAlloca
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_LandedCostAllocation[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -142,7 +142,7 @@ public class X_C_LandedCostAllocation extends PO implements I_C_LandedCostAlloca
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_InvoiceLine_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_InvoiceLine_ID()));
     }
 
 	/** Set Landed Cost Allocation.

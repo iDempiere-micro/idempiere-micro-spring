@@ -209,7 +209,7 @@ public class MAllocationLine extends X_C_AllocationLine implements IDocLine
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MAllocationLine[");
-		sb.append(get_ID());
+		sb.append(getId());
 		if (getC_Payment_ID() != 0)
 			sb.append(",C_Payment_ID=").append(getC_Payment_ID());
 		if (getC_CashLine_ID() != 0)

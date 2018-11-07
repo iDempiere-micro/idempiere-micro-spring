@@ -62,7 +62,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_UOM_Conversion[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -94,7 +94,7 @@ public class X_C_UOM_Conversion extends PO implements I_C_UOM_Conversion, I_Pers
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getC_UOM_Conversion_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getC_UOM_Conversion_ID()));
     }
 
 	/** Set C_UOM_Conversion_UU.

@@ -173,7 +173,7 @@ public class MLocator extends X_M_Locator
 		if (retValue != null)
 			return retValue;
 		retValue = new MLocator (ctx, M_Locator_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	} //	get
@@ -262,7 +262,7 @@ public class MLocator extends X_M_Locator
 	public String getWarehouseName()
 	{
 		MWarehouse wh = MWarehouse.get(getCtx(), getM_Warehouse_ID());
-		if (wh.get_ID() == 0){
+		if (wh.getId() == 0){
 			StringBuilder msgreturn = new StringBuilder("<").append(getM_Warehouse_ID()).append(">");
 			return msgreturn.toString();
 		}	

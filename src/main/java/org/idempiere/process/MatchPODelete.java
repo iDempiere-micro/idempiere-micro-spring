@@ -55,7 +55,7 @@ public class MatchPODelete extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info ("M_MatchPO_ID=" + p_M_MatchPO_ID);
 		MMatchPO po = new MMatchPO (getCtx(), p_M_MatchPO_ID, get_TrxName());
-		if (po.get_ID() == 0)
+		if (po.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ @M_MatchPO_ID@ " + p_M_MatchPO_ID);
 		//
 		MOrderLine orderLine = null;

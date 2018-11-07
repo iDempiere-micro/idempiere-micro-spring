@@ -82,7 +82,7 @@ public class CommissionCalc extends SvrProcess
 		if (p_StartDate == null)
 			p_StartDate = new Timestamp (System.currentTimeMillis());
 		m_com = new MCommission (getCtx(), getRecord_ID(), get_TrxName());
-		if (m_com.get_ID() == 0)
+		if (m_com.getId() == 0)
 			throw new AdempiereUserError("No Commission");
 			
 		//	Create Commission	

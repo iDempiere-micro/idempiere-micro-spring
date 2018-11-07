@@ -50,7 +50,7 @@ public class X_M_Attribute extends BasePOName implements I_M_Attribute, I_Persis
     public String toString()
     {
         return "X_M_Attribute[" +
-            get_ID() + "]";
+            getId() + "]";
     }
 
 	/** AttributeValueType AD_Reference_ID=326 */

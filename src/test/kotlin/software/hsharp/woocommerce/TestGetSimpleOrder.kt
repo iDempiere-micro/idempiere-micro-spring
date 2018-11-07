@@ -52,7 +52,7 @@ class TestGetSimpleOrder : BaseTest() {
         newOrder.m_Warehouse_ID = 50000
         newOrder.c_BPartner_ID = 114
         newOrder.save()
-        val id = newOrder._ID
+        val id = newOrder.id
         println("id:$id")
         assertTrue(id > 0)
     }
@@ -79,7 +79,7 @@ class TestGetSimpleOrder : BaseTest() {
         newOrder.setIsSOTrx(true)
         newOrder.salesRep_ID = 103
         newOrder.save()
-        val id = newOrder._ID
+        val id = newOrder.id
         println("id:$id")
         assertTrue(id > 0)
 
@@ -180,7 +180,7 @@ class TestGetSimpleOrder : BaseTest() {
                     newOrder.documentNo = order.number
                     newOrder.dateOrdered = parseDate(order.dateCreated)
                     newOrder.save()
-                    val id = newOrder._ID
+                    val id = newOrder.id
                     println("id:$id")
                     assertTrue(id > 0)
                 }
@@ -209,7 +209,7 @@ class TestGetSimpleOrder : BaseTest() {
                     newOrder.countryCode = order.billing.country
                     newOrder.documentNo = order.number
                     newOrder.save()
-                    val id = newOrder._ID
+                    val id = newOrder.id
                     println("id:$id")
                     assertTrue(id > 0)
                 }

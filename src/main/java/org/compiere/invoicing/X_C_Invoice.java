@@ -98,7 +98,7 @@ public class X_C_Invoice extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Invoice[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
@@ -885,7 +885,7 @@ public class X_C_Invoice extends PO implements I_Persistent
       */
     public KeyNamePair getKeyNamePair() 
     {
-        return new KeyNamePair(get_ID(), getDocumentNo());
+        return new KeyNamePair(getId(), getDocumentNo());
     }
 
 	/** Set Dunning Grace Date.

@@ -54,7 +54,7 @@ public class X_PA_Goal extends BasePOName implements I_PA_Goal, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PA_Goal[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

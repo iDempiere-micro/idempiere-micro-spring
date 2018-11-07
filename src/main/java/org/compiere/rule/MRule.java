@@ -54,7 +54,7 @@ public class MRule extends X_AD_Rule
 		if (retValue != null)
 			return retValue;
 		retValue = new MRule (ctx, AD_Rule_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -171,7 +171,7 @@ public class MRule extends X_AD_Rule
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder ("MRule[");
-		sb.append (get_ID()).append ("-").append (getValue()).append ("]");
+		sb.append (getId()).append ("-").append (getValue()).append ("]");
 		return sb.toString ();
 	}	//	toString
 

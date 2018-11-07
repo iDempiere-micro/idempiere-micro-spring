@@ -53,7 +53,7 @@ public class MAssetType extends X_A_Asset_Type
 		if (o != null)
 			return o;
 		o = new MAssetType(ctx, A_Asset_Type_ID, null);
-		if (o.get_ID() > 0) {
+		if (o.getId() > 0) {
 			s_cache.put(A_Asset_Type_ID, o);
 			return o;
 		}

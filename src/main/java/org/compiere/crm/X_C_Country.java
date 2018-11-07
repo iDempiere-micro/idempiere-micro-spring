@@ -63,7 +63,7 @@ public class X_C_Country extends BasePOName implements I_C_Country, I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_Country[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

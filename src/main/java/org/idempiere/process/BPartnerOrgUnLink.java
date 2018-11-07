@@ -21,7 +21,6 @@ import java.util.logging.Level;
 
 import org.compiere.crm.MBPartner;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 
 /**
@@ -64,7 +63,7 @@ public class BPartnerOrgUnLink extends SvrProcess
 		if (p_C_BPartner_ID == 0)
 			throw new IllegalArgumentException ("No Business Partner ID");
 		MBPartner bp = new MBPartner (getCtx(), p_C_BPartner_ID, get_TrxName());
-		if (bp.get_ID() == 0)
+		if (bp.getId() == 0)
 			throw new IllegalArgumentException ("Business Partner not found - C_BPartner_ID=" + p_C_BPartner_ID);
 		//
 		if (bp.getAD_OrgBP_ID_Int() == 0)

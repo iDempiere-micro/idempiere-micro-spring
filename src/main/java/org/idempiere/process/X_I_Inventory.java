@@ -55,7 +55,7 @@ public class X_I_Inventory extends PO implements I_I_Inventory, I_Persistent
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_I_Inventory[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -231,7 +231,7 @@ public class X_I_Inventory extends PO implements I_I_Inventory, I_Persistent
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getI_Inventory_ID()));
+        return new KeyNamePair(getId(), String.valueOf(getI_Inventory_ID()));
     }
 
     /** Set I_Inventory_UU.

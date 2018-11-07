@@ -39,7 +39,7 @@ public class MBPGroup extends X_C_BP_Group
 		if (retValue != null)
 			return retValue;
 		retValue = new MBPGroup (ctx, C_BP_Group_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -85,7 +85,7 @@ public class MBPGroup extends X_C_BP_Group
 			if (rs.next ())
 			{
 				retValue = new MBPGroup (ctx, rs, null);
-				if (retValue.get_ID () != 0)
+				if (retValue.getId() != 0)
 					s_cacheDefault.put (key, retValue);
 			}
 		}
@@ -127,7 +127,7 @@ public class MBPGroup extends X_C_BP_Group
 			{
 				retValue = new MBPGroup (ctx, rs, null);
 				Integer key = new Integer (retValue.getC_BP_Group_ID());
-				if (retValue.get_ID () != 0)
+				if (retValue.getId() != 0)
 					s_cache.put (key, retValue);
 			}
 		}

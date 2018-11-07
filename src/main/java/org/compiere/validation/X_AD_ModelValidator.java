@@ -50,7 +50,7 @@ public class X_AD_ModelValidator extends BasePOName implements I_AD_ModelValidat
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_ModelValidator[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

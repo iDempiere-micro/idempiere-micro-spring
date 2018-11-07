@@ -704,7 +704,7 @@ public class MSysConfig extends X_AD_SysConfig
 	@Override
 	public String toString()
 	{
-		return getClass().getSimpleName()+"["+get_ID()
+		return getClass().getSimpleName()+"["+ getId()
 			+", "+getName()+"="+getValue()
 			+", ConfigurationLevel="+getConfigurationLevel()
 			+", Client|Org="+getAD_Client_ID()+"|"+getAD_Org_ID()

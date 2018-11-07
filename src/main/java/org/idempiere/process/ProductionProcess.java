@@ -13,9 +13,7 @@ import org.compiere.production.MProductionLine;
 import org.compiere.production.MProductionPlan;
 import org.compiere.server.ServerProcessCtl;
 import org.idempiere.common.util.Env;
-import org.compiere.wf.MWorkflow;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereUserError;
 
@@ -56,7 +54,7 @@ public class ProductionProcess extends SvrProcess {
 
 	@Override
 	protected String doIt() throws Exception {
-		if ( m_production == null || m_production.get_ID() == 0 )
+		if ( m_production == null || m_production.getId() == 0 )
 			throw new AdempiereUserError("Could not load production header");
 		
 		try {

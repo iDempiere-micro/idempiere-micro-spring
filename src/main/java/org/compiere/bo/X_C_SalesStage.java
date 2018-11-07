@@ -52,7 +52,7 @@ public class X_C_SalesStage extends BasePONameValue implements I_C_SalesStage, I
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_SalesStage[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

@@ -80,7 +80,7 @@ public class GenericPO extends PO {
 
 	public String toString() {
 		StringBuffer sb = new StringBuffer("GenericPO[Table=").append(
-				"" + tableID + ",ID=").append(get_ID()).append("]");
+				"" + tableID + ",ID=").append(getId()).append("]");
 		return sb.toString();
 	}
 

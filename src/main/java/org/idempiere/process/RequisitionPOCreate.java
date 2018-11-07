@@ -20,7 +20,6 @@ import org.compiere.model.I_C_BPartner;
 import org.compiere.order.MCharge;
 import org.compiere.orm.POResultSet;
 import org.compiere.orm.Query;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Msg;
 import org.idempiere.common.util.AdempiereUserError;
@@ -318,7 +317,7 @@ public class RequisitionPOCreate extends SvrProcess
 		}
 		
 		//	BPartner
-		if (m_bpartner == null || C_BPartner_ID != m_bpartner.get_ID())
+		if (m_bpartner == null || C_BPartner_ID != m_bpartner.getId())
 		{
 			m_bpartner = MBPartner.get(getCtx(), C_BPartner_ID);
 		}

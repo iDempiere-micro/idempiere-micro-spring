@@ -159,7 +159,7 @@ public class Doc_InOut extends Doc
                         if (line.getMAttributeSetInstance_ID() == 0 )
                         {
                             MInOutLine ioLine = (MInOutLine) line.getPO();
-                            MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
+                            MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.getId(), getTrxName());
                             if (mas != null && mas.length > 0 )
                             {
                                 costs  = BigDecimal.ZERO;
@@ -278,7 +278,7 @@ public class Doc_InOut extends Doc
                     if (line.getMAttributeSetInstance_ID() == 0 )
                     {
                         MInOutLine ioLine = (MInOutLine) line.getPO();
-                        MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
+                        MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.getId(), getTrxName());
                         if (mas != null && mas.length > 0 )
                         {
                             for (int j = 0; j < mas.length; j++)
@@ -360,7 +360,7 @@ public class Doc_InOut extends Doc
                         if (line.getMAttributeSetInstance_ID() == 0 )
                         {
                             MInOutLine ioLine = (MInOutLine) line.getPO();
-                            MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
+                            MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.getId(), getTrxName());
                             costs = BigDecimal.ZERO;
                             if (mas != null && mas.length > 0 )
                             {
@@ -439,7 +439,7 @@ public class Doc_InOut extends Doc
                     if (line.getMAttributeSetInstance_ID() == 0 )
                     {
                         MInOutLine ioLine = (MInOutLine) line.getPO();
-                        MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
+                        MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.getId(), getTrxName());
                         if (mas != null && mas.length > 0 )
                         {
                             for (int j = 0; j < mas.length; j++)
@@ -766,7 +766,7 @@ public class Doc_InOut extends Doc
                         {
                             if (line.getMAttributeSetInstance_ID() == 0 )
                             {
-                                MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.get_ID(), getTrxName());
+                                MInOutLineMA mas[] = MInOutLineMA.get(getCtx(), ioLine.getId(), getTrxName());
                                 costs = BigDecimal.ZERO;
                                 if (mas != null && mas.length > 0 )
                                 {

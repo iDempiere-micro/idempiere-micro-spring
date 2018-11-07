@@ -560,7 +560,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 		if (log.isLoggable(Level.INFO)) log.info("startProcess - " + pi.getRecord_ID());
 		boolean retValue = false;
 		//
-		if (pi.getRecord_ID() != get_ID())
+		if (pi.getRecord_ID() != getId())
 		{
 			log.log(Level.SEVERE, "startProcess - Not same Payment - " + pi.getRecord_ID());
 			return false;
@@ -708,7 +708,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MPaymentTransaction[");
-		sb.append(get_ID()).append("-")
+		sb.append(getId()).append("-")
 			.append(",Receipt=").append(isReceipt())
 			.append(",PayAmt=").append(getPayAmt());
 		return sb.toString ();

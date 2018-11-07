@@ -98,7 +98,7 @@ public class X_M_ShippingTransaction extends PO implements I_M_ShippingTransacti
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_M_ShippingTransaction[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

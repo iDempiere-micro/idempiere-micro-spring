@@ -29,7 +29,6 @@ import org.compiere.invoicing.MRMA;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.order.MRMALine;
 import org.compiere.process.DocAction;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.Msg;
 import org.idempiere.common.exceptions.AdempiereException;
@@ -133,7 +132,7 @@ public class InvoiceGenerateRMA extends SvrProcess
     
     private MInvoice createInvoice(MRMA rma)
     {
-        int docTypeId = getInvoiceDocTypeId(rma.get_ID());
+        int docTypeId = getInvoiceDocTypeId(rma.getId());
             
         if (docTypeId == -1)
         {
@@ -196,7 +195,7 @@ public class InvoiceGenerateRMA extends SvrProcess
         if (invoiceLines.length == 0)
         {
             StringBuilder msglog = new StringBuilder("No invoice lines created: M_RMA_ID=")
-                    .append(M_RMA_ID).append(", M_Invoice_ID=").append(invoice.get_ID());
+                    .append(M_RMA_ID).append(", M_Invoice_ID=").append(invoice.getId());
         	log.log(Level.WARNING, msglog.toString());
         }
         

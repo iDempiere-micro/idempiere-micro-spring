@@ -33,7 +33,6 @@ import java.util.logging.Level;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.orm.MColumn;
 import org.compiere.orm.MTable;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.DisplayType;
 import org.idempiere.common.util.*;
@@ -110,7 +109,7 @@ public class ColumnEncryption extends SvrProcess {
 					+ ", MaxLength=" + p_MaxLength);
 		}
 		MColumn column = new MColumn(getCtx(), p_AD_Column_ID, get_TrxName());
-		if (column.get_ID() == 0 || column.get_ID() != p_AD_Column_ID)
+		if (column.getId() == 0 || column.getId() != p_AD_Column_ID)
 			throw new AdempiereUserError("@NotFound@ @AD_Column_ID@ - "
 					+ p_AD_Column_ID);
 		//
@@ -216,7 +215,7 @@ public class ColumnEncryption extends SvrProcess {
 			}
 			m_conn.setAutoCommit(false);
 
-			int columnID = column.get_ID();
+			int columnID = column.getId();
 			MTable table = MTable.get(getCtx(), column.getAD_Table_ID());
 			String tableName = table.getTableName();
 

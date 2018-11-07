@@ -52,7 +52,7 @@ public class DiscountSchemaReSeq extends SvrProcess
 		if (p_M_DiscountSchema_ID == 0)
 			throw new AdempiereUserError("@M_DiscountSchema_ID@ = 0");
 		MDiscountSchema ds = new MDiscountSchema(getCtx(), p_M_DiscountSchema_ID, get_TrxName());
-		if (ds.get_ID() == 0)
+		if (ds.getId() == 0)
 			throw new AdempiereUserError("@NotFound@ M_DiscountSchema_ID=" + p_M_DiscountSchema_ID);
 		//
 		int updated = ds.reSeq();

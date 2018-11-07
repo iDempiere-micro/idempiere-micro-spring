@@ -58,7 +58,7 @@ public class X_C_SubAcct extends BasePONameValue implements I_C_SubAcct, I_Persi
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_SubAcct[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

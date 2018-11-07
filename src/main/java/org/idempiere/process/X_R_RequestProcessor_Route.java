@@ -54,7 +54,7 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
     public String toString()
     {
         StringBuffer sb = new StringBuffer ("X_R_RequestProcessor_Route[")
-            .append(get_ID()).append("]");
+            .append(getId()).append("]");
         return sb.toString();
     }
 
@@ -221,6 +221,6 @@ public class X_R_RequestProcessor_Route extends PO implements I_R_RequestProcess
      */
     public KeyNamePair getKeyNamePair()
     {
-        return new KeyNamePair(get_ID(), String.valueOf(getSeqNo()));
+        return new KeyNamePair(getId(), String.valueOf(getSeqNo()));
     }
 }

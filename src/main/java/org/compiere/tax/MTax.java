@@ -62,7 +62,7 @@ public class MTax extends X_C_Tax implements I_C_Tax
 								.list();
 		for (MTax tax : list)
 		{
-			s_cache.put(tax.get_ID(), tax);
+			s_cache.put(tax.getId(), tax);
 		}
 		retValue = list.toArray(new MTax[list.size()]);
 		s_cacheAll.put(AD_Client_ID, retValue);
@@ -83,7 +83,7 @@ public class MTax extends X_C_Tax implements I_C_Tax
 		if (retValue != null)
 			return retValue;
 		retValue = new MTax (ctx, C_Tax_ID, null);
-		if (retValue.get_ID () != 0)
+		if (retValue.getId() != 0)
 			s_cache.put (key, retValue);
 		return retValue;
 	}	//	get
@@ -216,7 +216,7 @@ public class MTax extends X_C_Tax implements I_C_Tax
 	public String toString()
 	{
 		StringBuffer sb = new StringBuffer("MTax[")
-			.append(get_ID())
+			.append(getId())
 			.append(", Name = ").append(getName())
 			.append(", SO/PO=").append(getSOPOType())
 			.append(", Rate=").append(getRate())

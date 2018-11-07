@@ -20,7 +20,6 @@ import java.util.logging.Level;
 
 import org.compiere.accounting.MWarehouse;
 import org.compiere.crm.MBPartner;
-import org.compiere.crm.MBPartnerLocation;
 import org.compiere.model.IProcessInfoParameter;
 import org.compiere.model.I_C_BPartner_Location;
 import org.compiere.model.I_M_Locator;
@@ -28,7 +27,6 @@ import org.compiere.orm.MOrg;
 import org.compiere.orm.MOrgInfo;
 import org.compiere.orm.MRole;
 import org.compiere.orm.MRoleOrgAccess;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.production.MLocator;
 import org.idempiere.common.util.AdempiereUserError;
@@ -89,7 +87,7 @@ public class BPartnerOrgLink extends SvrProcess
 		if (p_C_BPartner_ID == 0)
 			throw new AdempiereUserError("No Business Partner ID");
 		MBPartner bp = new MBPartner (getCtx(), p_C_BPartner_ID, get_TrxName());
-		if (bp.get_ID() == 0)
+		if (bp.getId() == 0)
 			throw new AdempiereUserError ("Business Partner not found - C_BPartner_ID=" + p_C_BPartner_ID);
 		//	BP Location
 		I_C_BPartner_Location[] locs = bp.getLocations(false);

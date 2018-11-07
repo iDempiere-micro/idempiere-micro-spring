@@ -84,7 +84,7 @@ public class InvoiceCreateInOut extends SvrProcess
 			throw new FillMandatoryException(PARAM_M_Warehouse_ID);
 		//
 		MInvoice invoice = new MInvoice (getCtx(), p_C_Invoice_ID, null);
-		if (invoice.get_ID() <= 0)
+		if (invoice.getId() <= 0)
 			throw new AdempiereException("@NotFound@ @C_Invoice_ID@");
 		if (!X_C_Invoice.DOCSTATUS_Completed.equals(invoice.getDocStatus()))
 			throw new AdempiereException("@InvoiceCreateDocNotCompleted@");

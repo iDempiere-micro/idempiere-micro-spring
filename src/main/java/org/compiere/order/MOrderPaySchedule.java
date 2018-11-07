@@ -181,7 +181,7 @@ public class MOrderPaySchedule extends X_C_OrderPaySchedule
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder("MOrderPaySchedule[");
-		sb.append(get_ID()).append("-Due=" + getDueDate() + "/" + getDueAmt())
+		sb.append(getId()).append("-Due=" + getDueDate() + "/" + getDueAmt())
 			.append(";Discount=").append(getDiscountDate() + "/" + getDiscountAmt())
 			.append("]");
 		return sb.toString();

@@ -21,7 +21,6 @@ import java.util.logging.Level;
 import org.compiere.invoicing.MInventory;
 import org.compiere.invoicing.MInventoryLineMA;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.AdempiereSystemError;
 import org.idempiere.common.util.DB;
@@ -68,7 +67,7 @@ public class InventoryCountUpdate extends SvrProcess
 	{
 		if (log.isLoggable(Level.INFO)) log.info("M_Inventory_ID=" + p_M_Inventory_ID);
 		MInventory inventory = new MInventory (getCtx(), p_M_Inventory_ID, get_TrxName());
-		if (inventory.get_ID() == 0)
+		if (inventory.getId() == 0)
 			throw new AdempiereSystemError("Not found: M_Inventory_ID=" + p_M_Inventory_ID);
 
 		//	Multiple Lines for one item

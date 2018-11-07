@@ -62,7 +62,7 @@ public class X_PA_ColorSchema extends BasePOName implements I_PA_ColorSchema, I_
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_PA_ColorSchema[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

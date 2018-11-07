@@ -50,7 +50,7 @@ public class X_AD_PrintColor extends BasePOName implements I_AD_PrintColor, I_Pe
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_AD_PrintColor[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 

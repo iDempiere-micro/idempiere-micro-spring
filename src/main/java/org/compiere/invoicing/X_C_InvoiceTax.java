@@ -62,7 +62,7 @@ public class X_C_InvoiceTax extends PO implements I_Persistent
     public String toString()
     {
       StringBuffer sb = new StringBuffer ("X_C_InvoiceTax[")
-        .append(get_ID()).append("]");
+        .append(getId()).append("]");
       return sb.toString();
     }
 
