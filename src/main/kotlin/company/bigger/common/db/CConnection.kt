@@ -854,12 +854,15 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         @Volatile
         private var s_cc: CConnection? = null
 
+        /**
+         * Set default client/server Connection for non Spring usages
+         */
         fun set(cc: CConnection) {
             s_cc = cc
         }
 
         /**
-         * Get/Set default client/server Connection
+         * Get default client/server Connection
          * @return Connection Descriptor
          */
         fun get(): CConnection {
