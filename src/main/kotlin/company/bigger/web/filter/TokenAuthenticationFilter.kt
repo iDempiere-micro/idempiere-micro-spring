@@ -37,8 +37,6 @@ class TokenAuthenticationFilter(
 
     @Throws(IOException::class, ServletException::class)
     public override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
-        val _userService = userService!!
-
         var error = ""
         val authToken = getToken(request)
         val autoLoginName = autoLoginName
@@ -46,21 +44,21 @@ class TokenAuthenticationFilter(
 
         val user =
                 if (!autoLoginName.isNullOrEmpty() && !autoLoginPassword.isNullOrEmpty()) {
-                    _userService.login(UserLoginModel(loginName = autoLoginName!!, password = autoLoginPassword!!))
+                    userService.login(UserLoginModel(loginName = autoLoginName!!, password = autoLoginPassword!!))
                 } else {
                     // Get username from token
-                    _userService.findByToken(authToken)
+                    userService.findByToken(authToken)
                 }
 
         if (user != null) {
             // Get user
-            val userDetails = _userService.loadUserByUsername(user.loginName)
+            val userDetails = userService.loadUserByUsername(user.loginName)
 
             // Create authentication
             val authentication = TokenBasedAuthentication(userDetails)
             authentication.token = authToken
             SecurityContextHolder.getContext().authentication = authentication
-            _userService.setCurrentUser(user)
+            userService.setCurrentUser(user)
         } else {
             error = "Username from token '$authToken' can't be found in DB."
         }

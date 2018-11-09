@@ -62,6 +62,6 @@ class CategoryTests : BaseComponentTest() {
     fun `get all crm categories from the service works`() {
         val result = categoryService.getAllCategories()
         assertFalse(result.isEmpty())
-        val category = result.first()
+        result.first()
     }
 }
