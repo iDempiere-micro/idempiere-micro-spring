@@ -72,3 +72,31 @@ it('GardenUser can login and see users', function () {
         .expect('status', 200);
     });
 });
+it('GardenUser can see version using GraphQL', function () {
+  return frisby
+    .setup({
+      request: {
+        headers: {
+          'Content-Type': 'text/plain; charset=UTF-8',
+        }
+      }
+    })
+    .get('http://localhost:8080/session/GardenUser/login/GardenUser')
+    .expect('status', 200)
+    .expect('json', 'logged', true)
+    .then(function (res) { // res = FrisbyResponse object
+      let token = res.json.token;
+      return frisby
+        .setup({
+          request: {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Authorization': 'Token ' + token
+            }
+          }
+        })
+        .post('http://localhost:8080/graphql', {query: "{ version {v} }" })
+        .expect('status', 200);
+    });
+});
