@@ -9,6 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
 
+
+/**
+ * Main web security configuration. Makes everything except `session` and `actuator` protected.
+ * Also introduces the JWT TokenAuthenticationFilter. 
+ * CSRF is turned off since we are on REST and GraphQL only.
+ */
 @Configuration
 @EnableWebSecurity
 open class WebSecurityConfig(

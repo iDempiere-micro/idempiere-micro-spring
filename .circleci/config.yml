@@ -121,7 +121,8 @@ jobs:
       - run:
           name: Deploy Master to Dokku
           command:
-            ssh-keyscan prod.hsharp.software >> ~/.ssh/known_hosts && git push dokku@prod.hsharp.software:idempiere-micro-spring master
+            echo "Currently not supported"
+            # ssh-keyscan prod.hsharp.software >> ~/.ssh/known_hosts && git push dokku@prod.hsharp.software:idempiere-micro-spring master
 
 workflows:
   version: 2

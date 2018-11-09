@@ -9,6 +9,8 @@ import software.hsharp.business.services.ICustomerResult
 import software.hsharp.business.services.ICustomersResult
 import java.math.BigDecimal
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class Customer(
     override val Key: Int,
     override val name: String,
@@ -20,6 +22,8 @@ data class Customer(
     override val ID: String
         get() = "" + Key
 }
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class CustomersResult(
     override val customers: Array<ICustomer>,
     override val __paging: IPaging?
@@ -33,6 +37,8 @@ data class CustomersResult(
     override val __metadata: IDataSource?
         get() = CustomersResult.metadata
 }
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class CustomerResult(
     override val customer: ICustomer?,
     override val __paging: IPaging?

@@ -4,6 +4,8 @@ import software.hsharp.core.models.INamedEntity
 import software.hsharp.core.models.ISearchableByKey
 import java.math.BigDecimal
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 interface IBusinessPartner : IDatabaseEntity, INamedEntity, ISearchableByKey {
     val Locations: Array<IBusinessPartnerLocation>
     val flatDiscount: BigDecimal

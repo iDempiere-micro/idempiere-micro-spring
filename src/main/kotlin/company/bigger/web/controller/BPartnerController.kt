@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 @RestController
 class BPartnerController(
     private val securedApi: SecuredApi,
