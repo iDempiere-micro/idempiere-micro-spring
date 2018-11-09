@@ -29,7 +29,7 @@ public class LoginEventData {
 	/**
 	 * @return the aD_Client_ID
 	 */
-	public int getAD_Client_ID() {
+	public int getADClientID() {
 		return AD_Client_ID;
 	}
 

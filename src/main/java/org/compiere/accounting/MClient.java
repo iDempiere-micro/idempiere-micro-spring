@@ -71,7 +71,7 @@ public class MClient extends org.compiere.orm.MClient
 		.setOrderBy(orderBy)
 		.list();
 		for(MClient client:list ){
-			s_cache.put (new Integer (client.getAD_Client_ID()), client);
+			s_cache.put (new Integer (client.getADClientID()), client);
 		}
 		MClient[] retValue = new MClient[list.size ()];
 		list.toArray (retValue);
@@ -120,7 +120,7 @@ public class MClient extends org.compiere.orm.MClient
 	public MClientInfo getInfo()
 	{
 		if (m_info == null)
-			m_info = org.compiere.orm.MClientInfo.get (getCtx(), getAD_Client_ID(), get_TrxName());
+			m_info = org.compiere.orm.MClientInfo.get (getCtx(), getADClientID(), get_TrxName());
 		return (MClientInfo)m_info;
 	}	//	getMClientInfo
 
@@ -326,7 +326,7 @@ public class MClient extends org.compiere.orm.MClient
 	public MAcctSchema getAcctSchema()
 	{
 		if (m_info == null)
-			m_info = MClientInfo.get (getCtx(), getAD_Client_ID(), get_TrxName());
+			m_info = MClientInfo.get (getCtx(), getADClientID(), get_TrxName());
 		if (m_info != null)
 		{
 			int C_AcctSchema_ID = m_info.getC_AcctSchema1_ID();
@@ -368,14 +368,14 @@ public class MClient extends org.compiere.orm.MClient
 	public static boolean isClientAccounting() {
 		String ca = MSysConfig.getValue(MSysConfig.CLIENT_ACCOUNTING,
 				CLIENT_ACCOUNTING_QUEUE, // default
-				Env.getAD_Client_ID(Env.getCtx()));
+				Env.getADClientID(Env.getCtx()));
 		return (ca.equalsIgnoreCase(CLIENT_ACCOUNTING_IMMEDIATE) || ca.equalsIgnoreCase(CLIENT_ACCOUNTING_QUEUE));
 	}
 
 	public static boolean isClientAccountingQueue() {
 		String ca = MSysConfig.getValue(MSysConfig.CLIENT_ACCOUNTING,
 				CLIENT_ACCOUNTING_QUEUE, // default
-				Env.getAD_Client_ID(Env.getCtx()));
+				Env.getADClientID(Env.getCtx()));
 		return ca.equalsIgnoreCase(CLIENT_ACCOUNTING_QUEUE);
 	}
 
@@ -402,7 +402,7 @@ public class MClient extends org.compiere.orm.MClient
 				 .append("              SELECT f.AD_Field_ID ")
 				 .append("                FROM ASP_Field f, ASP_Tab t, ASP_Window w, ASP_Level l, ASP_ClientLevel cl ")
 				 .append("               WHERE w.ASP_Level_ID = l.ASP_Level_ID ")
-				 .append("                 AND cl.AD_Client_ID = ").append(getAD_Client_ID())
+				 .append("                 AND cl.AD_Client_ID = ").append(getADClientID())
 				 .append("                 AND cl.ASP_Level_ID = l.ASP_Level_ID ")
 				 .append("                 AND f.ASP_Tab_ID = t.ASP_Tab_ID ")
 				 .append("                 AND t.ASP_Window_ID = w.ASP_Window_ID ")
@@ -415,7 +415,7 @@ public class MClient extends org.compiere.orm.MClient
 				 .append("                  AND f.AD_Field_ID NOT IN (")
 				 .append(" 				 SELECT AD_Field_ID")
 				 .append(" 				 FROM ASP_ClientException ce")
-				 .append(" 				 WHERE ce.AD_Client_ID =").append(getAD_Client_ID())
+				 .append(" 				 WHERE ce.AD_Client_ID =").append(getADClientID())
 				 .append(" 				 AND ce.IsActive = 'Y'")
 				 .append("                  AND ce.AD_Field_ID IS NOT NULL")
 				 .append(" 				 AND ce.ASP_Status <> 'H')")
@@ -423,7 +423,7 @@ public class MClient extends org.compiere.orm.MClient
 				 // minus ASP hide exceptions for client
 				 .append("          SELECT AD_Field_ID ")
 				 .append("            FROM ASP_ClientException ce ")
-				 .append("           WHERE ce.AD_Client_ID = ").append(getAD_Client_ID())
+				 .append("           WHERE ce.AD_Client_ID = ").append(getADClientID())
 				 .append("             AND ce.IsActive = 'Y' ")
 				 .append("             AND ce.AD_Field_ID IS NOT NULL ")
 				 .append("             AND ce.ASP_Status = 'H'))")
@@ -452,7 +452,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public String getRequestUser() {
 		// IDEMPIERE-722
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			return sysclient.getRequestUser();
 		}
@@ -462,7 +462,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public String getRequestUserPW() {
 		// IDEMPIERE-722
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			return sysclient.getRequestUserPW();
 		}
@@ -472,7 +472,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public boolean isSmtpAuthorization() {
 		// IDEMPIERE-722
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			return sysclient.isSmtpAuthorization();
 		}
@@ -482,7 +482,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public int getSMTPPort() {
 		// IDEMPIERE-722
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			return sysclient.getSMTPPort();
 		}
@@ -492,7 +492,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public boolean isSecureSMTP() {
 		// IDEMPIERE-722
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			return sysclient.isSecureSMTP();
 		}
@@ -506,7 +506,7 @@ public class MClient extends org.compiere.orm.MClient
 	@Override
 	public String getSMTPHost() {
 		String s = null;
-		if (getAD_Client_ID() != 0 && isSendCredentialsSystem()) {
+		if (getADClientID() != 0 && isSendCredentialsSystem()) {
 			MClient sysclient = MClient.get(getCtx(), 0);
 			s = sysclient.getSMTPHost();
 		} else {
@@ -525,14 +525,14 @@ public class MClient extends org.compiere.orm.MClient
 	public static boolean isSendCredentialsClient() {
 		String msc = MSysConfig.getValue(MSysConfig.MAIL_SEND_CREDENTIALS,
 				MAIL_SEND_CREDENTIALS_USER, // default
-				Env.getAD_Client_ID(Env.getCtx()));
+				Env.getADClientID(Env.getCtx()));
 		return (MAIL_SEND_CREDENTIALS_CLIENT.equalsIgnoreCase(msc));
 	}
 
 	public static boolean isSendCredentialsSystem() {
 		String msc = MSysConfig.getValue(MSysConfig.MAIL_SEND_CREDENTIALS,
 				MAIL_SEND_CREDENTIALS_USER, // default
-				Env.getAD_Client_ID(Env.getCtx()));
+				Env.getADClientID(Env.getCtx()));
 		return (MAIL_SEND_CREDENTIALS_SYSTEM.equalsIgnoreCase(msc));
 	}
 
@@ -543,7 +543,7 @@ public class MClient extends org.compiere.orm.MClient
 	 */
 	public static MClient get (Properties ctx)
 	{
-		return get (ctx, Env.getAD_Client_ID(ctx));
+		return get (ctx, Env.getADClientID(ctx));
 	}	//	get
 
 

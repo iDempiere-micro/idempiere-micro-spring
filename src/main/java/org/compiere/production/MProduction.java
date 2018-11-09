@@ -62,7 +62,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 	
 	public MProduction( MOrderLine line ) {
 		super( line.getCtx(), 0, line.get_TrxName());
-		setAD_Client_ID(line.getAD_Client_ID());
+		setADClientID(line.getADClientID());
 		setAD_Org_ID(line.getAD_Org_ID());
 		setMovementDate( line.getDatePromised() );
 	}
@@ -76,7 +76,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 		int M_Locator_ID = 0;
 
 		M_Locator_ID = wh.getDefaultLocator().getM_Locator_ID();
-		setAD_Client_ID(line.getAD_Client_ID());
+		setADClientID(line.getADClientID());
 		setAD_Org_ID(line.getAD_Org_ID());
 		setM_Product_ID(line.getM_Product_ID());
 		setProductionQty(line.getPlannedQty());
@@ -527,7 +527,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 
 		if (!costsOK(M_Product_ID)) {
 			msg = "Excessive difference in standard costs";
-			if (MSysConfig.getBooleanValue(MSysConfig.MFG_ValidateCostsDifferenceOnCreate, false, getAD_Client_ID())) {
+			if (MSysConfig.getBooleanValue(MSysConfig.MFG_ValidateCostsDifferenceOnCreate, false, getADClientID())) {
 				return msg;
 			} else {
 				log.warning(msg);
@@ -576,7 +576,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 			{
 				costPercentageDiff = Env.ZERO;
 				String msg = "Could not retrieve costs";
-				if (MSysConfig.getBooleanValue(MSysConfig.MFG_ValidateCostsOnCreate, false, getAD_Client_ID())) {
+				if (MSysConfig.getBooleanValue(MSysConfig.MFG_ValidateCostsOnCreate, false, getADClientID())) {
 					throw new AdempiereUserError(msg);
 				} else {
 					log.warning(msg);
@@ -769,7 +769,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 
 	private MProduction copyFrom(Timestamp reversalDate) {
 		MProduction to = new MProduction(getCtx(), 0, get_TrxName());
-		PO.copyValues(this, to, getAD_Client_ID(), getAD_Org_ID());
+		PO.copyValues(this, to, getADClientID(), getAD_Org_ID());
 
 		to.set_ValueNoCheck ("DocumentNo", null);
 		//
@@ -787,7 +787,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 			List<MProductionPlan> fplans = planQuery.setParameters(getM_Production_ID()).list();
 			for(MProductionPlan fplan : fplans) {
 				MProductionPlan tplan = new MProductionPlan(getCtx(), 0, get_TrxName());
-				PO.copyValues(fplan, tplan, getAD_Client_ID(), getAD_Org_ID());
+				PO.copyValues(fplan, tplan, getADClientID(), getAD_Org_ID());
 				tplan.setM_Production_ID(to.getM_Production_ID());
 				tplan.setProductionQty(fplan.getProductionQty().negate());
 				tplan.setProcessed(false);
@@ -796,7 +796,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 				MProductionLine[] flines = fplan.getLines();
 				for(MProductionLine fline : flines) {
 					MProductionLine tline = new MProductionLine(tplan);
-					PO.copyValues(fline, tline, getAD_Client_ID(), getAD_Org_ID());
+					PO.copyValues(fline, tline, getADClientID(), getAD_Org_ID());
 					tline.setM_ProductionPlan_ID(tplan.getM_ProductionPlan_ID());
 					tline.setMovementQty(fline.getMovementQty().negate());
 					tline.setPlannedQty(fline.getPlannedQty().negate());
@@ -810,7 +810,7 @@ public class MProduction extends X_M_Production implements I_M_Production, DocAc
 			MProductionLine[] flines = getLines();
 			for(MProductionLine fline : flines) {
 				MProductionLine tline = new MProductionLine(to);
-				PO.copyValues(fline, tline, getAD_Client_ID(), getAD_Org_ID());
+				PO.copyValues(fline, tline, getADClientID(), getAD_Org_ID());
 				tline.setM_Production_ID(to.getM_Production_ID());
 				tline.setMovementQty(fline.getMovementQty().negate());
 				tline.setPlannedQty(fline.getPlannedQty().negate());

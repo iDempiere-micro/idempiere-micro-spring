@@ -86,7 +86,7 @@ public class MWorkflow extends X_AD_Workflow
 			String newKey = null;
 			for (MWorkflow wf : workflows)
 			{
-				newKey = "C" + wf.getAD_Client_ID() + "T" + wf.getAD_Table_ID();
+				newKey = "C" + wf.getADClientID() + "T" + wf.getAD_Table_ID();
 				if (!newKey.equals(oldKey) && list.size() > 0)
 				{
 					MWorkflow[] wfs = new MWorkflow[list.size()];
@@ -260,7 +260,7 @@ public class MWorkflow extends X_AD_Workflow
 			MWFNode node = m_nodes.get(i);
 			if (!node.isActive())
 				continue;
-			if (node.getAD_Client_ID() == 0 || node.getAD_Client_ID() == AD_Client_ID)
+			if (node.getADClientID() == 0 || node.getADClientID() == AD_Client_ID)
 				list.add(node);
 		}
 		MWFNode[] retValue = new MWFNode [list.size()];
@@ -344,7 +344,7 @@ public class MWorkflow extends X_AD_Workflow
 				MWFNode node = (MWFNode)m_nodes.get(n);
 				if (!node.isActive())
 					continue;
-				if (node.getAD_Client_ID() == 0 || node.getAD_Client_ID() == AD_Client_ID)
+				if (node.getADClientID() == 0 || node.getADClientID() == AD_Client_ID)
 				{
 					boolean found = false;
 					for (int i = 0; i < list.size(); i++)
@@ -403,7 +403,7 @@ public class MWorkflow extends X_AD_Workflow
 		ArrayList<MWFNode> tmplist = new ArrayList<MWFNode> ();
 		MWFNode node = getNode (AD_WF_Node_ID);
 		if (node != null 
-			&& (node.getAD_Client_ID() == 0 || node.getAD_Client_ID() == AD_Client_ID))
+			&& (node.getADClientID() == 0 || node.getADClientID() == AD_Client_ID))
 		{
 			if (!list.contains(node))
 				list.add(node);
@@ -413,8 +413,8 @@ public class MWorkflow extends X_AD_Workflow
 				MWFNode child = getNode (nexts[i].getAD_WF_Next_ID());
 				if (!child.isActive())
 					continue;
-				if (child.getAD_Client_ID() == 0
-					|| child.getAD_Client_ID() == AD_Client_ID)
+				if (child.getADClientID() == 0
+					|| child.getADClientID() == AD_Client_ID)
 				{
 					if (!list.contains(child)){
 						list.add(child);
@@ -828,7 +828,7 @@ public class MWorkflow extends X_AD_Workflow
 	 */
 	public static int getWorkflowSearchKey(MProduct product)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(product.getCtx());
+		int AD_Client_ID = Env.getADClientID(product.getCtx());
 		String sql = "SELECT AD_Workflow_ID FROM AD_Workflow "
 						+" WHERE Value = ? AND AD_Client_ID = ?";
 		return DB.getSQLValueEx(null, sql, product.getValue(), AD_Client_ID);

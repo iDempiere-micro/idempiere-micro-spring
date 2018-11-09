@@ -31,7 +31,7 @@ public interface I_CM_Media
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Image_ID */
     public static final String COLUMNNAME_AD_Image_ID = "AD_Image_ID";

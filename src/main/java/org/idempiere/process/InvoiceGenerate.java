@@ -47,7 +47,6 @@ import org.compiere.util.DisplayType;
 import org.idempiere.common.util.*;
 import org.compiere.util.Msg;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.Env;
 /**
@@ -422,7 +421,7 @@ public class InvoiceGenerate extends SvrProcess
 				m_bp = new MBPartner (getCtx(), ship.getC_BPartner_ID(), get_TrxName());
 			
 			//	Reference: Delivery: 12345 - 12.12.12
-			MClient client = MClient.get(getCtx(), order.getAD_Client_ID ());
+			MClient client = MClient.get(getCtx(), order.getADClientID());
 			String AD_Language = client.getADLanguage();
 			if (client.isMultiLingualDocument() && m_bp.getADLanguage() != null)
 				AD_Language = m_bp.getADLanguage();

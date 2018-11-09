@@ -66,7 +66,7 @@ public class MBPGroup extends X_C_BP_Group
 	 */
 	public static MBPGroup getDefault (Properties ctx)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		Integer key = new Integer (AD_Client_ID);
 		MBPGroup retValue = (MBPGroup) s_cacheDefault.get (key);
 		if (retValue != null)

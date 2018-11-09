@@ -13,7 +13,7 @@ public interface FactsValidator {
 	 * 	Get Client to be monitored
 	 *	@return AD_Client_ID
 	 */
-	public int getAD_Client_ID();
+	public int getADClientID();
 	
 	/**
 	 * 

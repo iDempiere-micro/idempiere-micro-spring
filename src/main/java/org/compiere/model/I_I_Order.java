@@ -31,7 +31,7 @@ public interface I_I_Order
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name Address1 */
     public static final String COLUMNNAME_Address1 = "Address1";

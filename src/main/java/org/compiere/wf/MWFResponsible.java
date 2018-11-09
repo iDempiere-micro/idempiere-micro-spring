@@ -127,7 +127,7 @@ public class MWFResponsible extends X_AD_WF_Responsible
 	//		return true;
 		if (X_AD_WF_Responsible.RESPONSIBLETYPE_Role.equals(getResponsibleType())
 			&& getAD_Role_ID() == 0
-			&& getAD_Client_ID() > 0)
+			&& getADClientID() > 0)
 		{
 			log.saveError("Error", Msg.parseTranslation(getCtx(), "@RequiredEnter@ @AD_Role_ID@"));
 			return false;

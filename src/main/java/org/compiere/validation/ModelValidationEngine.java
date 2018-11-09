@@ -232,7 +232,7 @@ public class ModelValidationEngine
 		for (int i = 0; i < m_validators.size(); i++)
 		{
 			ModelValidator validator = m_validators.get(i);
-			if (AD_Client_ID == validator.getAD_Client_ID()
+			if (AD_Client_ID == validator.getADClientID()
 				|| m_globalValidators.contains(validator))
 			{
 				String error = validator.login(AD_Org_ID, AD_Role_ID, AD_User_ID);
@@ -306,7 +306,7 @@ public class ModelValidationEngine
 		String propertyName =
 			m_globalValidators.contains(listener)
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<ModelValidator> list = m_modelChangeListeners.get(propertyName);
 		if (list == null)
 		{
@@ -330,7 +330,7 @@ public class ModelValidationEngine
 		String propertyName =
 			m_globalValidators.contains(listener)
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<ModelValidator> list = m_modelChangeListeners.get(propertyName);
 		if (list == null)
 			return;
@@ -361,7 +361,7 @@ public class ModelValidationEngine
 				return error;
 		}
 
-		propertyName = po.get_TableName() + po.getAD_Client_ID();
+		propertyName = po.get_TableName() + po.getADClientID();
 		list = m_modelChangeListeners.get(propertyName);
 		if (list != null)
 		{
@@ -427,7 +427,7 @@ public class ModelValidationEngine
 			try
 			{
 				ModelValidator validator = list.get(i);
-				if (validator.getAD_Client_ID() == po.getAD_Client_ID()
+				if (validator.getADClientID() == po.getADClientID()
 					|| m_globalValidators.contains(validator))
 				{
 					String error = validator.modelChange(po, changeType);
@@ -468,7 +468,7 @@ public class ModelValidationEngine
 		String propertyName =
 			m_globalValidators.contains(listener)
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<ModelValidator> list = m_docValidateListeners.get(propertyName);
 		if (list == null)
 		{
@@ -494,7 +494,7 @@ public class ModelValidationEngine
 		String propertyName =
 			m_globalValidators.contains(listener)
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<ModelValidator> list = m_docValidateListeners.get(propertyName);
 		if (list == null)
 			return;
@@ -525,7 +525,7 @@ public class ModelValidationEngine
 				return error;
 		}
 
-		propertyName = po.get_TableName() + po.getAD_Client_ID();
+		propertyName = po.get_TableName() + po.getADClientID();
 		list = m_docValidateListeners.get(propertyName);
 		if (list != null)
 		{
@@ -593,7 +593,7 @@ public class ModelValidationEngine
 			try
 			{
 				validator = list.get(i);
-				if (validator.getAD_Client_ID() == po.getAD_Client_ID()
+				if (validator.getADClientID() == po.getADClientID()
 					|| m_globalValidators.contains(validator))
 				{
 					String error = validator.docValidate(po, docTiming);
@@ -634,7 +634,7 @@ public class ModelValidationEngine
 		String propertyName =
 			(listener instanceof ModelValidator && m_globalValidators.contains((ModelValidator)listener))
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<FactsValidator> list = m_factsValidateListeners.get(propertyName);
 		if (list == null)
 		{
@@ -679,7 +679,7 @@ public class ModelValidationEngine
 		String propertyName =
 			(listener instanceof ModelValidator && m_globalValidators.contains((ModelValidator)listener))
 				? tableName + "*"
-				: tableName + listener.getAD_Client_ID();
+				: tableName + listener.getADClientID();
 		ArrayList<FactsValidator> list = m_factsValidateListeners.get(propertyName);
 		if (list == null)
 			return;
@@ -712,7 +712,7 @@ public class ModelValidationEngine
 				return error;
 		}
 
-		propertyName = po.get_TableName() + po.getAD_Client_ID();
+		propertyName = po.get_TableName() + po.getADClientID();
 		list = m_factsValidateListeners.get(propertyName);
 		if (list != null)
 		{
@@ -744,7 +744,7 @@ public class ModelValidationEngine
 			try
 			{
 				validator = list.get(i);
-				if (validator.getAD_Client_ID() == po.getAD_Client_ID()
+				if (validator.getADClientID() == po.getADClientID()
 						|| (validator instanceof ModelValidator && m_globalValidators.contains((ModelValidator)validator)))
 				{
 					String error = validator.factsValidate(schema, facts, po);
@@ -909,11 +909,11 @@ public class ModelValidationEngine
 	 */
 	public void afterLoadPreferences (Properties ctx)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		for (int i = 0; i < m_validators.size(); i++)
 		{
 			ModelValidator validator = m_validators.get(i);
-			if (AD_Client_ID == validator.getAD_Client_ID()
+			if (AD_Client_ID == validator.getADClientID()
 				|| m_globalValidators.contains(validator))
 			{
 				java.lang.reflect.Method m = null;
@@ -943,11 +943,11 @@ public class ModelValidationEngine
 	 */
 	public void beforeSaveProperties ()
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(Env.getCtx());
+		int AD_Client_ID = Env.getADClientID(Env.getCtx());
 		for (int i = 0; i < m_validators.size(); i++)
 		{
 			ModelValidator validator = m_validators.get(i);
-			if (AD_Client_ID == validator.getAD_Client_ID()
+			if (AD_Client_ID == validator.getADClientID()
 				|| m_globalValidators.contains(validator))
 			{
 				java.lang.reflect.Method m = null;

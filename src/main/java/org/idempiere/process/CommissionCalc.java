@@ -351,7 +351,7 @@ public class CommissionCalc extends SvrProcess
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, m_com.getAD_Client_ID());
+			pstmt.setInt(1, m_com.getADClientID());
 			pstmt.setTimestamp(2, p_StartDate);
 			pstmt.setTimestamp(3, m_EndDate);
 			rs = pstmt.executeQuery();

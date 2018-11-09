@@ -26,7 +26,7 @@ public class MClientInfo extends org.compiere.orm.MClientInfo
      */
     public static MClientInfo get (Properties ctx)
     {
-        return get (ctx, Env.getAD_Client_ID(ctx), null);
+        return get (ctx, Env.getADClientID(ctx), null);
     }	//	get
 
     /**	Logger						*/

@@ -20,13 +20,13 @@ class AnonAuthentication : AbstractAuthenticationToken(null) {
         return 7
     }
 
-    override fun equals(obj: Any?): Boolean {
-        if (this === obj) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) {
             return true
         }
-        if (obj == null) {
+        if (other == null) {
             return false
         }
-        return javaClass == obj.javaClass
+        return javaClass == other.javaClass
     }
 }

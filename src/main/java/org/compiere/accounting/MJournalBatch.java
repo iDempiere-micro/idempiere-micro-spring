@@ -61,7 +61,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 			throw new IllegalArgumentException ("From Journal Batch not found GL_JournalBatch_ID=" + GL_JournalBatch_ID);
 		//
 		MJournalBatch to = new MJournalBatch (ctx, 0, trxName);
-		PO.copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		PO.copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck ("DocumentNo", null);
 		to.set_ValueNoCheck ("C_Period_ID", null);
 		to.setDateAcct(dateDoc);
@@ -226,7 +226,7 @@ public class MJournalBatch extends X_GL_JournalBatch implements DocAction, IPODo
 		for (int i = 0; i < fromJournals.length; i++)
 		{
 			MJournal toJournal = new MJournal (getCtx(), 0, jb.get_TrxName());
-			PO.copyValues(fromJournals[i], toJournal, getAD_Client_ID(), getAD_Org_ID());
+			PO.copyValues(fromJournals[i], toJournal, getADClientID(), getAD_Org_ID());
 			toJournal.setGL_JournalBatch_ID(getGL_JournalBatch_ID());
 			toJournal.set_ValueNoCheck ("DocumentNo", null);	//	create new
 			toJournal.set_ValueNoCheck ("C_Period_ID", null);

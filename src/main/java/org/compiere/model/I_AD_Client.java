@@ -31,7 +31,7 @@ public interface I_AD_Client
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Client_UU */
     public static final String COLUMNNAME_AD_Client_UU = "AD_Client_UU";

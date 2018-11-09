@@ -104,7 +104,7 @@ public class ExpenseAPInvoice extends SvrProcess
 		{
 			pstmt = DB.prepareStatement (sql.toString (), get_TrxName());
 			int par = 1;
-			pstmt.setInt(par++, getAD_Client_ID());
+			pstmt.setInt(par++, getADClientID());
 			if (m_C_BPartner_ID != 0)
 				pstmt.setInt (par++, m_C_BPartner_ID);
 			if (m_DateFrom != null)
@@ -124,7 +124,7 @@ public class ExpenseAPInvoice extends SvrProcess
 					//
 					if (log.isLoggable(Level.INFO)) log.info("New Invoice for " + bp);
 					invoice = new MInvoice (getCtx(), 0, get_TrxName());
-					invoice.setClientOrg(te.getAD_Client_ID(), te.getAD_Org_ID());
+					invoice.setClientOrg(te.getADClientID(), te.getAD_Org_ID());
 					invoice.setC_DocTypeTarget_ID(MDocType.DOCBASETYPE_APInvoice);	//	API
 					invoice.setDocumentNo (te.getDocumentNo());
 					//

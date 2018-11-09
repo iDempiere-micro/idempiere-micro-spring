@@ -173,7 +173,7 @@ public class FactAcctReset extends SvrProcess
 	{
 		Timestamp today = TimeUtil.trunc(new Timestamp (System.currentTimeMillis()), TimeUtil.TRUNC_DAY);
 
-		MAcctSchema as = MClient.get(getCtx(), getAD_Client_ID()).getAcctSchema();
+		MAcctSchema as = MClient.get(getCtx(), getADClientID()).getAcctSchema();
 		boolean autoPeriod = as != null && as.isAutoPeriodControl();
 		if (autoPeriod)
 		{

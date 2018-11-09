@@ -78,6 +78,6 @@ class UserService(
     fun getUsers(): List<MUser> {
         val user = currentUser()!!
         val ctx = Env.getCtx()
-        return MUser.getOfClient(ctx, user.aD_Client_ID, null).map { it }
+        return MUser.getOfClient(ctx, user.adClientID, null).map { it }
     }
 }

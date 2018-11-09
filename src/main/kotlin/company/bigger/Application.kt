@@ -36,9 +36,9 @@ import org.springframework.context.ApplicationListener
 import org.springframework.context.annotation.Bean
 import org.springframework.context.event.ContextRefreshedEvent
 
-
 /**
- * This is the mail Spring Boot Application
+ * The main iDempiere-Micro Spring Boot application.
+ *
  */
 @Configuration
 @EnableCaching
@@ -112,6 +112,9 @@ open class Micro(
          */
         private var singleton: Micro? = null
         val instance get() = singleton
+        private fun setInstance(instance: Micro) {
+            singleton = instance
+        }
     }
 
     /**
@@ -119,7 +122,7 @@ open class Micro(
      * in the companion object.
      */
     init {
-        singleton = this
+        setInstance(this)
     }
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
@@ -160,16 +163,13 @@ open class Micro(
         // setup the database engine and make sure it can connect
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
+        DB.setDBTarget(cconnection)
         DB.isConnected()
 
         // setup log
         CLogMgt.initialize(false)
         log = CLogger.getCLogger(Micro::class.java)
         CLogMgt.setLevel(ini.traceLevel)
-        
-        // TODO: explain why this is needed
-        DB.setDBTarget(cconnection)
 
         // create the thread pool for code like transaction closing etc.
         createThreadPool()

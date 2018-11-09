@@ -122,7 +122,7 @@ public class MRMALine extends X_M_RMALine implements I_M_RMALine
                 + "AND IsTaxExempt='Y' AND ValidFrom < SYSDATE ORDER BY IsDefault DESC";
 
             // Set tax for charge as exempt
-            taxId = DB.getSQLValueEx(null, sql, Env.getAD_Client_ID(getCtx()));
+            taxId = DB.getSQLValueEx(null, sql, Env.getADClientID(getCtx()));
             m_ioLine = null;
         }
 

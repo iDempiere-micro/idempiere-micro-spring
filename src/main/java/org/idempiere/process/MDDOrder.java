@@ -61,7 +61,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
     {
         MDDOrder to = new MDDOrder (from.getCtx(), 0, trxName);
         to.set_TrxName(trxName);
-        copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+        copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
         to.set_ValueNoCheck ("DD_Order_ID", I_ZERO);
         to.set_ValueNoCheck ("DocumentNo", null);
         //
@@ -150,7 +150,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
     public MDDOrder (MProject project, boolean IsSOTrx, String DocSubTypeSO)
     {
         this (project.getCtx(), 0, project.get_TrxName());
-        setAD_Client_ID(project.getAD_Client_ID());
+        setADClientID(project.getADClientID());
         setAD_Org_ID(project.getAD_Org_ID());
         setC_Campaign_ID(project.getC_Campaign_ID());
         setSalesRep_ID(project.getSalesRep_ID());
@@ -318,7 +318,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
         for (int i = 0; i < fromLines.length; i++)
         {
             MDDOrderLine line = new MDDOrderLine (this);
-            copyValues(fromLines[i], line, getAD_Client_ID(), getAD_Org_ID());
+            copyValues(fromLines[i], line, getADClientID(), getAD_Org_ID());
             line.setDD_Order_ID(getDD_Order_ID());
             line.setOrder(this);
             //	References
@@ -566,7 +566,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
                 log.warning("Changed Org to Context=" + context_AD_Org_ID);
             }
         }
-        if (getAD_Client_ID() == 0)
+        if (getADClientID() == 0)
         {
             m_processMsg = "AD_Client_ID = 0";
             return false;
@@ -601,7 +601,7 @@ public class MDDOrder extends X_DD_Order implements DocAction, IPODoc
 
         //	No Partner Info - set Template
         if (getC_BPartner_ID() == 0)
-            setBPartner(MBPartner.getTemplate(getCtx(), getAD_Client_ID()));
+            setBPartner(MBPartner.getTemplate(getCtx(), getADClientID()));
         if (getC_BPartner_Location_ID() == 0)
             setBPartner(new MBPartner(getCtx(), getC_BPartner_ID(), null));
 

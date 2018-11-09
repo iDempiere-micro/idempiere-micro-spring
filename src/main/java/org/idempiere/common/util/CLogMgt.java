@@ -554,7 +554,7 @@ public class CLogMgt
 		sb.append("Active Threads = " + Thread.activeCount());
 		//
 		//cluster info
-		if (Env.getAD_Client_ID(Env.getCtx()) == 0) {
+		if (Env.getADClientID(Env.getCtx()) == 0) {
 			IClusterService service = Service.Companion.locator().locate(IClusterService.class).getService();
 			if (service != null) {
 				IClusterMember local = service.getLocalMember();

@@ -392,7 +392,7 @@ public class MPInstance extends X_AD_PInstance
 		}
 
 		// unnamed instances
-		int lastRunCount = MSysConfig.getIntValue(MSysConfig.LASTRUN_RECORD_COUNT, 5, Env.getAD_Client_ID(ctx));
+		int lastRunCount = MSysConfig.getIntValue(MSysConfig.LASTRUN_RECORD_COUNT, 5, Env.getADClientID(ctx));
 		if (lastRunCount > 0) {
 			// using JDBC instead of Query for performance reasons, AD_PInstance can be huge
 			String sql = "SELECT * FROM AD_PInstance "
@@ -406,7 +406,7 @@ public class MPInstance extends X_AD_PInstance
 				pstmt.setFetchSize(lastRunCount);
 				pstmt.setInt(1, AD_Process_ID);
 				pstmt.setInt(2, AD_User_ID);
-				pstmt.setInt(3, Env.getAD_Client_ID(ctx));
+				pstmt.setInt(3, Env.getADClientID(ctx));
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
 					MPInstance unnamedInstance = new MPInstance(ctx, rs, null);

@@ -32,7 +32,7 @@ public interface I_AD_Window
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Color_ID */
     public static final String COLUMNNAME_AD_Color_ID = "AD_Color_ID";

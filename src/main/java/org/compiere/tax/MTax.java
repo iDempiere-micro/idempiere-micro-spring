@@ -48,7 +48,7 @@ public class MTax extends X_C_Tax implements I_C_Tax
 	 */
 	public static MTax[] getAll (Properties ctx)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		MTax[] retValue = (MTax[])s_cacheAll.get(AD_Client_ID);
 		if (retValue != null)
 			return retValue;

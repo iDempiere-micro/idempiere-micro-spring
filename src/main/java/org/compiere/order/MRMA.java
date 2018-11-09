@@ -357,7 +357,7 @@ public class MRMA extends X_M_RMA implements I_M_RMA
 	protected static MRMA doCopyFrom (MRMA from, int C_DocType_ID, boolean isSOTrx, boolean counter, String trxName, MRMA to )
 	{
 		to.set_TrxName(trxName);
-		copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck ("M_RMA_ID", PO.I_ZERO);
 		to.set_ValueNoCheck ("DocumentNo", null);
 		to.setDocStatus (X_M_RMA.DOCSTATUS_Drafted);		//	Draft
@@ -420,9 +420,9 @@ public class MRMA extends X_M_RMA implements I_M_RMA
 			MRMALine fromLine = fromLines[i];
 			line.set_TrxName(get_TrxName());
 			if (counter)	//	header
-				copyValues(fromLine, line, getAD_Client_ID(), getAD_Org_ID());
+				copyValues(fromLine, line, getADClientID(), getAD_Org_ID());
 			else
-				copyValues(fromLine, line, fromLine.getAD_Client_ID(), fromLine.getAD_Org_ID());
+				copyValues(fromLine, line, fromLine.getADClientID(), fromLine.getAD_Org_ID());
 			line.setM_RMA_ID(getM_RMA_ID());
 			line.set_ValueNoCheck (MRMALine.COLUMNNAME_M_RMALine_ID, PO.I_ZERO);	//	new
 			if (counter)

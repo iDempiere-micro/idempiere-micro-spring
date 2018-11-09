@@ -520,8 +520,8 @@ public class ReplenishReport extends SvrProcess
 				whSource = MWarehouse.get(getCtx(), replenish.getM_WarehouseSource_ID());
 			if (wh == null || wh.getM_Warehouse_ID() != replenish.getM_Warehouse_ID())
 				wh = MWarehouse.get(getCtx(), replenish.getM_Warehouse_ID());
-			if (client == null || client.getAD_Client_ID() != whSource.getAD_Client_ID())
-				client = MClient.get(getCtx(), whSource.getAD_Client_ID());
+			if (client == null || client.getADClientID() != whSource.getADClientID())
+				client = MClient.get(getCtx(), whSource.getADClientID());
 			//
 			if (move == null
 				|| M_WarehouseSource_ID != replenish.getM_WarehouseSource_ID()
@@ -622,8 +622,8 @@ public class ReplenishReport extends SvrProcess
 				whSource = MWarehouse.get(getCtx(), replenish.getM_WarehouseSource_ID());
 			if (wh == null || wh.getM_Warehouse_ID() != replenish.getM_Warehouse_ID())
 				wh = MWarehouse.get(getCtx(), replenish.getM_Warehouse_ID());
-			if (client == null || client.getAD_Client_ID() != whSource.getAD_Client_ID())
-				client = MClient.get(getCtx(), whSource.getAD_Client_ID());
+			if (client == null || client.getADClientID() != whSource.getADClientID())
+				client = MClient.get(getCtx(), whSource.getADClientID());
 			//
 			if (order == null
 				|| M_WarehouseSource_ID != replenish.getM_WarehouseSource_ID()

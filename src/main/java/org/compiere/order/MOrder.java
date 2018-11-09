@@ -80,7 +80,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 		String trxName, MOrder to)
 	{
 		to.set_TrxName(trxName);
-		copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck ("C_Order_ID", I_ZERO);
 		to.set_ValueNoCheck ("DocumentNo", null);
 		//
@@ -339,9 +339,9 @@ public class MOrder extends X_C_Order implements I_C_Order
 			+ ") AND DocSubTypeSO=? "
 			+ " AND IsActive='Y' "
 			+ "ORDER BY AD_Org_ID DESC, IsDefault DESC";
-		int C_DocType_ID = DB.getSQLValue(null, sql, getAD_Client_ID(), DocSubTypeSO_x);
+		int C_DocType_ID = DB.getSQLValue(null, sql, getADClientID(), DocSubTypeSO_x);
 		if (C_DocType_ID <= 0)
-			log.severe ("Not found for AD_Client_ID=" + getAD_Client_ID () + ", SubType=" + DocSubTypeSO_x);
+			log.severe ("Not found for AD_Client_ID=" + getADClientID() + ", SubType=" + DocSubTypeSO_x);
 		else
 		{
 			if (log.isLoggable(Level.FINE)) log.fine("(SO) - " + DocSubTypeSO_x);
@@ -366,9 +366,9 @@ public class MOrder extends X_C_Order implements I_C_Order
 			+ "WHERE AD_Client_ID=? AND AD_Org_ID IN (0," + getAD_Org_ID()
 			+ ") AND DocBaseType='POO' "
 			+ "ORDER BY AD_Org_ID DESC, IsDefault DESC";
-		int C_DocType_ID = DB.getSQLValue(null, sql, getAD_Client_ID());
+		int C_DocType_ID = DB.getSQLValue(null, sql, getADClientID());
 		if (C_DocType_ID <= 0)
-			log.severe ("No POO found for AD_Client_ID=" + getAD_Client_ID ());
+			log.severe ("No POO found for AD_Client_ID=" + getADClientID());
 		else
 		{
 			if (log.isLoggable(Level.FINE)) log.fine("(PO) - " + C_DocType_ID);
@@ -473,7 +473,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 		for (int i = 0; i < fromLines.length; i++)
 		{
 			MOrderLine line = new MOrderLine (this);
-			copyValues(fromLines[i], line, getAD_Client_ID(), getAD_Org_ID());
+			copyValues(fromLines[i], line, getADClientID(), getAD_Org_ID());
 			line.setC_Order_ID(getC_Order_ID());
 			//
 			line.setQtyDelivered(Env.ZERO);
@@ -870,7 +870,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 				log.warning("Changed Org to Context=" + context_AD_Org_ID);
 			}
 		}
-		if (getAD_Client_ID() == 0)
+		if (getADClientID() == 0)
 		{
 			m_processMsg = "AD_Client_ID = 0";
 			return false;
@@ -911,7 +911,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 		
 		//	No Partner Info - set Template
 		if (getC_BPartner_ID() == 0)
-			setBPartner(MBPartner.getTemplate(getCtx(), getAD_Client_ID()));
+			setBPartner(MBPartner.getTemplate(getCtx(), getADClientID()));
 		if (getC_BPartner_Location_ID() == 0)
 			setBPartner(new MBPartner(getCtx(), getC_BPartner_ID(), null));
 		//	No Bill - get from Ship
@@ -929,7 +929,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 			int ii = DB.getSQLValueEx(null,
 				"SELECT M_PriceList_ID FROM M_PriceList "
 				+ "WHERE AD_Client_ID=? AND IsSOPriceList=? AND IsActive=?"
-				+ "ORDER BY IsDefault DESC", getAD_Client_ID(), isSOTrx(), true);
+				+ "ORDER BY IsDefault DESC", getADClientID(), isSOTrx(), true);
 			if (ii != 0)
 				setM_PriceList_ID (ii);
 		}
@@ -965,7 +965,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 			else
 			{
 				String sql = "SELECT C_PaymentTerm_ID FROM C_PaymentTerm WHERE AD_Client_ID=? AND IsDefault='Y' AND IsActive='Y'";
-				ii = DB.getSQLValue(null, sql, getAD_Client_ID());
+				ii = DB.getSQLValue(null, sql, getADClientID());
 				if (ii != 0)
 					setC_PaymentTerm_ID (ii);
 			}
@@ -1163,7 +1163,7 @@ public class MOrder extends X_C_Order implements I_C_Order
 	
 	protected boolean calculateFreightCharge()
 	{
-		MClientInfo ci = MClientInfo.get(getCtx(), getAD_Client_ID(), get_TrxName());
+		MClientInfo ci = MClientInfo.get(getCtx(), getADClientID(), get_TrxName());
 		if (ci.getC_ChargeFreight_ID() == 0 && ci.getM_ProductFreight_ID() == 0)
 		{
 			m_processMsg = "Product or Charge for Freight is not defined at Client window > Client Info tab";

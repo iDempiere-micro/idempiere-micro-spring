@@ -13,6 +13,7 @@ import java.sql.Connection
 import java.sql.SQLException
 import java.util.logging.Level
 import company.bigger.util.Ini
+import org.idempiere.common.exceptions.AdempiereException
 
 /**
  * Adempiere Connection Descriptor
@@ -293,40 +294,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         private set
 
     /**
-     * RMI over HTTP
-     *
-     * Deprecated, always return false
-     * @return true if RMI over HTTP (Wan Connection Profile)
-     */
-    val isRMIoverHTTP: Boolean
-        @Deprecated("")
-        get() = false // 	isRMIoverHTTP
-
-    /**
-     * Should objects be created on Server ?
-     * @return true if client and VPN/WAN
-     */
-    val isServerObjects: Boolean
-        @Deprecated("")
-        get() = false //  isServerObjects
-
-    /**
-     * Should objects be created on Server ?
-     * @return true if client and Terminal/VPN/WAN
-     */
-    val isServerProcess: Boolean
-        @Deprecated("")
-        get() = false //  isServerProcess
-
-    /**
-     * Is this a Terminal Server ?
-     * @return true if client and Terminal
-     */
-    val isTerminalServer: Boolean
-        @Deprecated("")
-        get() = false //  isTerminalServer
-
-    /**
      * Is Oracle DB
      * @return true if Oracle
      */
@@ -385,7 +352,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         get() {
             val sb = StringBuilder(if (m_info[0] != null) m_info[0] else "")
             sb.append(" - ").append(if (m_info[1] != null) m_info[1] else "")
-                    .append("\n").append(database!!.toString())
+                    .append("\n").append(database.toString())
 
             sb.append("\nDatabaseOK=").append(isDatabaseOK)
 
@@ -398,25 +365,18 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
      */
     //  different driver
     // 	test class loader ability
-    val database: AdempiereDatabase?
+    val database: AdempiereDatabase
         get() {
-            if (m_db != null && m_db!!.name != type)
-                m_db = null
-
-            if (m_db == null) {
-                try {
-                    m_db = Database.getDatabase(type)
-                    if (m_db != null)
-                        m_db!!.getDataSource(this)
-                } catch (ee: NoClassDefFoundError) {
-                    log.severe("Environment Error - Check idempiere.properties - $ee")
-                } catch (e: Exception) {
-                    println("EE1:" + e.toString())
-                    e.printStackTrace()
-                    log.severe(e.toString())
+            val db = m_db
+            if (db == null || db.name != type) {
+                m_db = Database.getDatabase(type)
+                val db1 = m_db
+                if (db1 != null) {
+                    db1.getDataSource(this)
+                    return db1
                 }
             }
-            return m_db
+            return db ?: throw AdempiereException("Unable to get database")
         } //  getDatabase
 
     /**
@@ -426,11 +386,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     //  updates m_db
     val connectionURL: String
         get() {
-            database
-            return if (m_db != null)
-                m_db!!.getConnectionURL(this)
-            else
-                ""
+            return database.getConnectionURL(this)
         } //  getConnectionURL
 
     /**
@@ -444,14 +400,15 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
                     .append("-").append(dbName)
                     .append("-").append(dbUid)
                     .append("}")
-            if (m_db != null)
-                sb.append(m_db!!.status)
+            val db = m_db
+            if (db != null)
+                sb.append(db.status)
             return sb.toString()
         } // 	getStatus
 
     init {
         setAttributes(ini.connection)
-        s_cc = this
+        set(this)
     } //  CConnection
 
     /**
@@ -576,7 +533,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
      */
     fun setDataSource(ds: DataSource?): Boolean {
         if (ds == null && m_ds != null)
-            database!!.close()
+            database.close()
         m_ds = ds
         return m_ds != null
     } // 	setDataSource
@@ -589,39 +546,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         return m_ds
     } // 	getDataSource
 
-    /**************************************************************************
-     * Test Database Connection.
-     * -- Example --
-     * Database: PostgreSQL - 7.1.3
-     * Driver:   PostgreSQL Native Driver - PostgreSQL 7.2 JDBC2
-     * -- Example --
-     * Database: Oracle - Oracle8i Enterprise Edition Release 8.1.7.0.0 - Production With the Partitioning option JServer Release 8.1.7.0.0 - Production
-     * Driver:   Oracle JDBC driver - 9.0.1.1.0
-     * @param retest
-     * @return Exception or null
-     */
-    fun testDatabase(retest: Boolean): Exception? {
-        if (!retest && m_ds != null && isDatabaseOK)
-            return null
-
-        if (database != null)
-            database!!.close()
-        m_ds = null
-        setDataSource()
-        //  the actual test
-        val conn = getConnection(true,
-                Connection.TRANSACTION_READ_COMMITTED)
-        if (conn != null) {
-            try {
-                readInfo(conn)
-                conn.close()
-            } catch (e: Exception) {
-                log.severe(e.toString())
-                return e
-            }
-        }
-        return databaseException //  from opening
-    } //  testDatabase
 
     @Throws(SQLException::class)
     fun readInfo(conn: Connection) {
@@ -708,12 +632,12 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     //  toStringLong
 
     private fun escape(value: String?): String? {
-        var value1: String? = value ?: return null
+        val value1 = value ?: return null
 
         // use html like escape sequence to escape = and ,
-        value1 = value1!!.replace("=", "&eq;")
-        value1 = value1.replace(",", "&comma;")
         return value1
+            .replace("=", "&eq;")
+            .replace(",", "&comma;")
     }
 
     /**
@@ -815,7 +739,8 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         isDatabaseOK = false
         //
         database //  updates m_db
-        if (m_db == null) {
+        val db = m_db
+        if (db == null) {
             databaseException = IllegalStateException("No Database Connector")
             return null
         }
@@ -827,7 +752,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
             // 	{
             // Exception ee = null;
             try {
-                conn = m_db!!.getCachedConnection(this, autoCommit, transactionIsolation)
+                conn = db.getCachedConnection(this, autoCommit, transactionIsolation)
             } catch (e: Exception) {
                 // ee = e;
                 println("E1:" + e.toString())
@@ -843,7 +768,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
                 isDatabaseOK = true
             } else {
                 println("Unable to obtain connection. We will try to restart.")
-                m_db!!.fubar()
+                db.fubar()
             }
         } catch (ule: UnsatisfiedLinkError) {
             println("E2:" + ule.toString())
@@ -905,19 +830,14 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     @Throws(Exception::class)
     fun convertStatement(origStatement: String): String {
         //  make sure we have a good database
-        if (m_db != null && m_db!!.name != type)
+        val db = m_db
+        if (db != null && db.name != type)
             database
-        if (m_db != null)
-            return m_db!!.convertStatement(origStatement)
+        if (db != null)
+            return db.convertStatement(origStatement)
         throw Exception(
                 "CConnection.convertStatement - No Converstion Database")
     } //  convertStatement
-
-    fun setAppServerCredential(identity: String, secret: CharArray) {
-        appServerCredential = SecurityPrincipal()
-        appServerCredential!!.identity = identity
-        appServerCredential!!.secret = secret
-    }
 
     @Throws(CloneNotSupportedException::class)
     public override fun clone(): Any {
@@ -935,7 +855,14 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         private var s_cc: CConnection? = null
 
         /**
-         * Get/Set default client/server Connection
+         * Set default client/server Connection for non Spring usages
+         */
+        fun set(cc: CConnection) {
+            s_cc = cc
+        }
+
+        /**
+         * Get default client/server Connection
          * @return Connection Descriptor
          */
         fun get(): CConnection {

@@ -17,7 +17,6 @@ import org.idempiere.common.exceptions.AdempiereException;
 import org.adempiere.exceptions.FillMandatoryException;
 import org.compiere.orm.MSysConfig;
 import org.compiere.process.ProcessInfoLog;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.util.DisplayType;
 
@@ -54,7 +53,7 @@ public class SalesOrderRateInquiryProcess extends SvrProcess
 		if (m_order.getM_Shipper_ID() == 0)
 			throw new FillMandatoryException(MOrder.COLUMNNAME_M_Shipper_ID);
 		
-		MClientInfo ci = MClientInfo.get(getCtx(), getAD_Client_ID(), get_TrxName());
+		MClientInfo ci = MClientInfo.get(getCtx(), getADClientID(), get_TrxName());
 		if (ci.getC_ChargeFreight_ID() == 0 && ci.getM_ProductFreight_ID() == 0)
 			throw new AdempiereException("Product or Charge for Freight is not defined at Client window > Client Info tab");
 		if (ci.getC_UOM_Weight_ID() == 0)
@@ -185,7 +184,7 @@ public class SalesOrderRateInquiryProcess extends SvrProcess
 		String DutiesShipperAccount = ShippingUtil.getSenderDutiesShipperAccount(shipper.getM_Shipper_ID(), shipper.getAD_Org_ID());
 		
 		// 1 kg = 2.20462 lb
-		MClientInfo ci = MClientInfo.get(ctx, m_order.getAD_Client_ID(), trxName);
+		MClientInfo ci = MClientInfo.get(ctx, m_order.getADClientID(), trxName);
 		MUOM uom = new MUOM(ctx, ci.getC_UOM_Weight_ID(), null);
 		String unit = uom.getX12DE355();
 		boolean isPound = false;
@@ -351,7 +350,7 @@ public class SalesOrderRateInquiryProcess extends SvrProcess
 		
 		MShippingTransaction st = new MShippingTransaction(ctx, 0, trxName);
 		st.setAction(action);
-//		st.setAD_Client_ID(m_order.getAD_Client_ID());
+//		st.setADClientID(m_order.getADClientID());
 		st.setAD_Org_ID(m_order.getAD_Org_ID());
 		st.setAD_User_ID(m_order.getAD_User_ID());
 		st.setBill_Location_ID(m_order.getBill_Location_ID());
@@ -439,7 +438,7 @@ public class SalesOrderRateInquiryProcess extends SvrProcess
 			ShippingPackage shippingPackage = packages.get(i);
 			
 			MShippingTransactionLine stl = new MShippingTransactionLine(st.getCtx(), 0, st.get_TrxName());
-//			stl.setAD_Client_ID(m_order.getAD_Client_ID());
+//			stl.setADClientID(m_order.getADClientID());
 			stl.setAD_Org_ID(m_order.getAD_Org_ID());
 			stl.setC_UOM_Length_ID(ci.getC_UOM_Length_ID());
 			stl.setC_UOM_Weight_ID(ci.getC_UOM_Weight_ID());

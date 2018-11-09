@@ -143,7 +143,7 @@ public class MShippingTransaction extends X_M_ShippingTransaction
 	
 	public int getProductFreightID()
 	{
-		return DB.getSQLValue(null, "SELECT M_ProductFreight_ID FROM AD_Clientinfo WHERE AD_Client_ID = ?", getAD_Client_ID());
+		return DB.getSQLValue(null, "SELECT M_ProductFreight_ID FROM AD_Clientinfo WHERE AD_Client_ID = ?", getADClientID());
 	}
 	
 	public boolean isPrintLabelAsImage() 
@@ -254,7 +254,7 @@ public class MShippingTransaction extends X_M_ShippingTransaction
 		try {
 			stmt = DB.prepareStatement(sql.toString(), null);
 			stmt.setInt(1, M_Product_ID);
-			stmt.setInt(2, getAD_Client_ID());
+			stmt.setInt(2, getADClientID());
 			stmt.setInt(3, getAD_Org_ID());
 			rs = stmt.executeQuery();
 			
@@ -467,8 +467,8 @@ public class MShippingTransaction extends X_M_ShippingTransaction
 		}
 	}
 
-	public void setAD_Client_ID (int AD_Client_ID) {
-		super.setAD_Client_ID(AD_Client_ID);
+	public void setADClientID(int AD_Client_ID) {
+		super.setADClientID(AD_Client_ID);
 	}
 
 

@@ -105,7 +105,7 @@ class MSetup
      * @return AD_Client_ID
      */
     val aD_Client_ID: Int
-        get() = m_client!!.aD_Client_ID
+        get() = m_client!!.adClientID
     /**
      * Get AD_Org_ID
      * @return AD_Org_ID
@@ -167,7 +167,7 @@ class MSetup
             m_trx.close()
             return false
         }
-        val AD_Client_ID = m_client!!.aD_Client_ID
+        val AD_Client_ID = m_client!!.adClientID
         Env.setContext(m_ctx, m_WindowNo, "AD_Client_ID", AD_Client_ID)
         Env.setContext(m_ctx, "#AD_Client_ID", AD_Client_ID)
 
@@ -309,7 +309,7 @@ class MSetup
         clientAdminUser.description = name
         clientAdminUser.setName(name)
         clientAdminUser.value = name
-        clientAdminUser.aD_Client_ID = AD_Client_ID
+        clientAdminUser.adClientID = AD_Client_ID
         clientAdminUser.aD_Org_ID = 0
         clientAdminUser.eMail = adminEmail
 
@@ -341,7 +341,7 @@ class MSetup
         clientUser.description = name
         clientUser.setName(name)
         clientUser.value = name
-        clientUser.aD_Client_ID = AD_Client_ID
+        clientUser.adClientID = AD_Client_ID
         clientUser.aD_Org_ID = 0
         clientUser.eMail = userEmail
 
@@ -526,7 +526,7 @@ class MSetup
         var stmt: PreparedStatement? = null
         var rs: ResultSet? = null
         try {
-            val AD_Client_ID = m_client!!.aD_Client_ID
+            val AD_Client_ID = m_client!!.adClientID
             stmt = DB.prepareStatement(sql2, m_trx.trxName)
             rs = stmt!!.executeQuery()
             while (rs!!.next()) {
@@ -773,7 +773,7 @@ class MSetup
         sqlCmd = StringBuffer("UPDATE AD_ClientInfo SET ")
         sqlCmd.append("C_AcctSchema1_ID=").append(m_as!!.c_AcctSchema_ID)
                 .append(", C_Calendar_ID=").append(m_calendar!!.c_Calendar_ID)
-                .append(" WHERE AD_Client_ID=").append(m_client!!.aD_Client_ID)
+                .append(" WHERE AD_Client_ID=").append(m_client!!.adClientID)
         no = DB.executeUpdateEx(sqlCmd.toString(), m_trx.trxName)
         if (no != 1) {
             val err = "ClientInfo not updated"
@@ -786,7 +786,7 @@ class MSetup
 
         //	Validate Completeness
         val processInfo = ProcessInfo("Document Type Verify", 0)
-        processInfo.aD_Client_ID = aD_Client_ID
+        processInfo.adClientID = aD_Client_ID
         processInfo.aD_User_ID = aD_User_ID
         processInfo.parameter = arrayOfNulls<ProcessInfoParameter>(0)
         if (!ProcessUtil.startJavaProcess(m_ctx, processInfo, m_trx, false, null, DocumentTypeVerify())) {
@@ -821,7 +821,7 @@ class MSetup
                 if (log.isLoggable(Level.INFO)) log.info("YesNo: " + c.columnName)
             }
         }
-        acct.aD_Client_ID = m_client!!.aD_Client_ID
+        acct.adClientID = m_client!!.adClientID
         acct.set_Value(I_C_AcctSchema.COLUMNNAME_C_AcctSchema_ID, m_as!!.c_AcctSchema_ID)
         //
         if (!acct.save()) {

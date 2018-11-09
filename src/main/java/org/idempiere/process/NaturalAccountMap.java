@@ -1,6 +1,5 @@
 package org.idempiere.process;
 
-import company.bigger.util.Ini;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -246,7 +245,7 @@ public final class NaturalAccountMap<K,V> extends CCache<K,V>
         while (iterator.hasNext())
         {
             MElementValue na = (MElementValue)iterator.next();
-            na.setAD_Client_ID(AD_Client_ID);
+            na.setADClientID(AD_Client_ID);
             na.setAD_Org_ID(AD_Org_ID);
             na.setC_Element_ID(C_Element_ID);
             na.setIsActive(isActive);

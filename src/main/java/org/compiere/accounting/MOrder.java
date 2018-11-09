@@ -68,7 +68,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
     public MOrder (MProject project, boolean IsSOTrx, String DocSubTypeSO)
     {
         this (project.getCtx(), 0, project.get_TrxName());
-        setAD_Client_ID(project.getAD_Client_ID());
+        setADClientID(project.getADClientID());
         setAD_Org_ID(project.getAD_Org_ID());
         setC_Campaign_ID(project.getC_Campaign_ID());
         setSalesRep_ID(project.getSalesRep_ID());
@@ -224,7 +224,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                 log.warning("Changed Org to Context=" + context_AD_Org_ID);
             }
         }
-        if (getAD_Client_ID() == 0)
+        if (getADClientID() == 0)
         {
             m_processMsg = "AD_Client_ID = 0";
             return false;
@@ -273,7 +273,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
 
         //	No Partner Info - set Template
         if (getC_BPartner_ID() == 0)
-            setBPartner(org.compiere.crm.MBPartner.getTemplate(getCtx(), getAD_Client_ID()));
+            setBPartner(org.compiere.crm.MBPartner.getTemplate(getCtx(), getADClientID()));
         if (getC_BPartner_Location_ID() == 0)
             setBPartner(new MBPartner(getCtx(), getC_BPartner_ID(), null));
         //	No Bill - get from Ship
@@ -291,7 +291,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             int ii = DB.getSQLValueEx(null,
                 "SELECT M_PriceList_ID FROM M_PriceList "
                     + "WHERE AD_Client_ID=? AND IsSOPriceList=? AND IsActive=?"
-                    + "ORDER BY IsDefault DESC", getAD_Client_ID(), isSOTrx(), true);
+                    + "ORDER BY IsDefault DESC", getADClientID(), isSOTrx(), true);
             if (ii != 0)
                 setM_PriceList_ID (ii);
         }
@@ -327,7 +327,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
             else
             {
                 String sql = "SELECT C_PaymentTerm_ID FROM C_PaymentTerm WHERE AD_Client_ID=? AND IsDefault='Y' AND IsActive='Y'";
-                ii = DB.getSQLValue(null, sql, getAD_Client_ID());
+                ii = DB.getSQLValue(null, sql, getADClientID());
                 if (ii != 0)
                     setC_PaymentTerm_ID (ii);
             }
@@ -621,10 +621,10 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         {
             if (   MDocType.DOCSUBTYPESO_POSOrder.equals(dt.getDocSubTypeSO())
                 && PAYMENTRULE_Cash.equals(getPaymentRule())
-                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_CASH_POS_ORDER, true, getAD_Client_ID(), getAD_Org_ID())) {
+                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_CASH_POS_ORDER, true, getADClientID(), getAD_Org_ID())) {
                 // ignore -- don't validate for Cash POS Orders depending on sysconfig parameter
             } else if (MDocType.DOCSUBTYPESO_PrepayOrder.equals(dt.getDocSubTypeSO())
-                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_PREPAY_ORDER, true, getAD_Client_ID(), getAD_Org_ID())) {
+                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_PREPAY_ORDER, true, getADClientID(), getAD_Org_ID())) {
                 // ignore -- don't validate Prepay Orders depending on sysconfig parameter
             } else {
                 MBPartner bp = new MBPartner (getCtx(), getBill_BPartner_ID(), get_TrxName()); // bill bp is guaranteed on beforeSave
@@ -648,7 +648,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
                     }
                     BigDecimal grandTotal = MConversionRate.convertBase(getCtx(),
                         getGrandTotal(), getC_Currency_ID(), getDateOrdered(),
-                        getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+                        getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
                     if (MBPartner.SOCREDITSTATUS_CreditHold.equals(bp.getSOCreditStatus(grandTotal)))
                     {
                         m_processMsg = "@BPartnerOverOCreditHold@ - @TotalOpenBalance@="
@@ -835,7 +835,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
         if (log.isLoggable(Level.INFO)) log.info(toString());
         StringBuilder info = new StringBuilder();
 
-        boolean realTimePOS = MSysConfig.getBooleanValue(MSysConfig.REAL_TIME_POS, false , getAD_Client_ID());
+        boolean realTimePOS = MSysConfig.getBooleanValue(MSysConfig.REAL_TIME_POS, false , getADClientID());
 
         //	Create SO Shipment - Force Shipment
         MInOut shipment = null;
@@ -1617,7 +1617,7 @@ public class MOrder extends org.compiere.order.MOrder implements DocAction, IPOD
     protected String deleteMatchPOCostDetail(MOrderLine line)
     {
         // Get Account Schemas to delete MCostDetail
-        MAcctSchema[] acctschemas = MAcctSchema.getClientAcctSchema(getCtx(), getAD_Client_ID());
+        MAcctSchema[] acctschemas = MAcctSchema.getClientAcctSchema(getCtx(), getADClientID());
         for(int asn = 0; asn < acctschemas.length; asn++)
         {
             MAcctSchema as = acctschemas[asn];

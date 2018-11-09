@@ -826,7 +826,7 @@ public class Query
 		}
 		if (this.onlyClient_ID)
 		{
-			int AD_Client_ID = Env.getAD_Client_ID(ctx);
+			int AD_Client_ID = Env.getADClientID(ctx);
 			DB.setParameter(pstmt, i++, AD_Client_ID);
 			if (log.isLoggable(Level.FINEST)) log.finest("Parameter AD_Client_ID = "+AD_Client_ID);
 		}

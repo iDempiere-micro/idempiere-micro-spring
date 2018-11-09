@@ -223,7 +223,7 @@ class TestGetSimpleOrder : BaseTest() {
                 ProcessInfoParameter("CreateAllLocations", "Y", null, null, null)
         )
         val pinfo1 = ProcessInfo("Import Test BPartner", 206)
-        pinfo1.aD_Client_ID = AD_CLIENT_ID
+        pinfo1.adClientID = AD_CLIENT_ID
         pinfo1.parameter = parameters1
         importBPartner.startProcess(ctx, pinfo1, null)
 

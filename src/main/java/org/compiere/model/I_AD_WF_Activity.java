@@ -31,7 +31,7 @@ public interface I_AD_WF_Activity
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Message_ID */
     public static final String COLUMNNAME_AD_Message_ID = "AD_Message_ID";

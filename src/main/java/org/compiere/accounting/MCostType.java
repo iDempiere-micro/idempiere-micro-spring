@@ -68,7 +68,7 @@ public class MCostType extends X_M_CostType
 	 */
 	protected boolean beforeDelete ()
 	{
-		MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(getCtx(), getAD_Client_ID());
+		MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(getCtx(), getADClientID());
 		for (int i = 0; i < ass.length; i++)
 		{
 			if (ass[i].getM_CostType_ID() == getM_CostType_ID())

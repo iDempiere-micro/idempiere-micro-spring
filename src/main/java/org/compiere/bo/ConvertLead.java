@@ -48,7 +48,7 @@ public class ConvertLead extends SvrProcess {
 		if (!lead.isSalesLead() && lead.getC_BPartner_ID() != 0)
 			throw new AdempiereUserError("Lead already converted");
 
-		I_C_BPartner bp = MBPartner.getTemplate(getCtx(), Env.getAD_Client_ID(getCtx()));
+		I_C_BPartner bp = MBPartner.getTemplate(getCtx(), Env.getADClientID(getCtx()));
 		bp.set_TrxName(get_TrxName());
 		if ( !Util.isEmpty(lead.getBPName()) )
 			bp.setName(lead.getBPName());
@@ -186,7 +186,7 @@ public class ConvertLead extends SvrProcess {
 			{
 				String sql = "SELECT MIN(s.C_SalesStage_ID) FROM C_SalesStage s WHERE s.AD_Client_ID = ? AND s.IsActive = 'Y' " +
 						"AND NOT EXISTS (SELECT * FROM C_SalesStage ss WHERE ss.AD_Client_ID=s.AD_Client_ID AND ss.IsActive='Y' AND ss.Value < s.Value)";
-				p_C_SalesStage_ID = DB.getSQLValue(get_TrxName(), sql, getAD_Client_ID());
+				p_C_SalesStage_ID = DB.getSQLValue(get_TrxName(), sql, getADClientID());
 			}
 			
 		}

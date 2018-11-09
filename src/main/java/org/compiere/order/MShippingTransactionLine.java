@@ -21,8 +21,8 @@ public class MShippingTransactionLine extends X_M_ShippingTransactionLine
 		super(ctx, rs, trxName);
 	}
 
-	public void setAD_Client_ID (int AD_Client_ID) {
-		super.setAD_Client_ID(AD_Client_ID);
+	public void setADClientID(int AD_Client_ID) {
+		super.setADClientID(AD_Client_ID);
 	}
 	
 }

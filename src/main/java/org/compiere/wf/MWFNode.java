@@ -242,7 +242,7 @@ public class MWFNode extends X_AD_WF_Node
 		for (int i = 0; i < m_next.size(); i++)
 		{
 			MWFNodeNext next = m_next.get(i);
-			if (next.getAD_Client_ID() == 0 || next.getAD_Client_ID() == AD_Client_ID)
+			if (next.getADClientID() == 0 || next.getADClientID() == AD_Client_ID)
 				list.add(next);
 		}
 		MWFNodeNext[] retValue = new MWFNodeNext [list.size()];

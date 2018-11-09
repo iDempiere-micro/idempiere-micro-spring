@@ -120,7 +120,7 @@ public class MUserOrgAccess extends X_AD_User_OrgAccess
 	public MUserOrgAccess (MUser user, int AD_Org_ID)
 	{
 		this (user.getCtx(), 0, user.get_TrxName());
-		setClientOrg (user.getAD_Client_ID(), AD_Org_ID);
+		setClientOrg (user.getADClientID(), AD_Org_ID);
 		setAD_User_ID (user.getAD_User_ID());
 	}	//	MUserOrgAccess
 
@@ -132,7 +132,7 @@ public class MUserOrgAccess extends X_AD_User_OrgAccess
 	{
 		StringBuilder sb = new StringBuilder("MUserOrgAccess[");
 		sb.append("AD_User_ID=").append(getAD_User_ID())
-			.append(",AD_Client_ID=").append(getAD_Client_ID())
+			.append(",AD_Client_ID=").append(getADClientID())
 			.append(",AD_Org_ID=").append(getAD_Org_ID())
 			.append(",RO=").append(isReadOnly());	
 		sb.append("]");

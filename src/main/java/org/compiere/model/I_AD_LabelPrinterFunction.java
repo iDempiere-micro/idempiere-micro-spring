@@ -31,7 +31,7 @@ public interface I_AD_LabelPrinterFunction
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_LabelPrinterFunction_ID */
     public static final String COLUMNNAME_AD_LabelPrinterFunction_ID = "AD_LabelPrinterFunction_ID";

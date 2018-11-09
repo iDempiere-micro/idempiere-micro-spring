@@ -102,10 +102,10 @@ public class ClientAcctProcessor extends SvrProcess
 		if (! MClient.isClientAccounting())
 			throw new AdempiereUserError(Msg.getMsg(getCtx(), "ClientAccountingNotEnabled"));
 
-		m_client = MClient.get(getCtx(), getAD_Client_ID());
+		m_client = MClient.get(getCtx(), getADClientID());
 
 		if (p_C_AcctSchema_ID == 0)
-			m_ass = MAcctSchema.getClientAcctSchema(getCtx(), getAD_Client_ID());
+			m_ass = MAcctSchema.getClientAcctSchema(getCtx(), getADClientID());
 		else	//	only specific accounting schema
 			m_ass = new MAcctSchema[] {new MAcctSchema (getCtx(), p_C_AcctSchema_ID, get_TrxName())};
 
@@ -154,7 +154,7 @@ public class ClientAcctProcessor extends SvrProcess
 			try
 			{
 				pstmt = DB.prepareStatement(sql.toString(), get_TrxName());
-				pstmt.setInt(1, getAD_Client_ID());
+				pstmt.setInt(1, getADClientID());
 				pstmt.setBigDecimal(2, value);
 				rs = pstmt.executeQuery();
 				while (rs.next())
@@ -210,7 +210,7 @@ public class ClientAcctProcessor extends SvrProcess
 			try
 			{
 				pstmt = DB.prepareStatement(sql.toString(), get_TrxName());
-				pstmt.setInt(1, getAD_Client_ID());
+				pstmt.setInt(1, getADClientID());
 				if (processedOn.compareTo(Env.ZERO) != 0)
 					pstmt.setBigDecimal(2, processedOn);
 				rs = pstmt.executeQuery();

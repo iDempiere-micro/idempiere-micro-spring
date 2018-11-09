@@ -1,6 +1,5 @@
 package company.bigger.util
 
-
 /**
  * Version class to be exposed through the GraphQL
  */

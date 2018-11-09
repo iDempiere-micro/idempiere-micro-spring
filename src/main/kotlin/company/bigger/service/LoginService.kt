@@ -196,11 +196,11 @@ class LoginService {
         val now = Date().time
         var validButLocked = false
         for (user in users) {
-            if (clientsValidated.contains(user.getAD_Client_ID())) {
+            if (clientsValidated.contains(user.getADClientID())) {
                 log.severe("Two users with password with the same name/email combination on same tenant: $app_user")
                 return arrayOf()
             }
-            clientsValidated.add(user.getAD_Client_ID())
+            clientsValidated.add(user.getADClientID())
             val valid = when {
                 authenticated -> true
                 hash_password -> user.authenticateHash(app_pwd)
@@ -264,7 +264,7 @@ class LoginService {
                 user.setFailedLoginCount(0)
                 user.setDateLastLogin(Timestamp(now))
                 if (!user.save())
-                    log.severe("Failed to update user record with date last setSecurityContext (" + user + " / clientID = " + user.getAD_Client_ID() + ")")
+                    log.severe("Failed to update user record with date last setSecurityContext (" + user + " / clientID = " + user.getADClientID() + ")")
             }
         } else if (validButLocked) {
             // User account ({0}) is locked, please contact the system administrator

@@ -95,7 +95,7 @@ public class BOMValidate extends SvrProcess
 		if (!p_IsReValidate)
 			sql += "AND IsVerified<>'Y' ";
 		sql += "ORDER BY Name";
-		int AD_Client_ID = Env.getAD_Client_ID(getCtx());
+		int AD_Client_ID = Env.getADClientID(getCtx());
 		ResultSet rs = null;
 		try
 		{

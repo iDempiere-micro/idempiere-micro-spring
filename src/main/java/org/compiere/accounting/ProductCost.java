@@ -347,7 +347,7 @@ public class ProductCost
 		if (price != null && price.compareTo(Env.ZERO)!=0)
 			price = MConversionRate.convert (as.getCtx(),
 				price, C_Currency_ID, as.getC_Currency_ID(), 
-				as.getAD_Client_ID(), 0);
+				as.getADClientID(), 0);
 		return price;
 	}   //  getPOPrice*/
 
@@ -401,7 +401,7 @@ public class ProductCost
 		//  Convert - standard precision!! - should be costing precision
 		if (cost != null && cost.compareTo(Env.ZERO)!=0)
 			cost = MConversionRate.convert (as.getCtx(),
-				cost, C_Currency_ID, as.getC_Currency_ID(), as.getAD_Client_ID(), as.getAD_Org_ID());
+				cost, C_Currency_ID, as.getC_Currency_ID(), as.getADClientID(), as.getAD_Org_ID());
 		return cost;
 	}   //  getPOCost*/
 

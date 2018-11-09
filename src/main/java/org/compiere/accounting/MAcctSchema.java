@@ -417,7 +417,7 @@ public class MAcctSchema extends X_C_AcctSchema
 		if (getM_CostType_ID() == 0)
 		{
 			MCostType ct = new MCostType (getCtx(), 0, get_TrxName());
-			ct.setClientOrg(getAD_Client_ID(), 0);
+			ct.setClientOrg(getADClientID(), 0);
 			ct.setName(getName());
 			ct.saveEx();
 			setM_CostType_ID(ct.getM_CostType_ID());
@@ -564,7 +564,7 @@ public class MAcctSchema extends X_C_AcctSchema
 		//	Check Primary
 		if (getAD_OrgOnly_ID() != 0)
 		{
-			MClientInfo info = MClientInfo.get(getCtx(), getAD_Client_ID());
+			MClientInfo info = MClientInfo.get(getCtx(), getADClientID());
 			if (info.getC_AcctSchema1_ID() == getC_AcctSchema_ID())
 				setAD_OrgOnly_ID(0);
 		}

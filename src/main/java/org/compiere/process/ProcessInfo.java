@@ -518,18 +518,18 @@ public class ProcessInfo implements Serializable, IProcessInfo
 
 
 	/**
-	 * Method setAD_Client_ID
+	 * Method setADClientID
 	 * @param AD_Client_ID int
 	 */
-	public void setAD_Client_ID (int AD_Client_ID)
+	public void setADClientID (int AD_Client_ID)
 	{
 		m_AD_Client_ID = new Integer (AD_Client_ID);
 	}
 	/**
-	 * Method getAD_Client_ID
+	 * Method getADClientID
 	 * @return Integer
 	 */
-	public Integer getAD_Client_ID()
+	public Integer getADClientID()
 	{
 		return m_AD_Client_ID;
 	}

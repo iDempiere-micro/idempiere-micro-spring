@@ -35,7 +35,6 @@ import org.compiere.orm.Query;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
 
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.idempiere.common.util.DB;
 
@@ -356,7 +355,7 @@ public class InvoiceNGL extends SvrProcess
 			MJournalLine line = new MJournalLine(journal);
 			line.setLine(lineNo+1);
 			MAccount base = MAccount.get(getCtx(), asDefaultAccts.getUnrealizedGain_Acct());
-			MAccount acct = MAccount.get(getCtx(), asDefaultAccts.getAD_Client_ID(), AD_Org_ID, 
+			MAccount acct = MAccount.get(getCtx(), asDefaultAccts.getADClientID(), AD_Org_ID,
 				asDefaultAccts.getC_AcctSchema_ID(), base.getAccount_ID(), base.getC_SubAcct_ID(),
 				base.getM_Product_ID(), base.getC_BPartner_ID(), base.getAD_OrgTrx_ID(), 
 				base.getC_LocFrom_ID(), base.getC_LocTo_ID(), base.getC_SalesRegion_ID(), 
@@ -375,7 +374,7 @@ public class InvoiceNGL extends SvrProcess
 			MJournalLine line = new MJournalLine(journal);
 			line.setLine(lineNo+2);
 			MAccount base = MAccount.get(getCtx(), asDefaultAccts.getUnrealizedLoss_Acct());
-			MAccount acct = MAccount.get(getCtx(), asDefaultAccts.getAD_Client_ID(), AD_Org_ID, 
+			MAccount acct = MAccount.get(getCtx(), asDefaultAccts.getADClientID(), AD_Org_ID,
 				asDefaultAccts.getC_AcctSchema_ID(), base.getAccount_ID(), base.getC_SubAcct_ID(),
 				base.getM_Product_ID(), base.getC_BPartner_ID(), base.getAD_OrgTrx_ID(), 
 				base.getC_LocFrom_ID(), base.getC_LocTo_ID(), base.getC_SalesRegion_ID(), 

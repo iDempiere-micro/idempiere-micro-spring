@@ -215,7 +215,7 @@ public final class ProcessUtil {
 			engine.put(MRule.ARGUMENTS_PREFIX + "Trx", trx);
 			engine.put(MRule.ARGUMENTS_PREFIX + "TrxName", trx.getTrxName());
 			engine.put(MRule.ARGUMENTS_PREFIX + "Record_ID", pi.getRecord_ID());
-			engine.put(MRule.ARGUMENTS_PREFIX + "AD_Client_ID", pi.getAD_Client_ID());
+			engine.put(MRule.ARGUMENTS_PREFIX + "AD_Client_ID", pi.getADClientID());
 			engine.put(MRule.ARGUMENTS_PREFIX + "AD_User_ID", pi.getAD_User_ID());
 			engine.put(MRule.ARGUMENTS_PREFIX + "AD_PInstance_ID", pi.getAD_PInstance_ID());
 			engine.put(MRule.ARGUMENTS_PREFIX + "Table_ID", pi.getTable_ID());

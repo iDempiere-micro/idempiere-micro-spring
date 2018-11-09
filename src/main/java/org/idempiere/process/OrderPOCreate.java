@@ -271,7 +271,7 @@ public class OrderPOCreate extends SvrProcess
 	public MOrder createPOForVendor(int C_BPartner_ID, MOrder so)
 	{
 		MOrder po = new MOrder (getCtx(), 0, get_TrxName());
-		po.setClientOrg(so.getAD_Client_ID(), so.getAD_Org_ID());
+		po.setClientOrg(so.getADClientID(), so.getAD_Org_ID());
 		po.setLink_Order_ID(so.getC_Order_ID());
 		po.setIsSOTrx(false);
 		po.setC_DocTypeTarget_ID();

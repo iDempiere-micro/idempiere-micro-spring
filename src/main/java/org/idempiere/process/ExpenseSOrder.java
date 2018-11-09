@@ -120,7 +120,7 @@ public class ExpenseSOrder extends SvrProcess
 		{
 			pstmt = DB.prepareStatement(sql.toString(), get_TrxName());
 			int par = 1;
-			pstmt.setInt(par++, getAD_Client_ID());
+			pstmt.setInt(par++, getADClientID());
 			if (p_C_BPartner_ID != 0)
 				pstmt.setInt(par++, p_C_BPartner_ID);
 			if (p_DateFrom != null)
@@ -247,7 +247,7 @@ public class ExpenseSOrder extends SvrProcess
 			if (tel.getC_Currency_ID() != m_order.getC_Currency_ID())
 				price = MConversionRate.convert(getCtx(), price, 
 					tel.getC_Currency_ID(), m_order.getC_Currency_ID(), 
-					m_order.getAD_Client_ID(), m_order.getAD_Org_ID());
+					m_order.getADClientID(), m_order.getAD_Org_ID());
 			ol.setPrice(price);
 		}
 		else

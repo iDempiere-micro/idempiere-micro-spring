@@ -31,7 +31,7 @@ public interface I_AD_Process_Para
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Element_ID */
     public static final String COLUMNNAME_AD_Element_ID = "AD_Element_ID";

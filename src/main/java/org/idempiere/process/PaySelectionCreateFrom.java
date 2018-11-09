@@ -213,7 +213,7 @@ public class PaySelectionCreateFrom extends SvrProcess
 			pstmt.setInt (index++, C_CurrencyTo_ID);
 			pstmt.setTimestamp(index++, psel.getPayDate());
 			//
-			pstmt.setInt(index++, psel.getAD_Client_ID());
+			pstmt.setInt(index++, psel.getADClientID());
 			pstmt.setInt(index++, p_C_PaySelection_ID);
 			if (p_PaymentRule != null)
 				pstmt.setString(index++, p_PaymentRule);

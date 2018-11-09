@@ -116,7 +116,7 @@ public class OrgOwnership extends SvrProcess
 		sql.append("UPDATE M_Warehouse ")
 			.append("SET AD_Org_ID=").append(p_AD_Org_ID)
 			.append(" WHERE M_Warehouse_ID=").append(p_M_Warehouse_ID)
-			.append(" AND AD_Client_ID=").append(getAD_Client_ID())
+			.append(" AND AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		int no = DB.executeUpdate(sql.toString(), get_TrxName());
 		addLog (0,null, new BigDecimal(no), Msg.translate(getCtx(), "M_Warehouse_ID"));
@@ -126,7 +126,7 @@ public class OrgOwnership extends SvrProcess
 		sql.append("UPDATE M_Warehouse_Acct ")
 			.append("SET AD_Org_ID=").append(p_AD_Org_ID)
 			.append(" WHERE M_Warehouse_ID=").append(p_M_Warehouse_ID)
-			.append(" AND AD_Client_ID=").append(getAD_Client_ID())
+			.append(" AND AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		no = DB.executeUpdate(sql.toString(), get_TrxName());
 		addLog (0,null, new BigDecimal(no), Msg.translate(getCtx(), "C_AcctSchema_ID"));
@@ -136,7 +136,7 @@ public class OrgOwnership extends SvrProcess
 		sql.append("UPDATE M_Locator ")
 			.append("SET AD_Org_ID=").append(p_AD_Org_ID)
 			.append(" WHERE M_Warehouse_ID=").append(p_M_Warehouse_ID)
-			.append(" AND AD_Client_ID=").append(getAD_Client_ID())
+			.append(" AND AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		no = DB.executeUpdate(sql.toString(), get_TrxName());
 		addLog (0,null, new BigDecimal(no), Msg.translate(getCtx(), "M_Locator_ID"));
@@ -148,7 +148,7 @@ public class OrgOwnership extends SvrProcess
 			.append(" WHERE EXISTS ")
 				.append("(SELECT * FROM M_Locator l WHERE l.M_Locator_ID=s.M_Locator_ID")
 				.append(" AND l.M_Warehouse_ID=").append(p_M_Warehouse_ID)
-			.append(") AND AD_Client_ID=").append(getAD_Client_ID())
+			.append(") AND AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		no = DB.executeUpdate(sql.toString(), get_TrxName());
 		addLog (0,null, new BigDecimal(no), Msg.translate(getCtx(), "Storage"));
@@ -158,7 +158,7 @@ public class OrgOwnership extends SvrProcess
 		sql.append("UPDATE M_StorageReservation	 s ")
 			.append("SET AD_Org_ID=").append(p_AD_Org_ID)
 			.append(" WHERE M_Warehouse_ID=").append(p_M_Warehouse_ID)
-			.append(" AND AD_Client_ID=").append(getAD_Client_ID())
+			.append(" AND AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		no = DB.executeUpdate(sql.toString(), get_TrxName());
 		addLog (0,null, new BigDecimal(no), Msg.translate(getCtx(), "StorageReservation"));
@@ -182,7 +182,7 @@ public class OrgOwnership extends SvrProcess
 					.append(p_M_Product_Category_ID).append(")");
 		else
 			set.append(" WHERE M_Product_ID=").append(p_M_Product_ID);
-		set.append(" AND AD_Client_ID=").append(getAD_Client_ID()).append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
+		set.append(" AND AD_Client_ID=").append(getADClientID()).append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		if (log.isLoggable(Level.FINE)) log.fine("productOwnership - " + set);
 		
 		//	Product
@@ -227,7 +227,7 @@ public class OrgOwnership extends SvrProcess
 			set.append(" WHERE EXISTS (SELECT * FROM C_BPartner bp WHERE bp.C_BPartner_ID=x.C_BPartner_ID AND bp.C_BP_Group_ID=").append(p_C_BP_Group_ID).append(")");
 		else
 			set.append(" WHERE C_BPartner_ID=").append(p_C_BPartner_ID);
-		set.append(" AND AD_Client_ID=").append(getAD_Client_ID()).append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
+		set.append(" AND AD_Client_ID=").append(getADClientID()).append(" AND AD_Org_ID<>").append(p_AD_Org_ID);
 		if (log.isLoggable(Level.FINE)) log.fine("bPartnerOwnership - " + set.toString());
 
 		//	BPartner
@@ -270,7 +270,7 @@ public class OrgOwnership extends SvrProcess
 	 */
 	private void generalOwnership ()
 	{
-		StringBuilder set = new StringBuilder("SET AD_Org_ID=0 WHERE AD_Client_ID=").append(getAD_Client_ID())
+		StringBuilder set = new StringBuilder("SET AD_Org_ID=0 WHERE AD_Client_ID=").append(getADClientID())
 			.append(" AND AD_Org_ID<>0"); 
 			
 		//	R_ContactInterest

@@ -150,7 +150,7 @@ public class AllocationAuto extends SvrProcess
 			try
 			{
 				pstmt = DB.prepareStatement (sql, get_TrxName());
-				pstmt.setInt (1, Env.getAD_Client_ID(getCtx()));
+				pstmt.setInt (1, Env.getADClientID(getCtx()));
 				rs = pstmt.executeQuery ();
 				while (rs.next ())
 				{

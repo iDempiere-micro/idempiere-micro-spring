@@ -34,7 +34,7 @@ public abstract class AdempiereServer implements Runnable
         p_model = model;
         if (p_system == null)
             p_system = MSystem.get(model.getCtx());
-        p_client = MClient.get(model.getCtx(), model.getAD_Client_ID());
+        p_client = MClient.get(model.getCtx(), model.getADClientID());
         m_initialNap = initialNap;
 
         Timestamp dateNextRun = getDateNextRun(true);
@@ -124,8 +124,8 @@ public abstract class AdempiereServer implements Runnable
     public void runNow()
     {
         Properties context = new Properties();
-        MClient schedclient = MClient.get(getCtx(), p_model.getAD_Client_ID());
-        Env.setContext(context, "#AD_Client_ID", schedclient.getAD_Client_ID());
+        MClient schedclient = MClient.get(getCtx(), p_model.getADClientID());
+        Env.setContext(context, "#AD_Client_ID", schedclient.getADClientID());
         Env.setContext(context, "#AD_Language", schedclient.getADLanguage());
         if (p_model instanceof PO) {
             PO po = (PO) p_model;
@@ -210,7 +210,7 @@ public abstract class AdempiereServer implements Runnable
         }
 
         Properties context = new Properties();
-        Env.setContext(context, "#AD_Client_ID", p_model.getAD_Client_ID());
+        Env.setContext(context, "#AD_Client_ID", p_model.getADClientID());
         if (p_model instanceof PO) {
             PO po = (PO) p_model;
             if (po.get_ColumnIndex("AD_Org_ID") >= 0)

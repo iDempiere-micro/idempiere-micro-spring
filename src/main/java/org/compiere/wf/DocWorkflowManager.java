@@ -68,7 +68,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 	{
 		m_noCalled++;
 		MWorkflow[] wfs = MWorkflow.getDocValue (document.getCtx(), 
-			document.getAD_Client_ID(), AD_Table_ID
+			document.getADClientID(), AD_Table_ID
 			, document.get_TrxName() // Bug 1568766 Trx should be kept all along the road	
 		);
 		if (wfs == null || wfs.length == 0)
@@ -87,7 +87,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 			}
 		
 			//	Re-check: Document must be same Client as workflow
-			if (wf.getAD_Client_ID() != document.getAD_Client_ID())
+			if (wf.getADClientID() != document.getADClientID())
 				continue;
 		
 			//	Check Logic
@@ -109,7 +109,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 			ProcessInfo pi = new ProcessInfo (wf.getName(), AD_Process_ID,
 				AD_Table_ID, document.getId());
 			pi.setAD_User_ID (Env.getAD_User_ID(document.getCtx()));
-			pi.setAD_Client_ID(document.getAD_Client_ID());
+			pi.setADClientID(document.getADClientID());
 			//
 			if (wf.start(pi, document.get_TrxName()) != null)
 			{
@@ -158,7 +158,7 @@ public class DocWorkflowManager implements DocWorkflowMgr
 		try
 		{
 			pstmt = DB.prepareStatement (sql.toString(), document.get_TrxName());
-			pstmt.setInt (1, wf.getAD_Client_ID());
+			pstmt.setInt (1, wf.getADClientID());
 			pstmt.setInt (2, document.getId());
 			pstmt.setInt (3, document.get_Table_ID());
 			pstmt.setInt (4, wf.getAD_Workflow_ID());

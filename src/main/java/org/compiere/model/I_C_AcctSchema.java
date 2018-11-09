@@ -32,7 +32,7 @@ public interface I_C_AcctSchema
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Org_ID */
     public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
