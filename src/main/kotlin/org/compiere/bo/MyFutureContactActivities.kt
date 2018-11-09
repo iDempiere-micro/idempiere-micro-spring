@@ -13,6 +13,9 @@ import java.sql.Connection
  */
 class MyFutureContactActivities : SvrProcessBaseSql() {
 
+    /**
+     * Result class with the list of the contact activities (result of the calls)
+     */
     data class Result(val activities: List<ContactActivity>) : java.io.Serializable
 
     override val isRO: Boolean
