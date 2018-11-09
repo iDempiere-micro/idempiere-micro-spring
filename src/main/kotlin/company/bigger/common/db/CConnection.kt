@@ -674,12 +674,12 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     //  toStringLong
 
     private fun escape(value: String?): String? {
-        var value1: String? = value ?: return null
+        val value1 = value ?: return null
 
         // use html like escape sequence to escape = and ,
-        value1 = value1!!.replace("=", "&eq;")
-        value1 = value1.replace(",", "&comma;")
         return value1
+            .replace("=", "&eq;")
+            .replace(",", "&comma;")
     }
 
     /**
@@ -781,7 +781,8 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         isDatabaseOK = false
         //
         database //  updates m_db
-        if (m_db == null) {
+        val db = m_db
+        if (db == null) {
             databaseException = IllegalStateException("No Database Connector")
             return null
         }
@@ -793,7 +794,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
             // 	{
             // Exception ee = null;
             try {
-                conn = m_db!!.getCachedConnection(this, autoCommit, transactionIsolation)
+                conn = db.getCachedConnection(this, autoCommit, transactionIsolation)
             } catch (e: Exception) {
                 // ee = e;
                 println("E1:" + e.toString())
@@ -809,7 +810,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
                 isDatabaseOK = true
             } else {
                 println("Unable to obtain connection. We will try to restart.")
-                m_db!!.fubar()
+                db.fubar()
             }
         } catch (ule: UnsatisfiedLinkError) {
             println("E2:" + ule.toString())
@@ -871,10 +872,11 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     @Throws(Exception::class)
     fun convertStatement(origStatement: String): String {
         //  make sure we have a good database
-        if (m_db != null && m_db!!.name != type)
+        val db = m_db
+        if (db != null && db.name != type)
             database
-        if (m_db != null)
-            return m_db!!.convertStatement(origStatement)
+        if (db != null)
+            return db.convertStatement(origStatement)
         throw Exception(
                 "CConnection.convertStatement - No Converstion Database")
     } //  convertStatement

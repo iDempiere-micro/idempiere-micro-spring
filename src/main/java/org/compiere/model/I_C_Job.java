@@ -3,13 +3,12 @@ package org.compiere.model;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
-import software.hsharp.business.models.IClientBound;
 
 /** Generated Interface for C_Job
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_Job extends IClientBound
+public interface I_C_Job
 {
 
     /** TableName=C_Job */

@@ -5,19 +5,17 @@ import org.compiere.crm.SvrProcessBaseSql
 import org.compiere.model.I_C_ContactActivity
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import software.hsharp.business.models.IContactActivity
-import software.hsharp.business.models.IDTOReady
 import java.math.BigDecimal
 import java.sql.Connection
 
 class MyFutureContactActivities : SvrProcessBaseSql() {
 
-    data class Result(val activities: List<IContactActivity>) : IDTOReady
+    data class Result(val activities: List<ContactActivity>) : java.io.Serializable
 
     override val isRO: Boolean
         get() = true
 
-    override fun getSqlResult(cnn: Connection): IDTOReady {
+    override fun getSqlResult(cnn: Connection): java.io.Serializable {
         val sql =
             """
 select * from(

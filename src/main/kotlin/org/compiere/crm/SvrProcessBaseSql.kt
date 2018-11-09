@@ -1,7 +1,6 @@
 package org.compiere.crm
 
 import org.idempiere.common.util.DB
-import software.hsharp.business.models.IDTOReady
 import java.sql.Connection
 
 abstract class SvrProcessBaseSql(
@@ -9,10 +8,10 @@ abstract class SvrProcessBaseSql(
     _AD_ORG_ID: Int = 0,
     _AD_USER_ID: Int = 0
 ) : SvrProcessBase(_AD_CLIENT_ID, _AD_ORG_ID, _AD_USER_ID) {
-    protected abstract fun getSqlResult(cnn: Connection): IDTOReady
+    protected abstract fun getSqlResult(cnn: Connection): java.io.Serializable
     protected abstract val isRO: Boolean
 
-    override fun getResult(): IDTOReady {
+    override fun getResult(): java.io.Serializable {
         val cnn = if (isRO) {
             DB.getConnectionRO() } else { DB.getConnectionRW() }
         try {

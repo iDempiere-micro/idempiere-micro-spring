@@ -1,6 +1,5 @@
 package company.bigger.web.controller
 
-import company.bigger.web.jwt.SecuredApi
 import org.compiere.model.I_AD_User
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -21,8 +20,7 @@ data class User(
 @Deprecated("Replace with GraphQL")
 @RestController
 open class UserController(
-    private val userService: UserService,
-    private val securedApi: SecuredApi
+    private val userService: UserService
 ) {
     @GetMapping()
     @RequestMapping(value = ["/user/me"])

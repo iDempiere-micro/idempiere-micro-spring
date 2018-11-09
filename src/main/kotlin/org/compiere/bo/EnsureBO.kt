@@ -4,10 +4,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 import org.compiere.crm.SvrProcessBase
 import org.compiere.product.MCurrency
 import org.idempiere.common.util.DB
-import software.hsharp.business.models.IDTOReady
 import java.sql.Timestamp
 
-data class EnsureBOResult(val OpportunityId: Int) : IDTOReady
+data class EnsureBOResult(val OpportunityId: Int): java.io.Serializable
 
 class EnsureBO : SvrProcessBase() {
     var businessPartnerId: Int = 0
@@ -55,7 +54,7 @@ order by 1 desc
         }
     }
 
-    override fun getResult(): IDTOReady {
+    override fun getResult(): java.io.Serializable {
         var oppId = getBoId()
         if (oppId <= 0) {
             val opp = MOpportunity(ctx, 0, null)

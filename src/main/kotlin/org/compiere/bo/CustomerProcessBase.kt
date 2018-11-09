@@ -13,10 +13,9 @@ import org.compiere.orm.Query
 import org.idempiere.common.util.Env
 import org.idempiere.common.util.Trx
 import org.idempiere.orm.I_Persistent
-import software.hsharp.business.models.IDTOReady
 import java.sql.Connection
 
-data class CustomerProcessBaseResult(val C_BPartner_Id: Int) : IDTOReady
+data class CustomerProcessBaseResult(val C_BPartner_Id: Int) : java.io.Serializable
 
 fun updateCustomerCategory(customerCategoryId: Int?, bpartner: I_C_BPartner, trx: Trx) {
     val query = Query(Env.getCtx(), "Crm_Customer_Category", "c_bpartner_id = ${bpartner.c_BPartner_ID}", null)
@@ -189,7 +188,7 @@ abstract class CustomerProcessBase(
 
     abstract fun getData(m_trx: Trx): I_C_BPartner
 
-    fun coreAction(m_trx: Trx): IDTOReady {
+    fun coreAction(m_trx: Trx): CustomerProcessBaseResult {
         val result = getData(m_trx)
 
         if (bpName != null) {
@@ -294,7 +293,7 @@ abstract class CustomerProcessBase(
         updateCustomerCategory(_customerCategoryId, bpartner, trx)
     }
 
-    override fun getSqlResult(cnn: Connection): IDTOReady {
+    override fun getSqlResult(cnn: Connection): java.io.Serializable {
         val m_trx = Trx.get(Trx.createTrxName(trxName), true)
         try {
             m_trx.start()
