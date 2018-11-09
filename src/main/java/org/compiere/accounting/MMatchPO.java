@@ -412,7 +412,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 							matchInv.setC_InvoiceLine_ID(C_InvoiceLine_ID);
 							matchInv.setM_Product_ID(mpo.getM_Product_ID());
 							matchInv.setM_InOutLine_ID(M_InOutLine_ID);
-							matchInv.setAD_Client_ID(mpo.getAD_Client_ID());
+							matchInv.setADClientID(mpo.getADClientID());
 							matchInv.setAD_Org_ID(mpo.getAD_Org_ID());
 							matchInv.setM_AttributeSetInstance_ID(mpo.getMAttributeSetInstance_ID());
 							matchInv.setQty(mpo.getQty());
@@ -751,7 +751,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 		{
 			priceActual = MConversionRate.convert(getCtx(), priceActual, invoiceCurrency_ID, orderCurrency_ID,
 										invoice.getDateInvoiced(), invoice.getC_ConversionType_ID(),
-										getAD_Client_ID(), getAD_Org_ID());
+										getADClientID(), getAD_Org_ID());
 		}
 		return priceActual;
 	}
@@ -925,7 +925,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 			
 			if (getC_OrderLine_ID() > 0)
 			{
-				boolean validateOrderedQty = MSysConfig.getBooleanValue(MSysConfig.VALIDATE_MATCHING_TO_ORDERED_QTY, true, Env.getAD_Client_ID(Env.getCtx()));
+				boolean validateOrderedQty = MSysConfig.getBooleanValue(MSysConfig.VALIDATE_MATCHING_TO_ORDERED_QTY, true, Env.getADClientID(Env.getCtx()));
 				if (validateOrderedQty)
 				{
 					MOrderLine line = new MOrderLine(getCtx(), getC_OrderLine_ID(), get_TrxName());
@@ -1097,7 +1097,7 @@ public class MMatchPO extends X_M_MatchPO implements IPODoc
 		try
 		{
 			pstmt = DB.prepareStatement (sql, null);
-			pstmt.setInt(1, Env.getAD_Client_ID(ctx));
+			pstmt.setInt(1, Env.getADClientID(ctx));
 			rs = pstmt.executeQuery ();
 			while (rs.next ())
 			{

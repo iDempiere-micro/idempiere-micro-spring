@@ -1127,7 +1127,7 @@ public abstract class PO
 			else if (colName.equals("IsActive"))
 				m_newValues[i] = Boolean.TRUE;
 			else if (colName.equals("AD_Client_ID"))
-				m_newValues[i] = Env.getAD_Client_ID(p_ctx);
+				m_newValues[i] = Env.getADClientID(p_ctx);
 			else if (colName.equals("AD_Org_ID"))
 				m_newValues[i] = Env.getAD_Org_ID(p_ctx);
 			else if (colName.equals("Processed"))
@@ -1238,13 +1238,13 @@ public abstract class PO
 	 * 	Get AD_Client
 	 * 	@return AD_Client_ID
 	 */
-	public final int getAD_Client_ID()
+	public final int getADClientID()
 	{
 		Integer ii = (Integer)get_Value("AD_Client_ID");
 		if (ii == null)
 			return 0;
 		return ii;
-	}	//	getAD_Client_ID
+	}	//	getADClientID
 
 	/**
 	 * 	Get AD_Org
@@ -1566,7 +1566,7 @@ public abstract class PO
 		if (xx == null)
 			return null;
 		if (index != -1 && p_info.isEncrypted(index)) {
-			return SecureEngine.encrypt(xx, getAD_Client_ID());
+			return SecureEngine.encrypt(xx, getADClientID());
 		}
 		return xx;
 	}	//	encrypt
@@ -1582,7 +1582,7 @@ public abstract class PO
 		if (yy == null)
 			return null;
 		if (index != -1 && p_info.isEncrypted(index)) {
-			return SecureEngine.decrypt(yy, getAD_Client_ID());
+			return SecureEngine.decrypt(yy, getADClientID());
 		}
 		return yy;
 	}	//	decrypt
@@ -2832,7 +2832,7 @@ public abstract class PO
 				if (strValue.startsWith("<") && strValue.endsWith(">"))
 				{
 					value = null;
-					int AD_Client_ID = getAD_Client_ID();
+					int AD_Client_ID = getADClientID();
 					int index = p_info.getColumnIndex("C_DocTypeTarget_ID");
 					if (index == -1)
 						index = p_info.getColumnIndex("C_DocType_ID");

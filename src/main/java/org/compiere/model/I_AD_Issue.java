@@ -46,7 +46,7 @@ public interface I_AD_Issue
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Form_ID */
     public static final String COLUMNNAME_AD_Form_ID = "AD_Form_ID";

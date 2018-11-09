@@ -4,16 +4,13 @@ import org.idempiere.common.util.KeyNamePair;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import software.hsharp.business.models.ILocation;
-import software.hsharp.business.models.IClientBound;
 
 /** Generated Interface for C_Location
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_Location extends IClientBound
+public interface I_C_Location
 {
-
     /** TableName=C_Location */
     public static final String Table_Name = "C_Location";
 

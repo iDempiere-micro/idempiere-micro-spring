@@ -33,7 +33,7 @@ public class MOrg extends X_AD_Org
 		List<MOrg> list = new Query(po.getCtx(), I_AD_Org.Table_Name, "AD_Client_ID=?", null)
 								.setOrderBy(I_AD_Org.COLUMNNAME_Value)
 								.setOnlyActiveRecords(true)
-								.setParameters(po.getAD_Client_ID())
+								.setParameters(po.getADClientID())
 								.list();
 		for (MOrg org : list)
 		{
@@ -99,7 +99,7 @@ public class MOrg extends X_AD_Org
 	public MOrg (MClient client, String value, String name)
 	{
 		this (client.getCtx(), 0, client.get_TrxName());
-		setAD_Client_ID (client.getAD_Client_ID());
+		setADClientID(client.getADClientID());
 		setValue (value);
 		setName (name);
 	}	//	MOrg

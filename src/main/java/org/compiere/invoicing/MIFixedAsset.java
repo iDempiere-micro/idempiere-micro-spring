@@ -74,7 +74,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 			}
 			key = key.toUpperCase();
 			whereClause.append(DB.TO_STRING(key));
-			whereClause.append(" AND AD_Client_ID=").append(getAD_Client_ID());
+			whereClause.append(" AND AD_Client_ID=").append(getADClientID());
 			String sql = "SELECT M_Product_ID FROM M_Product WHERE " + whereClause.toString();
 			M_Product_ID = DB.getSQLValueEx(trxName, sql);
 			if (log.isLoggable(Level.FINE)) log.fine("M_Product_ID=" + M_Product_ID + " -- sql=" + sql);
@@ -102,7 +102,7 @@ public class MIFixedAsset extends X_I_FixedAsset
 			}
 			// Default Tax Category:
 			String sql = "SELECT C_TaxCategory_ID FROM C_TaxCategory WHERE AD_Client_ID IN (0,?) ORDER BY IsDefault DESC, AD_Client_ID DESC, C_TaxCategory_ID";
-			int C_TaxCategory_ID = DB.getSQLValueEx(null, sql, Env.getAD_Client_ID(ctx));
+			int C_TaxCategory_ID = DB.getSQLValueEx(null, sql, Env.getADClientID(ctx));
 			prod.setC_TaxCategory_ID(C_TaxCategory_ID);
 			//
 			prod.saveEx(trxName);

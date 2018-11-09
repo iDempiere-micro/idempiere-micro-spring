@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.logging.Level;
 
 import org.adempiere.exceptions.AverageCostingZeroQtyException;
-import org.compiere.accounting.*;
 import org.compiere.invoicing.MInvoice;
 import org.compiere.invoicing.MInvoiceLine;
 import org.compiere.invoicing.MLandedCostAllocation;
@@ -921,7 +920,7 @@ public class Doc_Invoice extends Doc
 						.append("AND M_CostElement_ID=? ")
 						.append("AND AD_Client_ID=? ");
 					BigDecimal otherAmt = DB.getSQLValueBD(getTrxName(), sql.toString(), lca.getM_InOutLine_ID(), lca.getC_LandedCostAllocation_ID(), 
-							lca.getM_CostElement_ID(), lca.getAD_Client_ID());
+							lca.getM_CostElement_ID(), lca.getADClientID());
 					if (otherAmt != null) 
 					{
 						estimatedAmt = estimatedAmt.subtract(otherAmt);
@@ -938,12 +937,12 @@ public class Doc_Invoice extends Doc
 						estimatedAmt = MConversionRate.convert(getCtx(), estimatedAmt,
 								oCurrencyId, as.getC_Currency_ID(),
 								oDateAcct, getC_ConversionType_ID(),
-								getAD_Client_ID(), getAD_Org_ID());
+								getADClientID(), getAD_Org_ID());
 
 						allocationAmt = MConversionRate.convert(getCtx(), allocationAmt,
 								getC_Currency_ID(), as.getC_Currency_ID(),
 								getDateAcct(), getC_ConversionType_ID(),
-								getAD_Client_ID(), getAD_Org_ID());
+								getADClientID(), getAD_Org_ID());
 						setC_Currency_ID(as.getC_Currency_ID());
 						usesSchemaCurrency = true;
 					}
@@ -973,7 +972,7 @@ public class Doc_Invoice extends Doc
 							costDetailAmt = MConversionRate.convert(getCtx(), costDetailAmt,
 								getC_Currency_ID(), as.getC_Currency_ID(),
 								getDateAcct(), getC_ConversionType_ID(),
-								getAD_Client_ID(), getAD_Org_ID());
+								getADClientID(), getAD_Org_ID());
 						if (costDetailAmt.scale() > as.getCostingPrecision())
 							costDetailAmt = costDetailAmt.setScale(as.getCostingPrecision(), BigDecimal.ROUND_HALF_UP);
 						
@@ -1103,7 +1102,7 @@ public class Doc_Invoice extends Doc
 	 */
 	protected void updateProductPO (MAcctSchema as)
 	{
-		MClientInfo ci = MClientInfo.get(getCtx(), as.getAD_Client_ID());
+		MClientInfo ci = MClientInfo.get(getCtx(), as.getADClientID());
 		if (ci.getC_AcctSchema1_ID() != as.getC_AcctSchema_ID())
 			return;
 

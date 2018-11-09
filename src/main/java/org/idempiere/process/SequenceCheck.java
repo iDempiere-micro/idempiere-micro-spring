@@ -271,7 +271,7 @@ public class SequenceCheck extends SvrProcess
 			MClient client = clients[i];
 			if (!client.isActive())
 				continue;
-			MSequence.checkClientSequences (ctx, client.getAD_Client_ID(), trxName);
+			MSequence.checkClientSequences (ctx, client.getADClientID(), trxName);
 		}	//	for all clients
 		
 	}	//	checkClientSequences

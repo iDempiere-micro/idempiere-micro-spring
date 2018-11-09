@@ -71,7 +71,7 @@ public class MProjectIssue extends X_C_ProjectIssue implements IDocLine
 	public MProjectIssue (MProject project)
 	{
 		this (project.getCtx(), 0, project.get_TrxName());
-		setClientOrg(project.getAD_Client_ID(), project.getAD_Org_ID());
+		setClientOrg(project.getADClientID(), project.getAD_Org_ID());
 		setC_Project_ID (project.getC_Project_ID());	//	Parent
 		setLine (getNextLine());
 		m_parent = project;

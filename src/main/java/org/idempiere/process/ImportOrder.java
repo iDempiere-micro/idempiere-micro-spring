@@ -536,7 +536,7 @@ public class ImportOrder extends SvrProcess
 				if (bp == null)
 				{
 					bp = new MBPartner (getCtx (), -1, get_TrxName());
-					bp.setClientOrg (imp.getAD_Client_ID (), imp.getAD_Org_ID ());
+					bp.setClientOrg (imp.getADClientID (), imp.getAD_Org_ID ());
 					bp.setValue (imp.getBPartnerValue ());
 					bp.setName (imp.getName ());
 					if (!bp.save ())
@@ -695,7 +695,7 @@ public class ImportOrder extends SvrProcess
 						oldDocumentNo = "";
 					//
 					order = new MOrder (getCtx(), 0, get_TrxName());
-					order.setClientOrg (imp.getAD_Client_ID(), imp.getAD_Org_ID());
+					order.setClientOrg (imp.getADClientID(), imp.getAD_Org_ID());
 					order.setC_DocTypeTarget_ID(imp.getC_DocType_ID());
 					order.setIsSOTrx(imp.isSOTrx());
 					if (imp.getDeliveryRule() != null ) {

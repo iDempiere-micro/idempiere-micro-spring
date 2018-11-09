@@ -220,12 +220,12 @@ public class MUser extends X_AD_User implements IUser
 		}
 		
 		for (MUser user : users) {
-			if (clientsValidated.contains(user.getAD_Client_ID())) {
+			if (clientsValidated.contains(user.getADClientID())) {
 				s_log.severe("Two users with password with the same name/email combination on same tenant: " + name);
 				return null;
 			}
 			
-			clientsValidated.add(user.getAD_Client_ID());
+			clientsValidated.add(user.getADClientID());
 			boolean valid = false;
 			if (hash_password) {
 				valid = user.authenticateHash(password);
@@ -912,7 +912,7 @@ public class MUser extends X_AD_User implements IUser
 				// email with password must be unique on the same tenant
 				int cnt = DB.getSQLValue(get_TrxName(),
 						"SELECT COUNT(*) FROM AD_User WHERE Password IS NOT NULL AND EMail=? AND AD_Client_ID=? AND AD_User_ID!=?",
-						getEMail(), getAD_Client_ID(), getAD_User_ID());
+						getEMail(), getADClientID(), getAD_User_ID());
 				if (cnt > 0) {
 					log.saveError("SaveError", Msg.getMsg(getCtx(), DBException.SAVE_ERROR_NOT_UNIQUE_MSG, true) + Msg.getElement(getCtx(), I_AD_User.COLUMNNAME_EMail));
 					return false;
@@ -924,7 +924,7 @@ public class MUser extends X_AD_User implements IUser
 					nameToValidate = getName();
 				int cnt = DB.getSQLValue(get_TrxName(),
 						"SELECT COUNT(*) FROM AD_User WHERE Password IS NOT NULL AND COALESCE(LDAPUser,Name)=? AND AD_Client_ID=? AND AD_User_ID!=?",
-						nameToValidate, getAD_Client_ID(), getAD_User_ID());
+						nameToValidate, getADClientID(), getAD_User_ID());
 				if (cnt > 0) {
 					log.saveError("SaveError", Msg.getMsg(getCtx(), DBException.SAVE_ERROR_NOT_UNIQUE_MSG, true) + Msg.getElement(getCtx(), HasName.Companion.getCOLUMNNAME_Name()) + " / " + Msg.getElement(getCtx(), I_AD_User.COLUMNNAME_LDAPUser));
 					return false;
@@ -973,7 +973,7 @@ public class MUser extends X_AD_User implements IUser
 			return null;
 		}
 		MUser retValue = null;
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 
 		StringBuffer sql = new StringBuffer("SELECT DISTINCT u.AD_User_ID ")
 			.append("FROM AD_User u")
@@ -1038,5 +1038,5 @@ public class MUser extends X_AD_User implements IUser
 		return ""+ getAD_User_ID();
 	}
 
-	public void setAD_Client_ID(int AD_Client_ID) {super.setAD_Client_ID(AD_Client_ID);}
+	public void setADClientID(int AD_Client_ID) {super.setADClientID(AD_Client_ID);}
 }	//	MUser

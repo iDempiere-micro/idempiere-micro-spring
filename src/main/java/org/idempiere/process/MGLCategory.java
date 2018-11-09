@@ -51,7 +51,7 @@ public class MGLCategory extends X_GL_Category
         try
         {
             pstmt = DB.prepareStatement (sql, null);
-            pstmt.setInt (1, Env.getAD_Client_ID(ctx));
+            pstmt.setInt (1, Env.getADClientID(ctx));
             rs = pstmt.executeQuery ();
             while (rs.next ())
             {

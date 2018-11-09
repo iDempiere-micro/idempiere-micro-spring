@@ -125,14 +125,14 @@ public class MPeriod extends X_C_Period
 	 */
 	public static MPeriod findByCalendar(Properties ctx, Timestamp DateAcct, int C_Calendar_ID, String trxName) {
 		
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		//	Search in Cache first
 		Iterator<MPeriod> it = s_cache.values().iterator();
 		while (it.hasNext())
 		{
 			MPeriod period = (MPeriod)it.next();
 			if (period.getC_Calendar_ID() == C_Calendar_ID && period.isStandardPeriod() && period.isInPeriod(DateAcct) 
-					&& period.getAD_Client_ID() == AD_Client_ID)  // globalqss - CarlosRuiz - Fix [ 1820810 ] Wrong Period Assigned to Fact_Acct
+					&& period.getADClientID() == AD_Client_ID)  // globalqss - CarlosRuiz - Fix [ 1820810 ] Wrong Period Assigned to Fact_Acct
 				return period;
 		}
 		
@@ -591,7 +591,7 @@ public class MPeriod extends X_C_Period
 			return false;
 		}
 
-		MAcctSchema as = MClient.get(getCtx(), getAD_Client_ID()).getAcctSchema();
+		MAcctSchema as = MClient.get(getCtx(), getADClientID()).getAcctSchema();
 		if (as != null && as.isAutoPeriodControl())
 		{
 			Timestamp today = TimeUtil.trunc(new Timestamp (System.currentTimeMillis()), TimeUtil.TRUNC_DAY);

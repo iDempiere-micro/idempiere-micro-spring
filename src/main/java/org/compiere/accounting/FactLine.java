@@ -51,7 +51,7 @@ public final class FactLine extends X_Fact_Acct
 	public FactLine (Properties ctx, int AD_Table_ID, int Record_ID, int Line_ID, String trxName)
 	{
 		super(ctx, 0, trxName);
-		setAD_Client_ID(0);							//	do not derive
+		setADClientID(0);							//	do not derive
 		setAD_Org_ID(0);							//	do not derive
 		//
 		setAmtAcctCr (Env.ZERO);
@@ -138,8 +138,8 @@ public final class FactLine extends X_Fact_Acct
 		setC_AcctSchema_ID (acctSchema.getC_AcctSchema_ID());
 		//
 		m_acct = acct;
-		if (getAD_Client_ID() == 0)
-			setAD_Client_ID(m_acct.getAD_Client_ID());
+		if (getADClientID() == 0)
+			setADClientID(m_acct.getADClientID());
 		setAccount_ID (m_acct.getAccount_ID());
 		setC_SubAcct_ID(m_acct.getC_SubAcct_ID());
 
@@ -330,8 +330,8 @@ public final class FactLine extends X_Fact_Acct
 		setAD_Org_ID(0);
 		setC_SalesRegion_ID(0);
 		//	Client
-		if (getAD_Client_ID() == 0)
-			setAD_Client_ID (m_doc.getAD_Client_ID());
+		if (getADClientID() == 0)
+			setADClientID(m_doc.getADClientID());
 		//	Date Trx
 		setDateTrx (m_doc.getDateDoc());
 		if (m_docLine != null && m_docLine.getDateDoc() != null)
@@ -711,12 +711,12 @@ public final class FactLine extends X_Fact_Acct
 		
 		setAmtAcctDr (MConversionRate.convert (getCtx(),
 			getAmtSourceDr(), getC_Currency_ID(), m_acctSchema.getC_Currency_ID(),
-			convDate, C_ConversionType_ID, m_doc.getAD_Client_ID(), AD_Org_ID));
+			convDate, C_ConversionType_ID, m_doc.getADClientID(), AD_Org_ID));
 		if (getAmtAcctDr() == null)
 			return false;
 		setAmtAcctCr (MConversionRate.convert (getCtx(),
 			getAmtSourceCr(), getC_Currency_ID(), m_acctSchema.getC_Currency_ID(),
-			convDate, C_ConversionType_ID, m_doc.getAD_Client_ID(), AD_Org_ID));
+			convDate, C_ConversionType_ID, m_doc.getADClientID(), AD_Org_ID));
 		return true;
 	}	//	convert
 
@@ -768,7 +768,7 @@ public final class FactLine extends X_Fact_Acct
 			{
 				pstmt = DB.prepareStatement(sql, get_TrxName());
 				pstmt.setInt(1, getM_Locator_ID());
-				pstmt.setInt(2, getAD_Client_ID());
+				pstmt.setInt(2, getADClientID());
 				rs = pstmt.executeQuery();
 				if (rs.next())
 				{
@@ -927,7 +927,7 @@ public final class FactLine extends X_Fact_Acct
 				setAccount_ID (
 					createRevenueRecognition (
 						m_docLine.getC_RevenueRecognition_ID(), m_docLine.get_ID(),
-						getAD_Client_ID(), getAD_Org_ID(), AD_User_ID, 
+						getADClientID(), getAD_Org_ID(), AD_User_ID,
 						getAccount_ID(), getC_SubAcct_ID(),
 						getM_Product_ID(), getC_BPartner_ID(), getAD_OrgTrx_ID(),
 						getC_LocFrom_ID(), getC_LocTo_ID(), 

@@ -791,10 +791,10 @@ public final class Env
 	 *	@param ctx context
 	 *	@return login AD_Client_ID
 	 */
-	public static int getAD_Client_ID (Properties ctx)
+	public static int getADClientID (Properties ctx)
 	{
 		return Env.getContextAsInt(ctx, AD_CLIENT_ID);
-	}	//	getAD_Client_ID
+	}	//	getADClientID
 
 	/**
 	 * 	Get Login AD_Org_ID

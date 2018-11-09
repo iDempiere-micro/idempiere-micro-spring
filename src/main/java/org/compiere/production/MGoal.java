@@ -63,7 +63,7 @@ public class MGoal extends X_PA_Goal
 		try
 		{
 			pstmt = DB.prepareStatement (sql, null);
-			pstmt.setInt (1, Env.getAD_Client_ID(ctx));
+			pstmt.setInt (1, Env.getADClientID(ctx));
 			pstmt.setInt (2, AD_User_ID);
 			pstmt.setInt (3, AD_User_ID);
 			rs = pstmt.executeQuery ();
@@ -366,7 +366,7 @@ public class MGoal extends X_PA_Goal
 		boolean isUpdateByInterfal = false;
 		if (getDateLastRun() != null){
 			// default 30 minute 1800000
-			long interval = MSysConfig.getIntValue(MSysConfig.ZK_DASHBOARD_PERFORMANCE_REFRESH_INTERVAL, 1800000, Env.getAD_Client_ID(Env.getCtx()));
+			long interval = MSysConfig.getIntValue(MSysConfig.ZK_DASHBOARD_PERFORMANCE_REFRESH_INTERVAL, 1800000, Env.getADClientID(Env.getCtx()));
 			isUpdateByInterfal = (System.currentTimeMillis() - getDateLastRun().getTime()) > interval;
 		}
 		

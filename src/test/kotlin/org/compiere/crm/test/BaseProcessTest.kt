@@ -29,7 +29,7 @@ abstract class BaseProcessTest : BaseTest() {
         ctx.setProperty(Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
         Env.setContext(ctx, Env.AD_CLIENT_ID, AD_CLIENT_ID_s)
 
-        val ad_Client_ID = Env.getAD_Client_ID(ctx)
+        val ad_Client_ID = Env.getADClientID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
         val ad_User_ID = Env.getAD_User_ID(ctx)
         val parameters: MutableList<ProcessInfoParameter> = mutableListOf(
@@ -50,7 +50,7 @@ abstract class BaseProcessTest : BaseTest() {
             })
 
         val processInfo = ProcessInfo("Execute Java Process", 0)
-        processInfo.aD_Client_ID = ad_Client_ID
+        processInfo.adClientID = ad_Client_ID
         processInfo.aD_User_ID = ad_User_ID
         processInfo.parameter = parameters.toTypedArray()
         processInfo.className = process.javaClass.canonicalName

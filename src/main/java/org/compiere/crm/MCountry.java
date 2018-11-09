@@ -67,7 +67,7 @@ public class MCountry extends X_C_Country
 	 */
 	public static MCountry getDefault (Properties ctx)
 	{
-		int clientID = Env.getAD_Client_ID(ctx);
+		int clientID = Env.getADClientID(ctx);
 		MCountry c = s_default.get(clientID);
 		if (c != null)
 			return c;
@@ -115,7 +115,7 @@ public class MCountry extends X_C_Country
 			s_countries.put(c.getC_Country_ID(), c);
 			//	Country code of Client Language
 			if (lang != null && lang.getCountryCode().equals(c.getCountryCode()))
-				s_default.put(client.getAD_Client_ID(), c);
+				s_default.put(client.getADClientID(), c);
 		}
 		if (s_log.isLoggable(Level.FINE)) s_log.fine("#" + s_countries.size() 
 			+ " - Default=" + s_default);
@@ -128,7 +128,7 @@ public class MCountry extends X_C_Country
 	private static void loadDefaultCountry(Properties ctx) {
 		loadAllCountriesIfNeeded(ctx);
 		MClient client = MClient.get (ctx);
-		MCountry found = s_default.get(client.getAD_Client_ID());
+		MCountry found = s_default.get(client.getADClientID());
 		if (found != null)
 			return;
 
@@ -146,9 +146,9 @@ public class MCountry extends X_C_Country
 				usa = c;
 		}
 		if (found != null)
-			s_default.put(client.getAD_Client_ID(), found);
+			s_default.put(client.getADClientID(), found);
 		else
-			s_default.put(client.getAD_Client_ID(), usa);
+			s_default.put(client.getADClientID(), usa);
 		if (s_log.isLoggable(Level.FINE)) s_log.fine("#" + s_countries.size() 
 			+ " - Default=" + s_default);
 	}

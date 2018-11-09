@@ -104,7 +104,7 @@ public class MInventoryLine extends X_M_InventoryLine implements IDocLine
 			throw new IllegalArgumentException("Header not saved");
 		m_parent = inventory;
 		setM_Inventory_ID (inventory.getM_Inventory_ID());		//	Parent
-		setClientOrg (inventory.getAD_Client_ID(), inventory.getAD_Org_ID());
+		setClientOrg (inventory.getADClientID(), inventory.getAD_Org_ID());
 		setM_Locator_ID (M_Locator_ID);		//	FK
 		setM_Product_ID (M_Product_ID);		//	FK
 		setM_AttributeSetInstance_ID (M_AttributeSetInstance_ID);

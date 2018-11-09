@@ -36,10 +36,18 @@ import org.springframework.context.ApplicationListener
 import org.springframework.context.annotation.Bean
 import org.springframework.context.event.ContextRefreshedEvent
 
+/**
+ * The main iDempiere-Micro Spring Boot application.
+ *
+ */
 @Configuration
 @EnableCaching
 @SpringBootApplication
 open class Application : WebMvcConfigurer {
+
+    /**
+     * The GraphQL schema. The path "graphql/app.graphqls" is `resources`-relative
+     */
     @Bean
     open fun schema(): GraphQLSchema {
         return SchemaParser.newParser()
@@ -48,6 +56,9 @@ open class Application : WebMvcConfigurer {
                 .build().makeExecutableSchema()
     }
 
+    /**
+     * Unlimited CORS allowed
+     */
     override fun addCorsMappings(registry: CorsRegistry?) {
         registry!!.addMapping("*")
                 .allowedOrigins("*")
@@ -58,6 +69,9 @@ open class Application : WebMvcConfigurer {
     }
 }
 
+/**
+ * Main application entry point. We try to get the ROLLBAR_TOKEN and setup Rollbar for error handling.
+ */
 fun main(args: Array<String>) {
     val token = System.getenv("ROLLBAR_TOKEN") ?: ""
     if (token.isEmpty()) {
@@ -69,6 +83,9 @@ fun main(args: Array<String>) {
     SpringApplication.run(Application::class.java, *args)
 }
 
+/**
+ * [Micro] needs to be started-up. This listener makes sure all the Spring Boot is already started and available.
+ */
 @Component
 open class StartupApplicationListener : ApplicationListener<ContextRefreshedEvent> {
     override fun onApplicationEvent(event: ContextRefreshedEvent) {
@@ -76,6 +93,10 @@ open class StartupApplicationListener : ApplicationListener<ContextRefreshedEven
     }
 }
 
+/**
+ * The main application component. This is heavily based on the original Adempiere class from iDempiere.
+ * For non-Spring classes the companion object inside this class is the main entrypoint to all the services.
+ */
 @Component
 open class Micro(
     private val ini: Ini,
@@ -85,12 +106,23 @@ open class Micro(
     internal val countryService: CountryService
 ) {
     companion object {
+        /**
+         * The singleton instance of the main application. Is used for starting the application
+         * and also for non-Spring classes to access the services (e.g. UserService)
+         */
         private var singleton: Micro? = null
         val instance get() = singleton
+        private fun setInstance(instance: Micro) {
+            singleton = instance
+        }
     }
 
+    /**
+     * We know this is in fact singleton in Spring Boot so it is safe to copy the instance to the static variable
+     * in the companion object.
+     */
     init {
-        singleton = this
+        setInstance(this)
     }
 
     fun getThreadPoolExecutor(): ScheduledThreadPoolExecutor {
@@ -113,21 +145,33 @@ open class Micro(
         threadPoolExecutor = ScheduledThreadPoolExecutor(max)
     }
 
+    /**
+     * The startup function taken basically from the Adempiere class in iDempiere.
+     * The main task is to connect to the database and to setup logging.
+     */
     fun startup() {
+        // make sure we run once only
         if (log != null) return
 
+        // we are not OSGi and not all is already mapped to Spring IoC
+        // so we need some fallback classes to be setup
+        // for org.idempiere.common.base.Service
         DummyService.setup()
+        // and also org.idempiere.orm.EventManager
         DummyEventManager.setup()
+
+        // setup the database engine and make sure it can connect
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
+        DB.setDBTarget(cconnection)
         DB.isConnected()
 
+        // setup log
         CLogMgt.initialize(false)
         log = CLogger.getCLogger(Micro::class.java)
-
         CLogMgt.setLevel(ini.traceLevel)
-        DB.setDBTarget(cconnection)
+
+        // create the thread pool for code like transaction closing etc.
         createThreadPool()
 
         if (!DB.isConnected()) {
@@ -139,6 +183,7 @@ open class Micro(
             return
         }
 
+        // start the system
         val system = MSystem.get(Env.getCtx()) ?: return
 
         // 	Initialize main cached Singletons
@@ -161,14 +206,16 @@ open class Micro(
             this.log!!.warning("Environment problems: " + e.toString())
         }
 
-        // 	Start Workflow Document Manager (in other package) for PO
+        // 	Start Workflow Document Manager for PO
         var className: String? = null
         try {
-            className = "org.compiere.wf.DocWorkflowManager"
+            className = org.compiere.wf.DocWorkflowManager::class.java.simpleName
             Class.forName(className)
         } catch (e: Exception) {
             this.log!!.warning("Not started: " + className + " - " + e.message)
         }
+
+        // start transaction monitor to make sure transactions do not live forever
         Trx.startTrxMonitor(getThreadPoolExecutor())
     }
 }

@@ -56,8 +56,8 @@ public class DocumentTypeVerify extends SvrProcess
 	 */
 	protected String doIt() throws Exception
 	{
-		createDocumentTypes(getCtx(), getAD_Client_ID(), this, get_TrxName());
-		createPeriodControls(getCtx(), getAD_Client_ID(), this, get_TrxName());
+		createDocumentTypes(getCtx(), getADClientID(), this, get_TrxName());
+		createPeriodControls(getCtx(), getADClientID(), this, get_TrxName());
 		return "OK";
 	}	//	doIt
 

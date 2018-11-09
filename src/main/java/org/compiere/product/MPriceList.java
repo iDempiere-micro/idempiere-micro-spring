@@ -55,7 +55,7 @@ public class MPriceList extends X_M_PriceList
 	 */
 	public static MPriceList getDefault (Properties ctx, boolean IsSOPriceList)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		MPriceList retValue = null;
 		//	Search for it in cache
 		Iterator<MPriceList> it = s_cache.values().iterator();
@@ -63,7 +63,7 @@ public class MPriceList extends X_M_PriceList
 		{
 			retValue = it.next();
 			if (retValue.isDefault()
-					&& retValue.getAD_Client_ID() == AD_Client_ID
+					&& retValue.getADClientID() == AD_Client_ID
 					&& retValue.isSOPriceList() == IsSOPriceList)
 			{
 				return retValue;
@@ -95,7 +95,7 @@ public class MPriceList extends X_M_PriceList
 	 */
 	public static MPriceList getDefault(Properties ctx, boolean IsSOPriceList, String ISOCurrency)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		MCurrency currency = MCurrency.get(ctx, ISOCurrency);
 		// If currency is null, return the default without looking at currency
 		if (currency==null) return(getDefault(ctx, IsSOPriceList));
@@ -109,7 +109,7 @@ public class MPriceList extends X_M_PriceList
 		{
 			retValue = it.next();
 			if (retValue.isDefault()
-					&& retValue.getAD_Client_ID() == AD_Client_ID
+					&& retValue.getADClientID() == AD_Client_ID
 					&& retValue.isSOPriceList() == IsSOPriceList
 					&& retValue.getC_Currency_ID()==M_Currency_ID 
 					)

@@ -32,10 +32,10 @@ public class MReportTree
 	public static MReportTree get (Properties ctx, int PA_Hierarchy_ID, String ElementType)
 	{	
 		MRole role = MRole.getDefault();
-		String key = Env.getAD_Client_ID(ctx) + "_" + role.getAD_Role_ID() + "_" + PA_Hierarchy_ID + "_" + ElementType;
+		String key = Env.getADClientID(ctx) + "_" + role.getAD_Role_ID() + "_" + PA_Hierarchy_ID + "_" + ElementType;
 		if (!role.isAccessAllOrgs() && role.isUseUserOrgAccess() ) 
 		{
-			key = Env.getAD_Client_ID(ctx) + "_" + Env.getAD_User_ID(ctx) + "_" + role.getAD_Role_ID() + "_" + PA_Hierarchy_ID + "_" + ElementType;
+			key = Env.getADClientID(ctx) + "_" + Env.getAD_User_ID(ctx) + "_" + role.getAD_Role_ID() + "_" + PA_Hierarchy_ID + "_" + ElementType;
 		}
 		
 		MReportTree tree = (MReportTree)s_trees.get(key);
@@ -157,7 +157,7 @@ public class MReportTree
 	protected int getDefaultAD_Tree_ID()
 	{
 		int AD_Tree_ID = 0;
-		int AD_Client_ID = Env.getAD_Client_ID(m_ctx);
+		int AD_Client_ID = Env.getADClientID(m_ctx);
 		
 		String sql = "SELECT AD_Tree_ID, Name FROM AD_Tree "
 			+ "WHERE AD_Client_ID=? AND TreeType=? AND IsActive='Y' AND IsAllNodes='Y' "

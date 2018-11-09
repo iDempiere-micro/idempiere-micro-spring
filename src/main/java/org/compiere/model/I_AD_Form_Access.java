@@ -31,7 +31,7 @@ public interface I_AD_Form_Access
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Form_Access_UU */
     public static final String COLUMNNAME_AD_Form_Access_UU = "AD_Form_Access_UU";

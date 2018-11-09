@@ -142,7 +142,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 		this (invoice.getCtx(), 0, invoice.get_TrxName());
 		if (invoice.getId() == 0)
 			throw new IllegalArgumentException("Header not saved");
-		setClientOrg(invoice.getAD_Client_ID(), invoice.getAD_Org_ID());
+		setClientOrg(invoice.getADClientID(), invoice.getAD_Org_ID());
 		setC_Invoice_ID (invoice.getC_Invoice_ID());
 		setInvoice(invoice);
 	}	//	MInvoiceLine
@@ -1310,7 +1310,7 @@ public class MInvoiceLine extends X_C_InvoiceLine implements I_C_InvoiceLine, ID
 		{
 			MLandedCost landedCost = new MLandedCost (getCtx(), 0, get_TrxName());
 			MLandedCost fromLandedCost = fromLandedCosts[i];
-			PO.copyValues(fromLandedCost, landedCost, fromLandedCost.getAD_Client_ID(), fromLandedCost.getAD_Org_ID());
+			PO.copyValues(fromLandedCost, landedCost, fromLandedCost.getADClientID(), fromLandedCost.getAD_Org_ID());
 			landedCost.setC_InvoiceLine_ID(getC_InvoiceLine_ID());
 			landedCost.set_ValueNoCheck ("C_LandedCost_ID", PO.I_ZERO);	// new
 			if (landedCost.save(get_TrxName()))

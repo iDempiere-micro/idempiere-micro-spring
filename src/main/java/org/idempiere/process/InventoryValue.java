@@ -93,7 +93,7 @@ public class InventoryValue extends SvrProcess
 			+ ",M_CostElement_ID=" + p_M_CostElement_ID);
 		
 		MWarehouse wh = MWarehouse.get(getCtx(), p_M_Warehouse_ID);
-		MClient c = MClient.get(getCtx(), wh.getAD_Client_ID());
+		MClient c = MClient.get(getCtx(), wh.getADClientID());
 		MAcctSchema as = c.getAcctSchema();
 		
 		//  Delete (just to be sure)

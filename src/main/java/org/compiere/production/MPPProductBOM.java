@@ -78,7 +78,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 	 */
 	public static int getBOMSearchKey(MProduct product)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(product.getCtx());
+		int AD_Client_ID = Env.getADClientID(product.getCtx());
 		String sql = "SELECT PP_Product_BOM_ID FROM PP_Product_BOM"
 						+" WHERE Value=? AND M_Product_ID=? AND AD_Client_ID=?";
 		return DB.getSQLValueEx(null, sql, product.getValue(), product.getId(), AD_Client_ID);
@@ -119,7 +119,7 @@ public class MPPProductBOM extends X_PP_Product_BOM
 		// find Default BOM in Product Data Planning  
 		if (ad_org_id > 0 )
 		{	
-			MPPProductPlanning pp = MPPProductPlanning.get(ctx, product.getAD_Client_ID(),ad_org_id, product.getM_Product_ID(), trxName);
+			MPPProductPlanning pp = MPPProductPlanning.get(ctx, product.getADClientID(),ad_org_id, product.getM_Product_ID(), trxName);
 			if(pp != null && pp.getPP_Product_BOM_ID() > 0)
 			{
 				bom = new MPPProductBOM(ctx, pp.getPP_Product_BOM_ID(),trxName);

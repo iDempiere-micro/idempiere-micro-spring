@@ -144,7 +144,7 @@ public class MProjectPhase extends X_C_ProjectPhase
 		{
 				if(fromLines[i].getC_ProjectTask_ID() != 0) continue;
 				MProjectLine toLine = new MProjectLine(getCtx (), 0, get_TrxName());
-				PO.copyValues (fromLines[i], toLine, getAD_Client_ID (), getAD_Org_ID ());
+				PO.copyValues (fromLines[i], toLine, getADClientID (), getAD_Org_ID ());
 				toLine.setC_Project_ID(getC_Project_ID ());
 				toLine.setC_ProjectPhase_ID (getC_ProjectPhase_ID ());
 				toLine.saveEx();
@@ -195,7 +195,7 @@ public class MProjectPhase extends X_C_ProjectPhase
 				if (log.isLoggable(Level.INFO)) log.info("Task already exists here, ignored - " + fromTasks[i]);
 			} else {
 				MProjectTask toTask = new MProjectTask (getCtx (), 0, get_TrxName());
-				PO.copyValues (fromTasks[i], toTask, getAD_Client_ID (), getAD_Org_ID ());
+				PO.copyValues (fromTasks[i], toTask, getADClientID (), getAD_Org_ID ());
 				toTask.setC_ProjectPhase_ID (getC_ProjectPhase_ID ());
 				toTask.saveEx();
 				count++;

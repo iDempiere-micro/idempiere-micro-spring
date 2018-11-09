@@ -448,9 +448,9 @@ public class MInOut extends X_M_InOut
 			MInOutLine fromLine = fromLines[i];
 			line.set_TrxName(get_TrxName());
 			if (counter)	//	header
-				PO.copyValues(fromLine, line, getAD_Client_ID(), getAD_Org_ID());
+				PO.copyValues(fromLine, line, getADClientID(), getAD_Org_ID());
 			else
-				PO.copyValues(fromLine, line, fromLine.getAD_Client_ID(), fromLine.getAD_Org_ID());
+				PO.copyValues(fromLine, line, fromLine.getADClientID(), fromLine.getAD_Org_ID());
 			line.setM_InOut_ID(getM_InOut_ID());
 			line.set_ValueNoCheck ("M_InOutLine_ID", org.idempiere.orm.PO.I_ZERO);	//	new
 			//	Reset
@@ -574,10 +574,10 @@ public class MInOut extends X_M_InOut
 			+ " AND IsActive='Y'"
 			+ " AND IsSOTrx='" + (isSOTrx() ? "Y" : "N") + "' "
 			+ "ORDER BY IsDefault DESC";
-		int C_DocType_ID = DB.getSQLValue(null, sql, getAD_Client_ID(), DocBaseType);
+		int C_DocType_ID = DB.getSQLValue(null, sql, getADClientID(), DocBaseType);
 		if (C_DocType_ID <= 0)
 			log.log(Level.SEVERE, "Not found for AC_Client_ID="
-				+ getAD_Client_ID() + " - " + DocBaseType);
+				+ getADClientID() + " - " + DocBaseType);
 		else
 		{
 			if (log.isLoggable(Level.FINE)) log.fine("DocBaseType=" + DocBaseType + " - C_DocType_ID=" + C_DocType_ID);

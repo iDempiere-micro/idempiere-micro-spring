@@ -311,7 +311,7 @@ public abstract class Doc implements IDoc
 		p_Status = STATUS_Error;
 		m_as = as;
 		m_ctx = new Properties(m_as.getCtx());
-		m_ctx.setProperty("#AD_Client_ID", String.valueOf(m_as.getAD_Client_ID()));
+		m_ctx.setProperty("#AD_Client_ID", String.valueOf(m_as.getADClientID()));
 
 		String className = clazz.getName();
 		className = className.substring(className.lastIndexOf('.')+1);
@@ -491,10 +491,10 @@ public abstract class Doc implements IDoc
 			return msgreturn.toString();
 		}	
 		//
-		if (p_po.getAD_Client_ID() != m_as.getAD_Client_ID())
+		if (p_po.getADClientID() != m_as.getADClientID())
 		{
-			StringBuilder error = new StringBuilder("AD_Client_ID Conflict - Document=").append(p_po.getAD_Client_ID())
-				.append(", AcctSchema=").append(m_as.getAD_Client_ID());
+			StringBuilder error = new StringBuilder("AD_Client_ID Conflict - Document=").append(p_po.getADClientID())
+				.append(", AcctSchema=").append(m_as.getADClientID());
 			log.severe(error.toString());
 			return error.toString();
 		}
@@ -625,7 +625,7 @@ public abstract class Doc implements IDoc
 			String AD_MessageValue = "PostingError-" + p_Status;
 			int AD_User_ID = p_po.getUpdatedBy();
 			MNote note = new MNote (getCtx(), AD_MessageValue, AD_User_ID,
-				getAD_Client_ID(), getAD_Org_ID(), null);
+				getADClientID(), getAD_Org_ID(), null);
 			note.setRecord(p_po.get_Table_ID(), p_po.getId());
 			//  Reference
 			note.setReference(toString());	//	Document
@@ -913,7 +913,7 @@ public abstract class Doc implements IDoc
 			try
 			{
 				pstmt = DB.prepareStatement(sql.toString(), null);
-				pstmt.setInt(1, getAD_Client_ID());
+				pstmt.setInt(1, getADClientID());
 				pstmt.setString(2, m_DocumentType);
 				rsDT = pstmt.executeQuery();
 				if (rsDT.next())
@@ -942,7 +942,7 @@ public abstract class Doc implements IDoc
 			try
 			{
 				pstmt = DB.prepareStatement(sql, null);
-				pstmt.setInt(1, getAD_Client_ID());
+				pstmt.setInt(1, getADClientID());
 				rsDT = pstmt.executeQuery();
 				if (rsDT.next())
 					m_GL_Category_ID = rsDT.getInt(1);
@@ -1030,7 +1030,7 @@ public abstract class Doc implements IDoc
 			if (C_Currency_ID != acctSchema.getC_Currency_ID())
 			{
 				BigDecimal amt = MConversionRate.getRate (C_Currency_ID, acctSchema.getC_Currency_ID(),
-					getDateAcct(), getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+					getDateAcct(), getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 				if (amt == null)
 				{
 					convertible = false;
@@ -1523,10 +1523,10 @@ public abstract class Doc implements IDoc
 	 * 	Get AD_Client_ID
 	 *	@return client
 	 */
-	public int getAD_Client_ID()
+	public int getADClientID()
 	{
-		return p_po.getAD_Client_ID();
-	}	//	getAD_Client_ID
+		return p_po.getADClientID();
+	}	//	getADClientID
 
 	/**
 	 * 	Get AD_Org_ID
@@ -1804,49 +1804,49 @@ public abstract class Doc implements IDoc
 			if (p_po.get_TableName().equals(I_M_MatchPO.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_MatMatchPO);
+						p_po.getADClientID(), Doc.DOCTYPE_MatMatchPO);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_M_MatchInv.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_MatMatchInv);
+						p_po.getADClientID(), Doc.DOCTYPE_MatMatchInv);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_C_AllocationHdr.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_Allocation);
+						p_po.getADClientID(), Doc.DOCTYPE_Allocation);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_C_BankStatement.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_BankStatement);
+						p_po.getADClientID(), Doc.DOCTYPE_BankStatement);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_C_Cash.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_CashJournal);
+						p_po.getADClientID(), Doc.DOCTYPE_CashJournal);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_C_ProjectIssue.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_ProjectIssue);
+						p_po.getADClientID(), Doc.DOCTYPE_ProjectIssue);
 				if (docTypeId > 0)
 					return docTypeId;
 			}
 			else if (p_po.get_TableName().equals(I_M_Production.Table_Name)) 
 			{				
 				int docTypeId = DB.getSQLValue((String)null, DOC_TYPE_BY_DOC_BASE_TYPE_SQL, 
-						p_po.getAD_Client_ID(), Doc.DOCTYPE_MatProduction);
+						p_po.getADClientID(), Doc.DOCTYPE_MatProduction);
 				if (docTypeId > 0)
 					return docTypeId;
 			}

@@ -33,7 +33,7 @@ class ProductLowLevelCalculator
 	 */
 	public int getLowLevel(int M_Product_ID)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(m_ctx);
+		int AD_Client_ID = Env.getADClientID(m_ctx);
 		tableproduct.clear(); //reset tableproduct cache
 		DefaultMutableTreeNode ibom = null;
 

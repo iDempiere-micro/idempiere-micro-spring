@@ -169,7 +169,7 @@ public class MConversionRate extends X_C_Conversion_Rate
 		}
 		if (updateRate==null) {
 			updateRate = new MConversionRate(ctx, 0, trxName);
-			updateRate.setAD_Client_ID(0);
+			updateRate.setADClientID(0);
 			updateRate.setAD_Org_ID(0);
 			updateRate.setC_Currency_ID(curFrom.getId());
 			updateRate.setC_Currency_ID_To(curTo.getId());

@@ -390,7 +390,7 @@ public abstract class SvrProcess implements ProcessCall
 	 */
 	protected int getAD_User_ID()
 	{
-		if (m_pi.getAD_User_ID() == null || m_pi.getAD_Client_ID() == null)
+		if (m_pi.getAD_User_ID() == null || m_pi.getADClientID() == null)
 		{
 			String sql = "SELECT AD_User_ID, AD_Client_ID FROM AD_PInstance WHERE AD_PInstance_ID=?";
 			PreparedStatement pstmt = null;
@@ -403,7 +403,7 @@ public abstract class SvrProcess implements ProcessCall
 				if (rs.next())
 				{
 					m_pi.setAD_User_ID (rs.getInt (1));
-					m_pi.setAD_Client_ID (rs.getInt(2));
+					m_pi.setADClientID (rs.getInt(2));
 				}
 			}
 			catch (SQLException e)
@@ -424,16 +424,16 @@ public abstract class SvrProcess implements ProcessCall
 	 *  Get AD_User_ID
 	 *  @return AD_User_ID of Process owner
 	 */
-	protected int getAD_Client_ID()
+	protected int getADClientID()
 	{
-		if (m_pi.getAD_Client_ID() == null)
+		if (m_pi.getADClientID() == null)
 		{
 			getAD_User_ID();	//	sets also Client
-			if (m_pi.getAD_Client_ID() == null)
+			if (m_pi.getADClientID() == null)
 				return 0;
 		}
-		return m_pi.getAD_Client_ID().intValue();
-	}	//	getAD_Client_ID
+		return m_pi.getADClientID().intValue();
+	}	//	getADClientID
 
 	
 	/**************************************************************************
@@ -555,7 +555,7 @@ public abstract class SvrProcess implements ProcessCall
 		{
 			//save logging info even if context is lost
 			if (noContext)
-				Env.getCtx().put("#AD_Client_ID", m_pi.getAD_Client_ID());
+				Env.getCtx().put("#AD_Client_ID", m_pi.getADClientID());
 			
 			MPInstance mpi = new MPInstance (getCtx(), m_pi.getAD_PInstance_ID(), null);
 			if (mpi.getId() == 0)

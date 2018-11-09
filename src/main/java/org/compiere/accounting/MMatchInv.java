@@ -307,7 +307,7 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 	private String deleteMatchInvCostDetail()
 	{
 		// Get Account Schemas to delete MCostDetail
-		MAcctSchema[] acctschemas = MAcctSchema.getClientAcctSchema(getCtx(), getAD_Client_ID());
+		MAcctSchema[] acctschemas = MAcctSchema.getClientAcctSchema(getCtx(), getADClientID());
 		for(int asn = 0; asn < acctschemas.length; asn++)
 		{
 			MAcctSchema as = acctschemas[asn];
@@ -386,5 +386,5 @@ public class MMatchInv extends X_M_MatchInv implements IPODoc
 
 	}
 
-    public void setAD_Client_ID(int a) { super.setAD_Client_ID(a); }
+    public void setADClientID(int a) { super.setADClientID(a); }
 }	//	MMatchInv

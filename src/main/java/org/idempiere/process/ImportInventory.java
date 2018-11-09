@@ -376,7 +376,7 @@ public class ImportInventory extends SvrProcess implements ImportProcess
 					inventory = new MInventory (getCtx(), 0, get_TrxName());
 					if (imp.getC_DocType_ID() > 0)
 						inventory.setC_DocType_ID(imp.getC_DocType_ID());
-					inventory.setClientOrg(imp.getAD_Client_ID(), imp.getAD_Org_ID());
+					inventory.setClientOrg(imp.getADClientID(), imp.getAD_Org_ID());
 					inventory.setDescription("I " + imp.getM_Warehouse_ID() + " " + MovementDate);
 					inventory.setM_Warehouse_ID(imp.getM_Warehouse_ID());
 					inventory.setMovementDate(MovementDate);

@@ -154,7 +154,7 @@ public class AllocationReset extends SvrProcess
 			else if (p_C_BP_Group_ID != 0)
 				pstmt.setInt(index++, p_C_BP_Group_ID);
 			else
-				pstmt.setInt(index++, Env.getAD_Client_ID(getCtx()));
+				pstmt.setInt(index++, Env.getADClientID(getCtx()));
 			if (p_DateAcct_From != null)
 				pstmt.setTimestamp(index++, p_DateAcct_From);
 			if (p_DateAcct_To != null)

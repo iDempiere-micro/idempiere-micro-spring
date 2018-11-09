@@ -32,7 +32,7 @@ public interface I_C_Country
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Language */
     public static final String COLUMNNAME_AD_Language = "AD_Language";

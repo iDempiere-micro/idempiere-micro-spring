@@ -135,7 +135,7 @@ public class MAttachment extends X_AD_Attachment implements I_AD_Attachment
 	 */
 	private void initAttachmentStoreDetails(Properties ctx, String trxName)
 	{
-		MClientInfo clientInfo = MClientInfo.get(ctx, getAD_Client_ID());
+		MClientInfo clientInfo = MClientInfo.get(ctx, getADClientID());
 		provider=new MStorageProvider(ctx, clientInfo.getAD_StorageProvider_ID(), trxName);		
 	}
 	

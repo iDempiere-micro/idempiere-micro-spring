@@ -158,7 +158,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
         {
             I_C_Order order = getC_Order();
             if (order != null && MDocType.DOCSUBTYPESO_PrepayOrder.equals(order.getC_DocType().getDocSubTypeSO())
-                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_PREPAY_ORDER, true, getAD_Client_ID(), getAD_Org_ID())) {
+                && !MSysConfig.getBooleanValue(MSysConfig.CHECK_CREDIT_ON_PREPAY_ORDER, true, getADClientID(), getAD_Org_ID())) {
                 // ignore -- don't validate Prepay Orders depending on sysconfig parameter
             } else {
                 MBPartner bp = new MBPartner(getCtx(), getC_BPartner_ID(), get_TrxName());
@@ -1468,7 +1468,7 @@ public class MInOut extends org.compiere.order.MInOut implements DocAction, IPOD
     {
         MInOut to = new MInOut (from.getCtx(), 0, null);
         to.set_TrxName(trxName);
-        copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+        copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
         to.set_ValueNoCheck ("M_InOut_ID", I_ZERO);
         to.set_ValueNoCheck ("DocumentNo", null);
         //

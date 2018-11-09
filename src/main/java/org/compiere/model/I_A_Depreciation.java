@@ -31,7 +31,7 @@ public interface I_A_Depreciation
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name A_Depreciation_ID */
     public static final String COLUMNNAME_A_Depreciation_ID = "A_Depreciation_ID";

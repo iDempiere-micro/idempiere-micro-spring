@@ -734,7 +734,7 @@ public class MCostDetail extends X_M_CostDetail
 		String Description, String trxName)
 	{
 		this (as.getCtx(), 0, trxName);
-		setClientOrg(as.getAD_Client_ID(), AD_Org_ID);
+		setClientOrg(as.getADClientID(), AD_Org_ID);
 		setC_AcctSchema_ID (as.getC_AcctSchema_ID());
 		setM_Product_ID (M_Product_ID);
 		setM_AttributeSetInstance_ID (M_AttributeSetInstance_ID);
@@ -996,7 +996,7 @@ public class MCostDetail extends X_M_CostDetail
 		history.setM_CostDetail_ID(this.getM_CostDetail_ID());
 		history.setM_CostElement_ID(ce.getM_CostElement_ID());
 		history.setM_CostType_ID(cost.getM_CostType_ID());
-		history.setClientOrg(cost.getAD_Client_ID(), cost.getAD_Org_ID());
+		history.setClientOrg(cost.getADClientID(), cost.getAD_Org_ID());
 		history.setOldQty(cost.getCurrentQty());
 		history.setOldCostPrice(cost.getCurrentCostPrice());
 		history.setOldCAmt(cost.getCumulatedAmt());

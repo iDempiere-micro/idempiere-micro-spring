@@ -447,7 +447,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					if (!isReversal())
 					{
 						BigDecimal currentCost = line.getCurrentCostPrice();
-						MClient client = MClient.get(getCtx(), getAD_Client_ID());
+						MClient client = MClient.get(getCtx(), getADClientID());
 						MAcctSchema as = client.getAcctSchema();
 						MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(getCtx(), client.getId());
 						
@@ -725,7 +725,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 					} 
 					if(qtyDiff.compareTo(Env.ZERO)>0)
 					{
-						MClientInfo m_clientInfo = MClientInfo.get(getCtx(), getAD_Client_ID(), get_TrxName());
+						MClientInfo m_clientInfo = MClientInfo.get(getCtx(), getADClientID(), get_TrxName());
 						MAcctSchema acctSchema = new MAcctSchema(getCtx(), m_clientInfo.getC_AcctSchema1_ID(), get_TrxName());
 						if (MAcctSchema.COSTINGLEVEL_BatchLot.equals(product.getCostingLevel(acctSchema)) )
 						{
@@ -945,7 +945,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 
 		//	Deep Copy
 		MInventory reversal = new MInventory(getCtx(), 0, get_TrxName());
-		PO.copyValues(this, reversal, getAD_Client_ID(), getAD_Org_ID());
+		PO.copyValues(this, reversal, getADClientID(), getAD_Org_ID());
 		reversal.setDocumentNo(getDocumentNo() + REVERSE_INDICATOR);	//	indicate reversals
 		reversal.setMovementDate(reversalDate);
 		reversal.setDocStatus(X_M_Inventory.DOCSTATUS_Drafted);
@@ -966,7 +966,7 @@ public class MInventory extends X_M_Inventory implements DocAction, IPODoc
 		{
 			MInventoryLine oLine = oLines[i];
 			MInventoryLine rLine = new MInventoryLine(getCtx(), 0, get_TrxName());
-			PO.copyValues(oLine, rLine, oLine.getAD_Client_ID(), oLine.getAD_Org_ID());
+			PO.copyValues(oLine, rLine, oLine.getADClientID(), oLine.getAD_Org_ID());
 			rLine.setM_Inventory_ID(reversal.getM_Inventory_ID());
 			rLine.setParent(reversal);
 			//AZ Goodwill

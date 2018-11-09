@@ -163,7 +163,7 @@ public class AcctSchemaCopyAcct extends SvrProcess
 	 */
 	private MAccount createAccount(MAcctSchema targetAS, MAccount sourceAcct)
 	{
-		int AD_Client_ID = targetAS.getAD_Client_ID(); 
+		int AD_Client_ID = targetAS.getADClientID(); 
 		int C_AcctSchema_ID = targetAS.getC_AcctSchema_ID();
 		//
 		int AD_Org_ID = 0;

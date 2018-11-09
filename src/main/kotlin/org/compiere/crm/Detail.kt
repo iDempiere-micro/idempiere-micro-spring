@@ -4,7 +4,6 @@ import org.compiere.model.I_C_BPartner
 import org.compiere.model.I_C_ContactActivity
 import org.compiere.orm.DefaultModelFactory
 import org.compiere.orm.IModelFactory
-import software.hsharp.business.models.IDTOReady
 import java.math.BigDecimal
 import java.sql.Connection
 
@@ -12,7 +11,7 @@ data class DetailResult(
     val bPartner: I_C_BPartner?,
     val categoryName: String?,
     val activities: MutableList<I_C_ContactActivity>
-) : IDTOReady
+) : java.io.Serializable
 
 class Detail : SvrProcessBaseSql() {
     override val isRO: Boolean
@@ -28,7 +27,7 @@ class Detail : SvrProcessBaseSql() {
         }
     }
 
-    override fun getSqlResult(cnn: Connection): IDTOReady {
+    override fun getSqlResult(cnn: Connection): java.io.Serializable {
         val sql =
             """
 select *, C_ContactActivity_ID as activity_C_ContactActivity_ID from bpartner_detail_v where c_bpartner_id = ?

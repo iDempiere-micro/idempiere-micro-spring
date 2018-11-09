@@ -8,7 +8,7 @@ public interface IBasePO {
 
     String get_TrxName();
 
-    int getAD_Client_ID();
+    int getADClientID();
     int getAD_Org_ID();
 
     Properties getCtx();

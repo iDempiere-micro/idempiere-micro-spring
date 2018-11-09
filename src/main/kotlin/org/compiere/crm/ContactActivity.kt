@@ -1,17 +1,16 @@
 package org.compiere.crm
 
 import org.compiere.model.I_C_ContactActivity
-import software.hsharp.business.models.IContactActivity
 
 data class ContactActivity(
-    override val Key: Int,
-    override val name: String,
-    override val start: Long, // represent the value of java.sql.Timestamp
-    override val bpartnerName: String,
-    override val completed: Boolean,
-    override val activityOwnerName: String
-) : IContactActivity {
-    override val ID: String
+    val Key: Int,
+    val name: String,
+    val start: Long, // represent the value of java.sql.Timestamp
+    val bpartnerName: String,
+    val completed: Boolean,
+    val activityOwnerName: String
+) {
+    val ID: String
         get() = "$Key"
 
     constructor (a: I_C_ContactActivity) :

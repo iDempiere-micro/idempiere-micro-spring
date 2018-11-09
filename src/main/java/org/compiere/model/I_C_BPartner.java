@@ -7,7 +7,6 @@ import java.util.Properties;
 
 import org.idempiere.common.util.KeyNamePair;
 import org.idempiere.icommon.model.IPO;
-import software.hsharp.business.models.IClientBound;
 import software.hsharp.core.models.ISearchableByKey;
 import software.hsharp.core.models.INamedEntity;
 
@@ -15,7 +14,7 @@ import software.hsharp.core.models.INamedEntity;
  *  @author iDempiere (generated) 
  *  @version Release 5.1
  */
-public interface I_C_BPartner extends IClientBound, ISearchableByKey, INamedEntity, Serializable, IPO
+public interface I_C_BPartner extends ISearchableByKey, INamedEntity, Serializable, IPO
 {
 
     /** TableName=C_BPartner */

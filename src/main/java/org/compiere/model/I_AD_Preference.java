@@ -31,7 +31,7 @@ public interface I_AD_Preference
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_InfoWindow_ID */
     public static final String COLUMNNAME_AD_InfoWindow_ID = "AD_InfoWindow_ID";

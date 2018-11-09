@@ -267,7 +267,7 @@ public class MAccount extends X_C_ValidCombination
 	public static MAccount get (X_Fact_Acct fa)
 	{
 		MAccount acct = get (fa.getCtx(),
-			fa.getAD_Client_ID(), fa.getAD_Org_ID(), fa.getC_AcctSchema_ID(), 
+			fa.getADClientID(), fa.getAD_Org_ID(), fa.getC_AcctSchema_ID(),
 			fa.getAccount_ID(), fa.getC_SubAcct_ID(),
 			fa.getM_Product_ID(), fa.getC_BPartner_ID(), fa.getAD_OrgTrx_ID(), 
 			fa.getC_LocFrom_ID(), fa.getC_LocTo_ID(), fa.getC_SalesRegion_ID(), 
@@ -343,7 +343,7 @@ public class MAccount extends X_C_ValidCombination
 				vc.setUserElement2_ID(defaultValue);
 		}
 		if (s_log.isLoggable(Level.FINE)) s_log.fine("Client_ID="
-			+ vc.getAD_Client_ID() + ", Org_ID=" + vc.getAD_Org_ID()
+			+ vc.getADClientID() + ", Org_ID=" + vc.getAD_Org_ID()
 			+ " - AcctSchema_ID=" + vc.getC_AcctSchema_ID() + ", Account_ID=" + vc.getAccount_ID());
 		return vc;
 	}   //  getDefault
@@ -441,7 +441,7 @@ public class MAccount extends X_C_ValidCombination
 				.append(getCombination());
 		else
 		{
-			//	.append(",Client=").append(getAD_Client_ID())
+			//	.append(",Client=").append(getADClientID())
 			sb.append(",Schema=").append(getC_AcctSchema_ID())
 				.append(",Org=").append(getAD_Org_ID())
 				.append(",Acct=").append(getAccount_ID())

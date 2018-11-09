@@ -53,7 +53,7 @@ public class MPeriodControl extends X_C_PeriodControl
 	 */
 	public MPeriodControl (MPeriod period, String DocBaseType)
 	{
-		this (period.getCtx(), period.getAD_Client_ID(), period.getC_Period_ID(),  
+		this (period.getCtx(), period.getADClientID(), period.getC_Period_ID(),  
 			DocBaseType, period.get_TrxName());
 		setClientOrg(period);
 	}	//	MPeriodControl
