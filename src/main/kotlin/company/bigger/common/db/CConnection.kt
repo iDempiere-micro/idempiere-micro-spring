@@ -400,14 +400,15 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
                     .append("-").append(dbName)
                     .append("-").append(dbUid)
                     .append("}")
-            if (m_db != null)
-                sb.append(m_db!!.status)
+            val db = m_db
+            if (db != null)
+                sb.append(db.status)
             return sb.toString()
         } // 	getStatus
 
     init {
         setAttributes(ini.connection)
-        s_cc = this
+        set(this)
     } //  CConnection
 
     /**
@@ -545,38 +546,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         return m_ds
     } // 	getDataSource
 
-    /**************************************************************************
-     * Test Database Connection.
-     * -- Example --
-     * Database: PostgreSQL - 7.1.3
-     * Driver:   PostgreSQL Native Driver - PostgreSQL 7.2 JDBC2
-     * -- Example --
-     * Database: Oracle - Oracle8i Enterprise Edition Release 8.1.7.0.0 - Production With the Partitioning option JServer Release 8.1.7.0.0 - Production
-     * Driver:   Oracle JDBC driver - 9.0.1.1.0
-     * @param retest
-     * @return Exception or null
-     */
-    fun testDatabase(retest: Boolean): Exception? {
-        if (!retest && m_ds != null && isDatabaseOK)
-            return null
-
-        database.close()
-        m_ds = null
-        setDataSource()
-        //  the actual test
-        val conn = getConnection(true,
-                Connection.TRANSACTION_READ_COMMITTED)
-        if (conn != null) {
-            try {
-                readInfo(conn)
-                conn.close()
-            } catch (e: Exception) {
-                log.severe(e.toString())
-                return e
-            }
-        }
-        return databaseException //  from opening
-    } //  testDatabase
 
     @Throws(SQLException::class)
     fun readInfo(conn: Connection) {
@@ -870,12 +839,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
                 "CConnection.convertStatement - No Converstion Database")
     } //  convertStatement
 
-    fun setAppServerCredential(identity: String, secret: CharArray) {
-        appServerCredential = SecurityPrincipal()
-        appServerCredential!!.identity = identity
-        appServerCredential!!.secret = secret
-    }
-
     @Throws(CloneNotSupportedException::class)
     public override fun clone(): Any {
         val c = super.clone() as CConnection
@@ -890,6 +853,10 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         /** Connection       */
         @Volatile
         private var s_cc: CConnection? = null
+
+        fun set(cc: CConnection) {
+            s_cc = cc
+        }
 
         /**
          * Get/Set default client/server Connection
