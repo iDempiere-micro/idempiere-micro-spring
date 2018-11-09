@@ -26,6 +26,8 @@ import software.hsharp.core.models.IDataTable
 import software.hsharp.core.models.IDataColumn
 import software.hsharp.core.models.IGetRowResult
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class GetDataResult(
     override val rs: ResultSet?,
     override val __metadata: IDataSource?,
@@ -39,6 +41,8 @@ data class GetDataResult(
     }
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class GetRowResult(
     override val rs: ResultSet?,
     override val __metadata: IDataSource?,
@@ -47,6 +51,8 @@ data class GetRowResult(
     override val cnn: Connection
 ) : IGetRowResultData
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class GetRowResultObj(
     override val o: Any?,
     override val __metadata: IDataSource?,
@@ -55,6 +61,8 @@ data class GetRowResultObj(
     override val cnn: Connection
 ) : IGetRowResultObject
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class UpdateDataResult(
     override val id: Int?,
     override val __metadata: IDataSource?,
@@ -66,6 +74,8 @@ data class UpdateDataResult(
     }
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class CreateDataResult(
     override val id: Int?,
     override val __metadata: IDataSource?,
@@ -77,12 +87,16 @@ data class CreateDataResult(
     }
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class ExecuteJavaProcessResult(
     val message: String?,
     val success: Boolean,
     val result: Serializable?
 )
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 open class DataService {
     fun execute(connection: Connection, procName: String, jsonBody: String): String? {
         val ctx = Env.getCtx()

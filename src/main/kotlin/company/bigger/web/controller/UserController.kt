@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import company.bigger.service.UserService
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class User(
     val id: Int,
     val name: String,
@@ -15,6 +17,8 @@ data class User(
     constructor(user: I_AD_User): this(user.id, user.name, user.description)
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 @RestController
 open class UserController(
     private val userService: UserService,

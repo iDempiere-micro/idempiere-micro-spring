@@ -11,6 +11,8 @@ import software.hsharp.business.services.IBusinessPartnerResult
 import software.hsharp.business.services.IBusinessPartnersResult
 import java.math.BigDecimal
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class Location(
     override val CountryName: String?,
     override val City: String?,
@@ -24,12 +26,16 @@ data class Location(
     constructor(a: I_C_Location): this(a.countryName, a.city, a.postal, a.address1, a.address2, a.address3, a.address4, a.address5)
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class BusinessPartnerLocation(
     override val Location: ILocation
 ) : IBusinessPartnerLocation {
     constructor (a: I_C_BPartner_Location): this(Location(a.location))
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class BusinessPartner(
     override val Key: Int,
     override val name: String,
@@ -41,6 +47,8 @@ data class BusinessPartner(
         get() = "" + Key
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class BusinessPartnersResult(
     override val businessPartners: Array<IBusinessPartner>,
     override val __paging: IPaging?
@@ -63,6 +71,8 @@ data class BusinessPartnersResult(
         get() = BusinessPartnersResult.metadata
 }
 
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 data class BusinessPartnerResult(
     override val businessPartner: IBusinessPartner?,
     override val __paging: IPaging?

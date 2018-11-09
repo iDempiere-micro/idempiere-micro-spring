@@ -10,6 +10,8 @@ import org.springframework.util.StringUtils
 /**
  * Component to test if the authorization token is valid
  */
+// TODO: remove and replace with GraphQL
+@Deprecated("Replace with GraphQL")
 @Component
 class SecuredApi(
     private val userService: UserService
