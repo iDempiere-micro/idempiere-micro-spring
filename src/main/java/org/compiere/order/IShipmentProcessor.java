@@ -2,16 +2,17 @@ package org.compiere.order;
 
 import java.util.Properties;
 
-/**
- * 
- * @author Low Heng Sin
- *
- */
-public interface IShipmentProcessor 
-{	
-	public boolean processShipment(Properties ctx, MShippingTransaction shippingTransaction, String trxName);
-	
-	public boolean rateInquiry(Properties ctx, MShippingTransaction shippingTransaction, boolean isPriviledgedRate, String trxName);
+/** @author Low Heng Sin */
+public interface IShipmentProcessor {
+  public boolean processShipment(
+      Properties ctx, MShippingTransaction shippingTransaction, String trxName);
 
-	public boolean voidShipment(Properties ctx, MShippingTransaction shippingTransaction, String get_TrxName);
+  public boolean rateInquiry(
+      Properties ctx,
+      MShippingTransaction shippingTransaction,
+      boolean isPriviledgedRate,
+      String trxName);
+
+  public boolean voidShipment(
+      Properties ctx, MShippingTransaction shippingTransaction, String get_TrxName);
 }

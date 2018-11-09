@@ -4,269 +4,221 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for AD_Package_Imp
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for AD_Package_Imp
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_AD_Package_Imp 
-{
+public interface I_AD_Package_Imp {
 
-    /** TableName=AD_Package_Imp */
-    public static final String Table_Name = "AD_Package_Imp";
+  /** TableName=AD_Package_Imp */
+  public static final String Table_Name = "AD_Package_Imp";
 
-    /** AD_Table_ID=50003 */
-    public static final int Table_ID = 50003;
+  /** AD_Table_ID=50003 */
+  public static final int Table_ID = 50003;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 6 - System - Client 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(6);
+  /** AccessLevel = 6 - System - Client */
+  BigDecimal accessLevel = BigDecimal.valueOf(6);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_Package_Imp_ID */
+  public static final String COLUMNNAME_AD_Package_Imp_ID = "AD_Package_Imp_ID";
 
-    /** Column name AD_Package_Imp_ID */
-    public static final String COLUMNNAME_AD_Package_Imp_ID = "AD_Package_Imp_ID";
+  /** Set Package Imp. */
+  public void setAD_Package_Imp_ID(int AD_Package_Imp_ID);
 
-	/** Set Package Imp.	  */
-	public void setAD_Package_Imp_ID (int AD_Package_Imp_ID);
+  /** Get Package Imp. */
+  public int getAD_Package_Imp_ID();
 
-	/** Get Package Imp.	  */
-	public int getAD_Package_Imp_ID();
+  /** Column name AD_Package_Imp_Proc_ID */
+  public static final String COLUMNNAME_AD_Package_Imp_Proc_ID = "AD_Package_Imp_Proc_ID";
 
-    /** Column name AD_Package_Imp_Proc_ID */
-    public static final String COLUMNNAME_AD_Package_Imp_Proc_ID = "AD_Package_Imp_Proc_ID";
+  /** Set Package Imp. Proc. */
+  public void setAD_Package_Imp_Proc_ID(int AD_Package_Imp_Proc_ID);
 
-	/** Set Package Imp. Proc.	  */
-	public void setAD_Package_Imp_Proc_ID (int AD_Package_Imp_Proc_ID);
+  /** Get Package Imp. Proc. */
+  public int getAD_Package_Imp_Proc_ID();
 
-	/** Get Package Imp. Proc.	  */
-	public int getAD_Package_Imp_Proc_ID();
+  public I_AD_Package_Imp_Proc getAD_Package_Imp_Proc() throws RuntimeException;
 
-	public I_AD_Package_Imp_Proc getAD_Package_Imp_Proc() throws RuntimeException;
+  /** Column name AD_Package_Imp_UU */
+  public static final String COLUMNNAME_AD_Package_Imp_UU = "AD_Package_Imp_UU";
 
-    /** Column name AD_Package_Imp_UU */
-    public static final String COLUMNNAME_AD_Package_Imp_UU = "AD_Package_Imp_UU";
+  /** Set AD_Package_Imp_UU */
+  public void setAD_Package_Imp_UU(String AD_Package_Imp_UU);
 
-	/** Set AD_Package_Imp_UU	  */
-	public void setAD_Package_Imp_UU (String AD_Package_Imp_UU);
+  /** Get AD_Package_Imp_UU */
+  public String getAD_Package_Imp_UU();
 
-	/** Get AD_Package_Imp_UU	  */
-	public String getAD_Package_Imp_UU();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name CreatedDate */
+  public static final String COLUMNNAME_CreatedDate = "CreatedDate";
 
-    /** Column name CreatedDate */
-    public static final String COLUMNNAME_CreatedDate = "CreatedDate";
+  /** Set CreatedDate */
+  public void setCreatedDate(String CreatedDate);
 
-	/** Set CreatedDate	  */
-	public void setCreatedDate (String CreatedDate);
+  /** Get CreatedDate */
+  public String getCreatedDate();
 
-	/** Get CreatedDate	  */
-	public String getCreatedDate();
+  /** Column name Creator */
+  public static final String COLUMNNAME_Creator = "Creator";
 
-    /** Column name Creator */
-    public static final String COLUMNNAME_Creator = "Creator";
+  /** Set Creator */
+  public void setCreator(String Creator);
 
-	/** Set Creator	  */
-	public void setCreator (String Creator);
+  /** Get Creator */
+  public String getCreator();
 
-	/** Get Creator	  */
-	public String getCreator();
+  /** Column name CreatorContact */
+  public static final String COLUMNNAME_CreatorContact = "CreatorContact";
 
-    /** Column name CreatorContact */
-    public static final String COLUMNNAME_CreatorContact = "CreatorContact";
+  /** Set CreatorContact */
+  public void setCreatorContact(String CreatorContact);
 
-	/** Set CreatorContact	  */
-	public void setCreatorContact (String CreatorContact);
+  /** Get CreatorContact */
+  public String getCreatorContact();
 
-	/** Get CreatorContact	  */
-	public String getCreatorContact();
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Column name EMail */
+  public static final String COLUMNNAME_EMail = "EMail";
 
-    /** Column name EMail */
-    public static final String COLUMNNAME_EMail = "EMail";
+  /** Set EMail Address. Electronic Mail Address */
+  public void setEMail(String EMail);
 
-	/** Set EMail Address.
-	  * Electronic Mail Address
-	  */
-	public void setEMail (String EMail);
+  /** Get EMail Address. Electronic Mail Address */
+  public String getEMail();
 
-	/** Get EMail Address.
-	  * Electronic Mail Address
-	  */
-	public String getEMail();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-    
-    
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Column name PK_Status */
+  public static final String COLUMNNAME_PK_Status = "PK_Status";
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Set Package Status */
+  public void setPK_Status(String PK_Status);
 
-    /** Column name PK_Status */
-    public static final String COLUMNNAME_PK_Status = "PK_Status";
+  /** Get Package Status */
+  public String getPK_Status();
 
-	/** Set Package Status	  */
-	public void setPK_Status (String PK_Status);
+  /** Column name PK_Version */
+  public static final String COLUMNNAME_PK_Version = "PK_Version";
 
-	/** Get Package Status	  */
-	public String getPK_Status();
+  /** Set Package Version */
+  public void setPK_Version(String PK_Version);
 
-    /** Column name PK_Version */
-    public static final String COLUMNNAME_PK_Version = "PK_Version";
+  /** Get Package Version */
+  public String getPK_Version();
 
-	/** Set Package Version	  */
-	public void setPK_Version (String PK_Version);
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Get Package Version	  */
-	public String getPK_Version();
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Get Process Now */
+  public boolean isProcessing();
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Column name ReleaseNo */
+  public static final String COLUMNNAME_ReleaseNo = "ReleaseNo";
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /** Set Release No. Internal Release Number */
+  public void setReleaseNo(String ReleaseNo);
 
-    /** Column name ReleaseNo */
-    public static final String COLUMNNAME_ReleaseNo = "ReleaseNo";
+  /** Get Release No. Internal Release Number */
+  public String getReleaseNo();
 
-	/** Set Release No.
-	  * Internal Release Number
-	  */
-	public void setReleaseNo (String ReleaseNo);
+  /** Column name Uninstall */
+  public static final String COLUMNNAME_Uninstall = "Uninstall";
 
-	/** Get Release No.
-	  * Internal Release Number
-	  */
-	public String getReleaseNo();
+  /** Set Uninstall */
+  public void setUninstall(boolean Uninstall);
 
-    /** Column name Uninstall */
-    public static final String COLUMNNAME_Uninstall = "Uninstall";
+  /** Get Uninstall */
+  public boolean isUninstall();
 
-	/** Set Uninstall	  */
-	public void setUninstall (boolean Uninstall);
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-	/** Get Uninstall	  */
-	public boolean isUninstall();
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Column name UpdatedDate */
+  public static final String COLUMNNAME_UpdatedDate = "UpdatedDate";
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Set UpdatedDate */
+  public void setUpdatedDate(String UpdatedDate);
 
-    /** Column name UpdatedDate */
-    public static final String COLUMNNAME_UpdatedDate = "UpdatedDate";
+  /** Get UpdatedDate */
+  public String getUpdatedDate();
 
-	/** Set UpdatedDate	  */
-	public void setUpdatedDate (String UpdatedDate);
+  /** Column name Version */
+  public static final String COLUMNNAME_Version = "Version";
 
-	/** Get UpdatedDate	  */
-	public String getUpdatedDate();
+  /** Set Version. Version of the table definition */
+  public void setVersion(String Version);
 
-    /** Column name Version */
-    public static final String COLUMNNAME_Version = "Version";
-
-	/** Set Version.
-	  * Version of the table definition
-	  */
-	public void setVersion (String Version);
-
-	/** Get Version.
-	  * Version of the table definition
-	  */
-	public String getVersion();
+  /** Get Version. Version of the table definition */
+  public String getVersion();
 }

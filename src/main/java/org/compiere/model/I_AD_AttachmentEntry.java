@@ -1,7 +1,7 @@
 package org.compiere.model;
 
 public interface I_AD_AttachmentEntry {
-    String getName();
+  String getName();
 
-    byte[] getData();
+  byte[] getData();
 }

@@ -4,495 +4,385 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for AD_UserDef_Field
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for AD_UserDef_Field
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_AD_UserDef_Field 
-{
+public interface I_AD_UserDef_Field {
 
-    /** TableName=AD_UserDef_Field */
-    public static final String Table_Name = "AD_UserDef_Field";
+  /** TableName=AD_UserDef_Field */
+  public static final String Table_Name = "AD_UserDef_Field";
 
-    /** AD_Table_ID=464 */
-    public static final int Table_ID = 464;
+  /** AD_Table_ID=464 */
+  public static final int Table_ID = 464;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 6 - System - Client 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(6);
+  /** AccessLevel = 6 - System - Client */
+  BigDecimal accessLevel = BigDecimal.valueOf(6);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Field_ID */
+  public static final String COLUMNNAME_AD_Field_ID = "AD_Field_ID";
 
-    /** Column name AD_Field_ID */
-    public static final String COLUMNNAME_AD_Field_ID = "AD_Field_ID";
+  /** Set Field. Field on a database table */
+  public void setAD_Field_ID(int AD_Field_ID);
 
-	/** Set Field.
-	  * Field on a database table
-	  */
-	public void setAD_Field_ID (int AD_Field_ID);
+  /** Get Field. Field on a database table */
+  public int getAD_Field_ID();
 
-	/** Get Field.
-	  * Field on a database table
-	  */
-	public int getAD_Field_ID();
+  public I_AD_Field getAD_Field() throws RuntimeException;
 
-	public I_AD_Field getAD_Field() throws RuntimeException;
+  /** Column name AD_FieldStyle_ID */
+  public static final String COLUMNNAME_AD_FieldStyle_ID = "AD_FieldStyle_ID";
 
-    /** Column name AD_FieldStyle_ID */
-    public static final String COLUMNNAME_AD_FieldStyle_ID = "AD_FieldStyle_ID";
+  /** Set Field Style. Field CSS Style */
+  public void setAD_FieldStyle_ID(int AD_FieldStyle_ID);
 
-	/** Set Field Style.
-	  * Field CSS Style 
-	  */
-	public void setAD_FieldStyle_ID (int AD_FieldStyle_ID);
+  /** Get Field Style. Field CSS Style */
+  public int getAD_FieldStyle_ID();
 
-	/** Get Field Style.
-	  * Field CSS Style 
-	  */
-	public int getAD_FieldStyle_ID();
+  public I_AD_Style getAD_FieldStyle() throws RuntimeException;
 
-	public I_AD_Style getAD_FieldStyle() throws RuntimeException;
+  /** Column name AD_LabelStyle_ID */
+  public static final String COLUMNNAME_AD_LabelStyle_ID = "AD_LabelStyle_ID";
 
-    /** Column name AD_LabelStyle_ID */
-    public static final String COLUMNNAME_AD_LabelStyle_ID = "AD_LabelStyle_ID";
+  /** Set Label Style. Label CSS Style */
+  public void setAD_LabelStyle_ID(int AD_LabelStyle_ID);
 
-	/** Set Label Style.
-	  * Label CSS Style
-	  */
-	public void setAD_LabelStyle_ID (int AD_LabelStyle_ID);
+  /** Get Label Style. Label CSS Style */
+  public int getAD_LabelStyle_ID();
 
-	/** Get Label Style.
-	  * Label CSS Style
-	  */
-	public int getAD_LabelStyle_ID();
+  public I_AD_Style getAD_LabelStyle() throws RuntimeException;
 
-	public I_AD_Style getAD_LabelStyle() throws RuntimeException;
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_Reference_ID */
+  public static final String COLUMNNAME_AD_Reference_ID = "AD_Reference_ID";
 
-    /** Column name AD_Reference_ID */
-    public static final String COLUMNNAME_AD_Reference_ID = "AD_Reference_ID";
+  /** Set Reference. System Reference and Validation */
+  public void setAD_Reference_ID(int AD_Reference_ID);
 
-	/** Set Reference.
-	  * System Reference and Validation
-	  */
-	public void setAD_Reference_ID (int AD_Reference_ID);
+  /** Get Reference. System Reference and Validation */
+  public int getAD_Reference_ID();
 
-	/** Get Reference.
-	  * System Reference and Validation
-	  */
-	public int getAD_Reference_ID();
+  public I_AD_Reference getAD_Reference() throws RuntimeException;
 
-	public I_AD_Reference getAD_Reference() throws RuntimeException;
+  /** Column name AD_Reference_Value_ID */
+  public static final String COLUMNNAME_AD_Reference_Value_ID = "AD_Reference_Value_ID";
 
-    /** Column name AD_Reference_Value_ID */
-    public static final String COLUMNNAME_AD_Reference_Value_ID = "AD_Reference_Value_ID";
+  /** Set Reference Key. Required to specify, if data type is Table or List */
+  public void setAD_Reference_Value_ID(int AD_Reference_Value_ID);
 
-	/** Set Reference Key.
-	  * Required to specify, if data type is Table or List
-	  */
-	public void setAD_Reference_Value_ID (int AD_Reference_Value_ID);
+  /** Get Reference Key. Required to specify, if data type is Table or List */
+  public int getAD_Reference_Value_ID();
 
-	/** Get Reference Key.
-	  * Required to specify, if data type is Table or List
-	  */
-	public int getAD_Reference_Value_ID();
+  public I_AD_Reference getAD_Reference_Value() throws RuntimeException;
 
-	public I_AD_Reference getAD_Reference_Value() throws RuntimeException;
+  /** Column name AD_UserDef_Field_ID */
+  public static final String COLUMNNAME_AD_UserDef_Field_ID = "AD_UserDef_Field_ID";
 
-    /** Column name AD_UserDef_Field_ID */
-    public static final String COLUMNNAME_AD_UserDef_Field_ID = "AD_UserDef_Field_ID";
+  /** Set User defined Field */
+  public void setAD_UserDef_Field_ID(int AD_UserDef_Field_ID);
 
-	/** Set User defined Field	  */
-	public void setAD_UserDef_Field_ID (int AD_UserDef_Field_ID);
+  /** Get User defined Field */
+  public int getAD_UserDef_Field_ID();
 
-	/** Get User defined Field	  */
-	public int getAD_UserDef_Field_ID();
+  /** Column name AD_UserDef_Field_UU */
+  public static final String COLUMNNAME_AD_UserDef_Field_UU = "AD_UserDef_Field_UU";
 
-    /** Column name AD_UserDef_Field_UU */
-    public static final String COLUMNNAME_AD_UserDef_Field_UU = "AD_UserDef_Field_UU";
+  /** Set AD_UserDef_Field_UU */
+  public void setAD_UserDef_Field_UU(String AD_UserDef_Field_UU);
 
-	/** Set AD_UserDef_Field_UU	  */
-	public void setAD_UserDef_Field_UU (String AD_UserDef_Field_UU);
+  /** Get AD_UserDef_Field_UU */
+  public String getAD_UserDef_Field_UU();
 
-	/** Get AD_UserDef_Field_UU	  */
-	public String getAD_UserDef_Field_UU();
+  /** Column name AD_UserDef_Tab_ID */
+  public static final String COLUMNNAME_AD_UserDef_Tab_ID = "AD_UserDef_Tab_ID";
 
-    /** Column name AD_UserDef_Tab_ID */
-    public static final String COLUMNNAME_AD_UserDef_Tab_ID = "AD_UserDef_Tab_ID";
+  /** Set User defined Tab */
+  public void setAD_UserDef_Tab_ID(int AD_UserDef_Tab_ID);
 
-	/** Set User defined Tab	  */
-	public void setAD_UserDef_Tab_ID (int AD_UserDef_Tab_ID);
+  /** Get User defined Tab */
+  public int getAD_UserDef_Tab_ID();
 
-	/** Get User defined Tab	  */
-	public int getAD_UserDef_Tab_ID();
+  public I_AD_UserDef_Tab getAD_UserDef_Tab() throws RuntimeException;
 
-	public I_AD_UserDef_Tab getAD_UserDef_Tab() throws RuntimeException;
+  /** Column name AD_Val_Rule_ID */
+  public static final String COLUMNNAME_AD_Val_Rule_ID = "AD_Val_Rule_ID";
 
-    /** Column name AD_Val_Rule_ID */
-    public static final String COLUMNNAME_AD_Val_Rule_ID = "AD_Val_Rule_ID";
+  /** Set Dynamic Validation. Dynamic Validation Rule */
+  public void setAD_Val_Rule_ID(int AD_Val_Rule_ID);
 
-	/** Set Dynamic Validation.
-	  * Dynamic Validation Rule
-	  */
-	public void setAD_Val_Rule_ID (int AD_Val_Rule_ID);
+  /** Get Dynamic Validation. Dynamic Validation Rule */
+  public int getAD_Val_Rule_ID();
 
-	/** Get Dynamic Validation.
-	  * Dynamic Validation Rule
-	  */
-	public int getAD_Val_Rule_ID();
+  public I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException;
 
-	public I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException;
+  /** Column name ColumnSpan */
+  public static final String COLUMNNAME_ColumnSpan = "ColumnSpan";
 
-    /** Column name ColumnSpan */
-    public static final String COLUMNNAME_ColumnSpan = "ColumnSpan";
+  /** Set Column Span. Number of column for a box of field */
+  public void setColumnSpan(int ColumnSpan);
 
-	/** Set Column Span.
-	  * Number of column for a box of field
-	  */
-	public void setColumnSpan (int ColumnSpan);
+  /** Get Column Span. Number of column for a box of field */
+  public int getColumnSpan();
 
-	/** Get Column Span.
-	  * Number of column for a box of field
-	  */
-	public int getColumnSpan();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name DefaultValue */
+  public static final String COLUMNNAME_DefaultValue = "DefaultValue";
 
-    /** Column name DefaultValue */
-    public static final String COLUMNNAME_DefaultValue = "DefaultValue";
+  /** Set Default Logic. Default value hierarchy, separated by ; */
+  public void setDefaultValue(String DefaultValue);
 
-	/** Set Default Logic.
-	  * Default value hierarchy, separated by ;
+  /** Get Default Logic. Default value hierarchy, separated by ; */
+  public String getDefaultValue();
 
-	  */
-	public void setDefaultValue (String DefaultValue);
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Get Default Logic.
-	  * Default value hierarchy, separated by ;
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	  */
-	public String getDefaultValue();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Column name DisplayLength */
+  public static final String COLUMNNAME_DisplayLength = "DisplayLength";
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Set Display Length. Length of the display in characters */
+  public void setDisplayLength(int DisplayLength);
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Get Display Length. Length of the display in characters */
+  public int getDisplayLength();
 
-    /** Column name DisplayLength */
-    public static final String COLUMNNAME_DisplayLength = "DisplayLength";
+  /** Column name DisplayLogic */
+  public static final String COLUMNNAME_DisplayLogic = "DisplayLogic";
 
-	/** Set Display Length.
-	  * Length of the display in characters
-	  */
-	public void setDisplayLength (int DisplayLength);
+  /**
+   * Set Display Logic. If the Field is displayed, the result determines if the field is actually
+   * displayed
+   */
+  public void setDisplayLogic(String DisplayLogic);
 
-	/** Get Display Length.
-	  * Length of the display in characters
-	  */
-	public int getDisplayLength();
+  /**
+   * Get Display Logic. If the Field is displayed, the result determines if the field is actually
+   * displayed
+   */
+  public String getDisplayLogic();
 
-    /** Column name DisplayLogic */
-    public static final String COLUMNNAME_DisplayLogic = "DisplayLogic";
+  /** Column name Help */
+  public static final String COLUMNNAME_Help = "Help";
 
-	/** Set Display Logic.
-	  * If the Field is displayed, the result determines if the field is actually displayed
-	  */
-	public void setDisplayLogic (String DisplayLogic);
+  /** Set Comment/Help. Comment or Hint */
+  public void setHelp(String Help);
 
-	/** Get Display Logic.
-	  * If the Field is displayed, the result determines if the field is actually displayed
-	  */
-	public String getDisplayLogic();
+  /** Get Comment/Help. Comment or Hint */
+  public String getHelp();
 
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name IsAlwaysUpdateable */
+  public static final String COLUMNNAME_IsAlwaysUpdateable = "IsAlwaysUpdateable";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /**
+   * Set Always Updatable. The column is always updateable, even if the record is not active or
+   * processed
+   */
+  public void setIsAlwaysUpdateable(String IsAlwaysUpdateable);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /**
+   * Get Always Updatable. The column is always updateable, even if the record is not active or
+   * processed
+   */
+  public String getIsAlwaysUpdateable();
 
-    /** Column name IsAlwaysUpdateable */
-    public static final String COLUMNNAME_IsAlwaysUpdateable = "IsAlwaysUpdateable";
+  /** Column name IsDisplayed */
+  public static final String COLUMNNAME_IsDisplayed = "IsDisplayed";
 
-	/** Set Always Updatable.
-	  * The column is always updateable, even if the record is not active or processed
-	  */
-	public void setIsAlwaysUpdateable (String IsAlwaysUpdateable);
+  /** Set Displayed. Determines, if this field is displayed */
+  public void setIsDisplayed(String IsDisplayed);
 
-	/** Get Always Updatable.
-	  * The column is always updateable, even if the record is not active or processed
-	  */
-	public String getIsAlwaysUpdateable();
+  /** Get Displayed. Determines, if this field is displayed */
+  public String getIsDisplayed();
 
-    /** Column name IsDisplayed */
-    public static final String COLUMNNAME_IsDisplayed = "IsDisplayed";
+  /** Column name IsMandatory */
+  public static final String COLUMNNAME_IsMandatory = "IsMandatory";
 
-	/** Set Displayed.
-	  * Determines, if this field is displayed
-	  */
-	public void setIsDisplayed (String IsDisplayed);
+  /** Set Mandatory. Data entry is required in this column */
+  public void setIsMandatory(String IsMandatory);
 
-	/** Get Displayed.
-	  * Determines, if this field is displayed
-	  */
-	public String getIsDisplayed();
+  /** Get Mandatory. Data entry is required in this column */
+  public String getIsMandatory();
 
-    /** Column name IsMandatory */
-    public static final String COLUMNNAME_IsMandatory = "IsMandatory";
+  /** Column name IsReadOnly */
+  public static final String COLUMNNAME_IsReadOnly = "IsReadOnly";
 
-	/** Set Mandatory.
-	  * Data entry is required in this column
-	  */
-	public void setIsMandatory (String IsMandatory);
+  /** Set Read Only. Field is read only */
+  public void setIsReadOnly(String IsReadOnly);
 
-	/** Get Mandatory.
-	  * Data entry is required in this column
-	  */
-	public String getIsMandatory();
+  /** Get Read Only. Field is read only */
+  public String getIsReadOnly();
 
-    /** Column name IsReadOnly */
-    public static final String COLUMNNAME_IsReadOnly = "IsReadOnly";
+  /** Column name IsSameLine */
+  public static final String COLUMNNAME_IsSameLine = "IsSameLine";
 
-	/** Set Read Only.
-	  * Field is read only
-	  */
-	public void setIsReadOnly (String IsReadOnly);
+  /** Set Same Line. Displayed on same line as previous field */
+  public void setIsSameLine(String IsSameLine);
 
-	/** Get Read Only.
-	  * Field is read only
-	  */
-	public String getIsReadOnly();
+  /** Get Same Line. Displayed on same line as previous field */
+  public String getIsSameLine();
 
-    /** Column name IsSameLine */
-    public static final String COLUMNNAME_IsSameLine = "IsSameLine";
+  /** Column name IsToolbarButton */
+  public static final String COLUMNNAME_IsToolbarButton = "IsToolbarButton";
 
-	/** Set Same Line.
-	  * Displayed on same line as previous field
-	  */
-	public void setIsSameLine (String IsSameLine);
+  /** Set Toolbar Button. Show the button on the toolbar, the window, or both */
+  public void setIsToolbarButton(String IsToolbarButton);
 
-	/** Get Same Line.
-	  * Displayed on same line as previous field
-	  */
-	public String getIsSameLine();
+  /** Get Toolbar Button. Show the button on the toolbar, the window, or both */
+  public String getIsToolbarButton();
 
-    /** Column name IsToolbarButton */
-    public static final String COLUMNNAME_IsToolbarButton = "IsToolbarButton";
+  /** Column name IsUpdateable */
+  public static final String COLUMNNAME_IsUpdateable = "IsUpdateable";
 
-	/** Set Toolbar Button.
-	  * Show the button on the toolbar, the window, or both
-	  */
-	public void setIsToolbarButton (String IsToolbarButton);
+  /** Set Updatable. Determines, if the field can be updated */
+  public void setIsUpdateable(String IsUpdateable);
 
-	/** Get Toolbar Button.
-	  * Show the button on the toolbar, the window, or both
-	  */
-	public String getIsToolbarButton();
+  /** Get Updatable. Determines, if the field can be updated */
+  public String getIsUpdateable();
 
-    /** Column name IsUpdateable */
-    public static final String COLUMNNAME_IsUpdateable = "IsUpdateable";
+  /** Column name MandatoryLogic */
+  public static final String COLUMNNAME_MandatoryLogic = "MandatoryLogic";
 
-	/** Set Updatable.
-	  * Determines, if the field can be updated
-	  */
-	public void setIsUpdateable (String IsUpdateable);
+  /** Set Mandatory Logic */
+  public void setMandatoryLogic(String MandatoryLogic);
 
-	/** Get Updatable.
-	  * Determines, if the field can be updated
-	  */
-	public String getIsUpdateable();
+  /** Get Mandatory Logic */
+  public String getMandatoryLogic();
 
-    /** Column name MandatoryLogic */
-    public static final String COLUMNNAME_MandatoryLogic = "MandatoryLogic";
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-	/** Set Mandatory Logic	  */
-	public void setMandatoryLogic (String MandatoryLogic);
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-	/** Get Mandatory Logic	  */
-	public String getMandatoryLogic();
+  /** Column name NumLines */
+  public static final String COLUMNNAME_NumLines = "NumLines";
 
-    
-    
+  /** Set Number of Lines. Number of lines for a field */
+  public void setNumLines(int NumLines);
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Get Number of Lines. Number of lines for a field */
+  public int getNumLines();
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Column name PA_DashboardContent_ID */
+  public static final String COLUMNNAME_PA_DashboardContent_ID = "PA_DashboardContent_ID";
 
-    /** Column name NumLines */
-    public static final String COLUMNNAME_NumLines = "NumLines";
+  /** Set Dashboard Content */
+  public void setPA_DashboardContent_ID(int PA_DashboardContent_ID);
 
-	/** Set Number of Lines.
-	  * Number of lines for a field
-	  */
-	public void setNumLines (int NumLines);
+  /** Get Dashboard Content */
+  public int getPA_DashboardContent_ID();
 
-	/** Get Number of Lines.
-	  * Number of lines for a field
-	  */
-	public int getNumLines();
+  public I_PA_DashboardContent getPA_DashboardContent() throws RuntimeException;
 
-    /** Column name PA_DashboardContent_ID */
-    public static final String COLUMNNAME_PA_DashboardContent_ID = "PA_DashboardContent_ID";
+  /** Column name ReadOnlyLogic */
+  public static final String COLUMNNAME_ReadOnlyLogic = "ReadOnlyLogic";
 
-	/** Set Dashboard Content	  */
-	public void setPA_DashboardContent_ID (int PA_DashboardContent_ID);
+  /**
+   * Set Read Only Logic. Logic to determine if field is read only (applies only when field is
+   * read-write)
+   */
+  public void setReadOnlyLogic(String ReadOnlyLogic);
 
-	/** Get Dashboard Content	  */
-	public int getPA_DashboardContent_ID();
+  /**
+   * Get Read Only Logic. Logic to determine if field is read only (applies only when field is
+   * read-write)
+   */
+  public String getReadOnlyLogic();
 
-	public I_PA_DashboardContent getPA_DashboardContent() throws RuntimeException;
+  /** Column name SeqNo */
+  public static final String COLUMNNAME_SeqNo = "SeqNo";
 
-    /** Column name ReadOnlyLogic */
-    public static final String COLUMNNAME_ReadOnlyLogic = "ReadOnlyLogic";
+  /** Set Sequence. Method of ordering records; lowest number comes first */
+  public void setSeqNo(int SeqNo);
 
-	/** Set Read Only Logic.
-	  * Logic to determine if field is read only (applies only when field is read-write)
-	  */
-	public void setReadOnlyLogic (String ReadOnlyLogic);
+  /** Get Sequence. Method of ordering records; lowest number comes first */
+  public int getSeqNo();
 
-	/** Get Read Only Logic.
-	  * Logic to determine if field is read only (applies only when field is read-write)
-	  */
-	public String getReadOnlyLogic();
+  /** Column name SortNo */
+  public static final String COLUMNNAME_SortNo = "SortNo";
 
-    /** Column name SeqNo */
-    public static final String COLUMNNAME_SeqNo = "SeqNo";
+  /** Set Record Sort No. Determines in what order the records are displayed */
+  public void setSortNo(int SortNo);
 
-	/** Set Sequence.
-	  * Method of ordering records;
- lowest number comes first
-	  */
-	public void setSeqNo (int SeqNo);
+  /** Get Record Sort No. Determines in what order the records are displayed */
+  public int getSortNo();
 
-	/** Get Sequence.
-	  * Method of ordering records;
- lowest number comes first
-	  */
-	public int getSeqNo();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-    /** Column name SortNo */
-    public static final String COLUMNNAME_SortNo = "SortNo";
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-	/** Set Record Sort No.
-	  * Determines in what order the records are displayed
-	  */
-	public void setSortNo (int SortNo);
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get Record Sort No.
-	  * Determines in what order the records are displayed
-	  */
-	public int getSortNo();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name VFormat */
+  public static final String COLUMNNAME_VFormat = "VFormat";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /**
+   * Set Value Format. Format of the value; Can contain fixed format elements, Variables:
+   * "_lLoOaAcCa09"
+   */
+  public void setVFormat(String VFormat);
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /**
+   * Get Value Format. Format of the value; Can contain fixed format elements, Variables:
+   * "_lLoOaAcCa09"
+   */
+  public String getVFormat();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name XPosition */
+  public static final String COLUMNNAME_XPosition = "XPosition";
 
-    /** Column name VFormat */
-    public static final String COLUMNNAME_VFormat = "VFormat";
+  /** Set X Position. Absolute X (horizontal) position in 1/72 of an inch */
+  public void setXPosition(int XPosition);
 
-	/** Set Value Format.
-	  * Format of the value;
- Can contain fixed format elements, Variables: "_lLoOaAcCa09"
-	  */
-	public void setVFormat (String VFormat);
-
-	/** Get Value Format.
-	  * Format of the value;
- Can contain fixed format elements, Variables: "_lLoOaAcCa09"
-	  */
-	public String getVFormat();
-
-    /** Column name XPosition */
-    public static final String COLUMNNAME_XPosition = "XPosition";
-
-	/** Set X Position.
-	  * Absolute X (horizontal) position in 1/72 of an inch
-	  */
-	public void setXPosition (int XPosition);
-
-	/** Get X Position.
-	  * Absolute X (horizontal) position in 1/72 of an inch
-	  */
-	public int getXPosition();
+  /** Get X Position. Absolute X (horizontal) position in 1/72 of an inch */
+  public int getXPosition();
 }

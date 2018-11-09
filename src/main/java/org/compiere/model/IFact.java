@@ -1,23 +1,23 @@
 package org.compiere.model;
 
 public interface IFact {
-    boolean checkAccounts();
+  boolean checkAccounts();
 
-    boolean distribute();
+  boolean distribute();
 
-    boolean isSourceBalanced();
+  boolean isSourceBalanced();
 
-    I_Fact_Acct balanceSource();
+  I_Fact_Acct balanceSource();
 
-    boolean isSegmentBalanced();
+  boolean isSegmentBalanced();
 
-    void balanceSegments();
+  void balanceSegments();
 
-    boolean isAcctBalanced();
+  boolean isAcctBalanced();
 
-    boolean save(String trxName);
+  boolean save(String trxName);
 
-    I_Fact_Acct balanceAccounting();
+  I_Fact_Acct balanceAccounting();
 
-    void dispose();
+  void dispose();
 }

@@ -5,898 +5,682 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for PP_Order_Node
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for PP_Order_Node
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_PP_Order_Node 
-{
+public interface I_PP_Order_Node {
 
-    /** TableName=PP_Order_Node */
-    public static final String Table_Name = "PP_Order_Node";
+  /** TableName=PP_Order_Node */
+  public static final String Table_Name = "PP_Order_Node";
 
-    /** AD_Table_ID=53022 */
-    public static final int Table_ID = 53022;
+  /** AD_Table_ID=53022 */
+  public static final int Table_ID = 53022;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    /** Column name Action */
-    public static final String COLUMNNAME_Action = "Action";
+  /** Column name Action */
+  public static final String COLUMNNAME_Action = "Action";
 
-	/** Set Action.
-	  * Indicates the Action to be performed
-	  */
-	public void setAction (String Action);
+  /** Set Action. Indicates the Action to be performed */
+  public void setAction(String Action);
 
-	/** Get Action.
-	  * Indicates the Action to be performed
-	  */
-	public String getAction();
+  /** Get Action. Indicates the Action to be performed */
+  public String getAction();
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Column_ID */
+  public static final String COLUMNNAME_AD_Column_ID = "AD_Column_ID";
 
-    /** Column name AD_Column_ID */
-    public static final String COLUMNNAME_AD_Column_ID = "AD_Column_ID";
+  /** Set Column. Column in the table */
+  public void setAD_Column_ID(int AD_Column_ID);
 
-	/** Set Column.
-	  * Column in the table
-	  */
-	public void setAD_Column_ID (int AD_Column_ID);
+  /** Get Column. Column in the table */
+  public int getAD_Column_ID();
 
-	/** Get Column.
-	  * Column in the table
-	  */
-	public int getAD_Column_ID();
+  public org.compiere.model.I_AD_Column getAD_Column() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Column getAD_Column() throws RuntimeException;
+  /** Column name AD_Form_ID */
+  public static final String COLUMNNAME_AD_Form_ID = "AD_Form_ID";
 
-    /** Column name AD_Form_ID */
-    public static final String COLUMNNAME_AD_Form_ID = "AD_Form_ID";
+  /** Set Special Form. Special Form */
+  public void setAD_Form_ID(int AD_Form_ID);
 
-	/** Set Special Form.
-	  * Special Form
-	  */
-	public void setAD_Form_ID (int AD_Form_ID);
+  /** Get Special Form. Special Form */
+  public int getAD_Form_ID();
 
-	/** Get Special Form.
-	  * Special Form
-	  */
-	public int getAD_Form_ID();
+  public org.compiere.model.I_AD_Form getAD_Form() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Form getAD_Form() throws RuntimeException;
+  /** Column name AD_Image_ID */
+  public static final String COLUMNNAME_AD_Image_ID = "AD_Image_ID";
 
-    /** Column name AD_Image_ID */
-    public static final String COLUMNNAME_AD_Image_ID = "AD_Image_ID";
+  /** Set Image. Image or Icon */
+  public void setAD_Image_ID(int AD_Image_ID);
 
-	/** Set Image.
-	  * Image or Icon
-	  */
-	public void setAD_Image_ID (int AD_Image_ID);
+  /** Get Image. Image or Icon */
+  public int getAD_Image_ID();
 
-	/** Get Image.
-	  * Image or Icon
-	  */
-	public int getAD_Image_ID();
+  public org.compiere.model.I_AD_Image getAD_Image() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Image getAD_Image() throws RuntimeException;
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_Process_ID */
+  public static final String COLUMNNAME_AD_Process_ID = "AD_Process_ID";
 
-    /** Column name AD_Process_ID */
-    public static final String COLUMNNAME_AD_Process_ID = "AD_Process_ID";
+  /** Set Process. Process or Report */
+  public void setAD_Process_ID(int AD_Process_ID);
 
-	/** Set Process.
-	  * Process or Report
-	  */
-	public void setAD_Process_ID (int AD_Process_ID);
+  /** Get Process. Process or Report */
+  public int getAD_Process_ID();
 
-	/** Get Process.
-	  * Process or Report
-	  */
-	public int getAD_Process_ID();
+  public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Process getAD_Process() throws RuntimeException;
+  /** Column name AD_Task_ID */
+  public static final String COLUMNNAME_AD_Task_ID = "AD_Task_ID";
 
-    /** Column name AD_Task_ID */
-    public static final String COLUMNNAME_AD_Task_ID = "AD_Task_ID";
+  /** Set OS Task. Operation System Task */
+  public void setAD_Task_ID(int AD_Task_ID);
 
-	/** Set OS Task.
-	  * Operation System Task
-	  */
-	public void setAD_Task_ID (int AD_Task_ID);
+  /** Get OS Task. Operation System Task */
+  public int getAD_Task_ID();
 
-	/** Get OS Task.
-	  * Operation System Task
-	  */
-	public int getAD_Task_ID();
+  public org.compiere.model.I_AD_Task getAD_Task() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Task getAD_Task() throws RuntimeException;
+  /** Column name AD_WF_Block_ID */
+  public static final String COLUMNNAME_AD_WF_Block_ID = "AD_WF_Block_ID";
 
-    /** Column name AD_WF_Block_ID */
-    public static final String COLUMNNAME_AD_WF_Block_ID = "AD_WF_Block_ID";
+  /** Set Workflow Block. Workflow Transaction Execution Block */
+  public void setAD_WF_Block_ID(int AD_WF_Block_ID);
 
-	/** Set Workflow Block.
-	  * Workflow Transaction Execution Block
-	  */
-	public void setAD_WF_Block_ID (int AD_WF_Block_ID);
+  /** Get Workflow Block. Workflow Transaction Execution Block */
+  public int getAD_WF_Block_ID();
 
-	/** Get Workflow Block.
-	  * Workflow Transaction Execution Block
-	  */
-	public int getAD_WF_Block_ID();
+  public org.compiere.model.I_AD_WF_Block getAD_WF_Block() throws RuntimeException;
 
-	public org.compiere.model.I_AD_WF_Block getAD_WF_Block() throws RuntimeException;
+  /** Column name AD_WF_Node_ID */
+  public static final String COLUMNNAME_AD_WF_Node_ID = "AD_WF_Node_ID";
 
-    /** Column name AD_WF_Node_ID */
-    public static final String COLUMNNAME_AD_WF_Node_ID = "AD_WF_Node_ID";
+  /** Set Node. Workflow Node (activity), step or process */
+  public void setAD_WF_Node_ID(int AD_WF_Node_ID);
 
-	/** Set Node.
-	  * Workflow Node (activity), step or process
-	  */
-	public void setAD_WF_Node_ID (int AD_WF_Node_ID);
+  /** Get Node. Workflow Node (activity), step or process */
+  public int getAD_WF_Node_ID();
 
-	/** Get Node.
-	  * Workflow Node (activity), step or process
-	  */
-	public int getAD_WF_Node_ID();
+  public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException;
 
-	public org.compiere.model.I_AD_WF_Node getAD_WF_Node() throws RuntimeException;
+  /** Column name AD_WF_Responsible_ID */
+  public static final String COLUMNNAME_AD_WF_Responsible_ID = "AD_WF_Responsible_ID";
 
-    /** Column name AD_WF_Responsible_ID */
-    public static final String COLUMNNAME_AD_WF_Responsible_ID = "AD_WF_Responsible_ID";
+  /** Set Workflow Responsible. Responsible for Workflow Execution */
+  public void setAD_WF_Responsible_ID(int AD_WF_Responsible_ID);
 
-	/** Set Workflow Responsible.
-	  * Responsible for Workflow Execution
-	  */
-	public void setAD_WF_Responsible_ID (int AD_WF_Responsible_ID);
+  /** Get Workflow Responsible. Responsible for Workflow Execution */
+  public int getAD_WF_Responsible_ID();
 
-	/** Get Workflow Responsible.
-	  * Responsible for Workflow Execution
-	  */
-	public int getAD_WF_Responsible_ID();
+  public org.compiere.model.I_AD_WF_Responsible getAD_WF_Responsible() throws RuntimeException;
 
-	public org.compiere.model.I_AD_WF_Responsible getAD_WF_Responsible() throws RuntimeException;
+  /** Column name AD_Window_ID */
+  public static final String COLUMNNAME_AD_Window_ID = "AD_Window_ID";
 
-    /** Column name AD_Window_ID */
-    public static final String COLUMNNAME_AD_Window_ID = "AD_Window_ID";
+  /** Set Window. Data entry or display window */
+  public void setAD_Window_ID(int AD_Window_ID);
 
-	/** Set Window.
-	  * Data entry or display window
-	  */
-	public void setAD_Window_ID (int AD_Window_ID);
+  /** Get Window. Data entry or display window */
+  public int getAD_Window_ID();
 
-	/** Get Window.
-	  * Data entry or display window
-	  */
-	public int getAD_Window_ID();
+  public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Window getAD_Window() throws RuntimeException;
+  /** Column name AD_Workflow_ID */
+  public static final String COLUMNNAME_AD_Workflow_ID = "AD_Workflow_ID";
 
-    /** Column name AD_Workflow_ID */
-    public static final String COLUMNNAME_AD_Workflow_ID = "AD_Workflow_ID";
+  /** Set Workflow. Workflow or combination of tasks */
+  public void setAD_Workflow_ID(int AD_Workflow_ID);
 
-	/** Set Workflow.
-	  * Workflow or combination of tasks
-	  */
-	public void setAD_Workflow_ID (int AD_Workflow_ID);
+  /** Get Workflow. Workflow or combination of tasks */
+  public int getAD_Workflow_ID();
 
-	/** Get Workflow.
-	  * Workflow or combination of tasks
-	  */
-	public int getAD_Workflow_ID();
+  public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException;
+  /** Column name AttributeName */
+  public static final String COLUMNNAME_AttributeName = "AttributeName";
 
-    /** Column name AttributeName */
-    public static final String COLUMNNAME_AttributeName = "AttributeName";
+  /** Set Attribute Name. Name of the Attribute */
+  public void setAttributeName(String AttributeName);
 
-	/** Set Attribute Name.
-	  * Name of the Attribute
-	  */
-	public void setAttributeName (String AttributeName);
+  /** Get Attribute Name. Name of the Attribute */
+  public String getAttributeName();
 
-	/** Get Attribute Name.
-	  * Name of the Attribute
-	  */
-	public String getAttributeName();
+  /** Column name AttributeValue */
+  public static final String COLUMNNAME_AttributeValue = "AttributeValue";
 
-    /** Column name AttributeValue */
-    public static final String COLUMNNAME_AttributeValue = "AttributeValue";
+  /** Set Attribute Value. Value of the Attribute */
+  public void setAttributeValue(String AttributeValue);
 
-	/** Set Attribute Value.
-	  * Value of the Attribute
-	  */
-	public void setAttributeValue (String AttributeValue);
-
-	/** Get Attribute Value.
-	  * Value of the Attribute
-	  */
-	public String getAttributeValue();
+  /** Get Attribute Value. Value of the Attribute */
+  public String getAttributeValue();
 
-    /** Column name C_BPartner_ID */
-    public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
-
-	/** Set Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public void setC_BPartner_ID (int C_BPartner_ID);
-
-	/** Get Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public int getC_BPartner_ID();
+  /** Column name C_BPartner_ID */
+  public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
-	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
-
-    /** Column name Cost */
-    public static final String COLUMNNAME_Cost = "Cost";
+  /** Set Business Partner . Identifies a Business Partner */
+  public void setC_BPartner_ID(int C_BPartner_ID);
 
-	/** Set Cost.
-	  * Cost information
-	  */
-	public void setCost (BigDecimal Cost);
-
-	/** Get Cost.
-	  * Cost information
-	  */
-	public BigDecimal getCost();
-
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
-
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
-
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
-
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
-
-    /** Column name DateFinish */
-    public static final String COLUMNNAME_DateFinish = "DateFinish";
-
-	/** Set Finish Date.
-	  * Finish or (planned) completion date
-	  */
-	public void setDateFinish (Timestamp DateFinish);
-
-	/** Get Finish Date.
-	  * Finish or (planned) completion date
-	  */
-	public Timestamp getDateFinish();
-
-    /** Column name DateFinishSchedule */
-    public static final String COLUMNNAME_DateFinishSchedule = "DateFinishSchedule";
-
-	/** Set Date Finish Schedule.
-	  * Scheduled Finish date for this Order
-	  */
-	public void setDateFinishSchedule (Timestamp DateFinishSchedule);
+  /** Get Business Partner . Identifies a Business Partner */
+  public int getC_BPartner_ID();
 
-	/** Get Date Finish Schedule.
-	  * Scheduled Finish date for this Order
-	  */
-	public Timestamp getDateFinishSchedule();
+  public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
 
-    /** Column name DateStart */
-    public static final String COLUMNNAME_DateStart = "DateStart";
+  /** Column name Cost */
+  public static final String COLUMNNAME_Cost = "Cost";
 
-	/** Set Date Start.
-	  * Date Start for this Order
-	  */
-	public void setDateStart (Timestamp DateStart);
+  /** Set Cost. Cost information */
+  public void setCost(BigDecimal Cost);
 
-	/** Get Date Start.
-	  * Date Start for this Order
-	  */
-	public Timestamp getDateStart();
-
-    /** Column name DateStartSchedule */
-    public static final String COLUMNNAME_DateStartSchedule = "DateStartSchedule";
+  /** Get Cost. Cost information */
+  public BigDecimal getCost();
 
-	/** Set Date Start Schedule.
-	  * Scheduled start date for this Order
-	  */
-	public void setDateStartSchedule (Timestamp DateStartSchedule);
-
-	/** Get Date Start Schedule.
-	  * Scheduled start date for this Order
-	  */
-	public Timestamp getDateStartSchedule();
-
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
-
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
-
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
-
-    /** Column name DocAction */
-    public static final String COLUMNNAME_DocAction = "DocAction";
-
-	/** Set Document Action.
-	  * The targeted status of the document
-	  */
-	public void setDocAction (String DocAction);
-
-	/** Get Document Action.
-	  * The targeted status of the document
-	  */
-	public String getDocAction();
-
-    /** Column name DocStatus */
-    public static final String COLUMNNAME_DocStatus = "DocStatus";
-
-	/** Set Document Status.
-	  * The current status of the document
-	  */
-	public void setDocStatus (String DocStatus);
-
-	/** Get Document Status.
-	  * The current status of the document
-	  */
-	public String getDocStatus();
-
-    /** Column name Duration */
-    public static final String COLUMNNAME_Duration = "Duration";
-
-	/** Set Duration.
-	  * Normal Duration in Duration Unit
-	  */
-	public void setDuration (int Duration);
-
-	/** Get Duration.
-	  * Normal Duration in Duration Unit
-	  */
-	public int getDuration();
-
-    /** Column name DurationReal */
-    public static final String COLUMNNAME_DurationReal = "DurationReal";
-
-	/** Set Duration Real	  */
-	public void setDurationReal (int DurationReal);
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	/** Get Duration Real	  */
-	public int getDurationReal();
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name DurationRequiered */
-    public static final String COLUMNNAME_DurationRequiered = "DurationRequiered";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Set Duration Requiered	  */
-	public void setDurationRequiered (int DurationRequiered);
-
-	/** Get Duration Requiered	  */
-	public int getDurationRequiered();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name EntityType */
-    public static final String COLUMNNAME_EntityType = "EntityType";
+  /** Column name DateFinish */
+  public static final String COLUMNNAME_DateFinish = "DateFinish";
 
-	/** Set Entity Type.
-	  * Dictionary Entity Type;
- Determines ownership and synchronization
-	  */
-	public void setEntityType (String EntityType);
-
-	/** Get Entity Type.
-	  * Dictionary Entity Type;
- Determines ownership and synchronization
-	  */
-	public String getEntityType();
+  /** Set Finish Date. Finish or (planned) completion date */
+  public void setDateFinish(Timestamp DateFinish);
 
-    /** Column name FinishMode */
-    public static final String COLUMNNAME_FinishMode = "FinishMode";
+  /** Get Finish Date. Finish or (planned) completion date */
+  public Timestamp getDateFinish();
 
-	/** Set Finish Mode.
-	  * Workflow Activity Finish Mode
-	  */
-	public void setFinishMode (String FinishMode);
+  /** Column name DateFinishSchedule */
+  public static final String COLUMNNAME_DateFinishSchedule = "DateFinishSchedule";
 
-	/** Get Finish Mode.
-	  * Workflow Activity Finish Mode
-	  */
-	public String getFinishMode();
+  /** Set Date Finish Schedule. Scheduled Finish date for this Order */
+  public void setDateFinishSchedule(Timestamp DateFinishSchedule);
 
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
+  /** Get Date Finish Schedule. Scheduled Finish date for this Order */
+  public Timestamp getDateFinishSchedule();
 
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
+  /** Column name DateStart */
+  public static final String COLUMNNAME_DateStart = "DateStart";
 
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
-
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Set Date Start. Date Start for this Order */
+  public void setDateStart(Timestamp DateStart);
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
-
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
-
-    /** Column name IsCentrallyMaintained */
-    public static final String COLUMNNAME_IsCentrallyMaintained = "IsCentrallyMaintained";
-
-	/** Set Centrally maintained.
-	  * Information maintained in System Element table
-	  */
-	public void setIsCentrallyMaintained (boolean IsCentrallyMaintained);
+  /** Get Date Start. Date Start for this Order */
+  public Timestamp getDateStart();
 
-	/** Get Centrally maintained.
-	  * Information maintained in System Element table
-	  */
-	public boolean isCentrallyMaintained();
+  /** Column name DateStartSchedule */
+  public static final String COLUMNNAME_DateStartSchedule = "DateStartSchedule";
 
-    /** Column name IsMilestone */
-    public static final String COLUMNNAME_IsMilestone = "IsMilestone";
+  /** Set Date Start Schedule. Scheduled start date for this Order */
+  public void setDateStartSchedule(Timestamp DateStartSchedule);
 
-	/** Set Is Milestone	  */
-	public void setIsMilestone (boolean IsMilestone);
-
-	/** Get Is Milestone	  */
-	public boolean isMilestone();
+  /** Get Date Start Schedule. Scheduled start date for this Order */
+  public Timestamp getDateStartSchedule();
 
-    /** Column name IsSubcontracting */
-    public static final String COLUMNNAME_IsSubcontracting = "IsSubcontracting";
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Set Is Subcontracting	  */
-	public void setIsSubcontracting (boolean IsSubcontracting);
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Get Is Subcontracting	  */
-	public boolean isSubcontracting();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-    /** Column name JoinElement */
-    public static final String COLUMNNAME_JoinElement = "JoinElement";
+  /** Column name DocAction */
+  public static final String COLUMNNAME_DocAction = "DocAction";
 
-	/** Set Join Element.
-	  * Semantics for multiple incoming Transitions
-	  */
-	public void setJoinElement (String JoinElement);
+  /** Set Document Action. The targeted status of the document */
+  public void setDocAction(String DocAction);
 
-	/** Get Join Element.
-	  * Semantics for multiple incoming Transitions
-	  */
-	public String getJoinElement();
+  /** Get Document Action. The targeted status of the document */
+  public String getDocAction();
 
-    /** Column name Limit */
-    public static final String COLUMNNAME_Limit = "Limit";
+  /** Column name DocStatus */
+  public static final String COLUMNNAME_DocStatus = "DocStatus";
 
-	/** Set Duration Limit.
-	  * Maximum Duration in Duration Unit
-	  */
-	public void setLimit (int Limit);
+  /** Set Document Status. The current status of the document */
+  public void setDocStatus(String DocStatus);
 
-	/** Get Duration Limit.
-	  * Maximum Duration in Duration Unit
-	  */
-	public int getLimit();
+  /** Get Document Status. The current status of the document */
+  public String getDocStatus();
 
-    /** Column name MovingTime */
-    public static final String COLUMNNAME_MovingTime = "MovingTime";
+  /** Column name Duration */
+  public static final String COLUMNNAME_Duration = "Duration";
 
-	/** Set Moving Time	  */
-	public void setMovingTime (int MovingTime);
+  /** Set Duration. Normal Duration in Duration Unit */
+  public void setDuration(int Duration);
 
-	/** Get Moving Time	  */
-	public int getMovingTime();
+  /** Get Duration. Normal Duration in Duration Unit */
+  public int getDuration();
 
-    
-    
+  /** Column name DurationReal */
+  public static final String COLUMNNAME_DurationReal = "DurationReal";
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Set Duration Real */
+  public void setDurationReal(int DurationReal);
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Get Duration Real */
+  public int getDurationReal();
 
-    /** Column name OverlapUnits */
-    public static final String COLUMNNAME_OverlapUnits = "OverlapUnits";
+  /** Column name DurationRequiered */
+  public static final String COLUMNNAME_DurationRequiered = "DurationRequiered";
 
-	/** Set Overlap Units.
-	  * Overlap Units are number of units that must be completed before they are moved the next activity
-	  */
-	public void setOverlapUnits (int OverlapUnits);
+  /** Set Duration Requiered */
+  public void setDurationRequiered(int DurationRequiered);
 
-	/** Get Overlap Units.
-	  * Overlap Units are number of units that must be completed before they are moved the next activity
-	  */
-	public int getOverlapUnits();
+  /** Get Duration Requiered */
+  public int getDurationRequiered();
 
-    /** Column name PP_Order_ID */
-    public static final String COLUMNNAME_PP_Order_ID = "PP_Order_ID";
+  /** Column name EntityType */
+  public static final String COLUMNNAME_EntityType = "EntityType";
 
-	/** Set Manufacturing Order.
-	  * Manufacturing Order
-	  */
-	public void setPP_Order_ID (int PP_Order_ID);
+  /** Set Entity Type. Dictionary Entity Type; Determines ownership and synchronization */
+  public void setEntityType(String EntityType);
 
-	/** Get Manufacturing Order.
-	  * Manufacturing Order
-	  */
-	public int getPP_Order_ID();
+  /** Get Entity Type. Dictionary Entity Type; Determines ownership and synchronization */
+  public String getEntityType();
 
-	public org.eevolution.model.I_PP_Order getPP_Order() throws RuntimeException;
+  /** Column name FinishMode */
+  public static final String COLUMNNAME_FinishMode = "FinishMode";
 
-    /** Column name PP_Order_Node_ID */
-    public static final String COLUMNNAME_PP_Order_Node_ID = "PP_Order_Node_ID";
+  /** Set Finish Mode. Workflow Activity Finish Mode */
+  public void setFinishMode(String FinishMode);
 
-	/** Set Manufacturing Order Activity.
-	  * Workflow Node (activity), step or process
-	  */
-	public void setPP_Order_Node_ID (int PP_Order_Node_ID);
+  /** Get Finish Mode. Workflow Activity Finish Mode */
+  public String getFinishMode();
 
-	/** Get Manufacturing Order Activity.
-	  * Workflow Node (activity), step or process
-	  */
-	public int getPP_Order_Node_ID();
+  /** Column name Help */
+  public static final String COLUMNNAME_Help = "Help";
 
-    /** Column name PP_Order_Node_UU */
-    public static final String COLUMNNAME_PP_Order_Node_UU = "PP_Order_Node_UU";
+  /** Set Comment/Help. Comment or Hint */
+  public void setHelp(String Help);
 
-	/** Set PP_Order_Node_UU	  */
-	public void setPP_Order_Node_UU (String PP_Order_Node_UU);
+  /** Get Comment/Help. Comment or Hint */
+  public String getHelp();
 
-	/** Get PP_Order_Node_UU	  */
-	public String getPP_Order_Node_UU();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    /** Column name PP_Order_Workflow_ID */
-    public static final String COLUMNNAME_PP_Order_Workflow_ID = "PP_Order_Workflow_ID";
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Manufacturing Order Workflow	  */
-	public void setPP_Order_Workflow_ID (int PP_Order_Workflow_ID);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Manufacturing Order Workflow	  */
-	public int getPP_Order_Workflow_ID();
+  /** Column name IsCentrallyMaintained */
+  public static final String COLUMNNAME_IsCentrallyMaintained = "IsCentrallyMaintained";
 
-	public org.eevolution.model.I_PP_Order_Workflow getPP_Order_Workflow() throws RuntimeException;
+  /** Set Centrally maintained. Information maintained in System Element table */
+  public void setIsCentrallyMaintained(boolean IsCentrallyMaintained);
 
-    /** Column name Priority */
-    public static final String COLUMNNAME_Priority = "Priority";
+  /** Get Centrally maintained. Information maintained in System Element table */
+  public boolean isCentrallyMaintained();
 
-	/** Set Priority.
-	  * Indicates if this request is of a high, medium or low priority.
-	  */
-	public void setPriority (int Priority);
+  /** Column name IsMilestone */
+  public static final String COLUMNNAME_IsMilestone = "IsMilestone";
 
-	/** Get Priority.
-	  * Indicates if this request is of a high, medium or low priority.
-	  */
-	public int getPriority();
+  /** Set Is Milestone */
+  public void setIsMilestone(boolean IsMilestone);
 
-    /** Column name QtyDelivered */
-    public static final String COLUMNNAME_QtyDelivered = "QtyDelivered";
+  /** Get Is Milestone */
+  public boolean isMilestone();
 
-	/** Set Delivered Quantity.
-	  * Delivered Quantity
-	  */
-	public void setQtyDelivered (BigDecimal QtyDelivered);
+  /** Column name IsSubcontracting */
+  public static final String COLUMNNAME_IsSubcontracting = "IsSubcontracting";
 
-	/** Get Delivered Quantity.
-	  * Delivered Quantity
-	  */
-	public BigDecimal getQtyDelivered();
+  /** Set Is Subcontracting */
+  public void setIsSubcontracting(boolean IsSubcontracting);
 
-    /** Column name QtyReject */
-    public static final String COLUMNNAME_QtyReject = "QtyReject";
+  /** Get Is Subcontracting */
+  public boolean isSubcontracting();
 
-	/** Set Qty Reject	  */
-	public void setQtyReject (BigDecimal QtyReject);
+  /** Column name JoinElement */
+  public static final String COLUMNNAME_JoinElement = "JoinElement";
 
-	/** Get Qty Reject	  */
-	public BigDecimal getQtyReject();
+  /** Set Join Element. Semantics for multiple incoming Transitions */
+  public void setJoinElement(String JoinElement);
 
-    /** Column name QtyRequiered */
-    public static final String COLUMNNAME_QtyRequiered = "QtyRequiered";
+  /** Get Join Element. Semantics for multiple incoming Transitions */
+  public String getJoinElement();
 
-	/** Set Qty Requiered	  */
-	public void setQtyRequiered (BigDecimal QtyRequiered);
+  /** Column name Limit */
+  public static final String COLUMNNAME_Limit = "Limit";
 
-	/** Get Qty Requiered	  */
-	public BigDecimal getQtyRequiered();
+  /** Set Duration Limit. Maximum Duration in Duration Unit */
+  public void setLimit(int Limit);
 
-    /** Column name QtyScrap */
-    public static final String COLUMNNAME_QtyScrap = "QtyScrap";
+  /** Get Duration Limit. Maximum Duration in Duration Unit */
+  public int getLimit();
 
-	/** Set Scrap %.
-	  * Scrap % Quantity for this componet
-	  */
-	public void setQtyScrap (BigDecimal QtyScrap);
+  /** Column name MovingTime */
+  public static final String COLUMNNAME_MovingTime = "MovingTime";
 
-	/** Get Scrap %.
-	  * Scrap % Quantity for this componet
-	  */
-	public BigDecimal getQtyScrap();
+  /** Set Moving Time */
+  public void setMovingTime(int MovingTime);
 
-    /** Column name QueuingTime */
-    public static final String COLUMNNAME_QueuingTime = "QueuingTime";
+  /** Get Moving Time */
+  public int getMovingTime();
 
-	/** Set Queuing Time.
-	  * Queue time is the time a job waits at a work center before begin handled.
-	  */
-	public void setQueuingTime (int QueuingTime);
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-	/** Get Queuing Time.
-	  * Queue time is the time a job waits at a work center before begin handled.
-	  */
-	public int getQueuingTime();
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-    /** Column name SetupTime */
-    public static final String COLUMNNAME_SetupTime = "SetupTime";
+  /** Column name OverlapUnits */
+  public static final String COLUMNNAME_OverlapUnits = "OverlapUnits";
 
-	/** Set Setup Time.
-	  * Setup time before starting Production
-	  */
-	public void setSetupTime (int SetupTime);
+  /**
+   * Set Overlap Units. Overlap Units are number of units that must be completed before they are
+   * moved the next activity
+   */
+  public void setOverlapUnits(int OverlapUnits);
 
-	/** Get Setup Time.
-	  * Setup time before starting Production
-	  */
-	public int getSetupTime();
+  /**
+   * Get Overlap Units. Overlap Units are number of units that must be completed before they are
+   * moved the next activity
+   */
+  public int getOverlapUnits();
 
-    /** Column name SetupTimeReal */
-    public static final String COLUMNNAME_SetupTimeReal = "SetupTimeReal";
+  /** Column name PP_Order_ID */
+  public static final String COLUMNNAME_PP_Order_ID = "PP_Order_ID";
 
-	/** Set Setup Time Real	  */
-	public void setSetupTimeReal (int SetupTimeReal);
+  /** Set Manufacturing Order. Manufacturing Order */
+  public void setPP_Order_ID(int PP_Order_ID);
 
-	/** Get Setup Time Real	  */
-	public int getSetupTimeReal();
+  /** Get Manufacturing Order. Manufacturing Order */
+  public int getPP_Order_ID();
 
-    /** Column name SetupTimeRequiered */
-    public static final String COLUMNNAME_SetupTimeRequiered = "SetupTimeRequiered";
+  public org.eevolution.model.I_PP_Order getPP_Order() throws RuntimeException;
 
-	/** Set Setup Time Requiered	  */
-	public void setSetupTimeRequiered (int SetupTimeRequiered);
+  /** Column name PP_Order_Node_ID */
+  public static final String COLUMNNAME_PP_Order_Node_ID = "PP_Order_Node_ID";
 
-	/** Get Setup Time Requiered	  */
-	public int getSetupTimeRequiered();
+  /** Set Manufacturing Order Activity. Workflow Node (activity), step or process */
+  public void setPP_Order_Node_ID(int PP_Order_Node_ID);
 
-    /** Column name SplitElement */
-    public static final String COLUMNNAME_SplitElement = "SplitElement";
+  /** Get Manufacturing Order Activity. Workflow Node (activity), step or process */
+  public int getPP_Order_Node_ID();
 
-	/** Set Split Element.
-	  * Semantics for multiple outgoing Transitions
-	  */
-	public void setSplitElement (String SplitElement);
+  /** Column name PP_Order_Node_UU */
+  public static final String COLUMNNAME_PP_Order_Node_UU = "PP_Order_Node_UU";
 
-	/** Get Split Element.
-	  * Semantics for multiple outgoing Transitions
-	  */
-	public String getSplitElement();
+  /** Set PP_Order_Node_UU */
+  public void setPP_Order_Node_UU(String PP_Order_Node_UU);
 
-    /** Column name S_Resource_ID */
-    public static final String COLUMNNAME_S_Resource_ID = "S_Resource_ID";
+  /** Get PP_Order_Node_UU */
+  public String getPP_Order_Node_UU();
 
-	/** Set Resource.
-	  * Resource
-	  */
-	public void setS_Resource_ID (int S_Resource_ID);
+  /** Column name PP_Order_Workflow_ID */
+  public static final String COLUMNNAME_PP_Order_Workflow_ID = "PP_Order_Workflow_ID";
 
-	/** Get Resource.
-	  * Resource
-	  */
-	public int getS_Resource_ID();
+  /** Set Manufacturing Order Workflow */
+  public void setPP_Order_Workflow_ID(int PP_Order_Workflow_ID);
 
-	public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException;
+  /** Get Manufacturing Order Workflow */
+  public int getPP_Order_Workflow_ID();
 
-    /** Column name StartMode */
-    public static final String COLUMNNAME_StartMode = "StartMode";
+  public org.eevolution.model.I_PP_Order_Workflow getPP_Order_Workflow() throws RuntimeException;
 
-	/** Set Start Mode.
-	  * Workflow Activity Start Mode 
-	  */
-	public void setStartMode (String StartMode);
+  /** Column name Priority */
+  public static final String COLUMNNAME_Priority = "Priority";
 
-	/** Get Start Mode.
-	  * Workflow Activity Start Mode 
-	  */
-	public String getStartMode();
+  /** Set Priority. Indicates if this request is of a high, medium or low priority. */
+  public void setPriority(int Priority);
 
-    /** Column name SubflowExecution */
-    public static final String COLUMNNAME_SubflowExecution = "SubflowExecution";
+  /** Get Priority. Indicates if this request is of a high, medium or low priority. */
+  public int getPriority();
 
-	/** Set Subflow Execution.
-	  * Mode how the sub-workflow is executed
-	  */
-	public void setSubflowExecution (String SubflowExecution);
+  /** Column name QtyDelivered */
+  public static final String COLUMNNAME_QtyDelivered = "QtyDelivered";
 
-	/** Get Subflow Execution.
-	  * Mode how the sub-workflow is executed
-	  */
-	public String getSubflowExecution();
+  /** Set Delivered Quantity. Delivered Quantity */
+  public void setQtyDelivered(BigDecimal QtyDelivered);
 
-    /** Column name UnitsCycles */
-    public static final String COLUMNNAME_UnitsCycles = "UnitsCycles";
+  /** Get Delivered Quantity. Delivered Quantity */
+  public BigDecimal getQtyDelivered();
 
-	/** Set Units by Cycles.
-	  * The Units by Cycles are defined for process type  Flow Repetitive Dedicated and  indicated the product to be manufactured on a production line for duration unit.
-	  */
-	public void setUnitsCycles (int UnitsCycles);
+  /** Column name QtyReject */
+  public static final String COLUMNNAME_QtyReject = "QtyReject";
 
-	/** Get Units by Cycles.
-	  * The Units by Cycles are defined for process type  Flow Repetitive Dedicated and  indicated the product to be manufactured on a production line for duration unit.
-	  */
-	public int getUnitsCycles();
+  /** Set Qty Reject */
+  public void setQtyReject(BigDecimal QtyReject);
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Get Qty Reject */
+  public BigDecimal getQtyReject();
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Column name QtyRequiered */
+  public static final String COLUMNNAME_QtyRequiered = "QtyRequiered";
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Set Qty Requiered */
+  public void setQtyRequiered(BigDecimal QtyRequiered);
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Get Qty Requiered */
+  public BigDecimal getQtyRequiered();
 
-    /** Column name ValidFrom */
-    public static final String COLUMNNAME_ValidFrom = "ValidFrom";
+  /** Column name QtyScrap */
+  public static final String COLUMNNAME_QtyScrap = "QtyScrap";
 
-	/** Set Valid from.
-	  * Valid from including this date (first day)
-	  */
-	public void setValidFrom (Timestamp ValidFrom);
+  /** Set Scrap %. Scrap % Quantity for this componet */
+  public void setQtyScrap(BigDecimal QtyScrap);
 
-	/** Get Valid from.
-	  * Valid from including this date (first day)
-	  */
-	public Timestamp getValidFrom();
+  /** Get Scrap %. Scrap % Quantity for this componet */
+  public BigDecimal getQtyScrap();
 
-    /** Column name ValidTo */
-    public static final String COLUMNNAME_ValidTo = "ValidTo";
+  /** Column name QueuingTime */
+  public static final String COLUMNNAME_QueuingTime = "QueuingTime";
 
-	/** Set Valid to.
-	  * Valid to including this date (last day)
-	  */
-	public void setValidTo (Timestamp ValidTo);
+  /** Set Queuing Time. Queue time is the time a job waits at a work center before begin handled. */
+  public void setQueuingTime(int QueuingTime);
 
-	/** Get Valid to.
-	  * Valid to including this date (last day)
-	  */
-	public Timestamp getValidTo();
+  /** Get Queuing Time. Queue time is the time a job waits at a work center before begin handled. */
+  public int getQueuingTime();
 
-    /** Column name Value */
-    public static final String COLUMNNAME_Value = "Value";
+  /** Column name SetupTime */
+  public static final String COLUMNNAME_SetupTime = "SetupTime";
 
-	/** Set Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value);
+  /** Set Setup Time. Setup time before starting Production */
+  public void setSetupTime(int SetupTime);
 
-	/** Get Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public String getValue();
+  /** Get Setup Time. Setup time before starting Production */
+  public int getSetupTime();
 
-    /** Column name WaitingTime */
-    public static final String COLUMNNAME_WaitingTime = "WaitingTime";
+  /** Column name SetupTimeReal */
+  public static final String COLUMNNAME_SetupTimeReal = "SetupTimeReal";
 
-	/** Set Waiting Time.
-	  * Workflow Simulation Waiting time
-	  */
-	public void setWaitingTime (int WaitingTime);
+  /** Set Setup Time Real */
+  public void setSetupTimeReal(int SetupTimeReal);
 
-	/** Get Waiting Time.
-	  * Workflow Simulation Waiting time
-	  */
-	public int getWaitingTime();
+  /** Get Setup Time Real */
+  public int getSetupTimeReal();
 
-    /** Column name Workflow_ID */
-    public static final String COLUMNNAME_Workflow_ID = "Workflow_ID";
+  /** Column name SetupTimeRequiered */
+  public static final String COLUMNNAME_SetupTimeRequiered = "SetupTimeRequiered";
 
-	/** Set Workflow.
-	  * Workflow or tasks
-	  */
-	public void setWorkflow_ID (int Workflow_ID);
+  /** Set Setup Time Requiered */
+  public void setSetupTimeRequiered(int SetupTimeRequiered);
 
-	/** Get Workflow.
-	  * Workflow or tasks
-	  */
-	public int getWorkflow_ID();
+  /** Get Setup Time Requiered */
+  public int getSetupTimeRequiered();
 
-	public org.compiere.model.I_AD_Workflow getWorkflow() throws RuntimeException;
+  /** Column name SplitElement */
+  public static final String COLUMNNAME_SplitElement = "SplitElement";
 
-    /** Column name WorkingTime */
-    public static final String COLUMNNAME_WorkingTime = "WorkingTime";
+  /** Set Split Element. Semantics for multiple outgoing Transitions */
+  public void setSplitElement(String SplitElement);
 
-	/** Set Working Time.
-	  * Workflow Simulation Execution Time
-	  */
-	public void setWorkingTime (int WorkingTime);
+  /** Get Split Element. Semantics for multiple outgoing Transitions */
+  public String getSplitElement();
 
-	/** Get Working Time.
-	  * Workflow Simulation Execution Time
-	  */
-	public int getWorkingTime();
+  /** Column name S_Resource_ID */
+  public static final String COLUMNNAME_S_Resource_ID = "S_Resource_ID";
 
-    /** Column name XPosition */
-    public static final String COLUMNNAME_XPosition = "XPosition";
+  /** Set Resource. Resource */
+  public void setS_Resource_ID(int S_Resource_ID);
 
-	/** Set X Position.
-	  * Absolute X (horizontal) position in 1/72 of an inch
-	  */
-	public void setXPosition (int XPosition);
+  /** Get Resource. Resource */
+  public int getS_Resource_ID();
 
-	/** Get X Position.
-	  * Absolute X (horizontal) position in 1/72 of an inch
-	  */
-	public int getXPosition();
+  public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException;
 
-    /** Column name Yield */
-    public static final String COLUMNNAME_Yield = "Yield";
+  /** Column name StartMode */
+  public static final String COLUMNNAME_StartMode = "StartMode";
 
-	/** Set Yield %.
-	  * The Yield is the percentage of a lot that is expected to be of acceptable wuality may fall below 100 percent
-	  */
-	public void setYield (int Yield);
+  /** Set Start Mode. Workflow Activity Start Mode */
+  public void setStartMode(String StartMode);
 
-	/** Get Yield %.
-	  * The Yield is the percentage of a lot that is expected to be of acceptable wuality may fall below 100 percent
-	  */
-	public int getYield();
+  /** Get Start Mode. Workflow Activity Start Mode */
+  public String getStartMode();
 
-    /** Column name YPosition */
-    public static final String COLUMNNAME_YPosition = "YPosition";
+  /** Column name SubflowExecution */
+  public static final String COLUMNNAME_SubflowExecution = "SubflowExecution";
 
-	/** Set Y Position.
-	  * Absolute Y (vertical) position in 1/72 of an inch
-	  */
-	public void setYPosition (int YPosition);
+  /** Set Subflow Execution. Mode how the sub-workflow is executed */
+  public void setSubflowExecution(String SubflowExecution);
 
-	/** Get Y Position.
-	  * Absolute Y (vertical) position in 1/72 of an inch
-	  */
-	public int getYPosition();
+  /** Get Subflow Execution. Mode how the sub-workflow is executed */
+  public String getSubflowExecution();
+
+  /** Column name UnitsCycles */
+  public static final String COLUMNNAME_UnitsCycles = "UnitsCycles";
+
+  /**
+   * Set Units by Cycles. The Units by Cycles are defined for process type Flow Repetitive Dedicated
+   * and indicated the product to be manufactured on a production line for duration unit.
+   */
+  public void setUnitsCycles(int UnitsCycles);
+
+  /**
+   * Get Units by Cycles. The Units by Cycles are defined for process type Flow Repetitive Dedicated
+   * and indicated the product to be manufactured on a production line for duration unit.
+   */
+  public int getUnitsCycles();
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
+
+  /** Column name ValidFrom */
+  public static final String COLUMNNAME_ValidFrom = "ValidFrom";
+
+  /** Set Valid from. Valid from including this date (first day) */
+  public void setValidFrom(Timestamp ValidFrom);
+
+  /** Get Valid from. Valid from including this date (first day) */
+  public Timestamp getValidFrom();
+
+  /** Column name ValidTo */
+  public static final String COLUMNNAME_ValidTo = "ValidTo";
+
+  /** Set Valid to. Valid to including this date (last day) */
+  public void setValidTo(Timestamp ValidTo);
+
+  /** Get Valid to. Valid to including this date (last day) */
+  public Timestamp getValidTo();
+
+  /** Column name Value */
+  public static final String COLUMNNAME_Value = "Value";
+
+  /** Set Search Key. Search key for the record in the format required - must be unique */
+  public void setValue(String Value);
+
+  /** Get Search Key. Search key for the record in the format required - must be unique */
+  public String getValue();
+
+  /** Column name WaitingTime */
+  public static final String COLUMNNAME_WaitingTime = "WaitingTime";
+
+  /** Set Waiting Time. Workflow Simulation Waiting time */
+  public void setWaitingTime(int WaitingTime);
+
+  /** Get Waiting Time. Workflow Simulation Waiting time */
+  public int getWaitingTime();
+
+  /** Column name Workflow_ID */
+  public static final String COLUMNNAME_Workflow_ID = "Workflow_ID";
+
+  /** Set Workflow. Workflow or tasks */
+  public void setWorkflow_ID(int Workflow_ID);
+
+  /** Get Workflow. Workflow or tasks */
+  public int getWorkflow_ID();
+
+  public org.compiere.model.I_AD_Workflow getWorkflow() throws RuntimeException;
+
+  /** Column name WorkingTime */
+  public static final String COLUMNNAME_WorkingTime = "WorkingTime";
+
+  /** Set Working Time. Workflow Simulation Execution Time */
+  public void setWorkingTime(int WorkingTime);
+
+  /** Get Working Time. Workflow Simulation Execution Time */
+  public int getWorkingTime();
+
+  /** Column name XPosition */
+  public static final String COLUMNNAME_XPosition = "XPosition";
+
+  /** Set X Position. Absolute X (horizontal) position in 1/72 of an inch */
+  public void setXPosition(int XPosition);
+
+  /** Get X Position. Absolute X (horizontal) position in 1/72 of an inch */
+  public int getXPosition();
+
+  /** Column name Yield */
+  public static final String COLUMNNAME_Yield = "Yield";
+
+  /**
+   * Set Yield %. The Yield is the percentage of a lot that is expected to be of acceptable wuality
+   * may fall below 100 percent
+   */
+  public void setYield(int Yield);
+
+  /**
+   * Get Yield %. The Yield is the percentage of a lot that is expected to be of acceptable wuality
+   * may fall below 100 percent
+   */
+  public int getYield();
+
+  /** Column name YPosition */
+  public static final String COLUMNNAME_YPosition = "YPosition";
+
+  /** Set Y Position. Absolute Y (vertical) position in 1/72 of an inch */
+  public void setYPosition(int YPosition);
+
+  /** Get Y Position. Absolute Y (vertical) position in 1/72 of an inch */
+  public int getYPosition();
 }

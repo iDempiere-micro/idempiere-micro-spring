@@ -5,574 +5,425 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for I_Movement
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for I_Movement
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_I_Movement 
-{
+public interface I_I_Movement {
 
-    /** TableName=I_Movement */
-    public static final String Table_Name = "I_Movement";
+  /** TableName=I_Movement */
+  public static final String Table_Name = "I_Movement";
 
-    /** AD_Table_ID=53278 */
-    public static final int Table_ID = 53278;
+  /** AD_Table_ID=53278 */
+  public static final int Table_ID = 53278;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_OrgTrx_ID */
+  public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
 
-    /** Column name AD_OrgTrx_ID */
-    public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
+  /** Set Trx Organization. Performing or initiating organization */
+  public void setAD_OrgTrx_ID(int AD_OrgTrx_ID);
 
-	/** Set Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public void setAD_OrgTrx_ID (int AD_OrgTrx_ID);
+  /** Get Trx Organization. Performing or initiating organization */
+  public int getAD_OrgTrx_ID();
 
-	/** Get Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public int getAD_OrgTrx_ID();
+  /** Column name AD_User_ID */
+  public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
 
-    /** Column name AD_User_ID */
-    public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+  /** Set User/Contact. User within the system - Internal or Business Partner Contact */
+  public void setAD_User_ID(int AD_User_ID);
 
-	/** Set User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public void setAD_User_ID (int AD_User_ID);
+  /** Get User/Contact. User within the system - Internal or Business Partner Contact */
+  public int getAD_User_ID();
 
-	/** Get User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public int getAD_User_ID();
+  public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
 
-	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
+  /** Column name BPartnerValue */
+  public static final String COLUMNNAME_BPartnerValue = "BPartnerValue";
 
-    /** Column name BPartnerValue */
-    public static final String COLUMNNAME_BPartnerValue = "BPartnerValue";
+  /** Set Business Partner Key. Key of the Business Partner */
+  public void setBPartnerValue(String BPartnerValue);
 
-	/** Set Business Partner Key.
-	  * Key of the Business Partner
-	  */
-	public void setBPartnerValue (String BPartnerValue);
+  /** Get Business Partner Key. Key of the Business Partner */
+  public String getBPartnerValue();
 
-	/** Get Business Partner Key.
-	  * Key of the Business Partner
-	  */
-	public String getBPartnerValue();
+  /** Column name CampaignValue */
+  public static final String COLUMNNAME_CampaignValue = "CampaignValue";
 
-    /** Column name CampaignValue */
-    public static final String COLUMNNAME_CampaignValue = "CampaignValue";
+  /** Set Campaign Key. Text key of the Campaign */
+  public void setCampaignValue(String CampaignValue);
 
-	/** Set Campaign Key.
-	  * Text key of the Campaign
-	  */
-	public void setCampaignValue (String CampaignValue);
+  /** Get Campaign Key. Text key of the Campaign */
+  public String getCampaignValue();
 
-	/** Get Campaign Key.
-	  * Text key of the Campaign
-	  */
-	public String getCampaignValue();
+  /** Column name C_BPartner_ID */
+  public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
-    /** Column name C_BPartner_ID */
-    public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
+  /** Set Business Partner . Identifies a Business Partner */
+  public void setC_BPartner_ID(int C_BPartner_ID);
 
-	/** Set Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public void setC_BPartner_ID (int C_BPartner_ID);
+  /** Get Business Partner . Identifies a Business Partner */
+  public int getC_BPartner_ID();
 
-	/** Get Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public int getC_BPartner_ID();
+  public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
 
-	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
-
-    /** Column name C_Campaign_ID */
-    public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
-
-	/** Set Campaign.
-	  * Marketing Campaign
-	  */
-	public void setC_Campaign_ID (int C_Campaign_ID);
-
-	/** Get Campaign.
-	  * Marketing Campaign
-	  */
-	public int getC_Campaign_ID();
-
-	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException;
-
-    /** Column name C_DocType_ID */
-    public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
+  /** Column name C_Campaign_ID */
+  public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
 
-	/** Set Document Type.
-	  * Document type or rules
-	  */
-	public void setC_DocType_ID (int C_DocType_ID);
-
-	/** Get Document Type.
-	  * Document type or rules
-	  */
-	public int getC_DocType_ID();
-
-	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
+  /** Set Campaign. Marketing Campaign */
+  public void setC_Campaign_ID(int C_Campaign_ID);
 
-    /** Column name C_Project_ID */
-    public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
-
-	/** Set Project.
-	  * Financial Project
-	  */
-	public void setC_Project_ID (int C_Project_ID);
-
-	/** Get Project.
-	  * Financial Project
-	  */
-	public int getC_Project_ID();
-
-	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException;
-
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
-
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
-
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
-
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
-
-    /** Column name DeliveryRule */
-    public static final String COLUMNNAME_DeliveryRule = "DeliveryRule";
-
-	/** Set Delivery Rule.
-	  * Defines the timing of Delivery
-	  */
-	public void setDeliveryRule (String DeliveryRule);
+  /** Get Campaign. Marketing Campaign */
+  public int getC_Campaign_ID();
 
-	/** Get Delivery Rule.
-	  * Defines the timing of Delivery
-	  */
-	public String getDeliveryRule();
+  public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException;
 
-    /** Column name DeliveryViaRule */
-    public static final String COLUMNNAME_DeliveryViaRule = "DeliveryViaRule";
+  /** Column name C_DocType_ID */
+  public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
 
-	/** Set Delivery Via.
-	  * How the order will be delivered
-	  */
-	public void setDeliveryViaRule (String DeliveryViaRule);
+  /** Set Document Type. Document type or rules */
+  public void setC_DocType_ID(int C_DocType_ID);
 
-	/** Get Delivery Via.
-	  * How the order will be delivered
-	  */
-	public String getDeliveryViaRule();
+  /** Get Document Type. Document type or rules */
+  public int getC_DocType_ID();
 
-    /** Column name DocTypeName */
-    public static final String COLUMNNAME_DocTypeName = "DocTypeName";
+  public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
 
-	/** Set Document Type Name.
-	  * Name of the Document Type
-	  */
-	public void setDocTypeName (String DocTypeName);
+  /** Column name C_Project_ID */
+  public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
 
-	/** Get Document Type Name.
-	  * Name of the Document Type
-	  */
-	public String getDocTypeName();
+  /** Set Project. Financial Project */
+  public void setC_Project_ID(int C_Project_ID);
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  /** Get Project. Financial Project */
+  public int getC_Project_ID();
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  public org.compiere.model.I_C_Project getC_Project() throws RuntimeException;
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name FreightCostRule */
-    public static final String COLUMNNAME_FreightCostRule = "FreightCostRule";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Set Freight Cost Rule.
-	  * Method for charging Freight
-	  */
-	public void setFreightCostRule (String FreightCostRule);
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Freight Cost Rule.
-	  * Method for charging Freight
-	  */
-	public String getFreightCostRule();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name I_ErrorMsg */
-    public static final String COLUMNNAME_I_ErrorMsg = "I_ErrorMsg";
+  /** Column name DeliveryRule */
+  public static final String COLUMNNAME_DeliveryRule = "DeliveryRule";
 
-	/** Set Import Error Message.
-	  * Messages generated from import process
-	  */
-	public void setI_ErrorMsg (String I_ErrorMsg);
+  /** Set Delivery Rule. Defines the timing of Delivery */
+  public void setDeliveryRule(String DeliveryRule);
 
-	/** Get Import Error Message.
-	  * Messages generated from import process
-	  */
-	public String getI_ErrorMsg();
+  /** Get Delivery Rule. Defines the timing of Delivery */
+  public String getDeliveryRule();
 
-    /** Column name I_IsImported */
-    public static final String COLUMNNAME_I_IsImported = "I_IsImported";
+  /** Column name DeliveryViaRule */
+  public static final String COLUMNNAME_DeliveryViaRule = "DeliveryViaRule";
 
-	/** Set Imported.
-	  * Has this import been processed
-	  */
-	public void setI_IsImported (boolean I_IsImported);
+  /** Set Delivery Via. How the order will be delivered */
+  public void setDeliveryViaRule(String DeliveryViaRule);
 
-	/** Get Imported.
-	  * Has this import been processed
-	  */
-	public boolean isI_IsImported();
+  /** Get Delivery Via. How the order will be delivered */
+  public String getDeliveryViaRule();
 
-    /** Column name I_Movement_ID */
-    public static final String COLUMNNAME_I_Movement_ID = "I_Movement_ID";
+  /** Column name DocTypeName */
+  public static final String COLUMNNAME_DocTypeName = "DocTypeName";
 
-	/** Set I_Movement_ID	  */
-	public void setI_Movement_ID (int I_Movement_ID);
+  /** Set Document Type Name. Name of the Document Type */
+  public void setDocTypeName(String DocTypeName);
 
-	/** Get I_Movement_ID	  */
-	public int getI_Movement_ID();
+  /** Get Document Type Name. Name of the Document Type */
+  public String getDocTypeName();
 
-    /** Column name I_Movement_UU */
-    public static final String COLUMNNAME_I_Movement_UU = "I_Movement_UU";
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-	/** Set I_Movement_UU	  */
-	public void setI_Movement_UU (String I_Movement_UU);
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-	/** Get I_Movement_UU	  */
-	public String getI_Movement_UU();
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name FreightCostRule */
+  public static final String COLUMNNAME_FreightCostRule = "FreightCostRule";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set Freight Cost Rule. Method for charging Freight */
+  public void setFreightCostRule(String FreightCostRule);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Get Freight Cost Rule. Method for charging Freight */
+  public String getFreightCostRule();
 
-    /** Column name LocatorToValue */
-    public static final String COLUMNNAME_LocatorToValue = "LocatorToValue";
+  /** Column name I_ErrorMsg */
+  public static final String COLUMNNAME_I_ErrorMsg = "I_ErrorMsg";
 
-	/** Set Locator To Key	  */
-	public void setLocatorToValue (String LocatorToValue);
+  /** Set Import Error Message. Messages generated from import process */
+  public void setI_ErrorMsg(String I_ErrorMsg);
 
-	/** Get Locator To Key	  */
-	public String getLocatorToValue();
+  /** Get Import Error Message. Messages generated from import process */
+  public String getI_ErrorMsg();
 
-    /** Column name LocatorValue */
-    public static final String COLUMNNAME_LocatorValue = "LocatorValue";
+  /** Column name I_IsImported */
+  public static final String COLUMNNAME_I_IsImported = "I_IsImported";
 
-	/** Set Locator Key.
-	  * Key of the Warehouse Locator
-	  */
-	public void setLocatorValue (String LocatorValue);
+  /** Set Imported. Has this import been processed */
+  public void setI_IsImported(boolean I_IsImported);
 
-	/** Get Locator Key.
-	  * Key of the Warehouse Locator
-	  */
-	public String getLocatorValue();
+  /** Get Imported. Has this import been processed */
+  public boolean isI_IsImported();
 
-    /** Column name M_Locator_ID */
-    public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
+  /** Column name I_Movement_ID */
+  public static final String COLUMNNAME_I_Movement_ID = "I_Movement_ID";
 
-	/** Set Locator.
-	  * Warehouse Locator
-	  */
-	public void setM_Locator_ID (int M_Locator_ID);
+  /** Set I_Movement_ID */
+  public void setI_Movement_ID(int I_Movement_ID);
 
-	/** Get Locator.
-	  * Warehouse Locator
-	  */
-	public int getM_Locator_ID();
+  /** Get I_Movement_ID */
+  public int getI_Movement_ID();
 
-	public I_M_Locator getM_Locator() throws RuntimeException;
+  /** Column name I_Movement_UU */
+  public static final String COLUMNNAME_I_Movement_UU = "I_Movement_UU";
 
-    /** Column name M_LocatorTo_ID */
-    public static final String COLUMNNAME_M_LocatorTo_ID = "M_LocatorTo_ID";
+  /** Set I_Movement_UU */
+  public void setI_Movement_UU(String I_Movement_UU);
 
-	/** Set Locator To.
-	  * Location inventory is moved to
-	  */
-	public void setM_LocatorTo_ID (int M_LocatorTo_ID);
+  /** Get I_Movement_UU */
+  public String getI_Movement_UU();
 
-	/** Get Locator To.
-	  * Location inventory is moved to
-	  */
-	public int getM_LocatorTo_ID();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	public I_M_Locator getM_LocatorTo() throws RuntimeException;
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-    /** Column name M_Movement_ID */
-    public static final String COLUMNNAME_M_Movement_ID = "M_Movement_ID";
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Set Inventory Move.
-	  * Movement of Inventory
-	  */
-	public void setM_Movement_ID (int M_Movement_ID);
+  /** Column name LocatorToValue */
+  public static final String COLUMNNAME_LocatorToValue = "LocatorToValue";
 
-	/** Get Inventory Move.
-	  * Movement of Inventory
-	  */
-	public int getM_Movement_ID();
+  /** Set Locator To Key */
+  public void setLocatorToValue(String LocatorToValue);
 
-	public org.compiere.model.I_M_Movement getM_Movement() throws RuntimeException;
+  /** Get Locator To Key */
+  public String getLocatorToValue();
 
-    /** Column name M_MovementLine_ID */
-    public static final String COLUMNNAME_M_MovementLine_ID = "M_MovementLine_ID";
+  /** Column name LocatorValue */
+  public static final String COLUMNNAME_LocatorValue = "LocatorValue";
 
-	/** Set Move Line.
-	  * Inventory Move document Line
-	  */
-	public void setM_MovementLine_ID (int M_MovementLine_ID);
+  /** Set Locator Key. Key of the Warehouse Locator */
+  public void setLocatorValue(String LocatorValue);
 
-	/** Get Move Line.
-	  * Inventory Move document Line
-	  */
-	public int getM_MovementLine_ID();
+  /** Get Locator Key. Key of the Warehouse Locator */
+  public String getLocatorValue();
 
-	public org.compiere.model.I_M_MovementLine getM_MovementLine() throws RuntimeException;
+  /** Column name M_Locator_ID */
+  public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
 
-    /** Column name MovementDate */
-    public static final String COLUMNNAME_MovementDate = "MovementDate";
+  /** Set Locator. Warehouse Locator */
+  public void setM_Locator_ID(int M_Locator_ID);
 
-	/** Set Movement Date.
-	  * Date a product was moved in or out of inventory
-	  */
-	public void setMovementDate (Timestamp MovementDate);
+  /** Get Locator. Warehouse Locator */
+  public int getM_Locator_ID();
 
-	/** Get Movement Date.
-	  * Date a product was moved in or out of inventory
-	  */
-	public Timestamp getMovementDate();
+  public I_M_Locator getM_Locator() throws RuntimeException;
 
-    /** Column name MovementQty */
-    public static final String COLUMNNAME_MovementQty = "MovementQty";
+  /** Column name M_LocatorTo_ID */
+  public static final String COLUMNNAME_M_LocatorTo_ID = "M_LocatorTo_ID";
 
-	/** Set Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public void setMovementQty (BigDecimal MovementQty);
+  /** Set Locator To. Location inventory is moved to */
+  public void setM_LocatorTo_ID(int M_LocatorTo_ID);
 
-	/** Get Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public BigDecimal getMovementQty();
+  /** Get Locator To. Location inventory is moved to */
+  public int getM_LocatorTo_ID();
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  public I_M_Locator getM_LocatorTo() throws RuntimeException;
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Column name M_Movement_ID */
+  public static final String COLUMNNAME_M_Movement_ID = "M_Movement_ID";
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  /** Set Inventory Move. Movement of Inventory */
+  public void setM_Movement_ID(int M_Movement_ID);
 
-	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
+  /** Get Inventory Move. Movement of Inventory */
+  public int getM_Movement_ID();
 
-    /** Column name M_Shipper_ID */
-    public static final String COLUMNNAME_M_Shipper_ID = "M_Shipper_ID";
+  public org.compiere.model.I_M_Movement getM_Movement() throws RuntimeException;
 
-	/** Set Shipper.
-	  * Method or manner of product delivery
-	  */
-	public void setM_Shipper_ID (int M_Shipper_ID);
+  /** Column name M_MovementLine_ID */
+  public static final String COLUMNNAME_M_MovementLine_ID = "M_MovementLine_ID";
 
-	/** Get Shipper.
-	  * Method or manner of product delivery
-	  */
-	public int getM_Shipper_ID();
+  /** Set Move Line. Inventory Move document Line */
+  public void setM_MovementLine_ID(int M_MovementLine_ID);
 
-	public org.compiere.model.I_M_Shipper getM_Shipper() throws RuntimeException;
+  /** Get Move Line. Inventory Move document Line */
+  public int getM_MovementLine_ID();
 
-    /** Column name OrgTrxValue */
-    public static final String COLUMNNAME_OrgTrxValue = "OrgTrxValue";
+  public org.compiere.model.I_M_MovementLine getM_MovementLine() throws RuntimeException;
 
-	/** Set Trx Org Key.
-	  * Key of the Transaction Organization
-	  */
-	public void setOrgTrxValue (String OrgTrxValue);
+  /** Column name MovementDate */
+  public static final String COLUMNNAME_MovementDate = "MovementDate";
 
-	/** Get Trx Org Key.
-	  * Key of the Transaction Organization
-	  */
-	public String getOrgTrxValue();
+  /** Set Movement Date. Date a product was moved in or out of inventory */
+  public void setMovementDate(Timestamp MovementDate);
 
-    /** Column name OrgValue */
-    public static final String COLUMNNAME_OrgValue = "OrgValue";
+  /** Get Movement Date. Date a product was moved in or out of inventory */
+  public Timestamp getMovementDate();
 
-	/** Set Org Key.
-	  * Key of the Organization
-	  */
-	public void setOrgValue (String OrgValue);
+  /** Column name MovementQty */
+  public static final String COLUMNNAME_MovementQty = "MovementQty";
 
-	/** Get Org Key.
-	  * Key of the Organization
-	  */
-	public String getOrgValue();
+  /** Set Movement Quantity. Quantity of a product moved. */
+  public void setMovementQty(BigDecimal MovementQty);
 
-    /** Column name PriorityRule */
-    public static final String COLUMNNAME_PriorityRule = "PriorityRule";
+  /** Get Movement Quantity. Quantity of a product moved. */
+  public BigDecimal getMovementQty();
 
-	/** Set Priority.
-	  * Priority of a document
-	  */
-	public void setPriorityRule (String PriorityRule);
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-	/** Get Priority.
-	  * Priority of a document
-	  */
-	public String getPriorityRule();
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Column name M_Shipper_ID */
+  public static final String COLUMNNAME_M_Shipper_ID = "M_Shipper_ID";
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Set Shipper. Method or manner of product delivery */
+  public void setM_Shipper_ID(int M_Shipper_ID);
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Get Shipper. Method or manner of product delivery */
+  public int getM_Shipper_ID();
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  public org.compiere.model.I_M_Shipper getM_Shipper() throws RuntimeException;
 
-    /** Column name ProductValue */
-    public static final String COLUMNNAME_ProductValue = "ProductValue";
+  /** Column name OrgTrxValue */
+  public static final String COLUMNNAME_OrgTrxValue = "OrgTrxValue";
 
-	/** Set Product Key.
-	  * Key of the Product
-	  */
-	public void setProductValue (String ProductValue);
+  /** Set Trx Org Key. Key of the Transaction Organization */
+  public void setOrgTrxValue(String OrgTrxValue);
 
-	/** Get Product Key.
-	  * Key of the Product
-	  */
-	public String getProductValue();
+  /** Get Trx Org Key. Key of the Transaction Organization */
+  public String getOrgTrxValue();
 
-    /** Column name ProjectValue */
-    public static final String COLUMNNAME_ProjectValue = "ProjectValue";
+  /** Column name OrgValue */
+  public static final String COLUMNNAME_OrgValue = "OrgValue";
 
-	/** Set Project Key.
-	  * Key of the Project
-	  */
-	public void setProjectValue (String ProjectValue);
+  /** Set Org Key. Key of the Organization */
+  public void setOrgValue(String OrgValue);
 
-	/** Get Project Key.
-	  * Key of the Project
-	  */
-	public String getProjectValue();
+  /** Get Org Key. Key of the Organization */
+  public String getOrgValue();
 
-    /** Column name ShipperName */
-    public static final String COLUMNNAME_ShipperName = "ShipperName";
+  /** Column name PriorityRule */
+  public static final String COLUMNNAME_PriorityRule = "PriorityRule";
 
-	/** Set ShipperName	  */
-	public void setShipperName (String ShipperName);
+  /** Set Priority. Priority of a document */
+  public void setPriorityRule(String PriorityRule);
 
-	/** Get ShipperName	  */
-	public String getShipperName();
+  /** Get Priority. Priority of a document */
+  public String getPriorityRule();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-    /** Column name User1_ID */
-    public static final String COLUMNNAME_User1_ID = "User1_ID";
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-	/** Set User Element List 1.
-	  * User defined list element #1
-	  */
-	public void setUser1_ID (String User1_ID);
+  /** Get Process Now */
+  public boolean isProcessing();
 
-	/** Get User Element List 1.
-	  * User defined list element #1
-	  */
-	public String getUser1_ID();
+  /** Column name ProductValue */
+  public static final String COLUMNNAME_ProductValue = "ProductValue";
 
-    /** Column name User2_ID */
-    public static final String COLUMNNAME_User2_ID = "User2_ID";
+  /** Set Product Key. Key of the Product */
+  public void setProductValue(String ProductValue);
 
-	/** Set User Element List 2.
-	  * User defined list element #2
-	  */
-	public void setUser2_ID (String User2_ID);
+  /** Get Product Key. Key of the Product */
+  public String getProductValue();
 
-	/** Get User Element List 2.
-	  * User defined list element #2
-	  */
-	public String getUser2_ID();
+  /** Column name ProjectValue */
+  public static final String COLUMNNAME_ProjectValue = "ProjectValue";
+
+  /** Set Project Key. Key of the Project */
+  public void setProjectValue(String ProjectValue);
+
+  /** Get Project Key. Key of the Project */
+  public String getProjectValue();
+
+  /** Column name ShipperName */
+  public static final String COLUMNNAME_ShipperName = "ShipperName";
+
+  /** Set ShipperName */
+  public void setShipperName(String ShipperName);
+
+  /** Get ShipperName */
+  public String getShipperName();
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
+
+  /** Column name User1_ID */
+  public static final String COLUMNNAME_User1_ID = "User1_ID";
+
+  /** Set User Element List 1. User defined list element #1 */
+  public void setUser1_ID(String User1_ID);
+
+  /** Get User Element List 1. User defined list element #1 */
+  public String getUser1_ID();
+
+  /** Column name User2_ID */
+  public static final String COLUMNNAME_User2_ID = "User2_ID";
+
+  /** Set User Element List 2. User defined list element #2 */
+  public void setUser2_ID(String User2_ID);
+
+  /** Get User Element List 2. User defined list element #2 */
+  public String getUser2_ID();
 }

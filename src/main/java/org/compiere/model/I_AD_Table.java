@@ -1,393 +1,298 @@
 package org.compiere.model;
 
-import org.idempiere.common.util.KeyNamePair;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for AD_Table
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for AD_Table
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_AD_Table 
-{
+public interface I_AD_Table {
 
-    /** TableName=AD_Table */
-    public static final String Table_Name = "AD_Table";
+  /** TableName=AD_Table */
+  public static final String Table_Name = "AD_Table";
 
-    /** AD_Table_ID=100 */
-    public static final int Table_ID = 100;
+  /** AD_Table_ID=100 */
+  public static final int Table_ID = 100;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 4 - System 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(4);
+  /** AccessLevel = 4 - System */
+  BigDecimal accessLevel = BigDecimal.valueOf(4);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    /** Column name AccessLevel */
-    public static final String COLUMNNAME_AccessLevel = "AccessLevel";
+  /** Column name AccessLevel */
+  public static final String COLUMNNAME_AccessLevel = "AccessLevel";
 
-	/** Set Data Access Level.
-	  * Access Level required
-	  */
-	public void setTableAccessLevel (String AccessLevel);
+  /** Set Data Access Level. Access Level required */
+  public void setTableAccessLevel(String AccessLevel);
 
-	/** Get Data Access Level.
-	  * Access Level required
-	  */
-	public String getTableAccessLevel();
+  /** Get Data Access Level. Access Level required */
+  public String getTableAccessLevel();
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_Table_ID */
+  public static final String COLUMNNAME_AD_Table_ID = "AD_Table_ID";
 
-    /** Column name AD_Table_ID */
-    public static final String COLUMNNAME_AD_Table_ID = "AD_Table_ID";
+  /** Set Table. Database Table information */
+  public void setAD_Table_ID(int AD_Table_ID);
 
-	/** Set Table.
-	  * Database Table information
-	  */
-	public void setAD_Table_ID (int AD_Table_ID);
+  /** Get Table. Database Table information */
+  public int getAD_Table_ID();
 
-	/** Get Table.
-	  * Database Table information
-	  */
-	public int getAD_Table_ID();
+  /** Column name AD_Table_UU */
+  public static final String COLUMNNAME_AD_Table_UU = "AD_Table_UU";
 
-    /** Column name AD_Table_UU */
-    public static final String COLUMNNAME_AD_Table_UU = "AD_Table_UU";
+  /** Set AD_Table_UU */
+  public void setAD_Table_UU(String AD_Table_UU);
 
-	/** Set AD_Table_UU	  */
-	public void setAD_Table_UU (String AD_Table_UU);
+  /** Get AD_Table_UU */
+  public String getAD_Table_UU();
 
-	/** Get AD_Table_UU	  */
-	public String getAD_Table_UU();
+  /** Column name AD_Val_Rule_ID */
+  public static final String COLUMNNAME_AD_Val_Rule_ID = "AD_Val_Rule_ID";
 
-    /** Column name AD_Val_Rule_ID */
-    public static final String COLUMNNAME_AD_Val_Rule_ID = "AD_Val_Rule_ID";
+  /** Set Dynamic Validation. Dynamic Validation Rule */
+  public void setAD_Val_Rule_ID(int AD_Val_Rule_ID);
 
-	/** Set Dynamic Validation.
-	  * Dynamic Validation Rule
-	  */
-	public void setAD_Val_Rule_ID (int AD_Val_Rule_ID);
+  /** Get Dynamic Validation. Dynamic Validation Rule */
+  public int getAD_Val_Rule_ID();
 
-	/** Get Dynamic Validation.
-	  * Dynamic Validation Rule
-	  */
-	public int getAD_Val_Rule_ID();
+  public I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException;
 
-	public I_AD_Val_Rule getAD_Val_Rule() throws RuntimeException;
+  /** Column name AD_Window_ID */
+  public static final String COLUMNNAME_AD_Window_ID = "AD_Window_ID";
 
-    /** Column name AD_Window_ID */
-    public static final String COLUMNNAME_AD_Window_ID = "AD_Window_ID";
+  /** Set Window. Data entry or display window */
+  public void setAD_Window_ID(int AD_Window_ID);
 
-	/** Set Window.
-	  * Data entry or display window
-	  */
-	public void setAD_Window_ID (int AD_Window_ID);
+  /** Get Window. Data entry or display window */
+  public int getAD_Window_ID();
 
-	/** Get Window.
-	  * Data entry or display window
-	  */
-	public int getAD_Window_ID();
+  public I_AD_Window getAD_Window() throws RuntimeException;
 
-	public I_AD_Window getAD_Window() throws RuntimeException;
+  /** Column name CopyColumnsFromTable */
+  public static final String COLUMNNAME_CopyColumnsFromTable = "CopyColumnsFromTable";
 
-    /** Column name CopyColumnsFromTable */
-    public static final String COLUMNNAME_CopyColumnsFromTable = "CopyColumnsFromTable";
+  /** Set Copy Columns From Table */
+  public void setCopyColumnsFromTable(String CopyColumnsFromTable);
 
-	/** Set Copy Columns From Table	  */
-	public void setCopyColumnsFromTable (String CopyColumnsFromTable);
+  /** Get Copy Columns From Table */
+  public String getCopyColumnsFromTable();
 
-	/** Get Copy Columns From Table	  */
-	public String getCopyColumnsFromTable();
+  /** Column name CopyComponentsFromView */
+  public static final String COLUMNNAME_CopyComponentsFromView = "CopyComponentsFromView";
 
-    /** Column name CopyComponentsFromView */
-    public static final String COLUMNNAME_CopyComponentsFromView = "CopyComponentsFromView";
+  /** Set Copy Components From View */
+  public void setCopyComponentsFromView(String CopyComponentsFromView);
 
-	/** Set Copy Components From View	  */
-	public void setCopyComponentsFromView (String CopyComponentsFromView);
+  /** Get Copy Components From View */
+  public String getCopyComponentsFromView();
 
-	/** Get Copy Components From View	  */
-	public String getCopyComponentsFromView();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name DatabaseViewDrop */
+  public static final String COLUMNNAME_DatabaseViewDrop = "DatabaseViewDrop";
 
-    /** Column name DatabaseViewDrop */
-    public static final String COLUMNNAME_DatabaseViewDrop = "DatabaseViewDrop";
+  /** Set Drop view */
+  public void setDatabaseViewDrop(String DatabaseViewDrop);
 
-	/** Set Drop view	  */
-	public void setDatabaseViewDrop (String DatabaseViewDrop);
+  /** Get Drop view */
+  public String getDatabaseViewDrop();
 
-	/** Get Drop view	  */
-	public String getDatabaseViewDrop();
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Column name EntityType */
+  public static final String COLUMNNAME_EntityType = "EntityType";
 
-    /** Column name EntityType */
-    public static final String COLUMNNAME_EntityType = "EntityType";
+  /** Set Entity Type. Dictionary Entity Type; Determines ownership and synchronization */
+  public void setEntityType(String EntityType);
 
-	/** Set Entity Type.
-	  * Dictionary Entity Type;
- Determines ownership and synchronization
-	  */
-	public void setEntityType (String EntityType);
+  /** Get Entity Type. Dictionary Entity Type; Determines ownership and synchronization */
+  public String getEntityType();
 
-	/** Get Entity Type.
-	  * Dictionary Entity Type;
- Determines ownership and synchronization
-	  */
-	public String getEntityType();
+  /** Column name Help */
+  public static final String COLUMNNAME_Help = "Help";
 
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
+  /** Set Comment/Help. Comment or Hint */
+  public void setHelp(String Help);
 
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
+  /** Get Comment/Help. Comment or Hint */
+  public String getHelp();
 
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
+  /** Column name ImportTable */
+  public static final String COLUMNNAME_ImportTable = "ImportTable";
 
-    /** Column name ImportTable */
-    public static final String COLUMNNAME_ImportTable = "ImportTable";
-
-	/** Set Import Table.
-	  * Import Table Columns from Database
-	  */
-	public void setImportTable (String ImportTable);
+  /** Set Import Table. Import Table Columns from Database */
+  public void setImportTable(String ImportTable);
 
-	/** Get Import Table.
-	  * Import Table Columns from Database
-	  */
-	public String getImportTable();
+  /** Get Import Table. Import Table Columns from Database */
+  public String getImportTable();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-    /** Column name IsCentrallyMaintained */
-    public static final String COLUMNNAME_IsCentrallyMaintained = "IsCentrallyMaintained";
+  /** Column name IsCentrallyMaintained */
+  public static final String COLUMNNAME_IsCentrallyMaintained = "IsCentrallyMaintained";
 
-	/** Set Centrally maintained.
-	  * Information maintained in System Element table
-	  */
-	public void setIsCentrallyMaintained (boolean IsCentrallyMaintained);
+  /** Set Centrally maintained. Information maintained in System Element table */
+  public void setIsCentrallyMaintained(boolean IsCentrallyMaintained);
 
-	/** Get Centrally maintained.
-	  * Information maintained in System Element table
-	  */
-	public boolean isCentrallyMaintained();
-
-    /** Column name IsChangeLog */
-    public static final String COLUMNNAME_IsChangeLog = "IsChangeLog";
+  /** Get Centrally maintained. Information maintained in System Element table */
+  public boolean isCentrallyMaintained();
 
-	/** Set Maintain Change Log.
-	  * Maintain a log of changes
-	  */
-	public void setIsChangeLog (boolean IsChangeLog);
+  /** Column name IsChangeLog */
+  public static final String COLUMNNAME_IsChangeLog = "IsChangeLog";
 
-	/** Get Maintain Change Log.
-	  * Maintain a log of changes
-	  */
-	public boolean isChangeLog();
+  /** Set Maintain Change Log. Maintain a log of changes */
+  public void setIsChangeLog(boolean IsChangeLog);
 
-    /** Column name IsDeleteable */
-    public static final String COLUMNNAME_IsDeleteable = "IsDeleteable";
+  /** Get Maintain Change Log. Maintain a log of changes */
+  public boolean isChangeLog();
 
-	/** Set Records deletable.
-	  * Indicates if records can be deleted from the database
-	  */
-	public void setIsDeleteable (boolean IsDeleteable);
+  /** Column name IsDeleteable */
+  public static final String COLUMNNAME_IsDeleteable = "IsDeleteable";
 
-	/** Get Records deletable.
-	  * Indicates if records can be deleted from the database
-	  */
-	public boolean isDeleteable();
+  /** Set Records deletable. Indicates if records can be deleted from the database */
+  public void setIsDeleteable(boolean IsDeleteable);
 
-    /** Column name IsHighVolume */
-    public static final String COLUMNNAME_IsHighVolume = "IsHighVolume";
+  /** Get Records deletable. Indicates if records can be deleted from the database */
+  public boolean isDeleteable();
 
-	/** Set High Volume.
-	  * Use Search instead of Pick list
-	  */
-	public void setIsHighVolume (boolean IsHighVolume);
+  /** Column name IsHighVolume */
+  public static final String COLUMNNAME_IsHighVolume = "IsHighVolume";
 
-	/** Get High Volume.
-	  * Use Search instead of Pick list
-	  */
-	public boolean isHighVolume();
+  /** Set High Volume. Use Search instead of Pick list */
+  public void setIsHighVolume(boolean IsHighVolume);
 
-    /** Column name IsSecurityEnabled */
-    public static final String COLUMNNAME_IsSecurityEnabled = "IsSecurityEnabled";
+  /** Get High Volume. Use Search instead of Pick list */
+  public boolean isHighVolume();
 
-	/** Set Security enabled.
-	  * If security is enabled, user access to data can be restricted via Roles
-	  */
-	public void setIsSecurityEnabled (boolean IsSecurityEnabled);
+  /** Column name IsSecurityEnabled */
+  public static final String COLUMNNAME_IsSecurityEnabled = "IsSecurityEnabled";
 
-	/** Get Security enabled.
-	  * If security is enabled, user access to data can be restricted via Roles
-	  */
-	public boolean isSecurityEnabled();
+  /**
+   * Set Security enabled. If security is enabled, user access to data can be restricted via Roles
+   */
+  public void setIsSecurityEnabled(boolean IsSecurityEnabled);
 
-    /** Column name IsView */
-    public static final String COLUMNNAME_IsView = "IsView";
+  /**
+   * Get Security enabled. If security is enabled, user access to data can be restricted via Roles
+   */
+  public boolean isSecurityEnabled();
 
-	/** Set View.
-	  * This is a view
-	  */
-	public void setIsView (boolean IsView);
+  /** Column name IsView */
+  public static final String COLUMNNAME_IsView = "IsView";
 
-	/** Get View.
-	  * This is a view
-	  */
-	public boolean isView();
+  /** Set View. This is a view */
+  public void setIsView(boolean IsView);
 
-    /** Column name LoadSeq */
-    public static final String COLUMNNAME_LoadSeq = "LoadSeq";
+  /** Get View. This is a view */
+  public boolean isView();
 
-	/** Set Sequence	  */
-	public void setLoadSeq (int LoadSeq);
+  /** Column name LoadSeq */
+  public static final String COLUMNNAME_LoadSeq = "LoadSeq";
 
-	/** Get Sequence	  */
-	public int getLoadSeq();
+  /** Set Sequence */
+  public void setLoadSeq(int LoadSeq);
 
-    
-    
+  /** Get Sequence */
+  public int getLoadSeq();
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-    /** Column name PO_Window_ID */
-    public static final String COLUMNNAME_PO_Window_ID = "PO_Window_ID";
+  /** Column name PO_Window_ID */
+  public static final String COLUMNNAME_PO_Window_ID = "PO_Window_ID";
 
-	/** Set PO Window.
-	  * Purchase Order Window
-	  */
-	public void setPO_Window_ID (int PO_Window_ID);
+  /** Set PO Window. Purchase Order Window */
+  public void setPO_Window_ID(int PO_Window_ID);
 
-	/** Get PO Window.
-	  * Purchase Order Window
-	  */
-	public int getPO_Window_ID();
+  /** Get PO Window. Purchase Order Window */
+  public int getPO_Window_ID();
 
-	public I_AD_Window getPO_Window() throws RuntimeException;
+  public I_AD_Window getPO_Window() throws RuntimeException;
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /** Get Process Now */
+  public boolean isProcessing();
 
-    /** Column name ReplicationType */
-    public static final String COLUMNNAME_ReplicationType = "ReplicationType";
+  /** Column name ReplicationType */
+  public static final String COLUMNNAME_ReplicationType = "ReplicationType";
 
-	/** Set Replication Type.
-	  * Type of Data Replication
-	  */
-	public void setReplicationType (String ReplicationType);
+  /** Set Replication Type. Type of Data Replication */
+  public void setReplicationType(String ReplicationType);
 
-	/** Get Replication Type.
-	  * Type of Data Replication
-	  */
-	public String getReplicationType();
+  /** Get Replication Type. Type of Data Replication */
+  public String getReplicationType();
 
-    /** Column name TableName */
-    public static final String COLUMNNAME_TableName = "TableName";
+  /** Column name TableName */
+  public static final String COLUMNNAME_TableName = "TableName";
 
-	/** Set DB Table Name.
-	  * Name of the table in the database
-	  */
-	public void setTableName (String TableName);
+  /** Set DB Table Name. Name of the table in the database */
+  public void setTableName(String TableName);
 
-	/** Get DB Table Name.
-	  * Name of the table in the database
-	  */
-	public String getTableName();
+  /** Get DB Table Name. Name of the table in the database */
+  public String getTableName();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 
-	/** Organization = 1 */
-	public static final String ACCESSLEVEL_Organization = "1";
+  /** Organization = 1 */
+  public static final String ACCESSLEVEL_Organization = "1";
 }

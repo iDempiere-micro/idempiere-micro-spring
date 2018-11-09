@@ -4,586 +4,433 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for GL_JournalLine
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for GL_JournalLine
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_GL_JournalLine 
-{
+public interface I_GL_JournalLine {
 
-    /** TableName=GL_JournalLine */
-    public static final String Table_Name = "GL_JournalLine";
+  /** TableName=GL_JournalLine */
+  public static final String Table_Name = "GL_JournalLine";
 
-    /** AD_Table_ID=226 */
-    public static final int Table_ID = 226;
+  /** AD_Table_ID=226 */
+  public static final int Table_ID = 226;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 1 - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(1);
+  /** AccessLevel = 1 - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(1);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    /** Column name A_Asset_Group_ID */
-    public static final String COLUMNNAME_A_Asset_Group_ID = "A_Asset_Group_ID";
+  /** Column name A_Asset_Group_ID */
+  public static final String COLUMNNAME_A_Asset_Group_ID = "A_Asset_Group_ID";
 
-	/** Set Asset Group.
-	  * Group of Assets
-	  */
-	public void setA_Asset_Group_ID (int A_Asset_Group_ID);
+  /** Set Asset Group. Group of Assets */
+  public void setA_Asset_Group_ID(int A_Asset_Group_ID);
 
-	/** Get Asset Group.
-	  * Group of Assets
-	  */
-	public int getA_Asset_Group_ID();
+  /** Get Asset Group. Group of Assets */
+  public int getA_Asset_Group_ID();
 
-	public I_A_Asset_Group getA_Asset_Group() throws RuntimeException;
+  public I_A_Asset_Group getA_Asset_Group() throws RuntimeException;
 
-    /** Column name A_Asset_ID */
-    public static final String COLUMNNAME_A_Asset_ID = "A_Asset_ID";
+  /** Column name A_Asset_ID */
+  public static final String COLUMNNAME_A_Asset_ID = "A_Asset_ID";
 
-	/** Set Asset.
-	  * Asset used internally or by customers
-	  */
-	public void setA_Asset_ID (int A_Asset_ID);
+  /** Set Asset. Asset used internally or by customers */
+  public void setA_Asset_ID(int A_Asset_ID);
 
-	/** Get Asset.
-	  * Asset used internally or by customers
-	  */
-	public int getA_Asset_ID();
+  /** Get Asset. Asset used internally or by customers */
+  public int getA_Asset_ID();
 
-	public I_A_Asset getA_Asset() throws RuntimeException;
+  public I_A_Asset getA_Asset() throws RuntimeException;
 
-    /** Column name Account_ID */
-    public static final String COLUMNNAME_Account_ID = "Account_ID";
+  /** Column name Account_ID */
+  public static final String COLUMNNAME_Account_ID = "Account_ID";
 
-	/** Set Account.
-	  * Account used
-	  */
-	public void setAccount_ID (int Account_ID);
+  /** Set Account. Account used */
+  public void setAccount_ID(int Account_ID);
 
-	/** Get Account.
-	  * Account used
-	  */
-	public int getAccount_ID();
+  /** Get Account. Account used */
+  public int getAccount_ID();
 
-	public I_C_ElementValue getAccount() throws RuntimeException;
+  public I_C_ElementValue getAccount() throws RuntimeException;
 
-    /** Column name A_CreateAsset */
-    public static final String COLUMNNAME_A_CreateAsset = "A_CreateAsset";
+  /** Column name A_CreateAsset */
+  public static final String COLUMNNAME_A_CreateAsset = "A_CreateAsset";
 
-	/** Set Create Asset	  */
-	public void setA_CreateAsset (boolean A_CreateAsset);
+  /** Set Create Asset */
+  public void setA_CreateAsset(boolean A_CreateAsset);
 
-	/** Get Create Asset	  */
-	public boolean isA_CreateAsset();
+  /** Get Create Asset */
+  public boolean isA_CreateAsset();
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_OrgTrx_ID */
+  public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
 
-    /** Column name AD_OrgTrx_ID */
-    public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
+  /** Set Trx Organization. Performing or initiating organization */
+  public void setAD_OrgTrx_ID(int AD_OrgTrx_ID);
 
-	/** Set Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public void setAD_OrgTrx_ID (int AD_OrgTrx_ID);
+  /** Get Trx Organization. Performing or initiating organization */
+  public int getAD_OrgTrx_ID();
 
-	/** Get Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public int getAD_OrgTrx_ID();
+  /** Column name Alias_ValidCombination_ID */
+  public static final String COLUMNNAME_Alias_ValidCombination_ID = "Alias_ValidCombination_ID";
 
-    /** Column name Alias_ValidCombination_ID */
-    public static final String COLUMNNAME_Alias_ValidCombination_ID = "Alias_ValidCombination_ID";
-
-	/** Set Alias List.
-	  * Valid Account Alias List
-	  */
-	public void setAlias_ValidCombination_ID (int Alias_ValidCombination_ID);
+  /** Set Alias List. Valid Account Alias List */
+  public void setAlias_ValidCombination_ID(int Alias_ValidCombination_ID);
 
-	/** Get Alias List.
-	  * Valid Account Alias List
-	  */
-	public int getAlias_ValidCombination_ID();
-
-	public I_C_ValidCombination getAlias_ValidCombination() throws RuntimeException;
+  /** Get Alias List. Valid Account Alias List */
+  public int getAlias_ValidCombination_ID();
 
-    /** Column name AmtAcctCr */
-    public static final String COLUMNNAME_AmtAcctCr = "AmtAcctCr";
-
-	/** Set Accounted Credit.
-	  * Accounted Credit Amount
-	  */
-	public void setAmtAcctCr (BigDecimal AmtAcctCr);
+  public I_C_ValidCombination getAlias_ValidCombination() throws RuntimeException;
 
-	/** Get Accounted Credit.
-	  * Accounted Credit Amount
-	  */
-	public BigDecimal getAmtAcctCr();
+  /** Column name AmtAcctCr */
+  public static final String COLUMNNAME_AmtAcctCr = "AmtAcctCr";
 
-    /** Column name AmtAcctDr */
-    public static final String COLUMNNAME_AmtAcctDr = "AmtAcctDr";
+  /** Set Accounted Credit. Accounted Credit Amount */
+  public void setAmtAcctCr(BigDecimal AmtAcctCr);
 
-	/** Set Accounted Debit.
-	  * Accounted Debit Amount
-	  */
-	public void setAmtAcctDr (BigDecimal AmtAcctDr);
+  /** Get Accounted Credit. Accounted Credit Amount */
+  public BigDecimal getAmtAcctCr();
 
-	/** Get Accounted Debit.
-	  * Accounted Debit Amount
-	  */
-	public BigDecimal getAmtAcctDr();
+  /** Column name AmtAcctDr */
+  public static final String COLUMNNAME_AmtAcctDr = "AmtAcctDr";
 
-    /** Column name AmtSourceCr */
-    public static final String COLUMNNAME_AmtSourceCr = "AmtSourceCr";
+  /** Set Accounted Debit. Accounted Debit Amount */
+  public void setAmtAcctDr(BigDecimal AmtAcctDr);
 
-	/** Set Source Credit.
-	  * Source Credit Amount
-	  */
-	public void setAmtSourceCr (BigDecimal AmtSourceCr);
-
-	/** Get Source Credit.
-	  * Source Credit Amount
-	  */
-	public BigDecimal getAmtSourceCr();
+  /** Get Accounted Debit. Accounted Debit Amount */
+  public BigDecimal getAmtAcctDr();
 
-    /** Column name AmtSourceDr */
-    public static final String COLUMNNAME_AmtSourceDr = "AmtSourceDr";
+  /** Column name AmtSourceCr */
+  public static final String COLUMNNAME_AmtSourceCr = "AmtSourceCr";
 
-	/** Set Source Debit.
-	  * Source Debit Amount
-	  */
-	public void setAmtSourceDr (BigDecimal AmtSourceDr);
+  /** Set Source Credit. Source Credit Amount */
+  public void setAmtSourceCr(BigDecimal AmtSourceCr);
 
-	/** Get Source Debit.
-	  * Source Debit Amount
-	  */
-	public BigDecimal getAmtSourceDr();
+  /** Get Source Credit. Source Credit Amount */
+  public BigDecimal getAmtSourceCr();
 
-    /** Column name A_Processed */
-    public static final String COLUMNNAME_A_Processed = "A_Processed";
+  /** Column name AmtSourceDr */
+  public static final String COLUMNNAME_AmtSourceDr = "AmtSourceDr";
 
-	/** Set Processed	  */
-	public void setA_Processed (boolean A_Processed);
+  /** Set Source Debit. Source Debit Amount */
+  public void setAmtSourceDr(BigDecimal AmtSourceDr);
 
-	/** Get Processed	  */
-	public boolean isA_Processed();
+  /** Get Source Debit. Source Debit Amount */
+  public BigDecimal getAmtSourceDr();
 
-    /** Column name C_Activity_ID */
-    public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
+  /** Column name A_Processed */
+  public static final String COLUMNNAME_A_Processed = "A_Processed";
 
-	/** Set Activity.
-	  * Business Activity
-	  */
-	public void setC_Activity_ID (int C_Activity_ID);
+  /** Set Processed */
+  public void setA_Processed(boolean A_Processed);
 
-	/** Get Activity.
-	  * Business Activity
-	  */
-	public int getC_Activity_ID();
+  /** Get Processed */
+  public boolean isA_Processed();
 
-	public I_C_Activity getC_Activity() throws RuntimeException;
+  /** Column name C_Activity_ID */
+  public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
 
-    /** Column name C_BPartner_ID */
-    public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
+  /** Set Activity. Business Activity */
+  public void setC_Activity_ID(int C_Activity_ID);
 
-	/** Set Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public void setC_BPartner_ID (int C_BPartner_ID);
+  /** Get Activity. Business Activity */
+  public int getC_Activity_ID();
 
-	/** Get Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public int getC_BPartner_ID();
+  public I_C_Activity getC_Activity() throws RuntimeException;
 
-	public I_C_BPartner getC_BPartner() throws RuntimeException;
+  /** Column name C_BPartner_ID */
+  public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
-    /** Column name C_Campaign_ID */
-    public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
+  /** Set Business Partner . Identifies a Business Partner */
+  public void setC_BPartner_ID(int C_BPartner_ID);
 
-	/** Set Campaign.
-	  * Marketing Campaign
-	  */
-	public void setC_Campaign_ID (int C_Campaign_ID);
+  /** Get Business Partner . Identifies a Business Partner */
+  public int getC_BPartner_ID();
 
-	/** Get Campaign.
-	  * Marketing Campaign
-	  */
-	public int getC_Campaign_ID();
+  public I_C_BPartner getC_BPartner() throws RuntimeException;
 
-	public I_C_Campaign getC_Campaign() throws RuntimeException;
+  /** Column name C_Campaign_ID */
+  public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
 
-    /** Column name C_ConversionType_ID */
-    public static final String COLUMNNAME_C_ConversionType_ID = "C_ConversionType_ID";
+  /** Set Campaign. Marketing Campaign */
+  public void setC_Campaign_ID(int C_Campaign_ID);
 
-	/** Set Currency Type.
-	  * Currency Conversion Rate Type
-	  */
-	public void setC_ConversionType_ID (int C_ConversionType_ID);
+  /** Get Campaign. Marketing Campaign */
+  public int getC_Campaign_ID();
 
-	/** Get Currency Type.
-	  * Currency Conversion Rate Type
-	  */
-	public int getC_ConversionType_ID();
+  public I_C_Campaign getC_Campaign() throws RuntimeException;
 
-	public I_C_ConversionType getC_ConversionType() throws RuntimeException;
+  /** Column name C_ConversionType_ID */
+  public static final String COLUMNNAME_C_ConversionType_ID = "C_ConversionType_ID";
 
-    /** Column name C_Currency_ID */
-    public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
+  /** Set Currency Type. Currency Conversion Rate Type */
+  public void setC_ConversionType_ID(int C_ConversionType_ID);
 
-	/** Set Currency.
-	  * The Currency for this record
-	  */
-	public void setC_Currency_ID (int C_Currency_ID);
+  /** Get Currency Type. Currency Conversion Rate Type */
+  public int getC_ConversionType_ID();
 
-	/** Get Currency.
-	  * The Currency for this record
-	  */
-	public int getC_Currency_ID();
+  public I_C_ConversionType getC_ConversionType() throws RuntimeException;
 
-	public I_C_Currency getC_Currency() throws RuntimeException;
+  /** Column name C_Currency_ID */
+  public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
 
-    /** Column name C_LocFrom_ID */
-    public static final String COLUMNNAME_C_LocFrom_ID = "C_LocFrom_ID";
+  /** Set Currency. The Currency for this record */
+  public void setC_Currency_ID(int C_Currency_ID);
 
-	/** Set Location From.
-	  * Location that inventory was moved from
-	  */
-	public void setC_LocFrom_ID (int C_LocFrom_ID);
+  /** Get Currency. The Currency for this record */
+  public int getC_Currency_ID();
 
-	/** Get Location From.
-	  * Location that inventory was moved from
-	  */
-	public int getC_LocFrom_ID();
+  public I_C_Currency getC_Currency() throws RuntimeException;
 
-	public I_C_Location getC_LocFrom() throws RuntimeException;
+  /** Column name C_LocFrom_ID */
+  public static final String COLUMNNAME_C_LocFrom_ID = "C_LocFrom_ID";
 
-    /** Column name C_LocTo_ID */
-    public static final String COLUMNNAME_C_LocTo_ID = "C_LocTo_ID";
+  /** Set Location From. Location that inventory was moved from */
+  public void setC_LocFrom_ID(int C_LocFrom_ID);
 
-	/** Set Location To.
-	  * Location that inventory was moved to
-	  */
-	public void setC_LocTo_ID (int C_LocTo_ID);
+  /** Get Location From. Location that inventory was moved from */
+  public int getC_LocFrom_ID();
 
-	/** Get Location To.
-	  * Location that inventory was moved to
-	  */
-	public int getC_LocTo_ID();
+  public I_C_Location getC_LocFrom() throws RuntimeException;
 
-	public I_C_Location getC_LocTo() throws RuntimeException;
+  /** Column name C_LocTo_ID */
+  public static final String COLUMNNAME_C_LocTo_ID = "C_LocTo_ID";
 
-    /** Column name C_Project_ID */
-    public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
+  /** Set Location To. Location that inventory was moved to */
+  public void setC_LocTo_ID(int C_LocTo_ID);
 
-	/** Set Project.
-	  * Financial Project
-	  */
-	public void setC_Project_ID (int C_Project_ID);
+  /** Get Location To. Location that inventory was moved to */
+  public int getC_LocTo_ID();
 
-	/** Get Project.
-	  * Financial Project
-	  */
-	public int getC_Project_ID();
+  public I_C_Location getC_LocTo() throws RuntimeException;
 
-	public I_C_Project getC_Project() throws RuntimeException;
+  /** Column name C_Project_ID */
+  public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Set Project. Financial Project */
+  public void setC_Project_ID(int C_Project_ID);
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Get Project. Financial Project */
+  public int getC_Project_ID();
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  public I_C_Project getC_Project() throws RuntimeException;
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name C_SalesRegion_ID */
-    public static final String COLUMNNAME_C_SalesRegion_ID = "C_SalesRegion_ID";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Set Sales Region.
-	  * Sales coverage region
-	  */
-	public void setC_SalesRegion_ID (int C_SalesRegion_ID);
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Sales Region.
-	  * Sales coverage region
-	  */
-	public int getC_SalesRegion_ID();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	public I_C_SalesRegion getC_SalesRegion() throws RuntimeException;
+  /** Column name C_SalesRegion_ID */
+  public static final String COLUMNNAME_C_SalesRegion_ID = "C_SalesRegion_ID";
 
-    /** Column name C_SubAcct_ID */
-    public static final String COLUMNNAME_C_SubAcct_ID = "C_SubAcct_ID";
+  /** Set Sales Region. Sales coverage region */
+  public void setC_SalesRegion_ID(int C_SalesRegion_ID);
 
-	/** Set Sub Account.
-	  * Sub account for Element Value
-	  */
-	public void setC_SubAcct_ID (int C_SubAcct_ID);
+  /** Get Sales Region. Sales coverage region */
+  public int getC_SalesRegion_ID();
 
-	/** Get Sub Account.
-	  * Sub account for Element Value
-	  */
-	public int getC_SubAcct_ID();
+  public I_C_SalesRegion getC_SalesRegion() throws RuntimeException;
 
-	public I_C_SubAcct getC_SubAcct() throws RuntimeException;
+  /** Column name C_SubAcct_ID */
+  public static final String COLUMNNAME_C_SubAcct_ID = "C_SubAcct_ID";
 
-    /** Column name C_UOM_ID */
-    public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
+  /** Set Sub Account. Sub account for Element Value */
+  public void setC_SubAcct_ID(int C_SubAcct_ID);
 
-	/** Set UOM.
-	  * Unit of Measure
-	  */
-	public void setC_UOM_ID (int C_UOM_ID);
+  /** Get Sub Account. Sub account for Element Value */
+  public int getC_SubAcct_ID();
 
-	/** Get UOM.
-	  * Unit of Measure
-	  */
-	public int getC_UOM_ID();
+  public I_C_SubAcct getC_SubAcct() throws RuntimeException;
 
-	public I_C_UOM getC_UOM() throws RuntimeException;
+  /** Column name C_UOM_ID */
+  public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
 
-    /** Column name CurrencyRate */
-    public static final String COLUMNNAME_CurrencyRate = "CurrencyRate";
+  /** Set UOM. Unit of Measure */
+  public void setC_UOM_ID(int C_UOM_ID);
 
-	/** Set Rate.
-	  * Currency Conversion Rate
-	  */
-	public void setCurrencyRate (BigDecimal CurrencyRate);
+  /** Get UOM. Unit of Measure */
+  public int getC_UOM_ID();
 
-	/** Get Rate.
-	  * Currency Conversion Rate
-	  */
-	public BigDecimal getCurrencyRate();
+  public I_C_UOM getC_UOM() throws RuntimeException;
 
-    /** Column name C_ValidCombination_ID */
-    public static final String COLUMNNAME_C_ValidCombination_ID = "C_ValidCombination_ID";
+  /** Column name CurrencyRate */
+  public static final String COLUMNNAME_CurrencyRate = "CurrencyRate";
 
-	/** Set Combination.
-	  * Valid Account Combination
-	  */
-	public void setC_ValidCombination_ID (int C_ValidCombination_ID);
+  /** Set Rate. Currency Conversion Rate */
+  public void setCurrencyRate(BigDecimal CurrencyRate);
 
-	/** Get Combination.
-	  * Valid Account Combination
-	  */
-	public int getC_ValidCombination_ID();
+  /** Get Rate. Currency Conversion Rate */
+  public BigDecimal getCurrencyRate();
 
-	public I_C_ValidCombination getC_ValidCombination() throws RuntimeException;
+  /** Column name C_ValidCombination_ID */
+  public static final String COLUMNNAME_C_ValidCombination_ID = "C_ValidCombination_ID";
 
-    /** Column name DateAcct */
-    public static final String COLUMNNAME_DateAcct = "DateAcct";
+  /** Set Combination. Valid Account Combination */
+  public void setC_ValidCombination_ID(int C_ValidCombination_ID);
 
-	/** Set Account Date.
-	  * Accounting Date
-	  */
-	public void setDateAcct (Timestamp DateAcct);
+  /** Get Combination. Valid Account Combination */
+  public int getC_ValidCombination_ID();
 
-	/** Get Account Date.
-	  * Accounting Date
-	  */
-	public Timestamp getDateAcct();
+  public I_C_ValidCombination getC_ValidCombination() throws RuntimeException;
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Column name DateAcct */
+  public static final String COLUMNNAME_DateAcct = "DateAcct";
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Set Account Date. Accounting Date */
+  public void setDateAcct(Timestamp DateAcct);
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Get Account Date. Accounting Date */
+  public Timestamp getDateAcct();
 
-    /** Column name GL_Journal_ID */
-    public static final String COLUMNNAME_GL_Journal_ID = "GL_Journal_ID";
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Set Journal.
-	  * General Ledger Journal
-	  */
-	public void setGL_Journal_ID (int GL_Journal_ID);
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Get Journal.
-	  * General Ledger Journal
-	  */
-	public int getGL_Journal_ID();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	public I_GL_Journal getGL_Journal() throws RuntimeException;
+  /** Column name GL_Journal_ID */
+  public static final String COLUMNNAME_GL_Journal_ID = "GL_Journal_ID";
 
-    /** Column name GL_JournalLine_ID */
-    public static final String COLUMNNAME_GL_JournalLine_ID = "GL_JournalLine_ID";
+  /** Set Journal. General Ledger Journal */
+  public void setGL_Journal_ID(int GL_Journal_ID);
 
-	/** Set Journal Line.
-	  * General Ledger Journal Line
-	  */
-	public void setGL_JournalLine_ID (int GL_JournalLine_ID);
+  /** Get Journal. General Ledger Journal */
+  public int getGL_Journal_ID();
 
-	/** Get Journal Line.
-	  * General Ledger Journal Line
-	  */
-	public int getGL_JournalLine_ID();
+  public I_GL_Journal getGL_Journal() throws RuntimeException;
 
-    /** Column name GL_JournalLine_UU */
-    public static final String COLUMNNAME_GL_JournalLine_UU = "GL_JournalLine_UU";
+  /** Column name GL_JournalLine_ID */
+  public static final String COLUMNNAME_GL_JournalLine_ID = "GL_JournalLine_ID";
 
-	/** Set GL_JournalLine_UU	  */
-	public void setGL_JournalLine_UU (String GL_JournalLine_UU);
+  /** Set Journal Line. General Ledger Journal Line */
+  public void setGL_JournalLine_ID(int GL_JournalLine_ID);
 
-	/** Get GL_JournalLine_UU	  */
-	public String getGL_JournalLine_UU();
+  /** Get Journal Line. General Ledger Journal Line */
+  public int getGL_JournalLine_ID();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name GL_JournalLine_UU */
+  public static final String COLUMNNAME_GL_JournalLine_UU = "GL_JournalLine_UU";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set GL_JournalLine_UU */
+  public void setGL_JournalLine_UU(String GL_JournalLine_UU);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Get GL_JournalLine_UU */
+  public String getGL_JournalLine_UU();
 
-    /** Column name IsGenerated */
-    public static final String COLUMNNAME_IsGenerated = "IsGenerated";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Generated.
-	  * This Line is generated
-	  */
-	public void setIsGenerated (boolean IsGenerated);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Generated.
-	  * This Line is generated
-	  */
-	public boolean isGenerated();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-    /** Column name Line */
-    public static final String COLUMNNAME_Line = "Line";
+  /** Column name IsGenerated */
+  public static final String COLUMNNAME_IsGenerated = "IsGenerated";
 
-	/** Set Line No.
-	  * Unique line for this document
-	  */
-	public void setLine (int Line);
+  /** Set Generated. This Line is generated */
+  public void setIsGenerated(boolean IsGenerated);
 
-	/** Get Line No.
-	  * Unique line for this document
-	  */
-	public int getLine();
+  /** Get Generated. This Line is generated */
+  public boolean isGenerated();
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  /** Column name Line */
+  public static final String COLUMNNAME_Line = "Line";
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Set Line No. Unique line for this document */
+  public void setLine(int Line);
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  /** Get Line No. Unique line for this document */
+  public int getLine();
 
-	public I_M_Product getM_Product() throws RuntimeException;
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  public I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name Qty */
-    public static final String COLUMNNAME_Qty = "Qty";
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Set Quantity.
-	  * Quantity
-	  */
-	public void setQty (BigDecimal Qty);
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-	/** Get Quantity.
-	  * Quantity
-	  */
-	public BigDecimal getQty();
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name Qty */
+  public static final String COLUMNNAME_Qty = "Qty";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Set Quantity. Quantity */
+  public void setQty(BigDecimal Qty);
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get Quantity. Quantity */
+  public BigDecimal getQty();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-    /** Column name User1_ID */
-    public static final String COLUMNNAME_User1_ID = "User1_ID";
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-	/** Set User Element List 1.
-	  * User defined list element #1
-	  */
-	public void setUser1_ID (int User1_ID);
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get User Element List 1.
-	  * User defined list element #1
-	  */
-	public int getUser1_ID();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 
-	public I_C_ElementValue getUser1() throws RuntimeException;
+  /** Column name User1_ID */
+  public static final String COLUMNNAME_User1_ID = "User1_ID";
 
-    /** Column name User2_ID */
-    public static final String COLUMNNAME_User2_ID = "User2_ID";
+  /** Set User Element List 1. User defined list element #1 */
+  public void setUser1_ID(int User1_ID);
 
-	/** Set User Element List 2.
-	  * User defined list element #2
-	  */
-	public void setUser2_ID (int User2_ID);
+  /** Get User Element List 1. User defined list element #1 */
+  public int getUser1_ID();
 
-	/** Get User Element List 2.
-	  * User defined list element #2
-	  */
-	public int getUser2_ID();
+  public I_C_ElementValue getUser1() throws RuntimeException;
 
-	public I_C_ElementValue getUser2() throws RuntimeException;
+  /** Column name User2_ID */
+  public static final String COLUMNNAME_User2_ID = "User2_ID";
+
+  /** Set User Element List 2. User defined list element #2 */
+  public void setUser2_ID(int User2_ID);
+
+  /** Get User Element List 2. User defined list element #2 */
+  public int getUser2_ID();
+
+  public I_C_ElementValue getUser2() throws RuntimeException;
 }

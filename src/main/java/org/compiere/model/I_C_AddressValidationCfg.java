@@ -1,234 +1,177 @@
 package org.compiere.model;
 
-import org.idempiere.common.util.KeyNamePair;
-
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for C_AddressValidationCfg
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for C_AddressValidationCfg
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_C_AddressValidationCfg 
-{
+public interface I_C_AddressValidationCfg {
 
-    /** TableName=C_AddressValidationCfg */
-    public static final String Table_Name = "C_AddressValidationCfg";
+  /** TableName=C_AddressValidationCfg */
+  public static final String Table_Name = "C_AddressValidationCfg";
 
-    /** AD_Table_ID=200100 */
-    public static final int Table_ID = 200100;
+  /** AD_Table_ID=200100 */
+  public static final int Table_ID = 200100;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 6 - System - Client 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(6);
+  /** AccessLevel = 6 - System - Client */
+  BigDecimal accessLevel = BigDecimal.valueOf(6);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AddressValidationClass */
+  public static final String COLUMNNAME_AddressValidationClass = "AddressValidationClass";
 
-    /** Column name AddressValidationClass */
-    public static final String COLUMNNAME_AddressValidationClass = "AddressValidationClass";
+  /** Set Address Validation Class */
+  public void setAddressValidationClass(String AddressValidationClass);
 
-	/** Set Address Validation Class	  */
-	public void setAddressValidationClass (String AddressValidationClass);
+  /** Get Address Validation Class */
+  public String getAddressValidationClass();
 
-	/** Get Address Validation Class	  */
-	public String getAddressValidationClass();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name C_AddressValidationCfg_ID */
+  public static final String COLUMNNAME_C_AddressValidationCfg_ID = "C_AddressValidationCfg_ID";
 
-    /** Column name C_AddressValidationCfg_ID */
-    public static final String COLUMNNAME_C_AddressValidationCfg_ID = "C_AddressValidationCfg_ID";
+  /** Set Address Validation Configuration */
+  public void setC_AddressValidationCfg_ID(int C_AddressValidationCfg_ID);
 
-	/** Set Address Validation Configuration	  */
-	public void setC_AddressValidationCfg_ID (int C_AddressValidationCfg_ID);
+  /** Get Address Validation Configuration */
+  public int getC_AddressValidationCfg_ID();
 
-	/** Get Address Validation Configuration	  */
-	public int getC_AddressValidationCfg_ID();
+  /** Column name C_AddressValidationCfg_UU */
+  public static final String COLUMNNAME_C_AddressValidationCfg_UU = "C_AddressValidationCfg_UU";
 
-    /** Column name C_AddressValidationCfg_UU */
-    public static final String COLUMNNAME_C_AddressValidationCfg_UU = "C_AddressValidationCfg_UU";
+  /** Set C_AddressValidationCfg_UU */
+  public void setC_AddressValidationCfg_UU(String C_AddressValidationCfg_UU);
 
-	/** Set C_AddressValidationCfg_UU	  */
-	public void setC_AddressValidationCfg_UU (String C_AddressValidationCfg_UU);
+  /** Get C_AddressValidationCfg_UU */
+  public String getC_AddressValidationCfg_UU();
 
-	/** Get C_AddressValidationCfg_UU	  */
-	public String getC_AddressValidationCfg_UU();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Column name HostAddress */
+  public static final String COLUMNNAME_HostAddress = "HostAddress";
 
-    /** Column name HostAddress */
-    public static final String COLUMNNAME_HostAddress = "HostAddress";
+  /** Set Host Address. Host Address URL or DNS */
+  public void setHostAddress(String HostAddress);
 
-	/** Set Host Address.
-	  * Host Address URL or DNS
-	  */
-	public void setHostAddress (String HostAddress);
+  /** Get Host Address. Host Address URL or DNS */
+  public String getHostAddress();
 
-	/** Get Host Address.
-	  * Host Address URL or DNS
-	  */
-	public String getHostAddress();
+  /** Column name HostPort */
+  public static final String COLUMNNAME_HostPort = "HostPort";
 
-    /** Column name HostPort */
-    public static final String COLUMNNAME_HostPort = "HostPort";
+  /** Set Host port. Host Communication Port */
+  public void setHostPort(int HostPort);
 
-	/** Set Host port.
-	  * Host Communication Port
-	  */
-	public void setHostPort (int HostPort);
+  /** Get Host port. Host Communication Port */
+  public int getHostPort();
 
-	/** Get Host port.
-	  * Host Communication Port
-	  */
-	public int getHostPort();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-    
-    
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Column name ProxyAddress */
+  public static final String COLUMNNAME_ProxyAddress = "ProxyAddress";
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Set Proxy address. Address of your proxy server */
+  public void setProxyAddress(String ProxyAddress);
 
-    /** Column name ProxyAddress */
-    public static final String COLUMNNAME_ProxyAddress = "ProxyAddress";
+  /** Get Proxy address. Address of your proxy server */
+  public String getProxyAddress();
 
-	/** Set Proxy address.
-	  *  Address of your proxy server
-	  */
-	public void setProxyAddress (String ProxyAddress);
+  /** Column name ProxyLogon */
+  public static final String COLUMNNAME_ProxyLogon = "ProxyLogon";
 
-	/** Get Proxy address.
-	  *  Address of your proxy server
-	  */
-	public String getProxyAddress();
+  /** Set Proxy logon. Logon of your proxy server */
+  public void setProxyLogon(String ProxyLogon);
 
-    /** Column name ProxyLogon */
-    public static final String COLUMNNAME_ProxyLogon = "ProxyLogon";
+  /** Get Proxy logon. Logon of your proxy server */
+  public String getProxyLogon();
 
-	/** Set Proxy logon.
-	  * Logon of your proxy server
-	  */
-	public void setProxyLogon (String ProxyLogon);
+  /** Column name ProxyPassword */
+  public static final String COLUMNNAME_ProxyPassword = "ProxyPassword";
 
-	/** Get Proxy logon.
-	  * Logon of your proxy server
-	  */
-	public String getProxyLogon();
+  /** Set Proxy password. Password of your proxy server */
+  public void setProxyPassword(String ProxyPassword);
 
-    /** Column name ProxyPassword */
-    public static final String COLUMNNAME_ProxyPassword = "ProxyPassword";
+  /** Get Proxy password. Password of your proxy server */
+  public String getProxyPassword();
 
-	/** Set Proxy password.
-	  * Password of your proxy server
-	  */
-	public void setProxyPassword (String ProxyPassword);
+  /** Column name ProxyPort */
+  public static final String COLUMNNAME_ProxyPort = "ProxyPort";
 
-	/** Get Proxy password.
-	  * Password of your proxy server
-	  */
-	public String getProxyPassword();
+  /** Set Proxy port. Port of your proxy server */
+  public void setProxyPort(int ProxyPort);
 
-    /** Column name ProxyPort */
-    public static final String COLUMNNAME_ProxyPort = "ProxyPort";
+  /** Get Proxy port. Port of your proxy server */
+  public int getProxyPort();
 
-	/** Set Proxy port.
-	  * Port of your proxy server
-	  */
-	public void setProxyPort (int ProxyPort);
+  /** Column name ServicePath */
+  public static final String COLUMNNAME_ServicePath = "ServicePath";
 
-	/** Get Proxy port.
-	  * Port of your proxy server
-	  */
-	public int getProxyPort();
+  /** Set Service Path */
+  public void setServicePath(String ServicePath);
 
-    /** Column name ServicePath */
-    public static final String COLUMNNAME_ServicePath = "ServicePath";
+  /** Get Service Path */
+  public String getServicePath();
 
-	/** Set Service Path	  */
-	public void setServicePath (String ServicePath);
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-	/** Get Service Path	  */
-	public String getServicePath();
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
-
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
-
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 }

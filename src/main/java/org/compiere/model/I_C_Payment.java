@@ -4,1275 +4,944 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for C_Payment
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for C_Payment
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_C_Payment 
-{
-
-    /** TableName=C_Payment */
-    public static final String Table_Name = "C_Payment";
-
-    /** AD_Table_ID=335 */
-    public static final int Table_ID = 335;
+public interface I_C_Payment {
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
-
-    /** AccessLevel = 1 - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(1);
-
-    /** Load Meta Data */
+  /** TableName=C_Payment */
+  public static final String Table_Name = "C_Payment";
 
-    /** Column name AccountNo */
-    public static final String COLUMNNAME_AccountNo = "AccountNo";
+  /** AD_Table_ID=335 */
+  public static final int Table_ID = 335;
 
-	/** Set Account No.
-	  * Account Number
-	  */
-	public void setAccountNo (String AccountNo);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-	/** Get Account No.
-	  * Account Number
-	  */
-	public String getAccountNo();
-
-    /** Column name A_City */
-    public static final String COLUMNNAME_A_City = "A_City";
+  /** AccessLevel = 1 - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(1);
 
-	/** Set Account City.
-	  * City or the Credit Card or Account Holder
-	  */
-	public void setA_City (String A_City);
-
-	/** Get Account City.
-	  * City or the Credit Card or Account Holder
-	  */
-	public String getA_City();
-
-    /** Column name A_Country */
-    public static final String COLUMNNAME_A_Country = "A_Country";
-
-	/** Set Account Country.
-	  * Country
-	  */
-	public void setA_Country (String A_Country);
-
-	/** Get Account Country.
-	  * Country
-	  */
-	public String getA_Country();
-
-    
-    
-
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
-
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
-
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
-
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
-
-    /** Column name AD_OrgTrx_ID */
-    public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
-
-	/** Set Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public void setAD_OrgTrx_ID (int AD_OrgTrx_ID);
-
-	/** Get Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public int getAD_OrgTrx_ID();
-
-    /** Column name A_EMail */
-    public static final String COLUMNNAME_A_EMail = "A_EMail";
-
-	/** Set Account EMail.
-	  * Email Address
-	  */
-	public void setA_EMail (String A_EMail);
-
-	/** Get Account EMail.
-	  * Email Address
-	  */
-	public String getA_EMail();
-
-    /** Column name A_Ident_DL */
-    public static final String COLUMNNAME_A_Ident_DL = "A_Ident_DL";
-
-	/** Set Driver License.
-	  * Payment Identification - Driver License
-	  */
-	public void setA_Ident_DL (String A_Ident_DL);
-
-	/** Get Driver License.
-	  * Payment Identification - Driver License
-	  */
-	public String getA_Ident_DL();
-
-    /** Column name A_Ident_SSN */
-    public static final String COLUMNNAME_A_Ident_SSN = "A_Ident_SSN";
-
-	/** Set Social Security No.
-	  * Payment Identification - Social Security No
-	  */
-	public void setA_Ident_SSN (String A_Ident_SSN);
-
-	/** Get Social Security No.
-	  * Payment Identification - Social Security No
-	  */
-	public String getA_Ident_SSN();
-
-    /** Column name A_Name */
-    public static final String COLUMNNAME_A_Name = "A_Name";
-
-	/** Set Account Name.
-	  * Name on Credit Card or Account holder
-	  */
-	public void setA_Name (String A_Name);
-
-	/** Get Account Name.
-	  * Name on Credit Card or Account holder
-	  */
-	public String getA_Name();
-
-    /** Column name A_State */
-    public static final String COLUMNNAME_A_State = "A_State";
+  /** Load Meta Data */
 
-	/** Set Account State.
-	  * State of the Credit Card or Account holder
-	  */
-	public void setA_State (String A_State);
-
-	/** Get Account State.
-	  * State of the Credit Card or Account holder
-	  */
-	public String getA_State();
-
-    /** Column name A_Street */
-    public static final String COLUMNNAME_A_Street = "A_Street";
-
-	/** Set Account Street.
-	  * Street address of the Credit Card or Account holder
-	  */
-	public void setA_Street (String A_Street);
-
-	/** Get Account Street.
-	  * Street address of the Credit Card or Account holder
-	  */
-	public String getA_Street();
-
-    /** Column name A_Zip */
-    public static final String COLUMNNAME_A_Zip = "A_Zip";
-
-	/** Set Account Zip/Postal.
-	  * Zip Code of the Credit Card or Account Holder
-	  */
-	public void setA_Zip (String A_Zip);
+  /** Column name AccountNo */
+  public static final String COLUMNNAME_AccountNo = "AccountNo";
 
-	/** Get Account Zip/Postal.
-	  * Zip Code of the Credit Card or Account Holder
-	  */
-	public String getA_Zip();
+  /** Set Account No. Account Number */
+  public void setAccountNo(String AccountNo);
 
-    /** Column name C_Activity_ID */
-    public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
-
-	/** Set Activity.
-	  * Business Activity
-	  */
-	public void setC_Activity_ID (int C_Activity_ID);
+  /** Get Account No. Account Number */
+  public String getAccountNo();
 
-	/** Get Activity.
-	  * Business Activity
-	  */
-	public int getC_Activity_ID();
-
-	public I_C_Activity getC_Activity() throws RuntimeException;
+  /** Column name A_City */
+  public static final String COLUMNNAME_A_City = "A_City";
 
-    /** Column name C_BankAccount_ID */
-    public static final String COLUMNNAME_C_BankAccount_ID = "C_BankAccount_ID";
-
-	/** Set Bank Account.
-	  * Account at the Bank
-	  */
-	public void setC_BankAccount_ID (int C_BankAccount_ID);
+  /** Set Account City. City or the Credit Card or Account Holder */
+  public void setA_City(String A_City);
 
-	/** Get Bank Account.
-	  * Account at the Bank
-	  */
-	public int getC_BankAccount_ID();
+  /** Get Account City. City or the Credit Card or Account Holder */
+  public String getA_City();
 
-	public I_C_BankAccount getC_BankAccount() throws RuntimeException;
+  /** Column name A_Country */
+  public static final String COLUMNNAME_A_Country = "A_Country";
 
-    /** Column name C_BPartner_ID */
-    public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
-
-	/** Set Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public void setC_BPartner_ID (int C_BPartner_ID);
+  /** Set Account Country. Country */
+  public void setA_Country(String A_Country);
 
-	/** Get Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public int getC_BPartner_ID();
+  /** Get Account Country. Country */
+  public String getA_Country();
 
-	public I_C_BPartner getC_BPartner() throws RuntimeException;
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-    /** Column name C_BP_BankAccount_ID */
-    public static final String COLUMNNAME_C_BP_BankAccount_ID = "C_BP_BankAccount_ID";
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-	/** Set Partner Bank Account.
-	  * Bank Account of the Business Partner
-	  */
-	public void setC_BP_BankAccount_ID (int C_BP_BankAccount_ID);
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Get Partner Bank Account.
-	  * Bank Account of the Business Partner
-	  */
-	public int getC_BP_BankAccount_ID();
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	public I_C_BP_BankAccount getC_BP_BankAccount() throws RuntimeException;
+  /** Column name AD_OrgTrx_ID */
+  public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
 
-    /** Column name C_Campaign_ID */
-    public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
+  /** Set Trx Organization. Performing or initiating organization */
+  public void setAD_OrgTrx_ID(int AD_OrgTrx_ID);
 
-	/** Set Campaign.
-	  * Marketing Campaign
-	  */
-	public void setC_Campaign_ID (int C_Campaign_ID);
+  /** Get Trx Organization. Performing or initiating organization */
+  public int getAD_OrgTrx_ID();
 
-	/** Get Campaign.
-	  * Marketing Campaign
-	  */
-	public int getC_Campaign_ID();
+  /** Column name A_EMail */
+  public static final String COLUMNNAME_A_EMail = "A_EMail";
 
-	public I_C_Campaign getC_Campaign() throws RuntimeException;
+  /** Set Account EMail. Email Address */
+  public void setA_EMail(String A_EMail);
 
-    /** Column name C_CashBook_ID */
-    public static final String COLUMNNAME_C_CashBook_ID = "C_CashBook_ID";
+  /** Get Account EMail. Email Address */
+  public String getA_EMail();
 
-	/** Set Cash Book.
-	  * Cash Book for recording petty cash transactions
-	  */
-	public void setC_CashBook_ID (int C_CashBook_ID);
+  /** Column name A_Ident_DL */
+  public static final String COLUMNNAME_A_Ident_DL = "A_Ident_DL";
 
-	/** Get Cash Book.
-	  * Cash Book for recording petty cash transactions
-	  */
-	public int getC_CashBook_ID();
+  /** Set Driver License. Payment Identification - Driver License */
+  public void setA_Ident_DL(String A_Ident_DL);
 
-	public I_C_CashBook getC_CashBook() throws RuntimeException;
+  /** Get Driver License. Payment Identification - Driver License */
+  public String getA_Ident_DL();
 
-    /** Column name C_Charge_ID */
-    public static final String COLUMNNAME_C_Charge_ID = "C_Charge_ID";
+  /** Column name A_Ident_SSN */
+  public static final String COLUMNNAME_A_Ident_SSN = "A_Ident_SSN";
 
-	/** Set Charge.
-	  * Additional document charges
-	  */
-	public void setC_Charge_ID (int C_Charge_ID);
+  /** Set Social Security No. Payment Identification - Social Security No */
+  public void setA_Ident_SSN(String A_Ident_SSN);
 
-	/** Get Charge.
-	  * Additional document charges
-	  */
-	public int getC_Charge_ID();
+  /** Get Social Security No. Payment Identification - Social Security No */
+  public String getA_Ident_SSN();
 
-	public I_C_Charge getC_Charge() throws RuntimeException;
+  /** Column name A_Name */
+  public static final String COLUMNNAME_A_Name = "A_Name";
 
-    /** Column name C_ConversionType_ID */
-    public static final String COLUMNNAME_C_ConversionType_ID = "C_ConversionType_ID";
+  /** Set Account Name. Name on Credit Card or Account holder */
+  public void setA_Name(String A_Name);
 
-	/** Set Currency Type.
-	  * Currency Conversion Rate Type
-	  */
-	public void setC_ConversionType_ID (int C_ConversionType_ID);
+  /** Get Account Name. Name on Credit Card or Account holder */
+  public String getA_Name();
 
-	/** Get Currency Type.
-	  * Currency Conversion Rate Type
-	  */
-	public int getC_ConversionType_ID();
+  /** Column name A_State */
+  public static final String COLUMNNAME_A_State = "A_State";
 
-	public I_C_ConversionType getC_ConversionType() throws RuntimeException;
+  /** Set Account State. State of the Credit Card or Account holder */
+  public void setA_State(String A_State);
 
-    /** Column name C_Currency_ID */
-    public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
+  /** Get Account State. State of the Credit Card or Account holder */
+  public String getA_State();
 
-	/** Set Currency.
-	  * The Currency for this record
-	  */
-	public void setC_Currency_ID (int C_Currency_ID);
+  /** Column name A_Street */
+  public static final String COLUMNNAME_A_Street = "A_Street";
 
-	/** Get Currency.
-	  * The Currency for this record
-	  */
-	public int getC_Currency_ID();
+  /** Set Account Street. Street address of the Credit Card or Account holder */
+  public void setA_Street(String A_Street);
 
-	public I_C_Currency getC_Currency() throws RuntimeException;
+  /** Get Account Street. Street address of the Credit Card or Account holder */
+  public String getA_Street();
 
-    /** Column name C_DepositBatch_ID */
-    public static final String COLUMNNAME_C_DepositBatch_ID = "C_DepositBatch_ID";
+  /** Column name A_Zip */
+  public static final String COLUMNNAME_A_Zip = "A_Zip";
 
-	/** Set Deposit Batch	  */
-	public void setC_DepositBatch_ID (int C_DepositBatch_ID);
+  /** Set Account Zip/Postal. Zip Code of the Credit Card or Account Holder */
+  public void setA_Zip(String A_Zip);
 
-	/** Get Deposit Batch	  */
-	public int getC_DepositBatch_ID();
+  /** Get Account Zip/Postal. Zip Code of the Credit Card or Account Holder */
+  public String getA_Zip();
 
-	public I_C_DepositBatch getC_DepositBatch() throws RuntimeException;
+  /** Column name C_Activity_ID */
+  public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
 
-    /** Column name C_DocType_ID */
-    public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
+  /** Set Activity. Business Activity */
+  public void setC_Activity_ID(int C_Activity_ID);
 
-	/** Set Document Type.
-	  * Document type or rules
-	  */
-	public void setC_DocType_ID (int C_DocType_ID);
+  /** Get Activity. Business Activity */
+  public int getC_Activity_ID();
 
-	/** Get Document Type.
-	  * Document type or rules
-	  */
-	public int getC_DocType_ID();
+  public I_C_Activity getC_Activity() throws RuntimeException;
 
-	public I_C_DocType getC_DocType() throws RuntimeException;
+  /** Column name C_BankAccount_ID */
+  public static final String COLUMNNAME_C_BankAccount_ID = "C_BankAccount_ID";
 
-    /** Column name ChargeAmt */
-    public static final String COLUMNNAME_ChargeAmt = "ChargeAmt";
+  /** Set Bank Account. Account at the Bank */
+  public void setC_BankAccount_ID(int C_BankAccount_ID);
 
-	/** Set Charge amount.
-	  * Charge Amount
-	  */
-	public void setChargeAmt (BigDecimal ChargeAmt);
+  /** Get Bank Account. Account at the Bank */
+  public int getC_BankAccount_ID();
 
-	/** Get Charge amount.
-	  * Charge Amount
-	  */
-	public BigDecimal getChargeAmt();
+  public I_C_BankAccount getC_BankAccount() throws RuntimeException;
 
-    /** Column name CheckNo */
-    public static final String COLUMNNAME_CheckNo = "CheckNo";
+  /** Column name C_BPartner_ID */
+  public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
-	/** Set Check No.
-	  * Check Number
-	  */
-	public void setCheckNo (String CheckNo);
+  /** Set Business Partner . Identifies a Business Partner */
+  public void setC_BPartner_ID(int C_BPartner_ID);
 
-	/** Get Check No.
-	  * Check Number
-	  */
-	public String getCheckNo();
+  /** Get Business Partner . Identifies a Business Partner */
+  public int getC_BPartner_ID();
 
-    /** Column name C_Invoice_ID */
-    public static final String COLUMNNAME_C_Invoice_ID = "C_Invoice_ID";
+  public I_C_BPartner getC_BPartner() throws RuntimeException;
 
-	/** Set Invoice.
-	  * Invoice Identifier
-	  */
-	public void setC_Invoice_ID (int C_Invoice_ID);
+  /** Column name C_BP_BankAccount_ID */
+  public static final String COLUMNNAME_C_BP_BankAccount_ID = "C_BP_BankAccount_ID";
 
-	/** Get Invoice.
-	  * Invoice Identifier
-	  */
-	public int getC_Invoice_ID();
+  /** Set Partner Bank Account. Bank Account of the Business Partner */
+  public void setC_BP_BankAccount_ID(int C_BP_BankAccount_ID);
 
-	public I_C_Invoice getC_Invoice() throws RuntimeException;
+  /** Get Partner Bank Account. Bank Account of the Business Partner */
+  public int getC_BP_BankAccount_ID();
 
-    /** Column name C_Order_ID */
-    public static final String COLUMNNAME_C_Order_ID = "C_Order_ID";
+  public I_C_BP_BankAccount getC_BP_BankAccount() throws RuntimeException;
 
-	/** Set Order.
-	  * Order
-	  */
-	public void setC_Order_ID (int C_Order_ID);
+  /** Column name C_Campaign_ID */
+  public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
 
-	/** Get Order.
-	  * Order
-	  */
-	public int getC_Order_ID();
+  /** Set Campaign. Marketing Campaign */
+  public void setC_Campaign_ID(int C_Campaign_ID);
 
-	public I_C_Order getC_Order() throws RuntimeException;
+  /** Get Campaign. Marketing Campaign */
+  public int getC_Campaign_ID();
 
-    /** Column name C_PaymentBatch_ID */
-    public static final String COLUMNNAME_C_PaymentBatch_ID = "C_PaymentBatch_ID";
+  public I_C_Campaign getC_Campaign() throws RuntimeException;
 
-	/** Set Payment Batch.
-	  * Payment batch for EFT
-	  */
-	public void setC_PaymentBatch_ID (int C_PaymentBatch_ID);
+  /** Column name C_CashBook_ID */
+  public static final String COLUMNNAME_C_CashBook_ID = "C_CashBook_ID";
 
-	/** Get Payment Batch.
-	  * Payment batch for EFT
-	  */
-	public int getC_PaymentBatch_ID();
+  /** Set Cash Book. Cash Book for recording petty cash transactions */
+  public void setC_CashBook_ID(int C_CashBook_ID);
 
-	public I_C_PaymentBatch getC_PaymentBatch() throws RuntimeException;
+  /** Get Cash Book. Cash Book for recording petty cash transactions */
+  public int getC_CashBook_ID();
 
-    /** Column name C_Payment_ID */
-    public static final String COLUMNNAME_C_Payment_ID = "C_Payment_ID";
+  public I_C_CashBook getC_CashBook() throws RuntimeException;
 
-	/** Set Payment.
-	  * Payment identifier
-	  */
-	public void setC_Payment_ID (int C_Payment_ID);
+  /** Column name C_Charge_ID */
+  public static final String COLUMNNAME_C_Charge_ID = "C_Charge_ID";
 
-	/** Get Payment.
-	  * Payment identifier
-	  */
-	public int getC_Payment_ID();
+  /** Set Charge. Additional document charges */
+  public void setC_Charge_ID(int C_Charge_ID);
 
-    /** Column name C_PaymentProcessor_ID */
-    public static final String COLUMNNAME_C_PaymentProcessor_ID = "C_PaymentProcessor_ID";
+  /** Get Charge. Additional document charges */
+  public int getC_Charge_ID();
 
-	/** Set Payment Processor.
-	  * Payment processor for electronic payments
-	  */
-	public void setC_PaymentProcessor_ID (int C_PaymentProcessor_ID);
+  public I_C_Charge getC_Charge() throws RuntimeException;
 
-	/** Get Payment Processor.
-	  * Payment processor for electronic payments
-	  */
-	public int getC_PaymentProcessor_ID();
+  /** Column name C_ConversionType_ID */
+  public static final String COLUMNNAME_C_ConversionType_ID = "C_ConversionType_ID";
 
-	public I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException;
+  /** Set Currency Type. Currency Conversion Rate Type */
+  public void setC_ConversionType_ID(int C_ConversionType_ID);
 
-    /** Column name C_Payment_UU */
-    public static final String COLUMNNAME_C_Payment_UU = "C_Payment_UU";
+  /** Get Currency Type. Currency Conversion Rate Type */
+  public int getC_ConversionType_ID();
 
-	/** Set C_Payment_UU	  */
-	public void setC_Payment_UU (String C_Payment_UU);
+  public I_C_ConversionType getC_ConversionType() throws RuntimeException;
 
-	/** Get C_Payment_UU	  */
-	public String getC_Payment_UU();
+  /** Column name C_Currency_ID */
+  public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
 
-    /** Column name C_POSTenderType_ID */
-    public static final String COLUMNNAME_C_POSTenderType_ID = "C_POSTenderType_ID";
+  /** Set Currency. The Currency for this record */
+  public void setC_Currency_ID(int C_Currency_ID);
 
-	/** Set POS Tender Type	  */
-	public void setC_POSTenderType_ID (int C_POSTenderType_ID);
+  /** Get Currency. The Currency for this record */
+  public int getC_Currency_ID();
 
-	/** Get POS Tender Type	  */
-	public int getC_POSTenderType_ID();
+  public I_C_Currency getC_Currency() throws RuntimeException;
 
-	public I_C_POSTenderType getC_POSTenderType() throws RuntimeException;
+  /** Column name C_DepositBatch_ID */
+  public static final String COLUMNNAME_C_DepositBatch_ID = "C_DepositBatch_ID";
 
-    /** Column name C_Project_ID */
-    public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
+  /** Set Deposit Batch */
+  public void setC_DepositBatch_ID(int C_DepositBatch_ID);
 
-	/** Set Project.
-	  * Financial Project
-	  */
-	public void setC_Project_ID (int C_Project_ID);
+  /** Get Deposit Batch */
+  public int getC_DepositBatch_ID();
 
-	/** Get Project.
-	  * Financial Project
-	  */
-	public int getC_Project_ID();
+  public I_C_DepositBatch getC_DepositBatch() throws RuntimeException;
 
-	public I_C_Project getC_Project() throws RuntimeException;
+  /** Column name C_DocType_ID */
+  public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Set Document Type. Document type or rules */
+  public void setC_DocType_ID(int C_DocType_ID);
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Get Document Type. Document type or rules */
+  public int getC_DocType_ID();
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  public I_C_DocType getC_DocType() throws RuntimeException;
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name ChargeAmt */
+  public static final String COLUMNNAME_ChargeAmt = "ChargeAmt";
 
-    /** Column name CreditCardExpMM */
-    public static final String COLUMNNAME_CreditCardExpMM = "CreditCardExpMM";
+  /** Set Charge amount. Charge Amount */
+  public void setChargeAmt(BigDecimal ChargeAmt);
 
-	/** Set Exp. Month.
-	  * Expiry Month
-	  */
-	public void setCreditCardExpMM (int CreditCardExpMM);
+  /** Get Charge amount. Charge Amount */
+  public BigDecimal getChargeAmt();
 
-	/** Get Exp. Month.
-	  * Expiry Month
-	  */
-	public int getCreditCardExpMM();
+  /** Column name CheckNo */
+  public static final String COLUMNNAME_CheckNo = "CheckNo";
 
-    /** Column name CreditCardExpYY */
-    public static final String COLUMNNAME_CreditCardExpYY = "CreditCardExpYY";
+  /** Set Check No. Check Number */
+  public void setCheckNo(String CheckNo);
 
-	/** Set Exp. Year.
-	  * Expiry Year
-	  */
-	public void setCreditCardExpYY (int CreditCardExpYY);
+  /** Get Check No. Check Number */
+  public String getCheckNo();
 
-	/** Get Exp. Year.
-	  * Expiry Year
-	  */
-	public int getCreditCardExpYY();
+  /** Column name C_Invoice_ID */
+  public static final String COLUMNNAME_C_Invoice_ID = "C_Invoice_ID";
 
-    /** Column name CreditCardNumber */
-    public static final String COLUMNNAME_CreditCardNumber = "CreditCardNumber";
+  /** Set Invoice. Invoice Identifier */
+  public void setC_Invoice_ID(int C_Invoice_ID);
 
-	/** Set Number.
-	  * Credit Card Number 
-	  */
-	public void setCreditCardNumber (String CreditCardNumber);
+  /** Get Invoice. Invoice Identifier */
+  public int getC_Invoice_ID();
 
-	/** Get Number.
-	  * Credit Card Number 
-	  */
-	public String getCreditCardNumber();
+  public I_C_Invoice getC_Invoice() throws RuntimeException;
 
-    /** Column name CreditCardType */
-    public static final String COLUMNNAME_CreditCardType = "CreditCardType";
+  /** Column name C_Order_ID */
+  public static final String COLUMNNAME_C_Order_ID = "C_Order_ID";
 
-	/** Set Credit Card.
-	  * Credit Card (Visa, MC, AmEx)
-	  */
-	public void setCreditCardType (String CreditCardType);
+  /** Set Order. Order */
+  public void setC_Order_ID(int C_Order_ID);
 
-	/** Get Credit Card.
-	  * Credit Card (Visa, MC, AmEx)
-	  */
-	public String getCreditCardType();
+  /** Get Order. Order */
+  public int getC_Order_ID();
 
-    /** Column name CreditCardVV */
-    public static final String COLUMNNAME_CreditCardVV = "CreditCardVV";
+  public I_C_Order getC_Order() throws RuntimeException;
 
-	/** Set Verification Code.
-	  * Credit Card Verification code on credit card
-	  */
-	public void setCreditCardVV (String CreditCardVV);
+  /** Column name C_PaymentBatch_ID */
+  public static final String COLUMNNAME_C_PaymentBatch_ID = "C_PaymentBatch_ID";
 
-	/** Get Verification Code.
-	  * Credit Card Verification code on credit card
-	  */
-	public String getCreditCardVV();
+  /** Set Payment Batch. Payment batch for EFT */
+  public void setC_PaymentBatch_ID(int C_PaymentBatch_ID);
 
-    /** Column name CustomerAddressID */
-    public static final String COLUMNNAME_CustomerAddressID = "CustomerAddressID";
+  /** Get Payment Batch. Payment batch for EFT */
+  public int getC_PaymentBatch_ID();
 
-	/** Set Customer Address ID	  */
-	public void setCustomerAddressID (String CustomerAddressID);
+  public I_C_PaymentBatch getC_PaymentBatch() throws RuntimeException;
 
-	/** Get Customer Address ID	  */
-	public String getCustomerAddressID();
+  /** Column name C_Payment_ID */
+  public static final String COLUMNNAME_C_Payment_ID = "C_Payment_ID";
 
-    /** Column name CustomerPaymentProfileID */
-    public static final String COLUMNNAME_CustomerPaymentProfileID = "CustomerPaymentProfileID";
+  /** Set Payment. Payment identifier */
+  public void setC_Payment_ID(int C_Payment_ID);
 
-	/** Set Customer Payment Profile ID	  */
-	public void setCustomerPaymentProfileID (String CustomerPaymentProfileID);
+  /** Get Payment. Payment identifier */
+  public int getC_Payment_ID();
 
-	/** Get Customer Payment Profile ID	  */
-	public String getCustomerPaymentProfileID();
+  /** Column name C_PaymentProcessor_ID */
+  public static final String COLUMNNAME_C_PaymentProcessor_ID = "C_PaymentProcessor_ID";
 
-    /** Column name CustomerProfileID */
-    public static final String COLUMNNAME_CustomerProfileID = "CustomerProfileID";
+  /** Set Payment Processor. Payment processor for electronic payments */
+  public void setC_PaymentProcessor_ID(int C_PaymentProcessor_ID);
 
-	/** Set Customer Profile ID	  */
-	public void setCustomerProfileID (String CustomerProfileID);
+  /** Get Payment Processor. Payment processor for electronic payments */
+  public int getC_PaymentProcessor_ID();
 
-	/** Get Customer Profile ID	  */
-	public String getCustomerProfileID();
+  public I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException;
 
-    /** Column name DateAcct */
-    public static final String COLUMNNAME_DateAcct = "DateAcct";
+  /** Column name C_Payment_UU */
+  public static final String COLUMNNAME_C_Payment_UU = "C_Payment_UU";
 
-	/** Set Account Date.
-	  * Accounting Date
-	  */
-	public void setDateAcct (Timestamp DateAcct);
+  /** Set C_Payment_UU */
+  public void setC_Payment_UU(String C_Payment_UU);
 
-	/** Get Account Date.
-	  * Accounting Date
-	  */
-	public Timestamp getDateAcct();
+  /** Get C_Payment_UU */
+  public String getC_Payment_UU();
 
-    /** Column name DateTrx */
-    public static final String COLUMNNAME_DateTrx = "DateTrx";
+  /** Column name C_POSTenderType_ID */
+  public static final String COLUMNNAME_C_POSTenderType_ID = "C_POSTenderType_ID";
 
-	/** Set Transaction Date.
-	  * Transaction Date
-	  */
-	public void setDateTrx (Timestamp DateTrx);
+  /** Set POS Tender Type */
+  public void setC_POSTenderType_ID(int C_POSTenderType_ID);
 
-	/** Get Transaction Date.
-	  * Transaction Date
-	  */
-	public Timestamp getDateTrx();
+  /** Get POS Tender Type */
+  public int getC_POSTenderType_ID();
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  public I_C_POSTenderType getC_POSTenderType() throws RuntimeException;
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Column name C_Project_ID */
+  public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Set Project. Financial Project */
+  public void setC_Project_ID(int C_Project_ID);
 
-    /** Column name DiscountAmt */
-    public static final String COLUMNNAME_DiscountAmt = "DiscountAmt";
+  /** Get Project. Financial Project */
+  public int getC_Project_ID();
 
-	/** Set Discount Amount.
-	  * Calculated amount of discount
-	  */
-	public void setDiscountAmt (BigDecimal DiscountAmt);
+  public I_C_Project getC_Project() throws RuntimeException;
 
-	/** Get Discount Amount.
-	  * Calculated amount of discount
-	  */
-	public BigDecimal getDiscountAmt();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name DocAction */
-    public static final String COLUMNNAME_DocAction = "DocAction";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Set Document Action.
-	  * The targeted status of the document
-	  */
-	public void setDocAction (String DocAction);
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Document Action.
-	  * The targeted status of the document
-	  */
-	public String getDocAction();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name DocStatus */
-    public static final String COLUMNNAME_DocStatus = "DocStatus";
+  /** Column name CreditCardExpMM */
+  public static final String COLUMNNAME_CreditCardExpMM = "CreditCardExpMM";
 
-	/** Set Document Status.
-	  * The current status of the document
-	  */
-	public void setDocStatus (String DocStatus);
+  /** Set Exp. Month. Expiry Month */
+  public void setCreditCardExpMM(int CreditCardExpMM);
 
-	/** Get Document Status.
-	  * The current status of the document
-	  */
-	public String getDocStatus();
+  /** Get Exp. Month. Expiry Month */
+  public int getCreditCardExpMM();
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  /** Column name CreditCardExpYY */
+  public static final String COLUMNNAME_CreditCardExpYY = "CreditCardExpYY";
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  /** Set Exp. Year. Expiry Year */
+  public void setCreditCardExpYY(int CreditCardExpYY);
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
+  /** Get Exp. Year. Expiry Year */
+  public int getCreditCardExpYY();
 
-    /** Column name IBAN */
-    public static final String COLUMNNAME_IBAN = "IBAN";
+  /** Column name CreditCardNumber */
+  public static final String COLUMNNAME_CreditCardNumber = "CreditCardNumber";
 
-	/** Set IBAN.
-	  * International Bank Account Number
-	  */
-	public void setIBAN (String IBAN);
+  /** Set Number. Credit Card Number */
+  public void setCreditCardNumber(String CreditCardNumber);
 
-	/** Get IBAN.
-	  * International Bank Account Number
-	  */
-	public String getIBAN();
+  /** Get Number. Credit Card Number */
+  public String getCreditCardNumber();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name CreditCardType */
+  public static final String COLUMNNAME_CreditCardType = "CreditCardType";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set Credit Card. Credit Card (Visa, MC, AmEx) */
+  public void setCreditCardType(String CreditCardType);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Get Credit Card. Credit Card (Visa, MC, AmEx) */
+  public String getCreditCardType();
 
-    /** Column name IsAllocated */
-    public static final String COLUMNNAME_IsAllocated = "IsAllocated";
+  /** Column name CreditCardVV */
+  public static final String COLUMNNAME_CreditCardVV = "CreditCardVV";
 
-	/** Set Allocated.
-	  * Indicates if the payment has been allocated
-	  */
-	public void setIsAllocated (boolean IsAllocated);
+  /** Set Verification Code. Credit Card Verification code on credit card */
+  public void setCreditCardVV(String CreditCardVV);
 
-	/** Get Allocated.
-	  * Indicates if the payment has been allocated
-	  */
-	public boolean isAllocated();
+  /** Get Verification Code. Credit Card Verification code on credit card */
+  public String getCreditCardVV();
 
-    /** Column name IsApproved */
-    public static final String COLUMNNAME_IsApproved = "IsApproved";
+  /** Column name CustomerAddressID */
+  public static final String COLUMNNAME_CustomerAddressID = "CustomerAddressID";
 
-	/** Set Approved.
-	  * Indicates if this document requires approval
-	  */
-	public void setIsApproved (boolean IsApproved);
+  /** Set Customer Address ID */
+  public void setCustomerAddressID(String CustomerAddressID);
 
-	/** Get Approved.
-	  * Indicates if this document requires approval
-	  */
-	public boolean isApproved();
+  /** Get Customer Address ID */
+  public String getCustomerAddressID();
 
-    /** Column name IsDelayedCapture */
-    public static final String COLUMNNAME_IsDelayedCapture = "IsDelayedCapture";
+  /** Column name CustomerPaymentProfileID */
+  public static final String COLUMNNAME_CustomerPaymentProfileID = "CustomerPaymentProfileID";
 
-	/** Set Delayed Capture.
-	  * Charge after Shipment
-	  */
-	public void setIsDelayedCapture (boolean IsDelayedCapture);
+  /** Set Customer Payment Profile ID */
+  public void setCustomerPaymentProfileID(String CustomerPaymentProfileID);
 
-	/** Get Delayed Capture.
-	  * Charge after Shipment
-	  */
-	public boolean isDelayedCapture();
+  /** Get Customer Payment Profile ID */
+  public String getCustomerPaymentProfileID();
 
-    /** Column name IsOnline */
-    public static final String COLUMNNAME_IsOnline = "IsOnline";
+  /** Column name CustomerProfileID */
+  public static final String COLUMNNAME_CustomerProfileID = "CustomerProfileID";
 
-	/** Set Online Access.
-	  * Can be accessed online 
-	  */
-	public void setIsOnline (boolean IsOnline);
+  /** Set Customer Profile ID */
+  public void setCustomerProfileID(String CustomerProfileID);
 
-	/** Get Online Access.
-	  * Can be accessed online 
-	  */
-	public boolean isOnline();
+  /** Get Customer Profile ID */
+  public String getCustomerProfileID();
 
-    /** Column name IsOverUnderPayment */
-    public static final String COLUMNNAME_IsOverUnderPayment = "IsOverUnderPayment";
+  /** Column name DateAcct */
+  public static final String COLUMNNAME_DateAcct = "DateAcct";
 
-	/** Set Over/Under Payment.
-	  * Over-Payment (unallocated) or Under-Payment (partial payment)
-	  */
-	public void setIsOverUnderPayment (boolean IsOverUnderPayment);
+  /** Set Account Date. Accounting Date */
+  public void setDateAcct(Timestamp DateAcct);
 
-	/** Get Over/Under Payment.
-	  * Over-Payment (unallocated) or Under-Payment (partial payment)
-	  */
-	public boolean isOverUnderPayment();
+  /** Get Account Date. Accounting Date */
+  public Timestamp getDateAcct();
 
-    /** Column name IsPrepayment */
-    public static final String COLUMNNAME_IsPrepayment = "IsPrepayment";
+  /** Column name DateTrx */
+  public static final String COLUMNNAME_DateTrx = "DateTrx";
 
-	/** Set Prepayment.
-	  * The Payment/Receipt is a Prepayment
-	  */
-	public void setIsPrepayment (boolean IsPrepayment);
+  /** Set Transaction Date. Transaction Date */
+  public void setDateTrx(Timestamp DateTrx);
 
-	/** Get Prepayment.
-	  * The Payment/Receipt is a Prepayment
-	  */
-	public boolean isPrepayment();
+  /** Get Transaction Date. Transaction Date */
+  public Timestamp getDateTrx();
 
-    /** Column name IsReceipt */
-    public static final String COLUMNNAME_IsReceipt = "IsReceipt";
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Set Receipt.
-	  * This is a sales transaction (receipt)
-	  */
-	public void setIsReceipt (boolean IsReceipt);
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Get Receipt.
-	  * This is a sales transaction (receipt)
-	  */
-	public boolean isReceipt();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-    /** Column name IsReconciled */
-    public static final String COLUMNNAME_IsReconciled = "IsReconciled";
+  /** Column name DiscountAmt */
+  public static final String COLUMNNAME_DiscountAmt = "DiscountAmt";
 
-	/** Set Reconciled.
-	  * Payment is reconciled with bank statement
-	  */
-	public void setIsReconciled (boolean IsReconciled);
+  /** Set Discount Amount. Calculated amount of discount */
+  public void setDiscountAmt(BigDecimal DiscountAmt);
 
-	/** Get Reconciled.
-	  * Payment is reconciled with bank statement
-	  */
-	public boolean isReconciled();
+  /** Get Discount Amount. Calculated amount of discount */
+  public BigDecimal getDiscountAmt();
 
-    /** Column name IsSelfService */
-    public static final String COLUMNNAME_IsSelfService = "IsSelfService";
+  /** Column name DocAction */
+  public static final String COLUMNNAME_DocAction = "DocAction";
 
-	/** Set Self-Service.
-	  * This is a Self-Service entry or this entry can be changed via Self-Service
-	  */
-	public void setIsSelfService (boolean IsSelfService);
+  /** Set Document Action. The targeted status of the document */
+  public void setDocAction(String DocAction);
 
-	/** Get Self-Service.
-	  * This is a Self-Service entry or this entry can be changed via Self-Service
-	  */
-	public boolean isSelfService();
-
-    /** Column name IsVoided */
-    public static final String COLUMNNAME_IsVoided = "IsVoided";
+  /** Get Document Action. The targeted status of the document */
+  public String getDocAction();
 
-	/** Set Voided	  */
-	public void setIsVoided (boolean IsVoided);
+  /** Column name DocStatus */
+  public static final String COLUMNNAME_DocStatus = "DocStatus";
 
-	/** Get Voided	  */
-	public boolean isVoided();
+  /** Set Document Status. The current status of the document */
+  public void setDocStatus(String DocStatus);
 
-    /** Column name Micr */
-    public static final String COLUMNNAME_Micr = "Micr";
-
-	/** Set Micr.
-	  * Combination of routing no, account and check no
-	  */
-	public void setMicr (String Micr);
+  /** Get Document Status. The current status of the document */
+  public String getDocStatus();
 
-	/** Get Micr.
-	  * Combination of routing no, account and check no
-	  */
-	public String getMicr();
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-    /** Column name OProcessing */
-    public static final String COLUMNNAME_OProcessing = "OProcessing";
-
-	/** Set Online Processing.
-	  * This payment can be processed online
-	  */
-	public void setOProcessing (String OProcessing);
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-	/** Get Online Processing.
-	  * This payment can be processed online
-	  */
-	public String getOProcessing();
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-    /** Column name Orig_TrxID */
-    public static final String COLUMNNAME_Orig_TrxID = "Orig_TrxID";
+  /** Column name IBAN */
+  public static final String COLUMNNAME_IBAN = "IBAN";
 
-	/** Set Original Transaction ID.
-	  * Original Transaction ID
-	  */
-	public void setOrig_TrxID (String Orig_TrxID);
+  /** Set IBAN. International Bank Account Number */
+  public void setIBAN(String IBAN);
 
-	/** Get Original Transaction ID.
-	  * Original Transaction ID
-	  */
-	public String getOrig_TrxID();
-
-    /** Column name OverUnderAmt */
-    public static final String COLUMNNAME_OverUnderAmt = "OverUnderAmt";
+  /** Get IBAN. International Bank Account Number */
+  public String getIBAN();
 
-	/** Set Over/Under Payment.
-	  * Over-Payment (unallocated) or Under-Payment (partial payment) Amount
-	  */
-	public void setOverUnderAmt (BigDecimal OverUnderAmt);
-
-	/** Get Over/Under Payment.
-	  * Over-Payment (unallocated) or Under-Payment (partial payment) Amount
-	  */
-	public BigDecimal getOverUnderAmt();
-
-    /** Column name PayAmt */
-    public static final String COLUMNNAME_PayAmt = "PayAmt";
-
-	/** Set Payment amount.
-	  * Amount being paid
-	  */
-	public void setPayAmt (BigDecimal PayAmt);
-
-	/** Get Payment amount.
-	  * Amount being paid
-	  */
-	public BigDecimal getPayAmt();
-
-    /** Column name PONum */
-    public static final String COLUMNNAME_PONum = "PONum";
-
-	/** Set PO Number.
-	  * Purchase Order Number
-	  */
-	public void setPONum (String PONum);
-
-	/** Get PO Number.
-	  * Purchase Order Number
-	  */
-	public String getPONum();
-
-    /** Column name Posted */
-    public static final String COLUMNNAME_Posted = "Posted";
-
-	/** Set Posted.
-	  * Posting status
-	  */
-	public void setPosted (boolean Posted);
-
-	/** Get Posted.
-	  * Posting status
-	  */
-	public boolean isPosted();
-
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
-
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
-
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    /** Column name ProcessedOn */
-    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public void setProcessedOn (BigDecimal ProcessedOn);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public BigDecimal getProcessedOn();
+  /** Column name IsAllocated */
+  public static final String COLUMNNAME_IsAllocated = "IsAllocated";
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Set Allocated. Indicates if the payment has been allocated */
+  public void setIsAllocated(boolean IsAllocated);
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Get Allocated. Indicates if the payment has been allocated */
+  public boolean isAllocated();
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /** Column name IsApproved */
+  public static final String COLUMNNAME_IsApproved = "IsApproved";
 
-    /** Column name R_AuthCode */
-    public static final String COLUMNNAME_R_AuthCode = "R_AuthCode";
+  /** Set Approved. Indicates if this document requires approval */
+  public void setIsApproved(boolean IsApproved);
 
-	/** Set Authorization Code.
-	  * Authorization Code returned
-	  */
-	public void setR_AuthCode (String R_AuthCode);
+  /** Get Approved. Indicates if this document requires approval */
+  public boolean isApproved();
 
-	/** Get Authorization Code.
-	  * Authorization Code returned
-	  */
-	public String getR_AuthCode();
+  /** Column name IsDelayedCapture */
+  public static final String COLUMNNAME_IsDelayedCapture = "IsDelayedCapture";
 
-    /** Column name R_AuthCode_DC */
-    public static final String COLUMNNAME_R_AuthCode_DC = "R_AuthCode_DC";
+  /** Set Delayed Capture. Charge after Shipment */
+  public void setIsDelayedCapture(boolean IsDelayedCapture);
 
-	/** Set Authorization Code (DC).
-	  * Authorization Code Delayed Capture returned
-	  */
-	public void setR_AuthCode_DC (String R_AuthCode_DC);
+  /** Get Delayed Capture. Charge after Shipment */
+  public boolean isDelayedCapture();
 
-	/** Get Authorization Code (DC).
-	  * Authorization Code Delayed Capture returned
-	  */
-	public String getR_AuthCode_DC();
+  /** Column name IsOnline */
+  public static final String COLUMNNAME_IsOnline = "IsOnline";
 
-    /** Column name R_AvsAddr */
-    public static final String COLUMNNAME_R_AvsAddr = "R_AvsAddr";
-
-	/** Set Address verified.
-	  * This address has been verified
-	  */
-	public void setR_AvsAddr (String R_AvsAddr);
+  /** Set Online Access. Can be accessed online */
+  public void setIsOnline(boolean IsOnline);
 
-	/** Get Address verified.
-	  * This address has been verified
-	  */
-	public String getR_AvsAddr();
+  /** Get Online Access. Can be accessed online */
+  public boolean isOnline();
 
-    /** Column name R_AvsZip */
-    public static final String COLUMNNAME_R_AvsZip = "R_AvsZip";
-
-	/** Set Zip verified.
-	  * The Zip Code has been verified
-	  */
-	public void setR_AvsZip (String R_AvsZip);
+  /** Column name IsOverUnderPayment */
+  public static final String COLUMNNAME_IsOverUnderPayment = "IsOverUnderPayment";
 
-	/** Get Zip verified.
-	  * The Zip Code has been verified
-	  */
-	public String getR_AvsZip();
+  /** Set Over/Under Payment. Over-Payment (unallocated) or Under-Payment (partial payment) */
+  public void setIsOverUnderPayment(boolean IsOverUnderPayment);
 
-    /** Column name R_CVV2Match */
-    public static final String COLUMNNAME_R_CVV2Match = "R_CVV2Match";
-
-	/** Set CVV Match.
-	  * Credit Card Verification Code Match
-	  */
-	public void setR_CVV2Match (boolean R_CVV2Match);
+  /** Get Over/Under Payment. Over-Payment (unallocated) or Under-Payment (partial payment) */
+  public boolean isOverUnderPayment();
 
-	/** Get CVV Match.
-	  * Credit Card Verification Code Match
-	  */
-	public boolean isR_CVV2Match();
-
-    /** Column name Ref_Payment_ID */
-    public static final String COLUMNNAME_Ref_Payment_ID = "Ref_Payment_ID";
-
-	/** Set Referenced Payment	  */
-	public void setRef_Payment_ID (int Ref_Payment_ID);
-
-	/** Get Referenced Payment	  */
-	public int getRef_Payment_ID();
-
-	public I_C_Payment getRef_Payment() throws RuntimeException;
+  /** Column name IsPrepayment */
+  public static final String COLUMNNAME_IsPrepayment = "IsPrepayment";
 
-    /** Column name Reversal_ID */
-    public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
+  /** Set Prepayment. The Payment/Receipt is a Prepayment */
+  public void setIsPrepayment(boolean IsPrepayment);
 
-	/** Set Reversal ID.
-	  * ID of document reversal
-	  */
-	public void setReversal_ID (int Reversal_ID);
+  /** Get Prepayment. The Payment/Receipt is a Prepayment */
+  public boolean isPrepayment();
 
-	/** Get Reversal ID.
-	  * ID of document reversal
-	  */
-	public int getReversal_ID();
-
-	public I_C_Payment getReversal() throws RuntimeException;
-
-    /** Column name R_Info */
-    public static final String COLUMNNAME_R_Info = "R_Info";
-
-	/** Set Info.
-	  * Response info
-	  */
-	public void setR_Info (String R_Info);
-
-	/** Get Info.
-	  * Response info
-	  */
-	public String getR_Info();
-
-    /** Column name RoutingNo */
-    public static final String COLUMNNAME_RoutingNo = "RoutingNo";
-
-	/** Set Routing No.
-	  * Bank Routing Number
-	  */
-	public void setRoutingNo (String RoutingNo);
-
-	/** Get Routing No.
-	  * Bank Routing Number
-	  */
-	public String getRoutingNo();
-
-    /** Column name R_PnRef */
-    public static final String COLUMNNAME_R_PnRef = "R_PnRef";
-
-	/** Set Reference.
-	  * Payment reference
-	  */
-	public void setR_PnRef (String R_PnRef);
-
-	/** Get Reference.
-	  * Payment reference
-	  */
-	public String getR_PnRef();
-
-    /** Column name R_PnRef_DC */
-    public static final String COLUMNNAME_R_PnRef_DC = "R_PnRef_DC";
-
-	/** Set Reference (DC).
-	  * Payment Reference Delayed Capture
-	  */
-	public void setR_PnRef_DC (String R_PnRef_DC);
-
-	/** Get Reference (DC).
-	  * Payment Reference Delayed Capture
-	  */
-	public String getR_PnRef_DC();
-
-    /** Column name R_RespMsg */
-    public static final String COLUMNNAME_R_RespMsg = "R_RespMsg";
-
-	/** Set Response Message.
-	  * Response message
-	  */
-	public void setR_RespMsg (String R_RespMsg);
-
-	/** Get Response Message.
-	  * Response message
-	  */
-	public String getR_RespMsg();
-
-    /** Column name R_Result */
-    public static final String COLUMNNAME_R_Result = "R_Result";
-
-	/** Set Result.
-	  * Result of transmission
-	  */
-	public void setR_Result (String R_Result);
-
-	/** Get Result.
-	  * Result of transmission
-	  */
-	public String getR_Result();
-
-    /** Column name R_VoidMsg */
-    public static final String COLUMNNAME_R_VoidMsg = "R_VoidMsg";
-
-	/** Set Void Message	  */
-	public void setR_VoidMsg (String R_VoidMsg);
-
-	/** Get Void Message	  */
-	public String getR_VoidMsg();
-
-    /** Column name SwiftCode */
-    public static final String COLUMNNAME_SwiftCode = "SwiftCode";
-
-	/** Set Swift code.
-	  * Swift Code or BIC
-	  */
-	public void setSwiftCode (String SwiftCode);
-
-	/** Get Swift code.
-	  * Swift Code or BIC
-	  */
-	public String getSwiftCode();
-
-    /** Column name Swipe */
-    public static final String COLUMNNAME_Swipe = "Swipe";
-
-	/** Set Swipe.
-	  * Track 1 and 2 of the Credit Card
-	  */
-	public void setSwipe (String Swipe);
-
-	/** Get Swipe.
-	  * Track 1 and 2 of the Credit Card
-	  */
-	public String getSwipe();
-
-    /** Column name TaxAmt */
-    public static final String COLUMNNAME_TaxAmt = "TaxAmt";
-
-	/** Set Tax Amount.
-	  * Tax Amount for a document
-	  */
-	public void setTaxAmt (BigDecimal TaxAmt);
-
-	/** Get Tax Amount.
-	  * Tax Amount for a document
-	  */
-	public BigDecimal getTaxAmt();
-
-    /** Column name TenderType */
-    public static final String COLUMNNAME_TenderType = "TenderType";
-
-	/** Set Tender type.
-	  * Method of Payment
-	  */
-	public void setTenderType (String TenderType);
-
-	/** Get Tender type.
-	  * Method of Payment
-	  */
-	public String getTenderType();
-
-    /** Column name TrxType */
-    public static final String COLUMNNAME_TrxType = "TrxType";
-
-	/** Set Transaction Type.
-	  * Type of credit card transaction
-	  */
-	public void setTrxType (String TrxType);
-
-	/** Get Transaction Type.
-	  * Type of credit card transaction
-	  */
-	public String getTrxType();
-
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
-
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
-
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
-
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
-
-    /** Column name User1_ID */
-    public static final String COLUMNNAME_User1_ID = "User1_ID";
-
-	/** Set User Element List 1.
-	  * User defined list element #1
-	  */
-	public void setUser1_ID (int User1_ID);
-
-	/** Get User Element List 1.
-	  * User defined list element #1
-	  */
-	public int getUser1_ID();
-
-	public I_C_ElementValue getUser1() throws RuntimeException;
-
-    /** Column name User2_ID */
-    public static final String COLUMNNAME_User2_ID = "User2_ID";
-
-	/** Set User Element List 2.
-	  * User defined list element #2
-	  */
-	public void setUser2_ID (int User2_ID);
-
-	/** Get User Element List 2.
-	  * User defined list element #2
-	  */
-	public int getUser2_ID();
-
-	public I_C_ElementValue getUser2() throws RuntimeException;
-
-    /** Column name VoiceAuthCode */
-    public static final String COLUMNNAME_VoiceAuthCode = "VoiceAuthCode";
-
-	/** Set Voice authorization code.
-	  * Voice Authorization Code from credit card company
-	  */
-	public void setVoiceAuthCode (String VoiceAuthCode);
-
-	/** Get Voice authorization code.
-	  * Voice Authorization Code from credit card company
-	  */
-	public String getVoiceAuthCode();
-
-    /** Column name WriteOffAmt */
-    public static final String COLUMNNAME_WriteOffAmt = "WriteOffAmt";
-
-	/** Set Write-off Amount.
-	  * Amount to write-off
-	  */
-	public void setWriteOffAmt (BigDecimal WriteOffAmt);
-
-	/** Get Write-off Amount.
-	  * Amount to write-off
-	  */
-	public BigDecimal getWriteOffAmt();
+  /** Column name IsReceipt */
+  public static final String COLUMNNAME_IsReceipt = "IsReceipt";
+
+  /** Set Receipt. This is a sales transaction (receipt) */
+  public void setIsReceipt(boolean IsReceipt);
+
+  /** Get Receipt. This is a sales transaction (receipt) */
+  public boolean isReceipt();
+
+  /** Column name IsReconciled */
+  public static final String COLUMNNAME_IsReconciled = "IsReconciled";
+
+  /** Set Reconciled. Payment is reconciled with bank statement */
+  public void setIsReconciled(boolean IsReconciled);
+
+  /** Get Reconciled. Payment is reconciled with bank statement */
+  public boolean isReconciled();
+
+  /** Column name IsSelfService */
+  public static final String COLUMNNAME_IsSelfService = "IsSelfService";
+
+  /**
+   * Set Self-Service. This is a Self-Service entry or this entry can be changed via Self-Service
+   */
+  public void setIsSelfService(boolean IsSelfService);
+
+  /**
+   * Get Self-Service. This is a Self-Service entry or this entry can be changed via Self-Service
+   */
+  public boolean isSelfService();
+
+  /** Column name IsVoided */
+  public static final String COLUMNNAME_IsVoided = "IsVoided";
+
+  /** Set Voided */
+  public void setIsVoided(boolean IsVoided);
+
+  /** Get Voided */
+  public boolean isVoided();
+
+  /** Column name Micr */
+  public static final String COLUMNNAME_Micr = "Micr";
+
+  /** Set Micr. Combination of routing no, account and check no */
+  public void setMicr(String Micr);
+
+  /** Get Micr. Combination of routing no, account and check no */
+  public String getMicr();
+
+  /** Column name OProcessing */
+  public static final String COLUMNNAME_OProcessing = "OProcessing";
+
+  /** Set Online Processing. This payment can be processed online */
+  public void setOProcessing(String OProcessing);
+
+  /** Get Online Processing. This payment can be processed online */
+  public String getOProcessing();
+
+  /** Column name Orig_TrxID */
+  public static final String COLUMNNAME_Orig_TrxID = "Orig_TrxID";
+
+  /** Set Original Transaction ID. Original Transaction ID */
+  public void setOrig_TrxID(String Orig_TrxID);
+
+  /** Get Original Transaction ID. Original Transaction ID */
+  public String getOrig_TrxID();
+
+  /** Column name OverUnderAmt */
+  public static final String COLUMNNAME_OverUnderAmt = "OverUnderAmt";
+
+  /**
+   * Set Over/Under Payment. Over-Payment (unallocated) or Under-Payment (partial payment) Amount
+   */
+  public void setOverUnderAmt(BigDecimal OverUnderAmt);
+
+  /**
+   * Get Over/Under Payment. Over-Payment (unallocated) or Under-Payment (partial payment) Amount
+   */
+  public BigDecimal getOverUnderAmt();
+
+  /** Column name PayAmt */
+  public static final String COLUMNNAME_PayAmt = "PayAmt";
+
+  /** Set Payment amount. Amount being paid */
+  public void setPayAmt(BigDecimal PayAmt);
+
+  /** Get Payment amount. Amount being paid */
+  public BigDecimal getPayAmt();
+
+  /** Column name PONum */
+  public static final String COLUMNNAME_PONum = "PONum";
+
+  /** Set PO Number. Purchase Order Number */
+  public void setPONum(String PONum);
+
+  /** Get PO Number. Purchase Order Number */
+  public String getPONum();
+
+  /** Column name Posted */
+  public static final String COLUMNNAME_Posted = "Posted";
+
+  /** Set Posted. Posting status */
+  public void setPosted(boolean Posted);
+
+  /** Get Posted. Posting status */
+  public boolean isPosted();
+
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
+
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
+
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
+
+  /** Column name ProcessedOn */
+  public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+
+  /**
+   * Set Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public void setProcessedOn(BigDecimal ProcessedOn);
+
+  /**
+   * Get Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public BigDecimal getProcessedOn();
+
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
+
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
+
+  /** Get Process Now */
+  public boolean isProcessing();
+
+  /** Column name R_AuthCode */
+  public static final String COLUMNNAME_R_AuthCode = "R_AuthCode";
+
+  /** Set Authorization Code. Authorization Code returned */
+  public void setR_AuthCode(String R_AuthCode);
+
+  /** Get Authorization Code. Authorization Code returned */
+  public String getR_AuthCode();
+
+  /** Column name R_AuthCode_DC */
+  public static final String COLUMNNAME_R_AuthCode_DC = "R_AuthCode_DC";
+
+  /** Set Authorization Code (DC). Authorization Code Delayed Capture returned */
+  public void setR_AuthCode_DC(String R_AuthCode_DC);
+
+  /** Get Authorization Code (DC). Authorization Code Delayed Capture returned */
+  public String getR_AuthCode_DC();
+
+  /** Column name R_AvsAddr */
+  public static final String COLUMNNAME_R_AvsAddr = "R_AvsAddr";
+
+  /** Set Address verified. This address has been verified */
+  public void setR_AvsAddr(String R_AvsAddr);
+
+  /** Get Address verified. This address has been verified */
+  public String getR_AvsAddr();
+
+  /** Column name R_AvsZip */
+  public static final String COLUMNNAME_R_AvsZip = "R_AvsZip";
+
+  /** Set Zip verified. The Zip Code has been verified */
+  public void setR_AvsZip(String R_AvsZip);
+
+  /** Get Zip verified. The Zip Code has been verified */
+  public String getR_AvsZip();
+
+  /** Column name R_CVV2Match */
+  public static final String COLUMNNAME_R_CVV2Match = "R_CVV2Match";
+
+  /** Set CVV Match. Credit Card Verification Code Match */
+  public void setR_CVV2Match(boolean R_CVV2Match);
+
+  /** Get CVV Match. Credit Card Verification Code Match */
+  public boolean isR_CVV2Match();
+
+  /** Column name Ref_Payment_ID */
+  public static final String COLUMNNAME_Ref_Payment_ID = "Ref_Payment_ID";
+
+  /** Set Referenced Payment */
+  public void setRef_Payment_ID(int Ref_Payment_ID);
+
+  /** Get Referenced Payment */
+  public int getRef_Payment_ID();
+
+  public I_C_Payment getRef_Payment() throws RuntimeException;
+
+  /** Column name Reversal_ID */
+  public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
+
+  /** Set Reversal ID. ID of document reversal */
+  public void setReversal_ID(int Reversal_ID);
+
+  /** Get Reversal ID. ID of document reversal */
+  public int getReversal_ID();
+
+  public I_C_Payment getReversal() throws RuntimeException;
+
+  /** Column name R_Info */
+  public static final String COLUMNNAME_R_Info = "R_Info";
+
+  /** Set Info. Response info */
+  public void setR_Info(String R_Info);
+
+  /** Get Info. Response info */
+  public String getR_Info();
+
+  /** Column name RoutingNo */
+  public static final String COLUMNNAME_RoutingNo = "RoutingNo";
+
+  /** Set Routing No. Bank Routing Number */
+  public void setRoutingNo(String RoutingNo);
+
+  /** Get Routing No. Bank Routing Number */
+  public String getRoutingNo();
+
+  /** Column name R_PnRef */
+  public static final String COLUMNNAME_R_PnRef = "R_PnRef";
+
+  /** Set Reference. Payment reference */
+  public void setR_PnRef(String R_PnRef);
+
+  /** Get Reference. Payment reference */
+  public String getR_PnRef();
+
+  /** Column name R_PnRef_DC */
+  public static final String COLUMNNAME_R_PnRef_DC = "R_PnRef_DC";
+
+  /** Set Reference (DC). Payment Reference Delayed Capture */
+  public void setR_PnRef_DC(String R_PnRef_DC);
+
+  /** Get Reference (DC). Payment Reference Delayed Capture */
+  public String getR_PnRef_DC();
+
+  /** Column name R_RespMsg */
+  public static final String COLUMNNAME_R_RespMsg = "R_RespMsg";
+
+  /** Set Response Message. Response message */
+  public void setR_RespMsg(String R_RespMsg);
+
+  /** Get Response Message. Response message */
+  public String getR_RespMsg();
+
+  /** Column name R_Result */
+  public static final String COLUMNNAME_R_Result = "R_Result";
+
+  /** Set Result. Result of transmission */
+  public void setR_Result(String R_Result);
+
+  /** Get Result. Result of transmission */
+  public String getR_Result();
+
+  /** Column name R_VoidMsg */
+  public static final String COLUMNNAME_R_VoidMsg = "R_VoidMsg";
+
+  /** Set Void Message */
+  public void setR_VoidMsg(String R_VoidMsg);
+
+  /** Get Void Message */
+  public String getR_VoidMsg();
+
+  /** Column name SwiftCode */
+  public static final String COLUMNNAME_SwiftCode = "SwiftCode";
+
+  /** Set Swift code. Swift Code or BIC */
+  public void setSwiftCode(String SwiftCode);
+
+  /** Get Swift code. Swift Code or BIC */
+  public String getSwiftCode();
+
+  /** Column name Swipe */
+  public static final String COLUMNNAME_Swipe = "Swipe";
+
+  /** Set Swipe. Track 1 and 2 of the Credit Card */
+  public void setSwipe(String Swipe);
+
+  /** Get Swipe. Track 1 and 2 of the Credit Card */
+  public String getSwipe();
+
+  /** Column name TaxAmt */
+  public static final String COLUMNNAME_TaxAmt = "TaxAmt";
+
+  /** Set Tax Amount. Tax Amount for a document */
+  public void setTaxAmt(BigDecimal TaxAmt);
+
+  /** Get Tax Amount. Tax Amount for a document */
+  public BigDecimal getTaxAmt();
+
+  /** Column name TenderType */
+  public static final String COLUMNNAME_TenderType = "TenderType";
+
+  /** Set Tender type. Method of Payment */
+  public void setTenderType(String TenderType);
+
+  /** Get Tender type. Method of Payment */
+  public String getTenderType();
+
+  /** Column name TrxType */
+  public static final String COLUMNNAME_TrxType = "TrxType";
+
+  /** Set Transaction Type. Type of credit card transaction */
+  public void setTrxType(String TrxType);
+
+  /** Get Transaction Type. Type of credit card transaction */
+  public String getTrxType();
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
+
+  /** Column name User1_ID */
+  public static final String COLUMNNAME_User1_ID = "User1_ID";
+
+  /** Set User Element List 1. User defined list element #1 */
+  public void setUser1_ID(int User1_ID);
+
+  /** Get User Element List 1. User defined list element #1 */
+  public int getUser1_ID();
+
+  public I_C_ElementValue getUser1() throws RuntimeException;
+
+  /** Column name User2_ID */
+  public static final String COLUMNNAME_User2_ID = "User2_ID";
+
+  /** Set User Element List 2. User defined list element #2 */
+  public void setUser2_ID(int User2_ID);
+
+  /** Get User Element List 2. User defined list element #2 */
+  public int getUser2_ID();
+
+  public I_C_ElementValue getUser2() throws RuntimeException;
+
+  /** Column name VoiceAuthCode */
+  public static final String COLUMNNAME_VoiceAuthCode = "VoiceAuthCode";
+
+  /** Set Voice authorization code. Voice Authorization Code from credit card company */
+  public void setVoiceAuthCode(String VoiceAuthCode);
+
+  /** Get Voice authorization code. Voice Authorization Code from credit card company */
+  public String getVoiceAuthCode();
+
+  /** Column name WriteOffAmt */
+  public static final String COLUMNNAME_WriteOffAmt = "WriteOffAmt";
+
+  /** Set Write-off Amount. Amount to write-off */
+  public void setWriteOffAmt(BigDecimal WriteOffAmt);
+
+  /** Get Write-off Amount. Amount to write-off */
+  public BigDecimal getWriteOffAmt();
 }

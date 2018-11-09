@@ -4,296 +4,230 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for PA_Report
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for PA_Report
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_PA_Report 
-{
+public interface I_PA_Report {
 
-    /** TableName=PA_Report */
-    public static final String Table_Name = "PA_Report";
+  /** TableName=PA_Report */
+  public static final String Table_Name = "PA_Report";
 
-    /** AD_Table_ID=445 */
-    public static final int Table_ID = 445;
+  /** AD_Table_ID=445 */
+  public static final int Table_ID = 445;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_PrintFormat_ID */
+  public static final String COLUMNNAME_AD_PrintFormat_ID = "AD_PrintFormat_ID";
 
-    /** Column name AD_PrintFormat_ID */
-    public static final String COLUMNNAME_AD_PrintFormat_ID = "AD_PrintFormat_ID";
+  /** Set Print Format. Data Print Format */
+  public void setAD_PrintFormat_ID(int AD_PrintFormat_ID);
 
-	/** Set Print Format.
-	  * Data Print Format
-	  */
-	public void setAD_PrintFormat_ID (int AD_PrintFormat_ID);
+  /** Get Print Format. Data Print Format */
+  public int getAD_PrintFormat_ID();
 
-	/** Get Print Format.
-	  * Data Print Format
-	  */
-	public int getAD_PrintFormat_ID();
+  public I_AD_PrintFormat getAD_PrintFormat() throws RuntimeException;
 
-	public I_AD_PrintFormat getAD_PrintFormat() throws RuntimeException;
+  /** Column name C_AcctSchema_ID */
+  public static final String COLUMNNAME_C_AcctSchema_ID = "C_AcctSchema_ID";
 
-    /** Column name C_AcctSchema_ID */
-    public static final String COLUMNNAME_C_AcctSchema_ID = "C_AcctSchema_ID";
+  /** Set Accounting Schema. Rules for accounting */
+  public void setC_AcctSchema_ID(int C_AcctSchema_ID);
 
-	/** Set Accounting Schema.
-	  * Rules for accounting
-	  */
-	public void setC_AcctSchema_ID (int C_AcctSchema_ID);
+  /** Get Accounting Schema. Rules for accounting */
+  public int getC_AcctSchema_ID();
 
-	/** Get Accounting Schema.
-	  * Rules for accounting
-	  */
-	public int getC_AcctSchema_ID();
+  public I_C_AcctSchema getC_AcctSchema() throws RuntimeException;
 
-	public I_C_AcctSchema getC_AcctSchema() throws RuntimeException;
+  /** Column name C_Calendar_ID */
+  public static final String COLUMNNAME_C_Calendar_ID = "C_Calendar_ID";
 
-    /** Column name C_Calendar_ID */
-    public static final String COLUMNNAME_C_Calendar_ID = "C_Calendar_ID";
+  /** Set Calendar. Accounting Calendar Name */
+  public void setC_Calendar_ID(int C_Calendar_ID);
 
-	/** Set Calendar.
-	  * Accounting Calendar Name
-	  */
-	public void setC_Calendar_ID (int C_Calendar_ID);
+  /** Get Calendar. Accounting Calendar Name */
+  public int getC_Calendar_ID();
 
-	/** Get Calendar.
-	  * Accounting Calendar Name
-	  */
-	public int getC_Calendar_ID();
+  public I_C_Calendar getC_Calendar() throws RuntimeException;
 
-	public I_C_Calendar getC_Calendar() throws RuntimeException;
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
-
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
-
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
-
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
-
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-    /** Column name JasperProcess_ID */
-    public static final String COLUMNNAME_JasperProcess_ID = "JasperProcess_ID";
-
-	/** Set Jasper Process.
-	  * The Jasper Process used by the printengine if any process defined
-	  */
-	public void setJasperProcess_ID (int JasperProcess_ID);
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Get Jasper Process.
-	  * The Jasper Process used by the printengine if any process defined
-	  */
-	public int getJasperProcess_ID();
-
-	public I_AD_Process getJasperProcess() throws RuntimeException;
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-    /** Column name JasperProcessing */
-    public static final String COLUMNNAME_JasperProcessing = "JasperProcessing";
-
-	/** Set Jasper Process Now	  */
-	public void setJasperProcessing (String JasperProcessing);
-
-	/** Get Jasper Process Now	  */
-	public String getJasperProcessing();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-    /** Column name ListSources */
-    public static final String COLUMNNAME_ListSources = "ListSources";
+  /** Column name JasperProcess_ID */
+  public static final String COLUMNNAME_JasperProcess_ID = "JasperProcess_ID";
 
-	/** Set List Sources.
-	  * List Report Line Sources
-	  */
-	public void setListSources (boolean ListSources);
+  /** Set Jasper Process. The Jasper Process used by the printengine if any process defined */
+  public void setJasperProcess_ID(int JasperProcess_ID);
 
-	/** Get List Sources.
-	  * List Report Line Sources
-	  */
-	public boolean isListSources();
+  /** Get Jasper Process. The Jasper Process used by the printengine if any process defined */
+  public int getJasperProcess_ID();
 
-    /** Column name ListSourcesXTrx */
-    public static final String COLUMNNAME_ListSourcesXTrx = "ListSourcesXTrx";
+  public I_AD_Process getJasperProcess() throws RuntimeException;
 
-	/** Set Include source accounts with no transaction.
-	  * Include source accounts with no transaction for list report line sources
-	  */
-	public void setListSourcesXTrx (boolean ListSourcesXTrx);
+  /** Column name JasperProcessing */
+  public static final String COLUMNNAME_JasperProcessing = "JasperProcessing";
 
-	/** Get Include source accounts with no transaction.
-	  * Include source accounts with no transaction for list report line sources
-	  */
-	public boolean isListSourcesXTrx();
+  /** Set Jasper Process Now */
+  public void setJasperProcessing(String JasperProcessing);
 
-    /** Column name ListTrx */
-    public static final String COLUMNNAME_ListTrx = "ListTrx";
+  /** Get Jasper Process Now */
+  public String getJasperProcessing();
 
-	/** Set List Transactions.
-	  * List the report transactions
-	  */
-	public void setListTrx (boolean ListTrx);
+  /** Column name ListSources */
+  public static final String COLUMNNAME_ListSources = "ListSources";
 
-	/** Get List Transactions.
-	  * List the report transactions
-	  */
-	public boolean isListTrx();
+  /** Set List Sources. List Report Line Sources */
+  public void setListSources(boolean ListSources);
 
-    
-    
+  /** Get List Sources. List Report Line Sources */
+  public boolean isListSources();
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Column name ListSourcesXTrx */
+  public static final String COLUMNNAME_ListSourcesXTrx = "ListSourcesXTrx";
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /**
+   * Set Include source accounts with no transaction. Include source accounts with no transaction
+   * for list report line sources
+   */
+  public void setListSourcesXTrx(boolean ListSourcesXTrx);
 
-    /** Column name PA_ReportColumnSet_ID */
-    public static final String COLUMNNAME_PA_ReportColumnSet_ID = "PA_ReportColumnSet_ID";
+  /**
+   * Get Include source accounts with no transaction. Include source accounts with no transaction
+   * for list report line sources
+   */
+  public boolean isListSourcesXTrx();
 
-	/** Set Report Column Set.
-	  * Collection of Columns for Report
-	  */
-	public void setPA_ReportColumnSet_ID (int PA_ReportColumnSet_ID);
+  /** Column name ListTrx */
+  public static final String COLUMNNAME_ListTrx = "ListTrx";
 
-	/** Get Report Column Set.
-	  * Collection of Columns for Report
-	  */
-	public int getPA_ReportColumnSet_ID();
+  /** Set List Transactions. List the report transactions */
+  public void setListTrx(boolean ListTrx);
 
-	public I_PA_ReportColumnSet getPA_ReportColumnSet() throws RuntimeException;
+  /** Get List Transactions. List the report transactions */
+  public boolean isListTrx();
 
-    /** Column name PA_ReportCube_ID */
-    public static final String COLUMNNAME_PA_ReportCube_ID = "PA_ReportCube_ID";
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-	/** Set Report Cube.
-	  * Define reporting cube for pre-calculation of summary accounting data.
-	  */
-	public void setPA_ReportCube_ID (int PA_ReportCube_ID);
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-	/** Get Report Cube.
-	  * Define reporting cube for pre-calculation of summary accounting data.
-	  */
-	public int getPA_ReportCube_ID();
+  /** Column name PA_ReportColumnSet_ID */
+  public static final String COLUMNNAME_PA_ReportColumnSet_ID = "PA_ReportColumnSet_ID";
 
-	public I_PA_ReportCube getPA_ReportCube() throws RuntimeException;
+  /** Set Report Column Set. Collection of Columns for Report */
+  public void setPA_ReportColumnSet_ID(int PA_ReportColumnSet_ID);
 
-    /** Column name PA_Report_ID */
-    public static final String COLUMNNAME_PA_Report_ID = "PA_Report_ID";
+  /** Get Report Column Set. Collection of Columns for Report */
+  public int getPA_ReportColumnSet_ID();
 
-	/** Set Financial Report.
-	  * Financial Report
-	  */
-	public void setPA_Report_ID (int PA_Report_ID);
+  public I_PA_ReportColumnSet getPA_ReportColumnSet() throws RuntimeException;
 
-	/** Get Financial Report.
-	  * Financial Report
-	  */
-	public int getPA_Report_ID();
+  /** Column name PA_ReportCube_ID */
+  public static final String COLUMNNAME_PA_ReportCube_ID = "PA_ReportCube_ID";
 
-    /** Column name PA_ReportLineSet_ID */
-    public static final String COLUMNNAME_PA_ReportLineSet_ID = "PA_ReportLineSet_ID";
+  /** Set Report Cube. Define reporting cube for pre-calculation of summary accounting data. */
+  public void setPA_ReportCube_ID(int PA_ReportCube_ID);
 
-	/** Set Report Line Set	  */
-	public void setPA_ReportLineSet_ID (int PA_ReportLineSet_ID);
+  /** Get Report Cube. Define reporting cube for pre-calculation of summary accounting data. */
+  public int getPA_ReportCube_ID();
 
-	/** Get Report Line Set	  */
-	public int getPA_ReportLineSet_ID();
+  public I_PA_ReportCube getPA_ReportCube() throws RuntimeException;
 
-	public I_PA_ReportLineSet getPA_ReportLineSet() throws RuntimeException;
+  /** Column name PA_Report_ID */
+  public static final String COLUMNNAME_PA_Report_ID = "PA_Report_ID";
 
-    /** Column name PA_Report_UU */
-    public static final String COLUMNNAME_PA_Report_UU = "PA_Report_UU";
+  /** Set Financial Report. Financial Report */
+  public void setPA_Report_ID(int PA_Report_ID);
 
-	/** Set PA_Report_UU	  */
-	public void setPA_Report_UU (String PA_Report_UU);
+  /** Get Financial Report. Financial Report */
+  public int getPA_Report_ID();
 
-	/** Get PA_Report_UU	  */
-	public String getPA_Report_UU();
+  /** Column name PA_ReportLineSet_ID */
+  public static final String COLUMNNAME_PA_ReportLineSet_ID = "PA_ReportLineSet_ID";
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Set Report Line Set */
+  public void setPA_ReportLineSet_ID(int PA_ReportLineSet_ID);
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Get Report Line Set */
+  public int getPA_ReportLineSet_ID();
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  public I_PA_ReportLineSet getPA_ReportLineSet() throws RuntimeException;
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name PA_Report_UU */
+  public static final String COLUMNNAME_PA_Report_UU = "PA_Report_UU";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Set PA_Report_UU */
+  public void setPA_Report_UU(String PA_Report_UU);
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get PA_Report_UU */
+  public String getPA_Report_UU();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
+
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
+
+  /** Get Process Now */
+  public boolean isProcessing();
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 }
