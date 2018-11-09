@@ -39,11 +39,11 @@ it('GardenUser can login and see countries using GraphQL', function () {
           }
         }
       })
-      .post('http://localhost:8080/graphql', {query: "{ countries {id name} }" })
+      .post("http://localhost:8080/graphql", {query: "{ countries {id name} }" })
       .expect('status', 200)
       .expect('jsonTypes', 'data.countries.*', { // Assert *each* object in 'items' array
-        'id': Joi.string().required(),
-        'name': Joi.string().required()
+        "id": Joi.string().required(),
+        "name": Joi.string().required()
        });
     });
 });
