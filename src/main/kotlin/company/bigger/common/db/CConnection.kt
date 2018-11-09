@@ -13,6 +13,7 @@ import java.sql.Connection
 import java.sql.SQLException
 import java.util.logging.Level
 import company.bigger.util.Ini
+import org.idempiere.common.exceptions.AdempiereException
 
 /**
  * Adempiere Connection Descriptor
@@ -351,7 +352,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         get() {
             val sb = StringBuilder(if (m_info[0] != null) m_info[0] else "")
             sb.append(" - ").append(if (m_info[1] != null) m_info[1] else "")
-                    .append("\n").append(database!!.toString())
+                    .append("\n").append(database.toString())
 
             sb.append("\nDatabaseOK=").append(isDatabaseOK)
 
@@ -364,25 +365,18 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
      */
     //  different driver
     // 	test class loader ability
-    val database: AdempiereDatabase?
+    val database: AdempiereDatabase
         get() {
-            if (m_db != null && m_db!!.name != type)
-                m_db = null
-
-            if (m_db == null) {
-                try {
-                    m_db = Database.getDatabase(type)
-                    if (m_db != null)
-                        m_db!!.getDataSource(this)
-                } catch (ee: NoClassDefFoundError) {
-                    log.severe("Environment Error - Check idempiere.properties - $ee")
-                } catch (e: Exception) {
-                    println("EE1:" + e.toString())
-                    e.printStackTrace()
-                    log.severe(e.toString())
+            val db = m_db
+            if (db == null || db.name != type) {
+                m_db = Database.getDatabase(type)
+                val db1 = m_db
+                if (db1 != null) {
+                    db1.getDataSource(this)
+                    return db1
                 }
             }
-            return m_db
+            return db ?: throw AdempiereException("Unable to get database")
         } //  getDatabase
 
     /**
@@ -392,11 +386,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
     //  updates m_db
     val connectionURL: String
         get() {
-            database
-            return if (m_db != null)
-                m_db!!.getConnectionURL(this)
-            else
-                ""
+            return database.getConnectionURL(this)
         } //  getConnectionURL
 
     /**
@@ -542,7 +532,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
      */
     fun setDataSource(ds: DataSource?): Boolean {
         if (ds == null && m_ds != null)
-            database!!.close()
+            database.close()
         m_ds = ds
         return m_ds != null
     } // 	setDataSource
@@ -570,8 +560,7 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         if (!retest && m_ds != null && isDatabaseOK)
             return null
 
-        if (database != null)
-            database!!.close()
+        database.close()
         m_ds = null
         setDataSource()
         //  the actual test

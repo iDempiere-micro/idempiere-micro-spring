@@ -9,7 +9,7 @@ data class ContactActivity(
     val bpartnerName: String,
     val completed: Boolean,
     val activityOwnerName: String
-)  {
+) {
     val ID: String
         get() = "$Key"
 

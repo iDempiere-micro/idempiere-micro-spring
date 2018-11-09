@@ -6,7 +6,7 @@ import org.compiere.product.MCurrency
 import org.idempiere.common.util.DB
 import java.sql.Timestamp
 
-data class EnsureBOResult(val OpportunityId: Int): java.io.Serializable
+data class EnsureBOResult(val OpportunityId: Int) : java.io.Serializable
 
 class EnsureBO : SvrProcessBase() {
     var businessPartnerId: Int = 0
