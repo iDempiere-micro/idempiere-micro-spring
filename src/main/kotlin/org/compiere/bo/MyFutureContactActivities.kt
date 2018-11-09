@@ -8,6 +8,9 @@ import org.compiere.orm.IModelFactory
 import java.math.BigDecimal
 import java.sql.Connection
 
+/**
+ * Future contact activities of the current user
+ */
 class MyFutureContactActivities : SvrProcessBaseSql() {
 
     data class Result(val activities: List<ContactActivity>) : java.io.Serializable

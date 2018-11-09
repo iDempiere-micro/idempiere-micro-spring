@@ -6,6 +6,9 @@ import org.compiere.product.MCurrency
 import org.idempiere.common.util.DB
 import java.sql.Timestamp
 
+/**
+ * Make sure the business opportunity exists for given [businessPartnerId]
+ */
 data class EnsureBOResult(val OpportunityId: Int) : java.io.Serializable
 
 class EnsureBO : SvrProcessBase() {

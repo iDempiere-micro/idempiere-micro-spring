@@ -15,6 +15,9 @@ import org.idempiere.common.util.Trx
 import org.idempiere.orm.I_Persistent
 import java.sql.Connection
 
+/**
+ * Result of base customer process
+ */
 data class CustomerProcessBaseResult(val C_BPartner_Id: Int) : java.io.Serializable
 
 fun updateCustomerCategory(customerCategoryId: Int?, bpartner: I_C_BPartner, trx: Trx) {
@@ -188,6 +191,82 @@ abstract class CustomerProcessBase(
 
     abstract fun getData(m_trx: Trx): I_C_BPartner
 
+    private fun setLocations( result: I_C_BPartner ) {
+        val location = result.locations.firstOrNull { it.isShipTo }
+        val updatedLocation =
+                if (location != null) {
+                    setLocParams(location)
+                    location
+                } else {
+                    val newLocation = MBPartnerLocation(result)
+                    newLocation.setIsShipTo(true)
+                    setLocParams(newLocation)
+                    newLocation
+                }
+        updatedLocation.save()
+
+        val legal = result.locations.firstOrNull { it.isBillTo && !it.isShipTo }
+        val updatedLegal =
+                if (legal != null) {
+                    setLegalParams(legal)
+                    legal
+                } else {
+                    val newLocation = MBPartnerLocation(result)
+                    newLocation.setIsBillTo(true)
+                    setLegalParams(newLocation)
+                    newLocation
+                }
+        updatedLegal.save()
+    }
+
+    private fun setPersons( result: I_C_BPartner ) {
+        val contactPersons = result.getContacts()
+        val orderContact =
+                if (contactPersons.count() > 0) {
+                    val orderContact = contactPersons[0]
+                    orderContact.name = "" + orderContactPerson
+                    orderContact.value = orderContact.name
+                    orderContact
+                } else {
+                    val orderContact = MUser(result)
+                    orderContact.setName("" + orderContactPerson)
+                    orderContact.value = orderContact.name
+                    orderContact
+                }
+        (orderContact as I_Persistent).save()
+
+        val decisionMaker =
+                if (contactPersons.count() > 1) {
+                    val decisionMaker = contactPersons[1]
+                    decisionMaker.name = "" + this.decisionMaker
+                    decisionMaker.value = decisionMaker.name
+                    decisionMaker
+                } else {
+                    val decisionMaker = MUser(result)
+                    decisionMaker.setName("" + this.decisionMaker)
+                    decisionMaker.value = decisionMaker.name
+                    decisionMaker
+                }
+        (decisionMaker as I_Persistent).save()
+
+        val invoicingPerson =
+                if (contactPersons.count() > 2) {
+                    val invoicingPerson = contactPersons[2]
+                    invoicingPerson.name = "" + invoicingContact
+                    invoicingPerson.value = invoicingPerson.name
+                    invoicingPerson
+                } else {
+                    val invoicingPerson = MUser(result)
+                    invoicingPerson.setName("" + invoicingContact)
+                    invoicingPerson.value = invoicingPerson.name
+                    invoicingPerson
+                }
+        (invoicingPerson as I_Persistent).save()
+    }
+
+    /**
+     * The core action of customer base process - setting all the required attributes.
+     */
     fun coreAction(m_trx: Trx): CustomerProcessBaseResult {
         val result = getData(m_trx)
 
@@ -208,74 +287,8 @@ abstract class CustomerProcessBase(
         }
         result.save()
 
-        val location = result.locations.firstOrNull { it.isShipTo }
-        val updatedLocation =
-            if (location != null) {
-                setLocParams(location)
-                location
-            } else {
-                val newLocation = MBPartnerLocation(result)
-                newLocation.setIsShipTo(true)
-                setLocParams(newLocation)
-                newLocation
-            }
-        updatedLocation.save()
-
-        val legal = result.locations.firstOrNull { it.isBillTo && !it.isShipTo }
-        val updatedLegal =
-            if (legal != null) {
-                setLegalParams(legal)
-                legal
-            } else {
-                val newLocation = MBPartnerLocation(result)
-                newLocation.setIsBillTo(true)
-                setLegalParams(newLocation)
-                newLocation
-            }
-        updatedLegal.save()
-
-        val contactPersons = result.getContacts()
-        val orderContact =
-            if (contactPersons.count() > 0) {
-                val orderContact = contactPersons[0]
-                orderContact.name = "" + orderContactPerson
-                orderContact.value = orderContact.name
-                orderContact
-            } else {
-                val orderContact = MUser(result)
-                orderContact.setName("" + orderContactPerson)
-                orderContact.value = orderContact.name
-                orderContact
-            }
-        (orderContact as I_Persistent).save()
-
-        val decisionMaker =
-            if (contactPersons.count() > 1) {
-                val decisionMaker = contactPersons[1]
-                decisionMaker.name = "" + this.decisionMaker
-                decisionMaker.value = decisionMaker.name
-                decisionMaker
-            } else {
-                val decisionMaker = MUser(result)
-                decisionMaker.setName("" + this.decisionMaker)
-                decisionMaker.value = decisionMaker.name
-                decisionMaker
-            }
-        (decisionMaker as I_Persistent).save()
-
-        val invoicingPerson =
-            if (contactPersons.count() > 2) {
-                val invoicingPerson = contactPersons[2]
-                invoicingPerson.name = "" + invoicingContact
-                invoicingPerson.value = invoicingPerson.name
-                invoicingPerson
-            } else {
-                val invoicingPerson = MUser(result)
-                invoicingPerson.setName("" + invoicingContact)
-                invoicingPerson.value = invoicingPerson.name
-                invoicingPerson
-            }
-        (invoicingPerson as I_Persistent).save()
+        setLocations(result)
+        setPersons(result)
 
         isCustomer?.let { result.setIsCustomer(it) }
         discount?.let { result.flatDiscount = it.toBigDecimal() }
