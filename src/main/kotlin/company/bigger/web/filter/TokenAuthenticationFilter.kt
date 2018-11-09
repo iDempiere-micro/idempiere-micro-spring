@@ -39,11 +39,11 @@ class TokenAuthenticationFilter(
     public override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, chain: FilterChain) {
         var error = ""
         val authToken = getToken(request)
-        val autoLoginName = autoLoginName
-        val autoLoginPassword = autoLoginPassword
+        val autoLoginName = autoLoginName ?: ""
+        val autoLoginPassword = autoLoginPassword ?: ""
 
         val user =
-                if (autoLoginName != null && !autoLoginName.isNullOrEmpty() && autoLoginPassword != null && !autoLoginPassword.isNullOrEmpty()) {
+                if (!autoLoginName.isEmpty() && !autoLoginPassword.isEmpty()) {
                     userService.login(UserLoginModel(loginName = autoLoginName, password = autoLoginPassword))
                 } else {
                     // Get username from token
