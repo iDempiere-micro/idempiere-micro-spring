@@ -690,7 +690,7 @@ public class ImportGLJournal extends SvrProcess
 				{
 					BatchDocumentNo = impBatchDocumentNo;	//	cannot compare real DocumentNo
 					batch = new MJournalBatch (getCtx(), 0, get_TrxName());
-					batch.setClientOrg(imp.getAD_Client_ID(), imp.getAD_OrgDoc_ID());
+					batch.setClientOrg(imp.getADClientID(), imp.getAD_OrgDoc_ID());
 					if (imp.getBatchDocumentNo() != null 
 						&& imp.getBatchDocumentNo().length() > 0)
 						batch.setDocumentNo (imp.getBatchDocumentNo());
@@ -737,7 +737,7 @@ public class ImportGLJournal extends SvrProcess
 					journal = new MJournal (getCtx(), 0, get_TrxName());
 					if (batch != null)
 						journal.setGL_JournalBatch_ID(batch.getGL_JournalBatch_ID());
-					journal.setClientOrg(imp.getAD_Client_ID(), imp.getAD_OrgDoc_ID());
+					journal.setClientOrg(imp.getADClientID(), imp.getAD_OrgDoc_ID());
 					//
 					String description = imp.getBatchDescription();
 					if (description == null || description.length() == 0)
@@ -780,7 +780,7 @@ public class ImportGLJournal extends SvrProcess
 				//	Set/Get Account Combination
 				if (imp.getC_ValidCombination_ID() == 0)
 				{
-					MAccount acct = MAccount.get(getCtx(), imp.getAD_Client_ID(), imp.getAD_Org_ID(),
+					MAccount acct = MAccount.get(getCtx(), imp.getADClientID(), imp.getAD_Org_ID(),
 						imp.getC_AcctSchema_ID(), imp.getAccount_ID(), 0,
 						imp.getM_Product_ID(), imp.getC_BPartner_ID(), imp.getAD_OrgTrx_ID(),
 						imp.getC_LocFrom_ID(), imp.getC_LocTo_ID(), imp.getC_SalesRegion_ID(),

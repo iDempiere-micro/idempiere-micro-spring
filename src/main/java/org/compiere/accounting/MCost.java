@@ -140,7 +140,7 @@ public class MCost extends X_M_Cost
 		try
 		{
 			pstmt = DB.prepareStatement (sql, trxName);
-			pstmt.setInt (1, product.getAD_Client_ID());
+			pstmt.setInt (1, product.getADClientID());
 			pstmt.setInt (2, Org_ID);
 			pstmt.setInt (3, product.getM_Product_ID());
 			pstmt.setInt (4, M_ASI_ID);
@@ -376,7 +376,7 @@ public class MCost extends X_M_Cost
 			{
 				price = MConversionRate.convert(product.getCtx(), price,
 					pos[i].getC_Currency_ID(), as.getC_Currency_ID(),
-					as.getAD_Client_ID(), Org_ID);
+					as.getADClientID(), Org_ID);
 				if (price != null && price.signum() != 0)
 				{
 					if (pos[i].getC_UOM_ID() != product.getC_UOM_ID())
@@ -417,7 +417,7 @@ public class MCost extends X_M_Cost
 		ResultSet rs = null;
 		try {
 			st = DB.prepareStatement(sql, product.get_TrxName());
-			st.setInt(1, as.getAD_Client_ID());
+			st.setInt(1, as.getADClientID());
 			st.setInt(2, orgID);
 			st.setInt(3, product.getM_Product_ID());
 			rs = st.executeQuery();
@@ -616,7 +616,7 @@ public class MCost extends X_M_Cost
 	 */
 	public static void create (MClient client)
 	{
-		MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(client.getCtx(), client.getAD_Client_ID());
+		MAcctSchema[] ass = MAcctSchema.getClientAcctSchema(client.getCtx(), client.getADClientID());
 		String trxName = client.get_TrxName();
 		String trxNameUsed = trxName;
 		Trx trx = null;
@@ -637,7 +637,7 @@ public class MCost extends X_M_Cost
 		try
 		{
 			pstmt = DB.prepareStatement (sql, trxNameUsed);
-			pstmt.setInt (1, client.getAD_Client_ID());
+			pstmt.setInt (1, client.getADClientID());
 			rs = pstmt.executeQuery ();
 			while (rs.next ())
 			{
@@ -697,7 +697,7 @@ public class MCost extends X_M_Cost
 		}
 
 		MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(product.getCtx(),
-			product.getAD_Client_ID(), product.get_TrxName());
+			product.getADClientID(), product.get_TrxName());
 		MOrg[] orgs = null;
 
 		int M_ASI_ID = 0;		//	No Attribute
@@ -713,7 +713,7 @@ public class MCost extends X_M_Cost
 			{
 				if (as.getAD_OrgOnly_ID() > 0 && MOrg.get(product.getCtx(), as.getAD_OrgOnly_ID()).isSummary())
 				{
-					MClient client = MClient.get(product.getCtx(), product.getAD_Client_ID());
+					MClient client = MClient.get(product.getCtx(), product.getADClientID());
 					MClientInfo ci = client.getInfo();
 					MTree vTree = new MTree (product.getCtx(), ci.getAD_Tree_Org_ID(), false, true, true, product.get_TrxName());
 
@@ -797,7 +797,7 @@ public class MCost extends X_M_Cost
 		List <MCostElement> ces = MCostElement.getCostElementsWithCostingMethods(product);
 
 			MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(product.getCtx(),
-				product.getAD_Client_ID(), product.get_TrxName());
+				product.getADClientID(), product.get_TrxName());
 			MOrg[] orgs = null;
 
 			int M_ASI_ID = 0;		//	No Attribute
@@ -1338,7 +1338,7 @@ public class MCost extends X_M_Cost
 			+ " AND M_CostType_ID=? AND C_AcctSchema_ID=?"
 			+ " AND M_CostElement_ID=?";
 		cost = new Query(product.getCtx(), I_M_Cost.Table_Name, whereClause, trxName)
-		.setParameters(	product.getAD_Client_ID(),
+		.setParameters(	product.getADClientID(),
 						AD_Org_ID,
 						product.getM_Product_ID(),
 						M_AttributeSetInstance_ID,
@@ -1460,7 +1460,7 @@ public class MCost extends X_M_Cost
 		MAcctSchema as, int AD_Org_ID, int M_CostElement_ID)
 	{
 		this (product.getCtx(), 0, product.get_TrxName());
-		setClientOrg(product.getAD_Client_ID(), AD_Org_ID);
+		setClientOrg(product.getADClientID(), AD_Org_ID);
 		setC_AcctSchema_ID(as.getC_AcctSchema_ID());
 		setM_CostType_ID(as.getM_CostType_ID());
 		setM_Product_ID(product.getM_Product_ID());
@@ -1598,7 +1598,7 @@ public class MCost extends X_M_Cost
 	public String toString ()
 	{
 		StringBuilder sb = new StringBuilder ("MCost[");
-		sb.append ("AD_Client_ID=").append (getAD_Client_ID());
+		sb.append ("AD_Client_ID=").append (getADClientID());
 		if (getAD_Org_ID() != 0)
 			sb.append (",AD_Org_ID=").append (getAD_Org_ID());
 		sb.append (",M_Product_ID=").append (getM_Product_ID());

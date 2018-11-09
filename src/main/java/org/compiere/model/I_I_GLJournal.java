@@ -85,7 +85,7 @@ public interface I_I_GLJournal
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_OrgDoc_ID */
     public static final String COLUMNNAME_AD_OrgDoc_ID = "AD_OrgDoc_ID";

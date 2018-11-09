@@ -65,7 +65,7 @@ public class MProductionLine extends X_M_ProductionLine {
 	public MProductionLine( MProduction header ) {
 		super( header.getCtx(), 0, header.get_TrxName() );
 		setM_Production_ID( header.getId());
-		setAD_Client_ID(header.getAD_Client_ID());
+		setADClientID(header.getADClientID());
 		setAD_Org_ID(header.getAD_Org_ID());
 		productionParent = header;
 	}
@@ -73,7 +73,7 @@ public class MProductionLine extends X_M_ProductionLine {
 	public MProductionLine( MProductionPlan header ) {
 		super( header.getCtx(), 0, header.get_TrxName() );
 		setM_ProductionPlan_ID( header.getId());
-		setAD_Client_ID(header.getAD_Client_ID());
+		setADClientID(header.getADClientID());
 		setAD_Org_ID(header.getAD_Org_ID());
 	}
 	
@@ -219,7 +219,7 @@ public class MProductionLine extends X_M_ProductionLine {
 		else if (qtyToMove.signum() < 0 )
 		{
 		
-			MClientInfo m_clientInfo = MClientInfo.get(getCtx(), getAD_Client_ID(), get_TrxName());
+			MClientInfo m_clientInfo = MClientInfo.get(getCtx(), getADClientID(), get_TrxName());
 			MAcctSchema acctSchema = new MAcctSchema(getCtx(), m_clientInfo.getC_AcctSchema1_ID(), get_TrxName());
 			if (asi.getId() == 0 && MAcctSchema.COSTINGLEVEL_BatchLot.equals(prod.getCostingLevel(acctSchema)) )
 			{

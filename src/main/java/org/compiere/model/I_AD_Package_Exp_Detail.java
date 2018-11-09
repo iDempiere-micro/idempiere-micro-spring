@@ -31,7 +31,7 @@ public interface I_AD_Package_Exp_Detail
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_EntityType_ID */
     public static final String COLUMNNAME_AD_EntityType_ID = "AD_EntityType_ID";

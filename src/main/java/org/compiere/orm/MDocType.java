@@ -51,7 +51,7 @@ public class MDocType extends X_C_DocType
 	{
 		final String whereClause  = "AD_Client_ID=? AND DocBaseType=?";
 		List<MDocType> list = new Query(ctx, I_C_DocType.Table_Name, whereClause, null)
-									.setParameters(Env.getAD_Client_ID(ctx), DocBaseType)
+									.setParameters(Env.getADClientID(ctx), DocBaseType)
 									.setOnlyActiveRecords(true)
 									.setOrderBy("IsDefault DESC, C_DocType_ID")
 									.list();
@@ -158,7 +158,7 @@ public class MDocType extends X_C_DocType
 		final String sql = "SELECT GL_Category_ID FROM GL_Category"
 						+" WHERE AD_Client_ID=?"
 						+" ORDER BY IsDefault DESC, GL_Category_ID";
-		int GL_Category_ID = DB.getSQLValue(get_TrxName(), sql, getAD_Client_ID());
+		int GL_Category_ID = DB.getSQLValue(get_TrxName(), sql, getADClientID());
 		setGL_Category_ID(GL_Category_ID);
 	}	//	setGL_Category_ID
 
@@ -258,14 +258,14 @@ public class MDocType extends X_C_DocType
 				.append("(AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,")
 				.append("C_DocType_ID , AD_Ref_List_ID, AD_Role_ID) ")
 				.append("(SELECT ")
-				.append(getAD_Client_ID()).append(",0,'Y', SysDate,") 
+				.append(getADClientID()).append(",0,'Y', SysDate,") 
 				.append(getUpdatedBy()).append(", SysDate,").append(getUpdatedBy()) 
 				.append(", doctype.C_DocType_ID, action.AD_Ref_List_ID, rol.AD_Role_ID ")
 				.append("FROM AD_Client client ")
 				.append("INNER JOIN C_DocType doctype ON (doctype.AD_Client_ID=client.AD_Client_ID) ")
 				.append("INNER JOIN AD_Ref_List action ON (action.AD_Reference_ID=135) ")
 				.append("INNER JOIN AD_Role rol ON (rol.AD_Client_ID=client.AD_Client_ID) ")
-				.append("WHERE client.AD_Client_ID=").append(getAD_Client_ID()) 
+				.append("WHERE client.AD_Client_ID=").append(getADClientID()) 
 				.append(" AND doctype.C_DocType_ID=").append(getId())
 				.append(" AND rol.IsManual='N'")
 				.append(")");
@@ -325,7 +325,7 @@ public class MDocType extends X_C_DocType
                 {
                     StringBuilder whereClause = new StringBuilder(30);
                     whereClause.append("Name='").append(relatedDocTypeName).append("' ");
-                    whereClause.append("and AD_Client_ID=").append(Env.getAD_Client_ID(Env.getCtx()));
+                    whereClause.append("and AD_Client_ID=").append(Env.getADClientID(Env.getCtx()));
                     whereClause.append(" AND IsActive='Y'");
 
                     int relDocTypeIds[] = PO.getAllIDs(MDocType.Table_Name, whereClause.toString(), null);

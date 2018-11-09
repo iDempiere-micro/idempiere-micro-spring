@@ -31,7 +31,7 @@ public interface I_AD_ImpFormat
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_ImpFormat_ID */
     public static final String COLUMNNAME_AD_ImpFormat_ID = "AD_ImpFormat_ID";

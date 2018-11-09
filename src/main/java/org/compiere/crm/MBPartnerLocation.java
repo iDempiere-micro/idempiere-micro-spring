@@ -222,7 +222,7 @@ public class MBPartnerLocation extends X_C_BPartner_Location implements I_C_BPar
 	public String getBPLocName(MLocation address) {
 		m_uniqueName = getName();
 		m_unique = MSysConfig.getIntValue(MSysConfig.START_VALUE_BPLOCATION_NAME, 0,
-				getAD_Client_ID(), getAD_Org_ID());
+				getADClientID(), getAD_Org_ID());
 		if (m_unique < 0 || m_unique > 4)
 			m_unique = 0;
 		if (m_uniqueName != null) { // && m_uniqueName.equals(".")) {

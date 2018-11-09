@@ -534,7 +534,7 @@ public class ImportInvoice extends SvrProcess
 				if (bp == null)
 				{
 					bp = new MBPartner (getCtx (), -1, get_TrxName());
-					bp.setClientOrg (imp.getAD_Client_ID (), imp.getAD_Org_ID ());
+					bp.setClientOrg (imp.getADClientID (), imp.getAD_Org_ID ());
 					bp.setValue (imp.getBPartnerValue ());
 					bp.setName (imp.getName ());
 					if (!bp.save ())
@@ -686,7 +686,7 @@ public class ImportInvoice extends SvrProcess
 						oldDocumentNo = "";
 					//
 					invoice = new MInvoice (getCtx(), 0, null);
-					invoice.setClientOrg (imp.getAD_Client_ID(), imp.getAD_Org_ID());
+					invoice.setClientOrg (imp.getADClientID(), imp.getAD_Org_ID());
 					invoice.setC_DocTypeTarget_ID(imp.getC_DocType_ID());
 					invoice.setIsSOTrx(imp.isSOTrx());
 					if (imp.getDocumentNo() != null)

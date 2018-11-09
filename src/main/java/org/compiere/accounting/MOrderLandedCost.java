@@ -85,7 +85,7 @@ public class MOrderLandedCost extends X_C_OrderLandedCost {
 						MOrderLandedCostAllocation allocation = new MOrderLandedCostAllocation(getCtx(), 0, get_TrxName());
 						allocation.setC_OrderLandedCost_ID(getC_OrderLandedCost_ID());
 						allocation.setC_OrderLine_ID(line.getC_OrderLine_ID());
-						allocation.setClientOrg(getAD_Client_ID(), getAD_Org_ID());
+						allocation.setClientOrg(getADClientID(), getAD_Org_ID());
 						allocation.setAmt(BigDecimal.ZERO);
 						allocation.setBase(BigDecimal.ZERO);
 						allocation.setQty(BigDecimal.ZERO);

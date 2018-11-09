@@ -151,7 +151,7 @@ public interface I_A_Depreciation_Exp
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name A_Depreciation_Entry_ID */
     public static final String COLUMNNAME_A_Depreciation_Entry_ID = "A_Depreciation_Entry_ID";

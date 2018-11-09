@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class BPartnerService {
     fun createBPartner(model: CreateCustomerModel): CustomerProcessBaseResult {
         val ctx = Env.getCtx()
-        val ad_Client_ID = Env.getAD_Client_ID(ctx)
+        val ad_Client_ID = Env.getADClientID(ctx)
         val ad_Org_ID = Env.getAD_Org_ID(ctx)
         val ad_User_ID = Env.getAD_User_ID(ctx)
         val parameters: MutableList<ProcessInfoParameter> = mutableListOf()
@@ -65,7 +65,7 @@ class BPartnerService {
             model.legalCountryId
         )
         val processInfo = ProcessInfo("Create Business Partner", 0)
-        processInfo.aD_Client_ID = ad_Client_ID
+        processInfo.adClientID = ad_Client_ID
         processInfo.aD_User_ID = ad_User_ID
         processInfo.parameter = parameters.toTypedArray()
         processInfo.className = process.javaClass.canonicalName

@@ -31,7 +31,7 @@ public interface I_ASP_Field
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Field_ID */
     public static final String COLUMNNAME_AD_Field_ID = "AD_Field_ID";

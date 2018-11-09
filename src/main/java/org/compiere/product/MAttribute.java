@@ -39,7 +39,7 @@ public class MAttribute extends X_M_Attribute
 	public static MAttribute[] getOfClient(Properties ctx, 
 		boolean onlyProductAttributes, boolean onlyListAttributes)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx);
+		int AD_Client_ID = Env.getADClientID(ctx);
 		String sql = "";
 		ArrayList<Object> params = new ArrayList<Object>();
 		params.add(AD_Client_ID);

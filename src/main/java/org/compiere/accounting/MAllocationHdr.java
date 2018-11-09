@@ -931,7 +931,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 
 			BigDecimal allocAmt = line.getAmount().add(line.getDiscountAmt()).add(line.getWriteOffAmt());
 			BigDecimal openBalanceDiff = Env.ZERO;
-			org.compiere.accounting.MClient client = org.compiere.accounting.MClient.get(getCtx(), getAD_Client_ID());
+			org.compiere.accounting.MClient client = org.compiere.accounting.MClient.get(getCtx(), getADClientID());
 			
 			boolean paymentProcessed = false;
 			boolean paymentIsReceipt = false;
@@ -956,7 +956,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 					{
 						// If payment is already processed, only adjust open balance by discount and write off amounts.
 						BigDecimal amt = MConversionRate.convertBase(getCtx(), line.getWriteOffAmt().add(line.getDiscountAmt()),
-								getC_Currency_ID(), paymentDate, convTypeID, getAD_Client_ID(), getAD_Org_ID());
+								getC_Currency_ID(), paymentDate, convTypeID, getADClientID(), getAD_Org_ID());
 						if (amt == null)
 						{
 							m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingAllocationCurrencyToBaseCurrency",
@@ -969,7 +969,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 					{
 						// Allocating payment to payment.
 						BigDecimal amt = MConversionRate.convertBase(getCtx(), allocAmt,
-								getC_Currency_ID(), paymentDate, convTypeID, getAD_Client_ID(), getAD_Org_ID());
+								getC_Currency_ID(), paymentDate, convTypeID, getADClientID(), getAD_Org_ID());
 						if (amt == null)
 						{
 							m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingAllocationCurrencyToBaseCurrency",
@@ -981,7 +981,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 				} else {
 					// If payment has not been processed, adjust open balance by entire allocated amount.
 					BigDecimal allocAmtBase = MConversionRate.convertBase(getCtx(), allocAmt,	
-							getC_Currency_ID(), getDateAcct(), convTypeID, getAD_Client_ID(), getAD_Org_ID());
+							getC_Currency_ID(), getDateAcct(), convTypeID, getADClientID(), getAD_Org_ID());
 					if (allocAmtBase == null)
 					{
 						m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingAllocationCurrencyToBaseCurrency",
@@ -996,7 +996,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 			{
 				// adjust open balance by discount and write off amounts.
 				BigDecimal amt = MConversionRate.convertBase(getCtx(), line.getWriteOffAmt().add(line.getDiscountAmt()),
-						getC_Currency_ID(), invoice.getDateAcct(), invoice.getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+						getC_Currency_ID(), invoice.getDateAcct(), invoice.getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 				if (amt == null)
 				{
 					m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingAllocationCurrencyToBaseCurrency",
@@ -1014,7 +1014,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 				if (getC_Currency_ID() != invoice.getC_Currency_ID())
 				{
 					allocAmt = MConversionRate.convert(getCtx(), allocAmt,	
-							getC_Currency_ID(), invoice.getC_Currency_ID(), getDateAcct(), invoice.getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+							getC_Currency_ID(), invoice.getC_Currency_ID(), getDateAcct(), invoice.getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 					if (allocAmt == null)
 					{
 						m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingAllocationCurrencyToInvoiceCurrency",
@@ -1023,7 +1023,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 					}
 				}
 				BigDecimal invAmtAccted = MConversionRate.convertBase(getCtx(), invoice.getGrandTotal(),	
-						invoice.getC_Currency_ID(), invoice.getDateAcct(), invoice.getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+						invoice.getC_Currency_ID(), invoice.getDateAcct(), invoice.getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 				if (invAmtAccted == null)
 				{
 					m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingInvoiceCurrencyToBaseCurrency",
@@ -1032,7 +1032,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 				}
 				
 				BigDecimal allocAmtAccted = MConversionRate.convertBase(getCtx(), allocAmt,	
-						invoice.getC_Currency_ID(), getDateAcct(), invoice.getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+						invoice.getC_Currency_ID(), getDateAcct(), invoice.getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 				if (allocAmtAccted == null)
 				{
 					m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingInvoiceCurrencyToBaseCurrency",
@@ -1157,7 +1157,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		String trxName)
 	{
 		MAllocationHdr to = new MAllocationHdr (from.getCtx(), 0, trxName);
-		PO.copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		PO.copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck ("DocumentNo", null);
 		//
 		to.setDocStatus (X_C_AllocationHdr.DOCSTATUS_Drafted);		//	Draft
@@ -1194,7 +1194,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 		int count = 0;
 		for (MAllocationLine fromLine : fromLines) {
 			MAllocationLine line = new MAllocationLine (getCtx(), 0, get_TrxName());
-			PO.copyValues(fromLine, line, fromLine.getAD_Client_ID(), fromLine.getAD_Org_ID());
+			PO.copyValues(fromLine, line, fromLine.getADClientID(), fromLine.getAD_Org_ID());
 			line.setC_AllocationHdr_ID(getC_AllocationHdr_ID());
 			line.setParent(this);
 			line.set_ValueNoCheck ("C_AllocationLine_ID", PO.I_ZERO);	// new
@@ -1245,7 +1245,7 @@ public class MAllocationHdr extends X_C_AllocationHdr implements DocAction, IPOD
 	/** Returns a description parsing the bpartner defined in the Allocation form and then the allocation itself */
 	public String getDescriptionForManualAllocation(int bpartnerID, String trxName)
 	{
-		String sysconfig_desc = MSysConfig.getValue(MSysConfig.ALLOCATION_DESCRIPTION, "@#AD_User_Name@", getAD_Client_ID());
+		String sysconfig_desc = MSysConfig.getValue(MSysConfig.ALLOCATION_DESCRIPTION, "@#AD_User_Name@", getADClientID());
 		String description = "";
 		if (sysconfig_desc.contains("@")) {
 			description = MSequence.parseVariable(sysconfig_desc, new MBPartner(getCtx(), bpartnerID, null), trxName, true);

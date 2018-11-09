@@ -203,7 +203,7 @@ public class MPayment extends X_C_Payment
 	 * @return true if this is a cashbook trx
 	 */
 	public boolean isCashbookTrx() {
-		return isCashTrx() && !MSysConfig.getBooleanValue(MSysConfig.CASH_AS_PAYMENT, true , getAD_Client_ID());
+		return isCashTrx() && !MSysConfig.getBooleanValue(MSysConfig.CASH_AS_PAYMENT, true , getADClientID());
 	}
 	
 	/**************************************************************************
@@ -791,7 +791,7 @@ public class MPayment extends X_C_Payment
 			}
 		}
 
-		if (MSysConfig.getBooleanValue(MSysConfig.IBAN_VALIDATION, true, Env.getAD_Client_ID(Env.getCtx()))) {
+		if (MSysConfig.getBooleanValue(MSysConfig.IBAN_VALIDATION, true, Env.getADClientID(Env.getCtx()))) {
 			if (!Util.isEmpty(getIBAN())) {
 				setIBAN(IBAN.normalizeIBAN(getIBAN()));
 				if (!IBAN.isValid(getIBAN())) {
@@ -907,7 +907,7 @@ public class MPayment extends X_C_Payment
 		if (C_BPartner_ID > 1)
 			sql += " AND C_BPartner_ID=?";
 		else
-			sql += " AND AD_Client_ID=" + Env.getAD_Client_ID(ctx);
+			sql += " AND AD_Client_ID=" + Env.getADClientID(ctx);
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try
@@ -992,11 +992,11 @@ public class MPayment extends X_C_Payment
 		m_mBankAccountProcessor = null;
 		//	Get Processor List
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
-			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getAD_Client_ID(),
+			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getADClientID(),
 				getC_Currency_ID(), getPayAmt(), get_TrxName());
 		//	Relax Amount
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
-			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getAD_Client_ID(),
+			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getADClientID(),
 				getC_Currency_ID(), Env.ZERO, get_TrxName());
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
 			return false;
@@ -1045,7 +1045,7 @@ public class MPayment extends X_C_Payment
 		{
 			if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
 				m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx (), null, null, 
-					getAD_Client_ID (), getC_Currency_ID (), amt, get_TrxName());
+					getADClientID(), getC_Currency_ID (), amt, get_TrxName());
 			//
 			HashMap<String,ValueNamePair> map = new HashMap<String,ValueNamePair>(); //	to eliminate duplicates
 			for (int i = 0; i < m_mBankAccountProcessors.length; i++)
@@ -1245,7 +1245,7 @@ public class MPayment extends X_C_Payment
 		//	Credit Card
 		if (X_C_Payment.TENDERTYPE_CreditCard.equals(getTenderType()))
 		{
-			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CREDIT_CARD, true, getAD_Client_ID())) {
+			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CREDIT_CARD, true, getADClientID())) {
 				documentNo = getCreditCardType()
 					+ " " + Obscure.obscure(getCreditCardNumber())
 					+ " " + getCreditCardExpMM() 
@@ -1257,7 +1257,7 @@ public class MPayment extends X_C_Payment
 			&& !isReceipt()
 			&& getCheckNo() != null && getCheckNo().length() > 0)
 		{
-			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CHECK_ON_PAYMENT, true, getAD_Client_ID())) {
+			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CHECK_ON_PAYMENT, true, getADClientID())) {
 				documentNo = getCheckNo();
 			}
 		}
@@ -1265,7 +1265,7 @@ public class MPayment extends X_C_Payment
 		else if (X_C_Payment.TENDERTYPE_Check.equals(getTenderType())
 			&& isReceipt())
 		{
-			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CHECK_ON_RECEIPT, true, getAD_Client_ID())) {
+			if (MSysConfig.getBooleanValue(MSysConfig.PAYMENT_OVERWRITE_DOCUMENTNO_WITH_CHECK_ON_RECEIPT, true, getADClientID())) {
 				if (getRoutingNo() != null)
 					documentNo = getRoutingNo() + ": ";
 				if (getAccountNo() != null)
@@ -1456,7 +1456,7 @@ public class MPayment extends X_C_Payment
 		try
 		{
 			pstmt = DB.prepareStatement(sql, get_TrxName());
-			pstmt.setInt(1, getAD_Client_ID());
+			pstmt.setInt(1, getADClientID());
 			if (isReceipt)
 				pstmt.setString(2, X_C_DocType.DOCBASETYPE_ARReceipt);
 			else
@@ -1663,7 +1663,7 @@ public class MPayment extends X_C_Payment
 				sumPaymentAllocates = sumPaymentAllocates.add(pAlloc.getAmount());
 			if (getPayAmt().compareTo(sumPaymentAllocates) != 0) {
 				if (isReceipt() && getPayAmt().compareTo(sumPaymentAllocates) < 0) {
-					if (MSysConfig.getBooleanValue(MSysConfig.ALLOW_OVER_APPLIED_PAYMENT, false, Env.getAD_Client_ID(Env.getCtx()))) {
+					if (MSysConfig.getBooleanValue(MSysConfig.ALLOW_OVER_APPLIED_PAYMENT, false, Env.getADClientID(Env.getCtx()))) {
 						return true;
 					}
 				}
@@ -1994,7 +1994,7 @@ public class MPayment extends X_C_Payment
 			DB.getDatabase().forUpdate(bp, 0);
 			//	Update total balance to include this payment 
 			BigDecimal payAmt = MConversionRate.convertBase(getCtx(), getPayAmt(),
-				getC_Currency_ID(), getDateAcct(), getC_ConversionType_ID(), getAD_Client_ID(), getAD_Org_ID());
+				getC_Currency_ID(), getDateAcct(), getC_ConversionType_ID(), getADClientID(), getAD_Org_ID());
 			if (payAmt == null)
 			{
 				m_processMsg = MConversionRateUtil.getErrorMessage(getCtx(), "ErrorConvertingCurrencyToBaseCurrency",

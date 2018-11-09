@@ -56,7 +56,7 @@ public class BOMFlagValidate extends SvrProcess {
 		try {
 			pstmt = DB.prepareStatement (sql.toString(), get_TrxName());
 			if (p_M_Product_Category_ID == 0)
-				pstmt.setInt (1, Env.getAD_Client_ID(getCtx()));
+				pstmt.setInt (1, Env.getADClientID(getCtx()));
 			else
 				pstmt.setInt(1, p_M_Product_Category_ID);
 			rs = pstmt.executeQuery ();
@@ -83,7 +83,7 @@ public class BOMFlagValidate extends SvrProcess {
 				update.append("M_Product_Category_ID= ?");
 			upstmt = DB.prepareStatement (update.toString(), get_TrxName());
 			if (p_M_Product_Category_ID == 0)
-				upstmt.setInt (1, Env.getAD_Client_ID(getCtx()));
+				upstmt.setInt (1, Env.getADClientID(getCtx()));
 			else
 				upstmt.setInt(1, p_M_Product_Category_ID);
 			upstmt.executeUpdate();
@@ -112,7 +112,7 @@ public class BOMFlagValidate extends SvrProcess {
 		try {
 			pstmt = DB.prepareStatement (sql.toString(), get_TrxName());
 			if (p_M_Product_Category_ID == 0)
-				pstmt.setInt (1, Env.getAD_Client_ID(getCtx()));
+				pstmt.setInt (1, Env.getADClientID(getCtx()));
 			else
 				pstmt.setInt(1, p_M_Product_Category_ID);
 			rs = pstmt.executeQuery ();
@@ -139,7 +139,7 @@ public class BOMFlagValidate extends SvrProcess {
 		try {
 			upstmt = DB.prepareStatement (update.toString(), get_TrxName());
 			if (p_M_Product_Category_ID == 0)
-				upstmt.setInt (1, Env.getAD_Client_ID(getCtx()));
+				upstmt.setInt (1, Env.getADClientID(getCtx()));
 			else
 				upstmt.setInt(1, p_M_Product_Category_ID);
 			upstmt.executeUpdate();

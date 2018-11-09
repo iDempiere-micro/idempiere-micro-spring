@@ -175,7 +175,7 @@ public class MProduct extends org.compiere.product.MProduct {
         MCost.delete(this);
 
         // [ 1674225 ] Delete Product: Costing deletion error
-		/*MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(getCtx(),getAD_Client_ID(), get_TrxName());
+		/*MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(getCtx(),getADClientID(), get_TrxName());
 		for(int i=0; i<mass.length; i++)
 		{
 			// Get Cost Elements
@@ -209,7 +209,7 @@ public class MProduct extends org.compiere.product.MProduct {
     public boolean isASIMandatory(boolean isSOTrx) {
         //
         //	If CostingLevel is BatchLot ASI is always mandatory - check all client acct schemas
-        MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(getCtx(), getAD_Client_ID(), get_TrxName());
+        MAcctSchema[] mass = MAcctSchema.getClientAcctSchema(getCtx(), getADClientID(), get_TrxName());
         for (MAcctSchema as : mass)
         {
             String cl = getCostingLevel(as);

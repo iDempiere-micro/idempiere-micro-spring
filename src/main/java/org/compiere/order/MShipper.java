@@ -56,7 +56,7 @@ public class MShipper extends X_M_Shipper
 		Query q = new Query(ctx, I_M_Shipper.Table_Name,
 				"M_Shipper.AD_Client_ID=? AND M_Shipper.AD_Org_ID IN (0,?) AND M_Shipper_ID " +
 				"IN (SELECT M_Shipper_ID FROM M_Freight WHERE M_FreightCategory_ID=?)", trxName);
-		q.setParameters(Env.getAD_Client_ID(ctx), Env.getAD_Org_ID(ctx), FreightCategory_ID);
+		q.setParameters(Env.getADClientID(ctx), Env.getAD_Org_ID(ctx), FreightCategory_ID);
 		List<MShipper> result = q.list();
 		return(result);
 	}

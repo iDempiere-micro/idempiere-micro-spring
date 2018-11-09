@@ -45,7 +45,7 @@ public class MProject extends X_C_Project
 			throw new IllegalArgumentException ("From Project not found C_Project_ID=" + C_Project_ID);
 		//
 		MProject to = new MProject (ctx, 0, trxName);
-		copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck ("C_Project_ID", I_ZERO);
 		//	Set Value with Time
 		String Value = to.getValue() + " ";
@@ -292,7 +292,7 @@ public class MProject extends X_C_Project
 			   (fromLines[i].getC_ProjectTask_ID() != 0)) continue;
 			
 			MProjectLine line = new MProjectLine (getCtx(), 0, project.get_TrxName());
-			copyValues(fromLines[i], line, getAD_Client_ID(), getAD_Org_ID());
+			copyValues(fromLines[i], line, getADClientID(), getAD_Org_ID());
 			line.setC_Project_ID(getC_Project_ID());
 			line.setInvoicedAmt(Env.ZERO);
 			line.setInvoicedQty(Env.ZERO);
@@ -346,7 +346,7 @@ public class MProject extends X_C_Project
 				if (log.isLoggable(Level.INFO)) log.info("Phase already exists here, ignored - " + fromPhases[i]);
 			} else {
 				MProjectPhase toPhase = new MProjectPhase (getCtx (), 0, get_TrxName());
-				copyValues(fromPhases[i], toPhase, getAD_Client_ID (), getAD_Org_ID ());
+				copyValues(fromPhases[i], toPhase, getADClientID (), getAD_Org_ID ());
 				toPhase.setC_Project_ID (getC_Project_ID ());
 				toPhase.setC_Order_ID (0);
 				toPhase.setIsComplete (false);

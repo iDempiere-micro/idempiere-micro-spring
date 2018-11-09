@@ -62,7 +62,7 @@ public class MCalendar extends X_C_Calendar
 	 */
 	public static MCalendar getDefault (Properties ctx)
 	{
-		return getDefault(ctx, Env.getAD_Client_ID(ctx));
+		return getDefault(ctx, Env.getADClientID(ctx));
 	}	//	getDefault
 	
 	/**	Cache						*/

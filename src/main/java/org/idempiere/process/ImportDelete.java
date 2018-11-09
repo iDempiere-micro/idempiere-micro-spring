@@ -77,7 +77,7 @@ public class ImportDelete extends SvrProcess
 		}	
 		
 		//	Delete
-		StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName).append(" WHERE AD_Client_ID=").append(getAD_Client_ID());
+		StringBuilder sql = new StringBuilder("DELETE FROM ").append(tableName).append(" WHERE AD_Client_ID=").append(getADClientID());
 		int no = DB.executeUpdate(sql.toString(), get_TrxName());
 		StringBuilder msg = new StringBuilder().append(Msg.translate(getCtx(), tableName + "_ID")).append(" #").append(no);
 		return msg.toString();

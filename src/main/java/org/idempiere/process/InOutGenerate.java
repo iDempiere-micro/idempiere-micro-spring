@@ -186,7 +186,7 @@ public class InOutGenerate extends SvrProcess
 			int index = 1;
 			if (p_Selection)
 			{
-				pstmt.setInt(index++, Env.getAD_Client_ID(getCtx()));
+				pstmt.setInt(index++, Env.getADClientID(getCtx()));
 				pstmt.setInt(index++, getAD_PInstance_ID());
 			}
 			else	

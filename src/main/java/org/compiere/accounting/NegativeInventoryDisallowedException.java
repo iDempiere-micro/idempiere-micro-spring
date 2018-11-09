@@ -35,7 +35,7 @@ public class NegativeInventoryDisallowedException extends AdempiereException
 	{
 		super(Msg.getMsg(ctx, "NegativeInventoryDisallowedInfo", new Object[] {
 				MWarehouse.get(ctx, M_Warehouse_ID).getName(),
-				MProduct.get(ctx, M_Product_ID).getValue() + MSysConfig.getValue(MSysConfig.IDENTIFIER_SEPARATOR, "_", Env.getAD_Client_ID(ctx)) + MProduct.get(ctx, M_Product_ID).getName(),
+				MProduct.get(ctx, M_Product_ID).getValue() + MSysConfig.getValue(MSysConfig.IDENTIFIER_SEPARATOR, "_", Env.getADClientID(ctx)) + MProduct.get(ctx, M_Product_ID).getName(),
 				M_AttributeSetInstance_ID > 0 ? MAttributeSetInstance.get(ctx, M_AttributeSetInstance_ID, M_Product_ID).getDescription() : "0",
 				M_Locator_ID > 0 ? MLocator.get(ctx, M_Locator_ID).getValue() : "0", MovementQty.subtract(QtyOnHand)
 				

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import org.compiere.accounting.MDistribution;
 import org.idempiere.common.util.DB;
 import org.idempiere.common.util.Env;
 import org.compiere.util.Msg;
@@ -110,7 +109,7 @@ public class MDistributionLine extends X_GL_DistributionLine
 	public MAccount getAccount()
 	{
 		MAccount acct = MAccount.get(getCtx(), 
-			m_account.getAD_Client_ID(), 
+			m_account.getADClientID(),
 			isOverwriteOrg() && getOrg_ID() != 0 ? getOrg_ID() : m_account.getAD_Org_ID(), 
 			m_account.getC_AcctSchema_ID(),
 			isOverwriteAcct() && getAccount_ID() != 0 ? getAccount_ID() : m_account.getAccount_ID(),

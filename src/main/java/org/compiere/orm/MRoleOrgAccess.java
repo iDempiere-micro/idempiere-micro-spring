@@ -8,7 +8,6 @@ import java.util.logging.Level;
 
 import org.idempiere.common.util.*;
 import org.compiere.util.Msg;
-import org.idempiere.orm.EventManager;
 
 /**
  *	Role Org Access Model
@@ -163,7 +162,7 @@ public class MRoleOrgAccess extends X_AD_Role_OrgAccess
 	public MRoleOrgAccess (MRole role, int AD_Org_ID)
 	{
 		this (role.getCtx(), 0, role.get_TrxName());
-		setClientOrg (role.getAD_Client_ID(), AD_Org_ID);
+		setClientOrg (role.getADClientID(), AD_Org_ID);
 		setAD_Role_ID (role.getAD_Role_ID());
 	}	//	MRoleOrgAccess
 
@@ -175,7 +174,7 @@ public class MRoleOrgAccess extends X_AD_Role_OrgAccess
 	{
 		StringBuilder sb = new StringBuilder("MRoleOrgAccess[");
 		sb.append("AD_Role_ID=").append(getAD_Role_ID())
-			.append(",AD_Client_ID=").append(getAD_Client_ID())
+			.append(",AD_Client_ID=").append(getADClientID())
 			.append(",AD_Org_ID=").append(getAD_Org_ID())
 			.append(",RO=").append(isReadOnly());	
 		sb.append("]");

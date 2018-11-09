@@ -31,7 +31,7 @@ public interface I_AD_ImportTemplateAccess
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_ImportTemplateAccess_ID */
     public static final String COLUMNNAME_AD_ImportTemplateAccess_ID = "AD_ImportTemplateAccess_ID";

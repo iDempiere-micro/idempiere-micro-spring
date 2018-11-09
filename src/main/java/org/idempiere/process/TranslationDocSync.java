@@ -117,7 +117,7 @@ public class TranslationDocSync extends SvrProcess
 						.append(columnNames).append(",IsTranslated) = (SELECT ").append(columnNames)
 						.append(",'Y' FROM ").append(baseTable).append(" b WHERE ").append(trlTable).append(".")
 						.append(baseTable).append("_ID=b.").append(baseTable).append("_ID) WHERE AD_Client_ID=")
-						.append(getAD_Client_ID()).append(" AND AD_Language=").append(DB.TO_STRING(client.getADLanguage()));
+						.append(getADClientID()).append(" AND AD_Language=").append(DB.TO_STRING(client.getADLanguage()));
 
 				int no = DB.executeUpdate(sql.toString(), get_TrxName());
 				addLog(0, null, new BigDecimal(no), baseTable);
@@ -128,7 +128,7 @@ public class TranslationDocSync extends SvrProcess
 					.append(columnNames).append(",IsTranslated) = (SELECT ").append(columnNames)
 					.append(",'Y' FROM ").append(baseTable).append(" b WHERE ").append(trlTable).append(".")
 					.append(baseTable).append("_ID=b.").append(baseTable).append("_ID) WHERE AD_Client_ID=")
-					.append(getAD_Client_ID());
+					.append(getADClientID());
 
 			int no = DB.executeUpdate(sql.toString(), get_TrxName());
 			addLog(0, null, new BigDecimal(no), baseTable);

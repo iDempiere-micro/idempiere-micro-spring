@@ -241,7 +241,7 @@ class InitialClientSetup(
             addLog(ms.info)
 
             // 	Create Print Documents
-            // PrintUtil.setupPrintForm(ms.getAD_Client_ID());
+            // PrintUtil.setupPrintForm(ms.getADClientID());
         } catch (e: Exception) {
             ms.rollback()
             throw e

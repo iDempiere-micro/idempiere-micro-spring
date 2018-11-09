@@ -94,7 +94,7 @@ public class ImportPayment extends SvrProcess
 		
 		StringBuilder sql = null;
 		int no = 0;
-		StringBuilder clientCheck = new StringBuilder(" AND AD_Client_ID=").append(ba.getAD_Client_ID());
+		StringBuilder clientCheck = new StringBuilder(" AND AD_Client_ID=").append(ba.getADClientID());
 
 		//	****	Prepare	****
 
@@ -109,7 +109,7 @@ public class ImportPayment extends SvrProcess
 
 		//	Set Client, Org, IsActive, Created/Updated
 		sql = new StringBuilder ("UPDATE I_Payment ")
-			  .append("SET AD_Client_ID = COALESCE (AD_Client_ID,").append (ba.getAD_Client_ID()).append ("),")
+			  .append("SET AD_Client_ID = COALESCE (AD_Client_ID,").append (ba.getADClientID()).append ("),")
 			  .append(" AD_Org_ID = COALESCE (AD_Org_ID,").append (p_AD_Org_ID).append ("),");
 		sql.append(" IsActive = COALESCE (IsActive, 'Y'),")
 			  .append(" Created = COALESCE (Created, SysDate),")

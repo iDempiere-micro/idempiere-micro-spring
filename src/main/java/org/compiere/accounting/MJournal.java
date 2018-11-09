@@ -239,7 +239,7 @@ public class MJournal extends X_GL_Journal implements DocAction, IPODoc
 		for (int i = 0; i < fromLines.length; i++)
 		{
 			MJournalLine toLine = new MJournalLine (getCtx(), 0, fromJournal.get_TrxName());
-			PO.copyValues(fromLines[i], toLine, getAD_Client_ID(), getAD_Org_ID());
+			PO.copyValues(fromLines[i], toLine, getADClientID(), getAD_Org_ID());
 			toLine.setGL_Journal_ID(getGL_Journal_ID());
 			//
 			if (dateAcct != null)

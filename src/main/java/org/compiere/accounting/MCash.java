@@ -377,7 +377,7 @@ public class MCash extends X_C_Cash implements DocAction, IPODoc
 			{
 				BigDecimal amt = MConversionRate.convert(getCtx(), line.getAmount(),
 					line.getC_Currency_ID(), C_Currency_ID, getDateAcct(), 0, 
-					getAD_Client_ID(), getAD_Org_ID());
+					getADClientID(), getAD_Org_ID());
 				if (amt == null)
 				{
 					m_processMsg = "No Conversion Rate found - @C_CashLine_ID@= " + line.getLine();

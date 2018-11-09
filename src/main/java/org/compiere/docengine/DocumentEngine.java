@@ -313,7 +313,7 @@ public class DocumentEngine implements DocAction
 					if (m_document instanceof PO && docsPostProcess.size() > 0) {
 						for (IPODoc docafter : docsPostProcess) {
 							@SuppressWarnings("unused")
-							String ignoreError = DocumentEngine.postImmediate(docafter.getCtx(), docafter.getAD_Client_ID(), docafter.get_Table_ID(), docafter.getId(), true, docafter.get_TrxName());
+							String ignoreError = DocumentEngine.postImmediate(docafter.getCtx(), docafter.getADClientID(), docafter.get_Table_ID(), docafter.getId(), true, docafter.get_TrxName());
 						}
 					}
 				}
@@ -480,7 +480,7 @@ public class DocumentEngine implements DocAction
 			|| m_document == null)
 			return false;
 
-		String error = DocumentEngine.postImmediate(Env.getCtx(), m_document.getAD_Client_ID(), m_document.get_Table_ID(), m_document.getId(), true, m_document.get_TrxName());
+		String error = DocumentEngine.postImmediate(Env.getCtx(), m_document.getADClientID(), m_document.get_Table_ID(), m_document.getId(), true, m_document.get_TrxName());
 		if (DocAction.Companion.getACTION_Post().equals(m_action)) {
 			// forced post via process - throw exception to inform the caller about the error
 			if (! Util.isEmpty(error)) {
@@ -762,7 +762,7 @@ public class DocumentEngine implements DocAction
 	 * 	Get Document Client
 	 *	@return throw exception
 	 */
-	public int getAD_Client_ID()
+	public int getADClientID()
 	{
 		throw new IllegalStateException(EXCEPTION_MSG);
 	}

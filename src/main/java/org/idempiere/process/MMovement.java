@@ -824,7 +824,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
 
         //	Deep Copy
         MMovement reversal = new MMovement(getCtx(), 0, get_TrxName());
-        copyValues(this, reversal, getAD_Client_ID(), getAD_Org_ID());
+        copyValues(this, reversal, getADClientID(), getAD_Org_ID());
         reversal.setDocStatus(DOCSTATUS_Drafted);
         reversal.setDocAction(DOCACTION_Complete);
         reversal.setIsApproved (false);
@@ -848,7 +848,7 @@ public class MMovement extends X_M_Movement implements DocAction, IPODoc
         {
             MMovementLine oLine = oLines[i];
             MMovementLine rLine = new MMovementLine(getCtx(), 0, get_TrxName());
-            copyValues(oLine, rLine, oLine.getAD_Client_ID(), oLine.getAD_Org_ID());
+            copyValues(oLine, rLine, oLine.getADClientID(), oLine.getAD_Org_ID());
             rLine.setM_Movement_ID(reversal.getM_Movement_ID());
             //AZ Goodwill
             // store original (voided/reversed) document line

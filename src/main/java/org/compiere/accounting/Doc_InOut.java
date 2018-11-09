@@ -754,7 +754,7 @@ public class Doc_InOut extends Doc
                         {
                             costs = MConversionRate.convert (getCtx(),
                                 costs, originalOrderLine.getC_Currency_ID(), C_Currency_ID,
-                                getDateAcct(), 0, getAD_Client_ID(), getAD_Org_ID(), true);
+                                getDateAcct(), 0, getADClientID(), getAD_Org_ID(), true);
                         }
 
                         costs = costs.multiply(line.getQty());

@@ -118,7 +118,7 @@ public class MProjectTask extends X_C_ProjectTask
 		for (int i = 0; i < fromLines.length; i++)
 		{
 				MProjectLine toLine = new MProjectLine(getCtx (), 0, get_TrxName());
-				PO.copyValues (fromLines[i], toLine, getAD_Client_ID (), getAD_Org_ID ());
+				PO.copyValues (fromLines[i], toLine, getADClientID (), getAD_Org_ID ());
 				toLine.setC_Project_ID(getC_Project_ID(false));
 				toLine.setC_ProjectPhase_ID (getC_ProjectPhase_ID ());
 				toLine.setC_ProjectTask_ID(getC_ProjectTask_ID ());

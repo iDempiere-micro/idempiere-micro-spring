@@ -511,7 +511,7 @@ public class Doc_AllocationHdr extends Doc
 	private boolean equalFactLineIDs(FactLine prevFactLine, FactLine factLine) {
 		return (factLine.getA_Asset_ID() == prevFactLine.getA_Asset_ID()
 				&& factLine.getAccount_ID() == prevFactLine.getAccount_ID()
-				&& factLine.getAD_Client_ID() == prevFactLine.getAD_Client_ID()
+				&& factLine.getADClientID() == prevFactLine.getADClientID()
 				&& factLine.getAD_Org_ID() == prevFactLine.getAD_Org_ID()
 				&& factLine.getAD_OrgTrx_ID() == prevFactLine.getAD_OrgTrx_ID()
 				&& factLine.getC_AcctSchema_ID() == prevFactLine.getC_AcctSchema_ID()
@@ -724,7 +724,7 @@ public class Doc_AllocationHdr extends Doc
 			BigDecimal allocationSourceNew = MConversionRate.convert(getCtx(),
 				allocationSource, getC_Currency_ID(),
 				invoice.getC_Currency_ID(), getDateAcct(),
-				invoice.getC_ConversionType_ID(), invoice.getAD_Client_ID(), invoice.getAD_Org_ID());
+				invoice.getC_ConversionType_ID(), invoice.getADClientID(), invoice.getAD_Org_ID());
 			if (allocationSourceNew == null)
 				return "Gain/Loss - No Conversion from Allocation->Invoice";
 			StringBuilder d2 = new StringBuilder("Allocation=(").append(getC_Currency_ID()).append(")").append(allocationSource)

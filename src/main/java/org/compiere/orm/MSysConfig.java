@@ -616,7 +616,7 @@ public class MSysConfig extends X_AD_SysConfig
 	{
 		if (log.isLoggable(Level.FINE)) log.fine("New=" + newRecord);
 		
-		if (getAD_Client_ID() != 0 || getAD_Org_ID() != 0) {
+		if (getADClientID() != 0 || getAD_Org_ID() != 0) {
 			
 			// Get the configuration level from the System Record
 			String configLevel = null;
@@ -651,7 +651,7 @@ public class MSysConfig extends X_AD_SysConfig
 					{
 						pstmt = DB.prepareStatement(sql, null);
 						pstmt.setString(1, getName());
-						pstmt.setInt(2, getAD_Client_ID());
+						pstmt.setInt(2, getADClientID());
 						rs = pstmt.executeQuery();
 						if (rs.next())
 							configLevel = rs.getString(1);
@@ -681,7 +681,7 @@ public class MSysConfig extends X_AD_SysConfig
 				}
 
 				// Disallow saving client parameter if the system parameter is marked as 'S'
-				if (getAD_Client_ID() != 0 && configLevel.equals(MSysConfig.CONFIGURATIONLEVEL_System)) {
+				if (getADClientID() != 0 && configLevel.equals(MSysConfig.CONFIGURATIONLEVEL_System)) {
 					log.saveError( "Can't Save Client Level", "This is a system parameter, you can't save it as client parameter" );
 					return false;
 				}
@@ -691,7 +691,7 @@ public class MSysConfig extends X_AD_SysConfig
 				// fix possible wrong config level
 				if (getAD_Org_ID() != 0)
 					setConfigurationLevel(X_AD_SysConfig.CONFIGURATIONLEVEL_Organization);
-				else if (getAD_Client_ID() != 0 && getConfigurationLevel().equals(MSysConfig.CONFIGURATIONLEVEL_System))
+				else if (getADClientID() != 0 && getConfigurationLevel().equals(MSysConfig.CONFIGURATIONLEVEL_System))
 					setConfigurationLevel(X_AD_SysConfig.CONFIGURATIONLEVEL_Client);
 				
 			}
@@ -707,7 +707,7 @@ public class MSysConfig extends X_AD_SysConfig
 		return getClass().getSimpleName()+"["+ getId()
 			+", "+getName()+"="+getValue()
 			+", ConfigurationLevel="+getConfigurationLevel()
-			+", Client|Org="+getAD_Client_ID()+"|"+getAD_Org_ID()
+			+", Client|Org="+getADClientID()+"|"+getAD_Org_ID()
 			+", EntityType="+getEntityType()
 			+"]";
 	}

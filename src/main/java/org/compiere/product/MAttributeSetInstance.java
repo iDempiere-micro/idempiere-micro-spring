@@ -378,7 +378,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	public static MAttributeSetInstance create(Properties ctx, MProduct product, String trxName)
 	{
 		MAttributeSetInstance asi = new MAttributeSetInstance(ctx, 0, trxName);
-		asi.setClientOrg(product.getAD_Client_ID(), 0);
+		asi.setClientOrg(product.getADClientID(), 0);
 		asi.setM_AttributeSet_ID(product.getMAttributeSet_ID());
 		// Create new Lot, Serial# and Guarantee Date
 		if (asi.getMAttributeSet_ID() > 0)
@@ -403,7 +403,7 @@ public class MAttributeSetInstance extends X_M_AttributeSetInstance
 	public static MAttributeSetInstance generateLot(Properties ctx, MProduct product, String trxName)
 	{
 		MAttributeSetInstance asi = new MAttributeSetInstance(ctx, 0, trxName);
-		asi.setClientOrg(product.getAD_Client_ID(), 0);
+		asi.setClientOrg(product.getADClientID(), 0);
 		asi.setM_AttributeSet_ID(product.getMAttributeSet_ID());
 		// Create new Lot
 		if (asi.getMAttributeSet_ID() > 0)

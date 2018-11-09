@@ -209,7 +209,7 @@ public class InvoicePrint extends SvrProcess
 		try
 		{
 			pstmt = DB.prepareStatement(sql.toString(), get_TrxName()); 
-			pstmt.setInt(1, Env.getAD_Client_ID(Env.getCtx()));
+			pstmt.setInt(1, Env.getADClientID(Env.getCtx()));
 			pstmt.setInt(2, Env.getAD_Org_ID(Env.getCtx()));
 			rs = pstmt.executeQuery();
 			

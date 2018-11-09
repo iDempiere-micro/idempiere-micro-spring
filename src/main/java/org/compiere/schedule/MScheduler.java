@@ -249,7 +249,7 @@ public class MScheduler extends X_AD_Scheduler
 			// Validate the record must exists on the same client of the scheduler
 			MTable table = MTable.get(getCtx(), getAD_Table_ID());
 			IPO po = (IPO)table.getPO(getRecord_ID(), get_TrxName());
-			if (po == null || po.getId() <= 0 || po.getAD_Client_ID() != getAD_Client_ID()) {
+			if (po == null || po.getId() <= 0 || po.getADClientID() != getADClientID()) {
 				log.saveError("Error", Msg.getMsg(getCtx(), "NoRecordID"));
 				return false;
 			}

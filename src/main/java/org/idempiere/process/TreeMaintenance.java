@@ -90,7 +90,7 @@ public class TreeMaintenance extends SvrProcess
 		String nodeTableName = tree.getNodeTableName();
 		String sourceTableName = tree.getSourceTableName(true);
 		String sourceTableKey = sourceTableName + "_ID";
-		int AD_Client_ID = tree.getAD_Client_ID();
+		int AD_Client_ID = tree.getADClientID();
 		int C_Element_ID = 0;
 		if (MTree.TREETYPE_ElementValue.equals(tree.getTreeType()))
 		{

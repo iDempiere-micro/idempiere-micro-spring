@@ -107,5 +107,5 @@ public interface AdempiereProcessor
 	 */
 	public AdempiereProcessorLog[] getLogs();
 
-    int getAD_Client_ID();
+    int getADClientID();
 }	//	AdempiereProcessor

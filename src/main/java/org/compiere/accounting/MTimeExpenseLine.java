@@ -181,7 +181,7 @@ public class MTimeExpenseLine extends X_S_TimeExpenseLine
             {
                 setConvertedAmt(MConversionRate.convert (getCtx(),
                     getExpenseAmt(), getC_Currency_ID(), getC_Currency_Report_ID(),
-                    getDateExpense(), 0, getAD_Client_ID(), getAD_Org_ID()) );
+                    getDateExpense(), 0, getADClientID(), getAD_Org_ID()) );
             }
         }
         if (isTimeReport())

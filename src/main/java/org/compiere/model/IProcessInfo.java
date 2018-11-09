@@ -39,13 +39,13 @@ public interface IProcessInfo {
 
     Integer getAD_User_ID();
 
-    Integer getAD_Client_ID();
+    Integer getADClientID();
 
     int getTable_ID();
 
     IProcessInfoParameter[] getParameter();
 
-    void setAD_Client_ID(int anInt);
+    void setADClientID(int anInt);
 
     void setAD_User_ID(int anInt);
 

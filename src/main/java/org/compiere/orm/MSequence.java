@@ -65,7 +65,7 @@ public class MSequence extends X_AD_Sequence
 			throw new IllegalArgumentException("Context missing");
 		if (TableName == null || TableName.length() == 0)
 			throw new IllegalArgumentException("TableName missing");
-		return getNextID(Env.getAD_Client_ID(ctx), TableName, trxName);
+		return getNextID(Env.getADClientID(ctx), TableName, trxName);
 	}	//	getNextID
 
 	/**
@@ -465,7 +465,7 @@ public class MSequence extends X_AD_Sequence
 		boolean adempiereSys = false;
 		String sysProperty = Env.getCtx().getProperty("AdempiereSys", "N");
 		adempiereSys = "y".equalsIgnoreCase(sysProperty) || "true".equalsIgnoreCase(sysProperty);
-		if (adempiereSys && Env.getAD_Client_ID(Env.getCtx()) > 11)
+		if (adempiereSys && Env.getADClientID(Env.getCtx()) > 11)
 			adempiereSys = false;
 		//
 
@@ -859,7 +859,7 @@ public class MSequence extends X_AD_Sequence
 		if (tableID)
 			seq.setClientOrg(0, 0);
 		else
-			seq.setClientOrg(Env.getAD_Client_ID(Env.getCtx()), 0);
+			seq.setClientOrg(Env.getADClientID(Env.getCtx()), 0);
 		
 		if (tableID) {
 			seq.setName(TableName);
@@ -920,7 +920,7 @@ public class MSequence extends X_AD_Sequence
 			pstmt.setString(1, tableName.toUpperCase());
 			pstmt.setString(2, ( tableID ? "Y" : "N" ) );
 			if (! tableID)
-				pstmt.setInt (3, Env.getAD_Client_ID(Env.getCtx()));
+				pstmt.setInt (3, Env.getADClientID(Env.getCtx()));
 			rs = pstmt.executeQuery();
 			if (rs.next ())
 				retValue = new MSequence (ctx, rs, trxName);
@@ -1106,7 +1106,7 @@ public class MSequence extends X_AD_Sequence
 	@Override
 	public int getCurrentNext() {
 		if (MSysConfig.getBooleanValue(MSysConfig.SYSTEM_NATIVE_SEQUENCE,false) && isTableID()){
-		    return MSequence.getNextID (getAD_Client_ID(),getName(),get_TrxName());
+		    return MSequence.getNextID (getADClientID(),getName(),get_TrxName());
 		} else {
 		   return super.getCurrentNext();
 		}
@@ -1116,7 +1116,7 @@ public class MSequence extends X_AD_Sequence
 	public void setCurrentNext(int CurrentNext) {	
 		if (MSysConfig.getBooleanValue(MSysConfig.SYSTEM_NATIVE_SEQUENCE,false) && isTableID()){
 			while (true) {
-				int id = MSequence.getNextID(getAD_Client_ID(),getName(),get_TrxName());
+				int id = MSequence.getNextID(getADClientID(),getName(),get_TrxName());
 				if (id < 0 || id >= (CurrentNext-1))
 					break;
 	        }

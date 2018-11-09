@@ -64,7 +64,7 @@ public class MDepreciation extends X_A_Depreciation
 		}
 		
 		s_cache.put(depr.getId(), depr);
-		String key = "" + depr.getAD_Client_ID() + "_" + depr.getDepreciationType();
+		String key = "" + depr.getADClientID() + "_" + depr.getDepreciationType();
 		s_cache_forType.put(key, depr);
 	}
  
@@ -99,7 +99,7 @@ public class MDepreciation extends X_A_Depreciation
 	 */
 	public static MDepreciation get(Properties ctx, String depreciationType)
 	{
-		int AD_Client_ID = Env.getAD_Client_ID(ctx); 
+		int AD_Client_ID = Env.getADClientID(ctx); 
 		String key = "" + AD_Client_ID + "_" + depreciationType;
 		MDepreciation depr = s_cache_forType.get(key);
 		if (depr != null)

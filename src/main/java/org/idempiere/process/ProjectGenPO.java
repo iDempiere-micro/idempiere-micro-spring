@@ -26,7 +26,6 @@ import org.compiere.accounting.MProductPO;
 import org.compiere.conversionrate.MConversionRate;
 import org.compiere.crm.MBPartner;
 import org.compiere.model.IProcessInfoParameter;
-import org.compiere.process.ProcessInfoParameter;
 import org.compiere.process.SvrProcess;
 import org.compiere.production.MProject;
 import org.compiere.production.MProjectLine;
@@ -162,7 +161,7 @@ public class ProjectGenPO extends SvrProcess
 				if (AD_Org_ID != 0)
 					projectLine.setAD_Org_ID(AD_Org_ID);
 			}
-			order.setClientOrg (projectLine.getAD_Client_ID (), AD_Org_ID);
+			order.setClientOrg (projectLine.getADClientID(), AD_Org_ID);
 			order.setBPartner (bp);
 			order.saveEx();
 			//	optionally save for consolidation
@@ -195,7 +194,7 @@ public class ProjectGenPO extends SvrProcess
 					poPrice = MConversionRate.convert(getCtx(), poPrice, 
 						C_Currency_ID, order.getC_Currency_ID(), 
 						order.getDateAcct(), order.getC_ConversionType_ID(), 
-						order.getAD_Client_ID(), order.getAD_Org_ID());
+						order.getADClientID(), order.getAD_Org_ID());
 				orderLine.setPrice(poPrice);
 			}
 		}

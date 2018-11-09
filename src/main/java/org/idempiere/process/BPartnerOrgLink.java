@@ -156,7 +156,7 @@ public class BPartnerOrgLink extends SvrProcess
 		//	Update BPartner
 		bp.setAD_OrgBP_ID(p_AD_Org_ID);
 		if (bp.getAD_Org_ID() != 0)
-			bp.setClientOrg(bp.getAD_Client_ID(), 0);	//	Shared BPartner
+			bp.setClientOrg(bp.getADClientID(), 0);	//	Shared BPartner
 		
 		//	Save BP
 		if (!bp.save())	

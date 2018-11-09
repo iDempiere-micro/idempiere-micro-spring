@@ -290,7 +290,7 @@ public class MLookupFactory
         			 .append(" INNER JOIN AD_Client c on (cl.AD_Client_ID = c.AD_Client_ID)")
         			 .append(" WHERE li.AD_Reference_ID=").append(AD_Reference_Value_ID)
         			 .append(" AND li.IsActive='Y'")
-        			 .append(" AND c.AD_Client_ID=").append(client.getAD_Client_ID())
+        			 .append(" AND c.AD_Client_ID=").append(client.getADClientID())
         			 .append(" AND li.ASP_Status='H')");
 			
 		}
@@ -362,7 +362,7 @@ public class MLookupFactory
 			lang = language.getADLanguage();
 		}
 		StringBuilder key = new StringBuilder()
-				.append(Env.getAD_Client_ID(ctx)).append("|")
+				.append(Env.getADClientID(ctx)).append("|")
 				.append(Env.getAD_Role_ID(ctx)).append("|")
 				.append(Env.getAD_User_ID(ctx)).append("|")
 				.append(lang).append("|")
@@ -725,7 +725,7 @@ public class MLookupFactory
 
 		//try cache
 		StringBuilder cacheKey = new StringBuilder()
-				.append(Env.getAD_Client_ID(ctx)).append("|")
+				.append(Env.getADClientID(ctx)).append("|")
 				.append(Env.getAD_Role_ID(ctx)).append("|")
 				.append(Env.getAD_User_ID(ctx)).append("|")
 				.append(language.getADLanguage()).append("|")
@@ -815,7 +815,7 @@ public class MLookupFactory
 			if (i > 0)
 			{
 				displayColumn.append(" ||'")
-					.append(MSysConfig.getValue(MSysConfig.IDENTIFIER_SEPARATOR, "_", Env.getAD_Client_ID(Env.getCtx())))
+					.append(MSysConfig.getValue(MSysConfig.IDENTIFIER_SEPARATOR, "_", Env.getADClientID(Env.getCtx())))
 					.append("'|| " );
 			}
 			LookupDisplayColumn ldc = (LookupDisplayColumn)list.get(i);

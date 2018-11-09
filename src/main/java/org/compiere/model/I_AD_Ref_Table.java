@@ -31,7 +31,7 @@ public interface I_AD_Ref_Table
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_Display */
     public static final String COLUMNNAME_AD_Display = "AD_Display";

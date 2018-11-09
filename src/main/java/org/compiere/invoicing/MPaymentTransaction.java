@@ -77,7 +77,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 				setCreditCardVV(encrpytedCvv);
 		}
 		
-		if (MSysConfig.getBooleanValue(MSysConfig.IBAN_VALIDATION, true, Env.getAD_Client_ID(Env.getCtx()))) {
+		if (MSysConfig.getBooleanValue(MSysConfig.IBAN_VALIDATION, true, Env.getADClientID(Env.getCtx()))) {
 			if (!Util.isEmpty(getIBAN())) {
 				setIBAN(IBAN.normalizeIBAN(getIBAN()));
 				if (!IBAN.isValid(getIBAN())) {
@@ -140,11 +140,11 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 		m_mBankAccountProcessor = null;
 		//	Get Processor List
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
-			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getAD_Client_ID(),
+			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getADClientID(),
 				getC_Currency_ID(), getPayAmt(), get_TrxName());
 		//	Relax Amount
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
-			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getAD_Client_ID(),
+			m_mBankAccountProcessors = MBankAccountProcessor.find(getCtx(), tender, CCType, getADClientID(),
 				getC_Currency_ID(), Env.ZERO, get_TrxName());
 		if (m_mBankAccountProcessors == null || m_mBankAccountProcessors.length == 0)
 			return false;
@@ -587,7 +587,7 @@ public class MPaymentTransaction extends X_C_PaymentTransaction implements Proce
 	public static MPaymentTransaction copyFrom(MPaymentTransaction from, Timestamp dateTrx, String trxType, String orig_TrxID, String trxName) {
 		MPaymentTransaction to = new MPaymentTransaction(from.getCtx(), 0, trxName);
 		to.set_TrxName(trxName);
-		PO.copyValues(from, to, from.getAD_Client_ID(), from.getAD_Org_ID());
+		PO.copyValues(from, to, from.getADClientID(), from.getAD_Org_ID());
 		to.set_ValueNoCheck(I_C_PaymentTransaction.COLUMNNAME_C_PaymentTransaction_ID, PO.I_ZERO);
 		//
 		to.setA_City(from.getA_City());

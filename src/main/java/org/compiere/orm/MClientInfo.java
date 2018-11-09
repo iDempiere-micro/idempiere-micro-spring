@@ -54,7 +54,7 @@ public class MClientInfo extends X_AD_ClientInfo {
                         int AD_Tree_Campaign_ID, int AD_Tree_Activity_ID, String trxName)
     {
         super (client.getCtx(), 0, trxName);
-        setAD_Client_ID(client.getAD_Client_ID());	//	to make sure
+        setADClientID(client.getADClientID());	//	to make sure
         setAD_Org_ID(0);
         setIsDiscountLineAmt (false);
         //

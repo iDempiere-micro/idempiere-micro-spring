@@ -31,7 +31,7 @@ public interface I_AD_HouseKeeping
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_HouseKeeping_ID */
     public static final String COLUMNNAME_AD_HouseKeeping_ID = "AD_HouseKeeping_ID";

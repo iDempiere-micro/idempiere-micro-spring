@@ -76,7 +76,7 @@ public class MClient extends X_AD_Client {
      */
     public MClient (Properties ctx, String trxName)
     {
-        this (ctx, Env.getAD_Client_ID(ctx), trxName);
+        this (ctx, Env.getADClientID(ctx), trxName);
     }	//	MClient
 
 
@@ -87,7 +87,7 @@ public class MClient extends X_AD_Client {
      */
     public static MClient get (Properties ctx)
     {
-        return get (ctx, Env.getAD_Client_ID(ctx));
+        return get (ctx, Env.getADClientID(ctx));
     }	//	get
 
 
@@ -131,7 +131,7 @@ public class MClient extends X_AD_Client {
             .setOrderBy(orderBy)
             .list();
         for(MClient client:list ){
-            s_cache.put (new Integer (client.getAD_Client_ID()), client);
+            s_cache.put (new Integer (client.getADClientID()), client);
         }
         MClient[] retValue = new MClient[list.size ()];
         list.toArray (retValue);
@@ -146,7 +146,7 @@ public class MClient extends X_AD_Client {
     public MClientInfo getInfo()
     {
         if (m_info == null)
-            m_info = MClientInfo.get (getCtx(), getAD_Client_ID(), get_TrxName());
+            m_info = MClientInfo.get (getCtx(), getADClientID(), get_TrxName());
         return m_info;
     }	//	getMClientInfo
 
@@ -195,7 +195,7 @@ public class MClient extends X_AD_Client {
     public boolean isClientAccountingImmediate() {
         String ca = MSysConfig.getValue(MSysConfig.CLIENT_ACCOUNTING,
             CLIENT_ACCOUNTING_QUEUE, // default
-            Env.getAD_Client_ID(Env.getCtx()));
+            Env.getADClientID(Env.getCtx()));
         return ca.equalsIgnoreCase(CLIENT_ACCOUNTING_IMMEDIATE);
     }
 

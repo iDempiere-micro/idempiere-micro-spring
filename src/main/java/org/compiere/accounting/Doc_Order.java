@@ -437,7 +437,7 @@ public class Doc_Order extends Doc
 	 */
 	private void updateProductPO(MAcctSchema as)
 	{
-		MClientInfo ci = MClientInfo.get(getCtx(), as.getAD_Client_ID());
+		MClientInfo ci = MClientInfo.get(getCtx(), as.getADClientID());
 		if (ci.getC_AcctSchema1_ID() != as.getC_AcctSchema_ID())
 			return;
 

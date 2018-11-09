@@ -119,7 +119,7 @@ public class MCurrency extends X_C_Currency
 		//	Create it
 		retValue = new MCurrency(ctx, C_Currency_ID, null);
 		//	Save in System
-		if (retValue.getAD_Client_ID() == 0)
+		if (retValue.getADClientID() == 0)
 			s_currencies.put(key, retValue);
 		return retValue;
 	}	//	get

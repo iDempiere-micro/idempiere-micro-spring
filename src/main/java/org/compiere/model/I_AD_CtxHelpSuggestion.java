@@ -44,7 +44,7 @@ public interface I_AD_CtxHelpSuggestion
 	/** Get Client.
 	  * Client/Tenant for this installation.
 	  */
-	public int getAD_Client_ID();
+	public int getADClientID();
 
     /** Column name AD_CtxHelp_ID */
     public static final String COLUMNNAME_AD_CtxHelp_ID = "AD_CtxHelp_ID";

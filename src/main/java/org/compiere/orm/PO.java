@@ -80,8 +80,8 @@ public abstract class PO extends org.idempiere.orm.PO {
      */
     protected void setClientOrg (int AD_Client_ID, int AD_Org_ID)
     {
-        if (AD_Client_ID != getAD_Client_ID())
-            setAD_Client_ID(AD_Client_ID);
+        if (AD_Client_ID != getADClientID())
+            setADClientID(AD_Client_ID);
         if (AD_Org_ID != getAD_Org_ID())
             setAD_Org_ID(AD_Org_ID);
     }	//	setClientOrg
@@ -90,10 +90,10 @@ public abstract class PO extends org.idempiere.orm.PO {
      * 	Set AD_Client
      * 	@param AD_Client_ID client
      */
-    public void setAD_Client_ID(int AD_Client_ID)
+    public void setADClientID(int AD_Client_ID)
     {
         set_ValueNoCheck ("AD_Client_ID", new Integer(AD_Client_ID));
-    }	//	setAD_Client_ID
+    }	//	setADClientID
 
     /**
      * 	Overwrite Client Org if different
@@ -101,7 +101,7 @@ public abstract class PO extends org.idempiere.orm.PO {
      */
     protected void setClientOrg (IPO po)
     {
-        setClientOrg(po.getAD_Client_ID(), po.getAD_Org_ID());
+        setClientOrg(po.getADClientID(), po.getAD_Org_ID());
     }	//	setClientOrg
 
     /**
@@ -132,7 +132,7 @@ public abstract class PO extends org.idempiere.orm.PO {
         {
             int no = saveNew_getID();
             if (no <= 0)
-                no = MSequence.getNextID(getAD_Client_ID(), p_info.getTableName(), m_trxName);
+                no = MSequence.getNextID(getADClientID(), p_info.getTableName(), m_trxName);
             // the primary key is not overwrite with the local sequence
             if (isReplication())
             {
@@ -182,7 +182,7 @@ public abstract class PO extends org.idempiere.orm.PO {
                 if (dt != -1)		//	get based on Doc Type (might return null)
                     value = MSequence.getDocumentNo(get_ValueAsInt(dt), m_trxName, false, this);
                 if (value == null)	//	not overwritten by DocType and not manually entered
-                    value = MSequence.getDocumentNo(getAD_Client_ID(), p_info.getTableName(), m_trxName, this);
+                    value = MSequence.getDocumentNo(getADClientID(), p_info.getTableName(), m_trxName, this);
                 set_ValueNoCheck(columnName, value);
             }
         }
@@ -233,7 +233,7 @@ public abstract class PO extends org.idempiere.orm.PO {
         else
             sb.append(" ");
         sb.append("FROM AD_Tree t "
-                + "WHERE t.AD_Client_ID=").append(getAD_Client_ID()).append(" AND t.IsActive='Y'");
+                + "WHERE t.AD_Client_ID=").append(getADClientID()).append(" AND t.IsActive='Y'");
         //	Account Element Value handling
         if (C_Element_ID != 0)
             sb.append(" AND EXISTS (SELECT * FROM C_Element ae WHERE ae.C_Element_ID=")
@@ -306,9 +306,9 @@ public abstract class PO extends org.idempiere.orm.PO {
             if (tree.isTreeDrivenByValue()) {
                 int newParentID = -1;
                 if (I_C_ElementValue.Table_Name.equals(sourceTableName)) {
-                    newParentID = retrieveIdOfElementValue(value, getAD_Client_ID(), ((I_C_ElementValue)this).getC_Element().getC_Element_ID(), get_TrxName());
+                    newParentID = retrieveIdOfElementValue(value, getADClientID(), ((I_C_ElementValue)this).getC_Element().getC_Element_ID(), get_TrxName());
                 } else {
-                    newParentID = retrieveIdOfParentValue(value, sourceTableName, getAD_Client_ID(), get_TrxName());
+                    newParentID = retrieveIdOfParentValue(value, sourceTableName, getADClientID(), get_TrxName());
                 }
                 int seqNo = DB.getSQLValueEx(get_TrxName(), selMinSeqNo, newParentID, tree.getAD_Tree_ID(), value);
                 if (seqNo == -1)
@@ -405,7 +405,7 @@ public abstract class PO extends org.idempiere.orm.PO {
         // Carlos Ruiz - globalqss - IDEMPIERE-111
         // Check if the role has access to this client
         // Don't check role System as webstore works with this role - see IDEMPIERE-401
-        if ((Env.getAD_Role_ID(getCtx()) != 0) && !MRole.getDefault().isClientAccess(getAD_Client_ID(), true))
+        if ((Env.getAD_Role_ID(getCtx()) != 0) && !MRole.getDefault().isClientAccess(getADClientID(), true))
         {
             log.warning("You cannot delete this record, role doesn't have access");
             log.saveError("AccessCannotDelete", "", false);
@@ -932,7 +932,7 @@ public abstract class PO extends org.idempiere.orm.PO {
             sb.append(",generate_uuid()");
         //	.. 	FROM
         sb.append(" FROM ").append(acctBaseTable)
-            .append(" p WHERE p.AD_Client_ID=").append(getAD_Client_ID());
+            .append(" p WHERE p.AD_Client_ID=").append(getADClientID());
         if (whereClause != null && whereClause.length() > 0)
             sb.append (" AND ").append(whereClause);
         sb.append(" AND NOT EXISTS (SELECT * FROM ").append(acctTable)
@@ -1003,7 +1003,7 @@ public abstract class PO extends org.idempiere.orm.PO {
     protected static void copyValues (PO from, PO to, int AD_Client_ID, int AD_Org_ID)
     {
         copyValues (from, to);
-        to.setAD_Client_ID(AD_Client_ID);
+        to.setADClientID(AD_Client_ID);
         to.setAD_Org_ID(AD_Org_ID);
     }	//	copyValues
 
