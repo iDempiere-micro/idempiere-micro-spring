@@ -163,16 +163,13 @@ open class Micro(
         // setup the database engine and make sure it can connect
         val db = Database()
         db.setDatabase(DatabaseImpl())
-        DB.setDBTarget(CConnection.get())
+        DB.setDBTarget(cconnection)
         DB.isConnected()
 
         // setup log
         CLogMgt.initialize(false)
         log = CLogger.getCLogger(Micro::class.java)
         CLogMgt.setLevel(ini.traceLevel)
-
-        // TODO: explain why this is needed
-        DB.setDBTarget(cconnection)
 
         // create the thread pool for code like transaction closing etc.
         createThreadPool()
