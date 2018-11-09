@@ -293,40 +293,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         private set
 
     /**
-     * RMI over HTTP
-     *
-     * Deprecated, always return false
-     * @return true if RMI over HTTP (Wan Connection Profile)
-     */
-    val isRMIoverHTTP: Boolean
-        @Deprecated("")
-        get() = false // 	isRMIoverHTTP
-
-    /**
-     * Should objects be created on Server ?
-     * @return true if client and VPN/WAN
-     */
-    val isServerObjects: Boolean
-        @Deprecated("")
-        get() = false //  isServerObjects
-
-    /**
-     * Should objects be created on Server ?
-     * @return true if client and Terminal/VPN/WAN
-     */
-    val isServerProcess: Boolean
-        @Deprecated("")
-        get() = false //  isServerProcess
-
-    /**
-     * Is this a Terminal Server ?
-     * @return true if client and Terminal
-     */
-    val isTerminalServer: Boolean
-        @Deprecated("")
-        get() = false //  isTerminalServer
-
-    /**
      * Is Oracle DB
      * @return true if Oracle
      */
