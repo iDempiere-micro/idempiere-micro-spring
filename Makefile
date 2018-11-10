@@ -24,6 +24,7 @@ migrate:
 
 lint:
 	./tools/ktlint/ktlint -F --color "**/src/**/*.kt" '!**/src/**/MSetup.kt'	
+	java -jar tools/google-java-format-1.6-all-deps.jar -i $(find . -type f -name "*.java")
 
 site:
 	./mvnw site

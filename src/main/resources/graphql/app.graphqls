@@ -40,3 +40,12 @@ type Query {
     # All countries
     countries: [Country]!
 }
+
+type Mutation {
+    createCategory(name: String!, value: String!): Category
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
