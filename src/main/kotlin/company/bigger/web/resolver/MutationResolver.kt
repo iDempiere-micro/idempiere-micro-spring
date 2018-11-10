@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component
  */
 @Component
 class MutationResolver : BaseResolver(), GraphQLMutationResolver {
+    /**
+     * Create a CRM Category with [name] name. The search [value] needs to be unique for the client.
+     */
     fun createCategory(name: String, value: String): MCrmCategory {
         val result = MCrmCategory(Env.getCtx(), 0, null)
         result.setName(name)
