@@ -26,15 +26,6 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
   /** Standard Constructor */
   public X_A_Depreciation_Entry(Properties ctx, int A_Depreciation_Entry_ID, String trxName) {
     super(ctx, A_Depreciation_Entry_ID, trxName);
-    /**
-     * if (A_Depreciation_Entry_ID == 0) { setA_Depreciation_Entry_ID (0); setC_AcctSchema_ID (0);
-     * setC_Currency_ID (0); // @$C_CURRENCY_ID@ setC_DocType_ID (0); setC_Period_ID (0);
-     * setDateAcct (new Timestamp( System.currentTimeMillis() )); // @Date@ setDateDoc (new
-     * Timestamp( System.currentTimeMillis() )); // @#Date@ setDocAction (null); // 'CO'
-     * setDocStatus (null); // 'DR' setDocumentNo (null); setIsApproved (false);
-     * // @#IsCanApproveOwnDoc@ setPosted (false); // 'N' setPostingType (null); // 'A' setProcessed
-     * (false); setProcessing (false); }
-     */
   }
 
   /** Load Constructor */
@@ -53,13 +44,11 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
 
   /** Load Meta Data */
   protected POInfo initPO(Properties ctx) {
-    POInfo poi = POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
-    return poi;
+    return POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
   }
 
   public String toString() {
-    StringBuffer sb = new StringBuffer("X_A_Depreciation_Entry[").append(getId()).append("]");
-    return sb.toString();
+    return "X_A_Depreciation_Entry[" + getId() + "]";
   }
 
   /**
@@ -69,9 +58,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    */
   public void setA_Depreciation_Entry_ID(int A_Depreciation_Entry_ID) {
     if (A_Depreciation_Entry_ID < 1) set_ValueNoCheck(COLUMNNAME_A_Depreciation_Entry_ID, null);
-    else
-      set_ValueNoCheck(
-          COLUMNNAME_A_Depreciation_Entry_ID, Integer.valueOf(A_Depreciation_Entry_ID));
+    else set_ValueNoCheck(COLUMNNAME_A_Depreciation_Entry_ID, A_Depreciation_Entry_ID);
   }
 
   /**
@@ -158,7 +145,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    */
   public void setC_AcctSchema_ID(int C_AcctSchema_ID) {
     if (C_AcctSchema_ID < 1) set_Value(COLUMNNAME_C_AcctSchema_ID, null);
-    else set_Value(COLUMNNAME_C_AcctSchema_ID, Integer.valueOf(C_AcctSchema_ID));
+    else set_Value(COLUMNNAME_C_AcctSchema_ID, C_AcctSchema_ID);
   }
 
   /**
@@ -185,7 +172,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    */
   public void setC_Currency_ID(int C_Currency_ID) {
     if (C_Currency_ID < 1) set_Value(COLUMNNAME_C_Currency_ID, null);
-    else set_Value(COLUMNNAME_C_Currency_ID, Integer.valueOf(C_Currency_ID));
+    else set_Value(COLUMNNAME_C_Currency_ID, C_Currency_ID);
   }
 
   /**
@@ -212,7 +199,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    */
   public void setC_DocType_ID(int C_DocType_ID) {
     if (C_DocType_ID < 0) set_Value(COLUMNNAME_C_DocType_ID, null);
-    else set_Value(COLUMNNAME_C_DocType_ID, Integer.valueOf(C_DocType_ID));
+    else set_Value(COLUMNNAME_C_DocType_ID, C_DocType_ID);
   }
 
   /**
@@ -239,7 +226,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    */
   public void setC_Period_ID(int C_Period_ID) {
     if (C_Period_ID < 1) set_Value(COLUMNNAME_C_Period_ID, null);
-    else set_Value(COLUMNNAME_C_Period_ID, Integer.valueOf(C_Period_ID));
+    else set_Value(COLUMNNAME_C_Period_ID, C_Period_ID);
   }
 
   /**
@@ -425,7 +412,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    * @param IsApproved Indicates if this document requires approval
    */
   public void setIsApproved(boolean IsApproved) {
-    set_Value(COLUMNNAME_IsApproved, Boolean.valueOf(IsApproved));
+    set_Value(COLUMNNAME_IsApproved, IsApproved);
   }
 
   /**
@@ -436,7 +423,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
   public boolean isApproved() {
     Object oo = get_Value(COLUMNNAME_IsApproved);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -448,7 +435,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    * @param Posted Posting status
    */
   public void setPosted(boolean Posted) {
-    set_Value(COLUMNNAME_Posted, Boolean.valueOf(Posted));
+    set_Value(COLUMNNAME_Posted, Posted);
   }
 
   /**
@@ -459,7 +446,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
   public boolean isPosted() {
     Object oo = get_Value(COLUMNNAME_Posted);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -502,7 +489,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    * @param Processed The document has been processed
    */
   public void setProcessed(boolean Processed) {
-    set_Value(COLUMNNAME_Processed, Boolean.valueOf(Processed));
+    set_Value(COLUMNNAME_Processed, Processed);
   }
 
   /**
@@ -513,7 +500,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
   public boolean isProcessed() {
     Object oo = get_Value(COLUMNNAME_Processed);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -546,7 +533,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
    * @param Processing Process Now
    */
   public void setProcessing(boolean Processing) {
-    set_Value(COLUMNNAME_Processing, Boolean.valueOf(Processing));
+    set_Value(COLUMNNAME_Processing, Processing);
   }
 
   /**
@@ -557,7 +544,7 @@ public class X_A_Depreciation_Entry extends PO implements I_A_Depreciation_Entry
   public boolean isProcessing() {
     Object oo = get_Value(COLUMNNAME_Processing);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;

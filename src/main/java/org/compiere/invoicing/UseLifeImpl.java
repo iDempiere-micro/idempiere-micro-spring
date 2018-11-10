@@ -21,9 +21,9 @@ public class UseLifeImpl implements UseLife {
   private static final String FIELD_UseLifeMonths = "UseLifeMonths";
   private static final String FIELD_FiscalPostfix = "_F";
 
-  private SetGetModel m_obj = null;
+  private SetGetModel m_obj;
   private CLogger log = CLogger.getCLogger(getClass());
-  private boolean fiscal = false;
+  private boolean fiscal;
 
   /** */
   public static UseLifeImpl get(SetGetModel obj) {
@@ -95,15 +95,15 @@ public class UseLifeImpl implements UseLife {
    */
   public void setUseLifeMonths(int value) {
     if (log.isLoggable(Level.FINE)) log.fine("Entering: value=" + value + ", " + this);
-    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeMonths, fiscal), Integer.valueOf(value));
-    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeYears, fiscal), Integer.valueOf(value / 12));
+    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeMonths, fiscal), value);
+    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeYears, fiscal), value / 12);
     if (log.isLoggable(Level.FINE)) log.fine("Leaving: value=" + value + ", " + this);
   }
 
   /** @return use life months */
   public int getUseLifeMonths() {
     Object obj = m_obj.get_AttrValue(getFieldName(FIELD_UseLifeMonths, fiscal));
-    if (obj != null && obj instanceof Number) {
+    if (obj instanceof Number) {
       return ((Number) obj).intValue();
     }
     return 0;
@@ -116,15 +116,15 @@ public class UseLifeImpl implements UseLife {
    */
   public void setUseLifeYears(int value) {
     if (log.isLoggable(Level.FINE)) log.fine("Entering: value=" + value + ", " + this);
-    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeYears, fiscal), Integer.valueOf(value));
-    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeMonths, fiscal), Integer.valueOf(value * 12));
+    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeYears, fiscal), value);
+    m_obj.set_AttrValue(getFieldName(FIELD_UseLifeMonths, fiscal), value * 12);
     if (log.isLoggable(Level.FINE)) log.fine("Leaving: value=" + value + ", " + this);
   }
 
   /** @return use life years */
   public int getUseLifeYears() {
     Object obj = m_obj.get_AttrValue(getFieldName(FIELD_UseLifeYears, fiscal));
-    if (obj != null && obj instanceof Number) {
+    if (obj instanceof Number) {
       return ((Number) obj).intValue();
     }
     return 0;
@@ -159,7 +159,7 @@ public class UseLifeImpl implements UseLife {
       return ((UseLife) m_obj).getAssetServiceDate();
     } else {
       Object obj = m_obj.get_AttrValue("AssetServiceDate");
-      if (obj != null && obj instanceof Timestamp) {
+      if (obj instanceof Timestamp) {
         return (Timestamp) obj;
       }
     }
@@ -210,8 +210,8 @@ public class UseLifeImpl implements UseLife {
   public boolean validate(boolean saveError) {
     if (log.isLoggable(Level.FINE)) log.fine("Entering: " + this);
 
-    int useLifeYears = 0;
-    int useLifeMonths = 0;
+    int useLifeYears;
+    int useLifeMonths;
     useLifeYears = getUseLifeYears();
     useLifeMonths = getUseLifeMonths();
 
@@ -226,7 +226,7 @@ public class UseLifeImpl implements UseLife {
       return false;
     }
     if (useLifeYears == 0) {
-      useLifeYears = (int) (useLifeMonths / 12);
+      useLifeYears = useLifeMonths / 12;
     }
     /* commented out by @win
     int A_Asset_Class_ID = getA_Asset_Class_ID();

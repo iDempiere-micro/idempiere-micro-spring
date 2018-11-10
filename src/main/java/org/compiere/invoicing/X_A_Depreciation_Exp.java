@@ -27,13 +27,6 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
   /** Standard Constructor */
   public X_A_Depreciation_Exp(Properties ctx, int A_Depreciation_Exp_ID, String trxName) {
     super(ctx, A_Depreciation_Exp_ID, trxName);
-    /**
-     * if (A_Depreciation_Exp_ID == 0) { setA_Accumulated_Depr_Delta (Env.ZERO); // 0
-     * setA_Accumulated_Depr_F_Delta (Env.ZERO); // 0 setA_Asset_Cost_Delta (Env.ZERO); // 0
-     * setA_Asset_ID (0); setA_Depreciation_Exp_ID (0); setA_Entry_Type (null); setA_Period (0);
-     * setDescription (null); setExpense (Env.ZERO); // 0 setExpense_F (Env.ZERO); // 0
-     * setIsDepreciated (false); setProcessed (false); }
-     */
   }
 
   /** Load Constructor */
@@ -52,13 +45,11 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
 
   /** Load Meta Data */
   protected POInfo initPO(Properties ctx) {
-    POInfo poi = POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
-    return poi;
+    return POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
   }
 
   public String toString() {
-    StringBuffer sb = new StringBuffer("X_A_Depreciation_Exp[").append(getId()).append("]");
-    return sb.toString();
+    return "X_A_Depreciation_Exp[" + getId() + "]";
   }
 
   public I_C_ValidCombination getA_Account_Number_A() throws RuntimeException {
@@ -73,7 +64,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param A_Account_Number_Acct A_Account_Number_Acct
    */
   public void setA_Account_Number_Acct(int A_Account_Number_Acct) {
-    set_Value(COLUMNNAME_A_Account_Number_Acct, Integer.valueOf(A_Account_Number_Acct));
+    set_Value(COLUMNNAME_A_Account_Number_Acct, A_Account_Number_Acct);
   }
 
   /**
@@ -180,7 +171,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setA_Asset_Addition_ID(int A_Asset_Addition_ID) {
     if (A_Asset_Addition_ID < 1) set_Value(COLUMNNAME_A_Asset_Addition_ID, null);
-    else set_Value(COLUMNNAME_A_Asset_Addition_ID, Integer.valueOf(A_Asset_Addition_ID));
+    else set_Value(COLUMNNAME_A_Asset_Addition_ID, A_Asset_Addition_ID);
   }
 
   /**
@@ -247,7 +238,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setA_Asset_Disposed_ID(int A_Asset_Disposed_ID) {
     if (A_Asset_Disposed_ID < 1) set_Value(COLUMNNAME_A_Asset_Disposed_ID, null);
-    else set_Value(COLUMNNAME_A_Asset_Disposed_ID, Integer.valueOf(A_Asset_Disposed_ID));
+    else set_Value(COLUMNNAME_A_Asset_Disposed_ID, A_Asset_Disposed_ID);
   }
 
   /**
@@ -274,7 +265,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setA_Asset_ID(int A_Asset_ID) {
     if (A_Asset_ID < 1) set_Value(COLUMNNAME_A_Asset_ID, null);
-    else set_Value(COLUMNNAME_A_Asset_ID, Integer.valueOf(A_Asset_ID));
+    else set_Value(COLUMNNAME_A_Asset_ID, A_Asset_ID);
   }
 
   /**
@@ -342,7 +333,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setA_Depreciation_Entry_ID(int A_Depreciation_Entry_ID) {
     if (A_Depreciation_Entry_ID < 1) set_Value(COLUMNNAME_A_Depreciation_Entry_ID, null);
-    else set_Value(COLUMNNAME_A_Depreciation_Entry_ID, Integer.valueOf(A_Depreciation_Entry_ID));
+    else set_Value(COLUMNNAME_A_Depreciation_Entry_ID, A_Depreciation_Entry_ID);
   }
 
   /**
@@ -363,7 +354,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setA_Depreciation_Exp_ID(int A_Depreciation_Exp_ID) {
     if (A_Depreciation_Exp_ID < 1) set_ValueNoCheck(COLUMNNAME_A_Depreciation_Exp_ID, null);
-    else set_ValueNoCheck(COLUMNNAME_A_Depreciation_Exp_ID, Integer.valueOf(A_Depreciation_Exp_ID));
+    else set_ValueNoCheck(COLUMNNAME_A_Depreciation_Exp_ID, A_Depreciation_Exp_ID);
   }
 
   /**
@@ -443,7 +434,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param A_Period Asset Period
    */
   public void setA_Period(int A_Period) {
-    set_Value(COLUMNNAME_A_Period, Integer.valueOf(A_Period));
+    set_Value(COLUMNNAME_A_Period, A_Period);
   }
 
   /**
@@ -470,7 +461,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setCR_Account_ID(int CR_Account_ID) {
     if (CR_Account_ID < 1) set_Value(COLUMNNAME_CR_Account_ID, null);
-    else set_Value(COLUMNNAME_CR_Account_ID, Integer.valueOf(CR_Account_ID));
+    else set_Value(COLUMNNAME_CR_Account_ID, CR_Account_ID);
   }
 
   /**
@@ -533,7 +524,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    */
   public void setDR_Account_ID(int DR_Account_ID) {
     if (DR_Account_ID < 1) set_Value(COLUMNNAME_DR_Account_ID, null);
-    else set_Value(COLUMNNAME_DR_Account_ID, Integer.valueOf(DR_Account_ID));
+    else set_Value(COLUMNNAME_DR_Account_ID, DR_Account_ID);
   }
 
   /**
@@ -611,7 +602,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param IsDepreciated The asset will be depreciated
    */
   public void setIsDepreciated(boolean IsDepreciated) {
-    set_Value(COLUMNNAME_IsDepreciated, Boolean.valueOf(IsDepreciated));
+    set_Value(COLUMNNAME_IsDepreciated, IsDepreciated);
   }
 
   /**
@@ -622,7 +613,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
   public boolean isDepreciated() {
     Object oo = get_Value(COLUMNNAME_IsDepreciated);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -665,7 +656,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param Processed The document has been processed
    */
   public void setProcessed(boolean Processed) {
-    set_Value(COLUMNNAME_Processed, Boolean.valueOf(Processed));
+    set_Value(COLUMNNAME_Processed, Processed);
   }
 
   /**
@@ -676,7 +667,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
   public boolean isProcessed() {
     Object oo = get_Value(COLUMNNAME_Processed);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -688,7 +679,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param Processing Process Now
    */
   public void setProcessing(boolean Processing) {
-    set_Value(COLUMNNAME_Processing, Boolean.valueOf(Processing));
+    set_Value(COLUMNNAME_Processing, Processing);
   }
 
   /**
@@ -699,7 +690,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
   public boolean isProcessing() {
     Object oo = get_Value(COLUMNNAME_Processing);
     if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      if (oo instanceof Boolean) return (Boolean) oo;
       return "Y".equals(oo);
     }
     return false;
@@ -711,7 +702,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param UseLifeMonths Months of the usable life of the asset
    */
   public void setUseLifeMonths(int UseLifeMonths) {
-    set_Value(COLUMNNAME_UseLifeMonths, Integer.valueOf(UseLifeMonths));
+    set_Value(COLUMNNAME_UseLifeMonths, UseLifeMonths);
   }
 
   /**
@@ -731,7 +722,7 @@ public class X_A_Depreciation_Exp extends PO implements I_A_Depreciation_Exp, I_
    * @param UseLifeMonths_F Use Life - Months (fiscal)
    */
   public void setUseLifeMonths_F(int UseLifeMonths_F) {
-    set_Value(COLUMNNAME_UseLifeMonths_F, Integer.valueOf(UseLifeMonths_F));
+    set_Value(COLUMNNAME_UseLifeMonths_F, UseLifeMonths_F);
   }
 
   /**

@@ -18,10 +18,9 @@ public class StandardInvoiceTaxProvider extends StandardTaxProvider implements I
   public boolean calculateInvoiceTaxTotal(I_C_TaxProvider provider, I_C_Invoice invoice) {
     //	Lines
     BigDecimal totalLines = Env.ZERO;
-    ArrayList<Integer> taxList = new ArrayList<Integer>();
+    ArrayList<Integer> taxList = new ArrayList<>();
     I_C_InvoiceLine[] lines = invoice.getLines(false);
-    for (int i = 0; i < lines.length; i++) {
-      I_C_InvoiceLine line = lines[i];
+    for (I_C_InvoiceLine line : lines) {
       totalLines = totalLines.add(line.getLineNetAmt());
       if (!taxList.contains(line.getC_Tax_ID())) {
         MTax tax = new MTax(invoice.getCtx(), line.getC_Tax_ID(), invoice.get_TrxName());
@@ -41,8 +40,7 @@ public class StandardInvoiceTaxProvider extends StandardTaxProvider implements I
     //	Taxes
     BigDecimal grandTotal = totalLines;
     I_C_InvoiceTax[] taxes = invoice.getTaxes(true);
-    for (int i = 0; i < taxes.length; i++) {
-      I_C_InvoiceTax iTax = taxes[i];
+    for (I_C_InvoiceTax iTax : taxes) {
       if (iTax.getC_TaxProvider_ID() != 0) {
         if (!invoice.isTaxIncluded()) grandTotal = grandTotal.add(iTax.getTaxAmt());
         continue;
@@ -50,8 +48,7 @@ public class StandardInvoiceTaxProvider extends StandardTaxProvider implements I
       I_C_Tax tax = iTax.getTax();
       if (tax.isSummary()) {
         I_C_Tax[] cTaxes = tax.getChildTaxes(false); // 	Multiple taxes
-        for (int j = 0; j < cTaxes.length; j++) {
-          I_C_Tax cTax = cTaxes[j];
+        for (I_C_Tax cTax : cTaxes) {
           BigDecimal taxAmt =
               cTax.calculateTax(iTax.getTaxBaseAmt(), false, invoice.getPrecision());
           //

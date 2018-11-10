@@ -192,7 +192,7 @@ public class AmtInWords_ZH implements AmtInWords {
           sb.insert(0, numNames[numUnit]); // 	first insert 0 to Chinese
         } //
         if (numIndex == 2) { // 	option1: "YUAN"=0
-          sb.insert(0, scaleNames[numIndex]); // 	then insert scale to Chinese									
+          sb.insert(0, scaleNames[numIndex]); // 	then insert scale to Chinese					
         } //	option2: "WAN"|"YI"|"ZHAO" =0
         else if (((numIndex - 2) % 4 == 0)
             && (lnumber % 1000 > 0)) { // 	special 4th,8th, eg: 9,000,000 or 90,000,000,000
