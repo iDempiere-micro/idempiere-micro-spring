@@ -4,300 +4,229 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for M_MatchInv
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for M_MatchInv
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_M_MatchInv 
-{
+public interface I_M_MatchInv {
 
-    /** TableName=M_MatchInv */
-    public static final String Table_Name = "M_MatchInv";
+  /** TableName=M_MatchInv */
+  public static final String Table_Name = "M_MatchInv";
 
-    /** AD_Table_ID=472 */
-    public static final int Table_ID = 472;
+  /** AD_Table_ID=472 */
+  public static final int Table_ID = 472;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name C_InvoiceLine_ID */
+  public static final String COLUMNNAME_C_InvoiceLine_ID = "C_InvoiceLine_ID";
 
-    /** Column name C_InvoiceLine_ID */
-    public static final String COLUMNNAME_C_InvoiceLine_ID = "C_InvoiceLine_ID";
+  /** Set Invoice Line. Invoice Detail Line */
+  public void setC_InvoiceLine_ID(int C_InvoiceLine_ID);
 
-	/** Set Invoice Line.
-	  * Invoice Detail Line
-	  */
-	public void setC_InvoiceLine_ID (int C_InvoiceLine_ID);
-
-	/** Get Invoice Line.
-	  * Invoice Detail Line
-	  */
-	public int getC_InvoiceLine_ID();
+  /** Get Invoice Line. Invoice Detail Line */
+  public int getC_InvoiceLine_ID();
 
-	public I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException;
+  public I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException;
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name DateAcct */
-    public static final String COLUMNNAME_DateAcct = "DateAcct";
+  /** Column name DateAcct */
+  public static final String COLUMNNAME_DateAcct = "DateAcct";
 
-	/** Set Account Date.
-	  * Accounting Date
-	  */
-	public void setDateAcct (Timestamp DateAcct);
+  /** Set Account Date. Accounting Date */
+  public void setDateAcct(Timestamp DateAcct);
 
-	/** Get Account Date.
-	  * Accounting Date
-	  */
-	public Timestamp getDateAcct();
+  /** Get Account Date. Accounting Date */
+  public Timestamp getDateAcct();
 
-    /** Column name DateTrx */
-    public static final String COLUMNNAME_DateTrx = "DateTrx";
+  /** Column name DateTrx */
+  public static final String COLUMNNAME_DateTrx = "DateTrx";
 
-	/** Set Transaction Date.
-	  * Transaction Date
-	  */
-	public void setDateTrx (Timestamp DateTrx);
+  /** Set Transaction Date. Transaction Date */
+  public void setDateTrx(Timestamp DateTrx);
 
-	/** Get Transaction Date.
-	  * Transaction Date
-	  */
-	public Timestamp getDateTrx();
+  /** Get Transaction Date. Transaction Date */
+  public Timestamp getDateTrx();
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
-
-    /** Column name M_AttributeSetInstance_ID */
-    public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Set Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public void setM_AttributeSetInstance_ID (int M_AttributeSetInstance_ID);
-
-	/** Get Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public int getMAttributeSetInstance_ID();
+  /** Column name M_AttributeSetInstance_ID */
+  public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
 
-	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
+  /** Set Attribute Set Instance. Product Attribute Set Instance */
+  public void setM_AttributeSetInstance_ID(int M_AttributeSetInstance_ID);
 
-    /** Column name M_InOutLine_ID */
-    public static final String COLUMNNAME_M_InOutLine_ID = "M_InOutLine_ID";
+  /** Get Attribute Set Instance. Product Attribute Set Instance */
+  public int getMAttributeSetInstance_ID();
 
-	/** Set Shipment/Receipt Line.
-	  * Line on Shipment or Receipt document
-	  */
-	public void setM_InOutLine_ID (int M_InOutLine_ID);
+  public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
-	/** Get Shipment/Receipt Line.
-	  * Line on Shipment or Receipt document
-	  */
-	public int getM_InOutLine_ID();
-
-	public I_M_InOutLine getM_InOutLine() throws RuntimeException;
+  /** Column name M_InOutLine_ID */
+  public static final String COLUMNNAME_M_InOutLine_ID = "M_InOutLine_ID";
 
-    /** Column name M_MatchInv_ID */
-    public static final String COLUMNNAME_M_MatchInv_ID = "M_MatchInv_ID";
+  /** Set Shipment/Receipt Line. Line on Shipment or Receipt document */
+  public void setM_InOutLine_ID(int M_InOutLine_ID);
 
-	/** Set Match Invoice.
-	  * Match Shipment/Receipt to Invoice
-	  */
-	public void setM_MatchInv_ID (int M_MatchInv_ID);
+  /** Get Shipment/Receipt Line. Line on Shipment or Receipt document */
+  public int getM_InOutLine_ID();
 
-	/** Get Match Invoice.
-	  * Match Shipment/Receipt to Invoice
-	  */
-	public int getM_MatchInv_ID();
+  public I_M_InOutLine getM_InOutLine() throws RuntimeException;
 
-    /** Column name M_MatchInv_UU */
-    public static final String COLUMNNAME_M_MatchInv_UU = "M_MatchInv_UU";
+  /** Column name M_MatchInv_ID */
+  public static final String COLUMNNAME_M_MatchInv_ID = "M_MatchInv_ID";
 
-	/** Set M_MatchInv_UU	  */
-	public void setM_MatchInv_UU (String M_MatchInv_UU);
+  /** Set Match Invoice. Match Shipment/Receipt to Invoice */
+  public void setM_MatchInv_ID(int M_MatchInv_ID);
 
-	/** Get M_MatchInv_UU	  */
-	public String getM_MatchInv_UU();
+  /** Get Match Invoice. Match Shipment/Receipt to Invoice */
+  public int getM_MatchInv_ID();
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  /** Column name M_MatchInv_UU */
+  public static final String COLUMNNAME_M_MatchInv_UU = "M_MatchInv_UU";
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Set M_MatchInv_UU */
+  public void setM_MatchInv_UU(String M_MatchInv_UU);
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  /** Get M_MatchInv_UU */
+  public String getM_MatchInv_UU();
 
-	public I_M_Product getM_Product() throws RuntimeException;
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-    /** Column name Posted */
-    public static final String COLUMNNAME_Posted = "Posted";
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-	/** Set Posted.
-	  * Posting status
-	  */
-	public void setPosted (boolean Posted);
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-	/** Get Posted.
-	  * Posting status
-	  */
-	public boolean isPosted();
+  public I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Column name Posted */
+  public static final String COLUMNNAME_Posted = "Posted";
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Set Posted. Posting status */
+  public void setPosted(boolean Posted);
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Get Posted. Posting status */
+  public boolean isPosted();
 
-    /** Column name ProcessedOn */
-    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Set Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public void setProcessedOn (BigDecimal ProcessedOn);
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-	/** Get Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public BigDecimal getProcessedOn();
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Column name ProcessedOn */
+  public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /**
+   * Set Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public void setProcessedOn(BigDecimal ProcessedOn);
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /**
+   * Get Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public BigDecimal getProcessedOn();
 
-    /** Column name Qty */
-    public static final String COLUMNNAME_Qty = "Qty";
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Set Quantity.
-	  * Quantity
-	  */
-	public void setQty (BigDecimal Qty);
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-	/** Get Quantity.
-	  * Quantity
-	  */
-	public BigDecimal getQty();
+  /** Get Process Now */
+  public boolean isProcessing();
 
-    /** Column name Reversal_ID */
-    public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
+  /** Column name Qty */
+  public static final String COLUMNNAME_Qty = "Qty";
 
-	/** Set Reversal ID.
-	  * ID of document reversal
-	  */
-	public void setReversal_ID (int Reversal_ID);
+  /** Set Quantity. Quantity */
+  public void setQty(BigDecimal Qty);
 
-	/** Get Reversal ID.
-	  * ID of document reversal
-	  */
-	public int getReversal_ID();
+  /** Get Quantity. Quantity */
+  public BigDecimal getQty();
 
-	public I_M_MatchInv getReversal() throws RuntimeException;
+  /** Column name Reversal_ID */
+  public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Set Reversal ID. ID of document reversal */
+  public void setReversal_ID(int Reversal_ID);
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Get Reversal ID. ID of document reversal */
+  public int getReversal_ID();
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  public I_M_MatchInv getReversal() throws RuntimeException;
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 }

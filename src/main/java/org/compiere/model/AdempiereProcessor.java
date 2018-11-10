@@ -2,110 +2,122 @@ package org.compiere.model;
 
 import java.sql.Timestamp;
 import java.util.Properties;
-
 import org.idempiere.common.exceptions.AdempiereException;
 
 /**
- *	Processor Interface
- *	
- *  @author Jorg Janke
- *  @version $Id: AdempiereProcessor.java,v 1.2 2006/07/30 00:51:03 jjanke Exp $
+ * Processor Interface
+ *
+ * @author Jorg Janke
+ * @version $Id: AdempiereProcessor.java,v 1.2 2006/07/30 00:51:03 jjanke Exp $
  */
-public interface AdempiereProcessor
-{
+public interface AdempiereProcessor {
 
-	/**
-	 * 	Get Name
-	 *	@return Name
-	 */
-	public String getName();
+  /**
+   * Get Name
+   *
+   * @return Name
+   */
+  public String getName();
 
-	/**
-	 * 	Get Description
-	 *	@return Description
-	 */
-	public String getDescription();
+  /**
+   * Get Description
+   *
+   * @return Description
+   */
+  public String getDescription();
 
-	/**
-	 * 	Get Context
-	 *	@return context
-	 */
-	public Properties getCtx();
-	
-	/**
-	 * 	Get the frequency type
-	 * 	@return frequency type
-	 */
-	public String getFrequencyType();
+  /**
+   * Get Context
+   *
+   * @return context
+   */
+  public Properties getCtx();
 
-	/**
-	 * 	Get the schedule type
-	 * 	@return schedule type
-	 */
-	public String getScheduleType();
+  /**
+   * Get the frequency type
+   *
+   * @return frequency type
+   */
+  public String getFrequencyType();
 
-	/**
-	 * 	Get the cron pattern
-	 * 	@return cron pattern
-	 */
-	public String getCronPattern();
+  /**
+   * Get the schedule type
+   *
+   * @return schedule type
+   */
+  public String getScheduleType();
 
-	/**
-	 * 	Get the frequency
-	 * 	@return frequency
-	 */
-	public int getFrequency();
+  /**
+   * Get the cron pattern
+   *
+   * @return cron pattern
+   */
+  public String getCronPattern();
 
-	
-	/**
-	 * 	Get Unique ID
-	 *	@return Unique ID
-	 */
-	public String getServerID();
+  /**
+   * Get the frequency
+   *
+   * @return frequency
+   */
+  public int getFrequency();
 
-	/**
-	 * 	Get the date Next run
-	 * 	@param requery requery database
-	 * 	@return date next run
-	 */
-	public Timestamp getDateNextRun (boolean requery);
+  /**
+   * Get Unique ID
+   *
+   * @return Unique ID
+   */
+  public String getServerID();
 
-	/**
-	 * 	Set Date Next Run
-	 *	@param dateNextWork next work
-	 */
-	public void setDateNextRun(Timestamp dateNextWork);
+  /**
+   * Get the date Next run
+   *
+   * @param requery requery database
+   * @return date next run
+   */
+  public Timestamp getDateNextRun(boolean requery);
 
-	/**
-	 * 	Get the date Last run
-	 * 	@return date lext run
-	 */
-	public Timestamp getDateLastRun ();
+  /**
+   * Set Date Next Run
+   *
+   * @param dateNextWork next work
+   */
+  public void setDateNextRun(Timestamp dateNextWork);
 
-	/**
-	 * 	Set Date Last Run
-	 *	@param dateLastRun last run
-	 */
-	public void setDateLastRun(Timestamp dateLastRun);
+  /**
+   * Get the date Last run
+   *
+   * @return date lext run
+   */
+  public Timestamp getDateLastRun();
 
-	/**
-	 * 	Save
-	 *	@return true if saved
-	 */
-	public boolean save();
+  /**
+   * Set Date Last Run
+   *
+   * @param dateLastRun last run
+   */
+  public void setDateLastRun(Timestamp dateLastRun);
 
-	/**
-	 * 	Save throwing exception
-	 * @throws AdempiereException
-	 * @see #save()
-	 */
-	public void saveEx() throws AdempiereException;
-	
-	/**
-	 * 	Get Processor Logs
-	 *	@return logs
-	 */
-	public AdempiereProcessorLog[] getLogs();
+  /**
+   * Save
+   *
+   * @return true if saved
+   */
+  public boolean save();
 
-    int getADClientID();
-}	//	AdempiereProcessor
+  /**
+   * Save throwing exception
+   *
+   * @throws AdempiereException
+   * @see #save()
+   */
+  public void saveEx() throws AdempiereException;
+
+  /**
+   * Get Processor Logs
+   *
+   * @return logs
+   */
+  public AdempiereProcessorLog[] getLogs();
+
+  int getADClientID();
+} //	AdempiereProcessor

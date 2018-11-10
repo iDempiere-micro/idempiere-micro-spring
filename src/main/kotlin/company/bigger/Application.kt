@@ -30,6 +30,7 @@ import com.rollbar.notifier.Rollbar
 import company.bigger.service.CategoryService
 import company.bigger.service.CountryService
 import company.bigger.service.UserService
+import company.bigger.web.resolver.MutationResolver
 import company.bigger.web.resolver.QueryResolver
 import graphql.schema.GraphQLSchema
 import org.springframework.context.ApplicationListener
@@ -52,7 +53,7 @@ open class Application : WebMvcConfigurer {
     open fun schema(): GraphQLSchema {
         return SchemaParser.newParser()
                 .file("graphql/app.graphqls")
-                .resolvers(QueryResolver())
+                .resolvers(QueryResolver(), MutationResolver())
                 .build().makeExecutableSchema()
     }
 

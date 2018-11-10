@@ -1,90 +1,84 @@
 package org.compiere.lookups;
 
 import java.io.Serializable;
-
 import org.idempiere.common.util.Util;
 
-
 /**
- *  Lookup Display Column Value Object
+ * Lookup Display Column Value Object
  *
- *  @author Jorg Janke
- *  @version $Id: LookupDisplayColumn.java,v 1.3 2006/07/30 00:58:18 jjanke Exp $
- * 
+ * @author Jorg Janke
+ * @version $Id: LookupDisplayColumn.java,v 1.3 2006/07/30 00:58:18 jjanke Exp $
  * @author Teo Sarca
- * 		<li>BF [ 2933367 ] Virtual Column Identifiers are not working
- * 			https://sourceforge.net/tracker/?func=detail&aid=2933367&group_id=176962&atid=879332
+ *     <li>BF [ 2933367 ] Virtual Column Identifiers are not working
+ *         https://sourceforge.net/tracker/?func=detail&aid=2933367&group_id=176962&atid=879332
  */
-public class LookupDisplayColumn implements Serializable
-{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5876427657897043394L;
+public class LookupDisplayColumn implements Serializable {
+  /** */
+  private static final long serialVersionUID = 5876427657897043394L;
 
-	/**
-	 *	Lookup Column Value Object
-	 * 	@param columnName column name
-	 * 	@param isTranslated translated
-	 * 	@param ad_Reference_ID display type
-	 * 	@param ad_Reference_Value_ID table/list reference id
-	 * @deprecated Please use {@link #LookupDisplayColumn(String, String, boolean, int, int)}
-	 */
-	public LookupDisplayColumn(String columnName, boolean isTranslated,
-		int ad_Reference_ID, int ad_Reference_Value_ID)
-	{
-		this(columnName, null, isTranslated, ad_Reference_ID, ad_Reference_Value_ID);
-	}	//
-	
-	/**
-	 * Lookup Column Value Object
-	 * @param columnName column name
-	 * @param columnSQL column SQL (in case is virtual column)
-	 * @param isTranslated translated
-	 * @param ad_Reference_ID display type
-	 * @param ad_Reference_Value_ID table/list reference id
-	 */
-	public LookupDisplayColumn(String columnName, String columnSQL, boolean isTranslated,
-		int ad_Reference_ID, int ad_Reference_Value_ID)
-	{
-		ColumnName = columnName;
-		IsTranslated = isTranslated;
-		DisplayType = ad_Reference_ID;
-		AD_Reference_ID = ad_Reference_Value_ID;
-		ColumnSQL = columnSQL;
-		IsVirtual = !Util.isEmpty(ColumnSQL, true);
-	}	//
+  /**
+   * Lookup Column Value Object
+   *
+   * @param columnName column name
+   * @param isTranslated translated
+   * @param ad_Reference_ID display type
+   * @param ad_Reference_Value_ID table/list reference id
+   * @deprecated Please use {@link #LookupDisplayColumn(String, String, boolean, int, int)}
+   */
+  public LookupDisplayColumn(
+      String columnName, boolean isTranslated, int ad_Reference_ID, int ad_Reference_Value_ID) {
+    this(columnName, null, isTranslated, ad_Reference_ID, ad_Reference_Value_ID);
+  } //
 
-	/** Column Name		*/
-	public String 	ColumnName;
-	/** Translated		*/
-	public boolean 	IsTranslated;
-	/** Display Type	*/
-	public int 		DisplayType;
-	/** Value Reference	*/
-	public int 		AD_Reference_ID;
-	/** Column SQL		*/
-	public final String		ColumnSQL;
-	/** Is Virtual Column */
-	public final boolean	IsVirtual;
+  /**
+   * Lookup Column Value Object
+   *
+   * @param columnName column name
+   * @param columnSQL column SQL (in case is virtual column)
+   * @param isTranslated translated
+   * @param ad_Reference_ID display type
+   * @param ad_Reference_Value_ID table/list reference id
+   */
+  public LookupDisplayColumn(
+      String columnName,
+      String columnSQL,
+      boolean isTranslated,
+      int ad_Reference_ID,
+      int ad_Reference_Value_ID) {
+    ColumnName = columnName;
+    IsTranslated = isTranslated;
+    DisplayType = ad_Reference_ID;
+    AD_Reference_ID = ad_Reference_Value_ID;
+    ColumnSQL = columnSQL;
+    IsVirtual = !Util.isEmpty(ColumnSQL, true);
+  } //
 
-	/**
-	 * 	String Representation
-	 * 	@return info
-	 */
-	public String toString()
-	{
-		StringBuilder sb = new StringBuilder("LookupDisplayColumn[");
-		sb.append("ColumnName=").append(ColumnName);
-		if (IsVirtual)
-			sb.append(",ColumnSQL=").append(ColumnSQL);
-		if (IsTranslated)
-			sb.append(",IsTranslated");
-		sb.append(",DisplayType=").append(DisplayType);
-		if (AD_Reference_ID != 0)
-			sb.append(",AD_Reference_ID=").append(AD_Reference_ID);
-		sb.append("]");
-		return sb.toString();
-	}	//	toString
+  /** Column Name */
+  public String ColumnName;
+  /** Translated */
+  public boolean IsTranslated;
+  /** Display Type */
+  public int DisplayType;
+  /** Value Reference */
+  public int AD_Reference_ID;
+  /** Column SQL */
+  public final String ColumnSQL;
+  /** Is Virtual Column */
+  public final boolean IsVirtual;
 
-}	//	LookupDisplayColumn
+  /**
+   * String Representation
+   *
+   * @return info
+   */
+  public String toString() {
+    StringBuilder sb = new StringBuilder("LookupDisplayColumn[");
+    sb.append("ColumnName=").append(ColumnName);
+    if (IsVirtual) sb.append(",ColumnSQL=").append(ColumnSQL);
+    if (IsTranslated) sb.append(",IsTranslated");
+    sb.append(",DisplayType=").append(DisplayType);
+    if (AD_Reference_ID != 0) sb.append(",AD_Reference_ID=").append(AD_Reference_ID);
+    sb.append("]");
+    return sb.toString();
+  } //	toString
+} //	LookupDisplayColumn

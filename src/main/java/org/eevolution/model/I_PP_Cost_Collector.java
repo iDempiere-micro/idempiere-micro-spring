@@ -5,609 +5,474 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for PP_Cost_Collector
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for PP_Cost_Collector
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_PP_Cost_Collector 
-{
+public interface I_PP_Cost_Collector {
 
-    /** TableName=PP_Cost_Collector */
-    public static final String Table_Name = "PP_Cost_Collector";
+  /** TableName=PP_Cost_Collector */
+  public static final String Table_Name = "PP_Cost_Collector";
 
-    /** AD_Table_ID=53035 */
-    public static final int Table_ID = 53035;
+  /** AD_Table_ID=53035 */
+  public static final int Table_ID = 53035;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 1 - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(1);
+  /** AccessLevel = 1 - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(1);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_OrgTrx_ID */
+  public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
 
-    /** Column name AD_OrgTrx_ID */
-    public static final String COLUMNNAME_AD_OrgTrx_ID = "AD_OrgTrx_ID";
+  /** Set Trx Organization. Performing or initiating organization */
+  public void setAD_OrgTrx_ID(int AD_OrgTrx_ID);
 
-	/** Set Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public void setAD_OrgTrx_ID (int AD_OrgTrx_ID);
+  /** Get Trx Organization. Performing or initiating organization */
+  public int getAD_OrgTrx_ID();
 
-	/** Get Trx Organization.
-	  * Performing or initiating organization
-	  */
-	public int getAD_OrgTrx_ID();
+  /** Column name AD_User_ID */
+  public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
 
-    /** Column name AD_User_ID */
-    public static final String COLUMNNAME_AD_User_ID = "AD_User_ID";
+  /** Set User/Contact. User within the system - Internal or Business Partner Contact */
+  public void setAD_User_ID(int AD_User_ID);
 
-	/** Set User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public void setAD_User_ID (int AD_User_ID);
+  /** Get User/Contact. User within the system - Internal or Business Partner Contact */
+  public int getAD_User_ID();
 
-	/** Get User/Contact.
-	  * User within the system - Internal or Business Partner Contact
-	  */
-	public int getAD_User_ID();
+  public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
 
-	public org.compiere.model.I_AD_User getAD_User() throws RuntimeException;
+  /** Column name C_Activity_ID */
+  public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
 
-    /** Column name C_Activity_ID */
-    public static final String COLUMNNAME_C_Activity_ID = "C_Activity_ID";
+  /** Set Activity. Business Activity */
+  public void setC_Activity_ID(int C_Activity_ID);
 
-	/** Set Activity.
-	  * Business Activity
-	  */
-	public void setC_Activity_ID (int C_Activity_ID);
+  /** Get Activity. Business Activity */
+  public int getC_Activity_ID();
 
-	/** Get Activity.
-	  * Business Activity
-	  */
-	public int getC_Activity_ID();
+  public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException;
 
-	public org.compiere.model.I_C_Activity getC_Activity() throws RuntimeException;
+  /** Column name C_Campaign_ID */
+  public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
 
-    /** Column name C_Campaign_ID */
-    public static final String COLUMNNAME_C_Campaign_ID = "C_Campaign_ID";
+  /** Set Campaign. Marketing Campaign */
+  public void setC_Campaign_ID(int C_Campaign_ID);
 
-	/** Set Campaign.
-	  * Marketing Campaign
-	  */
-	public void setC_Campaign_ID (int C_Campaign_ID);
+  /** Get Campaign. Marketing Campaign */
+  public int getC_Campaign_ID();
 
-	/** Get Campaign.
-	  * Marketing Campaign
-	  */
-	public int getC_Campaign_ID();
+  public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException;
 
-	public org.compiere.model.I_C_Campaign getC_Campaign() throws RuntimeException;
+  /** Column name C_DocType_ID */
+  public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
 
-    /** Column name C_DocType_ID */
-    public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
+  /** Set Document Type. Document type or rules */
+  public void setC_DocType_ID(int C_DocType_ID);
 
-	/** Set Document Type.
-	  * Document type or rules
-	  */
-	public void setC_DocType_ID (int C_DocType_ID);
+  /** Get Document Type. Document type or rules */
+  public int getC_DocType_ID();
 
-	/** Get Document Type.
-	  * Document type or rules
-	  */
-	public int getC_DocType_ID();
+  public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
 
-	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
-
-    /** Column name C_DocTypeTarget_ID */
-    public static final String COLUMNNAME_C_DocTypeTarget_ID = "C_DocTypeTarget_ID";
-
-	/** Set Target Document Type.
-	  * Target document type for conversing documents
-	  */
-	public void setC_DocTypeTarget_ID (int C_DocTypeTarget_ID);
-
-	/** Get Target Document Type.
-	  * Target document type for conversing documents
-	  */
-	public int getC_DocTypeTarget_ID();
-
-	public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException;
-
-    /** Column name CostCollectorType */
-    public static final String COLUMNNAME_CostCollectorType = "CostCollectorType";
+  /** Column name C_DocTypeTarget_ID */
+  public static final String COLUMNNAME_C_DocTypeTarget_ID = "C_DocTypeTarget_ID";
 
-	/** Set Cost Collector Type.
-	  * Transaction Type for Manufacturing Management
-	  */
-	public void setCostCollectorType (String CostCollectorType);
-
-	/** Get Cost Collector Type.
-	  * Transaction Type for Manufacturing Management
-	  */
-	public String getCostCollectorType();
-
-    /** Column name C_Project_ID */
-    public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
-
-	/** Set Project.
-	  * Financial Project
-	  */
-	public void setC_Project_ID (int C_Project_ID);
-
-	/** Get Project.
-	  * Financial Project
-	  */
-	public int getC_Project_ID();
-
-	public org.compiere.model.I_C_Project getC_Project() throws RuntimeException;
-
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Set Target Document Type. Target document type for conversing documents */
+  public void setC_DocTypeTarget_ID(int C_DocTypeTarget_ID);
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
-
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Get Target Document Type. Target document type for conversing documents */
+  public int getC_DocTypeTarget_ID();
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
-
-    /** Column name C_UOM_ID */
-    public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
+  public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException;
 
-	/** Set UOM.
-	  * Unit of Measure
-	  */
-	public void setC_UOM_ID (int C_UOM_ID);
-
-	/** Get UOM.
-	  * Unit of Measure
-	  */
-	public int getC_UOM_ID();
+  /** Column name CostCollectorType */
+  public static final String COLUMNNAME_CostCollectorType = "CostCollectorType";
 
-	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException;
+  /** Set Cost Collector Type. Transaction Type for Manufacturing Management */
+  public void setCostCollectorType(String CostCollectorType);
 
-    /** Column name DateAcct */
-    public static final String COLUMNNAME_DateAcct = "DateAcct";
+  /** Get Cost Collector Type. Transaction Type for Manufacturing Management */
+  public String getCostCollectorType();
 
-	/** Set Account Date.
-	  * Accounting Date
-	  */
-	public void setDateAcct (Timestamp DateAcct);
+  /** Column name C_Project_ID */
+  public static final String COLUMNNAME_C_Project_ID = "C_Project_ID";
 
-	/** Get Account Date.
-	  * Accounting Date
-	  */
-	public Timestamp getDateAcct();
+  /** Set Project. Financial Project */
+  public void setC_Project_ID(int C_Project_ID);
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Get Project. Financial Project */
+  public int getC_Project_ID();
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  public org.compiere.model.I_C_Project getC_Project() throws RuntimeException;
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-    /** Column name DocAction */
-    public static final String COLUMNNAME_DocAction = "DocAction";
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-	/** Set Document Action.
-	  * The targeted status of the document
-	  */
-	public void setDocAction (String DocAction);
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Document Action.
-	  * The targeted status of the document
-	  */
-	public String getDocAction();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name DocStatus */
-    public static final String COLUMNNAME_DocStatus = "DocStatus";
+  /** Column name C_UOM_ID */
+  public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
 
-	/** Set Document Status.
-	  * The current status of the document
-	  */
-	public void setDocStatus (String DocStatus);
+  /** Set UOM. Unit of Measure */
+  public void setC_UOM_ID(int C_UOM_ID);
 
-	/** Get Document Status.
-	  * The current status of the document
-	  */
-	public String getDocStatus();
+  /** Get UOM. Unit of Measure */
+  public int getC_UOM_ID();
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException;
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  /** Column name DateAcct */
+  public static final String COLUMNNAME_DateAcct = "DateAcct";
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
+  /** Set Account Date. Accounting Date */
+  public void setDateAcct(Timestamp DateAcct);
 
-    /** Column name DurationReal */
-    public static final String COLUMNNAME_DurationReal = "DurationReal";
+  /** Get Account Date. Accounting Date */
+  public Timestamp getDateAcct();
 
-	/** Set Duration Real	  */
-	public void setDurationReal (BigDecimal DurationReal);
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Get Duration Real	  */
-	public BigDecimal getDurationReal();
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Column name DocAction */
+  public static final String COLUMNNAME_DocAction = "DocAction";
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Document Action. The targeted status of the document */
+  public void setDocAction(String DocAction);
 
-    /** Column name IsBatchTime */
-    public static final String COLUMNNAME_IsBatchTime = "IsBatchTime";
+  /** Get Document Action. The targeted status of the document */
+  public String getDocAction();
 
-	/** Set Is BatchTime	  */
-	public void setIsBatchTime (boolean IsBatchTime);
+  /** Column name DocStatus */
+  public static final String COLUMNNAME_DocStatus = "DocStatus";
 
-	/** Get Is BatchTime	  */
-	public boolean isBatchTime();
+  /** Set Document Status. The current status of the document */
+  public void setDocStatus(String DocStatus);
 
-    /** Column name IsSubcontracting */
-    public static final String COLUMNNAME_IsSubcontracting = "IsSubcontracting";
+  /** Get Document Status. The current status of the document */
+  public String getDocStatus();
 
-	/** Set Is Subcontracting	  */
-	public void setIsSubcontracting (boolean IsSubcontracting);
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-	/** Get Is Subcontracting	  */
-	public boolean isSubcontracting();
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-    /** Column name M_AttributeSetInstance_ID */
-    public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-	/** Set Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public void setM_AttributeSetInstance_ID (int M_AttributeSetInstance_ID);
+  /** Column name DurationReal */
+  public static final String COLUMNNAME_DurationReal = "DurationReal";
 
-	/** Get Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public int getMAttributeSetInstance_ID();
+  /** Set Duration Real */
+  public void setDurationReal(BigDecimal DurationReal);
 
-	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
+  /** Get Duration Real */
+  public BigDecimal getDurationReal();
 
-    /** Column name M_Locator_ID */
-    public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Locator.
-	  * Warehouse Locator
-	  */
-	public void setM_Locator_ID (int M_Locator_ID);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Locator.
-	  * Warehouse Locator
-	  */
-	public int getM_Locator_ID();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	public I_M_Locator getM_Locator() throws RuntimeException;
+  /** Column name IsBatchTime */
+  public static final String COLUMNNAME_IsBatchTime = "IsBatchTime";
 
-    /** Column name MovementDate */
-    public static final String COLUMNNAME_MovementDate = "MovementDate";
+  /** Set Is BatchTime */
+  public void setIsBatchTime(boolean IsBatchTime);
 
-	/** Set Movement Date.
-	  * Date a product was moved in or out of inventory
-	  */
-	public void setMovementDate (Timestamp MovementDate);
+  /** Get Is BatchTime */
+  public boolean isBatchTime();
 
-	/** Get Movement Date.
-	  * Date a product was moved in or out of inventory
-	  */
-	public Timestamp getMovementDate();
+  /** Column name IsSubcontracting */
+  public static final String COLUMNNAME_IsSubcontracting = "IsSubcontracting";
 
-    /** Column name MovementQty */
-    public static final String COLUMNNAME_MovementQty = "MovementQty";
+  /** Set Is Subcontracting */
+  public void setIsSubcontracting(boolean IsSubcontracting);
 
-	/** Set Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public void setMovementQty (BigDecimal MovementQty);
+  /** Get Is Subcontracting */
+  public boolean isSubcontracting();
 
-	/** Get Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public BigDecimal getMovementQty();
+  /** Column name M_AttributeSetInstance_ID */
+  public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  /** Set Attribute Set Instance. Product Attribute Set Instance */
+  public void setM_AttributeSetInstance_ID(int M_AttributeSetInstance_ID);
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Get Attribute Set Instance. Product Attribute Set Instance */
+  public int getMAttributeSetInstance_ID();
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
-	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
+  /** Column name M_Locator_ID */
+  public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
 
-    /** Column name M_Warehouse_ID */
-    public static final String COLUMNNAME_M_Warehouse_ID = "M_Warehouse_ID";
+  /** Set Locator. Warehouse Locator */
+  public void setM_Locator_ID(int M_Locator_ID);
 
-	/** Set Warehouse.
-	  * Storage Warehouse and Service Point
-	  */
-	public void setM_Warehouse_ID (int M_Warehouse_ID);
+  /** Get Locator. Warehouse Locator */
+  public int getM_Locator_ID();
 
-	/** Get Warehouse.
-	  * Storage Warehouse and Service Point
-	  */
-	public int getM_Warehouse_ID();
+  public I_M_Locator getM_Locator() throws RuntimeException;
 
-	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException;
+  /** Column name MovementDate */
+  public static final String COLUMNNAME_MovementDate = "MovementDate";
 
-    /** Column name Posted */
-    public static final String COLUMNNAME_Posted = "Posted";
+  /** Set Movement Date. Date a product was moved in or out of inventory */
+  public void setMovementDate(Timestamp MovementDate);
 
-	/** Set Posted.
-	  * Posting status
-	  */
-	public void setPosted (boolean Posted);
+  /** Get Movement Date. Date a product was moved in or out of inventory */
+  public Timestamp getMovementDate();
 
-	/** Get Posted.
-	  * Posting status
-	  */
-	public boolean isPosted();
+  /** Column name MovementQty */
+  public static final String COLUMNNAME_MovementQty = "MovementQty";
 
-    /** Column name PP_Cost_Collector_ID */
-    public static final String COLUMNNAME_PP_Cost_Collector_ID = "PP_Cost_Collector_ID";
+  /** Set Movement Quantity. Quantity of a product moved. */
+  public void setMovementQty(BigDecimal MovementQty);
 
-	/** Set Manufacturing Cost Collector	  */
-	public void setPP_Cost_Collector_ID (int PP_Cost_Collector_ID);
+  /** Get Movement Quantity. Quantity of a product moved. */
+  public BigDecimal getMovementQty();
 
-	/** Get Manufacturing Cost Collector	  */
-	public int getPP_Cost_Collector_ID();
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-    /** Column name PP_Cost_Collector_UU */
-    public static final String COLUMNNAME_PP_Cost_Collector_UU = "PP_Cost_Collector_UU";
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-	/** Set PP_Cost_Collector_UU	  */
-	public void setPP_Cost_Collector_UU (String PP_Cost_Collector_UU);
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-	/** Get PP_Cost_Collector_UU	  */
-	public String getPP_Cost_Collector_UU();
+  public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
 
-    /** Column name PP_Order_BOMLine_ID */
-    public static final String COLUMNNAME_PP_Order_BOMLine_ID = "PP_Order_BOMLine_ID";
+  /** Column name M_Warehouse_ID */
+  public static final String COLUMNNAME_M_Warehouse_ID = "M_Warehouse_ID";
 
-	/** Set Manufacturing Order BOM Line	  */
-	public void setPP_Order_BOMLine_ID (int PP_Order_BOMLine_ID);
+  /** Set Warehouse. Storage Warehouse and Service Point */
+  public void setM_Warehouse_ID(int M_Warehouse_ID);
 
-	/** Get Manufacturing Order BOM Line	  */
-	public int getPP_Order_BOMLine_ID();
+  /** Get Warehouse. Storage Warehouse and Service Point */
+  public int getM_Warehouse_ID();
 
-	public org.eevolution.model.I_PP_Order_BOMLine getPP_Order_BOMLine() throws RuntimeException;
+  public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException;
 
-    /** Column name PP_Order_ID */
-    public static final String COLUMNNAME_PP_Order_ID = "PP_Order_ID";
+  /** Column name Posted */
+  public static final String COLUMNNAME_Posted = "Posted";
 
-	/** Set Manufacturing Order.
-	  * Manufacturing Order
-	  */
-	public void setPP_Order_ID (int PP_Order_ID);
+  /** Set Posted. Posting status */
+  public void setPosted(boolean Posted);
 
-	/** Get Manufacturing Order.
-	  * Manufacturing Order
-	  */
-	public int getPP_Order_ID();
+  /** Get Posted. Posting status */
+  public boolean isPosted();
 
-	public org.eevolution.model.I_PP_Order getPP_Order() throws RuntimeException;
+  /** Column name PP_Cost_Collector_ID */
+  public static final String COLUMNNAME_PP_Cost_Collector_ID = "PP_Cost_Collector_ID";
 
-    /** Column name PP_Order_Node_ID */
-    public static final String COLUMNNAME_PP_Order_Node_ID = "PP_Order_Node_ID";
+  /** Set Manufacturing Cost Collector */
+  public void setPP_Cost_Collector_ID(int PP_Cost_Collector_ID);
 
-	/** Set Manufacturing Order Activity.
-	  * Workflow Node (activity), step or process
-	  */
-	public void setPP_Order_Node_ID (int PP_Order_Node_ID);
+  /** Get Manufacturing Cost Collector */
+  public int getPP_Cost_Collector_ID();
 
-	/** Get Manufacturing Order Activity.
-	  * Workflow Node (activity), step or process
-	  */
-	public int getPP_Order_Node_ID();
+  /** Column name PP_Cost_Collector_UU */
+  public static final String COLUMNNAME_PP_Cost_Collector_UU = "PP_Cost_Collector_UU";
 
-	public org.eevolution.model.I_PP_Order_Node getPP_Order_Node() throws RuntimeException;
+  /** Set PP_Cost_Collector_UU */
+  public void setPP_Cost_Collector_UU(String PP_Cost_Collector_UU);
 
-    /** Column name PP_Order_Workflow_ID */
-    public static final String COLUMNNAME_PP_Order_Workflow_ID = "PP_Order_Workflow_ID";
+  /** Get PP_Cost_Collector_UU */
+  public String getPP_Cost_Collector_UU();
 
-	/** Set Manufacturing Order Workflow	  */
-	public void setPP_Order_Workflow_ID (int PP_Order_Workflow_ID);
+  /** Column name PP_Order_BOMLine_ID */
+  public static final String COLUMNNAME_PP_Order_BOMLine_ID = "PP_Order_BOMLine_ID";
 
-	/** Get Manufacturing Order Workflow	  */
-	public int getPP_Order_Workflow_ID();
+  /** Set Manufacturing Order BOM Line */
+  public void setPP_Order_BOMLine_ID(int PP_Order_BOMLine_ID);
 
-	public org.eevolution.model.I_PP_Order_Workflow getPP_Order_Workflow() throws RuntimeException;
+  /** Get Manufacturing Order BOM Line */
+  public int getPP_Order_BOMLine_ID();
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  public org.eevolution.model.I_PP_Order_BOMLine getPP_Order_BOMLine() throws RuntimeException;
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Column name PP_Order_ID */
+  public static final String COLUMNNAME_PP_Order_ID = "PP_Order_ID";
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Set Manufacturing Order. Manufacturing Order */
+  public void setPP_Order_ID(int PP_Order_ID);
 
-    /** Column name ProcessedOn */
-    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+  /** Get Manufacturing Order. Manufacturing Order */
+  public int getPP_Order_ID();
 
-	/** Set Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public void setProcessedOn (BigDecimal ProcessedOn);
+  public org.eevolution.model.I_PP_Order getPP_Order() throws RuntimeException;
 
-	/** Get Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public BigDecimal getProcessedOn();
+  /** Column name PP_Order_Node_ID */
+  public static final String COLUMNNAME_PP_Order_Node_ID = "PP_Order_Node_ID";
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Set Manufacturing Order Activity. Workflow Node (activity), step or process */
+  public void setPP_Order_Node_ID(int PP_Order_Node_ID);
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Get Manufacturing Order Activity. Workflow Node (activity), step or process */
+  public int getPP_Order_Node_ID();
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  public org.eevolution.model.I_PP_Order_Node getPP_Order_Node() throws RuntimeException;
 
-    /** Column name QtyReject */
-    public static final String COLUMNNAME_QtyReject = "QtyReject";
+  /** Column name PP_Order_Workflow_ID */
+  public static final String COLUMNNAME_PP_Order_Workflow_ID = "PP_Order_Workflow_ID";
 
-	/** Set Qty Reject	  */
-	public void setQtyReject (BigDecimal QtyReject);
+  /** Set Manufacturing Order Workflow */
+  public void setPP_Order_Workflow_ID(int PP_Order_Workflow_ID);
 
-	/** Get Qty Reject	  */
-	public BigDecimal getQtyReject();
+  /** Get Manufacturing Order Workflow */
+  public int getPP_Order_Workflow_ID();
 
-    /** Column name Reversal_ID */
-    public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
+  public org.eevolution.model.I_PP_Order_Workflow getPP_Order_Workflow() throws RuntimeException;
 
-	/** Set Reversal ID.
-	  * ID of document reversal
-	  */
-	public void setReversal_ID (int Reversal_ID);
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Get Reversal ID.
-	  * ID of document reversal
-	  */
-	public int getReversal_ID();
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-	public org.eevolution.model.I_PP_Cost_Collector getReversal() throws RuntimeException;
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-    /** Column name ScrappedQty */
-    public static final String COLUMNNAME_ScrappedQty = "ScrappedQty";
+  /** Column name ProcessedOn */
+  public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
 
-	/** Set Scrapped Quantity.
-	  * The Quantity scrapped due to QA issues
-	  */
-	public void setScrappedQty (BigDecimal ScrappedQty);
+  /**
+   * Set Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public void setProcessedOn(BigDecimal ProcessedOn);
 
-	/** Get Scrapped Quantity.
-	  * The Quantity scrapped due to QA issues
-	  */
-	public BigDecimal getScrappedQty();
+  /**
+   * Get Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public BigDecimal getProcessedOn();
 
-    /** Column name SetupTimeReal */
-    public static final String COLUMNNAME_SetupTimeReal = "SetupTimeReal";
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Set Setup Time Real	  */
-	public void setSetupTimeReal (BigDecimal SetupTimeReal);
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-	/** Get Setup Time Real	  */
-	public BigDecimal getSetupTimeReal();
+  /** Get Process Now */
+  public boolean isProcessing();
 
-    /** Column name S_Resource_ID */
-    public static final String COLUMNNAME_S_Resource_ID = "S_Resource_ID";
+  /** Column name QtyReject */
+  public static final String COLUMNNAME_QtyReject = "QtyReject";
 
-	/** Set Resource.
-	  * Resource
-	  */
-	public void setS_Resource_ID (int S_Resource_ID);
+  /** Set Qty Reject */
+  public void setQtyReject(BigDecimal QtyReject);
 
-	/** Get Resource.
-	  * Resource
-	  */
-	public int getS_Resource_ID();
+  /** Get Qty Reject */
+  public BigDecimal getQtyReject();
 
-	public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException;
+  /** Column name Reversal_ID */
+  public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Set Reversal ID. ID of document reversal */
+  public void setReversal_ID(int Reversal_ID);
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Get Reversal ID. ID of document reversal */
+  public int getReversal_ID();
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  public org.eevolution.model.I_PP_Cost_Collector getReversal() throws RuntimeException;
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name ScrappedQty */
+  public static final String COLUMNNAME_ScrappedQty = "ScrappedQty";
 
-    /** Column name User1_ID */
-    public static final String COLUMNNAME_User1_ID = "User1_ID";
+  /** Set Scrapped Quantity. The Quantity scrapped due to QA issues */
+  public void setScrappedQty(BigDecimal ScrappedQty);
 
-	/** Set User Element List 1.
-	  * User defined list element #1
-	  */
-	public void setUser1_ID (int User1_ID);
+  /** Get Scrapped Quantity. The Quantity scrapped due to QA issues */
+  public BigDecimal getScrappedQty();
 
-	/** Get User Element List 1.
-	  * User defined list element #1
-	  */
-	public int getUser1_ID();
+  /** Column name SetupTimeReal */
+  public static final String COLUMNNAME_SetupTimeReal = "SetupTimeReal";
 
-	public org.compiere.model.I_AD_User getUser1() throws RuntimeException;
+  /** Set Setup Time Real */
+  public void setSetupTimeReal(BigDecimal SetupTimeReal);
 
-    /** Column name User2_ID */
-    public static final String COLUMNNAME_User2_ID = "User2_ID";
+  /** Get Setup Time Real */
+  public BigDecimal getSetupTimeReal();
 
-	/** Set User Element List 2.
-	  * User defined list element #2
-	  */
-	public void setUser2_ID (int User2_ID);
+  /** Column name S_Resource_ID */
+  public static final String COLUMNNAME_S_Resource_ID = "S_Resource_ID";
 
-	/** Get User Element List 2.
-	  * User defined list element #2
-	  */
-	public int getUser2_ID();
+  /** Set Resource. Resource */
+  public void setS_Resource_ID(int S_Resource_ID);
 
-	public org.compiere.model.I_AD_User getUser2() throws RuntimeException;
+  /** Get Resource. Resource */
+  public int getS_Resource_ID();
+
+  public org.compiere.model.I_S_Resource getS_Resource() throws RuntimeException;
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
+
+  /** Column name User1_ID */
+  public static final String COLUMNNAME_User1_ID = "User1_ID";
+
+  /** Set User Element List 1. User defined list element #1 */
+  public void setUser1_ID(int User1_ID);
+
+  /** Get User Element List 1. User defined list element #1 */
+  public int getUser1_ID();
+
+  public org.compiere.model.I_AD_User getUser1() throws RuntimeException;
+
+  /** Column name User2_ID */
+  public static final String COLUMNNAME_User2_ID = "User2_ID";
+
+  /** Set User Element List 2. User defined list element #2 */
+  public void setUser2_ID(int User2_ID);
+
+  /** Get User Element List 2. User defined list element #2 */
+  public int getUser2_ID();
+
+  public org.compiere.model.I_AD_User getUser2() throws RuntimeException;
 }

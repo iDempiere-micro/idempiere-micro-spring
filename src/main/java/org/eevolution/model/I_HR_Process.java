@@ -5,410 +5,324 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for HR_Process
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for HR_Process
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_HR_Process 
-{
+public interface I_HR_Process {
 
-    /** TableName=HR_Process */
-    public static final String Table_Name = "HR_Process";
+  /** TableName=HR_Process */
+  public static final String Table_Name = "HR_Process";
 
-    /** AD_Table_ID=53092 */
-    public static final int Table_ID = 53092;
+  /** AD_Table_ID=53092 */
+  public static final int Table_ID = 53092;
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    /** Load Meta Data */
+  /** Load Meta Data */
 
-    
-    
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Column name AD_PrintFormat_ID */
+  public static final String COLUMNNAME_AD_PrintFormat_ID = "AD_PrintFormat_ID";
 
-    /** Column name AD_PrintFormat_ID */
-    public static final String COLUMNNAME_AD_PrintFormat_ID = "AD_PrintFormat_ID";
+  /** Set Print Format. Data Print Format */
+  public void setAD_PrintFormat_ID(int AD_PrintFormat_ID);
 
-	/** Set Print Format.
-	  * Data Print Format
-	  */
-	public void setAD_PrintFormat_ID (int AD_PrintFormat_ID);
+  /** Get Print Format. Data Print Format */
+  public int getAD_PrintFormat_ID();
 
-	/** Get Print Format.
-	  * Data Print Format
-	  */
-	public int getAD_PrintFormat_ID();
+  public org.compiere.model.I_AD_PrintFormat getAD_PrintFormat() throws RuntimeException;
 
-	public org.compiere.model.I_AD_PrintFormat getAD_PrintFormat() throws RuntimeException;
+  /** Column name AD_Workflow_ID */
+  public static final String COLUMNNAME_AD_Workflow_ID = "AD_Workflow_ID";
 
-    /** Column name AD_Workflow_ID */
-    public static final String COLUMNNAME_AD_Workflow_ID = "AD_Workflow_ID";
+  /** Set Workflow. Workflow or combination of tasks */
+  public void setAD_Workflow_ID(int AD_Workflow_ID);
 
-	/** Set Workflow.
-	  * Workflow or combination of tasks
-	  */
-	public void setAD_Workflow_ID (int AD_Workflow_ID);
+  /** Get Workflow. Workflow or combination of tasks */
+  public int getAD_Workflow_ID();
 
-	/** Get Workflow.
-	  * Workflow or combination of tasks
-	  */
-	public int getAD_Workflow_ID();
+  public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException;
 
-	public org.compiere.model.I_AD_Workflow getAD_Workflow() throws RuntimeException;
+  /** Column name C_BPartner_ID */
+  public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
-    /** Column name C_BPartner_ID */
-    public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
+  /** Set Business Partner . Identifies a Business Partner */
+  public void setC_BPartner_ID(int C_BPartner_ID);
 
-	/** Set Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public void setC_BPartner_ID (int C_BPartner_ID);
+  /** Get Business Partner . Identifies a Business Partner */
+  public int getC_BPartner_ID();
 
-	/** Get Business Partner .
-	  * Identifies a Business Partner
-	  */
-	public int getC_BPartner_ID();
+  public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
 
-	public org.compiere.model.I_C_BPartner getC_BPartner() throws RuntimeException;
+  /** Column name C_Charge_ID */
+  public static final String COLUMNNAME_C_Charge_ID = "C_Charge_ID";
 
-    /** Column name C_Charge_ID */
-    public static final String COLUMNNAME_C_Charge_ID = "C_Charge_ID";
+  /** Set Charge. Additional document charges */
+  public void setC_Charge_ID(int C_Charge_ID);
 
-	/** Set Charge.
-	  * Additional document charges
-	  */
-	public void setC_Charge_ID (int C_Charge_ID);
+  /** Get Charge. Additional document charges */
+  public int getC_Charge_ID();
 
-	/** Get Charge.
-	  * Additional document charges
-	  */
-	public int getC_Charge_ID();
+  public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException;
 
-	public org.compiere.model.I_C_Charge getC_Charge() throws RuntimeException;
+  /** Column name C_DocType_ID */
+  public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
 
-    /** Column name C_DocType_ID */
-    public static final String COLUMNNAME_C_DocType_ID = "C_DocType_ID";
+  /** Set Document Type. Document type or rules */
+  public void setC_DocType_ID(int C_DocType_ID);
 
-	/** Set Document Type.
-	  * Document type or rules
-	  */
-	public void setC_DocType_ID (int C_DocType_ID);
-
-	/** Get Document Type.
-	  * Document type or rules
-	  */
-	public int getC_DocType_ID();
-
-	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
+  /** Get Document Type. Document type or rules */
+  public int getC_DocType_ID();
 
-    /** Column name C_DocTypeTarget_ID */
-    public static final String COLUMNNAME_C_DocTypeTarget_ID = "C_DocTypeTarget_ID";
+  public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
 
-	/** Set Target Document Type.
-	  * Target document type for conversing documents
-	  */
-	public void setC_DocTypeTarget_ID (int C_DocTypeTarget_ID);
+  /** Column name C_DocTypeTarget_ID */
+  public static final String COLUMNNAME_C_DocTypeTarget_ID = "C_DocTypeTarget_ID";
 
-	/** Get Target Document Type.
-	  * Target document type for conversing documents
-	  */
-	public int getC_DocTypeTarget_ID();
-
-	public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException;
+  /** Set Target Document Type. Target document type for conversing documents */
+  public void setC_DocTypeTarget_ID(int C_DocTypeTarget_ID);
 
-    /** Column name ColumnSQL */
-    public static final String COLUMNNAME_ColumnSQL = "ColumnSQL";
+  /** Get Target Document Type. Target document type for conversing documents */
+  public int getC_DocTypeTarget_ID();
 
-	/** Set Column SQL.
-	  * Virtual Column (r/o)
-	  */
-	public void setColumnSQL (String ColumnSQL);
+  public org.compiere.model.I_C_DocType getC_DocTypeTarget() throws RuntimeException;
 
-	/** Get Column SQL.
-	  * Virtual Column (r/o)
-	  */
-	public String getColumnSQL();
+  /** Column name ColumnSQL */
+  public static final String COLUMNNAME_ColumnSQL = "ColumnSQL";
 
-    /** Column name C_PaySelection_ID */
-    public static final String COLUMNNAME_C_PaySelection_ID = "C_PaySelection_ID";
+  /** Set Column SQL. Virtual Column (r/o) */
+  public void setColumnSQL(String ColumnSQL);
 
-	/** Set Payment Selection.
-	  * Payment Selection
-	  */
-	public void setC_PaySelection_ID (int C_PaySelection_ID);
+  /** Get Column SQL. Virtual Column (r/o) */
+  public String getColumnSQL();
 
-	/** Get Payment Selection.
-	  * Payment Selection
-	  */
-	public int getC_PaySelection_ID();
+  /** Column name C_PaySelection_ID */
+  public static final String COLUMNNAME_C_PaySelection_ID = "C_PaySelection_ID";
 
-	public org.compiere.model.I_C_PaySelection getC_PaySelection() throws RuntimeException;
+  /** Set Payment Selection. Payment Selection */
+  public void setC_PaySelection_ID(int C_PaySelection_ID);
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Payment Selection. Payment Selection */
+  public int getC_PaySelection_ID();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  public org.compiere.model.I_C_PaySelection getC_PaySelection() throws RuntimeException;
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name DateAcct */
-    public static final String COLUMNNAME_DateAcct = "DateAcct";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Set Account Date.
-	  * Accounting Date
-	  */
-	public void setDateAcct (Timestamp DateAcct);
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Account Date.
-	  * Accounting Date
-	  */
-	public Timestamp getDateAcct();
+  /** Column name DateAcct */
+  public static final String COLUMNNAME_DateAcct = "DateAcct";
 
-    /** Column name DocAction */
-    public static final String COLUMNNAME_DocAction = "DocAction";
+  /** Set Account Date. Accounting Date */
+  public void setDateAcct(Timestamp DateAcct);
 
-	/** Set Document Action.
-	  * The targeted status of the document
-	  */
-	public void setDocAction (String DocAction);
+  /** Get Account Date. Accounting Date */
+  public Timestamp getDateAcct();
 
-	/** Get Document Action.
-	  * The targeted status of the document
-	  */
-	public String getDocAction();
+  /** Column name DocAction */
+  public static final String COLUMNNAME_DocAction = "DocAction";
 
-    /** Column name DocStatus */
-    public static final String COLUMNNAME_DocStatus = "DocStatus";
+  /** Set Document Action. The targeted status of the document */
+  public void setDocAction(String DocAction);
 
-	/** Set Document Status.
-	  * The current status of the document
-	  */
-	public void setDocStatus (String DocStatus);
+  /** Get Document Action. The targeted status of the document */
+  public String getDocAction();
 
-	/** Get Document Status.
-	  * The current status of the document
-	  */
-	public String getDocStatus();
+  /** Column name DocStatus */
+  public static final String COLUMNNAME_DocStatus = "DocStatus";
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  /** Set Document Status. The current status of the document */
+  public void setDocStatus(String DocStatus);
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  /** Get Document Status. The current status of the document */
+  public String getDocStatus();
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-    /** Column name HR_Department_ID */
-    public static final String COLUMNNAME_HR_Department_ID = "HR_Department_ID";
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-	/** Set Payroll Department	  */
-	public void setHR_Department_ID (int HR_Department_ID);
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-	/** Get Payroll Department	  */
-	public int getHR_Department_ID();
+  /** Column name HR_Department_ID */
+  public static final String COLUMNNAME_HR_Department_ID = "HR_Department_ID";
 
-	public org.eevolution.model.I_HR_Department getHR_Department() throws RuntimeException;
+  /** Set Payroll Department */
+  public void setHR_Department_ID(int HR_Department_ID);
 
-    /** Column name HR_Employee_ID */
-    public static final String COLUMNNAME_HR_Employee_ID = "HR_Employee_ID";
+  /** Get Payroll Department */
+  public int getHR_Department_ID();
 
-	/** Set Payroll Employee	  */
-	public void setHR_Employee_ID (int HR_Employee_ID);
+  public org.eevolution.model.I_HR_Department getHR_Department() throws RuntimeException;
 
-	/** Get Payroll Employee	  */
-	public int getHR_Employee_ID();
+  /** Column name HR_Employee_ID */
+  public static final String COLUMNNAME_HR_Employee_ID = "HR_Employee_ID";
 
-	public org.eevolution.model.I_HR_Employee getHR_Employee() throws RuntimeException;
+  /** Set Payroll Employee */
+  public void setHR_Employee_ID(int HR_Employee_ID);
 
-    /** Column name HR_Job_ID */
-    public static final String COLUMNNAME_HR_Job_ID = "HR_Job_ID";
+  /** Get Payroll Employee */
+  public int getHR_Employee_ID();
 
-	/** Set Payroll Job	  */
-	public void setHR_Job_ID (int HR_Job_ID);
+  public org.eevolution.model.I_HR_Employee getHR_Employee() throws RuntimeException;
 
-	/** Get Payroll Job	  */
-	public int getHR_Job_ID();
+  /** Column name HR_Job_ID */
+  public static final String COLUMNNAME_HR_Job_ID = "HR_Job_ID";
 
-	public org.eevolution.model.I_HR_Job getHR_Job() throws RuntimeException;
+  /** Set Payroll Job */
+  public void setHR_Job_ID(int HR_Job_ID);
 
-    /** Column name HR_Payroll_ID */
-    public static final String COLUMNNAME_HR_Payroll_ID = "HR_Payroll_ID";
+  /** Get Payroll Job */
+  public int getHR_Job_ID();
 
-	/** Set Payroll	  */
-	public void setHR_Payroll_ID (int HR_Payroll_ID);
+  public org.eevolution.model.I_HR_Job getHR_Job() throws RuntimeException;
 
-	/** Get Payroll	  */
-	public int getHR_Payroll_ID();
+  /** Column name HR_Payroll_ID */
+  public static final String COLUMNNAME_HR_Payroll_ID = "HR_Payroll_ID";
 
-	public org.eevolution.model.I_HR_Payroll getHR_Payroll() throws RuntimeException;
+  /** Set Payroll */
+  public void setHR_Payroll_ID(int HR_Payroll_ID);
 
-    /** Column name HR_Period_ID */
-    public static final String COLUMNNAME_HR_Period_ID = "HR_Period_ID";
+  /** Get Payroll */
+  public int getHR_Payroll_ID();
 
-	/** Set Payroll Period	  */
-	public void setHR_Period_ID (int HR_Period_ID);
+  public org.eevolution.model.I_HR_Payroll getHR_Payroll() throws RuntimeException;
 
-	/** Get Payroll Period	  */
-	public int getHR_Period_ID();
+  /** Column name HR_Period_ID */
+  public static final String COLUMNNAME_HR_Period_ID = "HR_Period_ID";
 
-	public org.eevolution.model.I_HR_Period getHR_Period() throws RuntimeException;
+  /** Set Payroll Period */
+  public void setHR_Period_ID(int HR_Period_ID);
 
-    /** Column name HR_Process_ID */
-    public static final String COLUMNNAME_HR_Process_ID = "HR_Process_ID";
+  /** Get Payroll Period */
+  public int getHR_Period_ID();
 
-	/** Set Payroll Process	  */
-	public void setHR_Process_ID (int HR_Process_ID);
+  public org.eevolution.model.I_HR_Period getHR_Period() throws RuntimeException;
 
-	/** Get Payroll Process	  */
-	public int getHR_Process_ID();
+  /** Column name HR_Process_ID */
+  public static final String COLUMNNAME_HR_Process_ID = "HR_Process_ID";
 
-    /** Column name HR_Process_UU */
-    public static final String COLUMNNAME_HR_Process_UU = "HR_Process_UU";
+  /** Set Payroll Process */
+  public void setHR_Process_ID(int HR_Process_ID);
 
-	/** Set HR_Process_UU	  */
-	public void setHR_Process_UU (String HR_Process_UU);
+  /** Get Payroll Process */
+  public int getHR_Process_ID();
 
-	/** Get HR_Process_UU	  */
-	public String getHR_Process_UU();
+  /** Column name HR_Process_UU */
+  public static final String COLUMNNAME_HR_Process_UU = "HR_Process_UU";
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Set HR_Process_UU */
+  public void setHR_Process_UU(String HR_Process_UU);
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Get HR_Process_UU */
+  public String getHR_Process_UU();
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    
-    
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-    /** Column name Posted */
-    public static final String COLUMNNAME_Posted = "Posted";
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-	/** Set Posted.
-	  * Posting status
-	  */
-	public void setPosted (boolean Posted);
+  /** Column name Posted */
+  public static final String COLUMNNAME_Posted = "Posted";
 
-	/** Get Posted.
-	  * Posting status
-	  */
-	public boolean isPosted();
+  /** Set Posted. Posting status */
+  public void setPosted(boolean Posted);
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Get Posted. Posting status */
+  public boolean isPosted();
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-    /** Column name ProcessedOn */
-    public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-	/** Set Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public void setProcessedOn (BigDecimal ProcessedOn);
+  /** Column name ProcessedOn */
+  public static final String COLUMNNAME_ProcessedOn = "ProcessedOn";
 
-	/** Get Processed On.
-	  * The date+time (expressed in decimal format) when the document has been processed
-	  */
-	public BigDecimal getProcessedOn();
+  /**
+   * Set Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public void setProcessedOn(BigDecimal ProcessedOn);
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /**
+   * Get Processed On. The date+time (expressed in decimal format) when the document has been
+   * processed
+   */
+  public BigDecimal getProcessedOn();
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-    /** Column name Reversal_ID */
-    public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
+  /** Get Process Now */
+  public boolean isProcessing();
 
-	/** Set Reversal ID.
-	  * ID of document reversal
-	  */
-	public void setReversal_ID (int Reversal_ID);
+  /** Column name Reversal_ID */
+  public static final String COLUMNNAME_Reversal_ID = "Reversal_ID";
 
-	/** Get Reversal ID.
-	  * ID of document reversal
-	  */
-	public int getReversal_ID();
+  /** Set Reversal ID. ID of document reversal */
+  public void setReversal_ID(int Reversal_ID);
 
-	public org.eevolution.model.I_HR_Process getReversal() throws RuntimeException;
+  /** Get Reversal ID. ID of document reversal */
+  public int getReversal_ID();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  public org.eevolution.model.I_HR_Process getReversal() throws RuntimeException;
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 }

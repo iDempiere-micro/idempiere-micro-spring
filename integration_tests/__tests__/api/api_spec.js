@@ -75,3 +75,31 @@ it('GardenUser can see version using GraphQL', function () {
         .expect('status', 200);
     });
 });
+it('GardenUser can create crm category using GraphQL', function () {
+  return frisby
+    .setup({
+      request: {
+        headers: {
+          'Content-Type': 'text/plain; charset=UTF-8',
+        }
+      }
+    })
+    .get('http://localhost:8080/session/GardenUser/login/GardenUser')
+    .expect('status', 200)
+    .expect('json', 'logged', true)
+    .then(function (res) { // res = FrisbyResponse object
+      let token = res.json.token;
+      return frisby
+        .setup({
+          request: {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Authorization': 'Token ' + token
+            }
+          }
+        })
+        .post('http://localhost:8080/graphql', {query: "mutation createCategory {  createCategory(name:\"test-123\", value:\"test-123\") {name id}}" })
+        .expect('status', 200);
+    });
+});

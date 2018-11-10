@@ -1,26 +1,17 @@
-/**
- * 
- */
+/** */
 package org.compiere.invoicing;
-
-
-import org.compiere.invoicing.AssetException;
 
 /**
  * Throwed when an asset related functionality is not yet implemented
- * @author Teo Sarca, SC ARHIPAC SERVICE SRL
  *
+ * @author Teo Sarca, SC ARHIPAC SERVICE SRL
  */
-public class AssetNotImplementedException extends AssetException
-{
+public class AssetNotImplementedException extends AssetException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7015542410574849684L;
+  /** */
+  private static final long serialVersionUID = -7015542410574849684L;
 
-	public AssetNotImplementedException(String additionalMessage)
-	{
-		super("@NotImplemented@ "+additionalMessage);
-	}
+  public AssetNotImplementedException(String additionalMessage) {
+    super("@NotImplemented@ " + additionalMessage);
+  }
 }

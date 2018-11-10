@@ -4,9 +4,7 @@ import java.sql.PreparedStatement;
 
 /**
  * Interface to wrap PreparedStatement
- * @author Low Heng Sin
  *
+ * @author Low Heng Sin
  */
-public interface CPreparedStatement extends CStatement, PreparedStatement
-{
-}	//	CPreparedStatement
+public interface CPreparedStatement extends CStatement, PreparedStatement {} // 	CPreparedStatement

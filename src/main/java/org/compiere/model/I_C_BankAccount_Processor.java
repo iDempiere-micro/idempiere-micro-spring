@@ -4,442 +4,345 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for C_BankAccount_Processor
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for C_BankAccount_Processor
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_C_BankAccount_Processor 
-{
-
-    /** TableName=C_BankAccount_Processor */
-    public static final String Table_Name = "C_BankAccount_Processor";
-
-    /** AD_Table_ID=200030 */
-    public static final int Table_ID = 200030;
+public interface I_C_BankAccount_Processor {
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
-
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
-
-    /** Load Meta Data */
+  /** TableName=C_BankAccount_Processor */
+  public static final String Table_Name = "C_BankAccount_Processor";
 
-    /** Column name AcceptAMEX */
-    public static final String COLUMNNAME_AcceptAMEX = "AcceptAMEX";
-
-	/** Set Accept AMEX.
-	  * Accept American Express Card
-	  */
-	public void setAcceptAMEX (boolean AcceptAMEX);
+  /** AD_Table_ID=200030 */
+  public static final int Table_ID = 200030;
 
-	/** Get Accept AMEX.
-	  * Accept American Express Card
-	  */
-	public boolean isAcceptAMEX();
-
-    /** Column name AcceptATM */
-    public static final String COLUMNNAME_AcceptATM = "AcceptATM";
-
-	/** Set Accept ATM.
-	  * Accept Bank ATM Card
-	  */
-	public void setAcceptATM (boolean AcceptATM);
-
-	/** Get Accept ATM.
-	  * Accept Bank ATM Card
-	  */
-	public boolean isAcceptATM();
-
-    /** Column name AcceptCheck */
-    public static final String COLUMNNAME_AcceptCheck = "AcceptCheck";
-
-	/** Set Accept Electronic Check.
-	  * Accept ECheck (Electronic Checks)
-	  */
-	public void setAcceptCheck (boolean AcceptCheck);
-
-	/** Get Accept Electronic Check.
-	  * Accept ECheck (Electronic Checks)
-	  */
-	public boolean isAcceptCheck();
-
-    /** Column name AcceptCorporate */
-    public static final String COLUMNNAME_AcceptCorporate = "AcceptCorporate";
-
-	/** Set Accept Corporate.
-	  * Accept Corporate Purchase Cards
-	  */
-	public void setAcceptCorporate (boolean AcceptCorporate);
-
-	/** Get Accept Corporate.
-	  * Accept Corporate Purchase Cards
-	  */
-	public boolean isAcceptCorporate();
-
-    /** Column name AcceptDiners */
-    public static final String COLUMNNAME_AcceptDiners = "AcceptDiners";
-
-	/** Set Accept Diners.
-	  * Accept Diner's Club
-	  */
-	public void setAcceptDiners (boolean AcceptDiners);
-
-	/** Get Accept Diners.
-	  * Accept Diner's Club
-	  */
-	public boolean isAcceptDiners();
-
-    /** Column name AcceptDirectDebit */
-    public static final String COLUMNNAME_AcceptDirectDebit = "AcceptDirectDebit";
-
-	/** Set Accept Direct Debit.
-	  * Accept Direct Debits (vendor initiated)
-	  */
-	public void setAcceptDirectDebit (boolean AcceptDirectDebit);
-
-	/** Get Accept Direct Debit.
-	  * Accept Direct Debits (vendor initiated)
-	  */
-	public boolean isAcceptDirectDebit();
-
-    /** Column name AcceptDirectDeposit */
-    public static final String COLUMNNAME_AcceptDirectDeposit = "AcceptDirectDeposit";
-
-	/** Set Accept Direct Deposit.
-	  * Accept Direct Deposit (payee initiated)
-	  */
-	public void setAcceptDirectDeposit (boolean AcceptDirectDeposit);
-
-	/** Get Accept Direct Deposit.
-	  * Accept Direct Deposit (payee initiated)
-	  */
-	public boolean isAcceptDirectDeposit();
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** Column name AcceptDiscover */
-    public static final String COLUMNNAME_AcceptDiscover = "AcceptDiscover";
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-	/** Set Accept Discover.
-	  * Accept Discover Card
-	  */
-	public void setAcceptDiscover (boolean AcceptDiscover);
+  /** Load Meta Data */
 
-	/** Get Accept Discover.
-	  * Accept Discover Card
-	  */
-	public boolean isAcceptDiscover();
+  /** Column name AcceptAMEX */
+  public static final String COLUMNNAME_AcceptAMEX = "AcceptAMEX";
 
-    /** Column name AcceptMC */
-    public static final String COLUMNNAME_AcceptMC = "AcceptMC";
+  /** Set Accept AMEX. Accept American Express Card */
+  public void setAcceptAMEX(boolean AcceptAMEX);
 
-	/** Set Accept MasterCard.
-	  * Accept Master Card
-	  */
-	public void setAcceptMC (boolean AcceptMC);
+  /** Get Accept AMEX. Accept American Express Card */
+  public boolean isAcceptAMEX();
 
-	/** Get Accept MasterCard.
-	  * Accept Master Card
-	  */
-	public boolean isAcceptMC();
+  /** Column name AcceptATM */
+  public static final String COLUMNNAME_AcceptATM = "AcceptATM";
 
-    /** Column name AcceptVisa */
-    public static final String COLUMNNAME_AcceptVisa = "AcceptVisa";
+  /** Set Accept ATM. Accept Bank ATM Card */
+  public void setAcceptATM(boolean AcceptATM);
 
-	/** Set Accept Visa.
-	  * Accept Visa Cards
-	  */
-	public void setAcceptVisa (boolean AcceptVisa);
+  /** Get Accept ATM. Accept Bank ATM Card */
+  public boolean isAcceptATM();
 
-	/** Get Accept Visa.
-	  * Accept Visa Cards
-	  */
-	public boolean isAcceptVisa();
+  /** Column name AcceptCheck */
+  public static final String COLUMNNAME_AcceptCheck = "AcceptCheck";
 
-    
-    
-
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Set Accept Electronic Check. Accept ECheck (Electronic Checks) */
+  public void setAcceptCheck(boolean AcceptCheck);
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Get Accept Electronic Check. Accept ECheck (Electronic Checks) */
+  public boolean isAcceptCheck();
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Column name AcceptCorporate */
+  public static final String COLUMNNAME_AcceptCorporate = "AcceptCorporate";
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Set Accept Corporate. Accept Corporate Purchase Cards */
+  public void setAcceptCorporate(boolean AcceptCorporate);
 
-    /** Column name C_BankAccount_ID */
-    public static final String COLUMNNAME_C_BankAccount_ID = "C_BankAccount_ID";
+  /** Get Accept Corporate. Accept Corporate Purchase Cards */
+  public boolean isAcceptCorporate();
 
-	/** Set Bank Account.
-	  * Account at the Bank
-	  */
-	public void setC_BankAccount_ID (int C_BankAccount_ID);
+  /** Column name AcceptDiners */
+  public static final String COLUMNNAME_AcceptDiners = "AcceptDiners";
 
-	/** Get Bank Account.
-	  * Account at the Bank
-	  */
-	public int getC_BankAccount_ID();
+  /** Set Accept Diners. Accept Diner's Club */
+  public void setAcceptDiners(boolean AcceptDiners);
 
-	public I_C_BankAccount getC_BankAccount() throws RuntimeException;
+  /** Get Accept Diners. Accept Diner's Club */
+  public boolean isAcceptDiners();
 
-    /** Column name C_BankAccount_Processor_UU */
-    public static final String COLUMNNAME_C_BankAccount_Processor_UU = "C_BankAccount_Processor_UU";
+  /** Column name AcceptDirectDebit */
+  public static final String COLUMNNAME_AcceptDirectDebit = "AcceptDirectDebit";
 
-	/** Set C_BankAccount_Processor_UU	  */
-	public void setC_BankAccount_Processor_UU (String C_BankAccount_Processor_UU);
+  /** Set Accept Direct Debit. Accept Direct Debits (vendor initiated) */
+  public void setAcceptDirectDebit(boolean AcceptDirectDebit);
 
-	/** Get C_BankAccount_Processor_UU	  */
-	public String getC_BankAccount_Processor_UU();
+  /** Get Accept Direct Debit. Accept Direct Debits (vendor initiated) */
+  public boolean isAcceptDirectDebit();
 
-    /** Column name C_Currency_ID */
-    public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
+  /** Column name AcceptDirectDeposit */
+  public static final String COLUMNNAME_AcceptDirectDeposit = "AcceptDirectDeposit";
 
-	/** Set Currency.
-	  * The Currency for this record
-	  */
-	public void setC_Currency_ID (int C_Currency_ID);
+  /** Set Accept Direct Deposit. Accept Direct Deposit (payee initiated) */
+  public void setAcceptDirectDeposit(boolean AcceptDirectDeposit);
 
-	/** Get Currency.
-	  * The Currency for this record
-	  */
-	public int getC_Currency_ID();
+  /** Get Accept Direct Deposit. Accept Direct Deposit (payee initiated) */
+  public boolean isAcceptDirectDeposit();
 
-	public I_C_Currency getC_Currency() throws RuntimeException;
+  /** Column name AcceptDiscover */
+  public static final String COLUMNNAME_AcceptDiscover = "AcceptDiscover";
 
-    /** Column name C_PaymentProcessor_ID */
-    public static final String COLUMNNAME_C_PaymentProcessor_ID = "C_PaymentProcessor_ID";
+  /** Set Accept Discover. Accept Discover Card */
+  public void setAcceptDiscover(boolean AcceptDiscover);
 
-	/** Set Payment Processor.
-	  * Payment processor for electronic payments
-	  */
-	public void setC_PaymentProcessor_ID (int C_PaymentProcessor_ID);
+  /** Get Accept Discover. Accept Discover Card */
+  public boolean isAcceptDiscover();
 
-	/** Get Payment Processor.
-	  * Payment processor for electronic payments
-	  */
-	public int getC_PaymentProcessor_ID();
+  /** Column name AcceptMC */
+  public static final String COLUMNNAME_AcceptMC = "AcceptMC";
 
-	public I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException;
+  /** Set Accept MasterCard. Accept Master Card */
+  public void setAcceptMC(boolean AcceptMC);
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Get Accept MasterCard. Accept Master Card */
+  public boolean isAcceptMC();
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Column name AcceptVisa */
+  public static final String COLUMNNAME_AcceptVisa = "AcceptVisa";
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Set Accept Visa. Accept Visa Cards */
+  public void setAcceptVisa(boolean AcceptVisa);
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Get Accept Visa. Accept Visa Cards */
+  public boolean isAcceptVisa();
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-    /** Column name IsPPAcceptAMEX */
-    public static final String COLUMNNAME_IsPPAcceptAMEX = "IsPPAcceptAMEX";
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-	/** Set Accept AMEX	  */
-	public void setIsPPAcceptAMEX (boolean IsPPAcceptAMEX);
+  /** Column name C_BankAccount_ID */
+  public static final String COLUMNNAME_C_BankAccount_ID = "C_BankAccount_ID";
 
-	/** Get Accept AMEX	  */
-	public boolean isPPAcceptAMEX();
+  /** Set Bank Account. Account at the Bank */
+  public void setC_BankAccount_ID(int C_BankAccount_ID);
 
-    /** Column name IsPPAcceptATM */
-    public static final String COLUMNNAME_IsPPAcceptATM = "IsPPAcceptATM";
+  /** Get Bank Account. Account at the Bank */
+  public int getC_BankAccount_ID();
 
-	/** Set Accept ATM	  */
-	public void setIsPPAcceptATM (boolean IsPPAcceptATM);
+  public I_C_BankAccount getC_BankAccount() throws RuntimeException;
 
-	/** Get Accept ATM	  */
-	public boolean isPPAcceptATM();
+  /** Column name C_BankAccount_Processor_UU */
+  public static final String COLUMNNAME_C_BankAccount_Processor_UU = "C_BankAccount_Processor_UU";
 
-    /** Column name IsPPAcceptCheck */
-    public static final String COLUMNNAME_IsPPAcceptCheck = "IsPPAcceptCheck";
+  /** Set C_BankAccount_Processor_UU */
+  public void setC_BankAccount_Processor_UU(String C_BankAccount_Processor_UU);
 
-	/** Set Accept Check	  */
-	public void setIsPPAcceptCheck (boolean IsPPAcceptCheck);
+  /** Get C_BankAccount_Processor_UU */
+  public String getC_BankAccount_Processor_UU();
 
-	/** Get Accept Check	  */
-	public boolean isPPAcceptCheck();
+  /** Column name C_Currency_ID */
+  public static final String COLUMNNAME_C_Currency_ID = "C_Currency_ID";
 
-    /** Column name IsPPAcceptCorporate */
-    public static final String COLUMNNAME_IsPPAcceptCorporate = "IsPPAcceptCorporate";
+  /** Set Currency. The Currency for this record */
+  public void setC_Currency_ID(int C_Currency_ID);
 
-	/** Set Accept Corporate	  */
-	public void setIsPPAcceptCorporate (boolean IsPPAcceptCorporate);
+  /** Get Currency. The Currency for this record */
+  public int getC_Currency_ID();
 
-	/** Get Accept Corporate	  */
-	public boolean isPPAcceptCorporate();
+  public I_C_Currency getC_Currency() throws RuntimeException;
 
-    /** Column name IsPPAcceptDiners */
-    public static final String COLUMNNAME_IsPPAcceptDiners = "IsPPAcceptDiners";
+  /** Column name C_PaymentProcessor_ID */
+  public static final String COLUMNNAME_C_PaymentProcessor_ID = "C_PaymentProcessor_ID";
 
-	/** Set Accept Diners	  */
-	public void setIsPPAcceptDiners (boolean IsPPAcceptDiners);
+  /** Set Payment Processor. Payment processor for electronic payments */
+  public void setC_PaymentProcessor_ID(int C_PaymentProcessor_ID);
 
-	/** Get Accept Diners	  */
-	public boolean isPPAcceptDiners();
+  /** Get Payment Processor. Payment processor for electronic payments */
+  public int getC_PaymentProcessor_ID();
 
-    /** Column name IsPPAcceptDirectDebit */
-    public static final String COLUMNNAME_IsPPAcceptDirectDebit = "IsPPAcceptDirectDebit";
+  public I_C_PaymentProcessor getC_PaymentProcessor() throws RuntimeException;
 
-	/** Set Accept Direct Debit	  */
-	public void setIsPPAcceptDirectDebit (boolean IsPPAcceptDirectDebit);
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	/** Get Accept Direct Debit	  */
-	public boolean isPPAcceptDirectDebit();
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name IsPPAcceptDirectDeposit */
-    public static final String COLUMNNAME_IsPPAcceptDirectDeposit = "IsPPAcceptDirectDeposit";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Set Accept Direct Deposit	  */
-	public void setIsPPAcceptDirectDeposit (boolean IsPPAcceptDirectDeposit);
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Accept Direct Deposit	  */
-	public boolean isPPAcceptDirectDeposit();
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-    /** Column name IsPPAcceptDiscover */
-    public static final String COLUMNNAME_IsPPAcceptDiscover = "IsPPAcceptDiscover";
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Set Accept Discover	  */
-	public void setIsPPAcceptDiscover (boolean IsPPAcceptDiscover);
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Get Accept Discover	  */
-	public boolean isPPAcceptDiscover();
+  /** Column name IsPPAcceptAMEX */
+  public static final String COLUMNNAME_IsPPAcceptAMEX = "IsPPAcceptAMEX";
 
-    /** Column name IsPPAcceptMC */
-    public static final String COLUMNNAME_IsPPAcceptMC = "IsPPAcceptMC";
+  /** Set Accept AMEX */
+  public void setIsPPAcceptAMEX(boolean IsPPAcceptAMEX);
 
-	/** Set Accept MasterCard	  */
-	public void setIsPPAcceptMC (boolean IsPPAcceptMC);
+  /** Get Accept AMEX */
+  public boolean isPPAcceptAMEX();
 
-	/** Get Accept MasterCard	  */
-	public boolean isPPAcceptMC();
+  /** Column name IsPPAcceptATM */
+  public static final String COLUMNNAME_IsPPAcceptATM = "IsPPAcceptATM";
 
-    /** Column name IsPPAcceptVisa */
-    public static final String COLUMNNAME_IsPPAcceptVisa = "IsPPAcceptVisa";
+  /** Set Accept ATM */
+  public void setIsPPAcceptATM(boolean IsPPAcceptATM);
 
-	/** Set Accept Visa	  */
-	public void setIsPPAcceptVisa (boolean IsPPAcceptVisa);
+  /** Get Accept ATM */
+  public boolean isPPAcceptATM();
 
-	/** Get Accept Visa	  */
-	public boolean isPPAcceptVisa();
+  /** Column name IsPPAcceptCheck */
+  public static final String COLUMNNAME_IsPPAcceptCheck = "IsPPAcceptCheck";
 
-    /** Column name MinimumAmt */
-    public static final String COLUMNNAME_MinimumAmt = "MinimumAmt";
+  /** Set Accept Check */
+  public void setIsPPAcceptCheck(boolean IsPPAcceptCheck);
 
-	/** Set Minimum Amt.
-	  * Minimum Amount in Document Currency
-	  */
-	public void setMinimumAmt (BigDecimal MinimumAmt);
+  /** Get Accept Check */
+  public boolean isPPAcceptCheck();
 
-	/** Get Minimum Amt.
-	  * Minimum Amount in Document Currency
-	  */
-	public BigDecimal getMinimumAmt();
+  /** Column name IsPPAcceptCorporate */
+  public static final String COLUMNNAME_IsPPAcceptCorporate = "IsPPAcceptCorporate";
 
-    /** Column name PartnerID */
-    public static final String COLUMNNAME_PartnerID = "PartnerID";
+  /** Set Accept Corporate */
+  public void setIsPPAcceptCorporate(boolean IsPPAcceptCorporate);
 
-	/** Set Partner ID.
-	  * Partner ID or Account for the Payment Processor
-	  */
-	public void setPartnerID (String PartnerID);
+  /** Get Accept Corporate */
+  public boolean isPPAcceptCorporate();
 
-	/** Get Partner ID.
-	  * Partner ID or Account for the Payment Processor
-	  */
-	public String getPartnerID();
+  /** Column name IsPPAcceptDiners */
+  public static final String COLUMNNAME_IsPPAcceptDiners = "IsPPAcceptDiners";
 
-    /** Column name Password */
-    public static final String COLUMNNAME_Password = "Password";
+  /** Set Accept Diners */
+  public void setIsPPAcceptDiners(boolean IsPPAcceptDiners);
 
-	/** Set Password.
-	  * Password of any length (case sensitive)
-	  */
-	public void setPassword (String Password);
+  /** Get Accept Diners */
+  public boolean isPPAcceptDiners();
 
-	/** Get Password.
-	  * Password of any length (case sensitive)
-	  */
-	public String getPassword();
+  /** Column name IsPPAcceptDirectDebit */
+  public static final String COLUMNNAME_IsPPAcceptDirectDebit = "IsPPAcceptDirectDebit";
 
-    /** Column name RequireVV */
-    public static final String COLUMNNAME_RequireVV = "RequireVV";
+  /** Set Accept Direct Debit */
+  public void setIsPPAcceptDirectDebit(boolean IsPPAcceptDirectDebit);
 
-	/** Set Require CreditCard Verification Code.
-	  * Require 3/4 digit Credit Verification Code
-	  */
-	public void setRequireVV (boolean RequireVV);
+  /** Get Accept Direct Debit */
+  public boolean isPPAcceptDirectDebit();
 
-	/** Get Require CreditCard Verification Code.
-	  * Require 3/4 digit Credit Verification Code
-	  */
-	public boolean isRequireVV();
+  /** Column name IsPPAcceptDirectDeposit */
+  public static final String COLUMNNAME_IsPPAcceptDirectDeposit = "IsPPAcceptDirectDeposit";
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Set Accept Direct Deposit */
+  public void setIsPPAcceptDirectDeposit(boolean IsPPAcceptDirectDeposit);
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Get Accept Direct Deposit */
+  public boolean isPPAcceptDirectDeposit();
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Column name IsPPAcceptDiscover */
+  public static final String COLUMNNAME_IsPPAcceptDiscover = "IsPPAcceptDiscover";
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Set Accept Discover */
+  public void setIsPPAcceptDiscover(boolean IsPPAcceptDiscover);
 
-    /** Column name UserID */
-    public static final String COLUMNNAME_UserID = "UserID";
+  /** Get Accept Discover */
+  public boolean isPPAcceptDiscover();
 
-	/** Set User ID.
-	  * User ID or account number
-	  */
-	public void setUserID (String UserID);
+  /** Column name IsPPAcceptMC */
+  public static final String COLUMNNAME_IsPPAcceptMC = "IsPPAcceptMC";
 
-	/** Get User ID.
-	  * User ID or account number
-	  */
-	public String getUserID();
+  /** Set Accept MasterCard */
+  public void setIsPPAcceptMC(boolean IsPPAcceptMC);
 
-    /** Column name VendorID */
-    public static final String COLUMNNAME_VendorID = "VendorID";
+  /** Get Accept MasterCard */
+  public boolean isPPAcceptMC();
 
-	/** Set Vendor ID.
-	  * Vendor ID for the Payment Processor
-	  */
-	public void setVendorID (String VendorID);
+  /** Column name IsPPAcceptVisa */
+  public static final String COLUMNNAME_IsPPAcceptVisa = "IsPPAcceptVisa";
 
-	/** Get Vendor ID.
-	  * Vendor ID for the Payment Processor
-	  */
-	public String getVendorID();
+  /** Set Accept Visa */
+  public void setIsPPAcceptVisa(boolean IsPPAcceptVisa);
+
+  /** Get Accept Visa */
+  public boolean isPPAcceptVisa();
+
+  /** Column name MinimumAmt */
+  public static final String COLUMNNAME_MinimumAmt = "MinimumAmt";
+
+  /** Set Minimum Amt. Minimum Amount in Document Currency */
+  public void setMinimumAmt(BigDecimal MinimumAmt);
+
+  /** Get Minimum Amt. Minimum Amount in Document Currency */
+  public BigDecimal getMinimumAmt();
+
+  /** Column name PartnerID */
+  public static final String COLUMNNAME_PartnerID = "PartnerID";
+
+  /** Set Partner ID. Partner ID or Account for the Payment Processor */
+  public void setPartnerID(String PartnerID);
+
+  /** Get Partner ID. Partner ID or Account for the Payment Processor */
+  public String getPartnerID();
+
+  /** Column name Password */
+  public static final String COLUMNNAME_Password = "Password";
+
+  /** Set Password. Password of any length (case sensitive) */
+  public void setPassword(String Password);
+
+  /** Get Password. Password of any length (case sensitive) */
+  public String getPassword();
+
+  /** Column name RequireVV */
+  public static final String COLUMNNAME_RequireVV = "RequireVV";
+
+  /** Set Require CreditCard Verification Code. Require 3/4 digit Credit Verification Code */
+  public void setRequireVV(boolean RequireVV);
+
+  /** Get Require CreditCard Verification Code. Require 3/4 digit Credit Verification Code */
+  public boolean isRequireVV();
+
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
+
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
+
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
+
+  /** Column name UserID */
+  public static final String COLUMNNAME_UserID = "UserID";
+
+  /** Set User ID. User ID or account number */
+  public void setUserID(String UserID);
+
+  /** Get User ID. User ID or account number */
+  public String getUserID();
+
+  /** Column name VendorID */
+  public static final String COLUMNNAME_VendorID = "VendorID";
+
+  /** Set Vendor ID. Vendor ID for the Payment Processor */
+  public void setVendorID(String VendorID);
+
+  /** Get Vendor ID. Vendor ID for the Payment Processor */
+  public String getVendorID();
 }
