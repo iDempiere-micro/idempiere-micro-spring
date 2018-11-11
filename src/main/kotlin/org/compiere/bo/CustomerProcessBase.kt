@@ -191,7 +191,7 @@ abstract class CustomerProcessBase(
 
     abstract fun getData(m_trx: Trx): I_C_BPartner
 
-    private fun setLocations( result: I_C_BPartner ) {
+    private fun setLocations(result: I_C_BPartner) {
         val location = result.locations.firstOrNull { it.isShipTo }
         val updatedLocation =
                 if (location != null) {
@@ -219,7 +219,7 @@ abstract class CustomerProcessBase(
         updatedLegal.save()
     }
 
-    private fun setPersons( result: I_C_BPartner ) {
+    private fun setPersons(result: I_C_BPartner) {
         val contactPersons = result.getContacts()
         val orderContact =
                 if (contactPersons.count() > 0) {

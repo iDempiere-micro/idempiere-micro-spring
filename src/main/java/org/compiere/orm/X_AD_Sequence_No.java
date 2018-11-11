@@ -1,140 +1,136 @@
 package org.compiere.orm;
 
+import java.sql.ResultSet;
+import java.util.Properties;
 import org.compiere.model.I_AD_Sequence_No;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
+/**
+ * Generated Model for AD_Sequence_No
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1 - $Id$
+ */
+public class X_AD_Sequence_No extends PO implements I_AD_Sequence_No, I_Persistent {
 
-import java.sql.ResultSet;
-import java.util.Properties;
+  /** */
+  private static final long serialVersionUID = 20171031L;
 
-/** Generated Model for AD_Sequence_No
- *  @author iDempiere (generated) 
- *  @version Release 5.1 - $Id$ */
-public class X_AD_Sequence_No extends PO implements I_AD_Sequence_No, I_Persistent
-{
+  /** Standard Constructor */
+  public X_AD_Sequence_No(Properties ctx, int AD_Sequence_No_ID, String trxName) {
+    super(ctx, AD_Sequence_No_ID, trxName);
+    /**
+     * if (AD_Sequence_No_ID == 0) { setAD_Sequence_ID (0); setCalendarYearMonth (null);
+     * setCurrentNext (0); }
+     */
+  }
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 20171031L;
+  /** Load Constructor */
+  public X_AD_Sequence_No(Properties ctx, ResultSet rs, String trxName) {
+    super(ctx, rs, trxName);
+  }
 
-    /** Standard Constructor */
-    public X_AD_Sequence_No (Properties ctx, int AD_Sequence_No_ID, String trxName)
-    {
-      super (ctx, AD_Sequence_No_ID, trxName);
-      /** if (AD_Sequence_No_ID == 0)
-        {
-			setAD_Sequence_ID (0);
-			setCalendarYearMonth (null);
-			setCurrentNext (0);
-        } */
-    }
+  /**
+   * AccessLevel
+   *
+   * @return 6 - System - Client
+   */
+  protected int getAccessLevel() {
+    return accessLevel.intValue();
+  }
 
-    /** Load Constructor */
-    public X_AD_Sequence_No (Properties ctx, ResultSet rs, String trxName)
-    {
-      super (ctx, rs, trxName);
-    }
+  /** Load Meta Data */
+  protected POInfo initPO(Properties ctx) {
+    POInfo poi = POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
+    return poi;
+  }
 
-    /** AccessLevel
-      * @return 6 - System - Client 
-      */
-    protected int getAccessLevel()
-    {
-      return accessLevel.intValue();
-    }
+  public String toString() {
+    StringBuffer sb = new StringBuffer("X_AD_Sequence_No[").append(getId()).append("]");
+    return sb.toString();
+  }
 
-    /** Load Meta Data */
-    protected POInfo initPO (Properties ctx)
-    {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
-    }
+  public org.compiere.model.I_AD_Sequence getAD_Sequence() throws RuntimeException {
+    return (org.compiere.model.I_AD_Sequence)
+        MTable.get(getCtx(), org.compiere.model.I_AD_Sequence.Table_Name)
+            .getPO(getAD_Sequence_ID(), get_TrxName());
+  }
 
-    public String toString()
-    {
-      StringBuffer sb = new StringBuffer ("X_AD_Sequence_No[")
-        .append(getId()).append("]");
-      return sb.toString();
-    }
+  /**
+   * Set Sequence.
+   *
+   * @param AD_Sequence_ID Document Sequence
+   */
+  public void setAD_Sequence_ID(int AD_Sequence_ID) {
+    if (AD_Sequence_ID < 1) set_ValueNoCheck(COLUMNNAME_AD_Sequence_ID, null);
+    else set_ValueNoCheck(COLUMNNAME_AD_Sequence_ID, Integer.valueOf(AD_Sequence_ID));
+  }
 
-	public org.compiere.model.I_AD_Sequence getAD_Sequence() throws RuntimeException
-    {
-		return (org.compiere.model.I_AD_Sequence)MTable.get(getCtx(), org.compiere.model.I_AD_Sequence.Table_Name)
-			.getPO(getAD_Sequence_ID(), get_TrxName());	}
+  /**
+   * Get Sequence.
+   *
+   * @return Document Sequence
+   */
+  public int getAD_Sequence_ID() {
+    Integer ii = (Integer) get_Value(COLUMNNAME_AD_Sequence_ID);
+    if (ii == null) return 0;
+    return ii;
+  }
 
-	/** Set Sequence.
-		@param AD_Sequence_ID 
-		Document Sequence
-	  */
-	public void setAD_Sequence_ID (int AD_Sequence_ID)
-	{
-		if (AD_Sequence_ID < 1) 
-			set_ValueNoCheck (COLUMNNAME_AD_Sequence_ID, null);
-		else 
-			set_ValueNoCheck (COLUMNNAME_AD_Sequence_ID, Integer.valueOf(AD_Sequence_ID));
-	}
+  /**
+   * Set AD_Sequence_No_UU.
+   *
+   * @param AD_Sequence_No_UU AD_Sequence_No_UU
+   */
+  public void setAD_Sequence_No_UU(String AD_Sequence_No_UU) {
+    set_Value(COLUMNNAME_AD_Sequence_No_UU, AD_Sequence_No_UU);
+  }
 
-	/** Get Sequence.
-		@return Document Sequence
-	  */
-	public int getAD_Sequence_ID () 
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Sequence_ID);
-		if (ii == null)
-			 return 0;
-		return ii;
-	}
+  /**
+   * Get AD_Sequence_No_UU.
+   *
+   * @return AD_Sequence_No_UU
+   */
+  public String getAD_Sequence_No_UU() {
+    return (String) get_Value(COLUMNNAME_AD_Sequence_No_UU);
+  }
 
-	/** Set AD_Sequence_No_UU.
-		@param AD_Sequence_No_UU AD_Sequence_No_UU	  */
-	public void setAD_Sequence_No_UU (String AD_Sequence_No_UU)
-	{
-		set_Value (COLUMNNAME_AD_Sequence_No_UU, AD_Sequence_No_UU);
-	}
+  /**
+   * Set YearMonth.
+   *
+   * @param CalendarYearMonth YYYYMM
+   */
+  public void setCalendarYearMonth(String CalendarYearMonth) {
+    set_ValueNoCheck(COLUMNNAME_CalendarYearMonth, CalendarYearMonth);
+  }
 
-	/** Get AD_Sequence_No_UU.
-		@return AD_Sequence_No_UU	  */
-	public String getAD_Sequence_No_UU () 
-	{
-		return (String)get_Value(COLUMNNAME_AD_Sequence_No_UU);
-	}
+  /**
+   * Get YearMonth.
+   *
+   * @return YYYYMM
+   */
+  public String getCalendarYearMonth() {
+    return (String) get_Value(COLUMNNAME_CalendarYearMonth);
+  }
 
-	/** Set YearMonth.
-		@param CalendarYearMonth 
-		YYYYMM
-	  */
-	public void setCalendarYearMonth (String CalendarYearMonth)
-	{
-		set_ValueNoCheck (COLUMNNAME_CalendarYearMonth, CalendarYearMonth);
-	}
+  /**
+   * Set Current Next.
+   *
+   * @param CurrentNext The next number to be used
+   */
+  public void setCurrentNext(int CurrentNext) {
+    set_Value(COLUMNNAME_CurrentNext, Integer.valueOf(CurrentNext));
+  }
 
-	/** Get YearMonth.
-		@return YYYYMM
-	  */
-	public String getCalendarYearMonth () 
-	{
-		return (String)get_Value(COLUMNNAME_CalendarYearMonth);
-	}
-
-	/** Set Current Next.
-		@param CurrentNext 
-		The next number to be used
-	  */
-	public void setCurrentNext (int CurrentNext)
-	{
-		set_Value (COLUMNNAME_CurrentNext, Integer.valueOf(CurrentNext));
-	}
-
-	/** Get Current Next.
-		@return The next number to be used
-	  */
-	public int getCurrentNext () 
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_CurrentNext);
-		if (ii == null)
-			 return 0;
-		return ii;
-	}
+  /**
+   * Get Current Next.
+   *
+   * @return The next number to be used
+   */
+  public int getCurrentNext() {
+    Integer ii = (Integer) get_Value(COLUMNNAME_CurrentNext);
+    if (ii == null) return 0;
+    return ii;
+  }
 }

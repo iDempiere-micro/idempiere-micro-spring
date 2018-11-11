@@ -4,138 +4,119 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
-
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.CLogger;
 
 /**
- *  MLookup Data Cache.
- *  - not synchronized on purpose -
- *  Called from MLookup.
- *  Only caches multiple use for a single window!
- *  @author Jorg Janke
- *  @version  $Id: MLookupCache.java,v 1.2 2006/07/30 00:58:37 jjanke Exp $
+ * MLookup Data Cache. - not synchronized on purpose - Called from MLookup. Only caches multiple use
+ * for a single window!
+ *
+ * @author Jorg Janke
+ * @version $Id: MLookupCache.java,v 1.2 2006/07/30 00:58:37 jjanke Exp $
  */
-public class MLookupCache
-{
-	/** Static Logger					*/
-	private static CLogger 		s_log = CLogger.getCLogger(MLookupCache.class);
-	/** Static Lookup data with MLookupInfo -> HashMap  */
-	private static CCache<String,HashMap<Object,Object>> s_loadedLookups = new CCache<String,HashMap<Object,Object>>(null, "MLookupCache", 50, false);
-	
-	/**
-	 *  MLookup Loader starts loading - ignore for now
-	 *
-	 *  @param info MLookupInfo
-	 */
-	protected static void loadStart (MLookupInfo info)
-	{
-	}   //  loadStart
+public class MLookupCache {
+  /** Static Logger */
+  private static CLogger s_log = CLogger.getCLogger(MLookupCache.class);
+  /** Static Lookup data with MLookupInfo -> HashMap */
+  private static CCache<String, HashMap<Object, Object>> s_loadedLookups =
+      new CCache<String, HashMap<Object, Object>>(null, "MLookupCache", 50, false);
 
-	/**
-	 *  MLookup Loader ends loading, so add it to cache
-	 *
-	 *  @param info
-	 *  @param lookup
-	 */
-	protected static void loadEnd (MLookupInfo info, HashMap<Object,Object> lookup)
-	{
-		if (info.IsValidated && lookup.size() > 0)
-			s_loadedLookups.put(getKey(info), lookup);
-	}   //  loadEnd
+  /**
+   * MLookup Loader starts loading - ignore for now
+   *
+   * @param info MLookupInfo
+   */
+  protected static void loadStart(MLookupInfo info) {} //  loadStart
 
-	/**
-	 * 	Get Storage Key
-	 *	@param info lookup info
-	 *	@return key
-	 */
-	private static String getKey (MLookupInfo info)
-	{
-		if (info == null)
-			return String.valueOf(System.currentTimeMillis());
-		//
-		StringBuilder sb = new StringBuilder();
-		sb.append(info.WindowNo).append(":")
-		//	.append(info.Column_ID)
-			.append(info.KeyColumn)
-			.append(info.AD_Reference_Value_ID)
-			.append(info.Query)
-			.append(info.ValidationCode);
-		//	does not include ctx
-		return sb.toString();
-	}	//	getKey
+  /**
+   * MLookup Loader ends loading, so add it to cache
+   *
+   * @param info
+   * @param lookup
+   */
+  protected static void loadEnd(MLookupInfo info, HashMap<Object, Object> lookup) {
+    if (info.IsValidated && lookup.size() > 0) s_loadedLookups.put(getKey(info), lookup);
+  } //  loadEnd
 
+  /**
+   * Get Storage Key
+   *
+   * @param info lookup info
+   * @return key
+   */
+  private static String getKey(MLookupInfo info) {
+    if (info == null) return String.valueOf(System.currentTimeMillis());
+    //
+    StringBuilder sb = new StringBuilder();
+    sb.append(info.WindowNo)
+        .append(":")
+        //	.append(info.Column_ID)
+        .append(info.KeyColumn)
+        .append(info.AD_Reference_Value_ID)
+        .append(info.Query)
+        .append(info.ValidationCode);
+    //	does not include ctx
+    return sb.toString();
+  } //	getKey
 
-	/**
-	 *  Load from Cache if applicable
-	 *  Called from MLookup constructor
-	 *
-	 * @param info  MLookupInfo to search
-	 * @param lookupTarget Target HashMap
-	 * @return true, if lookup found
-	 */
-	protected static boolean loadFromCache (MLookupInfo info, HashMap<Object,Object> lookupTarget)
-	{
-		String key = getKey(info);
-		HashMap<Object,Object> cache = (HashMap<Object,Object>)s_loadedLookups.get(key);
-		if (cache == null)
-			return false;
-		//  Nothing cached
-		if (cache.size() == 0)
-		{
-			s_loadedLookups.remove(key);
-			return false;
-		}
+  /**
+   * Load from Cache if applicable Called from MLookup constructor
+   *
+   * @param info MLookupInfo to search
+   * @param lookupTarget Target HashMap
+   * @return true, if lookup found
+   */
+  protected static boolean loadFromCache(MLookupInfo info, HashMap<Object, Object> lookupTarget) {
+    String key = getKey(info);
+    HashMap<Object, Object> cache = (HashMap<Object, Object>) s_loadedLookups.get(key);
+    if (cache == null) return false;
+    //  Nothing cached
+    if (cache.size() == 0) {
+      s_loadedLookups.remove(key);
+      return false;
+    }
 
-		//  Copy Asynchronously to speed things up
-	//	if (cache.size() > ?) copyAsync
+    //  Copy Asynchronously to speed things up
+    //	if (cache.size() > ?) copyAsync
 
-		//  copy cache
-		//  we can use iterator, as the lookup loading is complete (i.e. no additional entries)
-		Iterator<Object> iterator = cache.keySet().iterator();
-		while (iterator.hasNext())
-		{
-			Object cacheKey = iterator.next();
-			Object cacheData = cache.get(cacheKey);
-			lookupTarget.put(cacheKey, cacheData);
-		}
+    //  copy cache
+    //  we can use iterator, as the lookup loading is complete (i.e. no additional entries)
+    Iterator<Object> iterator = cache.keySet().iterator();
+    while (iterator.hasNext()) {
+      Object cacheKey = iterator.next();
+      Object cacheData = cache.get(cacheKey);
+      lookupTarget.put(cacheKey, cacheData);
+    }
 
-		if (s_log.isLoggable(Level.FINE)) s_log.fine("#" + lookupTarget.size());
-		return true;
-	}   //  loadFromCache
+    if (s_log.isLoggable(Level.FINE)) s_log.fine("#" + lookupTarget.size());
+    return true;
+  } //  loadFromCache
 
-	/**
-	 *	Clear Static Lookup Cache for Window
-	 *  @param WindowNo WindowNo of Cache entries to delete
-	 */
-	public static void cacheReset (int WindowNo)
-	{
-		StringBuilder key = new StringBuilder(String.valueOf(WindowNo)).append(":");
-		int startNo = s_loadedLookups.size();
-		//  find keys of Lookups to delete
-		ArrayList<String> toDelete = new ArrayList<String>();
-		Iterator<String> iterator = s_loadedLookups.keySet().iterator();
-		while (iterator.hasNext())
-		{
-			String info = (String)iterator.next();
-			if (info != null && info.startsWith(key.toString()))
-				toDelete.add(info);
-		}
+  /**
+   * Clear Static Lookup Cache for Window
+   *
+   * @param WindowNo WindowNo of Cache entries to delete
+   */
+  public static void cacheReset(int WindowNo) {
+    StringBuilder key = new StringBuilder(String.valueOf(WindowNo)).append(":");
+    int startNo = s_loadedLookups.size();
+    //  find keys of Lookups to delete
+    ArrayList<String> toDelete = new ArrayList<String>();
+    Iterator<String> iterator = s_loadedLookups.keySet().iterator();
+    while (iterator.hasNext()) {
+      String info = (String) iterator.next();
+      if (info != null && info.startsWith(key.toString())) toDelete.add(info);
+    }
 
-		//  Do the actual delete
-		for (int i = 0; i < toDelete.size(); i++)
-			s_loadedLookups.remove(toDelete.get(i));
-		int endNo = s_loadedLookups.size();
-		if (s_log.isLoggable(Level.FINE)) s_log.fine("WindowNo=" + WindowNo
-			+ " - " + startNo + " -> " + endNo);
-	}	//	cacheReset
+    //  Do the actual delete
+    for (int i = 0; i < toDelete.size(); i++) s_loadedLookups.remove(toDelete.get(i));
+    int endNo = s_loadedLookups.size();
+    if (s_log.isLoggable(Level.FINE))
+      s_log.fine("WindowNo=" + WindowNo + " - " + startNo + " -> " + endNo);
+  } //	cacheReset
 
-	
-	/**************************************************************************
-	 *  Private constructor
-	 */
-	private MLookupCache()
-	{
-	}   //  MLookupCache
-
-}   //  MLookupCache
+  /**
+   * ************************************************************************ Private constructor
+   */
+  private MLookupCache() {} //  MLookupCache
+} //  MLookupCache

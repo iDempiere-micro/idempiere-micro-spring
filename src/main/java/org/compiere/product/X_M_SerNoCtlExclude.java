@@ -1,181 +1,171 @@
 package org.compiere.product;
 
+import java.sql.ResultSet;
+import java.util.Properties;
 import org.compiere.model.I_M_SerNoCtlExclude;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.orm.I_Persistent;
 import org.idempiere.orm.POInfo;
 
+/**
+ * Generated Model for M_SerNoCtlExclude
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1 - $Id$
+ */
+public class X_M_SerNoCtlExclude extends PO implements I_M_SerNoCtlExclude, I_Persistent {
 
-import java.sql.ResultSet;
-import java.util.Properties;
+  /** */
+  private static final long serialVersionUID = 20171031L;
 
-/** Generated Model for M_SerNoCtlExclude
- *  @author iDempiere (generated) 
- *  @version Release 5.1 - $Id$ */
-public class X_M_SerNoCtlExclude extends PO implements I_M_SerNoCtlExclude, I_Persistent
-{
+  /** Standard Constructor */
+  public X_M_SerNoCtlExclude(Properties ctx, int M_SerNoCtlExclude_ID, String trxName) {
+    super(ctx, M_SerNoCtlExclude_ID, trxName);
+    /**
+     * if (M_SerNoCtlExclude_ID == 0) { setAD_Table_ID (0); setIsSOTrx (false);
+     * setM_SerNoCtlExclude_ID (0); setM_SerNoCtl_ID (0); }
+     */
+  }
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 20171031L;
+  /** Load Constructor */
+  public X_M_SerNoCtlExclude(Properties ctx, ResultSet rs, String trxName) {
+    super(ctx, rs, trxName);
+  }
 
-    /** Standard Constructor */
-    public X_M_SerNoCtlExclude (Properties ctx, int M_SerNoCtlExclude_ID, String trxName)
-    {
-      super (ctx, M_SerNoCtlExclude_ID, trxName);
-      /** if (M_SerNoCtlExclude_ID == 0)
-        {
-			setAD_Table_ID (0);
-			setIsSOTrx (false);
-			setM_SerNoCtlExclude_ID (0);
-			setM_SerNoCtl_ID (0);
-        } */
+  /**
+   * AccessLevel
+   *
+   * @return 2 - Client
+   */
+  protected int getAccessLevel() {
+    return accessLevel.intValue();
+  }
+
+  /** Load Meta Data */
+  protected POInfo initPO(Properties ctx) {
+    POInfo poi = POInfo.getPOInfo(ctx, Table_ID, get_TrxName());
+    return poi;
+  }
+
+  public String toString() {
+    StringBuffer sb = new StringBuffer("X_M_SerNoCtlExclude[").append(getId()).append("]");
+    return sb.toString();
+  }
+
+  public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException {
+    return (org.compiere.model.I_AD_Table)
+        MTable.get(getCtx(), org.compiere.model.I_AD_Table.Table_Name)
+            .getPO(getAD_Table_ID(), get_TrxName());
+  }
+
+  /**
+   * Set Table.
+   *
+   * @param AD_Table_ID Database Table information
+   */
+  public void setAD_Table_ID(int AD_Table_ID) {
+    if (AD_Table_ID < 1) set_Value(COLUMNNAME_AD_Table_ID, null);
+    else set_Value(COLUMNNAME_AD_Table_ID, Integer.valueOf(AD_Table_ID));
+  }
+
+  /**
+   * Get Table.
+   *
+   * @return Database Table information
+   */
+  public int getAD_Table_ID() {
+    Integer ii = (Integer) get_Value(COLUMNNAME_AD_Table_ID);
+    if (ii == null) return 0;
+    return ii;
+  }
+
+  /**
+   * Set Sales Transaction.
+   *
+   * @param IsSOTrx This is a Sales Transaction
+   */
+  public void setIsSOTrx(boolean IsSOTrx) {
+    set_Value(COLUMNNAME_IsSOTrx, Boolean.valueOf(IsSOTrx));
+  }
+
+  /**
+   * Get Sales Transaction.
+   *
+   * @return This is a Sales Transaction
+   */
+  public boolean isSOTrx() {
+    Object oo = get_Value(COLUMNNAME_IsSOTrx);
+    if (oo != null) {
+      if (oo instanceof Boolean) return ((Boolean) oo).booleanValue();
+      return "Y".equals(oo);
     }
+    return false;
+  }
 
-    /** Load Constructor */
-    public X_M_SerNoCtlExclude (Properties ctx, ResultSet rs, String trxName)
-    {
-      super (ctx, rs, trxName);
-    }
+  /**
+   * Set Exclude SerNo.
+   *
+   * @param M_SerNoCtlExclude_ID Exclude the ability to create Serial Numbers in Attribute Sets
+   */
+  public void setM_SerNoCtlExclude_ID(int M_SerNoCtlExclude_ID) {
+    if (M_SerNoCtlExclude_ID < 1) set_ValueNoCheck(COLUMNNAME_M_SerNoCtlExclude_ID, null);
+    else set_ValueNoCheck(COLUMNNAME_M_SerNoCtlExclude_ID, Integer.valueOf(M_SerNoCtlExclude_ID));
+  }
 
-    /** AccessLevel
-      * @return 2 - Client 
-      */
-    protected int getAccessLevel()
-    {
-      return accessLevel.intValue();
-    }
+  /**
+   * Get Exclude SerNo.
+   *
+   * @return Exclude the ability to create Serial Numbers in Attribute Sets
+   */
+  public int getM_SerNoCtlExclude_ID() {
+    Integer ii = (Integer) get_Value(COLUMNNAME_M_SerNoCtlExclude_ID);
+    if (ii == null) return 0;
+    return ii;
+  }
 
-    /** Load Meta Data */
-    protected POInfo initPO (Properties ctx)
-    {
-      POInfo poi = POInfo.getPOInfo (ctx, Table_ID, get_TrxName());
-      return poi;
-    }
+  /**
+   * Set M_SerNoCtlExclude_UU.
+   *
+   * @param M_SerNoCtlExclude_UU M_SerNoCtlExclude_UU
+   */
+  public void setM_SerNoCtlExclude_UU(String M_SerNoCtlExclude_UU) {
+    set_Value(COLUMNNAME_M_SerNoCtlExclude_UU, M_SerNoCtlExclude_UU);
+  }
 
-    public String toString()
-    {
-      StringBuffer sb = new StringBuffer ("X_M_SerNoCtlExclude[")
-        .append(getId()).append("]");
-      return sb.toString();
-    }
+  /**
+   * Get M_SerNoCtlExclude_UU.
+   *
+   * @return M_SerNoCtlExclude_UU
+   */
+  public String getM_SerNoCtlExclude_UU() {
+    return (String) get_Value(COLUMNNAME_M_SerNoCtlExclude_UU);
+  }
 
-	public org.compiere.model.I_AD_Table getAD_Table() throws RuntimeException
-    {
-		return (org.compiere.model.I_AD_Table)MTable.get(getCtx(), org.compiere.model.I_AD_Table.Table_Name)
-			.getPO(getAD_Table_ID(), get_TrxName());	}
+  public org.compiere.model.I_M_SerNoCtl getM_SerNoCtl() throws RuntimeException {
+    return (org.compiere.model.I_M_SerNoCtl)
+        MTable.get(getCtx(), org.compiere.model.I_M_SerNoCtl.Table_Name)
+            .getPO(getM_SerNoCtl_ID(), get_TrxName());
+  }
 
-	/** Set Table.
-		@param AD_Table_ID 
-		Database Table information
-	  */
-	public void setAD_Table_ID (int AD_Table_ID)
-	{
-		if (AD_Table_ID < 1) 
-			set_Value (COLUMNNAME_AD_Table_ID, null);
-		else 
-			set_Value (COLUMNNAME_AD_Table_ID, Integer.valueOf(AD_Table_ID));
-	}
+  /**
+   * Set Serial No Control.
+   *
+   * @param M_SerNoCtl_ID Product Serial Number Control
+   */
+  public void setM_SerNoCtl_ID(int M_SerNoCtl_ID) {
+    if (M_SerNoCtl_ID < 1) set_ValueNoCheck(COLUMNNAME_M_SerNoCtl_ID, null);
+    else set_ValueNoCheck(COLUMNNAME_M_SerNoCtl_ID, Integer.valueOf(M_SerNoCtl_ID));
+  }
 
-	/** Get Table.
-		@return Database Table information
-	  */
-	public int getAD_Table_ID () 
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_AD_Table_ID);
-		if (ii == null)
-			 return 0;
-		return ii;
-	}
-
-	/** Set Sales Transaction.
-		@param IsSOTrx 
-		This is a Sales Transaction
-	  */
-	public void setIsSOTrx (boolean IsSOTrx)
-	{
-		set_Value (COLUMNNAME_IsSOTrx, Boolean.valueOf(IsSOTrx));
-	}
-
-	/** Get Sales Transaction.
-		@return This is a Sales Transaction
-	  */
-	public boolean isSOTrx () 
-	{
-		Object oo = get_Value(COLUMNNAME_IsSOTrx);
-		if (oo != null) 
-		{
-			 if (oo instanceof Boolean) 
-				 return ((Boolean)oo).booleanValue(); 
-			return "Y".equals(oo);
-		}
-		return false;
-	}
-
-	/** Set Exclude SerNo.
-		@param M_SerNoCtlExclude_ID 
-		Exclude the ability to create Serial Numbers in Attribute Sets
-	  */
-	public void setM_SerNoCtlExclude_ID (int M_SerNoCtlExclude_ID)
-	{
-		if (M_SerNoCtlExclude_ID < 1) 
-			set_ValueNoCheck (COLUMNNAME_M_SerNoCtlExclude_ID, null);
-		else 
-			set_ValueNoCheck (COLUMNNAME_M_SerNoCtlExclude_ID, Integer.valueOf(M_SerNoCtlExclude_ID));
-	}
-
-	/** Get Exclude SerNo.
-		@return Exclude the ability to create Serial Numbers in Attribute Sets
-	  */
-	public int getM_SerNoCtlExclude_ID () 
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_M_SerNoCtlExclude_ID);
-		if (ii == null)
-			 return 0;
-		return ii;
-	}
-
-	/** Set M_SerNoCtlExclude_UU.
-		@param M_SerNoCtlExclude_UU M_SerNoCtlExclude_UU	  */
-	public void setM_SerNoCtlExclude_UU (String M_SerNoCtlExclude_UU)
-	{
-		set_Value (COLUMNNAME_M_SerNoCtlExclude_UU, M_SerNoCtlExclude_UU);
-	}
-
-	/** Get M_SerNoCtlExclude_UU.
-		@return M_SerNoCtlExclude_UU	  */
-	public String getM_SerNoCtlExclude_UU () 
-	{
-		return (String)get_Value(COLUMNNAME_M_SerNoCtlExclude_UU);
-	}
-
-	public org.compiere.model.I_M_SerNoCtl getM_SerNoCtl() throws RuntimeException
-    {
-		return (org.compiere.model.I_M_SerNoCtl)MTable.get(getCtx(), org.compiere.model.I_M_SerNoCtl.Table_Name)
-			.getPO(getM_SerNoCtl_ID(), get_TrxName());	}
-
-	/** Set Serial No Control.
-		@param M_SerNoCtl_ID 
-		Product Serial Number Control
-	  */
-	public void setM_SerNoCtl_ID (int M_SerNoCtl_ID)
-	{
-		if (M_SerNoCtl_ID < 1) 
-			set_ValueNoCheck (COLUMNNAME_M_SerNoCtl_ID, null);
-		else 
-			set_ValueNoCheck (COLUMNNAME_M_SerNoCtl_ID, Integer.valueOf(M_SerNoCtl_ID));
-	}
-
-	/** Get Serial No Control.
-		@return Product Serial Number Control
-	  */
-	public int getM_SerNoCtl_ID () 
-	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_M_SerNoCtl_ID);
-		if (ii == null)
-			 return 0;
-		return ii;
-	}
+  /**
+   * Get Serial No Control.
+   *
+   * @return Product Serial Number Control
+   */
+  public int getM_SerNoCtl_ID() {
+    Integer ii = (Integer) get_Value(COLUMNNAME_M_SerNoCtl_ID);
+    if (ii == null) return 0;
+    return ii;
+  }
 }

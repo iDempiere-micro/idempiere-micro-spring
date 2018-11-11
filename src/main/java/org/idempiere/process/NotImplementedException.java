@@ -1,5 +1,3 @@
 package org.idempiere.process;
 
-
-public class NotImplementedException extends Exception {
-}
+public class NotImplementedException extends Exception {}

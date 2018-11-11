@@ -4,300 +4,223 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for M_ProductionLine
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for M_ProductionLine
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
-public interface I_M_ProductionLine 
-{
+public interface I_M_ProductionLine {
 
-    /** TableName=M_ProductionLine */
-    public static final String Table_Name = "M_ProductionLine";
-
-    /** AD_Table_ID=326 */
-    public static final int Table_ID = 326;
+  /** TableName=M_ProductionLine */
+  public static final String Table_Name = "M_ProductionLine";
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  /** AD_Table_ID=326 */
+  public static final int Table_ID = 326;
 
-    /** AccessLevel = 1 - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(1);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** Load Meta Data */
+  /** AccessLevel = 1 - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(1);
 
-    
-    
+  /** Load Meta Data */
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
-
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-    /** Column name IsEndProduct */
-    public static final String COLUMNNAME_IsEndProduct = "IsEndProduct";
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	/** Set End Product.
-	  * End Product of production
-	  */
-	public void setIsEndProduct (boolean IsEndProduct);
+  /** Column name IsEndProduct */
+  public static final String COLUMNNAME_IsEndProduct = "IsEndProduct";
 
-	/** Get End Product.
-	  * End Product of production
-	  */
-	public boolean isEndProduct();
+  /** Set End Product. End Product of production */
+  public void setIsEndProduct(boolean IsEndProduct);
 
-    /** Column name Line */
-    public static final String COLUMNNAME_Line = "Line";
+  /** Get End Product. End Product of production */
+  public boolean isEndProduct();
 
-	/** Set Line No.
-	  * Unique line for this document
-	  */
-	public void setLine (int Line);
+  /** Column name Line */
+  public static final String COLUMNNAME_Line = "Line";
 
-	/** Get Line No.
-	  * Unique line for this document
-	  */
-	public int getLine();
+  /** Set Line No. Unique line for this document */
+  public void setLine(int Line);
 
-    /** Column name M_AttributeSetInstance_ID */
-    public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
+  /** Get Line No. Unique line for this document */
+  public int getLine();
 
-	/** Set Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public void setM_AttributeSetInstance_ID (int M_AttributeSetInstance_ID);
+  /** Column name M_AttributeSetInstance_ID */
+  public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
 
-	/** Get Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public int getMAttributeSetInstance_ID();
+  /** Set Attribute Set Instance. Product Attribute Set Instance */
+  public void setM_AttributeSetInstance_ID(int M_AttributeSetInstance_ID);
 
-	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
+  /** Get Attribute Set Instance. Product Attribute Set Instance */
+  public int getMAttributeSetInstance_ID();
 
-    /** Column name M_Locator_ID */
-    public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
+  public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
-	/** Set Locator.
-	  * Warehouse Locator
-	  */
-	public void setM_Locator_ID (int M_Locator_ID);
+  /** Column name M_Locator_ID */
+  public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
 
-	/** Get Locator.
-	  * Warehouse Locator
-	  */
-	public int getM_Locator_ID();
+  /** Set Locator. Warehouse Locator */
+  public void setM_Locator_ID(int M_Locator_ID);
 
-	public I_M_Locator getM_Locator() throws RuntimeException;
+  /** Get Locator. Warehouse Locator */
+  public int getM_Locator_ID();
 
-    /** Column name MovementQty */
-    public static final String COLUMNNAME_MovementQty = "MovementQty";
+  public I_M_Locator getM_Locator() throws RuntimeException;
 
-	/** Set Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public void setMovementQty (BigDecimal MovementQty);
+  /** Column name MovementQty */
+  public static final String COLUMNNAME_MovementQty = "MovementQty";
 
-	/** Get Movement Quantity.
-	  * Quantity of a product moved.
-	  */
-	public BigDecimal getMovementQty();
+  /** Set Movement Quantity. Quantity of a product moved. */
+  public void setMovementQty(BigDecimal MovementQty);
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  /** Get Movement Quantity. Quantity of a product moved. */
+  public BigDecimal getMovementQty();
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-	public I_M_Product getM_Product() throws RuntimeException;
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-    /** Column name M_Production_ID */
-    public static final String COLUMNNAME_M_Production_ID = "M_Production_ID";
+  public I_M_Product getM_Product() throws RuntimeException;
 
-	/** Set Production.
-	  * Plan for producing a product
-	  */
-	public void setM_Production_ID (int M_Production_ID);
+  /** Column name M_Production_ID */
+  public static final String COLUMNNAME_M_Production_ID = "M_Production_ID";
 
-	/** Get Production.
-	  * Plan for producing a product
-	  */
-	public int getM_Production_ID();
+  /** Set Production. Plan for producing a product */
+  public void setM_Production_ID(int M_Production_ID);
 
-	public I_M_Production getM_Production() throws RuntimeException;
+  /** Get Production. Plan for producing a product */
+  public int getM_Production_ID();
 
-    /** Column name M_ProductionLine_ID */
-    public static final String COLUMNNAME_M_ProductionLine_ID = "M_ProductionLine_ID";
+  public I_M_Production getM_Production() throws RuntimeException;
 
-	/** Set Production Line.
-	  * Document Line representing a production
-	  */
-	public void setM_ProductionLine_ID (int M_ProductionLine_ID);
+  /** Column name M_ProductionLine_ID */
+  public static final String COLUMNNAME_M_ProductionLine_ID = "M_ProductionLine_ID";
 
-	/** Get Production Line.
-	  * Document Line representing a production
-	  */
-	public int getM_ProductionLine_ID();
+  /** Set Production Line. Document Line representing a production */
+  public void setM_ProductionLine_ID(int M_ProductionLine_ID);
 
-    /** Column name M_ProductionLine_UU */
-    public static final String COLUMNNAME_M_ProductionLine_UU = "M_ProductionLine_UU";
+  /** Get Production Line. Document Line representing a production */
+  public int getM_ProductionLine_ID();
 
-	/** Set M_ProductionLine_UU	  */
-	public void setM_ProductionLine_UU (String M_ProductionLine_UU);
+  /** Column name M_ProductionLine_UU */
+  public static final String COLUMNNAME_M_ProductionLine_UU = "M_ProductionLine_UU";
 
-	/** Get M_ProductionLine_UU	  */
-	public String getM_ProductionLine_UU();
+  /** Set M_ProductionLine_UU */
+  public void setM_ProductionLine_UU(String M_ProductionLine_UU);
 
-    /** Column name M_ProductionPlan_ID */
-    public static final String COLUMNNAME_M_ProductionPlan_ID = "M_ProductionPlan_ID";
+  /** Get M_ProductionLine_UU */
+  public String getM_ProductionLine_UU();
 
-	/** Set Production Plan.
-	  * Plan for how a product is produced
-	  */
-	public void setM_ProductionPlan_ID (int M_ProductionPlan_ID);
+  /** Column name M_ProductionPlan_ID */
+  public static final String COLUMNNAME_M_ProductionPlan_ID = "M_ProductionPlan_ID";
 
-	/** Get Production Plan.
-	  * Plan for how a product is produced
-	  */
-	public int getM_ProductionPlan_ID();
+  /** Set Production Plan. Plan for how a product is produced */
+  public void setM_ProductionPlan_ID(int M_ProductionPlan_ID);
 
-	public I_M_ProductionPlan getM_ProductionPlan() throws RuntimeException;
+  /** Get Production Plan. Plan for how a product is produced */
+  public int getM_ProductionPlan_ID();
 
-    /** Column name PlannedQty */
-    public static final String COLUMNNAME_PlannedQty = "PlannedQty";
+  public I_M_ProductionPlan getM_ProductionPlan() throws RuntimeException;
 
-	/** Set Planned Quantity.
-	  * Planned quantity for this project
-	  */
-	public void setPlannedQty (BigDecimal PlannedQty);
+  /** Column name PlannedQty */
+  public static final String COLUMNNAME_PlannedQty = "PlannedQty";
 
-	/** Get Planned Quantity.
-	  * Planned quantity for this project
-	  */
-	public BigDecimal getPlannedQty();
+  /** Set Planned Quantity. Planned quantity for this project */
+  public void setPlannedQty(BigDecimal PlannedQty);
 
-    /** Column name Processed */
-    public static final String COLUMNNAME_Processed = "Processed";
+  /** Get Planned Quantity. Planned quantity for this project */
+  public BigDecimal getPlannedQty();
 
-	/** Set Processed.
-	  * The document has been processed
-	  */
-	public void setProcessed (boolean Processed);
+  /** Column name Processed */
+  public static final String COLUMNNAME_Processed = "Processed";
 
-	/** Get Processed.
-	  * The document has been processed
-	  */
-	public boolean isProcessed();
+  /** Set Processed. The document has been processed */
+  public void setProcessed(boolean Processed);
 
-    /** Column name ProductType */
-    public static final String COLUMNNAME_ProductType = "ProductType";
+  /** Get Processed. The document has been processed */
+  public boolean isProcessed();
 
-	/** Set Product Type.
-	  * Type of product
-	  */
-	public void setProductType (String ProductType);
+  /** Column name ProductType */
+  public static final String COLUMNNAME_ProductType = "ProductType";
 
-	/** Get Product Type.
-	  * Type of product
-	  */
-	public String getProductType();
+  /** Set Product Type. Type of product */
+  public void setProductType(String ProductType);
 
-    /** Column name QtyAvailable */
-    public static final String COLUMNNAME_QtyAvailable = "QtyAvailable";
+  /** Get Product Type. Type of product */
+  public String getProductType();
 
-	/** Set Available Quantity.
-	  * Available Quantity (On Hand - Reserved)
-	  */
-	public void setQtyAvailable (BigDecimal QtyAvailable);
+  /** Column name QtyAvailable */
+  public static final String COLUMNNAME_QtyAvailable = "QtyAvailable";
 
-	/** Get Available Quantity.
-	  * Available Quantity (On Hand - Reserved)
-	  */
-	public BigDecimal getQtyAvailable();
+  /** Set Available Quantity. Available Quantity (On Hand - Reserved) */
+  public void setQtyAvailable(BigDecimal QtyAvailable);
 
-    /** Column name QtyUsed */
-    public static final String COLUMNNAME_QtyUsed = "QtyUsed";
+  /** Get Available Quantity. Available Quantity (On Hand - Reserved) */
+  public BigDecimal getQtyAvailable();
 
-	/** Set Quantity Used	  */
-	public void setQtyUsed (BigDecimal QtyUsed);
+  /** Column name QtyUsed */
+  public static final String COLUMNNAME_QtyUsed = "QtyUsed";
 
-	/** Get Quantity Used	  */
-	public BigDecimal getQtyUsed();
+  /** Set Quantity Used */
+  public void setQtyUsed(BigDecimal QtyUsed);
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Get Quantity Used */
+  public BigDecimal getQtyUsed();
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 }

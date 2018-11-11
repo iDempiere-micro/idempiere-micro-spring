@@ -546,7 +546,6 @@ class CConnection(val ini: Ini) : Serializable, Cloneable, ICConnection {
         return m_ds
     } // 	getDataSource
 
-
     @Throws(SQLException::class)
     fun readInfo(conn: Connection) {
         val dbmd = conn.metaData

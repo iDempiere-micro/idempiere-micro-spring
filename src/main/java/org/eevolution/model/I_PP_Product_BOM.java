@@ -5,321 +5,237 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.idempiere.common.util.KeyNamePair;
 
-/** Generated Interface for PP_Product_BOM
- *  @author iDempiere (generated) 
- *  @version Release 5.1
+/**
+ * Generated Interface for PP_Product_BOM
+ *
+ * @author iDempiere (generated)
+ * @version Release 5.1
  */
 @SuppressWarnings("all")
-public interface I_PP_Product_BOM 
-{
+public interface I_PP_Product_BOM {
 
-    /** TableName=PP_Product_BOM */
-    public static final String Table_Name = "PP_Product_BOM";
-
-    /** AD_Table_ID=53018 */
-    public static final int Table_ID = 53018;
+  /** TableName=PP_Product_BOM */
+  public static final String Table_Name = "PP_Product_BOM";
 
-    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+  /** AD_Table_ID=53018 */
+  public static final int Table_ID = 53018;
 
-    /** AccessLevel = 3 - Client - Org 
-     */
-    BigDecimal accessLevel = BigDecimal.valueOf(3);
+  KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
 
-    /** Load Meta Data */
+  /** AccessLevel = 3 - Client - Org */
+  BigDecimal accessLevel = BigDecimal.valueOf(3);
 
-    
-    
+  /** Load Meta Data */
 
-	/** Get Client.
-	  * Client/Tenant for this installation.
-	  */
-	public int getADClientID();
+  /** Get Client. Client/Tenant for this installation. */
+  public int getADClientID();
 
-    /** Column name AD_Org_ID */
-    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+  /** Column name AD_Org_ID */
+  public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
 
-	/** Set Organization.
-	  * Organizational entity within client
-	  */
-	public void setAD_Org_ID (int AD_Org_ID);
+  /** Set Organization. Organizational entity within client */
+  public void setAD_Org_ID(int AD_Org_ID);
 
-	/** Get Organization.
-	  * Organizational entity within client
-	  */
-	public int getAD_Org_ID();
+  /** Get Organization. Organizational entity within client */
+  public int getAD_Org_ID();
 
-    /** Column name BOMType */
-    public static final String COLUMNNAME_BOMType = "BOMType";
+  /** Column name BOMType */
+  public static final String COLUMNNAME_BOMType = "BOMType";
 
-	/** Set BOM Type.
-	  * Type of BOM
-	  */
-	public void setBOMType (String BOMType);
-
-	/** Get BOM Type.
-	  * Type of BOM
-	  */
-	public String getBOMType();
+  /** Set BOM Type. Type of BOM */
+  public void setBOMType(String BOMType);
 
-    /** Column name BOMUse */
-    public static final String COLUMNNAME_BOMUse = "BOMUse";
-
-	/** Set BOM Use.
-	  * The use of the Bill of Material
-	  */
-	public void setBOMUse (String BOMUse);
-
-	/** Get BOM Use.
-	  * The use of the Bill of Material
-	  */
-	public String getBOMUse();
+  /** Get BOM Type. Type of BOM */
+  public String getBOMType();
 
-    /** Column name CopyFrom */
-    public static final String COLUMNNAME_CopyFrom = "CopyFrom";
-
-	/** Set Copy From.
-	  * Copy From Record
-	  */
-	public void setCopyFrom (String CopyFrom);
-
-	/** Get Copy From.
-	  * Copy From Record
-	  */
-	public String getCopyFrom();
+  /** Column name BOMUse */
+  public static final String COLUMNNAME_BOMUse = "BOMUse";
 
-    /** Column name Created */
-    public static final String COLUMNNAME_Created = "Created";
+  /** Set BOM Use. The use of the Bill of Material */
+  public void setBOMUse(String BOMUse);
 
-	/** Get Created.
-	  * Date this record was created
-	  */
-	public Timestamp getCreated();
+  /** Get BOM Use. The use of the Bill of Material */
+  public String getBOMUse();
 
-    /** Column name CreatedBy */
-    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
-
-	/** Get Created By.
-	  * User who created this records
-	  */
-	public int getCreatedBy();
+  /** Column name CopyFrom */
+  public static final String COLUMNNAME_CopyFrom = "CopyFrom";
 
-    /** Column name C_UOM_ID */
-    public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
+  /** Set Copy From. Copy From Record */
+  public void setCopyFrom(String CopyFrom);
 
-	/** Set UOM.
-	  * Unit of Measure
-	  */
-	public void setC_UOM_ID (int C_UOM_ID);
+  /** Get Copy From. Copy From Record */
+  public String getCopyFrom();
 
-	/** Get UOM.
-	  * Unit of Measure
-	  */
-	public int getC_UOM_ID();
+  /** Column name Created */
+  public static final String COLUMNNAME_Created = "Created";
 
-	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException;
+  /** Get Created. Date this record was created */
+  public Timestamp getCreated();
 
-    /** Column name Description */
-    public static final String COLUMNNAME_Description = "Description";
+  /** Column name CreatedBy */
+  public static final String COLUMNNAME_CreatedBy = "CreatedBy";
 
-	/** Set Description.
-	  * Optional short description of the record
-	  */
-	public void setDescription (String Description);
+  /** Get Created By. User who created this records */
+  public int getCreatedBy();
 
-	/** Get Description.
-	  * Optional short description of the record
-	  */
-	public String getDescription();
+  /** Column name C_UOM_ID */
+  public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
 
-    /** Column name DocumentNo */
-    public static final String COLUMNNAME_DocumentNo = "DocumentNo";
+  /** Set UOM. Unit of Measure */
+  public void setC_UOM_ID(int C_UOM_ID);
 
-	/** Set Document No.
-	  * Document sequence number of the document
-	  */
-	public void setDocumentNo (String DocumentNo);
+  /** Get UOM. Unit of Measure */
+  public int getC_UOM_ID();
 
-	/** Get Document No.
-	  * Document sequence number of the document
-	  */
-	public String getDocumentNo();
-
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
+  public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException;
 
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
+  /** Column name Description */
+  public static final String COLUMNNAME_Description = "Description";
 
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
+  /** Set Description. Optional short description of the record */
+  public void setDescription(String Description);
 
-    /** Column name IsActive */
-    public static final String COLUMNNAME_IsActive = "IsActive";
+  /** Get Description. Optional short description of the record */
+  public String getDescription();
 
-	/** Set Active.
-	  * The record is active in the system
-	  */
-	public void setIsActive (boolean IsActive);
+  /** Column name DocumentNo */
+  public static final String COLUMNNAME_DocumentNo = "DocumentNo";
 
-	/** Get Active.
-	  * The record is active in the system
-	  */
-	public boolean isActive();
+  /** Set Document No. Document sequence number of the document */
+  public void setDocumentNo(String DocumentNo);
 
-    /** Column name M_AttributeSetInstance_ID */
-    public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
+  /** Get Document No. Document sequence number of the document */
+  public String getDocumentNo();
 
-	/** Set Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public void setM_AttributeSetInstance_ID (int M_AttributeSetInstance_ID);
+  /** Column name Help */
+  public static final String COLUMNNAME_Help = "Help";
 
-	/** Get Attribute Set Instance.
-	  * Product Attribute Set Instance
-	  */
-	public int getMAttributeSetInstance_ID();
+  /** Set Comment/Help. Comment or Hint */
+  public void setHelp(String Help);
 
-	public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
+  /** Get Comment/Help. Comment or Hint */
+  public String getHelp();
 
-    /** Column name M_ChangeNotice_ID */
-    public static final String COLUMNNAME_M_ChangeNotice_ID = "M_ChangeNotice_ID";
+  /** Column name IsActive */
+  public static final String COLUMNNAME_IsActive = "IsActive";
 
-	/** Set Change Notice.
-	  * Bill of Materials (Engineering) Change Notice (Version)
-	  */
-	public void setM_ChangeNotice_ID (int M_ChangeNotice_ID);
+  /** Set Active. The record is active in the system */
+  public void setIsActive(boolean IsActive);
 
-	/** Get Change Notice.
-	  * Bill of Materials (Engineering) Change Notice (Version)
-	  */
-	public int getM_ChangeNotice_ID();
+  /** Get Active. The record is active in the system */
+  public boolean isActive();
 
-	public org.compiere.model.I_M_ChangeNotice getM_ChangeNotice() throws RuntimeException;
+  /** Column name M_AttributeSetInstance_ID */
+  public static final String COLUMNNAME_M_AttributeSetInstance_ID = "M_AttributeSetInstance_ID";
 
-    /** Column name M_Product_ID */
-    public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
+  /** Set Attribute Set Instance. Product Attribute Set Instance */
+  public void setM_AttributeSetInstance_ID(int M_AttributeSetInstance_ID);
 
-	/** Set Product.
-	  * Product, Service, Item
-	  */
-	public void setM_Product_ID (int M_Product_ID);
+  /** Get Attribute Set Instance. Product Attribute Set Instance */
+  public int getMAttributeSetInstance_ID();
 
-	/** Get Product.
-	  * Product, Service, Item
-	  */
-	public int getM_Product_ID();
+  public I_M_AttributeSetInstance getMAttributeSetInstance() throws RuntimeException;
 
-	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
+  /** Column name M_ChangeNotice_ID */
+  public static final String COLUMNNAME_M_ChangeNotice_ID = "M_ChangeNotice_ID";
 
-    
-    
+  /** Set Change Notice. Bill of Materials (Engineering) Change Notice (Version) */
+  public void setM_ChangeNotice_ID(int M_ChangeNotice_ID);
 
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public void setName (String Name);
+  /** Get Change Notice. Bill of Materials (Engineering) Change Notice (Version) */
+  public int getM_ChangeNotice_ID();
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
-	  */
-	public String getName();
+  public org.compiere.model.I_M_ChangeNotice getM_ChangeNotice() throws RuntimeException;
 
-    /** Column name PP_Product_BOM_ID */
-    public static final String COLUMNNAME_PP_Product_BOM_ID = "PP_Product_BOM_ID";
+  /** Column name M_Product_ID */
+  public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
-	/** Set BOM & Formula.
-	  * BOM & Formula
-	  */
-	public void setPP_Product_BOM_ID (int PP_Product_BOM_ID);
+  /** Set Product. Product, Service, Item */
+  public void setM_Product_ID(int M_Product_ID);
 
-	/** Get BOM & Formula.
-	  * BOM & Formula
-	  */
-	public int getPP_Product_BOM_ID();
+  /** Get Product. Product, Service, Item */
+  public int getM_Product_ID();
 
-    /** Column name PP_Product_BOM_UU */
-    public static final String COLUMNNAME_PP_Product_BOM_UU = "PP_Product_BOM_UU";
+  public org.compiere.model.I_M_Product getM_Product() throws RuntimeException;
 
-	/** Set PP_Product_BOM_UU	  */
-	public void setPP_Product_BOM_UU (String PP_Product_BOM_UU);
+  /** Set Name. Alphanumeric identifier of the entity */
+  public void setName(String Name);
 
-	/** Get PP_Product_BOM_UU	  */
-	public String getPP_Product_BOM_UU();
+  /** Get Name. Alphanumeric identifier of the entity */
+  public String getName();
 
-    /** Column name Processing */
-    public static final String COLUMNNAME_Processing = "Processing";
+  /** Column name PP_Product_BOM_ID */
+  public static final String COLUMNNAME_PP_Product_BOM_ID = "PP_Product_BOM_ID";
 
-	/** Set Process Now	  */
-	public void setProcessing (boolean Processing);
+  /** Set BOM & Formula. BOM & Formula */
+  public void setPP_Product_BOM_ID(int PP_Product_BOM_ID);
 
-	/** Get Process Now	  */
-	public boolean isProcessing();
+  /** Get BOM & Formula. BOM & Formula */
+  public int getPP_Product_BOM_ID();
 
-    /** Column name Revision */
-    public static final String COLUMNNAME_Revision = "Revision";
+  /** Column name PP_Product_BOM_UU */
+  public static final String COLUMNNAME_PP_Product_BOM_UU = "PP_Product_BOM_UU";
 
-	/** Set Revision	  */
-	public void setRevision (String Revision);
+  /** Set PP_Product_BOM_UU */
+  public void setPP_Product_BOM_UU(String PP_Product_BOM_UU);
 
-	/** Get Revision	  */
-	public String getRevision();
+  /** Get PP_Product_BOM_UU */
+  public String getPP_Product_BOM_UU();
 
-    /** Column name Updated */
-    public static final String COLUMNNAME_Updated = "Updated";
+  /** Column name Processing */
+  public static final String COLUMNNAME_Processing = "Processing";
 
-	/** Get Updated.
-	  * Date this record was updated
-	  */
-	public Timestamp getUpdated();
+  /** Set Process Now */
+  public void setProcessing(boolean Processing);
 
-    /** Column name UpdatedBy */
-    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+  /** Get Process Now */
+  public boolean isProcessing();
 
-	/** Get Updated By.
-	  * User who updated this records
-	  */
-	public int getUpdatedBy();
+  /** Column name Revision */
+  public static final String COLUMNNAME_Revision = "Revision";
 
-    /** Column name ValidFrom */
-    public static final String COLUMNNAME_ValidFrom = "ValidFrom";
+  /** Set Revision */
+  public void setRevision(String Revision);
 
-	/** Set Valid from.
-	  * Valid from including this date (first day)
-	  */
-	public void setValidFrom (Timestamp ValidFrom);
+  /** Get Revision */
+  public String getRevision();
 
-	/** Get Valid from.
-	  * Valid from including this date (first day)
-	  */
-	public Timestamp getValidFrom();
+  /** Column name Updated */
+  public static final String COLUMNNAME_Updated = "Updated";
 
-    /** Column name ValidTo */
-    public static final String COLUMNNAME_ValidTo = "ValidTo";
+  /** Get Updated. Date this record was updated */
+  public Timestamp getUpdated();
 
-	/** Set Valid to.
-	  * Valid to including this date (last day)
-	  */
-	public void setValidTo (Timestamp ValidTo);
+  /** Column name UpdatedBy */
+  public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
 
-	/** Get Valid to.
-	  * Valid to including this date (last day)
-	  */
-	public Timestamp getValidTo();
+  /** Get Updated By. User who updated this records */
+  public int getUpdatedBy();
 
-    /** Column name Value */
-    public static final String COLUMNNAME_Value = "Value";
+  /** Column name ValidFrom */
+  public static final String COLUMNNAME_ValidFrom = "ValidFrom";
 
-	/** Set Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value);
+  /** Set Valid from. Valid from including this date (first day) */
+  public void setValidFrom(Timestamp ValidFrom);
 
-	/** Get Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public String getValue();
+  /** Get Valid from. Valid from including this date (first day) */
+  public Timestamp getValidFrom();
+
+  /** Column name ValidTo */
+  public static final String COLUMNNAME_ValidTo = "ValidTo";
+
+  /** Set Valid to. Valid to including this date (last day) */
+  public void setValidTo(Timestamp ValidTo);
+
+  /** Get Valid to. Valid to including this date (last day) */
+  public Timestamp getValidTo();
+
+  /** Column name Value */
+  public static final String COLUMNNAME_Value = "Value";
+
+  /** Set Search Key. Search key for the record in the format required - must be unique */
+  public void setValue(String Value);
+
+  /** Get Search Key. Search key for the record in the format required - must be unique */
+  public String getValue();
 }
