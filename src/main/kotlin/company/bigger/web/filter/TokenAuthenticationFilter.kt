@@ -32,7 +32,7 @@ class TokenAuthenticationFilter(
         val authHeader = request.getHeader(AUTH_HEADER)
         return if (authHeader != null && (authHeader.startsWith("Bearer ") || authHeader.startsWith("Token "))) {
             authHeader.replace("Bearer ", "").replace("Token ", "")
-        } else request.parameterMap["access_token "]?.firstOrNull()
+        } else request.parameterMap["access_token"]?.firstOrNull()
     }
 
     @Throws(IOException::class, ServletException::class)
